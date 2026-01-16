@@ -180,6 +180,9 @@ model "simple_avg_inverter" {
         ]
 
         component "core/Three-phase Meter" "Grid Measurement" {
+            VAB = "True"
+            VBC = "True"
+            VCA = "True"
         }
         [
             position = 9060, 8128
@@ -203,29 +206,71 @@ model "simple_avg_inverter" {
             hide_name = True
         ]
 
-        component "core/Meter Split" "Meter Split1" {
+        component "core/Three phase PLL" "Three phase PLL" {
+            enable_sin = "False"
+            enable_zero = "False"
         }
         [
-            position = 9152, 7900
+            position = 8728, 7904
+            size = 64, 128
+        ]
+
+        component "core/Meter Split" "Meter Split" {
+        }
+        [
+            position = 9144, 7912
             size = 96, 72
         ]
 
-        component "core/Probe" V_an {
+        component "core/Bus Join" "Bus Join1" {
+            inputs = "3"
         }
         [
-            position = 9308, 7840
+            position = 9256, 7912
+            hide_name = True
         ]
 
-        component "core/Probe" V_bn {
+        component "core/Bus Split" "Bus Split2" {
+            outputs = "3"
         }
         [
-            position = 9308, 7900
+            position = 8620, 7904
+            hide_name = True
         ]
 
-        component "core/Probe" V_cn {
+        tag Goto1 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = in
         }
         [
-            position = 9308, 7952
+            position = 9348, 7912
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From1 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8524, 7904
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto2 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8832, 7920
+            size = 60, 20
         ]
 
         junction Junction1 pe
@@ -267,16 +312,24 @@ model "simple_avg_inverter" {
         connect gnd2.node Junction2 as Connection23
         connect Junction2 "Grid Measurement.GND" as Connection24
         connect U_grid.n_node Junction2 as Connection25
-        connect "Meter Split1.Input" "Grid Measurement.Out" as Connection26
-        connect "Meter Split1.VBn" V_bn.in as Connection27
-        connect V_an.in "Meter Split1.VAn" as Connection28
-        connect "Meter Split1.VCn" V_cn.in as Connection29
-        [
-            breakpoints = 9216, 7916; 9216, 7952
-        ]
+        connect "Meter Split.Input" "Grid Measurement.Out" as Connection26
+        connect "Meter Split.VAn" "Bus Join1.in" as Connection27
+        connect "Meter Split.VBn" "Bus Join1.in1" as Connection28
+        connect "Meter Split.VCn" "Bus Join1.in2" as Connection29
+        connect Goto1 "Bus Join1.out" as Connection30
+        connect "Bus Split2.out" "Three phase PLL.va" as Connection31
+        connect "Bus Split2.out1" "Three phase PLL.vb" as Connection32
+        connect "Bus Split2.out2" "Three phase PLL.vc" as Connection33
+        connect "Bus Split2.in" From1 as Connection34
+        connect Goto2 "Three phase PLL.theta" as Connection35
     }
 
     default {
+        "core/Bus Join" {
+            inputs = "2"
+            execution_rate = "inherit"
+        }
+
         "core/Bus Split" {
             outputs = "2"
             execution_rate = "inherit"
@@ -288,17 +341,6 @@ model "simple_avg_inverter" {
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
-        }
-
-        "core/Probe" {
-            signal_access = "inherit"
-            addr = "0"
-            override_signal_name = "False"
-            signal_name = ""
-            signal_type = "generic"
-            streaming_en = "False"
-            streaming_er_idx = "0"
-            execution_rate = "inherit"
         }
 
         "core/Resistor" {
@@ -369,6 +411,31 @@ model "simple_avg_inverter" {
             init_rms_value = "0.0"
             init_frequency = "50.0"
             init_phase = "0.0"
+        }
+
+        "core/Three phase PLL" {
+            initial_filter_output = "60"
+            wn = "157.0796"
+            zeta = "0.707"
+            rate_high = "12"
+            rate_low = "-12"
+            freq_unit = "Hz"
+            kp = "100"
+            ki = "3200"
+            kd = "1"
+            N = "714.2857"
+            initial_pid_output = "376.99111843"
+            up_lim = "1e4"
+            low_lim = "-1e4"
+            kb = "1"
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            disable_filter = "False"
+            wn_LPFdq = "62.83185307"
+            execution_rate = "inherit"
+            enable_pk = "False"
+            enable_zero = "True"
+            enable_sin = "True"
         }
 
         "core/Three-phase Meter" {
