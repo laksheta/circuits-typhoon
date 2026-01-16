@@ -183,7 +183,7 @@ model "simple_avg_inverter" {
 
         component "core/Three Phase Voltage Source" U_grid {
             init_frequency = "F"
-            init_rms_value = "V_peak"
+            init_rms_value = "V_rms"
         }
         [
             position = 9212, 8128
@@ -201,6 +201,7 @@ model "simple_avg_inverter" {
         component "core/Three phase PLL" "Three phase PLL" {
             enable_sin = "False"
             enable_zero = "False"
+            initial_filter_output = "50"
         }
         [
             position = 8728, 7904
@@ -664,6 +665,7 @@ model "simple_avg_inverter" {
         u_grid_d  = 220*np.sqrt(2)
         V_peak    = u_grid_d
         u_grid_q  = 0
+        V_rms     = 220
         
         F = 50
         L = 2.5e-3
@@ -674,8 +676,13 @@ model "simple_avg_inverter" {
         i_d     = 10
         i_q     = 0
         omega   = 2*np.pi*F
+        info('Omega')
+        info(omega)
         
         u_d     = u_grid_d + R*i_d - omega*L*i_q
         u_q     = u_grid_q + R*i_q + omega*L*i_d
+        
+        info(u_d)
+        info(u_q)
     ENDCODE
 }
