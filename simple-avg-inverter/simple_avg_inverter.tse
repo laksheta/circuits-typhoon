@@ -121,6 +121,7 @@ model "simple_avg_inverter" {
         }
         [
             position = 8264, 8240
+            hide_name = True
         ]
 
         component "core/Inductor" L1 {
@@ -178,7 +179,7 @@ model "simple_avg_inverter" {
             hide_name = True
         ]
 
-        component "core/Three-phase Meter" "Three-phase Meter1" {
+        component "core/Three-phase Meter" "Grid Measurement" {
         }
         [
             position = 9060, 8128
@@ -200,6 +201,31 @@ model "simple_avg_inverter" {
         [
             position = 9140, 8328
             hide_name = True
+        ]
+
+        component "core/Meter Split" "Meter Split1" {
+        }
+        [
+            position = 9152, 7900
+            size = 96, 72
+        ]
+
+        component "core/Probe" V_an {
+        }
+        [
+            position = 9308, 7840
+        ]
+
+        component "core/Probe" V_bn {
+        }
+        [
+            position = 9308, 7900
+        ]
+
+        component "core/Probe" V_cn {
+        }
+        [
+            position = 9308, 7952
         ]
 
         junction Junction1 pe
@@ -232,15 +258,22 @@ model "simple_avg_inverter" {
         connect R1.p_node L1.n_node as Connection13
         connect R2.p_node L2.n_node as Connection14
         connect R3.p_node L3.n_node as Connection15
-        connect R1.n_node "Three-phase Meter1.A+" as Connection16
-        connect "Three-phase Meter1.B+" R2.n_node as Connection17
-        connect R3.n_node "Three-phase Meter1.C+" as Connection18
-        connect U_grid.a_node "Three-phase Meter1.A-" as Connection19
-        connect U_grid.b_node "Three-phase Meter1.B-" as Connection20
-        connect "Three-phase Meter1.C-" U_grid.c_node as Connection21
+        connect R1.n_node "Grid Measurement.A+" as Connection16
+        connect "Grid Measurement.B+" R2.n_node as Connection17
+        connect R3.n_node "Grid Measurement.C+" as Connection18
+        connect U_grid.a_node "Grid Measurement.A-" as Connection19
+        connect U_grid.b_node "Grid Measurement.B-" as Connection20
+        connect "Grid Measurement.C-" U_grid.c_node as Connection21
         connect gnd2.node Junction2 as Connection23
-        connect Junction2 "Three-phase Meter1.GND" as Connection24
+        connect Junction2 "Grid Measurement.GND" as Connection24
         connect U_grid.n_node Junction2 as Connection25
+        connect "Meter Split1.Input" "Grid Measurement.Out" as Connection26
+        connect "Meter Split1.VBn" V_bn.in as Connection27
+        connect V_an.in "Meter Split1.VAn" as Connection28
+        connect "Meter Split1.VCn" V_cn.in as Connection29
+        [
+            breakpoints = 9216, 7916; 9216, 7952
+        ]
     }
 
     default {
@@ -257,6 +290,17 @@ model "simple_avg_inverter" {
             visible = "True"
         }
 
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
         "core/Resistor" {
             resistance = "1"
             param_set = ""
@@ -269,6 +313,52 @@ model "simple_avg_inverter" {
             phase = "0"
             execution_rate = "100e-6"
             _tunable = "False"
+        }
+
+        "core/Meter Split" {
+            van = "True"
+            vbn = "True"
+            vcn = "True"
+            van_rms = "False"
+            vbn_rms = "False"
+            vcn_rms = "False"
+            vln_rms = "False"
+            vn = "False"
+            vn_rms = "False"
+            vab = "False"
+            vbc = "False"
+            vca = "False"
+            vab_rms = "False"
+            vbc_rms = "False"
+            vca_rms = "False"
+            vll_rms = "False"
+            ia = "False"
+            ib = "False"
+            ic = "False"
+            ia_rms = "False"
+            ib_rms = "False"
+            ic_rms = "False"
+            i_rms = "False"
+            ineutral = "False"
+            in_rms = "False"
+            freq = "False"
+            power_p = "False"
+            power_q = "False"
+            power_s = "False"
+            power_pf = "False"
+            enable_extra_in = "No"
+            power_pa = "False"
+            power_pb = "False"
+            power_pc = "False"
+            power_qa = "False"
+            power_qb = "False"
+            power_qc = "False"
+            power_sa = "False"
+            power_sb = "False"
+            power_sc = "False"
+            power_pfa = "False"
+            power_pfb = "False"
+            power_pfc = "False"
         }
 
         "core/Signal Controlled Voltage Source" {
@@ -328,6 +418,6 @@ model "simple_avg_inverter" {
         L = 2.5e-3
         R = 1
         
-        phase = [0 -120 120]
+        phase = [0, -120, 120]
     ENDCODE
 }
