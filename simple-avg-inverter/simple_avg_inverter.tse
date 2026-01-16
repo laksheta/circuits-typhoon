@@ -4,7 +4,7 @@ version = 4.2
 // Saved by sw version: 2025.3
 //
 
-model "New schematic 16-Jan-2026@14-19-53" {
+model "simple_avg_inverter" {
     configuration {
         hil_device = "VHIL+"
         hil_configuration_id = 1
@@ -108,7 +108,9 @@ model "New schematic 16-Jan-2026@14-19-53" {
         ]
 
         component "core/Sinusoidal Source" "Sinusoidal Source1" {
-            phase = "[0 -120 120]"
+            amplitude = "V_peak"
+            frequency = "F"
+            phase = "phase"
         }
         [
             position = 8148, 8240
@@ -121,6 +123,95 @@ model "New schematic 16-Jan-2026@14-19-53" {
             position = 8264, 8240
         ]
 
+        component "core/Inductor" L1 {
+            inductance = "L"
+        }
+        [
+            position = 8720, 8088
+            hide_name = True
+        ]
+
+        component "core/Inductor" L2 {
+            inductance = "L"
+        }
+        [
+            position = 8720, 8128
+            hide_name = True
+        ]
+
+        component "core/Inductor" L3 {
+            inductance = "L"
+        }
+        [
+            position = 8720, 8168
+            hide_name = True
+        ]
+
+        component "core/Ground" gnd1 {
+        }
+        [
+            position = 8488, 8424
+            hide_name = True
+        ]
+
+        component "core/Resistor" R1 {
+            resistance = "R"
+        }
+        [
+            position = 8848, 8088
+            hide_name = True
+        ]
+
+        component "core/Resistor" R2 {
+            resistance = "R"
+        }
+        [
+            position = 8848, 8128
+            hide_name = True
+        ]
+
+        component "core/Resistor" R3 {
+            resistance = "R"
+        }
+        [
+            position = 8848, 8168
+            hide_name = True
+        ]
+
+        component "core/Three-phase Meter" "Three-phase Meter1" {
+        }
+        [
+            position = 9060, 8128
+            size = 56, 240
+        ]
+
+        component "core/Three Phase Voltage Source" U_grid {
+            init_frequency = "F"
+            init_rms_value = "V_peak"
+        }
+        [
+            position = 9212, 8128
+            scale = -1, 1
+            size = 62, 256
+        ]
+
+        component "core/Ground" gnd2 {
+        }
+        [
+            position = 9140, 8328
+            hide_name = True
+        ]
+
+        junction Junction1 pe
+        [
+            position = 8488, 8376
+        ]
+
+        junction Junction2 pe
+        [
+            position = 9140, 8288
+        ]
+
         connect "Sinusoidal Source1.out" "Bus Split1.in" as Connection1
         connect "Bus Split1.out" Vsp1.in as Connection2
         connect Vsp2.in "Bus Split1.out1" as Connection3
@@ -128,12 +219,47 @@ model "New schematic 16-Jan-2026@14-19-53" {
         [
             breakpoints = 8384, 8256; 8384, 8304
         ]
+        connect gnd1.node Junction1 as Connection6
+        connect Junction1 Vsp2.n_node as Connection7
+        connect Vsp3.n_node Junction1 as Connection8
+        [
+            breakpoints = 8560, 8376
+        ]
+        connect Vsp1.n_node Junction1 as Connection9
+        connect L1.p_node Vsp1.p_node as Connection10
+        connect Vsp2.p_node L2.p_node as Connection11
+        connect L3.p_node Vsp3.p_node as Connection12
+        connect R1.p_node L1.n_node as Connection13
+        connect R2.p_node L2.n_node as Connection14
+        connect R3.p_node L3.n_node as Connection15
+        connect R1.n_node "Three-phase Meter1.A+" as Connection16
+        connect "Three-phase Meter1.B+" R2.n_node as Connection17
+        connect R3.n_node "Three-phase Meter1.C+" as Connection18
+        connect U_grid.a_node "Three-phase Meter1.A-" as Connection19
+        connect U_grid.b_node "Three-phase Meter1.B-" as Connection20
+        connect "Three-phase Meter1.C-" U_grid.c_node as Connection21
+        connect gnd2.node Junction2 as Connection23
+        connect Junction2 "Three-phase Meter1.GND" as Connection24
+        connect U_grid.n_node Junction2 as Connection25
     }
 
     default {
         "core/Bus Split" {
             outputs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/Inductor" {
+            signal_access = "inherit"
+            inductance = "1e-3"
+            initial_current = "0.0"
+            pole_shift_ignore = "False"
+            visible = "True"
+        }
+
+        "core/Resistor" {
+            resistance = "1"
+            param_set = ""
         }
 
         "core/Sinusoidal Source" {
@@ -148,5 +274,60 @@ model "New schematic 16-Jan-2026@14-19-53" {
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
         }
+
+        "core/Three Phase Voltage Source" {
+            init_rms_value = "0.0"
+            init_frequency = "50.0"
+            init_phase = "0.0"
+        }
+
+        "core/Three-phase Meter" {
+            R = "1e5"
+            n_cycles = "1"
+            Ts = "100e-6"
+            enable_probes = "True"
+            enable_out = "True"
+            remove_snubber = "False"
+            enable_bandwidth = "False"
+            bandwidth = "10e3"
+            VAn = "True"
+            VBn = "True"
+            VCn = "True"
+            VAB = "False"
+            VBC = "False"
+            VCA = "False"
+            VN = "False"
+            IA = "True"
+            IB = "True"
+            IC = "True"
+            IN = "False"
+            freq = "False"
+            VLn_rms = "False"
+            VLL_rms = "False"
+            VLn_avg_rms = "False"
+            VLL_avg_rms = "False"
+            VN_rms = "False"
+            I_rms = "False"
+            I_avg_rms = "False"
+            IN_rms = "False"
+            P_method = "alpha-beta"
+            enable_extra_out = "False"
+            P_meas = "False"
+        }
     }
+
+    CODE model_init
+        # Numpy module is imported as 'np'
+        # Scipy module is imported as 'sp'
+        # The Schematic API is imported as 'mdl'
+        # To get the model file path, use 'mdl.get_model_file_path()'
+        # To print information to the console, use info()
+        
+        V_peak  = 220*np.sqrt(2)
+        F = 50
+        L = 2.5e-3
+        R = 1
+        
+        phase = [0 -120 120]
+    ENDCODE
 }
