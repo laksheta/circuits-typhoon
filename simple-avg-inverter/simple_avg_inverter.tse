@@ -292,6 +292,14 @@ model "simple_avg_inverter" {
             position = 9068, 7708
         ]
 
+        component "core/Constant" Constant3 {
+            value = "0"
+        }
+        [
+            position = 8148, 8264
+            hide_name = True
+        ]
+
         tag Goto1 {
             value = "V_abc_n"
             scope = local
@@ -335,7 +343,7 @@ model "simple_avg_inverter" {
             direction = out
         }
         [
-            position = 8144, 8264
+            position = 8152, 8316
             hide_name = True
             size = 60, 20
         ]
@@ -430,7 +438,7 @@ model "simple_avg_inverter" {
         connect From2 "dq to abc.wt" as Connection39
         connect Constant2.out "dq to abc.q_input" as Connection40
         [
-            breakpoints = 8180, 8216; 8180, 8232
+            breakpoints = 8188, 8216; 8188, 8232
         ]
         connect Constant1.out "dq to abc.d_input" as Connection41
         connect Goto3 "Bus Join2.out" as Connection42
@@ -456,6 +464,10 @@ model "simple_avg_inverter" {
         ]
         connect "abc to dq.d_axis" d.in as Connection51
         connect "abc to dq.q_axis" q.in as Connection52
+        connect Constant3.out "dq to abc.zero_input" as Connection53
+        [
+            breakpoints = 8188, 8264; 8188, 8248
+        ]
     }
 
     default {
@@ -648,11 +660,22 @@ model "simple_avg_inverter" {
         # To get the model file path, use 'mdl.get_model_file_path()'
         # To print information to the console, use info()
         
-        V_peak  = 220*np.sqrt(2)
+        
+        u_grid_d  = 220*np.sqrt(2)
+        V_peak    = u_grid_d
+        u_grid_q  = 0
+        
         F = 50
         L = 2.5e-3
         R = 1
         
         phase = [0, -120, 120]
+        
+        i_d     = 10
+        i_q     = 0
+        omega   = 2*np.pi*F
+        
+        u_d     = u_grid_d + R*i_d - omega*L*i_q
+        u_q     = u_grid_q + R*i_q + omega*L*i_d
     ENDCODE
 }
