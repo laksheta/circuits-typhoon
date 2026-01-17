@@ -133,17 +133,14 @@ model "simple_avg_inverter" {
         ]
 
         component "core/Three-phase Meter" "Grid Measurement" {
-            IB = "False"
-            IC = "False"
             R = "100000.0"
             Ts = "0.0001"
             VAB = "True"
-            VBn = "False"
-            VCn = "False"
+            VBC = "True"
+            VCA = "True"
         }
         [
             position = 9056, 8132
-            scale = -1, 1
             size = 56, 240
         ]
 
@@ -152,7 +149,7 @@ model "simple_avg_inverter" {
             init_rms_value = "220"
         }
         [
-            position = 9204, 8136
+            position = 9200, 8132
             scale = -1, 1
             size = 62, 256
         ]
@@ -170,7 +167,7 @@ model "simple_avg_inverter" {
             initial_filter_output = "50"
         }
         [
-            position = 8444, 7768
+            position = 8500, 7852
             size = 64, 128
         ]
 
@@ -178,38 +175,14 @@ model "simple_avg_inverter" {
             outputs = "3"
         }
         [
-            position = 8336, 7768
-            hide_name = True
-        ]
-
-        component "core/dq to abc" "dq to abc" {
-            execution_rate = "inherit"
-        }
-        [
-            position = 8012, 7704
-            size = 48, 80
-        ]
-
-        component "core/Constant" Constant1 {
-            value = "u_d"
-        }
-        [
-            position = 7920, 7640
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant2 {
-            value = "u_q"
-        }
-        [
-            position = 7920, 7680
+            position = 8392, 7852
             hide_name = True
         ]
 
         component "core/abc to dq" "abc to dq" {
         }
         [
-            position = 8856, 7816
+            position = 8888, 7848
             size = 48, 80
         ]
 
@@ -217,34 +190,20 @@ model "simple_avg_inverter" {
             outputs = "3"
         }
         [
-            position = 8760, 7808
+            position = 8792, 7840
             hide_name = True
         ]
 
         component "core/Probe" d {
         }
         [
-            position = 8960, 7756
+            position = 8992, 7788
         ]
 
         component "core/Probe" q {
         }
         [
-            position = 8960, 7816
-        ]
-
-        component "core/Constant" Constant3 {
-            value = "0"
-        }
-        [
-            position = 7920, 7728
-            hide_name = True
-        ]
-
-        component "core/Probe" theta {
-        }
-        [
-            position = 8540, 7808
+            position = 8996, 7880
         ]
 
         component "core/Three Phase Voltage Source" U_inv {
@@ -267,8 +226,33 @@ model "simple_avg_inverter" {
         }
         [
             position = 8588, 8132
-            scale = -1, 1
             size = 56, 240
+        ]
+
+        component "core/Meter Split" "Meter Split" {
+            ia = "True"
+            ib = "True"
+            ic = "True"
+        }
+        [
+            position = 9180, 7892
+            size = 96, 112
+        ]
+
+        component "core/Bus Join" "Bus Join1" {
+            inputs = "3"
+        }
+        [
+            position = 9312, 7844
+            hide_name = True
+        ]
+
+        component "core/Bus Join" "Bus Join2" {
+            inputs = "3"
+        }
+        [
+            position = 9312, 7928
+            hide_name = True
         ]
 
         tag From1 {
@@ -278,7 +262,7 @@ model "simple_avg_inverter" {
             direction = out
         }
         [
-            position = 8240, 7768
+            position = 8296, 7852
             hide_name = True
             size = 60, 20
         ]
@@ -290,19 +274,7 @@ model "simple_avg_inverter" {
             direction = in
         }
         [
-            position = 8548, 7784
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From2 {
-            value = "theta"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7924, 7780
+            position = 8604, 7868
             hide_name = True
             size = 60, 20
         ]
@@ -314,7 +286,7 @@ model "simple_avg_inverter" {
             direction = out
         }
         [
-            position = 8760, 7864
+            position = 8792, 7896
             hide_name = True
             size = 60, 20
         ]
@@ -326,7 +298,31 @@ model "simple_avg_inverter" {
             direction = out
         }
         [
-            position = 8664, 7808
+            position = 8696, 7840
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto3 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9400, 7844
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto4 {
+            value = "I_abc"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9400, 7928
             hide_name = True
             size = 60, 20
         ]
@@ -334,11 +330,6 @@ model "simple_avg_inverter" {
         junction Junction2 pe
         [
             position = 9136, 8288
-        ]
-
-        junction Junction3 sp
-        [
-            position = 8500, 7784
         ]
 
         junction Junction4 pe
@@ -353,40 +344,27 @@ model "simple_avg_inverter" {
         connect "Bus Split2.out1" "Three phase PLL.vb" as Connection32
         connect "Bus Split2.out2" "Three phase PLL.vc" as Connection33
         connect "Bus Split2.in" From1 as Connection34
-        connect From2 "dq to abc.wt" as Connection39
-        connect Constant2.out "dq to abc.q_input" as Connection40
-        [
-            breakpoints = 7960, 7680; 7960, 7696
-        ]
-        connect Constant1.out "dq to abc.d_input" as Connection41
         connect From3 "abc to dq.wt" as Connection46
         connect "Bus Split3.in" From4 as Connection47
         connect "Bus Split3.out" "abc to dq.va" as Connection48
         connect "abc to dq.d_axis" d.in as Connection51
         connect "abc to dq.q_axis" q.in as Connection52
-        connect Constant3.out "dq to abc.zero_input" as Connection53
-        [
-            breakpoints = 7960, 7728; 7960, 7712
-        ]
-        connect "Grid Measurement.A+" U_grid.a_node as Connection55
-        connect "Grid Measurement.B+" U_grid.b_node as Connection56
-        connect U_grid.c_node "Grid Measurement.C+" as Connection57
+        connect "Grid Measurement.A-" U_grid.a_node as Connection55
+        connect "Grid Measurement.B-" U_grid.b_node as Connection56
+        connect U_grid.c_node "Grid Measurement.C-" as Connection57
         connect U_grid.n_node Junction2 as Connection58
         connect Junction2 gnd2.node as Connection59
         [
             breakpoints = 9140, 8288
         ]
-        connect Goto2 Junction3 as Connection65
-        connect Junction3 "Three phase PLL.theta" as Connection66
-        connect theta.in Junction3 as Connection67
         connect "Bus Split3.out1" "abc to dq.vb" as Connection72
         connect "abc to dq.vc" "Bus Split3.out2" as Connection73
-        connect U_inv.c_node "Inverter Measurement.C-" as Connection74
-        connect "Inverter Measurement.C+" L3.p_node as Connection75
-        connect U_inv.b_node "Inverter Measurement.B-" as Connection76
-        connect "Inverter Measurement.B+" L2.p_node as Connection77
-        connect U_inv.a_node "Inverter Measurement.A-" as Connection78
-        connect "Inverter Measurement.A+" L1.p_node as Connection79
+        connect U_inv.c_node "Inverter Measurement.C+" as Connection74
+        connect "Inverter Measurement.C-" L3.p_node as Connection75
+        connect U_inv.b_node "Inverter Measurement.B+" as Connection76
+        connect "Inverter Measurement.B-" L2.p_node as Connection77
+        connect U_inv.a_node "Inverter Measurement.A+" as Connection78
+        connect "Inverter Measurement.A-" L1.p_node as Connection79
         connect gnd1.node Junction4 as Connection80
         connect Junction4 U_inv.n_node as Connection81
         connect "Inverter Measurement.GND" Junction4 as Connection82
@@ -394,60 +372,33 @@ model "simple_avg_inverter" {
         [
             breakpoints = 9056, 8284
         ]
-        connect R1.n_node "Grid Measurement.A-" as Connection93
-        connect R2.n_node "Grid Measurement.B-" as Connection94
-        connect R3.n_node "Grid Measurement.C-" as Connection95
-    }
-
-    logically_deleted {
-        "Three phase PLL"
-        "Bus Split2"
-        "dq to abc"
-        "Constant1"
-        "Constant2"
-        "abc to dq"
-        "Bus Split3"
-        "d"
-        "q"
-        "Constant3"
-        "theta"
-        "From1"
-        "Goto2"
-        "From2"
-        "From3"
-        "From4"
-        "Junction3"
-        "Connection31"
-        "Connection32"
-        "Connection33"
-        "Connection34"
-        "Connection39"
-        "Connection40"
-        "Connection41"
-        "Connection46"
-        "Connection47"
-        "Connection48"
-        "Connection51"
-        "Connection52"
-        "Connection53"
-        "Connection65"
-        "Connection66"
-        "Connection67"
-        "Connection72"
-        "Connection73"
+        connect R1.n_node "Grid Measurement.A+" as Connection93
+        connect R2.n_node "Grid Measurement.B+" as Connection94
+        connect R3.n_node "Grid Measurement.C+" as Connection95
+        connect "Meter Split.Input" "Grid Measurement.Out" as Connection96
+        connect Goto2 "Three phase PLL.theta" as Connection97
+        [
+            breakpoints = 8556, 7868
+        ]
+        connect "Meter Split.IA" "Bus Join2.in" as Connection98
+        connect "Meter Split.IB" "Bus Join2.in1" as Connection99
+        connect "Meter Split.IC" "Bus Join2.in2" as Connection100
+        connect "Meter Split.VAn" "Bus Join1.in" as Connection101
+        connect "Meter Split.VBn" "Bus Join1.in1" as Connection102
+        connect "Meter Split.VCn" "Bus Join1.in2" as Connection103
+        connect "Bus Join2.out" Goto4 as Connection104
+        connect Goto3 "Bus Join1.out" as Connection105
     }
 
     default {
-        "core/Bus Split" {
-            outputs = "2"
+        "core/Bus Join" {
+            inputs = "2"
             execution_rate = "inherit"
         }
 
-        "core/Constant" {
-            value = "1"
-            signal_type = "real"
-            execution_rate = "100e-6"
-            _tunable = "False"
+        "core/Bus Split" {
+            outputs = "2"
+            execution_rate = "inherit"
         }
 
         "core/Inductor" {
@@ -472,6 +423,52 @@ model "simple_avg_inverter" {
         "core/Resistor" {
             resistance = "1"
             param_set = ""
+        }
+
+        "core/Meter Split" {
+            van = "True"
+            vbn = "True"
+            vcn = "True"
+            van_rms = "False"
+            vbn_rms = "False"
+            vcn_rms = "False"
+            vln_rms = "False"
+            vn = "False"
+            vn_rms = "False"
+            vab = "False"
+            vbc = "False"
+            vca = "False"
+            vab_rms = "False"
+            vbc_rms = "False"
+            vca_rms = "False"
+            vll_rms = "False"
+            ia = "False"
+            ib = "False"
+            ic = "False"
+            ia_rms = "False"
+            ib_rms = "False"
+            ic_rms = "False"
+            i_rms = "False"
+            ineutral = "False"
+            in_rms = "False"
+            freq = "False"
+            power_p = "False"
+            power_q = "False"
+            power_s = "False"
+            power_pf = "False"
+            enable_extra_in = "No"
+            power_pa = "False"
+            power_pb = "False"
+            power_pc = "False"
+            power_qa = "False"
+            power_qb = "False"
+            power_qc = "False"
+            power_sa = "False"
+            power_sb = "False"
+            power_sc = "False"
+            power_pfa = "False"
+            power_pfb = "False"
+            power_pfc = "False"
         }
 
         "core/Three Phase Voltage Source" {
@@ -548,12 +545,6 @@ model "simple_avg_inverter" {
             execution_rate = "inherit"
             _tunable = "False"
         }
-
-        "core/dq to abc" {
-            power_form = "variant - Clarke\'s original"
-            alignment = "-pi/2"
-            execution_rate = "0"
-        }
     }
 
     CODE model_init
@@ -562,7 +553,7 @@ model "simple_avg_inverter" {
         # The Schematic API is imported as 'mdl'
         # To get the model file path, use 'mdl.get_model_file_path()'
         # To print information to the console, use info()
-        mdl.clear_model_namespace()
+        
         
         tau = 1e-3
         V_g = 220 * np.sqrt(2)
