@@ -145,8 +145,8 @@ model "simple_avg_dq_inverter" {
         ]
 
         component "core/Three Phase Voltage Source" U_grid {
-            init_frequency = "50"
-            init_rms_value = "220"
+            init_frequency = "F"
+            init_rms_value = "V_rms"
         }
         [
             position = 9200, 8132
@@ -258,7 +258,7 @@ model "simple_avg_dq_inverter" {
         component "core/Signal Controlled Voltage Source" Vsp2 {
         }
         [
-            position = 8208, 8168
+            position = 8208, 8172
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -281,7 +281,7 @@ model "simple_avg_dq_inverter" {
             phase = "phase_inv"
         }
         [
-            position = 7924, 8168
+            position = 7608, 8016
             hide_name = True
         ]
 
@@ -289,7 +289,45 @@ model "simple_avg_dq_inverter" {
             outputs = "3"
         }
         [
-            position = 8020, 8168
+            position = 7688, 8016
+            hide_name = True
+        ]
+
+        component "core/Probe" sinusoidal {
+        }
+        [
+            position = 7692, 7924
+        ]
+
+        component "core/dq to abc" "dq to abc" {
+            execution_rate = "inherit"
+        }
+        [
+            position = 7968, 8172
+            size = 48, 80
+        ]
+
+        component "core/Constant" Constant1 {
+            value = "V_inv_x"
+        }
+        [
+            position = 7776, 8124
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant2 {
+            value = "V_inv_y"
+        }
+        [
+            position = 7776, 8164
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant3 {
+            value = "0"
+        }
+        [
+            position = 7776, 8204
             hide_name = True
         ]
 
@@ -365,6 +403,18 @@ model "simple_avg_dq_inverter" {
             size = 60, 20
         ]
 
+        tag From5 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7868, 8216
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9136, 8288
@@ -378,6 +428,11 @@ model "simple_avg_dq_inverter" {
         junction Junction4 pe
         [
             position = 8268, 8352
+        ]
+
+        junction Junction5 sp
+        [
+            position = 7640, 8016
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -437,13 +492,32 @@ model "simple_avg_dq_inverter" {
         ]
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
-        connect "Bus Split4.out" Vsp1.in as Connection117
-        connect "Bus Split4.out1" Vsp2.in as Connection118
-        connect "Bus Split4.out2" Vsp3.in as Connection119
+        connect "Sinusoidal Source1.out" Junction5 as Connection121
+        connect Junction5 "Bus Split4.in" as Connection122
+        connect sinusoidal.in Junction5 as Connection123
+        connect From5 "dq to abc.wt" as Connection124
+        connect "dq to abc.phase_a" Vsp1.in as Connection126
+        connect "dq to abc.phase_b" Vsp2.in as Connection127
+        connect "dq to abc.phase_c" Vsp3.in as Connection128
         [
-            breakpoints = 8120, 8184; 8120, 8268
+            breakpoints = 8116, 8196; 8116, 8276
         ]
-        connect "Sinusoidal Source1.out" "Bus Split4.in" as Connection120
+        connect Constant1.out "dq to abc.d_input" as Connection129
+        connect "dq to abc.q_input" Constant2.out as Connection130
+        connect Constant3.out "dq to abc.zero_input" as Connection131
+        [
+            breakpoints = 7824, 8204; 7824, 8180
+        ]
+    }
+
+    logically_deleted {
+        "Sinusoidal Source1"
+        "Bus Split4"
+        "sinusoidal"
+        "Junction5"
+        "Connection121"
+        "Connection122"
+        "Connection123"
     }
 
     default {
@@ -455,6 +529,13 @@ model "simple_avg_dq_inverter" {
         "core/Bus Split" {
             outputs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
         }
 
         "core/Inductor" {
@@ -614,6 +695,12 @@ model "simple_avg_dq_inverter" {
             execution_rate = "inherit"
             _tunable = "False"
         }
+
+        "core/dq to abc" {
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            execution_rate = "0"
+        }
     }
 
     CODE model_init
@@ -667,5 +754,9 @@ model "simple_avg_dq_inverter" {
         info(f"V_inv (Peak Voltage): {V_inv:.2f} V")
         info(f"U_inv_rms (RMS Voltage): {U_inv_rms:.2f} V")
         info(f"Phase Angle (Deg): {angle_deg:.2f} °")
+        info(f"Phase Angle Matrix: {phase_inv:} °")
+        
+        info(f"d_inv: {V_inv_x:.2f}")
+        info(f"q_inv: {V_inv_y:.2f}")
     ENDCODE
 }
