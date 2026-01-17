@@ -8,8 +8,8 @@ model "simple_avg_inverter" {
     configuration {
         hil_device = "VHIL+"
         hil_configuration_id = 1
-        simulation_method = trapezoidal
-        simulation_time_step = .1e-6
+        simulation_method = euler
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -104,7 +104,7 @@ model "simple_avg_inverter" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 8484, 8192
+            position = 8404, 8320
             hide_name = True
         ]
 
@@ -133,6 +133,8 @@ model "simple_avg_inverter" {
         ]
 
         component "core/Three-phase Meter" "Grid Measurement" {
+            R = "100000.0"
+            Ts = "0.0001"
             VAB = "True"
             VBC = "True"
             VCA = "True"
@@ -275,8 +277,19 @@ model "simple_avg_inverter" {
             init_rms_value = "U_inv_rms"
         }
         [
-            position = 8572, 8132
+            position = 8452, 8132
             size = 62, 256
+        ]
+
+        component "core/Three-phase Meter" "Inverter Measurement" {
+            VAB = "True"
+            VBC = "True"
+            VCA = "True"
+        }
+        [
+            position = 8588, 8132
+            scale = -1, 1
+            size = 56, 240
         ]
 
         tag Goto1 {
@@ -373,6 +386,11 @@ model "simple_avg_inverter" {
             position = 8500, 7784
         ]
 
+        junction Junction4 pe
+        [
+            position = 8404, 8280
+        ]
+
         connect R1.p_node L1.n_node as Connection13
         connect R2.p_node L2.n_node as Connection14
         connect R3.p_node L3.n_node as Connection15
@@ -425,12 +443,55 @@ model "simple_avg_inverter" {
         connect Goto2 Junction3 as Connection65
         connect Junction3 "Three phase PLL.theta" as Connection66
         connect theta.in Junction3 as Connection67
-        connect U_inv.a_node L1.p_node as Connection68
-        connect U_inv.b_node L2.p_node as Connection69
-        connect U_inv.c_node L3.p_node as Connection70
-        connect gnd1.node U_inv.n_node as Connection71
         connect "Bus Split3.out1" "abc to dq.vb" as Connection72
         connect "abc to dq.vc" "Bus Split3.out2" as Connection73
+        connect U_inv.c_node "Inverter Measurement.C-" as Connection74
+        connect "Inverter Measurement.C+" L3.p_node as Connection75
+        connect U_inv.b_node "Inverter Measurement.B-" as Connection76
+        connect "Inverter Measurement.B+" L2.p_node as Connection77
+        connect U_inv.a_node "Inverter Measurement.A-" as Connection78
+        connect "Inverter Measurement.A+" L1.p_node as Connection79
+        connect gnd1.node Junction4 as Connection80
+        connect Junction4 U_inv.n_node as Connection81
+        connect "Inverter Measurement.GND" Junction4 as Connection82
+    }
+
+    logically_deleted {
+        "Three phase PLL"
+        "From1"
+        "Bus Split2"
+        "Connection31"
+        "Connection32"
+        "Connection33"
+        "Connection34"
+        "Goto2"
+        "abc to dq"
+        "From3"
+        "Connection46"
+        "From4"
+        "Bus Split3"
+        "Connection47"
+        "Connection48"
+        "d"
+        "q"
+        "Connection51"
+        "Connection52"
+        "theta"
+        "Junction3"
+        "Connection65"
+        "Connection66"
+        "Connection67"
+        "dq to abc"
+        "From2"
+        "Constant1"
+        "Constant2"
+        "Constant3"
+        "Connection39"
+        "Connection40"
+        "Connection41"
+        "Connection53"
+        "Connection72"
+        "Connection73"
     }
 
     default {
@@ -611,54 +672,40 @@ model "simple_avg_inverter" {
         # To print information to the console, use info()
         
         
-        u_grid_d = 220 * np.sqrt(2)
-        V_peak = u_grid_d
-        u_grid_q = 0
+        tau = 1e-3
+        V_g = 220 * np.sqrt(2)
         V_rms = 220
-        
         F = 50
+        
         L = 1e-3
-        R = 1
+        R = L / tau
         
-        phase = [0, -120, 120]
+        I_amp = 10
+        I_angle_deg = 0
+        I_angle_rad = np.deg2rad(I_angle_deg)
         
-        i_d = 10
-        i_q = 0
-        omega = 2*np.pi*F
-        
-        
-        u_d = u_grid_d + R*i_d - omega*L*i_q
-        u_q = u_grid_q + R*i_q + omega*L*i_d
-        
-        U_inv_rms = 220
-        angle = 0
-        
-        I_amp = 30
-        I_angle_deg = 90
-        I_angle_rad = I_angle_deg * np.pi / 180
-        
-        I_x = I_amp*np.cos(I_angle_rad)
-        I_y = I_amp*np.sin(I_angle_rad)
+        I_x = I_amp * np.cos(I_angle_rad)
+        I_y = I_amp * np.sin(I_angle_rad)
         
         V_R_amp = I_amp * R
         V_R_x = V_R_amp * np.cos(I_angle_rad)
         V_R_y = V_R_amp * np.sin(I_angle_rad)
         
-        V_g_x = 220*np.sqrt(2)
+        V_g_x = V_g
         
         x_L = 2 * np.pi * F * L
         
         V_L_amp = I_amp * x_L
-        V_L_angle = I_angle_rad + 0.5*np.pi
+        V_L_angle = I_angle_rad + 0.5 * np.pi
         V_L_x = V_L_amp * np.cos(V_L_angle)
         V_L_y = V_L_amp * np.sin(V_L_angle)
         
         V_inv_x = V_R_x + V_g_x + V_L_x
         V_inv_y = V_R_y + V_L_y
         V_inv = np.sqrt(V_inv_x**2 + V_inv_y**2)
-        U_inv_rms = V_inv/np.sqrt(2)
+        U_inv_rms = V_inv / np.sqrt(2)
         
-        angle = np.arctan2(V_inv_y,V_inv_x)
+        angle = np.arctan2(V_inv_y, V_inv_x)
         angle_deg = np.rad2deg(angle)
         
         info(f"V_inv (Peak Voltage): {V_inv:.2f} V")
