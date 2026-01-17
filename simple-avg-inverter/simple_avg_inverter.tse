@@ -221,8 +221,6 @@ model "simple_avg_inverter" {
             IB = "False"
             IC = "False"
             VAB = "True"
-            VBn = "False"
-            VCn = "False"
         }
         [
             position = 8588, 8132
@@ -370,7 +368,7 @@ model "simple_avg_inverter" {
         connect "Inverter Measurement.GND" Junction4 as Connection82
         connect "Grid Measurement.GND" Junction2 as Connection92
         [
-            breakpoints = 9056, 8284
+            breakpoints = 9056, 8288; 9136, 8288
         ]
         connect R1.n_node "Grid Measurement.A+" as Connection93
         connect R2.n_node "Grid Measurement.B+" as Connection94
