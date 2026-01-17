@@ -271,7 +271,7 @@ model "simple_avg_inverter" {
 
         component "core/Three Phase Voltage Source" U_inv {
             init_frequency = "F"
-            init_phase = "angle"
+            init_phase = "angle_deg"
             init_rms_value = "U_inv_rms"
         }
         [
@@ -611,31 +611,58 @@ model "simple_avg_inverter" {
         # To print information to the console, use info()
         
         
-        u_grid_d  = 220*np.sqrt(2)
-        V_peak    = u_grid_d
-        u_grid_q  = 0
-        V_rms     = 220
+        u_grid_d = 220 * np.sqrt(2)
+        V_peak = u_grid_d
+        u_grid_q = 0
+        V_rms = 220
         
         F = 50
-        L = 2.5e-3
+        L = 1e-3
         R = 1
         
         phase = [0, -120, 120]
         
-        i_d     = 10
-        i_q     = 0
-        omega   = 2*np.pi*F
-        info('Omega')
-        info(omega)
-        
-        u_d     = u_grid_d + R*i_d - omega*L*i_q
-        u_q     = u_grid_q + R*i_q + omega*L*i_d
-        
-        U_inv_rms = 0
-        angle   = 0
+        i_d = 10
+        i_q = 0
+        omega = 2*np.pi*F
         
         
-        info(u_d)
-        info(u_q)
+        u_d = u_grid_d + R*i_d - omega*L*i_q
+        u_q = u_grid_q + R*i_q + omega*L*i_d
+        
+        U_inv_rms = 220
+        angle = 0
+        
+        I_amp = 30
+        I_angle_deg = 90
+        I_angle_rad = I_angle_deg * np.pi / 180
+        
+        I_x = I_amp*np.cos(I_angle_rad)
+        I_y = I_amp*np.sin(I_angle_rad)
+        
+        V_R_amp = I_amp * R
+        V_R_x = V_R_amp * np.cos(I_angle_rad)
+        V_R_y = V_R_amp * np.sin(I_angle_rad)
+        
+        V_g_x = 220*np.sqrt(2)
+        
+        x_L = 2 * np.pi * F * L
+        
+        V_L_amp = I_amp * x_L
+        V_L_angle = I_angle_rad + 0.5*np.pi
+        V_L_x = V_L_amp * np.cos(V_L_angle)
+        V_L_y = V_L_amp * np.sin(V_L_angle)
+        
+        V_inv_x = V_R_x + V_g_x + V_L_x
+        V_inv_y = V_R_y + V_L_y
+        V_inv = np.sqrt(V_inv_x**2 + V_inv_y**2)
+        U_inv_rms = V_inv/np.sqrt(2)
+        
+        angle = np.arctan2(V_inv_y,V_inv_x)
+        angle_deg = np.rad2deg(angle)
+        
+        info(f"V_inv (Peak Voltage): {V_inv:.2f} V")
+        info(f"U_inv_rms (RMS Voltage): {U_inv_rms:.2f} V")
+        info(f"Phase Angle (Deg): {angle_deg:.2f} °")
     ENDCODE
 }
