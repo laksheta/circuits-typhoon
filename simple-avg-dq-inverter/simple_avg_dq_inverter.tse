@@ -134,7 +134,7 @@ model "simple_avg_dq_inverter" {
 
         component "core/Three-phase Meter" "Grid Measurement" {
             R = "100000.0"
-            Ts = "0.0001"
+            Ts = "T_meas"
             VAB = "True"
             VBC = "True"
             VCA = "True"
@@ -167,7 +167,7 @@ model "simple_avg_dq_inverter" {
             initial_filter_output = "50"
         }
         [
-            position = 8500, 7852
+            position = 8440, 7848
             size = 64, 128
         ]
 
@@ -175,14 +175,14 @@ model "simple_avg_dq_inverter" {
             outputs = "3"
         }
         [
-            position = 8392, 7852
+            position = 8332, 7848
             hide_name = True
         ]
 
         component "core/abc to dq" "abc to dq" {
         }
         [
-            position = 8888, 7848
+            position = 8828, 7844
             size = 48, 80
         ]
 
@@ -190,26 +190,27 @@ model "simple_avg_dq_inverter" {
             outputs = "3"
         }
         [
-            position = 8792, 7840
+            position = 8732, 7836
             hide_name = True
         ]
 
         component "core/Probe" d {
         }
         [
-            position = 8992, 7788
+            position = 8932, 7784
         ]
 
         component "core/Probe" q {
         }
         [
-            position = 8996, 7880
+            position = 8936, 7876
         ]
 
         component "core/Three-phase Meter" "Inverter Measurement" {
             IA = "False"
             IB = "False"
             IC = "False"
+            Ts = "T_meas"
             VAB = "True"
             VBn = "False"
             VCn = "False"
@@ -275,30 +276,6 @@ model "simple_avg_dq_inverter" {
             size = 64, 32
         ]
 
-        component "core/Sinusoidal Source" "Sinusoidal Source1" {
-            amplitude = "V_inv"
-            frequency = "F"
-            phase = "phase_inv"
-        }
-        [
-            position = 7608, 8016
-            hide_name = True
-        ]
-
-        component "core/Bus Split" "Bus Split4" {
-            outputs = "3"
-        }
-        [
-            position = 7688, 8016
-            hide_name = True
-        ]
-
-        component "core/Probe" sinusoidal {
-        }
-        [
-            position = 7692, 7924
-        ]
-
         component "core/dq to abc" "dq to abc" {
             execution_rate = "inherit"
         }
@@ -308,6 +285,7 @@ model "simple_avg_dq_inverter" {
         ]
 
         component "core/Constant" Constant1 {
+            execution_rate = "inherit"
             value = "V_inv_x"
         }
         [
@@ -316,6 +294,7 @@ model "simple_avg_dq_inverter" {
         ]
 
         component "core/Constant" Constant2 {
+            execution_rate = "inherit"
             value = "V_inv_y"
         }
         [
@@ -324,6 +303,7 @@ model "simple_avg_dq_inverter" {
         ]
 
         component "core/Constant" Constant3 {
+            execution_rate = "inherit"
             value = "0"
         }
         [
@@ -338,7 +318,7 @@ model "simple_avg_dq_inverter" {
             direction = out
         }
         [
-            position = 8296, 7852
+            position = 8236, 7848
             hide_name = True
             size = 60, 20
         ]
@@ -350,7 +330,7 @@ model "simple_avg_dq_inverter" {
             direction = in
         }
         [
-            position = 8604, 7868
+            position = 8544, 7864
             hide_name = True
             size = 60, 20
         ]
@@ -362,7 +342,7 @@ model "simple_avg_dq_inverter" {
             direction = out
         }
         [
-            position = 8792, 7896
+            position = 8732, 7892
             hide_name = True
             size = 60, 20
         ]
@@ -374,7 +354,7 @@ model "simple_avg_dq_inverter" {
             direction = out
         }
         [
-            position = 8696, 7840
+            position = 8636, 7836
             hide_name = True
             size = 60, 20
         ]
@@ -430,11 +410,6 @@ model "simple_avg_dq_inverter" {
             position = 8268, 8352
         ]
 
-        junction Junction5 sp
-        [
-            position = 7640, 8016
-        ]
-
         connect R1.p_node L1.n_node as Connection13
         connect R2.p_node L2.n_node as Connection14
         connect R3.p_node L3.n_node as Connection15
@@ -470,7 +445,7 @@ model "simple_avg_dq_inverter" {
         connect "Meter Split.Input" "Grid Measurement.Out" as Connection96
         connect Goto2 "Three phase PLL.theta" as Connection97
         [
-            breakpoints = 8556, 7868
+            breakpoints = 8496, 7864
         ]
         connect "Meter Split.IA" "Bus Join2.in" as Connection98
         connect "Meter Split.IB" "Bus Join2.in1" as Connection99
@@ -492,9 +467,6 @@ model "simple_avg_dq_inverter" {
         ]
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
-        connect "Sinusoidal Source1.out" Junction5 as Connection121
-        connect Junction5 "Bus Split4.in" as Connection122
-        connect sinusoidal.in Junction5 as Connection123
         connect From5 "dq to abc.wt" as Connection124
         connect "dq to abc.phase_a" Vsp1.in as Connection126
         connect "dq to abc.phase_b" Vsp2.in as Connection127
@@ -508,16 +480,6 @@ model "simple_avg_dq_inverter" {
         [
             breakpoints = 7824, 8204; 7824, 8180
         ]
-    }
-
-    logically_deleted {
-        "Sinusoidal Source1"
-        "Bus Split4"
-        "sinusoidal"
-        "Junction5"
-        "Connection121"
-        "Connection122"
-        "Connection123"
     }
 
     default {
@@ -560,15 +522,6 @@ model "simple_avg_dq_inverter" {
         "core/Resistor" {
             resistance = "1"
             param_set = ""
-        }
-
-        "core/Sinusoidal Source" {
-            amplitude = "1"
-            dc_offset = "0"
-            frequency = "50"
-            phase = "0"
-            execution_rate = "100e-6"
-            _tunable = "False"
         }
 
         "core/Meter Split" {
@@ -710,6 +663,7 @@ model "simple_avg_dq_inverter" {
         # To get the model file path, use 'mdl.get_model_file_path()'
         # To print information to the console, use info()
         
+        T_meas = 1e-6
         
         tau = 1e-3
         V_g = 220 * np.sqrt(2)
