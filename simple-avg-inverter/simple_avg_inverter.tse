@@ -81,7 +81,7 @@ model "simple_avg_inverter" {
             inductance = "L"
         }
         [
-            position = 8756, 8036
+            position = 8752, 8112
             hide_name = True
         ]
 
@@ -89,7 +89,7 @@ model "simple_avg_inverter" {
             inductance = "L"
         }
         [
-            position = 8756, 8132
+            position = 8752, 8208
             hide_name = True
         ]
 
@@ -97,14 +97,14 @@ model "simple_avg_inverter" {
             inductance = "L"
         }
         [
-            position = 8756, 8228
+            position = 8752, 8304
             hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 8404, 8320
+            position = 8400, 8396
             hide_name = True
         ]
 
@@ -112,7 +112,7 @@ model "simple_avg_inverter" {
             resistance = "R"
         }
         [
-            position = 8884, 8036
+            position = 8880, 8112
             hide_name = True
         ]
 
@@ -120,7 +120,7 @@ model "simple_avg_inverter" {
             resistance = "R"
         }
         [
-            position = 8884, 8132
+            position = 8880, 8208
             hide_name = True
         ]
 
@@ -128,7 +128,7 @@ model "simple_avg_inverter" {
             resistance = "R"
         }
         [
-            position = 8884, 8228
+            position = 8880, 8304
             hide_name = True
         ]
 
@@ -140,7 +140,7 @@ model "simple_avg_inverter" {
             VCA = "True"
         }
         [
-            position = 9056, 8132
+            position = 9056, 8208
             size = 56, 240
         ]
 
@@ -149,7 +149,7 @@ model "simple_avg_inverter" {
             init_rms_value = "220"
         }
         [
-            position = 9200, 8132
+            position = 9200, 8208
             scale = -1, 1
             size = 62, 256
         ]
@@ -157,7 +157,7 @@ model "simple_avg_inverter" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 9140, 8328
+            position = 9136, 8404
             hide_name = True
         ]
 
@@ -212,7 +212,7 @@ model "simple_avg_inverter" {
             init_rms_value = "U_inv_rms"
         }
         [
-            position = 8452, 8132
+            position = 8448, 8208
             size = 62, 256
         ]
 
@@ -223,7 +223,7 @@ model "simple_avg_inverter" {
             VAB = "True"
         }
         [
-            position = 8588, 8132
+            position = 8584, 8208
             size = 56, 240
         ]
 
@@ -251,6 +251,50 @@ model "simple_avg_inverter" {
         [
             position = 9312, 7928
             hide_name = True
+        ]
+
+        component "core/abc to dq" "abc to dq1" {
+        }
+        [
+            position = 8824, 7652
+            size = 48, 80
+        ]
+
+        component "core/Bus Split" "Bus Split4" {
+            outputs = "3"
+        }
+        [
+            position = 8728, 7644
+            hide_name = True
+        ]
+
+        component "core/Probe" d_inv {
+        }
+        [
+            position = 8928, 7592
+        ]
+
+        component "core/Probe" q_inv {
+        }
+        [
+            position = 8932, 7684
+        ]
+
+        component "core/Meter Split" "Meter Split1" {
+        }
+        [
+            position = 8340, 8016
+            scale = -1, 1
+            size = 96, 112
+        ]
+
+        component "core/Bus Join" "Bus Join3" {
+            inputs = "3"
+        }
+        [
+            position = 8200, 8020
+            hide_name = True
+            scale = -1, 1
         ]
 
         tag From1 {
@@ -325,14 +369,51 @@ model "simple_avg_inverter" {
             size = 60, 20
         ]
 
+        tag From5 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8728, 7700
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From6 {
+            value = "V_abc_n_inv"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8632, 7644
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto5 {
+            value = "V_abc_n_inv"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8112, 8020
+            hide_name = True
+            scale = -1, 1
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
-            position = 9136, 8288
+            position = 9136, 8364
         ]
 
         junction Junction4 pe
         [
-            position = 8404, 8280
+            position = 8400, 8356
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -353,7 +434,7 @@ model "simple_avg_inverter" {
         connect U_grid.n_node Junction2 as Connection58
         connect Junction2 gnd2.node as Connection59
         [
-            breakpoints = 9140, 8288
+            breakpoints = 9136, 8364
         ]
         connect "Bus Split3.out1" "abc to dq.vb" as Connection72
         connect "abc to dq.vc" "Bus Split3.out2" as Connection73
@@ -368,7 +449,7 @@ model "simple_avg_inverter" {
         connect "Inverter Measurement.GND" Junction4 as Connection82
         connect "Grid Measurement.GND" Junction2 as Connection92
         [
-            breakpoints = 9056, 8288; 9136, 8288
+            breakpoints = 9056, 8364; 9136, 8364
         ]
         connect R1.n_node "Grid Measurement.A+" as Connection93
         connect R2.n_node "Grid Measurement.B+" as Connection94
@@ -386,6 +467,18 @@ model "simple_avg_inverter" {
         connect "Meter Split.VCn" "Bus Join1.in2" as Connection103
         connect "Bus Join2.out" Goto4 as Connection104
         connect Goto3 "Bus Join1.out" as Connection105
+        connect From5 "abc to dq1.wt" as Connection106
+        connect "Bus Split4.in" From6 as Connection107
+        connect "Bus Split4.out" "abc to dq1.va" as Connection108
+        connect "abc to dq1.d_axis" d_inv.in as Connection109
+        connect "abc to dq1.q_axis" q_inv.in as Connection110
+        connect "Bus Split4.out1" "abc to dq1.vb" as Connection111
+        connect "abc to dq1.vc" "Bus Split4.out2" as Connection112
+        connect "Meter Split1.Input" "Inverter Measurement.Out" as Connection113
+        connect Goto5 "Bus Join3.out" as Connection114
+        connect "Bus Join3.in" "Meter Split1.VAn" as Connection115
+        connect "Bus Join3.in1" "Meter Split1.VBn" as Connection116
+        connect "Bus Join3.in2" "Meter Split1.VCn" as Connection117
     }
 
     default {
