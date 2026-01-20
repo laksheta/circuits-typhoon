@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.3
+// Saved by sw version: 2025.4
 //
 
 model "closed_loop_avg_inverter" {
@@ -21,6 +21,7 @@ model "closed_loop_avg_inverter" {
         reset_analog_outputs_on_sim_stop_mode = Offset values
         reset_digital_outputs_on_sim_stop = True
         vhil_adio_loopback = False
+        dma_enable = False
         cpl_stb = False
         enb_dep_sw_detect = False
         code_section = "internal memory"
@@ -424,19 +425,17 @@ model "closed_loop_avg_inverter" {
             hide_name = True
         ]
 
-        component "core/Bus Selector" "Bus Selector5" {
-            signal_indexes = "sig_select"
+        component "core/Bus Selector" "Bus Selector7" {
         }
         [
-            position = 7780, 8096
+            position = 7772, 8096
             hide_name = True
         ]
 
-        component "core/Bus Selector" "Bus Selector6" {
-            signal_indexes = "sig_select"
+        component "core/Bus Selector" "Bus Selector8" {
         }
         [
-            position = 7780, 8164
+            position = 7772, 8164
             hide_name = True
         ]
 
@@ -599,12 +598,12 @@ model "closed_loop_avg_inverter" {
 
         junction Junction7 sp
         [
-            position = 7892, 8164
+            position = 7852, 8096
         ]
 
         junction Junction8 sp
         [
-            position = 7852, 8096
+            position = 7892, 8164
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -701,20 +700,20 @@ model "closed_loop_avg_inverter" {
         [
             breakpoints = 8048, 8196
         ]
-        connect u_q.in Junction7 as Connection210
-        connect Junction7 "dq to abc.q_input" as Connection211
-        [
-            breakpoints = 7892, 8164
-        ]
-        connect "Bus Selector6.out" Junction7 as Connection212
-        connect "Bus Selector6.in" "Bus Join4.out" as Connection213
-        connect "Bus Selector5.in" "Bus Join3.out" as Connection214
-        connect u_d.in Junction8 as Connection215
-        connect Junction8 "dq to abc.d_input" as Connection216
+        connect "Bus Join3.out" "Bus Selector7.in" as Connection219
+        connect "dq to abc.d_input" Junction7 as Connection220
+        connect Junction7 u_d.in as Connection221
         [
             breakpoints = 7852, 8096
         ]
-        connect "Bus Selector5.out" Junction8 as Connection217
+        connect "Bus Selector7.out" Junction7 as Connection222
+        connect "Bus Selector8.in" "Bus Join4.out" as Connection223
+        connect u_q.in Junction8 as Connection224
+        connect Junction8 "dq to abc.q_input" as Connection225
+        [
+            breakpoints = 7892, 8164
+        ]
+        connect "Bus Selector8.out" Junction8 as Connection226
     }
 
     default {
@@ -963,6 +962,6 @@ model "closed_loop_avg_inverter" {
         with open(param_file_path, 'r') as f:
             exec(f.read(), globals(), locals())
             
-        sig_select = [0]
+        
     ENDCODE
 }

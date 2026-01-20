@@ -114,6 +114,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                         <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
+                                <analog>
+                                    <channel>5</channel>
+                                    <name><![CDATA[V_a_test]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>5</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
                             </analog_signals>
                             <digital_signals>
                             </digital_signals>
@@ -232,6 +244,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                         <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
+                            <analog>
+                                    <channel>5</channel>
+                                    <name><![CDATA[V_a_test]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>5</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
                         </analog_signals>
                          <digital_signals>
                          </digital_signals>
@@ -314,7 +338,7 @@ widgetValue = None
 widgetValue = hil.model_read('scada_i_d')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[10.0]]></inputValue>
+                <inputValue><![CDATA[100.0]]></inputValue>
                 <min>-100.0</min>
                 <max>100.0</max>
                 <step>1.0</step>
