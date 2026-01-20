@@ -115,7 +115,7 @@ model "simple_avg_dab" {
             phase = "phi_pu"
         }
         [
-            position = 8756, 8272
+            position = 8752, 8272
             hide_name = True
             scale = -1, 1
         ]
@@ -165,15 +165,15 @@ model "simple_avg_dab" {
             execution_rate = "T_math"
         }
         [
-            position = 8624, 8036
+            position = 8492, 8036
             hide_name = True
         ]
 
         component "core/Probe" P {
-            execution_rate = "100e-6"
+            execution_rate = "T_meas"
         }
         [
-            position = 8972, 7984
+            position = 8664, 7988
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
@@ -197,19 +197,12 @@ model "simple_avg_dab" {
         ]
 
         component "core/Mean Value" "Mean Value1" {
-            execution_rate = "100e-6"
-            number_of_points = "10e3"
+            execution_rate = "T_math"
+            number_of_points = "10"
         }
         [
-            position = 8780, 8036
-        ]
-
-        component "core/Rate Transition" "Rate Transition3" {
-        }
-        [
-            position = 8708, 8036
+            position = 8560, 8036
             hide_name = True
-            size = 32, 32
         ]
 
         tag Goto1 {
@@ -257,7 +250,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8364, 8008
+            position = 8400, 8000
             hide_name = True
             size = 60, 20
         ]
@@ -269,7 +262,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8352, 8076
+            position = 8400, 8072
             hide_name = True
             size = 60, 20
         ]
@@ -281,7 +274,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8884, 8036
+            position = 8664, 8036
             hide_name = True
             size = 60, 20
         ]
@@ -318,7 +311,7 @@ model "simple_avg_dab" {
 
         junction Junction7 sp
         [
-            position = 8836, 8036
+            position = 8604, 8036
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -363,8 +356,7 @@ model "simple_avg_dab" {
         connect "Mean Value1.out" Junction7 as Connection43
         connect Junction7 Goto4 as Connection44
         connect P.in Junction7 as Connection45
-        connect Product1.out "Rate Transition3.in" as Connection46
-        connect "Rate Transition3.out" "Mean Value1.in" as Connection47
+        connect Product1.out "Mean Value1.in" as Connection46
     }
 
     default {
