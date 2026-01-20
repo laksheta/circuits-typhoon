@@ -319,7 +319,7 @@ model "closed_loop_avg_inverter" {
             kp = "Kp_i"
         }
         [
-            position = 7436, 8104
+            position = 7484, 8104
         ]
 
         component "core/PID controller" i_q {
@@ -328,7 +328,7 @@ model "closed_loop_avg_inverter" {
             kp = "Kp_i"
         }
         [
-            position = 7436, 8172
+            position = 7484, 8172
         ]
 
         component "core/Bus Join" "Bus Join3" {
@@ -349,7 +349,7 @@ model "closed_loop_avg_inverter" {
             signs = "+-"
         }
         [
-            position = 7320, 8104
+            position = 7368, 8104
             hide_name = True
         ]
 
@@ -357,7 +357,7 @@ model "closed_loop_avg_inverter" {
             signs = "+-"
         }
         [
-            position = 7320, 8172
+            position = 7368, 8172
             hide_name = True
         ]
 
@@ -366,16 +366,7 @@ model "closed_loop_avg_inverter" {
             value = "0"
         }
         [
-            position = 7136, 8164
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant5 {
-            execution_rate = "inherit"
-            value = "10"
-        }
-        [
-            position = 7136, 8096
+            position = 7184, 8164
             hide_name = True
         ]
 
@@ -407,6 +398,17 @@ model "closed_loop_avg_inverter" {
         [
             position = 7776, 8164
             hide_name = True
+        ]
+
+        component "core/SCADA Input" scada_i_d {
+            def_value = "10"
+            execution_rate = "inherit"
+            max = "10"
+            min = "-10"
+            unit = ""
+        }
+        [
+            position = 7180, 8076
         ]
 
         tag From1 {
@@ -524,7 +526,7 @@ model "closed_loop_avg_inverter" {
             direction = out
         }
         [
-            position = 7204, 8132
+            position = 7252, 8132
             hide_name = True
             size = 60, 20
         ]
@@ -536,7 +538,7 @@ model "closed_loop_avg_inverter" {
             direction = out
         }
         [
-            position = 7204, 8200
+            position = 7252, 8200
             hide_name = True
             size = 60, 20
         ]
@@ -656,7 +658,6 @@ model "closed_loop_avg_inverter" {
         connect Goto5 Junction6 as Connection147
         connect From6 Sum1.in1 as Connection148
         connect From7 Sum2.in1 as Connection149
-        connect Constant5.out Sum1.in as Connection150
         connect Constant4.out Sum2.in as Connection151
         connect "dq to abc.d_input" Junction7 as Connection160
         connect Junction7 u_d.in as Connection161
@@ -675,6 +676,10 @@ model "closed_loop_avg_inverter" {
             breakpoints = 7892, 8164
         ]
         connect "Bus Selector2.out" Junction8 as Connection167
+        connect scada_i_d.out Sum1.in as Connection168
+        [
+            breakpoints = 7316, 8076; 7316, 8096
+        ]
     }
 
     default {
@@ -745,6 +750,20 @@ model "closed_loop_avg_inverter" {
         "core/Resistor" {
             resistance = "1"
             param_set = ""
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
         }
 
         "core/Sum" {
