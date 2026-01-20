@@ -8,8 +8,6 @@ import numpy as np
 if 'info' not in globals():
     info = print
 
-sig_select = [1]
-
 T_meas = 1e-6
 tau = 1e-3
 
