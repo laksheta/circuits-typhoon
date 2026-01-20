@@ -1,0 +1,716 @@
+version = 4.2
+
+//
+// Saved by sw version: 2025.3
+//
+
+model "simple_avg_dq_inverter" {
+    configuration {
+        hil_device = "VHIL+"
+        hil_configuration_id = 1
+        simulation_method = exact
+        simulation_time_step = auto
+        simulation_discret_scaling = 1.0
+        dsp_timer_periods = 100e-6, 50e-3
+        ss_calc_method = "systematic elimination"
+        enb_pole_shift = True
+        enb_gds_oversampling = True
+        show_modes = False
+        device_ao_limit_enable = False
+        reset_analog_outputs_on_sim_stop = True
+        reset_analog_outputs_on_sim_stop_mode = Offset values
+        reset_digital_outputs_on_sim_stop = True
+        vhil_adio_loopback = False
+        cpl_stb = False
+        enb_dep_sw_detect = False
+        code_section = "internal memory"
+        data_section = "internal memory"
+        sys_sp_rate_1 = 0.0001
+        sys_sp_rate_2 = 0.05
+        sys_real_type_precision = "default"
+        user_real_type_precision = "default"
+        sys_cpu_optimization = "high"
+        user_cpu_optimization = "high"
+        user_cpu_part_option = "default"
+        matrix_based_reduction = True
+        cpl_dynamics_analysis = False
+        export_ss_to_pickle = False
+        ground_scope_core = False
+        dss_num_tol = 1e-15
+        cce_platform = "generic"
+        cce_use_relative_names = False
+        cce_type_mapping_real = "double"
+        cce_type_mapping_uint = "unsigned int"
+        cce_type_mapping_int = "int"
+        cce_platform = "generic"
+        cce_use_relative_names = False
+        cce_type_mapping_real = "double"
+        cce_type_mapping_uint = "unsigned int"
+        cce_type_mapping_int = "int"
+        cce_term_var_location = "local"
+        cce_directory = ""
+        cce_custom_type_int = ""
+        cce_custom_type_uint = ""
+        cce_custom_type_real = ""
+        tunable_params = "component defined"
+        sp_compiler_type = "C compiler"
+        sig_stim = "off"
+        export_resource_list = ""
+        export_dependency_list = ""
+        excluded_resource_list = ""
+        excluded_component_from_locking_list = ""
+        export_out_file = ""
+        export_lock_top_level = True
+        export_encrypt_library = True
+        export_encrypt_resources = True
+        solver_type = "DAE"
+        integration_method = "BDF"
+        max_sim_step = 1e-4
+        simulation_time = 1.0
+        abs_tol = 1e-3
+        rel_tol = 1e-3
+        init_sim_step = 1e-6
+        r_on_sw = 1e-3
+        v_on_diode = 0.1
+        data_sampling_rate = 0
+        feedthrough_validation_error_level = error
+    }
+
+    component Subsystem Root {
+        component "core/Inductor" L1 {
+            inductance = "L"
+        }
+        [
+            position = 8756, 8036
+            hide_name = True
+        ]
+
+        component "core/Inductor" L2 {
+            inductance = "L"
+        }
+        [
+            position = 8756, 8132
+            hide_name = True
+        ]
+
+        component "core/Inductor" L3 {
+            inductance = "L"
+        }
+        [
+            position = 8756, 8228
+            hide_name = True
+        ]
+
+        component "core/Ground" gnd1 {
+        }
+        [
+            position = 8208, 8420
+            hide_name = True
+        ]
+
+        component "core/Resistor" R1 {
+            resistance = "R"
+        }
+        [
+            position = 8884, 8036
+            hide_name = True
+        ]
+
+        component "core/Resistor" R2 {
+            resistance = "R"
+        }
+        [
+            position = 8884, 8132
+            hide_name = True
+        ]
+
+        component "core/Resistor" R3 {
+            resistance = "R"
+        }
+        [
+            position = 8884, 8228
+            hide_name = True
+        ]
+
+        component "core/Three-phase Meter" "Grid Measurement" {
+            R = "100000.0"
+            Ts = "T_meas"
+            VAB = "True"
+            VBC = "True"
+            VCA = "True"
+        }
+        [
+            position = 9056, 8132
+            size = 56, 240
+        ]
+
+        component "core/Three Phase Voltage Source" U_grid {
+            init_frequency = "F"
+            init_rms_value = "V_rms"
+        }
+        [
+            position = 9200, 8132
+            scale = -1, 1
+            size = 62, 256
+        ]
+
+        component "core/Ground" gnd2 {
+        }
+        [
+            position = 9140, 8328
+            hide_name = True
+        ]
+
+        component "core/Three phase PLL" "Three phase PLL" {
+            enable_sin = "False"
+            enable_zero = "False"
+            initial_filter_output = "50"
+        }
+        [
+            position = 8440, 7848
+            size = 64, 128
+        ]
+
+        component "core/Bus Split" "Bus Split2" {
+            outputs = "3"
+        }
+        [
+            position = 8332, 7848
+            hide_name = True
+        ]
+
+        component "core/abc to dq" "abc to dq" {
+        }
+        [
+            position = 8828, 7844
+            size = 48, 80
+        ]
+
+        component "core/Bus Split" "Bus Split3" {
+            outputs = "3"
+        }
+        [
+            position = 8732, 7836
+            hide_name = True
+        ]
+
+        component "core/Probe" d {
+        }
+        [
+            position = 8932, 7784
+        ]
+
+        component "core/Probe" q {
+        }
+        [
+            position = 8936, 7876
+        ]
+
+        component "core/Three-phase Meter" "Inverter Measurement" {
+            IA = "False"
+            IB = "False"
+            IC = "False"
+            Ts = "T_meas"
+            VAB = "True"
+            VBn = "False"
+            VCn = "False"
+        }
+        [
+            position = 8588, 8132
+            size = 56, 240
+        ]
+
+        component "core/Meter Split" "Meter Split" {
+            ia = "True"
+            ib = "True"
+            ic = "True"
+        }
+        [
+            position = 9180, 7892
+            size = 96, 112
+        ]
+
+        component "core/Bus Join" "Bus Join1" {
+            inputs = "3"
+        }
+        [
+            position = 9312, 7844
+            hide_name = True
+        ]
+
+        component "core/Bus Join" "Bus Join2" {
+            inputs = "3"
+        }
+        [
+            position = 9312, 7928
+            hide_name = True
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp1 {
+        }
+        [
+            position = 8148, 8076
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp2 {
+        }
+        [
+            position = 8208, 8172
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp3 {
+        }
+        [
+            position = 8268, 8276
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/dq to abc" "dq to abc" {
+            execution_rate = "inherit"
+        }
+        [
+            position = 7968, 8172
+            size = 48, 80
+        ]
+
+        component "core/Constant" Constant1 {
+            execution_rate = "inherit"
+            value = "V_inv_x"
+        }
+        [
+            position = 7776, 8124
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant2 {
+            execution_rate = "inherit"
+            value = "V_inv_y"
+        }
+        [
+            position = 7776, 8164
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant3 {
+            execution_rate = "inherit"
+            value = "0"
+        }
+        [
+            position = 7776, 8204
+            hide_name = True
+        ]
+
+        tag From1 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8236, 7848
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto2 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8544, 7864
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From3 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8732, 7892
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From4 {
+            value = "I_abc"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8636, 7836
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto3 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9400, 7844
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto4 {
+            value = "I_abc"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9400, 7928
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From5 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7868, 8216
+            hide_name = True
+            size = 60, 20
+        ]
+
+        junction Junction2 pe
+        [
+            position = 9136, 8288
+        ]
+
+        junction Junction3 pe
+        [
+            position = 8208, 8352
+        ]
+
+        junction Junction4 pe
+        [
+            position = 8268, 8352
+        ]
+
+        connect R1.p_node L1.n_node as Connection13
+        connect R2.p_node L2.n_node as Connection14
+        connect R3.p_node L3.n_node as Connection15
+        connect "Bus Split2.out" "Three phase PLL.va" as Connection31
+        connect "Bus Split2.out1" "Three phase PLL.vb" as Connection32
+        connect "Bus Split2.out2" "Three phase PLL.vc" as Connection33
+        connect "Bus Split2.in" From1 as Connection34
+        connect From3 "abc to dq.wt" as Connection46
+        connect "Bus Split3.in" From4 as Connection47
+        connect "Bus Split3.out" "abc to dq.va" as Connection48
+        connect "abc to dq.d_axis" d.in as Connection51
+        connect "abc to dq.q_axis" q.in as Connection52
+        connect "Grid Measurement.A-" U_grid.a_node as Connection55
+        connect "Grid Measurement.B-" U_grid.b_node as Connection56
+        connect U_grid.c_node "Grid Measurement.C-" as Connection57
+        connect U_grid.n_node Junction2 as Connection58
+        connect Junction2 gnd2.node as Connection59
+        [
+            breakpoints = 9140, 8288
+        ]
+        connect "Bus Split3.out1" "abc to dq.vb" as Connection72
+        connect "abc to dq.vc" "Bus Split3.out2" as Connection73
+        connect "Inverter Measurement.C-" L3.p_node as Connection75
+        connect "Inverter Measurement.B-" L2.p_node as Connection77
+        connect "Inverter Measurement.A-" L1.p_node as Connection79
+        connect "Grid Measurement.GND" Junction2 as Connection92
+        [
+            breakpoints = 9056, 8284
+        ]
+        connect R1.n_node "Grid Measurement.A+" as Connection93
+        connect R2.n_node "Grid Measurement.B+" as Connection94
+        connect R3.n_node "Grid Measurement.C+" as Connection95
+        connect "Meter Split.Input" "Grid Measurement.Out" as Connection96
+        connect Goto2 "Three phase PLL.theta" as Connection97
+        [
+            breakpoints = 8496, 7864
+        ]
+        connect "Meter Split.IA" "Bus Join2.in" as Connection98
+        connect "Meter Split.IB" "Bus Join2.in1" as Connection99
+        connect "Meter Split.IC" "Bus Join2.in2" as Connection100
+        connect "Meter Split.VAn" "Bus Join1.in" as Connection101
+        connect "Meter Split.VBn" "Bus Join1.in1" as Connection102
+        connect "Meter Split.VCn" "Bus Join1.in2" as Connection103
+        connect "Bus Join2.out" Goto4 as Connection104
+        connect Goto3 "Bus Join1.out" as Connection105
+        connect "Inverter Measurement.C+" Vsp3.p_node as Connection107
+        connect Vsp2.p_node "Inverter Measurement.B+" as Connection108
+        connect "Inverter Measurement.A+" Vsp1.p_node as Connection109
+        connect gnd1.node Junction3 as Connection110
+        connect Vsp2.n_node Junction3 as Connection112
+        connect Junction3 Junction4 as Connection113
+        connect Junction4 "Inverter Measurement.GND" as Connection114
+        [
+            breakpoints = 8320, 8352; 8404, 8352
+        ]
+        connect Vsp3.n_node Junction4 as Connection115
+        connect Vsp1.n_node Junction3 as Connection116
+        connect From5 "dq to abc.wt" as Connection124
+        connect "dq to abc.phase_a" Vsp1.in as Connection126
+        connect "dq to abc.phase_b" Vsp2.in as Connection127
+        connect "dq to abc.phase_c" Vsp3.in as Connection128
+        [
+            breakpoints = 8116, 8196; 8116, 8276
+        ]
+        connect Constant1.out "dq to abc.d_input" as Connection129
+        connect "dq to abc.q_input" Constant2.out as Connection130
+        connect Constant3.out "dq to abc.zero_input" as Connection131
+        [
+            breakpoints = 7824, 8204; 7824, 8180
+        ]
+    }
+
+    default {
+        "core/Bus Join" {
+            inputs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Bus Split" {
+            outputs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
+        }
+
+        "core/Inductor" {
+            signal_access = "inherit"
+            inductance = "1e-3"
+            initial_current = "0.0"
+            pole_shift_ignore = "False"
+            visible = "True"
+        }
+
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/Resistor" {
+            resistance = "1"
+            param_set = ""
+        }
+
+        "core/Meter Split" {
+            van = "True"
+            vbn = "True"
+            vcn = "True"
+            van_rms = "False"
+            vbn_rms = "False"
+            vcn_rms = "False"
+            vln_rms = "False"
+            vn = "False"
+            vn_rms = "False"
+            vab = "False"
+            vbc = "False"
+            vca = "False"
+            vab_rms = "False"
+            vbc_rms = "False"
+            vca_rms = "False"
+            vll_rms = "False"
+            ia = "False"
+            ib = "False"
+            ic = "False"
+            ia_rms = "False"
+            ib_rms = "False"
+            ic_rms = "False"
+            i_rms = "False"
+            ineutral = "False"
+            in_rms = "False"
+            freq = "False"
+            power_p = "False"
+            power_q = "False"
+            power_s = "False"
+            power_pf = "False"
+            enable_extra_in = "No"
+            power_pa = "False"
+            power_pb = "False"
+            power_pc = "False"
+            power_qa = "False"
+            power_qb = "False"
+            power_qc = "False"
+            power_sa = "False"
+            power_sb = "False"
+            power_sc = "False"
+            power_pfa = "False"
+            power_pfb = "False"
+            power_pfc = "False"
+        }
+
+        "core/Signal Controlled Voltage Source" {
+            execution_rate = "inherit"
+        }
+
+        "core/Three Phase Voltage Source" {
+            init_rms_value = "0.0"
+            init_frequency = "50.0"
+            init_phase = "0.0"
+        }
+
+        "core/Three phase PLL" {
+            initial_filter_output = "60"
+            wn = "157.0796"
+            zeta = "0.707"
+            rate_high = "12"
+            rate_low = "-12"
+            freq_unit = "Hz"
+            kp = "100"
+            ki = "3200"
+            kd = "1"
+            N = "714.2857"
+            initial_pid_output = "376.99111843"
+            up_lim = "1e4"
+            low_lim = "-1e4"
+            kb = "1"
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            disable_filter = "False"
+            wn_LPFdq = "62.83185307"
+            execution_rate = "inherit"
+            enable_pk = "False"
+            enable_zero = "True"
+            enable_sin = "True"
+        }
+
+        "core/Three-phase Meter" {
+            R = "1e5"
+            n_cycles = "1"
+            Ts = "100e-6"
+            enable_probes = "True"
+            enable_out = "True"
+            remove_snubber = "False"
+            enable_bandwidth = "False"
+            bandwidth = "10e3"
+            VAn = "True"
+            VBn = "True"
+            VCn = "True"
+            VAB = "False"
+            VBC = "False"
+            VCA = "False"
+            VN = "False"
+            IA = "True"
+            IB = "True"
+            IC = "True"
+            IN = "False"
+            freq = "False"
+            VLn_rms = "False"
+            VLL_rms = "False"
+            VLn_avg_rms = "False"
+            VLL_avg_rms = "False"
+            VN_rms = "False"
+            I_rms = "False"
+            I_avg_rms = "False"
+            IN_rms = "False"
+            P_method = "alpha-beta"
+            enable_extra_out = "False"
+            P_meas = "False"
+        }
+
+        "core/abc to dq" {
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            disable_filter = "True"
+            initial_filter_output = "0"
+            wn_LPFdq = "1000"
+            execution_rate = "inherit"
+            _tunable = "False"
+        }
+
+        "core/dq to abc" {
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            execution_rate = "0"
+        }
+    }
+
+    CODE model_init
+        # Numpy module is imported as 'np'
+        # Scipy module is imported as 'sp'
+        # The Schematic API is imported as 'mdl'
+        # To get the model file path, use 'mdl.get_model_file_path()'
+        # To print information to the console, use info()
+        
+        T_meas = 1e-6
+        
+        tau = 1e-3
+        V_g = 220 * np.sqrt(2)
+        V_rms = 220
+        F = 50
+        
+        phase = np.array([0,-120,120])
+        
+        L = 1e-3
+        R = L / tau
+        
+        I_amp = 10
+        I_angle_deg = 0
+        I_angle_rad = np.deg2rad(I_angle_deg)
+        
+        I_x = I_amp * np.cos(I_angle_rad)
+        I_y = I_amp * np.sin(I_angle_rad)
+        
+        V_R_amp = I_amp * R
+        V_R_x = V_R_amp * np.cos(I_angle_rad)
+        V_R_y = V_R_amp * np.sin(I_angle_rad)
+        
+        V_g_x = V_g
+        
+        x_L = 2 * np.pi * F * L
+        
+        V_L_amp = I_amp * x_L
+        V_L_angle = I_angle_rad + 0.5 * np.pi
+        V_L_x = V_L_amp * np.cos(V_L_angle)
+        V_L_y = V_L_amp * np.sin(V_L_angle)
+        
+        V_inv_x = V_R_x + V_g_x + V_L_x
+        V_inv_y = V_R_y + V_L_y
+        V_inv = np.sqrt(V_inv_x**2 + V_inv_y**2)
+        U_inv_rms = V_inv / np.sqrt(2)
+        
+        angle = np.arctan2(V_inv_y, V_inv_x)
+        angle_deg = np.rad2deg(angle)
+        
+        phase_inv = phase + angle_deg
+        
+        info(f"V_inv (Peak Voltage): {V_inv:.2f} V")
+        info(f"U_inv_rms (RMS Voltage): {U_inv_rms:.2f} V")
+        info(f"Phase Angle (Deg): {angle_deg:.2f} °")
+        info(f"Phase Angle Matrix: {phase_inv:} °")
+        
+        info(f"d_inv: {V_inv_x:.2f}")
+        info(f"q_inv: {V_inv_y:.2f}")
+    ENDCODE
+}
