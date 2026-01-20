@@ -9,51 +9,32 @@ if 'info' not in globals():
     info = print
 
 T_meas = 1e-6
-
 tau = 1e-3
+
 V_g = 220 * np.sqrt(2)
 V_rms = 220
-F = 50
+u_grid_d  = 220*np.sqrt(2)
+V_peak    = u_grid_d
+u_grid_q  = 0
+u_grid_amp    = np.sqrt(u_grid_d^2+u_grid_q^2)
+u_grid_ph     = np.atan2(u_grid_q, u_grid_d)
 
+F = 50
 phase = np.array([0,-120,120])
 
 L = 1e-3
 R = L / tau
 
-I_amp = 10
-I_angle_deg = 0
-I_angle_rad = np.deg2rad(I_angle_deg)
+i_d = 10
+i_q = 0
+omega   = 2*np.pi*F
 
-I_x = I_amp * np.cos(I_angle_rad)
-I_y = I_amp * np.sin(I_angle_rad)
+u_d = u_grid_d + R*i_d - omega*L*i_q
+u_q = u_grid_q + R*i_q + omega*L*i_d
 
-V_R_amp = I_amp * R
-V_R_x = V_R_amp * np.cos(I_angle_rad)
-V_R_y = V_R_amp * np.sin(I_angle_rad)
+U_inv_amp = np.sqrt(u_d**2+u_q**2)
+U_inv_ph  = np.atan2(u_q, u_d)
 
-V_g_x = V_g
 
-x_L = 2 * np.pi * F * L
-
-V_L_amp = I_amp * x_L
-V_L_angle = I_angle_rad + 0.5 * np.pi
-V_L_x = V_L_amp * np.cos(V_L_angle)
-V_L_y = V_L_amp * np.sin(V_L_angle)
-
-V_inv_x = V_R_x + V_g_x + V_L_x
-V_inv_y = V_R_y + V_L_y
-V_inv = np.sqrt(V_inv_x**2 + V_inv_y**2)
-U_inv_rms = V_inv / np.sqrt(2)
-
-angle = np.arctan2(V_inv_y, V_inv_x)
-angle_deg = np.rad2deg(angle)
-
-phase_inv = phase + angle_deg
-
-info(f"V_inv (Peak Voltage): {V_inv:.2f} V")
-info(f"U_inv_rms (RMS Voltage): {U_inv_rms:.2f} V")
-info(f"Phase Angle (Deg): {angle_deg:.2f} °")
-info(f"Phase Angle Matrix: {phase_inv:} °")
-
-info(f"d_inv: {V_inv_x:.2f}")
-info(f"q_inv: {V_inv_y:.2f}")
+info(f"u_d: {u_d:.2f}")
+info(f"u_q: {u_q:.2f}")
