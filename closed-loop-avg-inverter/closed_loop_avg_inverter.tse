@@ -197,13 +197,15 @@ model "closed_loop_avg_inverter" {
         component "core/Probe" d {
         }
         [
-            position = 8932, 7784
+            position = 8880, 7728
+            rotation = left
         ]
 
         component "core/Probe" q {
         }
         [
-            position = 8936, 7876
+            position = 8940, 7732
+            rotation = left
         ]
 
         component "core/Three-phase Meter" "Inverter Measurement" {
@@ -286,19 +288,19 @@ model "closed_loop_avg_inverter" {
 
         component "core/Constant" Constant1 {
             execution_rate = "inherit"
-            value = "V_inv_x"
+            value = "u_d"
         }
         [
-            position = 7776, 8124
+            position = 7552, 8072
             hide_name = True
         ]
 
         component "core/Constant" Constant2 {
             execution_rate = "inherit"
-            value = "V_inv_y"
+            value = "u_q"
         }
         [
-            position = 7776, 8164
+            position = 7552, 8140
             hide_name = True
         ]
 
@@ -307,7 +309,65 @@ model "closed_loop_avg_inverter" {
             value = "0"
         }
         [
-            position = 7776, 8204
+            position = 7792, 8224
+            hide_name = True
+        ]
+
+        component "core/PID controller" i_d {
+            controller_type = "PI"
+        }
+        [
+            position = 7436, 8104
+        ]
+
+        component "core/PID controller" i_q {
+            controller_type = "PI"
+        }
+        [
+            position = 7436, 8172
+        ]
+
+        component "core/Bus Selector" "Bus Selector1" {
+        }
+        [
+            position = 7788, 8096
+            hide_name = True
+        ]
+
+        component "core/Bus Join" "Bus Join3" {
+        }
+        [
+            position = 7684, 8096
+            hide_name = True
+        ]
+
+        component "core/Bus Selector" "Bus Selector3" {
+        }
+        [
+            position = 7788, 8164
+            hide_name = True
+        ]
+
+        component "core/Bus Join" "Bus Join4" {
+        }
+        [
+            position = 7684, 8164
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum1 {
+            signs = "+-"
+        }
+        [
+            position = 7320, 8104
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum2 {
+            signs = "+-"
+        }
+        [
+            position = 7320, 8172
             hide_name = True
         ]
 
@@ -395,6 +455,30 @@ model "closed_loop_avg_inverter" {
             size = 60, 20
         ]
 
+        tag Goto5 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8992, 7820
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto6 {
+            value = "i_q"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8992, 7844
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9136, 8288
@@ -410,6 +494,16 @@ model "closed_loop_avg_inverter" {
             position = 8268, 8352
         ]
 
+        junction Junction5 sp
+        [
+            position = 8940, 7844
+        ]
+
+        junction Junction6 sp
+        [
+            position = 8880, 7820
+        ]
+
         connect R1.p_node L1.n_node as Connection13
         connect R2.p_node L2.n_node as Connection14
         connect R3.p_node L3.n_node as Connection15
@@ -420,8 +514,6 @@ model "closed_loop_avg_inverter" {
         connect From3 "abc to dq.wt" as Connection46
         connect "Bus Split3.in" From4 as Connection47
         connect "Bus Split3.out" "abc to dq.va" as Connection48
-        connect "abc to dq.d_axis" d.in as Connection51
-        connect "abc to dq.q_axis" q.in as Connection52
         connect "Grid Measurement.A-" U_grid.a_node as Connection55
         connect "Grid Measurement.B-" U_grid.b_node as Connection56
         connect U_grid.c_node "Grid Measurement.C-" as Connection57
@@ -474,17 +566,36 @@ model "closed_loop_avg_inverter" {
         [
             breakpoints = 8116, 8196; 8116, 8276
         ]
-        connect Constant1.out "dq to abc.d_input" as Connection129
-        connect "dq to abc.q_input" Constant2.out as Connection130
         connect Constant3.out "dq to abc.zero_input" as Connection131
         [
             breakpoints = 7824, 8204; 7824, 8180
         ]
+        connect "Bus Selector1.out" "dq to abc.d_input" as Connection132
+        connect "Bus Selector3.out" "dq to abc.q_input" as Connection133
+        connect "Bus Join3.out" "Bus Selector1.in" as Connection134
+        connect "Bus Join4.out" "Bus Selector3.in" as Connection135
+        connect Constant1.out "Bus Join3.in" as Connection136
+        connect i_d.out "Bus Join3.in1" as Connection137
+        connect Constant2.out "Bus Join4.in" as Connection138
+        connect i_q.out "Bus Join4.in1" as Connection139
+        connect Sum1.out i_d.in as Connection140
+        connect Sum2.out i_q.in as Connection141
+        connect "abc to dq.q_axis" Junction5 as Connection142
+        connect Junction5 q.in as Connection143
+        connect Goto6 Junction5 as Connection144
+        connect "abc to dq.d_axis" Junction6 as Connection145
+        connect Junction6 d.in as Connection146
+        connect Goto5 Junction6 as Connection147
     }
 
     default {
         "core/Bus Join" {
             inputs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Bus Selector" {
+            signal_indexes = "[0]"
             execution_rate = "inherit"
         }
 
@@ -508,6 +619,29 @@ model "closed_loop_avg_inverter" {
             visible = "True"
         }
 
+        "core/PID controller" {
+            controller_type = "PID"
+            kp = "1"
+            kp_source = "internal"
+            ki = "1"
+            ki_source = "internal"
+            kd = "0"
+            kd_source = "internal"
+            filt_coef = "100"
+            int_init_value = "0"
+            filt_init_value = "0"
+            enb_output_limit_out = "False"
+            show_reset = "none"
+            upper_sat_lim = "1"
+            upper_sat_lim_source = "internal"
+            lower_sat_lim = "-1"
+            lower_sat_lim_source = "internal"
+            enb_anti_windup_out = "False"
+            signal_out_type = "inherit"
+            _tunable = "False"
+            execution_rate = "inherit"
+        }
+
         "core/Probe" {
             signal_access = "inherit"
             addr = "0"
@@ -522,6 +656,11 @@ model "closed_loop_avg_inverter" {
         "core/Resistor" {
             resistance = "1"
             param_set = ""
+        }
+
+        "core/Sum" {
+            signs = "2"
+            execution_rate = "inherit"
         }
 
         "core/Meter Split" {
