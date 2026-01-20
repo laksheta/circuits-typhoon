@@ -315,6 +315,8 @@ model "closed_loop_avg_inverter" {
 
         component "core/PID controller" i_d {
             controller_type = "PI"
+            ki = "Ki_i"
+            kp = "Kp_i"
         }
         [
             position = 7436, 8104
@@ -322,6 +324,8 @@ model "closed_loop_avg_inverter" {
 
         component "core/PID controller" i_q {
             controller_type = "PI"
+            ki = "Ki_i"
+            kp = "Kp_i"
         }
         [
             position = 7436, 8172
@@ -369,6 +373,38 @@ model "closed_loop_avg_inverter" {
         [
             position = 7320, 8172
             hide_name = True
+        ]
+
+        component "core/Constant" Constant4 {
+            execution_rate = "inherit"
+            value = "0"
+        }
+        [
+            position = 7136, 8164
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant5 {
+            execution_rate = "inherit"
+            value = "10"
+        }
+        [
+            position = 7136, 8096
+            hide_name = True
+        ]
+
+        component "core/Probe" u_d {
+        }
+        [
+            position = 7852, 8024
+            rotation = left
+        ]
+
+        component "core/Probe" u_q {
+        }
+        [
+            position = 7892, 8060
+            rotation = left
         ]
 
         tag From1 {
@@ -479,6 +515,30 @@ model "closed_loop_avg_inverter" {
             size = 60, 20
         ]
 
+        tag From6 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7204, 8132
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From7 {
+            value = "i_q"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7204, 8200
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9136, 8288
@@ -502,6 +562,16 @@ model "closed_loop_avg_inverter" {
         junction Junction6 sp
         [
             position = 8880, 7820
+        ]
+
+        junction Junction7 sp
+        [
+            position = 7852, 8096
+        ]
+
+        junction Junction8 sp
+        [
+            position = 7892, 8164
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -570,8 +640,6 @@ model "closed_loop_avg_inverter" {
         [
             breakpoints = 7824, 8204; 7824, 8180
         ]
-        connect "Bus Selector1.out" "dq to abc.d_input" as Connection132
-        connect "Bus Selector3.out" "dq to abc.q_input" as Connection133
         connect "Bus Join3.out" "Bus Selector1.in" as Connection134
         connect "Bus Join4.out" "Bus Selector3.in" as Connection135
         connect Constant1.out "Bus Join3.in" as Connection136
@@ -586,6 +654,16 @@ model "closed_loop_avg_inverter" {
         connect "abc to dq.d_axis" Junction6 as Connection145
         connect Junction6 d.in as Connection146
         connect Goto5 Junction6 as Connection147
+        connect From6 Sum1.in1 as Connection148
+        connect From7 Sum2.in1 as Connection149
+        connect Constant5.out Sum1.in as Connection150
+        connect Constant4.out Sum2.in as Connection151
+        connect "Bus Selector1.out" Junction7 as Connection152
+        connect Junction7 "dq to abc.d_input" as Connection153
+        connect u_d.in Junction7 as Connection154
+        connect "Bus Selector3.out" Junction8 as Connection155
+        connect Junction8 "dq to abc.q_input" as Connection156
+        connect u_q.in Junction8 as Connection157
     }
 
     default {
