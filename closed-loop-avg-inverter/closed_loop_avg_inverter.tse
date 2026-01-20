@@ -384,22 +384,6 @@ model "closed_loop_avg_inverter" {
             rotation = left
         ]
 
-        component "core/Bus Selector" "Bus Selector1" {
-            signal_indexes = "sig_select"
-        }
-        [
-            position = 7776, 8096
-            hide_name = True
-        ]
-
-        component "core/Bus Selector" "Bus Selector2" {
-            signal_indexes = "sig_select"
-        }
-        [
-            position = 7776, 8164
-            hide_name = True
-        ]
-
         component "core/SCADA Input" scada_i_d {
             def_value = "10"
             execution_rate = "inherit"
@@ -440,34 +424,20 @@ model "closed_loop_avg_inverter" {
             hide_name = True
         ]
 
-        component "core/Constant" dc_input {
-            execution_rate = "inherit"
-            value = "780"
+        component "core/Bus Selector" "Bus Selector5" {
+            signal_indexes = "sig_select"
         }
         [
-            position = 7320, 8436
-        ]
-
-        component "core/Gain" Gain1 {
-            gain = "0.5"
-        }
-        [
-            position = 7408, 8436
+            position = 7780, 8096
             hide_name = True
         ]
 
-        component "core/Gain" Gain2 {
-            gain = "-0.5"
+        component "core/Bus Selector" "Bus Selector6" {
+            signal_indexes = "sig_select"
         }
         [
-            position = 7408, 8476
+            position = 7780, 8164
             hide_name = True
-        ]
-
-        component "core/Min Max" "Min Max1" {
-        }
-        [
-            position = 7952, 8376
         ]
 
         tag From1 {
@@ -602,30 +572,6 @@ model "closed_loop_avg_inverter" {
             size = 60, 20
         ]
 
-        tag Goto7 {
-            value = "upper_lim"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7504, 8436
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto8 {
-            value = "lower_lim"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7504, 8476
-            hide_name = True
-            size = 60, 20
-        ]
-
         junction Junction2 pe
         [
             position = 9136, 8288
@@ -653,17 +599,12 @@ model "closed_loop_avg_inverter" {
 
         junction Junction7 sp
         [
-            position = 7852, 8096
+            position = 7892, 8164
         ]
 
         junction Junction8 sp
         [
-            position = 7892, 8164
-        ]
-
-        junction Junction9 sp
-        [
-            position = 7356, 8436
+            position = 7852, 8096
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -741,44 +682,39 @@ model "closed_loop_avg_inverter" {
         connect From6 Sum1.in1 as Connection148
         connect From7 Sum2.in1 as Connection149
         connect Constant4.out Sum2.in as Connection151
-        connect "dq to abc.d_input" Junction7 as Connection160
-        connect Junction7 u_d.in as Connection161
-        [
-            breakpoints = 7852, 8096
-        ]
-        connect "Bus Selector1.out" Junction7 as Connection162
-        [
-            breakpoints = 7816, 8096; 7852, 8096
-        ]
-        connect "Bus Join3.out" "Bus Selector1.in" as Connection163
-        connect "Bus Selector2.in" "Bus Join4.out" as Connection164
-        connect u_q.in Junction8 as Connection165
-        connect Junction8 "dq to abc.q_input" as Connection166
-        [
-            breakpoints = 7892, 8164
-        ]
-        connect "Bus Selector2.out" Junction8 as Connection167
         connect scada_i_d.out Sum1.in as Connection168
         [
             breakpoints = 7316, 8076; 7316, 8096
         ]
         connect Limit1.out Vsp1.in as Connection169
-        connect Limit1.in "dq to abc.phase_a" as Connection170
-        [
-            breakpoints = 8044, 8116; 8044, 8148
-        ]
         connect Limit2.out Vsp2.in as Connection171
-        connect Limit2.in "dq to abc.phase_b" as Connection172
-        connect "dq to abc.phase_c" Limit3.in as Connection173
         connect Limit3.out Vsp3.in as Connection174
         [
             breakpoints = 8120, 8224; 8120, 8276
         ]
-        connect dc_input.out Junction9 as Connection176
-        connect Junction9 Gain1.in as Connection177
-        connect Gain2.in Junction9 as Connection178
-        connect Gain1.out Goto7 as Connection179
-        connect Goto8 Gain2.out as Connection180
+        connect "dq to abc.phase_b" Limit2.in as Connection207
+        connect "dq to abc.phase_a" Limit1.in as Connection206
+        [
+            breakpoints = 8000, 8148; 8044, 8148; 8044, 8116
+        ]
+        connect "dq to abc.phase_c" Limit3.in as Connection205
+        [
+            breakpoints = 8048, 8196
+        ]
+        connect u_q.in Junction7 as Connection210
+        connect Junction7 "dq to abc.q_input" as Connection211
+        [
+            breakpoints = 7892, 8164
+        ]
+        connect "Bus Selector6.out" Junction7 as Connection212
+        connect "Bus Selector6.in" "Bus Join4.out" as Connection213
+        connect "Bus Selector5.in" "Bus Join3.out" as Connection214
+        connect u_d.in Junction8 as Connection215
+        connect Junction8 "dq to abc.d_input" as Connection216
+        [
+            breakpoints = 7852, 8096
+        ]
+        connect "Bus Selector5.out" Junction8 as Connection217
     }
 
     default {
@@ -804,13 +740,6 @@ model "closed_loop_avg_inverter" {
             _tunable = "False"
         }
 
-        "core/Gain" {
-            gain = "1"
-            multiplication = "Element-wise(K.*u)"
-            _tunable = "False"
-            execution_rate = "inherit"
-        }
-
         "core/Inductor" {
             signal_access = "inherit"
             inductance = "1e-3"
@@ -822,12 +751,6 @@ model "closed_loop_avg_inverter" {
         "core/Limit" {
             upper_limit = "[\'inf\']"
             lower_limit = "[\'-inf\']"
-            execution_rate = "inherit"
-        }
-
-        "core/Min Max" {
-            operation = "min"
-            inputs = "2"
             execution_rate = "inherit"
         }
 
@@ -1040,5 +963,6 @@ model "closed_loop_avg_inverter" {
         with open(param_file_path, 'r') as f:
             exec(f.read(), globals(), locals())
             
+        sig_select = [0]
     ENDCODE
 }
