@@ -13,6 +13,10 @@ sig_select = [1]
 T_meas = 1e-6
 tau = 1e-3
 
+V_dc = 780
+upper_lim = +V_dc/2
+lower_lim = -V_dc/2
+
 V_g = 220 * np.sqrt(2)
 V_rms = 220
 u_grid_d  = 220*np.sqrt(2)
