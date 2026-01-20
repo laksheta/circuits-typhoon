@@ -102,6 +102,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                         <num_viewport>2</num_viewport>
                                    </viewports>
                                </analog>
+                                <analog>
+                                    <channel>4</channel>
+                                    <name><![CDATA[Inverter Measurement.VAn]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>4</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
                             </analog_signals>
                             <digital_signals>
                             </digital_signals>
@@ -208,6 +220,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                         <num_viewport>2</num_viewport>
                                    </viewports>
                                </analog>
+                            <analog>
+                                    <channel>4</channel>
+                                    <name><![CDATA[Inverter Measurement.VAn]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>4</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
                         </analog_signals>
                          <digital_signals>
                          </digital_signals>
@@ -239,7 +263,7 @@ SETTINGS_DIR = get_settings_dir_path()
 
             </component_data>
         <component_data>
-                <id>23b871a1f5b611f0ada2d8bbc1a2437a</id>
+                <id>b1071761f5b911f0a1abd8bbc1a2437a</id>
                 <name><![CDATA[scada_i_d]]></name>
                 <type>SliderMacro</type>
                 <description><![CDATA[]]></description>
@@ -290,13 +314,13 @@ widgetValue = None
 widgetValue = hil.model_read('scada_i_d')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[5.0]]></inputValue>
-                <min>-10.0</min>
-                <max>10.0</max>
+                <inputValue><![CDATA[10.0]]></inputValue>
+                <min>-100.0</min>
+                <max>100.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>344</x>
-                    <y>96</y>
+                    <x>368</x>
+                    <y>128</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
