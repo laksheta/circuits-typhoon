@@ -80,6 +80,9 @@ model "simple_avg_dab" {
     component Subsystem Root {
         component "core/Square Wave Source" "Square Wave Source1" {
             execution_rate = "inherit"
+            frequency = "fsw"
+            hs_output = "V1"
+            ls_output = "-V1"
         }
         [
             position = 8292, 8268
@@ -89,22 +92,103 @@ model "simple_avg_dab" {
         component "core/Signal Controlled Voltage Source" Vsp1asd {
         }
         [
-            position = 8368, 8268
+            position = 8356, 8268
             rotation = right
             hide_name = True
             scale = -1, 1
             size = 64, 32
         ]
 
-        comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">1</p></body></html> ENDCOMMENT 
+        component "core/Inductor" L1 {
+            inductance = "L"
+        }
         [
-            position = 8340, 8316
+            position = 8484, 8228
+            hide_name = True
+        ]
+
+        component "core/Square Wave Source" "Square Wave Source2" {
+            execution_rate = "inherit"
+            frequency = "fsw"
+            hs_output = "V2"
+            ls_output = "-V2"
+        }
+        [
+            position = 8756, 8272
+            hide_name = True
+            scale = -1, 1
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp1asd1 {
+        }
+        [
+            position = 8692, 8272
+            rotation = right
+            hide_name = True
+            size = 64, 32
+        ]
+
+        component "core/Voltage Measurement" VL {
+        }
+        [
+            position = 8484, 8168
+            size = 64, 32
+        ]
+
+        component "core/Current Measurement" iL {
+        }
+        [
+            position = 8612, 8228
+            size = 64, 32
+        ]
+
+        junction Junction1 pe
+        [
+            position = 8420, 8228
+        ]
+
+        junction Junction2 pe
+        [
+            position = 8548, 8228
+        ]
+
+        comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
+        [
+            position = 8384, 8256
+        ]
+
+        comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2</p></body></html> ENDCOMMENT 
+        [
+            position = 8628, 8260
         ]
 
         connect Vsp1asd.in "Square Wave Source1.out" as Connection1
+        connect Vsp1asd1.in "Square Wave Source2.out" as Connection3
+        connect Vsp1asd1.n_node Vsp1asd.n_node as Connection5
+        [
+            breakpoints = 8612, 8320
+        ]
+        connect L1.p_node Junction1 as Connection6
+        connect Junction1 Vsp1asd.p_node as Connection7
+        connect VL.p_node Junction1 as Connection8
+        connect Junction2 L1.n_node as Connection10
+        connect VL.n_node Junction2 as Connection11
+        [
+            breakpoints = 8548, 8168; 8548, 8228
+        ]
+        connect Vsp1asd1.p_node iL.n_node as Connection12
+        connect iL.p_node Junction2 as Connection13
     }
 
     default {
+        "core/Inductor" {
+            signal_access = "inherit"
+            inductance = "1e-3"
+            initial_current = "0.0"
+            pole_shift_ignore = "False"
+            visible = "True"
+        }
+
         "core/Square Wave Source" {
             hs_output = "1"
             ls_output = "0"
@@ -116,8 +200,56 @@ model "simple_avg_dab" {
             _tunable = "False"
         }
 
+        "core/Current Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
+        }
+
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
+        }
+
+        "core/Voltage Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
         }
     }
 
