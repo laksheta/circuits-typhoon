@@ -398,14 +398,6 @@ model "closed_loop_avg_inverter_adap_lim" {
             position = 6844, 8072
         ]
 
-        component "core/Constant" dc_input {
-            execution_rate = "inherit"
-            value = "780"
-        }
-        [
-            position = 7220, 7840
-        ]
-
         component "core/Gain" Gain1 {
             gain = "0.5"
         }
@@ -676,6 +668,16 @@ model "closed_loop_avg_inverter_adap_lim" {
         [
             position = 8000, 8276
             size = 80, 64
+        ]
+
+        component "core/SCADA Input" dc_input {
+            execution_rate = "inherit"
+            max = "1e3"
+            min = "-1000"
+            unit = ""
+        }
+        [
+            position = 7216, 7860
         ]
 
         tag From1 {
@@ -957,11 +959,6 @@ model "closed_loop_avg_inverter_adap_lim" {
             position = 8880, 7820
         ]
 
-        junction Junction9 sp
-        [
-            position = 7256, 7840
-        ]
-
         junction Junction13 sp
         [
             position = 7508, 8160
@@ -990,6 +987,11 @@ model "closed_loop_avg_inverter_adap_lim" {
         junction Junction18 sp
         [
             position = 7896, 8188
+        ]
+
+        junction Junction19 sp
+        [
+            position = 7272, 7860
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -1071,9 +1073,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         [
             breakpoints = 6980, 8072; 6980, 8092
         ]
-        connect dc_input.out Junction9 as Connection176
-        connect Junction9 Gain1.in as Connection177
-        connect Gain2.in Junction9 as Connection178
         connect Gain1.out Goto7 as Connection179
         connect Goto8 Gain2.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
@@ -1112,6 +1111,9 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Adap_Limiter_2.up_lim Junction18 as Connection234
         connect Junction18 Junction17 as Connection235
         connect Adap_Limiter_1.up_lim Junction18 as Connection236
+        connect Gain1.in Junction19 as Connection238
+        connect Junction19 Gain2.in as Connection239
+        connect dc_input.out Junction19 as Connection240
     }
 
     default {
