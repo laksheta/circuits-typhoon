@@ -148,9 +148,10 @@ model "simple_avg_dab" {
         ]
 
         component "core/Probe" V_1 {
+            execution_rate = "T_meas"
         }
         [
-            position = 8324, 8336
+            position = 8324, 8376
             rotation = right
         ]
 
@@ -158,7 +159,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8724, 8336
+            position = 8724, 8396
             rotation = right
         ]
 
@@ -171,7 +172,7 @@ model "simple_avg_dab" {
         ]
 
         component "core/Probe" P {
-            execution_rate = "T_math"
+            execution_rate = "T_meas"
         }
         [
             position = 8720, 8004
@@ -193,6 +194,26 @@ model "simple_avg_dab" {
             position = 8484, 7928
         ]
 
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8724, 8328
+            rotation = right
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8324, 8316
+            rotation = right
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag Goto1 {
             value = "V_1"
             scope = local
@@ -200,7 +221,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8240, 8304
+            position = 8240, 8344
             rotation = down
             hide_name = True
             size = 60, 20
@@ -226,7 +247,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8820, 8304
+            position = 8820, 8364
             hide_name = True
             size = 60, 20
         ]
@@ -250,7 +271,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8284, 8048
+            position = 8352, 8076
             hide_name = True
             size = 60, 20
         ]
@@ -289,22 +310,17 @@ model "simple_avg_dab" {
 
         junction Junction5 sp
         [
-            position = 8324, 8304
+            position = 8324, 8344
         ]
 
         junction Junction6 sp
         [
-            position = 8724, 8304
+            position = 8724, 8364
         ]
 
         junction Junction7 sp
         [
             position = 8672, 8036
-        ]
-
-        junction Junction8 sp
-        [
-            position = 8580, 8044
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -336,26 +352,26 @@ model "simple_avg_dab" {
         connect Vsp1asd1.in Junction4 as Connection17
         connect Junction4 "Square Wave Source2.out" as Connection18
         connect V_1.in Junction5 as Connection20
-        connect Junction5 Junction3 as Connection21
         connect Goto1 Junction5 as Connection22
         connect Goto2 iL.out as Connection23
         connect "V_2\'.in" Junction6 as Connection24
-        connect Junction6 Junction4 as Connection25
         connect Goto3 Junction6 as Connection26
         connect Product1.out Junction7 as Connection30
         connect Junction7 Goto4 as Connection31
         connect P.in Junction7 as Connection32
         connect From1 "Data Type Conversion1.in" as Connection33
-        connect Product1.in1 Junction8 as Connection43
-        connect Junction8 Product1.in as Connection44
-        connect Constant1.out Junction8 as Connection45
+        connect From2 Product1.in1 as Connection34
+        connect Constant1.out Product1.in as Connection35
+        connect Junction6 "Rate Transition1.out" as Connection36
+        connect "Rate Transition1.in" Junction4 as Connection37
+        connect Junction5 "Rate Transition2.out" as Connection38
+        connect "Rate Transition2.in" Junction3 as Connection39
     }
 
     logically_deleted {
-        "Data Type Conversion1"
         "From1"
+        "Data Type Conversion1"
         "Connection33"
-        "From2"
     }
 
     default {
@@ -428,6 +444,12 @@ model "simple_avg_dab" {
             visible = "True"
             override_signal_name = "False"
             signal_name = ""
+        }
+
+        "core/Rate Transition" {
+            init_value = "0.0"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'generic\']"
         }
 
         "core/Signal Controlled Voltage Source" {
