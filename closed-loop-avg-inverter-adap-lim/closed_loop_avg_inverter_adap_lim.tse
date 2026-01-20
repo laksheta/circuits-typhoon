@@ -283,7 +283,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "inherit"
         }
         [
-            position = 7968, 8172
+            position = 7580, 8168
             size = 48, 80
         ]
 
@@ -292,7 +292,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "u_d"
         }
         [
-            position = 7552, 8072
+            position = 7216, 8068
             hide_name = True
         ]
 
@@ -301,7 +301,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "u_q"
         }
         [
-            position = 7552, 8140
+            position = 7216, 8136
             hide_name = True
         ]
 
@@ -310,7 +310,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "0"
         }
         [
-            position = 7792, 8224
+            position = 7404, 8216
             hide_name = True
         ]
 
@@ -320,7 +320,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             kp = "Kp_i"
         }
         [
-            position = 7484, 8104
+            position = 7148, 8100
         ]
 
         component "core/PID controller" i_q {
@@ -329,20 +329,20 @@ model "closed_loop_avg_inverter_adap_lim" {
             kp = "Kp_i"
         }
         [
-            position = 7484, 8172
+            position = 7148, 8168
         ]
 
         component "core/Bus Join" "Bus Join3" {
         }
         [
-            position = 7684, 8096
+            position = 7300, 8088
             hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join4" {
         }
         [
-            position = 7684, 8164
+            position = 7300, 8160
             hide_name = True
         ]
 
@@ -350,7 +350,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             signs = "+-"
         }
         [
-            position = 7368, 8104
+            position = 7032, 8100
             hide_name = True
         ]
 
@@ -358,7 +358,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             signs = "+-"
         }
         [
-            position = 7368, 8172
+            position = 7032, 8168
             hide_name = True
         ]
 
@@ -367,21 +367,21 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "0"
         }
         [
-            position = 7184, 8164
+            position = 6848, 8160
             hide_name = True
         ]
 
         component "core/Probe" u_d {
         }
         [
-            position = 7852, 8024
+            position = 7468, 8016
             rotation = left
         ]
 
         component "core/Probe" u_q {
         }
         [
-            position = 7892, 8060
+            position = 7508, 8056
             rotation = left
         ]
 
@@ -395,33 +395,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 7180, 8076
-        ]
-
-        component "core/Limit" Limit1 {
-            lower_limit = "lower_lim"
-            upper_limit = "upper_lim"
-        }
-        [
-            position = 8080, 8116
-        ]
-
-        component "core/Limit" Limit2 {
-            lower_limit = "lower_lim"
-            upper_limit = "upper_lim"
-        }
-        [
-            position = 8080, 8172
-            hide_name = True
-        ]
-
-        component "core/Limit" Limit3 {
-            lower_limit = "lower_lim"
-            upper_limit = "upper_lim"
-        }
-        [
-            position = 8080, 8224
-            hide_name = True
+            position = 6844, 8072
         ]
 
         component "core/Constant" dc_input {
@@ -429,14 +403,14 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "780"
         }
         [
-            position = 7320, 8436
+            position = 7220, 7840
         ]
 
         component "core/Gain" Gain1 {
             gain = "0.5"
         }
         [
-            position = 7408, 8436
+            position = 7308, 7840
             hide_name = True
         ]
 
@@ -444,43 +418,264 @@ model "closed_loop_avg_inverter_adap_lim" {
             gain = "-0.5"
         }
         [
-            position = 7408, 8476
+            position = 7308, 7880
             hide_name = True
-        ]
-
-        component "core/Min Max" "Min Max1" {
-        }
-        [
-            position = 7868, 8428
-            hide_name = True
-        ]
-
-        component "core/Min Max" "Min Max2" {
-            operation = "max"
-        }
-        [
-            position = 7996, 8428
-            hide_name = True
-        ]
-
-        component "core/Probe" V_a_test {
-        }
-        [
-            position = 8088, 8428
         ]
 
         component "core/Bus Selector" "Bus Selector1" {
+            signal_indexes = "[1]"
         }
         [
-            position = 7784, 8096
+            position = 7396, 8088
             hide_name = True
         ]
 
         component "core/Bus Selector" "Bus Selector2" {
+            signal_indexes = "[1]"
         }
         [
-            position = 7784, 8164
+            position = 7396, 8160
             hide_name = True
+        ]
+
+        component Subsystem Adap_Limiter {
+            layout = dynamic
+            component "core/Min Max" "Min Max1" {
+            }
+            [
+                position = 8128, 8192
+                hide_name = True
+            ]
+
+            component "core/Min Max" "Min Max2" {
+                operation = "max"
+            }
+            [
+                position = 8256, 8192
+                hide_name = True
+            ]
+
+            port Out {
+                position = right:1
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8328, 8192
+            ]
+
+            port low_lim {
+                position = left:2
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8188, 8268
+            ]
+
+            port In {
+                position = left:1
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8044, 8172
+            ]
+
+            port up_lim {
+                position = left:3
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8056, 8272
+            ]
+
+            connect "Min Max1.in" In as Connection195
+            connect "Min Max2.in1" low_lim as Connection194
+            connect "Min Max2.out" Out as Connection193
+            connect "Min Max1.in1" up_lim as Connection196
+            connect "Min Max2.in" "Min Max1.out" as Connection192
+        }
+        [
+            position = 8000, 8076
+            size = 80, 64
+        ]
+
+        component Subsystem Adap_Limiter_1 {
+            layout = dynamic
+            component "core/Min Max" "Min Max1" {
+            }
+            [
+                position = 8128, 8192
+                hide_name = True
+            ]
+
+            component "core/Min Max" "Min Max2" {
+                operation = "max"
+            }
+            [
+                position = 8256, 8192
+                hide_name = True
+            ]
+
+            port Out {
+                position = right:1
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8328, 8192
+            ]
+
+            port low_lim {
+                position = left:2
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8188, 8268
+            ]
+
+            port In {
+                position = left:1
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8044, 8172
+            ]
+
+            port up_lim {
+                position = left:3
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8056, 8272
+            ]
+
+            connect "Min Max1.in" In as Connection195
+            connect "Min Max2.in1" low_lim as Connection194
+            connect "Min Max2.out" Out as Connection193
+            connect "Min Max1.in1" up_lim as Connection196
+            connect "Min Max2.in" "Min Max1.out" as Connection192
+        }
+        [
+            position = 8000, 8172
+            size = 80, 64
+        ]
+
+        component Subsystem Adap_Limiter_2 {
+            layout = dynamic
+            component "core/Min Max" "Min Max1" {
+            }
+            [
+                position = 8128, 8192
+                hide_name = True
+            ]
+
+            component "core/Min Max" "Min Max2" {
+                operation = "max"
+            }
+            [
+                position = 8256, 8192
+                hide_name = True
+            ]
+
+            port Out {
+                position = right:1
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8328, 8192
+            ]
+
+            port low_lim {
+                position = left:2
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8188, 8268
+            ]
+
+            port In {
+                position = left:1
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8044, 8172
+            ]
+
+            port up_lim {
+                position = left:3
+                kind = sp
+                direction =  out
+                sp_type {
+                    default = auto
+                    readonly = True
+                }
+            }
+            [
+                position = 8056, 8272
+            ]
+
+            connect "Min Max1.in" In as Connection195
+            connect "Min Max2.in1" low_lim as Connection194
+            connect "Min Max2.out" Out as Connection193
+            connect "Min Max1.in1" up_lim as Connection196
+            connect "Min Max2.in" "Min Max1.out" as Connection192
+        }
+        [
+            position = 8000, 8276
+            size = 80, 64
         ]
 
         tag From1 {
@@ -562,7 +757,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7868, 8216
+            position = 7484, 8208
             hide_name = True
             size = 60, 20
         ]
@@ -598,7 +793,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7252, 8132
+            position = 6916, 8128
             hide_name = True
             size = 60, 20
         ]
@@ -610,7 +805,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7252, 8200
+            position = 6916, 8196
             hide_name = True
             size = 60, 20
         ]
@@ -622,7 +817,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7504, 8436
+            position = 7404, 7840
             hide_name = True
             size = 60, 20
         ]
@@ -634,7 +829,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7504, 8476
+            position = 7404, 7880
             hide_name = True
             size = 60, 20
         ]
@@ -646,8 +841,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 8000, 8020
-            rotation = left
+            position = 7668, 8144
             hide_name = True
             size = 60, 20
         ]
@@ -659,8 +853,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 8024, 8020
-            rotation = left
+            position = 7668, 8168
             hide_name = True
             size = 60, 20
         ]
@@ -672,20 +865,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 8048, 8020
-            rotation = left
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From8 {
-            value = "V_a"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7744, 8396
+            position = 7668, 8192
             hide_name = True
             size = 60, 20
         ]
@@ -697,7 +877,8 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7744, 8460
+            position = 7896, 7948
+            rotation = right
             hide_name = True
             size = 60, 20
         ]
@@ -709,7 +890,44 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7744, 8496
+            position = 7920, 7948
+            rotation = right
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From11 {
+            value = "V_a"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7840, 8060
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From12 {
+            value = "V_b"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7840, 8156
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From13 {
+            value = "V_c"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7840, 8260
             hide_name = True
             size = 60, 20
         ]
@@ -741,32 +959,37 @@ model "closed_loop_avg_inverter_adap_lim" {
 
         junction Junction9 sp
         [
-            position = 7356, 8436
-        ]
-
-        junction Junction10 sp
-        [
-            position = 8000, 8148
-        ]
-
-        junction Junction11 sp
-        [
-            position = 8024, 8172
-        ]
-
-        junction Junction12 sp
-        [
-            position = 8048, 8196
+            position = 7256, 7840
         ]
 
         junction Junction13 sp
         [
-            position = 7892, 8164
+            position = 7508, 8160
         ]
 
         junction Junction14 sp
         [
-            position = 7852, 8096
+            position = 7468, 8088
+        ]
+
+        junction Junction15 sp
+        [
+            position = 7920, 8076
+        ]
+
+        junction Junction16 sp
+        [
+            position = 7920, 8172
+        ]
+
+        junction Junction17 sp
+        [
+            position = 7896, 8092
+        ]
+
+        junction Junction18 sp
+        [
+            position = 7896, 8188
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -827,7 +1050,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect From5 "dq to abc.wt" as Connection124
         connect Constant3.out "dq to abc.zero_input" as Connection131
         [
-            breakpoints = 7824, 8204; 7824, 8180
+            breakpoints = 7436, 8200; 7436, 8176
         ]
         connect Constant1.out "Bus Join3.in" as Connection136
         connect i_d.out "Bus Join3.in1" as Connection137
@@ -846,53 +1069,49 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Constant4.out Sum2.in as Connection151
         connect scada_i_d.out Sum1.in as Connection168
         [
-            breakpoints = 7316, 8076; 7316, 8096
-        ]
-        connect Limit1.out Vsp1.in as Connection169
-        connect Limit2.out Vsp2.in as Connection171
-        connect Limit3.out Vsp3.in as Connection174
-        [
-            breakpoints = 8120, 8224; 8120, 8276
+            breakpoints = 6980, 8072; 6980, 8092
         ]
         connect dc_input.out Junction9 as Connection176
         connect Junction9 Gain1.in as Connection177
         connect Gain2.in Junction9 as Connection178
         connect Gain1.out Goto7 as Connection179
         connect Goto8 Gain2.out as Connection180
-        connect Limit1.in Junction10 as Connection181
-        [
-            breakpoints = 8044, 8116; 8044, 8148
-        ]
-        connect Junction10 "dq to abc.phase_a" as Connection182
-        connect Goto9 Junction10 as Connection183
-        connect Limit2.in Junction11 as Connection184
-        connect Junction11 "dq to abc.phase_b" as Connection185
-        connect Goto10 Junction11 as Connection186
-        connect "dq to abc.phase_c" Junction12 as Connection187
-        connect Junction12 Limit3.in as Connection188
-        connect Goto11 Junction12 as Connection189
-        connect From8 "Min Max1.in" as Connection190
-        connect From9 "Min Max1.in1" as Connection191
-        connect "Min Max2.in" "Min Max1.out" as Connection192
-        connect "Min Max2.in1" From10 as Connection193
-        [
-            breakpoints = 7924, 8444; 7924, 8496
-        ]
-        connect V_a_test.in "Min Max2.out" as Connection194
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
         connect "Bus Selector2.in" "Bus Join4.out" as Connection207
         connect u_q.in Junction13 as Connection208
         connect Junction13 "dq to abc.q_input" as Connection209
         [
-            breakpoints = 7892, 8164
+            breakpoints = 7508, 8160
         ]
         connect "Bus Selector2.out" Junction13 as Connection210
         connect u_d.in Junction14 as Connection211
         connect Junction14 "dq to abc.d_input" as Connection212
         [
-            breakpoints = 7852, 8096
+            breakpoints = 7468, 8088
         ]
         connect "Bus Selector1.out" Junction14 as Connection213
+        connect "dq to abc.phase_a" Goto9 as Connection214
+        connect "dq to abc.phase_b" Goto10 as Connection215
+        connect "dq to abc.phase_c" Goto11 as Connection216
+        connect Adap_Limiter.Out Vsp1.in as Connection217
+        connect Adap_Limiter_1.Out Vsp2.in as Connection218
+        connect Adap_Limiter_2.Out Vsp3.in as Connection219
+        connect From11 Adap_Limiter.In as Connection222
+        connect From13 Adap_Limiter_2.In as Connection223
+        connect From12 Adap_Limiter_1.In as Connection224
+        connect From10 Junction15 as Connection225
+        connect Junction15 Adap_Limiter.low_lim as Connection226
+        [
+            breakpoints = 7920, 8076; 7944, 8076
+        ]
+        connect Adap_Limiter_1.low_lim Junction16 as Connection228
+        connect Junction16 Junction15 as Connection229
+        connect Adap_Limiter_2.low_lim Junction16 as Connection230
+        connect From9 Junction17 as Connection231
+        connect Junction17 Adap_Limiter.up_lim as Connection232
+        connect Adap_Limiter_2.up_lim Junction18 as Connection234
+        connect Junction18 Junction17 as Connection235
+        connect Adap_Limiter_1.up_lim Junction18 as Connection236
     }
 
     default {
@@ -932,12 +1151,6 @@ model "closed_loop_avg_inverter_adap_lim" {
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
-        }
-
-        "core/Limit" {
-            upper_limit = "[\'inf\']"
-            lower_limit = "[\'-inf\']"
-            execution_rate = "inherit"
         }
 
         "core/Min Max" {
