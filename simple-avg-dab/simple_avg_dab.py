@@ -18,4 +18,4 @@ d   = 0.5
 deg = d*(90/0.5)
 phi = (deg/360)*(1/fsw)
 
-phi_pu = phi*fsw
+phi_pu = 1-phi*fsw
