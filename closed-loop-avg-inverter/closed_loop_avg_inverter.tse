@@ -403,12 +403,41 @@ model "closed_loop_avg_inverter" {
         component "core/SCADA Input" scada_i_d {
             def_value = "10"
             execution_rate = "inherit"
-            max = "10"
-            min = "-10"
+            format = "int"
+            max = "100"
+            min = "-100"
+            signal_type = "int"
             unit = ""
         }
         [
             position = 7180, 8076
+        ]
+
+        component "core/Limit" Limit1 {
+            lower_limit = "lower_lim"
+            upper_limit = "upper_lim"
+        }
+        [
+            position = 8080, 8116
+            hide_name = True
+        ]
+
+        component "core/Limit" Limit2 {
+            lower_limit = "lower_lim"
+            upper_limit = "upper_lim"
+        }
+        [
+            position = 8080, 8172
+            hide_name = True
+        ]
+
+        component "core/Limit" Limit3 {
+            lower_limit = "lower_lim"
+            upper_limit = "upper_lim"
+        }
+        [
+            position = 8080, 8224
+            hide_name = True
         ]
 
         tag From1 {
@@ -634,12 +663,6 @@ model "closed_loop_avg_inverter" {
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
         connect From5 "dq to abc.wt" as Connection124
-        connect "dq to abc.phase_a" Vsp1.in as Connection126
-        connect "dq to abc.phase_b" Vsp2.in as Connection127
-        connect "dq to abc.phase_c" Vsp3.in as Connection128
-        [
-            breakpoints = 8116, 8196; 8116, 8276
-        ]
         connect Constant3.out "dq to abc.zero_input" as Connection131
         [
             breakpoints = 7824, 8204; 7824, 8180
@@ -680,6 +703,18 @@ model "closed_loop_avg_inverter" {
         [
             breakpoints = 7316, 8076; 7316, 8096
         ]
+        connect Limit1.out Vsp1.in as Connection169
+        connect Limit1.in "dq to abc.phase_a" as Connection170
+        [
+            breakpoints = 8044, 8116; 8044, 8148
+        ]
+        connect Limit2.out Vsp2.in as Connection171
+        connect Limit2.in "dq to abc.phase_b" as Connection172
+        connect "dq to abc.phase_c" Limit3.in as Connection173
+        connect Limit3.out Vsp3.in as Connection174
+        [
+            breakpoints = 8120, 8224; 8120, 8276
+        ]
     }
 
     default {
@@ -711,6 +746,12 @@ model "closed_loop_avg_inverter" {
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Limit" {
+            upper_limit = "[\'inf\']"
+            lower_limit = "[\'-inf\']"
+            execution_rate = "inherit"
         }
 
         "core/PID controller" {
