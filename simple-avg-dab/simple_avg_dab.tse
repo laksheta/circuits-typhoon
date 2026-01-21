@@ -9,7 +9,7 @@ model "simple_avg_dab" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = .1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -198,6 +198,7 @@ model "simple_avg_dab" {
 
         component "core/Mean Value" "Mean Value1" {
             execution_rate = "T_math"
+            number_of_points = "10000"
         }
         [
             position = 8560, 8036
@@ -292,7 +293,8 @@ model "simple_avg_dab" {
             value = "P"
         }
         [
-            position = 8964, 8216
+            position = 8900, 8208
+            hide_name = True
         ]
 
         component "core/Probe" P {
@@ -383,7 +385,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8896, 8124
+            position = 8964, 8196
             hide_name = True
             size = 60, 20
         ]
@@ -526,7 +528,6 @@ model "simple_avg_dab" {
         connect Junction10 Goto5 as Connection67
         connect V_out.in Junction10 as Connection68
         connect R_load1.out Product2.in1 as Connection69
-        connect Constant1.out Product2.in as Connection70
         connect Product1.out Junction11 as Connection72
         connect Junction11 "Mean Value1.in" as Connection73
         connect P_raw.in Junction11 as Connection74
@@ -536,10 +537,11 @@ model "simple_avg_dab" {
         [
             breakpoints = 8604, 7968; 8604, 8028
         ]
+        connect From3 Product2.in as Connection78
     }
 
     logically_deleted {
-        "From3"
+        "Constant1"
     }
 
     default {

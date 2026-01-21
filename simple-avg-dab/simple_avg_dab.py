@@ -7,9 +7,9 @@ import numpy as np
 
 fsw = 10e3
 
-T_meas = 10e-6
-T_wave  = 1e-6
-T_math  = 10e-6
+T_meas = 0.1e-6
+T_wave  = 1e-5  
+T_math  = 0.1e-6
 
 V1  = 780
 V2  = 780
@@ -27,3 +27,5 @@ phi_pu = 1-phi*fsw
 
 I = V1*D*(1-D)/(2*fsw*L)
 R_load = V1/I
+
+# print(I)
