@@ -11,6 +11,7 @@ T_meas = 0.1e-6
 T_wave  = 1e-6  
 T_math  = 0.1e-6
 
+V_in  = 780
 V1  = 780
 V2  = 780
 C   = 1e-6
