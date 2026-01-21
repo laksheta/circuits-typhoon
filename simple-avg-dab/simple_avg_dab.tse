@@ -84,14 +84,14 @@ model "simple_avg_dab" {
             ls_output = "-1"
         }
         [
-            position = 8060, 8236
+            position = 7976, 8276
             hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd {
         }
         [
-            position = 8280, 8268
+            position = 8196, 8308
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -102,19 +102,18 @@ model "simple_avg_dab" {
             inductance = "L"
         }
         [
-            position = 8408, 8228
+            position = 8324, 8268
             hide_name = True
         ]
 
         component "core/Square Wave Source" "Square Wave Source2" {
             execution_rate = "T_wave"
             frequency = "fsw"
-            hs_output = "V2"
-            ls_output = "-V2"
+            ls_output = "-1"
             phase = "phi_pu"
         }
         [
-            position = 8784, 8272
+            position = 8736, 8288
             hide_name = True
             scale = -1, 1
         ]
@@ -122,7 +121,7 @@ model "simple_avg_dab" {
         component "core/Signal Controlled Voltage Source" Vsp1asd1 {
         }
         [
-            position = 8616, 8272
+            position = 8532, 8312
             rotation = right
             hide_name = True
             size = 64, 32
@@ -131,7 +130,7 @@ model "simple_avg_dab" {
         component "core/Voltage Measurement" V_L {
         }
         [
-            position = 8408, 8168
+            position = 8324, 8208
             size = 64, 32
         ]
 
@@ -140,7 +139,7 @@ model "simple_avg_dab" {
             sig_output = "True"
         }
         [
-            position = 8536, 8228
+            position = 8452, 8268
             size = 64, 32
         ]
 
@@ -148,7 +147,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8248, 8376
+            position = 8164, 8416
             rotation = right
         ]
 
@@ -156,7 +155,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8648, 8396
+            position = 8564, 8436
             rotation = right
         ]
 
@@ -164,7 +163,7 @@ model "simple_avg_dab" {
             execution_rate = "T_math"
         }
         [
-            position = 8492, 8036
+            position = 8704, 8020
             hide_name = True
         ]
 
@@ -172,14 +171,14 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8568, 7968
+            position = 8780, 7952
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
             execution_rate = "T_meas"
         }
         [
-            position = 8648, 8328
+            position = 8564, 8368
             rotation = right
             hide_name = True
             size = 32, 32
@@ -189,7 +188,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8248, 8316
+            position = 8164, 8356
             rotation = right
             hide_name = True
             size = 32, 32
@@ -200,7 +199,7 @@ model "simple_avg_dab" {
             number_of_points = "10000"
         }
         [
-            position = 8560, 8036
+            position = 8772, 8020
             hide_name = True
         ]
 
@@ -209,7 +208,7 @@ model "simple_avg_dab" {
             signs = "*/"
         }
         [
-            position = 9092, 8256
+            position = 8996, 8296
             hide_name = True
         ]
 
@@ -218,7 +217,7 @@ model "simple_avg_dab" {
             signs = "+-"
         }
         [
-            position = 9260, 8256
+            position = 9164, 8296
             hide_name = True
         ]
 
@@ -227,7 +226,7 @@ model "simple_avg_dab" {
             value = "R_load"
         }
         [
-            position = 9056, 8368
+            position = 8960, 8408
         ]
 
         component "core/Product" Product3 {
@@ -235,7 +234,7 @@ model "simple_avg_dab" {
             signs = "*/"
         }
         [
-            position = 9160, 8344
+            position = 9064, 8384
             hide_name = True
         ]
 
@@ -243,7 +242,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9180, 8156
+            position = 9084, 8196
             rotation = left
         ]
 
@@ -252,7 +251,7 @@ model "simple_avg_dab" {
             gain = "1/C"
         }
         [
-            position = 9356, 8256
+            position = 9260, 8296
             hide_name = True
         ]
 
@@ -260,7 +259,7 @@ model "simple_avg_dab" {
             execution_rate = "T_math"
         }
         [
-            position = 9436, 8256
+            position = 9340, 8296
             hide_name = True
         ]
 
@@ -268,28 +267,28 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9292, 8328
+            position = 9196, 8368
         ]
 
         component "core/Probe" V_out {
             execution_rate = "T_meas"
         }
         [
-            position = 9524, 8204
+            position = 9428, 8244
         ]
 
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
         [
-            position = 8660, 7968
+            position = 8872, 7952
         ]
 
         component "core/Product" Product4 {
             execution_rate = "T_wave"
         }
         [
-            position = 8168, 8268
+            position = 8080, 8308
             hide_name = True
         ]
 
@@ -298,24 +297,34 @@ model "simple_avg_dab" {
             value = "V_in"
         }
         [
-            position = 8064, 8160
+            position = 7980, 8200
             hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition3" {
-            execution_rate = "T_math"
-        }
-        [
-            position = 8904, 8400
-            hide_name = True
-            size = 32, 32
         ]
 
         component "core/Rate Transition" "Rate Transition4" {
             execution_rate = "T_wave"
         }
         [
-            position = 8084, 8304
+            position = 8000, 8344
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Product" Product5 {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8624, 8312
+            rotation = down
+            hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition5" {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8700, 8344
+            rotation = down
             hide_name = True
             size = 32, 32
         ]
@@ -327,7 +336,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8164, 8344
+            position = 8080, 8384
             rotation = down
             hide_name = True
             size = 60, 20
@@ -340,7 +349,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8536, 8144
+            position = 8452, 8184
             rotation = left
             hide_name = True
             size = 60, 20
@@ -353,7 +362,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8744, 8364
+            position = 8660, 8404
             hide_name = True
             size = 60, 20
         ]
@@ -365,7 +374,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8400, 8000
+            position = 8612, 7984
             hide_name = True
             size = 60, 20
         ]
@@ -377,7 +386,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8400, 8072
+            position = 8612, 8056
             hide_name = True
             size = 60, 20
         ]
@@ -389,7 +398,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8664, 8036
+            position = 8876, 8020
             hide_name = True
             size = 60, 20
         ]
@@ -401,7 +410,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8960, 8232
+            position = 8872, 8268
             hide_name = True
             size = 60, 20
         ]
@@ -413,7 +422,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 9528, 8256
+            position = 9432, 8296
             hide_name = True
             size = 60, 20
         ]
@@ -425,7 +434,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 9048, 8324
+            position = 8952, 8364
             hide_name = True
             size = 60, 20
         ]
@@ -437,7 +446,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8160, 8160
+            position = 8076, 8200
             hide_name = True
             size = 60, 20
         ]
@@ -449,7 +458,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8004, 8304
+            position = 7920, 8344
             hide_name = True
             size = 60, 20
         ]
@@ -461,84 +470,97 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8888, 8296
+            position = 8872, 8324
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From8 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8780, 8344
+            rotation = down
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction1 pe
         [
-            position = 8344, 8228
+            position = 8260, 8268
         ]
 
         junction Junction2 pe
         [
-            position = 8472, 8228
-        ]
-
-        junction Junction4 sp
-        [
-            position = 8648, 8272
+            position = 8388, 8268
         ]
 
         junction Junction5 sp
         [
-            position = 8248, 8344
+            position = 8164, 8384
         ]
 
         junction Junction6 sp
         [
-            position = 8648, 8364
+            position = 8564, 8404
         ]
 
         junction Junction8 sp
         [
-            position = 9180, 8248
+            position = 9084, 8288
         ]
 
         junction Junction9 sp
         [
-            position = 9220, 8328
+            position = 9124, 8368
         ]
 
         junction Junction10 sp
         [
-            position = 9476, 8256
+            position = 9380, 8296
         ]
 
         junction Junction11 sp
         [
-            position = 8524, 8036
+            position = 8736, 8020
         ]
 
         junction Junction12 sp
         [
-            position = 8604, 8036
+            position = 8816, 8020
         ]
 
         junction Junction13 sp
         [
-            position = 8244, 8268
+            position = 8160, 8308
+        ]
+
+        junction Junction14 sp
+        [
+            position = 8564, 8312
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
         [
-            position = 8308, 8256
+            position = 8224, 8296
         ]
 
         comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2 '</p></body></html> ENDCOMMENT 
         [
-            position = 8548, 8256
+            position = 8464, 8296
         ]
 
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
         [
-            position = 9484, 8276
+            position = 9388, 8316
         ]
 
         connect Vsp1asd1.n_node Vsp1asd.n_node as Connection5
         [
-            breakpoints = 8536, 8320; 8280, 8320
+            breakpoints = 8452, 8360; 8196, 8360
         ]
         connect L1.p_node Junction1 as Connection6
         connect Junction1 Vsp1asd.p_node as Connection7
@@ -546,12 +568,10 @@ model "simple_avg_dab" {
         connect Junction2 L1.n_node as Connection10
         connect V_L.n_node Junction2 as Connection11
         [
-            breakpoints = 8472, 8168; 8472, 8228
+            breakpoints = 8388, 8208; 8388, 8268
         ]
         connect Vsp1asd1.p_node i_L.n_node as Connection12
         connect i_L.p_node Junction2 as Connection13
-        connect Vsp1asd1.in Junction4 as Connection17
-        connect Junction4 "Square Wave Source2.out" as Connection18
         connect V_1.in Junction5 as Connection20
         connect Goto1 Junction5 as Connection22
         connect Goto2 i_L.out as Connection23
@@ -559,7 +579,6 @@ model "simple_avg_dab" {
         connect Goto3 Junction6 as Connection26
         connect From2 Product1.in1 as Connection34
         connect Junction6 "Rate Transition1.out" as Connection36
-        connect "Rate Transition1.in" Junction4 as Connection37
         connect Junction5 "Rate Transition2.out" as Connection38
         connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
@@ -567,11 +586,11 @@ model "simple_avg_dab" {
         connect Sum1.in Junction8 as Connection57
         connect Junction8 I_dc.in as Connection58
         [
-            breakpoints = 9180, 8248
+            breakpoints = 9084, 8288
         ]
         connect Product2.out Junction8 as Connection59
         [
-            breakpoints = 9132, 8256; 9132, 8248
+            breakpoints = 9036, 8296; 9036, 8288
         ]
         connect Integrator1.in Gain1.out as Connection60
         connect From5 Product3.in as Connection62
@@ -588,13 +607,13 @@ model "simple_avg_dab" {
         connect Junction12 "Mean Value1.out" as Connection76
         connect P.in Junction12 as Connection77
         [
-            breakpoints = 8604, 7968; 8604, 8028
+            breakpoints = 8816, 7952; 8816, 8012
         ]
         connect From3 Product2.in as Connection78
         connect Vsp1asd.in Junction13 as Connection80
         connect Junction13 "Rate Transition2.in" as Connection81
         [
-            breakpoints = 8248, 8268
+            breakpoints = 8164, 8308
         ]
         connect Product4.out Junction13 as Connection82
         connect "Square Wave Source1.out" Product4.in as Connection83
@@ -602,10 +621,15 @@ model "simple_avg_dab" {
         connect From7 Product2.in1 as Connection86
         connect From6 "Rate Transition4.in" as Connection87
         connect "Rate Transition4.out" Product4.in1 as Connection88
-    }
-
-    logically_deleted {
-        "Rate Transition3"
+        connect Vsp1asd1.in Junction14 as Connection90
+        connect Junction14 "Rate Transition1.in" as Connection91
+        [
+            breakpoints = 8564, 8312
+        ]
+        connect Product5.out Junction14 as Connection92
+        connect "Square Wave Source2.out" Product5.in1 as Connection93
+        connect From8 "Rate Transition5.in" as Connection94
+        connect "Rate Transition5.out" Product5.in as Connection95
     }
 
     default {
