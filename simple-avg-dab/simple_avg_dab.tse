@@ -84,7 +84,7 @@ model "simple_avg_dab" {
             ls_output = "-1"
         }
         [
-            position = 8016, 8232
+            position = 8060, 8236
             hide_name = True
         ]
 
@@ -278,15 +278,6 @@ model "simple_avg_dab" {
             position = 9524, 8204
         ]
 
-        component "core/Constant" R_load1 {
-            execution_rate = "T_math"
-            value = "V1"
-        }
-        [
-            position = 8960, 8284
-            hide_name = True
-        ]
-
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
@@ -303,12 +294,30 @@ model "simple_avg_dab" {
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "T_wave"
-            value = "V1"
+            execution_rate = "T_math"
+            value = "V_in"
         }
         [
-            position = 8016, 8300
+            position = 8064, 8160
             hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition3" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8904, 8400
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition4" {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8084, 8304
+            hide_name = True
+            size = 32, 32
         ]
 
         tag Goto1 {
@@ -392,7 +401,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8960, 8216
+            position = 8960, 8232
             hide_name = True
             size = 60, 20
         ]
@@ -417,6 +426,42 @@ model "simple_avg_dab" {
         }
         [
             position = 9048, 8324
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto6 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8160, 8160
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From6 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8004, 8304
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From7 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8888, 8296
             hide_name = True
             size = 60, 20
         ]
@@ -536,7 +581,6 @@ model "simple_avg_dab" {
         connect Integrator1.out Junction10 as Connection66
         connect Junction10 Goto5 as Connection67
         connect V_out.in Junction10 as Connection68
-        connect R_load1.out Product2.in1 as Connection69
         connect Product1.out Junction11 as Connection72
         connect Junction11 "Mean Value1.in" as Connection73
         connect P_raw.in Junction11 as Connection74
@@ -554,7 +598,14 @@ model "simple_avg_dab" {
         ]
         connect Product4.out Junction13 as Connection82
         connect "Square Wave Source1.out" Product4.in as Connection83
-        connect Constant1.out Product4.in1 as Connection84
+        connect Constant1.out Goto6 as Connection84
+        connect From7 Product2.in1 as Connection86
+        connect From6 "Rate Transition4.in" as Connection87
+        connect "Rate Transition4.out" Product4.in1 as Connection88
+    }
+
+    logically_deleted {
+        "Rate Transition3"
     }
 
     default {
