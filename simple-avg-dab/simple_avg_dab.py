@@ -8,7 +8,7 @@ import numpy as np
 fsw = 10e3
 
 T_meas = 0.1e-6
-T_wave  = 1e-5  
+T_wave  = 1e-6  
 T_math  = 0.1e-6
 
 V1  = 780
