@@ -210,7 +210,7 @@ model "simple_avg_dab" {
             signs = "*/"
         }
         [
-            position = 9096, 8096
+            position = 9092, 8256
             hide_name = True
         ]
 
@@ -219,7 +219,7 @@ model "simple_avg_dab" {
             signs = "+-"
         }
         [
-            position = 9264, 8096
+            position = 9260, 8256
             hide_name = True
         ]
 
@@ -228,7 +228,55 @@ model "simple_avg_dab" {
             value = "R_load"
         }
         [
-            position = 9084, 8212
+            position = 9056, 8368
+        ]
+
+        component "core/Product" Product3 {
+            execution_rate = "T_math"
+            signs = "*/"
+        }
+        [
+            position = 9160, 8344
+            hide_name = True
+        ]
+
+        component "core/Probe" I_dc {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9180, 8156
+            rotation = left
+        ]
+
+        component "core/Gain" Gain1 {
+            execution_rate = "T_math"
+            gain = "1/C"
+        }
+        [
+            position = 9356, 8256
+            hide_name = True
+        ]
+
+        component "core/Integrator" Integrator1 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 9436, 8256
+            hide_name = True
+        ]
+
+        component "core/Probe" I_load {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9292, 8328
+        ]
+
+        component "core/Probe" V_out {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9524, 8204
         ]
 
         tag Goto1 {
@@ -312,7 +360,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8968, 8080
+            position = 8964, 8240
             hide_name = True
             size = 60, 20
         ]
@@ -324,19 +372,31 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8968, 8112
+            position = 8964, 8272
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto5 {
-            value = "test"
+            value = "V_out"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 9356, 8100
+            position = 9528, 8256
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From5 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9048, 8324
             hide_name = True
             size = 60, 20
         ]
@@ -374,6 +434,21 @@ model "simple_avg_dab" {
         junction Junction7 sp
         [
             position = 8604, 8036
+        ]
+
+        junction Junction8 sp
+        [
+            position = 9180, 8248
+        ]
+
+        junction Junction9 sp
+        [
+            position = 9220, 8328
+        ]
+
+        junction Junction10 sp
+        [
+            position = 9476, 8256
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -421,12 +496,28 @@ model "simple_avg_dab" {
         connect Product1.out "Mean Value1.in" as Connection46
         connect Product2.in1 From4 as Connection47
         [
-            breakpoints = 9056, 8104; 9056, 8108
+            breakpoints = 9052, 8264; 9052, 8268
         ]
         connect From3 Product2.in as Connection48
-        connect Sum1.in Product2.out as Connection49
-        connect R_load.out Sum1.in1 as Connection50
-        connect Sum1.out Goto5 as Connection51
+        connect R_load.out Product3.in1 as Connection53
+        connect Sum1.out Gain1.in as Connection55
+        connect Sum1.in Junction8 as Connection57
+        connect Junction8 I_dc.in as Connection58
+        [
+            breakpoints = 9180, 8248
+        ]
+        connect Product2.out Junction8 as Connection59
+        [
+            breakpoints = 9132, 8256; 9132, 8248
+        ]
+        connect Integrator1.in Gain1.out as Connection60
+        connect From5 Product3.in as Connection62
+        connect Product3.out Junction9 as Connection63
+        connect Junction9 Sum1.in1 as Connection64
+        connect I_load.in Junction9 as Connection65
+        connect Integrator1.out Junction10 as Connection66
+        connect Junction10 Goto5 as Connection67
+        connect V_out.in Junction10 as Connection68
     }
 
     default {
@@ -437,12 +528,33 @@ model "simple_avg_dab" {
             _tunable = "False"
         }
 
+        "core/Gain" {
+            gain = "1"
+            multiplication = "Element-wise(K.*u)"
+            tml_file = "gen_gain"
+            _tunable = "False"
+            execution_rate = "inherit"
+        }
+
         "core/Inductor" {
             signal_access = "inherit"
             inductance = "1e-3"
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Integrator" {
+            show_reset = "none"
+            reset_type = "asynchronous"
+            show_init_condition = "internal"
+            init_value = "0"
+            limit_output = "False"
+            limit_upper = "inf"
+            limit_lower = "-inf"
+            show_state = "False"
+            state_port_type = "inherit"
+            execution_rate = "inherit"
         }
 
         "core/Mean Value" {
