@@ -205,6 +205,32 @@ model "simple_avg_dab" {
             hide_name = True
         ]
 
+        component "core/Product" Product2 {
+            execution_rate = "T_math"
+            signs = "*/"
+        }
+        [
+            position = 9096, 8096
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum1 {
+            execution_rate = "T_math"
+            signs = "+-"
+        }
+        [
+            position = 9264, 8096
+            hide_name = True
+        ]
+
+        component "core/Constant" R_load {
+            execution_rate = "T_math"
+            value = "R_load"
+        }
+        [
+            position = 9084, 8212
+        ]
+
         tag Goto1 {
             value = "V_1"
             scope = local
@@ -275,6 +301,42 @@ model "simple_avg_dab" {
         }
         [
             position = 8664, 8036
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From3 {
+            value = "P"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8968, 8080
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From4 {
+            value = "V_1"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8968, 8112
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto5 {
+            value = "test"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9356, 8100
             hide_name = True
             size = 60, 20
         ]
@@ -357,9 +419,24 @@ model "simple_avg_dab" {
         connect Junction7 Goto4 as Connection44
         connect P.in Junction7 as Connection45
         connect Product1.out "Mean Value1.in" as Connection46
+        connect Product2.in1 From4 as Connection47
+        [
+            breakpoints = 9056, 8104; 9056, 8108
+        ]
+        connect From3 Product2.in as Connection48
+        connect Sum1.in Product2.out as Connection49
+        connect R_load.out Sum1.in1 as Connection50
+        connect Sum1.out Goto5 as Connection51
     }
 
     default {
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
+        }
+
         "core/Inductor" {
             signal_access = "inherit"
             inductance = "1e-3"
@@ -398,6 +475,11 @@ model "simple_avg_dab" {
             signal_type = "real"
             execution_rate = "100e-6"
             _tunable = "False"
+        }
+
+        "core/Sum" {
+            signs = "2"
+            execution_rate = "inherit"
         }
 
         "core/Current Measurement" {
