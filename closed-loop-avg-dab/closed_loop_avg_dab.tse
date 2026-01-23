@@ -399,6 +399,7 @@ out = in - floor(in);
             arb_defs = "/*Begin code section*/
 
 /*End code section*/"
+            execution_rate = "1e-6"
             init_fnc = "/*Begin code section*/
 
 /*End code section*/"
@@ -406,17 +407,26 @@ out = in - floor(in);
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
-out = floor(in);
+/* Improved Modulo logic to remove spikes */
+double temp = in - floor(in);
+
+if (temp >= 1.0) {
+    out = 0.0;
+} else if (temp < 0.0) {
+    out = 0.0;
+} else {
+    out = temp;
+}
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
             output_terminals_show_labels = "False"
             update_fnc = "/*Begin code section*/
-
+double temp;
 /*End code section*/"
         }
         [
-            position = 8756, 8588
+            position = 8752, 8588
             size = 48, 48
         ]
 
@@ -430,13 +440,14 @@ out = floor(in);
         ]
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
+            duty_cycle = "0"
             execution_rate = "1e-6"
             frequency = "10e3"
-            max_val = "2"
-            min_val = "-2"
+            max_val = "1.25"
+            min_val = "0"
         }
         [
-            position = 8636, 8584
+            position = 8640, 8580
         ]
 
         tag Goto1 {
