@@ -6,10 +6,16 @@
 import numpy as np
 
 fsw = 10e3
+T = 1/fsw
 
 T_meas = 0.1e-6
 T_wave  = 1e-6  
 T_math  = 0.1e-6
+T_delay = 1e-6
+
+delay_deg   = 45
+delay_N = ((delay_deg/360)*T)/T_delay
+print(delay_N)
 
 V_in  = 780
 V1  = 780
