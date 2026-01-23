@@ -329,6 +329,90 @@ model "closed_loop_avg_dab" {
             size = 32, 32
         ]
 
+        component "core/C function" "C function1" {
+            arb_defs = "/*Begin code section*/
+#include <math.h>
+/*End code section*/"
+            init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            input_terminals_dimensions = "inherit"
+            input_terminals_feedthrough = "True"
+            input_terminals_show_labels = "False"
+            output_fnc = "/*Begin code section*/
+out = in - floor(in);
+/*End code section*/"
+            output_terminals_dimensions = "inherit"
+            output_terminals_feedthrough = "True"
+            output_terminals_show_labels = "False"
+            update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+        }
+        [
+            position = 8388, 8580
+            size = 48, 48
+        ]
+
+        component "core/Triangular Wave Source" "Triangular Wave Source1" {
+            max_val = "2"
+            min_val = "-2"
+        }
+        [
+            position = 8272, 8580
+        ]
+
+        component "core/Probe" out_mod {
+        }
+        [
+            position = 8504, 8580
+        ]
+
+        component "core/Probe" in_mod {
+        }
+        [
+            position = 8320, 8508
+            rotation = left
+        ]
+
+        component "core/C function" "C function2" {
+            arb_defs = "/*Begin code section*/
+#include <math.h>
+/*End code section*/"
+            init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            input_terminals_dimensions = "inherit"
+            input_terminals_feedthrough = "True"
+            input_terminals_show_labels = "False"
+            output_fnc = "/*Begin code section*/
+out = in - floor(in);
+/*End code section*/"
+            output_terminals_dimensions = "inherit"
+            output_terminals_feedthrough = "True"
+            output_terminals_show_labels = "False"
+            update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+        }
+        [
+            position = 8768, 8588
+            size = 48, 48
+        ]
+
+        component "core/Probe" out_c {
+        }
+        [
+            position = 8884, 8588
+        ]
+
+        component "core/Probe" in_c {
+        }
+        [
+            position = 8700, 8516
+            rotation = left
+        ]
+
         tag Goto1 {
             value = "V_1"
             scope = local
@@ -543,6 +627,11 @@ model "closed_loop_avg_dab" {
             position = 8564, 8312
         ]
 
+        junction Junction15 sp
+        [
+            position = 8320, 8580
+        ]
+
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
         [
             position = 8224, 8296
@@ -630,9 +719,174 @@ model "closed_loop_avg_dab" {
         connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
+        connect out_mod.in "C function1.out" as Connection97
+        connect "Triangular Wave Source1.out" Junction15 as Connection98
+        connect Junction15 "C function1.in" as Connection99
+        connect in_mod.in Junction15 as Connection100
+        connect out_c.in "C function2.out" as Connection101
+        connect in_c.in "C function2.in" as Connection105
+        [
+            breakpoints = 8700, 8588
+        ]
+    }
+
+    logically_deleted {
+        "Square Wave Source1"
+        "Vsp1asd"
+        "L1"
+        "Square Wave Source2"
+        "Vsp1asd1"
+        "V_L"
+        "i_L"
+        "V_1"
+        "V_2\'"
+        "Product1"
+        "P_raw"
+        "Rate Transition1"
+        "Rate Transition2"
+        "Mean Value1"
+        "Product2"
+        "Sum1"
+        "R_load"
+        "Product3"
+        "I_dc"
+        "Gain1"
+        "Integrator1"
+        "I_load"
+        "V_out"
+        "P"
+        "Product4"
+        "Constant1"
+        "Rate Transition4"
+        "Product5"
+        "Rate Transition5"
+        "Goto1"
+        "Goto2"
+        "Goto3"
+        "From1"
+        "From2"
+        "Goto4"
+        "From3"
+        "Goto5"
+        "From5"
+        "Goto6"
+        "From6"
+        "From7"
+        "From8"
+        "Junction1"
+        "Junction2"
+        "Junction5"
+        "Junction6"
+        "Junction8"
+        "Junction9"
+        "Junction10"
+        "Junction11"
+        "Junction12"
+        "Junction13"
+        "Junction14"
+        "Comment1"
+        "Comment2"
+        "Comment3"
+        "Connection5"
+        "Connection6"
+        "Connection7"
+        "Connection8"
+        "Connection10"
+        "Connection11"
+        "Connection12"
+        "Connection13"
+        "Connection20"
+        "Connection22"
+        "Connection23"
+        "Connection24"
+        "Connection26"
+        "Connection34"
+        "Connection36"
+        "Connection38"
+        "Connection40"
+        "Connection53"
+        "Connection55"
+        "Connection57"
+        "Connection58"
+        "Connection59"
+        "Connection60"
+        "Connection62"
+        "Connection63"
+        "Connection64"
+        "Connection65"
+        "Connection66"
+        "Connection67"
+        "Connection68"
+        "Connection72"
+        "Connection73"
+        "Connection74"
+        "Connection75"
+        "Connection76"
+        "Connection77"
+        "Connection78"
+        "Connection80"
+        "Connection81"
+        "Connection82"
+        "Connection83"
+        "Connection84"
+        "Connection86"
+        "Connection87"
+        "Connection88"
+        "Connection90"
+        "Connection91"
+        "Connection92"
+        "Connection93"
+        "Connection94"
+        "Connection95"
+        "C function1"
+        "Triangular Wave Source1"
+        "out_mod"
+        "Connection97"
+        "in_mod"
+        "Junction15"
+        "Connection98"
+        "Connection99"
+        "Connection100"
     }
 
     default {
+        "core/C function" {
+            input_terminals = "real in;"
+            input_terminals_show_labels = "False;"
+            input_terminals_feedthrough = "True;"
+            input_terminals_dimensions = "inherit;"
+            output_terminals = "real out;"
+            output_terminals_show_labels = "False;"
+            output_terminals_feedthrough = "True;"
+            output_terminals_dimensions = "inherit;"
+            output_fnc = ""
+            update_fnc = ""
+            init_fnc = ""
+            global_variables = ""
+            parameters = ""
+            library_load_type = "Compile-time load"
+            dll_file_path = ""
+            dll_file_path_full = ""
+            arm_a9_file_path = ""
+            arm_a9_file_path_full = ""
+            arm_a53_file_path = ""
+            arm_a53_file_path_full = ""
+            h_file_path = ""
+            h_file_path_full = ""
+            add_src_path = ""
+            add_src_path_full = ""
+            convert_to_relative_dll = "True"
+            convert_to_relative_a = "True"
+            convert_to_relative_src = "True"
+            arb_defs = ""
+            add_macros = ""
+            skip_pre_cmpl_check = "False"
+            generate_for_hil = "True"
+            execution_rate = "inherit"
+            _supported_platforms = "[\'generic\']"
+            refresh = "refresh"
+        }
+
         "core/Constant" {
             value = "1"
             signal_type = "real"
@@ -704,6 +958,16 @@ model "closed_loop_avg_dab" {
         "core/Sum" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/Triangular Wave Source" {
+            min_val = "-0.5"
+            max_val = "0.5"
+            frequency = "50"
+            duty_cycle = "0.5"
+            phase = "0"
+            execution_rate = "100e-6"
+            _tunable = "False"
         }
 
         "core/Current Measurement" {
