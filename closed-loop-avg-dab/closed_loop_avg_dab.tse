@@ -426,7 +426,7 @@ double temp;
 /*End code section*/"
         }
         [
-            position = 8752, 8588
+            position = 9036, 8620
             size = 48, 48
         ]
 
@@ -441,13 +441,33 @@ double temp;
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
             duty_cycle = "0"
-            execution_rate = "1e-6"
+            execution_rate = "0.1e-6"
             frequency = "10e3"
-            max_val = "1.25"
+            max_val = "1"
             min_val = "0"
         }
         [
-            position = 8640, 8580
+            position = 8640, 8588
+        ]
+
+        component "core/Transport Delay" "Transport Delay1" {
+            execution_rate = "0.1e-6"
+            time_delay = "8.33e-6"
+        }
+        [
+            position = 8760, 8580
+        ]
+
+        component "core/Delay" Delay1 {
+        }
+        [
+            position = 8768, 8660
+        ]
+
+        component "core/Probe" out_z {
+        }
+        [
+            position = 8880, 8660
         ]
 
         tag Goto1 {
@@ -671,7 +691,12 @@ double temp;
 
         junction Junction16 sp
         [
-            position = 8700, 8580
+            position = 8692, 8588
+        ]
+
+        junction Junction17 sp
+        [
+            position = 8704, 8580
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -765,16 +790,19 @@ double temp;
         connect "Triangular Wave Source1.out" Junction15 as Connection98
         connect Junction15 "C function1.in" as Connection99
         connect in_mod.in Junction15 as Connection100
-        connect "C function2.out" out_c.in as Connection113
-        connect in_c.in Junction16 as Connection119
+        connect "Transport Delay1.out" out_c.in as Connection123
+        connect in_c.in Junction16 as Connection124
         [
-            breakpoints = 8700, 8540
+            breakpoints = 8700, 8540; 8700, 8580
         ]
-        connect Junction16 "C function2.in" as Connection120
-        connect "Triangular Wave Source3.out" Junction16 as Connection121
+        connect Junction16 "Triangular Wave Source3.out" as Connection125
         [
             breakpoints = 8692, 8584
         ]
+        connect Delay1.out out_z.in as Connection127
+        connect "Transport Delay1.in" Junction17 as Connection128
+        connect Junction17 Junction16 as Connection129
+        connect Delay1.in Junction17 as Connection130
     }
 
     logically_deleted {
@@ -894,6 +922,8 @@ double temp;
         "Connection98"
         "Connection99"
         "Connection100"
+        "Triangular Wave Source2"
+        "C function2"
     }
 
     default {
@@ -939,6 +969,16 @@ double temp;
             signal_type = "real"
             execution_rate = "100e-6"
             _tunable = "False"
+        }
+
+        "core/Delay" {
+            delay_type = "Fixed delay"
+            del_length = "2"
+            max_delay_length = "20"
+            init_value = "0"
+            signal_out_type = "inherit"
+            tml_file = "gen_delay"
+            execution_rate = "inherit"
         }
 
         "core/Gain" {
@@ -1004,6 +1044,13 @@ double temp;
 
         "core/Sum" {
             signs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Transport Delay" {
+            time_delay = "0.1"
+            init_value = "0"
+            signal_out_type = "inherit"
             execution_rate = "inherit"
         }
 
