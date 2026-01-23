@@ -441,7 +441,7 @@ double temp;
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
             duty_cycle = "0"
-            execution_rate = "0.1e-6"
+            execution_rate = "1e-6"
             frequency = "10e3"
             max_val = "1"
             min_val = "0"
@@ -459,6 +459,10 @@ double temp;
         ]
 
         component "core/Delay" Delay1 {
+            del_length = "83.33"
+            delay_type = "Variable delay"
+            execution_rate = "1e-6"
+            max_delay_length = "100"
         }
         [
             position = 8768, 8660
@@ -468,6 +472,16 @@ double temp;
         }
         [
             position = 8880, 8660
+        ]
+
+        component "core/SCADA Input" "SCADA Input1" {
+            execution_rate = "1e-6"
+            max = "100"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8592, 8728
         ]
 
         tag Goto1 {
@@ -803,6 +817,7 @@ double temp;
         connect "Transport Delay1.in" Junction17 as Connection128
         connect Junction17 Junction16 as Connection129
         connect Delay1.in Junction17 as Connection130
+        connect "SCADA Input1.out" Delay1.delay_in as Connection131
     }
 
     logically_deleted {
@@ -922,8 +937,12 @@ double temp;
         "Connection98"
         "Connection99"
         "Connection100"
+        "out_c"
         "Triangular Wave Source2"
+        "Transport Delay1"
         "C function2"
+        "Connection123"
+        "Connection128"
     }
 
     default {
@@ -1029,6 +1048,20 @@ double temp;
         "core/Product" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
         }
 
         "core/Square Wave Source" {
