@@ -329,159 +329,67 @@ model "closed_loop_avg_dab" {
             size = 32, 32
         ]
 
-        component "core/C function" "C function1" {
-            arb_defs = "/*Begin code section*/
-#include <math.h>
-/*End code section*/"
-            init_fnc = "/*Begin code section*/
-
-/*End code section*/"
-            input_terminals_dimensions = "inherit"
-            input_terminals_feedthrough = "True"
-            input_terminals_show_labels = "False"
-            output_fnc = "/*Begin code section*/
-out = in - floor(in);
-/*End code section*/"
-            output_terminals_dimensions = "inherit"
-            output_terminals_feedthrough = "True"
-            output_terminals_show_labels = "False"
-            update_fnc = "/*Begin code section*/
-
-/*End code section*/"
-        }
-        [
-            position = 8388, 8580
-            size = 48, 48
-        ]
-
-        component "core/Triangular Wave Source" "Triangular Wave Source1" {
-            max_val = "2"
-            min_val = "-2"
-        }
-        [
-            position = 8272, 8580
-        ]
-
-        component "core/Probe" out_mod {
-        }
-        [
-            position = 8504, 8580
-        ]
-
-        component "core/Probe" in_mod {
-        }
-        [
-            position = 8320, 8508
-            rotation = left
-        ]
-
-        component "core/Probe" out_c {
-        }
-        [
-            position = 8884, 8588
-        ]
-
         component "core/Probe" in_c {
+            execution_rate = "T_meas"
         }
         [
-            position = 8700, 8516
+            position = 8732, 8512
             rotation = left
-        ]
-
-        component "core/Constant" Constant2 {
-            value = "4"
-        }
-        [
-            position = 8596, 8496
-        ]
-
-        component "core/C function" "C function2" {
-            arb_defs = "/*Begin code section*/
-
-/*End code section*/"
-            execution_rate = "1e-6"
-            init_fnc = "/*Begin code section*/
-
-/*End code section*/"
-            input_terminals_dimensions = "inherit"
-            input_terminals_feedthrough = "True"
-            input_terminals_show_labels = "False"
-            output_fnc = "/*Begin code section*/
-/* Improved Modulo logic to remove spikes */
-double temp = in - floor(in);
-
-if (temp >= 1.0) {
-    out = 0.0;
-} else if (temp < 0.0) {
-    out = 0.0;
-} else {
-    out = temp;
-}
-/*End code section*/"
-            output_terminals_dimensions = "inherit"
-            output_terminals_feedthrough = "True"
-            output_terminals_show_labels = "False"
-            update_fnc = "/*Begin code section*/
-double temp;
-/*End code section*/"
-        }
-        [
-            position = 9036, 8620
-            size = 48, 48
-        ]
-
-        component "core/Triangular Wave Source" "Triangular Wave Source2" {
-            frequency = "10e3"
-            max_val = "1.25"
-            min_val = "0"
-        }
-        [
-            position = 9040, 8528
         ]
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
             duty_cycle = "0"
-            execution_rate = "1e-6"
+            execution_rate = "T_wave"
             frequency = "10e3"
             max_val = "1"
             min_val = "0"
         }
         [
-            position = 8640, 8588
-        ]
-
-        component "core/Transport Delay" "Transport Delay1" {
-            execution_rate = "0.1e-6"
-            time_delay = "8.33e-6"
-        }
-        [
-            position = 8760, 8580
+            position = 8656, 8588
+            hide_name = True
         ]
 
         component "core/Delay" Delay1 {
             del_length = "83.33"
             delay_type = "Variable delay"
-            execution_rate = "1e-6"
+            execution_rate = "T_delay"
             max_delay_length = "100"
         }
         [
-            position = 8768, 8660
+            position = 8824, 8596
+            hide_name = True
         ]
 
         component "core/Probe" out_z {
+            execution_rate = "T_meas"
         }
         [
-            position = 8880, 8660
+            position = 8936, 8596
         ]
 
-        component "core/SCADA Input" "SCADA Input1" {
-            execution_rate = "1e-6"
-            max = "100"
-            min = "0"
-            unit = ""
+        component "core/Constant" Constant2 {
+            execution_rate = "T_delay"
+            value = "delay_N"
         }
         [
-            position = 8592, 8728
+            position = 8656, 8648
+        ]
+
+        component "core/Rate Transition" "Rate Transition6" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8888, 8596
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition7" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8732, 8560
+            rotation = left
+            size = 32, 32
         ]
 
         tag Goto1 {
@@ -700,17 +608,7 @@ double temp;
 
         junction Junction15 sp
         [
-            position = 8320, 8580
-        ]
-
-        junction Junction16 sp
-        [
-            position = 8692, 8588
-        ]
-
-        junction Junction17 sp
-        [
-            position = 8704, 8580
+            position = 8732, 8588
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -800,24 +698,13 @@ double temp;
         connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
-        connect out_mod.in "C function1.out" as Connection97
-        connect "Triangular Wave Source1.out" Junction15 as Connection98
-        connect Junction15 "C function1.in" as Connection99
-        connect in_mod.in Junction15 as Connection100
-        connect "Transport Delay1.out" out_c.in as Connection123
-        connect in_c.in Junction16 as Connection124
-        [
-            breakpoints = 8700, 8540; 8700, 8580
-        ]
-        connect Junction16 "Triangular Wave Source3.out" as Connection125
-        [
-            breakpoints = 8692, 8584
-        ]
-        connect Delay1.out out_z.in as Connection127
-        connect "Transport Delay1.in" Junction17 as Connection128
-        connect Junction17 Junction16 as Connection129
-        connect Delay1.in Junction17 as Connection130
-        connect "SCADA Input1.out" Delay1.delay_in as Connection131
+        connect Constant2.out Delay1.delay_in as Connection128
+        connect "Triangular Wave Source3.out" Junction15 as Connection130
+        connect Junction15 Delay1.in as Connection131
+        connect Delay1.out "Rate Transition6.in" as Connection133
+        connect "Rate Transition6.out" out_z.in as Connection134
+        connect in_c.in "Rate Transition7.out" as Connection135
+        connect "Rate Transition7.in" Junction15 as Connection136
     }
 
     logically_deleted {
@@ -928,61 +815,9 @@ double temp;
         "Connection93"
         "Connection94"
         "Connection95"
-        "C function1"
-        "Triangular Wave Source1"
-        "out_mod"
-        "Connection97"
-        "in_mod"
-        "Junction15"
-        "Connection98"
-        "Connection99"
-        "Connection100"
-        "out_c"
-        "Triangular Wave Source2"
-        "Transport Delay1"
-        "C function2"
-        "Connection123"
-        "Connection128"
     }
 
     default {
-        "core/C function" {
-            input_terminals = "real in;"
-            input_terminals_show_labels = "False;"
-            input_terminals_feedthrough = "True;"
-            input_terminals_dimensions = "inherit;"
-            output_terminals = "real out;"
-            output_terminals_show_labels = "False;"
-            output_terminals_feedthrough = "True;"
-            output_terminals_dimensions = "inherit;"
-            output_fnc = ""
-            update_fnc = ""
-            init_fnc = ""
-            global_variables = ""
-            parameters = ""
-            library_load_type = "Compile-time load"
-            dll_file_path = ""
-            dll_file_path_full = ""
-            arm_a9_file_path = ""
-            arm_a9_file_path_full = ""
-            arm_a53_file_path = ""
-            arm_a53_file_path_full = ""
-            h_file_path = ""
-            h_file_path_full = ""
-            add_src_path = ""
-            add_src_path_full = ""
-            convert_to_relative_dll = "True"
-            convert_to_relative_a = "True"
-            convert_to_relative_src = "True"
-            arb_defs = ""
-            add_macros = ""
-            skip_pre_cmpl_check = "False"
-            generate_for_hil = "True"
-            execution_rate = "inherit"
-            _supported_platforms = "[\'generic\']"
-            refresh = "refresh"
-        }
-
         "core/Constant" {
             value = "1"
             signal_type = "real"
@@ -1050,20 +885,6 @@ double temp;
             execution_rate = "inherit"
         }
 
-        "core/SCADA Input" {
-            signal_access = "inherit"
-            addr = "0"
-            format = "real"
-            override_signal_name = "False"
-            signal_name = ""
-            signal_type = "real"
-            min = "-1e6"
-            max = "1e6"
-            def_value = "0"
-            unit = " "
-            execution_rate = "100e-6"
-        }
-
         "core/Square Wave Source" {
             hs_output = "1"
             ls_output = "0"
@@ -1077,13 +898,6 @@ double temp;
 
         "core/Sum" {
             signs = "2"
-            execution_rate = "inherit"
-        }
-
-        "core/Transport Delay" {
-            time_delay = "0.1"
-            init_value = "0"
-            signal_out_type = "inherit"
             execution_rate = "inherit"
         }
 
