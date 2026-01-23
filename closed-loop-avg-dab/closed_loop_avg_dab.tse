@@ -1,0 +1,787 @@
+version = 4.2
+
+//
+// Saved by sw version: 2025.4
+//
+
+model "closed_loop_avg_dab" {
+    configuration {
+        hil_device = "VHIL+"
+        hil_configuration_id = 1
+        simulation_method = exact
+        simulation_time_step = auto
+        simulation_discret_scaling = 1.0
+        dsp_timer_periods = 100e-6, 50e-3
+        ss_calc_method = "systematic elimination"
+        enb_pole_shift = True
+        enb_gds_oversampling = True
+        show_modes = False
+        device_ao_limit_enable = False
+        reset_analog_outputs_on_sim_stop = True
+        reset_analog_outputs_on_sim_stop_mode = Offset values
+        reset_digital_outputs_on_sim_stop = True
+        vhil_adio_loopback = False
+        dma_enable = False
+        cpl_stb = False
+        enb_dep_sw_detect = False
+        code_section = "internal memory"
+        data_section = "internal memory"
+        sys_sp_rate_1 = 0.0001
+        sys_sp_rate_2 = 0.05
+        sys_real_type_precision = "default"
+        user_real_type_precision = "default"
+        sys_cpu_optimization = "high"
+        user_cpu_optimization = "high"
+        user_cpu_part_option = "default"
+        matrix_based_reduction = True
+        cpl_dynamics_analysis = False
+        export_ss_to_pickle = False
+        ground_scope_core = False
+        dss_num_tol = 1e-15
+        cce_platform = "generic"
+        cce_use_relative_names = False
+        cce_type_mapping_real = "double"
+        cce_type_mapping_uint = "unsigned int"
+        cce_type_mapping_int = "int"
+        cce_platform = "generic"
+        cce_use_relative_names = False
+        cce_type_mapping_real = "double"
+        cce_type_mapping_uint = "unsigned int"
+        cce_type_mapping_int = "int"
+        cce_term_var_location = "local"
+        cce_directory = ""
+        cce_custom_type_int = ""
+        cce_custom_type_uint = ""
+        cce_custom_type_real = ""
+        tunable_params = "component defined"
+        sp_compiler_type = "C compiler"
+        sig_stim = "off"
+        export_resource_list = ""
+        export_dependency_list = ""
+        excluded_resource_list = ""
+        excluded_component_from_locking_list = ""
+        export_out_file = ""
+        export_lock_top_level = True
+        export_encrypt_library = True
+        export_encrypt_resources = True
+        solver_type = "DAE"
+        integration_method = "BDF"
+        max_sim_step = 1e-4
+        simulation_time = 1.0
+        abs_tol = 1e-3
+        rel_tol = 1e-3
+        init_sim_step = 1e-6
+        r_on_sw = 1e-3
+        v_on_diode = 0.1
+        data_sampling_rate = 0
+        feedthrough_validation_error_level = error
+    }
+
+    component Subsystem Root {
+        component "core/Square Wave Source" "Square Wave Source1" {
+            execution_rate = "T_wave"
+            frequency = "fsw"
+            ls_output = "-1"
+        }
+        [
+            position = 7976, 8276
+            hide_name = True
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp1asd {
+        }
+        [
+            position = 8196, 8308
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Inductor" L1 {
+            inductance = "L"
+        }
+        [
+            position = 8324, 8268
+            hide_name = True
+        ]
+
+        component "core/Square Wave Source" "Square Wave Source2" {
+            execution_rate = "T_wave"
+            frequency = "fsw"
+            ls_output = "-1"
+            phase = "phi_pu"
+        }
+        [
+            position = 8736, 8288
+            hide_name = True
+            scale = -1, 1
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp1asd1 {
+        }
+        [
+            position = 8532, 8312
+            rotation = right
+            hide_name = True
+            size = 64, 32
+        ]
+
+        component "core/Voltage Measurement" V_L {
+        }
+        [
+            position = 8324, 8208
+            size = 64, 32
+        ]
+
+        component "core/Current Measurement" i_L {
+            execution_rate = "T_meas"
+            sig_output = "True"
+        }
+        [
+            position = 8452, 8268
+            size = 64, 32
+        ]
+
+        component "core/Probe" V_1 {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8164, 8416
+            rotation = right
+        ]
+
+        component "core/Probe" "V_2\'" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8564, 8436
+            rotation = right
+        ]
+
+        component "core/Product" Product1 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8704, 8020
+            hide_name = True
+        ]
+
+        component "core/Probe" P_raw {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8780, 7952
+        ]
+
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8564, 8368
+            rotation = right
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8164, 8356
+            rotation = right
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Mean Value" "Mean Value1" {
+            execution_rate = "T_math"
+            number_of_points = "10000"
+        }
+        [
+            position = 8772, 8020
+            hide_name = True
+        ]
+
+        component "core/Product" Product2 {
+            execution_rate = "T_math"
+            signs = "*/"
+        }
+        [
+            position = 8996, 8296
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum1 {
+            execution_rate = "T_math"
+            signs = "+-"
+        }
+        [
+            position = 9164, 8296
+            hide_name = True
+        ]
+
+        component "core/Constant" R_load {
+            execution_rate = "T_math"
+            value = "R_load"
+        }
+        [
+            position = 8960, 8408
+        ]
+
+        component "core/Product" Product3 {
+            execution_rate = "T_math"
+            signs = "*/"
+        }
+        [
+            position = 9064, 8384
+            hide_name = True
+        ]
+
+        component "core/Probe" I_dc {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9084, 8196
+            rotation = left
+        ]
+
+        component "core/Gain" Gain1 {
+            execution_rate = "T_math"
+            gain = "1/C"
+        }
+        [
+            position = 9260, 8296
+            hide_name = True
+        ]
+
+        component "core/Integrator" Integrator1 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 9340, 8296
+            hide_name = True
+        ]
+
+        component "core/Probe" I_load {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9196, 8368
+        ]
+
+        component "core/Probe" V_out {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9428, 8244
+        ]
+
+        component "core/Probe" P {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8872, 7952
+        ]
+
+        component "core/Product" Product4 {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8080, 8308
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant1 {
+            execution_rate = "T_math"
+            value = "V_in"
+        }
+        [
+            position = 7980, 8200
+            hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition4" {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8000, 8344
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Product" Product5 {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8624, 8312
+            rotation = down
+            hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition5" {
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8700, 8344
+            rotation = down
+            hide_name = True
+            size = 32, 32
+        ]
+
+        tag Goto1 {
+            value = "V_1"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8080, 8384
+            rotation = down
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto2 {
+            value = "i_L"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8452, 8184
+            rotation = left
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto3 {
+            value = "V_2\'"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8660, 8404
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From1 {
+            value = "i_L"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8612, 7984
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From2 {
+            value = "V_2\'"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8612, 8056
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto4 {
+            value = "P"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8876, 8020
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From3 {
+            value = "P"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8872, 8268
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto5 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9432, 8296
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From5 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8952, 8364
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto6 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8076, 8200
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From6 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7920, 8344
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From7 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8872, 8324
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From8 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8780, 8344
+            rotation = down
+            hide_name = True
+            size = 60, 20
+        ]
+
+        junction Junction1 pe
+        [
+            position = 8260, 8268
+        ]
+
+        junction Junction2 pe
+        [
+            position = 8388, 8268
+        ]
+
+        junction Junction5 sp
+        [
+            position = 8164, 8384
+        ]
+
+        junction Junction6 sp
+        [
+            position = 8564, 8404
+        ]
+
+        junction Junction8 sp
+        [
+            position = 9084, 8288
+        ]
+
+        junction Junction9 sp
+        [
+            position = 9124, 8368
+        ]
+
+        junction Junction10 sp
+        [
+            position = 9380, 8296
+        ]
+
+        junction Junction11 sp
+        [
+            position = 8736, 8020
+        ]
+
+        junction Junction12 sp
+        [
+            position = 8816, 8020
+        ]
+
+        junction Junction13 sp
+        [
+            position = 8160, 8308
+        ]
+
+        junction Junction14 sp
+        [
+            position = 8564, 8312
+        ]
+
+        comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
+        [
+            position = 8224, 8296
+        ]
+
+        comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2 '</p></body></html> ENDCOMMENT 
+        [
+            position = 8464, 8296
+        ]
+
+        comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
+        [
+            position = 9388, 8316
+        ]
+
+        connect Vsp1asd1.n_node Vsp1asd.n_node as Connection5
+        [
+            breakpoints = 8452, 8360; 8196, 8360
+        ]
+        connect L1.p_node Junction1 as Connection6
+        connect Junction1 Vsp1asd.p_node as Connection7
+        connect V_L.p_node Junction1 as Connection8
+        connect Junction2 L1.n_node as Connection10
+        connect V_L.n_node Junction2 as Connection11
+        [
+            breakpoints = 8388, 8208; 8388, 8268
+        ]
+        connect Vsp1asd1.p_node i_L.n_node as Connection12
+        connect i_L.p_node Junction2 as Connection13
+        connect V_1.in Junction5 as Connection20
+        connect Goto1 Junction5 as Connection22
+        connect Goto2 i_L.out as Connection23
+        connect "V_2\'.in" Junction6 as Connection24
+        connect Goto3 Junction6 as Connection26
+        connect From2 Product1.in1 as Connection34
+        connect Junction6 "Rate Transition1.out" as Connection36
+        connect Junction5 "Rate Transition2.out" as Connection38
+        connect From1 Product1.in as Connection40
+        connect R_load.out Product3.in1 as Connection53
+        connect Sum1.out Gain1.in as Connection55
+        connect Sum1.in Junction8 as Connection57
+        connect Junction8 I_dc.in as Connection58
+        [
+            breakpoints = 9084, 8288
+        ]
+        connect Product2.out Junction8 as Connection59
+        [
+            breakpoints = 9036, 8296; 9036, 8288
+        ]
+        connect Integrator1.in Gain1.out as Connection60
+        connect From5 Product3.in as Connection62
+        connect Product3.out Junction9 as Connection63
+        connect Junction9 Sum1.in1 as Connection64
+        connect I_load.in Junction9 as Connection65
+        connect Integrator1.out Junction10 as Connection66
+        connect Junction10 Goto5 as Connection67
+        connect V_out.in Junction10 as Connection68
+        connect Product1.out Junction11 as Connection72
+        connect Junction11 "Mean Value1.in" as Connection73
+        connect P_raw.in Junction11 as Connection74
+        connect Goto4 Junction12 as Connection75
+        connect Junction12 "Mean Value1.out" as Connection76
+        connect P.in Junction12 as Connection77
+        [
+            breakpoints = 8816, 7952; 8816, 8012
+        ]
+        connect From3 Product2.in as Connection78
+        connect Vsp1asd.in Junction13 as Connection80
+        connect Junction13 "Rate Transition2.in" as Connection81
+        [
+            breakpoints = 8164, 8308
+        ]
+        connect Product4.out Junction13 as Connection82
+        connect "Square Wave Source1.out" Product4.in as Connection83
+        connect Constant1.out Goto6 as Connection84
+        connect From7 Product2.in1 as Connection86
+        connect From6 "Rate Transition4.in" as Connection87
+        connect "Rate Transition4.out" Product4.in1 as Connection88
+        connect Vsp1asd1.in Junction14 as Connection90
+        connect Junction14 "Rate Transition1.in" as Connection91
+        [
+            breakpoints = 8564, 8312
+        ]
+        connect Product5.out Junction14 as Connection92
+        connect "Square Wave Source2.out" Product5.in1 as Connection93
+        connect From8 "Rate Transition5.in" as Connection94
+        connect "Rate Transition5.out" Product5.in as Connection95
+    }
+
+    default {
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
+        }
+
+        "core/Gain" {
+            gain = "1"
+            multiplication = "Element-wise(K.*u)"
+            tml_file = "gen_gain"
+            _tunable = "False"
+            execution_rate = "inherit"
+        }
+
+        "core/Inductor" {
+            signal_access = "inherit"
+            inductance = "1e-3"
+            initial_current = "0.0"
+            pole_shift_ignore = "False"
+            visible = "True"
+        }
+
+        "core/Integrator" {
+            show_reset = "none"
+            reset_type = "asynchronous"
+            show_init_condition = "internal"
+            init_value = "0"
+            limit_output = "False"
+            limit_upper = "inf"
+            limit_lower = "-inf"
+            show_state = "False"
+            state_port_type = "inherit"
+            execution_rate = "inherit"
+        }
+
+        "core/Mean Value" {
+            number_of_points = "1000"
+            execution_rate = "inherit"
+        }
+
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/Product" {
+            signs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Square Wave Source" {
+            hs_output = "1"
+            ls_output = "0"
+            frequency = "50"
+            duty_cycle = "0.5"
+            phase = "0"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
+        }
+
+        "core/Sum" {
+            signs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Current Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
+        }
+
+        "core/Rate Transition" {
+            init_value = "0.0"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'generic\']"
+        }
+
+        "core/Signal Controlled Voltage Source" {
+            execution_rate = "inherit"
+        }
+
+        "core/Voltage Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
+        }
+    }
+
+    CODE model_init
+        # Numpy module is imported as 'np'
+        # Scipy module is imported as 'sp'
+        # The Schematic API is imported as 'mdl'
+        # To get the model file path, use 'mdl.get_model_file_path()'
+        # To print information to the console, use info()
+        
+        import os
+        
+        # Get the directory where the .tse model file is located
+        model_dir = os.path.dirname(mdl.get_model_file_path())
+        
+        # Create the full path to your parameter file
+        param_file_path = os.path.join(model_dir, "closed_loop_avg_dab.py")
+        
+        # Read and execute the entire file
+        with open(param_file_path, 'r') as f:
+            exec(f.read(), globals(), locals())
+    ENDCODE
+}
