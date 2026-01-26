@@ -329,11 +329,11 @@ model "closed_loop_avg_dab" {
             size = 32, 32
         ]
 
-        component "core/Probe" in_c {
+        component "core/Probe" primary_carrier {
             execution_rate = "T_meas"
         }
         [
-            position = 8732, 8512
+            position = 8464, 8572
             rotation = left
         ]
 
@@ -345,7 +345,7 @@ model "closed_loop_avg_dab" {
             min_val = "0"
         }
         [
-            position = 8656, 8588
+            position = 8368, 8648
             hide_name = True
         ]
 
@@ -356,15 +356,16 @@ model "closed_loop_avg_dab" {
             max_delay_length = "100"
         }
         [
-            position = 8824, 8596
+            position = 8536, 8656
             hide_name = True
         ]
 
-        component "core/Probe" out_z {
+        component "core/Probe" secondary_carrier {
             execution_rate = "T_meas"
         }
         [
-            position = 8936, 8596
+            position = 8608, 8764
+            rotation = right
         ]
 
         component "core/Constant" Constant2 {
@@ -372,7 +373,7 @@ model "closed_loop_avg_dab" {
             value = "delay_N"
         }
         [
-            position = 8556, 8712
+            position = 8040, 8836
             hide_name = True
         ]
 
@@ -380,7 +381,8 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8888, 8596
+            position = 8608, 8700
+            rotation = right
             hide_name = True
             size = 32, 32
         ]
@@ -389,7 +391,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8732, 8560
+            position = 8464, 8620
             rotation = left
             hide_name = True
             size = 32, 32
@@ -400,7 +402,7 @@ model "closed_loop_avg_dab" {
             signs = "****"
         }
         [
-            position = 8480, 8612
+            position = 8192, 8672
             hide_name = True
         ]
 
@@ -409,7 +411,7 @@ model "closed_loop_avg_dab" {
             value = "1/360"
         }
         [
-            position = 8348, 8656
+            position = 8056, 8716
             hide_name = True
         ]
 
@@ -418,7 +420,7 @@ model "closed_loop_avg_dab" {
             value = "T"
         }
         [
-            position = 8348, 8688
+            position = 8056, 8748
             hide_name = True
         ]
 
@@ -427,25 +429,59 @@ model "closed_loop_avg_dab" {
             value = "1/T_delay"
         }
         [
-            position = 8348, 8720
+            position = 8056, 8780
             hide_name = True
         ]
 
         component "core/Constant" deg {
             execution_rate = "T_math"
-            value = "45"
+            value = "90"
         }
         [
-            position = 8344, 8588
+            position = 7976, 8648
         ]
 
         component "core/Rate Transition" "Rate Transition8" {
             execution_rate = "T_delay"
         }
         [
-            position = 8596, 8612
+            position = 8304, 8672
             hide_name = True
             size = 32, 32
+        ]
+
+        component "core/Comparator" Comparator1 {
+        }
+        [
+            position = 9140, 8572
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant6 {
+            value = "0.5"
+        }
+        [
+            position = 9000, 8540
+            hide_name = True
+        ]
+
+        component "core/Comparator" Comparator2 {
+        }
+        [
+            position = 9140, 8660
+            hide_name = True
+        ]
+
+        component "core/Probe" V1 {
+        }
+        [
+            position = 9216, 8572
+        ]
+
+        component "core/Probe" V2 {
+        }
+        [
+            position = 9216, 8660
         ]
 
         tag Goto1 {
@@ -607,6 +643,54 @@ model "closed_loop_avg_dab" {
             size = 60, 20
         ]
 
+        tag Goto7 {
+            value = "primary_carrier"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8512, 8528
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto8 {
+            value = "secondary_carrier"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8716, 8656
+            hide_name = True
+            size = 100, 20
+        ]
+
+        tag From9 {
+            value = "primary_carrier"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9016, 8600
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag From10 {
+            value = "secondary_carrier"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9012, 8688
+            hide_name = True
+            size = 100, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8260, 8268
@@ -664,7 +748,22 @@ model "closed_loop_avg_dab" {
 
         junction Junction15 sp
         [
-            position = 8732, 8588
+            position = 8464, 8648
+        ]
+
+        junction Junction16 sp
+        [
+            position = 8416, 8648
+        ]
+
+        junction Junction17 sp
+        [
+            position = 8608, 8656
+        ]
+
+        junction Junction18 sp
+        [
+            position = 9084, 8540
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -754,24 +853,38 @@ model "closed_loop_avg_dab" {
         connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
-        connect "Triangular Wave Source3.out" Junction15 as Connection130
         connect Junction15 Delay1.in as Connection131
-        connect Delay1.out "Rate Transition6.in" as Connection133
-        connect "Rate Transition6.out" out_z.in as Connection134
-        connect in_c.in "Rate Transition7.out" as Connection135
+        connect "Rate Transition6.out" secondary_carrier.in as Connection134
+        connect primary_carrier.in "Rate Transition7.out" as Connection135
         connect "Rate Transition7.in" Junction15 as Connection136
         connect Constant3.out Product6.in1 as Connection137
         connect Constant4.out Product6.in2 as Connection138
         [
-            breakpoints = 8428, 8688; 8428, 8620
+            breakpoints = 8136, 8748; 8136, 8680
         ]
         connect Constant5.out Product6.in3 as Connection139
         [
-            breakpoints = 8412, 8720; 8412, 8636
+            breakpoints = 8120, 8780; 8120, 8696
         ]
         connect deg.out Product6.in as Connection140
         connect Product6.out "Rate Transition8.in" as Connection141
         connect "Rate Transition8.out" Delay1.delay_in as Connection142
+        connect "Triangular Wave Source3.out" Junction16 as Connection143
+        connect Junction16 Junction15 as Connection144
+        connect Goto7 Junction16 as Connection145
+        connect Delay1.out Junction17 as Connection146
+        connect Junction17 "Rate Transition6.in" as Connection147
+        connect Goto8 Junction17 as Connection148
+        connect From9 Comparator1.in2 as Connection149
+        connect From10 Comparator2.in2 as Connection151
+        connect Comparator1.in1 Junction18 as Connection152
+        [
+            breakpoints = 9108, 8564; 9108, 8540
+        ]
+        connect Junction18 Constant6.out as Connection153
+        connect Comparator2.in1 Junction18 as Connection154
+        connect Comparator2.out V2.in as Connection155
+        connect Comparator1.out V1.in as Connection156
     }
 
     logically_deleted {
@@ -882,9 +995,14 @@ model "closed_loop_avg_dab" {
         "Connection93"
         "Connection94"
         "Connection95"
+        "Constant2"
     }
 
     default {
+        "core/Comparator" {
+            execution_rate = "inherit"
+        }
+
         "core/Constant" {
             value = "1"
             signal_type = "real"
