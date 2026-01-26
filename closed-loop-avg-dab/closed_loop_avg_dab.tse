@@ -372,7 +372,8 @@ model "closed_loop_avg_dab" {
             value = "delay_N"
         }
         [
-            position = 8656, 8648
+            position = 8556, 8712
+            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition6" {
@@ -380,6 +381,7 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 8888, 8596
+            hide_name = True
             size = 32, 32
         ]
 
@@ -389,6 +391,60 @@ model "closed_loop_avg_dab" {
         [
             position = 8732, 8560
             rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Product" Product6 {
+            execution_rate = "T_math"
+            signs = "****"
+        }
+        [
+            position = 8480, 8612
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant3 {
+            execution_rate = "T_math"
+            value = "1/360"
+        }
+        [
+            position = 8348, 8656
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant4 {
+            execution_rate = "T_math"
+            value = "T"
+        }
+        [
+            position = 8348, 8688
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant5 {
+            execution_rate = "T_math"
+            value = "1/T_delay"
+        }
+        [
+            position = 8348, 8720
+            hide_name = True
+        ]
+
+        component "core/Constant" deg {
+            execution_rate = "T_math"
+            value = "45"
+        }
+        [
+            position = 8344, 8588
+        ]
+
+        component "core/Rate Transition" "Rate Transition8" {
+            execution_rate = "T_delay"
+        }
+        [
+            position = 8596, 8612
+            hide_name = True
             size = 32, 32
         ]
 
@@ -698,13 +754,24 @@ model "closed_loop_avg_dab" {
         connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
-        connect Constant2.out Delay1.delay_in as Connection128
         connect "Triangular Wave Source3.out" Junction15 as Connection130
         connect Junction15 Delay1.in as Connection131
         connect Delay1.out "Rate Transition6.in" as Connection133
         connect "Rate Transition6.out" out_z.in as Connection134
         connect in_c.in "Rate Transition7.out" as Connection135
         connect "Rate Transition7.in" Junction15 as Connection136
+        connect Constant3.out Product6.in1 as Connection137
+        connect Constant4.out Product6.in2 as Connection138
+        [
+            breakpoints = 8428, 8688; 8428, 8620
+        ]
+        connect Constant5.out Product6.in3 as Connection139
+        [
+            breakpoints = 8412, 8720; 8412, 8636
+        ]
+        connect deg.out Product6.in as Connection140
+        connect Product6.out "Rate Transition8.in" as Connection141
+        connect "Rate Transition8.out" Delay1.delay_in as Connection142
     }
 
     logically_deleted {
