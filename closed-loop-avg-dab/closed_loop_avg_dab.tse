@@ -312,15 +312,6 @@ model "closed_loop_avg_dab" {
             rotation = right
         ]
 
-        component "core/Constant" Constant2 {
-            execution_rate = "T_delay"
-            value = "delay_N"
-        }
-        [
-            position = 8040, 8836
-            hide_name = True
-        ]
-
         component "core/Rate Transition" "Rate Transition6" {
             execution_rate = "T_meas"
         }
@@ -455,88 +446,6 @@ model "closed_loop_avg_dab" {
             position = 9292, 8660
             hide_name = True
             size = 48, 48
-        ]
-
-        component "core/Square Wave Source" "Square Wave Source2" {
-            execution_rate = "T_plant"
-            frequency = "fsw"
-            ls_output = "-1"
-            phase = "phi_pu"
-        }
-        [
-            position = 8788, 8388
-            hide_name = True
-            scale = -1, 1
-        ]
-
-        component "core/Product" Product5 {
-            execution_rate = "T_plant"
-        }
-        [
-            position = 8676, 8412
-            rotation = down
-            hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_plant"
-        }
-        [
-            position = 8752, 8444
-            rotation = down
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Square Wave Source" "Square Wave Source1" {
-            execution_rate = "T_plant"
-            frequency = "fsw"
-            ls_output = "-1"
-        }
-        [
-            position = 7920, 8340
-            hide_name = True
-        ]
-
-        component "core/Product" Product4 {
-            execution_rate = "T_plant"
-        }
-        [
-            position = 8024, 8372
-            hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition4" {
-            execution_rate = "T_plant"
-        }
-        [
-            position = 7944, 8408
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Square Wave Source" "Square Wave Source3" {
-            execution_rate = "T_plant"
-            frequency = "fsw"
-            hs_output = "780"
-            ls_output = "-780"
-            phase = "phi_pu"
-        }
-        [
-            position = 8588, 8256
-            hide_name = True
-            scale = -1, 1
-        ]
-
-        component "core/Square Wave Source" "Square Wave Source4" {
-            execution_rate = "T_plant"
-            frequency = "fsw"
-            hs_output = "780"
-            ls_output = "-780"
-        }
-        [
-            position = 7868, 8244
-            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
@@ -754,56 +663,6 @@ model "closed_loop_avg_dab" {
             size = 60, 20
         ]
 
-        tag From8 {
-            value = "V_in"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8832, 8444
-            rotation = down
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From6 {
-            value = "V_in"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7864, 8408
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto9 {
-            value = "V_1"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 8272, 8412
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto10 {
-            value = "V_2\'"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 8440, 8412
-            rotation = down
-            hide_name = True
-            size = 60, 20
-        ]
-
         junction Junction1 pe
         [
             position = 8260, 8268
@@ -968,12 +827,6 @@ model "closed_loop_avg_dab" {
         ]
         connect Gain2.out Offset1.in as Connection169
         connect Gain3.out Offset2.in as Connection171
-        connect "Square Wave Source2.out" Product5.in1 as Connection93
-        connect From8 "Rate Transition5.in" as Connection94
-        connect "Rate Transition5.out" Product5.in as Connection95
-        connect "Square Wave Source1.out" Product4.in as Connection83
-        connect From6 "Rate Transition4.in" as Connection87
-        connect "Rate Transition4.out" Product4.in1 as Connection88
         connect Vsp1asd.in Junction23 as Connection216
         connect Junction23 "Rate Transition2.in" as Connection217
         [
@@ -992,27 +845,6 @@ model "closed_loop_avg_dab" {
         connect Goto3 Offset2.out as Connection225
         connect From2 "Rate Transition9.in" as Connection226
         connect "Rate Transition9.out" Product1.in1 as Connection227
-    }
-
-    logically_deleted {
-        "Product5"
-        "Rate Transition5"
-        "From8"
-        "Connection94"
-        "Connection95"
-        "Square Wave Source1"
-        "Product4"
-        "Rate Transition4"
-        "From6"
-        "Connection83"
-        "Connection87"
-        "Connection88"
-        "Square Wave Source2"
-        "Connection93"
-        "Goto9"
-        "Goto10"
-        "Square Wave Source4"
-        "Square Wave Source3"
     }
 
     default {
@@ -1085,17 +917,6 @@ model "closed_loop_avg_dab" {
         "core/Product" {
             signs = "2"
             execution_rate = "inherit"
-        }
-
-        "core/Square Wave Source" {
-            hs_output = "1"
-            ls_output = "0"
-            frequency = "50"
-            duty_cycle = "0.5"
-            phase = "0"
-            signal_type = "real"
-            execution_rate = "100e-6"
-            _tunable = "False"
         }
 
         "core/Sum" {
