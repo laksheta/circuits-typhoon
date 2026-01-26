@@ -480,13 +480,13 @@ model "closed_loop_avg_dab" {
         component "core/Probe" V1 {
         }
         [
-            position = 9284, 8572
+            position = 9468, 8572
         ]
 
         component "core/Probe" V2 {
         }
         [
-            position = 9284, 8660
+            position = 9468, 8660
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
@@ -512,7 +512,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9212, 8660
+            position = 9396, 8660
             hide_name = True
             size = 32, 32
         ]
@@ -521,9 +521,47 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9212, 8572
+            position = 9396, 8572
             hide_name = True
             size = 32, 32
+        ]
+
+        component "core/Gain" Gain2 {
+            execution_rate = "T_delay"
+            gain = "2*V_in"
+        }
+        [
+            position = 9216, 8572
+            hide_name = True
+        ]
+
+        component "core/Gain" Gain3 {
+            execution_rate = "T_delay"
+            gain = "2*V_in"
+        }
+        [
+            position = 9216, 8660
+            hide_name = True
+        ]
+
+        component "core/Offset" Offset1 {
+            const_val = "-V_in"
+            execution_rate = "T_delay"
+        }
+        [
+            position = 9288, 8572
+            hide_name = True
+            size = 48, 48
+        ]
+
+        component "core/Offset" Offset2 {
+            const_val = "-V_in"
+            execution_rate = "T_delay"
+        }
+        [
+            position = 9292, 8660
+            hide_name = True
+            size = 48, 48
         ]
 
         tag Goto1 {
@@ -927,10 +965,14 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition9.out" Product5.in1 as Connection158
         connect "Square Wave Source1.out" "Rate Transition10.in" as Connection159
         connect "Rate Transition10.out" Product4.in as Connection160
-        connect Comparator2.out "Rate Transition11.in" as Connection161
         connect "Rate Transition11.out" V2.in as Connection162
-        connect Comparator1.out "Rate Transition12.in" as Connection163
         connect "Rate Transition12.out" V1.in as Connection164
+        connect Comparator1.out Gain2.in as Connection165
+        connect Comparator2.out Gain3.in as Connection167
+        connect Gain2.out Offset1.in as Connection169
+        connect Offset1.out "Rate Transition12.in" as Connection170
+        connect Gain3.out Offset2.in as Connection171
+        connect Offset2.out "Rate Transition11.in" as Connection172
     }
 
     default {
@@ -1053,6 +1095,12 @@ model "closed_loop_avg_dab" {
             visible = "True"
             override_signal_name = "False"
             signal_name = ""
+        }
+
+        "core/Offset" {
+            const_val = "0"
+            const_val_type = "real"
+            execution_rate = "inherit"
         }
 
         "core/Rate Transition" {
