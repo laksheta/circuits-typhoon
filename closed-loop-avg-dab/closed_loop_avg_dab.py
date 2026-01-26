@@ -9,9 +9,8 @@ fsw = 10e3
 T = 1/fsw
 
 T_meas = 0.1e-6
-T_wave  = 0.1e-6  
-T_plant = 1e-6
-T_math  = 1e-6
+T_wave  = 1e-6  
+T_math  = 0.1e-6
 T_delay = 1e-6
 T_plant = 1e-6
 

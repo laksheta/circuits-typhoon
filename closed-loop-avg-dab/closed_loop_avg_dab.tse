@@ -84,11 +84,7 @@ model "closed_loop_avg_dab" {
             ls_output = "-1"
         }
         [
-<<<<<<< HEAD
-            position = 7808, 8280
-=======
             position = 7924, 8276
->>>>>>> temp-fix
             hide_name = True
         ]
 
@@ -96,7 +92,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_plant"
         }
         [
-            position = 8028, 8312
+            position = 8196, 8308
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -107,7 +103,7 @@ model "closed_loop_avg_dab" {
             inductance = "L"
         }
         [
-            position = 8156, 8272
+            position = 8324, 8268
             hide_name = True
         ]
 
@@ -118,7 +114,7 @@ model "closed_loop_avg_dab" {
             phase = "phi_pu"
         }
         [
-            position = 8628, 8296
+            position = 8736, 8288
             hide_name = True
             scale = -1, 1
         ]
@@ -127,7 +123,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_plant"
         }
         [
-            position = 8364, 8320
+            position = 8532, 8312
             rotation = right
             hide_name = True
             size = 64, 32
@@ -136,7 +132,7 @@ model "closed_loop_avg_dab" {
         component "core/Voltage Measurement" V_L {
         }
         [
-            position = 8156, 8216
+            position = 8324, 8208
             size = 64, 32
         ]
 
@@ -145,7 +141,7 @@ model "closed_loop_avg_dab" {
             sig_output = "True"
         }
         [
-            position = 8284, 8272
+            position = 8452, 8268
             size = 64, 32
         ]
 
@@ -153,7 +149,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 7996, 8424
+            position = 8164, 8416
             rotation = right
         ]
 
@@ -161,7 +157,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8396, 8440
+            position = 8564, 8436
             rotation = right
         ]
 
@@ -169,7 +165,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_math"
         }
         [
-            position = 8656, 8020
+            position = 8704, 8020
             hide_name = True
         ]
 
@@ -177,14 +173,14 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8780, 7928
+            position = 8780, 7952
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
             execution_rate = "T_meas"
         }
         [
-            position = 8396, 8376
+            position = 8564, 8368
             rotation = right
             hide_name = True
             size = 32, 32
@@ -194,7 +190,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 7996, 8360
+            position = 8164, 8356
             rotation = right
             hide_name = True
             size = 32, 32
@@ -280,21 +276,21 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9436, 8220
+            position = 9428, 8244
         ]
 
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
         [
-            position = 8872, 7928
+            position = 8872, 7952
         ]
 
         component "core/Product" Product4 {
             execution_rate = "T_wave"
         }
         [
-            position = 7912, 8312
+            position = 8080, 8308
             hide_name = True
         ]
 
@@ -303,7 +299,7 @@ model "closed_loop_avg_dab" {
             value = "V_in"
         }
         [
-            position = 7812, 8208
+            position = 7980, 8200
             hide_name = True
         ]
 
@@ -311,11 +307,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-<<<<<<< HEAD
-            position = 7832, 8352
-=======
             position = 7984, 8348
->>>>>>> temp-fix
             hide_name = True
             size = 32, 32
         ]
@@ -324,7 +316,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-            position = 8492, 8320
+            position = 8624, 8312
             rotation = down
             hide_name = True
         ]
@@ -333,7 +325,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-            position = 8568, 8352
+            position = 8700, 8344
             rotation = down
             hide_name = True
             size = 32, 32
@@ -495,17 +487,10 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
-<<<<<<< HEAD
-            execution_rate = "T_plant"
-        }
-        [
-            position = 8428, 8320
-=======
             execution_rate = "T_wave"
         }
         [
             position = 8692, 8288
->>>>>>> temp-fix
             rotation = down
             hide_name = True
             size = 32, 32
@@ -515,79 +500,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-<<<<<<< HEAD
-            position = 8568, 8296
-            rotation = down
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition11" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 9380, 8252
-            rotation = left
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition12" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 9152, 8368
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition13" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 9084, 8244
-            rotation = left
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition14" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 8816, 7960
-            rotation = left
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition15" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 8736, 7956
-            rotation = left
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition16" {
-            execution_rate = "T_math"
-        }
-        [
-            position = 8584, 7984
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition17" {
-            execution_rate = "T_math"
-        }
-        [
-            position = 8584, 8056
-=======
             position = 7984, 8276
->>>>>>> temp-fix
             hide_name = True
             size = 32, 32
         ]
@@ -599,7 +512,7 @@ model "closed_loop_avg_dab" {
             direction = in
         }
         [
-            position = 7912, 8392
+            position = 8080, 8384
             rotation = down
             hide_name = True
             size = 60, 20
@@ -612,7 +525,7 @@ model "closed_loop_avg_dab" {
             direction = in
         }
         [
-            position = 8284, 8192
+            position = 8452, 8184
             rotation = left
             hide_name = True
             size = 60, 20
@@ -625,7 +538,7 @@ model "closed_loop_avg_dab" {
             direction = in
         }
         [
-            position = 8492, 8408
+            position = 8660, 8404
             hide_name = True
             size = 60, 20
         ]
@@ -637,7 +550,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8508, 7984
+            position = 8612, 7984
             hide_name = True
             size = 60, 20
         ]
@@ -649,7 +562,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8508, 8056
+            position = 8612, 8056
             hide_name = True
             size = 60, 20
         ]
@@ -709,7 +622,7 @@ model "closed_loop_avg_dab" {
             direction = in
         }
         [
-            position = 7908, 8208
+            position = 8076, 8200
             hide_name = True
             size = 60, 20
         ]
@@ -721,11 +634,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-<<<<<<< HEAD
-            position = 7752, 8352
-=======
             position = 7904, 8348
->>>>>>> temp-fix
             hide_name = True
             size = 60, 20
         ]
@@ -749,7 +658,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8648, 8352
+            position = 8780, 8344
             rotation = down
             hide_name = True
             size = 60, 20
@@ -805,22 +714,22 @@ model "closed_loop_avg_dab" {
 
         junction Junction1 pe
         [
-            position = 8092, 8272
+            position = 8260, 8268
         ]
 
         junction Junction2 pe
         [
-            position = 8220, 8272
+            position = 8388, 8268
         ]
 
         junction Junction5 sp
         [
-            position = 7996, 8392
+            position = 8164, 8384
         ]
 
         junction Junction6 sp
         [
-            position = 8396, 8408
+            position = 8564, 8404
         ]
 
         junction Junction8 sp
@@ -850,12 +759,12 @@ model "closed_loop_avg_dab" {
 
         junction Junction13 sp
         [
-            position = 7992, 8312
+            position = 8160, 8308
         ]
 
         junction Junction14 sp
         [
-            position = 8396, 8320
+            position = 8564, 8312
         ]
 
         junction Junction15 sp
@@ -880,12 +789,12 @@ model "closed_loop_avg_dab" {
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
         [
-            position = 8056, 8304
+            position = 8224, 8296
         ]
 
         comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2 '</p></body></html> ENDCOMMENT 
         [
-            position = 8296, 8304
+            position = 8464, 8296
         ]
 
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
@@ -895,7 +804,7 @@ model "closed_loop_avg_dab" {
 
         connect Vsp1asd1.n_node Vsp1asd.n_node as Connection5
         [
-            breakpoints = 8284, 8368; 8028, 8368
+            breakpoints = 8452, 8360; 8196, 8360
         ]
         connect L1.p_node Junction1 as Connection6
         connect Junction1 Vsp1asd.p_node as Connection7
@@ -903,7 +812,7 @@ model "closed_loop_avg_dab" {
         connect Junction2 L1.n_node as Connection10
         connect V_L.n_node Junction2 as Connection11
         [
-            breakpoints = 8220, 8216; 8220, 8272
+            breakpoints = 8388, 8208; 8388, 8268
         ]
         connect Vsp1asd1.p_node i_L.n_node as Connection12
         connect i_L.p_node Junction2 as Connection13
@@ -912,11 +821,17 @@ model "closed_loop_avg_dab" {
         connect Goto2 i_L.out as Connection23
         connect "V_2\'.in" Junction6 as Connection24
         connect Goto3 Junction6 as Connection26
+        connect From2 Product1.in1 as Connection34
         connect Junction6 "Rate Transition1.out" as Connection36
         connect Junction5 "Rate Transition2.out" as Connection38
+        connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
         connect Sum1.in Junction8 as Connection57
+        connect Junction8 I_dc.in as Connection58
+        [
+            breakpoints = 9084, 8288
+        ]
         connect Product2.out Junction8 as Connection59
         [
             breakpoints = 9036, 8296; 9036, 8288
@@ -925,17 +840,24 @@ model "closed_loop_avg_dab" {
         connect From5 Product3.in as Connection62
         connect Product3.out Junction9 as Connection63
         connect Junction9 Sum1.in1 as Connection64
+        connect I_load.in Junction9 as Connection65
         connect Integrator1.out Junction10 as Connection66
         connect Junction10 Goto5 as Connection67
+        connect V_out.in Junction10 as Connection68
         connect Product1.out Junction11 as Connection72
         connect Junction11 "Mean Value1.in" as Connection73
+        connect P_raw.in Junction11 as Connection74
         connect Goto4 Junction12 as Connection75
         connect Junction12 "Mean Value1.out" as Connection76
+        connect P.in Junction12 as Connection77
+        [
+            breakpoints = 8816, 7952; 8816, 8012
+        ]
         connect From3 Product2.in as Connection78
         connect Vsp1asd.in Junction13 as Connection80
         connect Junction13 "Rate Transition2.in" as Connection81
         [
-            breakpoints = 7996, 8312
+            breakpoints = 8164, 8308
         ]
         connect Product4.out Junction13 as Connection82
         connect Constant1.out Goto6 as Connection84
@@ -945,12 +867,9 @@ model "closed_loop_avg_dab" {
         connect Vsp1asd1.in Junction14 as Connection90
         connect Junction14 "Rate Transition1.in" as Connection91
         [
-            breakpoints = 8396, 8320
+            breakpoints = 8564, 8312
         ]
-<<<<<<< HEAD
-=======
         connect Product5.out Junction14 as Connection92
->>>>>>> temp-fix
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
         connect Junction15 Delay1.in as Connection131
@@ -985,31 +904,10 @@ model "closed_loop_avg_dab" {
         connect Comparator2.in1 Junction18 as Connection154
         connect Comparator2.out V2.in as Connection155
         connect Comparator1.out V1.in as Connection156
-<<<<<<< HEAD
-        connect Product5.out "Rate Transition9.in" as Connection157
-        connect "Rate Transition9.out" Junction14 as Connection158
-        connect "Square Wave Source2.out" "Rate Transition10.in" as Connection159
-        connect "Rate Transition10.out" Product5.in1 as Connection160
-        connect V_out.in "Rate Transition11.out" as Connection161
-        connect "Rate Transition11.in" Junction10 as Connection162
-        connect I_load.in "Rate Transition12.out" as Connection163
-        connect "Rate Transition12.in" Junction9 as Connection164
-        connect Junction8 "Rate Transition13.in" as Connection165
-        connect "Rate Transition13.out" I_dc.in as Connection166
-        connect P.in "Rate Transition14.out" as Connection167
-        connect "Rate Transition14.in" Junction12 as Connection168
-        connect P_raw.in "Rate Transition15.out" as Connection169
-        connect "Rate Transition15.in" Junction11 as Connection170
-        connect From1 "Rate Transition16.in" as Connection171
-        connect "Rate Transition16.out" Product1.in as Connection172
-        connect From2 "Rate Transition17.in" as Connection173
-        connect "Rate Transition17.out" Product1.in1 as Connection174
-=======
         connect "Square Wave Source2.out" "Rate Transition9.in" as Connection157
         connect "Rate Transition9.out" Product5.in1 as Connection158
         connect "Square Wave Source1.out" "Rate Transition10.in" as Connection159
         connect "Rate Transition10.out" Product4.in as Connection160
->>>>>>> temp-fix
     }
 
     logically_deleted {
@@ -1017,51 +915,6 @@ model "closed_loop_avg_dab" {
         "Triangular Wave Source3"
         "Delay1"
         "secondary_carrier"
-<<<<<<< HEAD
-        "Rate Transition6"
-        "Rate Transition7"
-        "Junction15"
-        "Connection131"
-        "Connection134"
-        "Connection135"
-        "Connection136"
-        "Product6"
-        "Constant3"
-        "Constant4"
-        "Constant5"
-        "Connection137"
-        "Connection138"
-        "Connection139"
-        "deg"
-        "Connection140"
-        "Constant2"
-        "Rate Transition8"
-        "Connection141"
-        "Connection142"
-        "Comparator1"
-        "Goto7"
-        "Junction16"
-        "Connection143"
-        "Connection144"
-        "Connection145"
-        "Goto8"
-        "Junction17"
-        "Connection146"
-        "Connection147"
-        "Connection148"
-        "Constant6"
-        "From9"
-        "Connection149"
-        "Comparator2"
-        "From10"
-        "Connection151"
-        "Junction18"
-        "Connection152"
-        "Connection153"
-        "Connection154"
-        "V1"
-        "V2"
-=======
         "Constant2"
         "Rate Transition6"
         "Rate Transition7"
@@ -1105,7 +958,6 @@ model "closed_loop_avg_dab" {
         "Connection152"
         "Connection153"
         "Connection154"
->>>>>>> temp-fix
         "Connection155"
         "Connection156"
     }
