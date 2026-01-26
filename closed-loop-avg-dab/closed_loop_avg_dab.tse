@@ -84,7 +84,11 @@ model "closed_loop_avg_dab" {
             ls_output = "-1"
         }
         [
+<<<<<<< HEAD
             position = 7808, 8280
+=======
+            position = 7924, 8276
+>>>>>>> temp-fix
             hide_name = True
         ]
 
@@ -307,7 +311,11 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_wave"
         }
         [
+<<<<<<< HEAD
             position = 7832, 8352
+=======
+            position = 7984, 8348
+>>>>>>> temp-fix
             hide_name = True
             size = 32, 32
         ]
@@ -487,10 +495,17 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
+<<<<<<< HEAD
             execution_rate = "T_plant"
         }
         [
             position = 8428, 8320
+=======
+            execution_rate = "T_wave"
+        }
+        [
+            position = 8692, 8288
+>>>>>>> temp-fix
             rotation = down
             hide_name = True
             size = 32, 32
@@ -500,6 +515,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_wave"
         }
         [
+<<<<<<< HEAD
             position = 8568, 8296
             rotation = down
             hide_name = True
@@ -569,6 +585,9 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 8584, 8056
+=======
+            position = 7984, 8276
+>>>>>>> temp-fix
             hide_name = True
             size = 32, 32
         ]
@@ -702,7 +721,11 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
+<<<<<<< HEAD
             position = 7752, 8352
+=======
+            position = 7904, 8348
+>>>>>>> temp-fix
             hide_name = True
             size = 60, 20
         ]
@@ -915,7 +938,6 @@ model "closed_loop_avg_dab" {
             breakpoints = 7996, 8312
         ]
         connect Product4.out Junction13 as Connection82
-        connect "Square Wave Source1.out" Product4.in as Connection83
         connect Constant1.out Goto6 as Connection84
         connect From7 Product2.in1 as Connection86
         connect From6 "Rate Transition4.in" as Connection87
@@ -925,6 +947,10 @@ model "closed_loop_avg_dab" {
         [
             breakpoints = 8396, 8320
         ]
+<<<<<<< HEAD
+=======
+        connect Product5.out Junction14 as Connection92
+>>>>>>> temp-fix
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
         connect Junction15 Delay1.in as Connection131
@@ -959,6 +985,7 @@ model "closed_loop_avg_dab" {
         connect Comparator2.in1 Junction18 as Connection154
         connect Comparator2.out V2.in as Connection155
         connect Comparator1.out V1.in as Connection156
+<<<<<<< HEAD
         connect Product5.out "Rate Transition9.in" as Connection157
         connect "Rate Transition9.out" Junction14 as Connection158
         connect "Square Wave Source2.out" "Rate Transition10.in" as Connection159
@@ -977,6 +1004,12 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition16.out" Product1.in as Connection172
         connect From2 "Rate Transition17.in" as Connection173
         connect "Rate Transition17.out" Product1.in1 as Connection174
+=======
+        connect "Square Wave Source2.out" "Rate Transition9.in" as Connection157
+        connect "Rate Transition9.out" Product5.in1 as Connection158
+        connect "Square Wave Source1.out" "Rate Transition10.in" as Connection159
+        connect "Rate Transition10.out" Product4.in as Connection160
+>>>>>>> temp-fix
     }
 
     logically_deleted {
@@ -984,6 +1017,7 @@ model "closed_loop_avg_dab" {
         "Triangular Wave Source3"
         "Delay1"
         "secondary_carrier"
+<<<<<<< HEAD
         "Rate Transition6"
         "Rate Transition7"
         "Junction15"
@@ -1027,6 +1061,51 @@ model "closed_loop_avg_dab" {
         "Connection154"
         "V1"
         "V2"
+=======
+        "Constant2"
+        "Rate Transition6"
+        "Rate Transition7"
+        "Product6"
+        "Constant3"
+        "Constant4"
+        "Constant5"
+        "deg"
+        "Rate Transition8"
+        "Comparator1"
+        "Constant6"
+        "Comparator2"
+        "V1"
+        "V2"
+        "Goto7"
+        "Goto8"
+        "From9"
+        "From10"
+        "Junction15"
+        "Junction16"
+        "Junction17"
+        "Junction18"
+        "Connection131"
+        "Connection134"
+        "Connection135"
+        "Connection136"
+        "Connection137"
+        "Connection138"
+        "Connection139"
+        "Connection140"
+        "Connection141"
+        "Connection142"
+        "Connection143"
+        "Connection144"
+        "Connection145"
+        "Connection146"
+        "Connection147"
+        "Connection148"
+        "Connection149"
+        "Connection151"
+        "Connection152"
+        "Connection153"
+        "Connection154"
+>>>>>>> temp-fix
         "Connection155"
         "Connection156"
     }

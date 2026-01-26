@@ -13,6 +13,7 @@ T_wave  = 0.1e-6
 T_plant = 1e-6
 T_math  = 1e-6
 T_delay = 1e-6
+T_plant = 1e-6
 
 delay_deg   = 45
 delay_N = ((delay_deg/360)*T)/T_delay
