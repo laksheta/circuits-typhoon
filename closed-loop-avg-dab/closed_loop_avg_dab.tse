@@ -453,6 +453,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Comparator" Comparator1 {
+            execution_rate = "T_delay"
         }
         [
             position = 9140, 8572
@@ -460,6 +461,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Constant" Constant6 {
+            execution_rate = "T_delay"
             value = "0.5"
         }
         [
@@ -468,6 +470,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Comparator" Comparator2 {
+            execution_rate = "T_delay"
         }
         [
             position = 9140, 8660
@@ -477,13 +480,13 @@ model "closed_loop_avg_dab" {
         component "core/Probe" V1 {
         }
         [
-            position = 9216, 8572
+            position = 9284, 8572
         ]
 
         component "core/Probe" V2 {
         }
         [
-            position = 9216, 8660
+            position = 9284, 8660
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
@@ -501,6 +504,24 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 7984, 8276
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition11" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9212, 8660
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition12" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9212, 8572
             hide_name = True
             size = 32, 32
         ]
@@ -902,64 +923,14 @@ model "closed_loop_avg_dab" {
         ]
         connect Junction18 Constant6.out as Connection153
         connect Comparator2.in1 Junction18 as Connection154
-        connect Comparator2.out V2.in as Connection155
-        connect Comparator1.out V1.in as Connection156
         connect "Square Wave Source2.out" "Rate Transition9.in" as Connection157
         connect "Rate Transition9.out" Product5.in1 as Connection158
         connect "Square Wave Source1.out" "Rate Transition10.in" as Connection159
         connect "Rate Transition10.out" Product4.in as Connection160
-    }
-
-    logically_deleted {
-        "primary_carrier"
-        "Triangular Wave Source3"
-        "Delay1"
-        "secondary_carrier"
-        "Constant2"
-        "Rate Transition6"
-        "Rate Transition7"
-        "Product6"
-        "Constant3"
-        "Constant4"
-        "Constant5"
-        "deg"
-        "Rate Transition8"
-        "Comparator1"
-        "Constant6"
-        "Comparator2"
-        "V1"
-        "V2"
-        "Goto7"
-        "Goto8"
-        "From9"
-        "From10"
-        "Junction15"
-        "Junction16"
-        "Junction17"
-        "Junction18"
-        "Connection131"
-        "Connection134"
-        "Connection135"
-        "Connection136"
-        "Connection137"
-        "Connection138"
-        "Connection139"
-        "Connection140"
-        "Connection141"
-        "Connection142"
-        "Connection143"
-        "Connection144"
-        "Connection145"
-        "Connection146"
-        "Connection147"
-        "Connection148"
-        "Connection149"
-        "Connection151"
-        "Connection152"
-        "Connection153"
-        "Connection154"
-        "Connection155"
-        "Connection156"
+        connect Comparator2.out "Rate Transition11.in" as Connection161
+        connect "Rate Transition11.out" V2.in as Connection162
+        connect Comparator1.out "Rate Transition12.in" as Connection163
+        connect "Rate Transition12.out" V1.in as Connection164
     }
 
     default {
