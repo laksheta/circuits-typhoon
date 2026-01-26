@@ -9,8 +9,9 @@ fsw = 10e3
 T = 1/fsw
 
 T_meas = 0.1e-6
-T_wave  = 1e-6  
-T_math  = 0.1e-6
+T_wave  = 0.1e-6  
+T_plant = 1e-6
+T_math  = 1e-6
 T_delay = 1e-6
 
 delay_deg   = 45
@@ -31,6 +32,7 @@ deg = d*(90/0.5)
 phi = (deg/360)*(1/fsw)
 
 phi_pu = 1-phi*fsw
+print(phi_pu)
 
 I = V1*D*(1-D)/(2*fsw*L)
 R_load = V1/I
