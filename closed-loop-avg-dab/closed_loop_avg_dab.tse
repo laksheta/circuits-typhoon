@@ -379,7 +379,7 @@ model "closed_loop_avg_dab" {
 
         component "core/Constant" deg {
             execution_rate = "T_math"
-            value = "45"
+            value = "90"
         }
         [
             position = 7976, 8648
