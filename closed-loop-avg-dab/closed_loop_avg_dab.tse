@@ -89,6 +89,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd {
+            execution_rate = "T_plant"
         }
         [
             position = 8196, 8308
@@ -119,6 +120,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd1 {
+            execution_rate = "T_plant"
         }
         [
             position = 8532, 8312
@@ -285,7 +287,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Product" Product4 {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8080, 8308
@@ -302,16 +304,16 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition4" {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
-            position = 8000, 8344
+            position = 7984, 8348
             hide_name = True
             size = 32, 32
         ]
 
         component "core/Product" Product5 {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8624, 8312
@@ -320,7 +322,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8700, 8344
@@ -485,7 +487,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8692, 8288
@@ -495,7 +497,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition10" {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 7984, 8276
@@ -632,7 +634,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 7920, 8344
+            position = 7904, 8348
             hide_name = True
             size = 60, 20
         ]
