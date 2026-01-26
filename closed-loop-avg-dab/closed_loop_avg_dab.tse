@@ -84,7 +84,7 @@ model "closed_loop_avg_dab" {
             ls_output = "-1"
         }
         [
-            position = 7976, 8276
+            position = 7924, 8276
             hide_name = True
         ]
 
@@ -285,7 +285,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Product" Product4 {
-            execution_rate = "T_wave"
+            execution_rate = "T_math"
         }
         [
             position = 8080, 8308
@@ -302,7 +302,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition4" {
-            execution_rate = "T_wave"
+            execution_rate = "T_math"
         }
         [
             position = 8000, 8344
@@ -311,7 +311,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Product" Product5 {
-            execution_rate = "T_wave"
+            execution_rate = "T_math"
         }
         [
             position = 8624, 8312
@@ -320,7 +320,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_wave"
+            execution_rate = "T_math"
         }
         [
             position = 8700, 8344
@@ -482,6 +482,25 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 9216, 8660
+        ]
+
+        component "core/Rate Transition" "Rate Transition9" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8692, 8288
+            rotation = down
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition10" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7984, 8276
+            hide_name = True
+            size = 32, 32
         ]
 
         tag Goto1 {
@@ -839,7 +858,6 @@ model "closed_loop_avg_dab" {
             breakpoints = 8164, 8308
         ]
         connect Product4.out Junction13 as Connection82
-        connect "Square Wave Source1.out" Product4.in as Connection83
         connect Constant1.out Goto6 as Connection84
         connect From7 Product2.in1 as Connection86
         connect From6 "Rate Transition4.in" as Connection87
@@ -850,7 +868,6 @@ model "closed_loop_avg_dab" {
             breakpoints = 8564, 8312
         ]
         connect Product5.out Junction14 as Connection92
-        connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
         connect Junction15 Delay1.in as Connection131
@@ -885,117 +902,62 @@ model "closed_loop_avg_dab" {
         connect Comparator2.in1 Junction18 as Connection154
         connect Comparator2.out V2.in as Connection155
         connect Comparator1.out V1.in as Connection156
+        connect "Square Wave Source2.out" "Rate Transition9.in" as Connection157
+        connect "Rate Transition9.out" Product5.in1 as Connection158
+        connect "Square Wave Source1.out" "Rate Transition10.in" as Connection159
+        connect "Rate Transition10.out" Product4.in as Connection160
     }
 
     logically_deleted {
-        "Square Wave Source1"
-        "Vsp1asd"
-        "L1"
-        "Square Wave Source2"
-        "Vsp1asd1"
-        "V_L"
-        "i_L"
-        "V_1"
-        "V_2\'"
-        "Product1"
-        "P_raw"
-        "Rate Transition1"
-        "Rate Transition2"
-        "Mean Value1"
-        "Product2"
-        "Sum1"
-        "R_load"
-        "Product3"
-        "I_dc"
-        "Gain1"
-        "Integrator1"
-        "I_load"
-        "V_out"
-        "P"
-        "Product4"
-        "Constant1"
-        "Rate Transition4"
-        "Product5"
-        "Rate Transition5"
-        "Goto1"
-        "Goto2"
-        "Goto3"
-        "From1"
-        "From2"
-        "Goto4"
-        "From3"
-        "Goto5"
-        "From5"
-        "Goto6"
-        "From6"
-        "From7"
-        "From8"
-        "Junction1"
-        "Junction2"
-        "Junction5"
-        "Junction6"
-        "Junction8"
-        "Junction9"
-        "Junction10"
-        "Junction11"
-        "Junction12"
-        "Junction13"
-        "Junction14"
-        "Comment1"
-        "Comment2"
-        "Comment3"
-        "Connection5"
-        "Connection6"
-        "Connection7"
-        "Connection8"
-        "Connection10"
-        "Connection11"
-        "Connection12"
-        "Connection13"
-        "Connection20"
-        "Connection22"
-        "Connection23"
-        "Connection24"
-        "Connection26"
-        "Connection34"
-        "Connection36"
-        "Connection38"
-        "Connection40"
-        "Connection53"
-        "Connection55"
-        "Connection57"
-        "Connection58"
-        "Connection59"
-        "Connection60"
-        "Connection62"
-        "Connection63"
-        "Connection64"
-        "Connection65"
-        "Connection66"
-        "Connection67"
-        "Connection68"
-        "Connection72"
-        "Connection73"
-        "Connection74"
-        "Connection75"
-        "Connection76"
-        "Connection77"
-        "Connection78"
-        "Connection80"
-        "Connection81"
-        "Connection82"
-        "Connection83"
-        "Connection84"
-        "Connection86"
-        "Connection87"
-        "Connection88"
-        "Connection90"
-        "Connection91"
-        "Connection92"
-        "Connection93"
-        "Connection94"
-        "Connection95"
+        "primary_carrier"
+        "Triangular Wave Source3"
+        "Delay1"
+        "secondary_carrier"
         "Constant2"
+        "Rate Transition6"
+        "Rate Transition7"
+        "Product6"
+        "Constant3"
+        "Constant4"
+        "Constant5"
+        "deg"
+        "Rate Transition8"
+        "Comparator1"
+        "Constant6"
+        "Comparator2"
+        "V1"
+        "V2"
+        "Goto7"
+        "Goto8"
+        "From9"
+        "From10"
+        "Junction15"
+        "Junction16"
+        "Junction17"
+        "Junction18"
+        "Connection131"
+        "Connection134"
+        "Connection135"
+        "Connection136"
+        "Connection137"
+        "Connection138"
+        "Connection139"
+        "Connection140"
+        "Connection141"
+        "Connection142"
+        "Connection143"
+        "Connection144"
+        "Connection145"
+        "Connection146"
+        "Connection147"
+        "Connection148"
+        "Connection149"
+        "Connection151"
+        "Connection152"
+        "Connection153"
+        "Connection154"
+        "Connection155"
+        "Connection156"
     }
 
     default {
