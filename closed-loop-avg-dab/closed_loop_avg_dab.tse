@@ -78,16 +78,6 @@ model "closed_loop_avg_dab" {
     }
 
     component Subsystem Root {
-        component "core/Square Wave Source" "Square Wave Source1" {
-            execution_rate = "T_wave"
-            frequency = "fsw"
-            ls_output = "-1"
-        }
-        [
-            position = 7924, 8276
-            hide_name = True
-        ]
-
         component "core/Signal Controlled Voltage Source" Vsp1asd {
             execution_rate = "T_plant"
         }
@@ -105,18 +95,6 @@ model "closed_loop_avg_dab" {
         [
             position = 8324, 8268
             hide_name = True
-        ]
-
-        component "core/Square Wave Source" "Square Wave Source2" {
-            execution_rate = "T_wave"
-            frequency = "fsw"
-            ls_output = "-1"
-            phase = "phi_pu"
-        }
-        [
-            position = 8736, 8288
-            hide_name = True
-            scale = -1, 1
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd1 {
@@ -149,7 +127,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8164, 8416
+            position = 8164, 8428
             rotation = right
         ]
 
@@ -157,7 +135,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8564, 8436
+            position = 8564, 8424
             rotation = right
         ]
 
@@ -190,7 +168,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8164, 8356
+            position = 8164, 8368
             rotation = right
             hide_name = True
             size = 32, 32
@@ -286,14 +264,6 @@ model "closed_loop_avg_dab" {
             position = 8872, 7952
         ]
 
-        component "core/Product" Product4 {
-            execution_rate = "T_wave"
-        }
-        [
-            position = 8080, 8308
-            hide_name = True
-        ]
-
         component "core/Constant" Constant1 {
             execution_rate = "T_math"
             value = "V_in"
@@ -301,34 +271,6 @@ model "closed_loop_avg_dab" {
         [
             position = 7980, 8200
             hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition4" {
-            execution_rate = "T_wave"
-        }
-        [
-            position = 7984, 8348
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Product" Product5 {
-            execution_rate = "T_wave"
-        }
-        [
-            position = 8624, 8312
-            rotation = down
-            hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_wave"
-        }
-        [
-            position = 8700, 8344
-            rotation = down
-            hide_name = True
-            size = 32, 32
         ]
 
         component "core/Probe" primary_carrier {
@@ -477,55 +419,6 @@ model "closed_loop_avg_dab" {
             hide_name = True
         ]
 
-        component "core/Probe" V1 {
-        }
-        [
-            position = 9468, 8572
-        ]
-
-        component "core/Probe" V2 {
-        }
-        [
-            position = 9468, 8660
-        ]
-
-        component "core/Rate Transition" "Rate Transition9" {
-            execution_rate = "T_wave"
-        }
-        [
-            position = 8692, 8288
-            rotation = down
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition10" {
-            execution_rate = "T_wave"
-        }
-        [
-            position = 7984, 8276
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition11" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 9396, 8660
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition12" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 9396, 8572
-            hide_name = True
-            size = 32, 32
-        ]
-
         component "core/Gain" Gain2 {
             execution_rate = "T_delay"
             gain = "2*V_in"
@@ -549,7 +442,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_delay"
         }
         [
-            position = 9288, 8572
+            position = 9292, 8572
             hide_name = True
             size = 48, 48
         ]
@@ -571,8 +464,7 @@ model "closed_loop_avg_dab" {
             direction = in
         }
         [
-            position = 8080, 8384
-            rotation = down
+            position = 9388, 8572
             hide_name = True
             size = 60, 20
         ]
@@ -597,7 +489,7 @@ model "closed_loop_avg_dab" {
             direction = in
         }
         [
-            position = 8660, 8404
+            position = 9388, 8660
             hide_name = True
             size = 60, 20
         ]
@@ -686,18 +578,6 @@ model "closed_loop_avg_dab" {
             size = 60, 20
         ]
 
-        tag From6 {
-            value = "V_in"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7904, 8348
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag From7 {
             value = "V_in"
             scope = local
@@ -706,19 +586,6 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 8872, 8324
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From8 {
-            value = "V_in"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8780, 8344
-            rotation = down
             hide_name = True
             size = 60, 20
         ]
@@ -771,6 +638,31 @@ model "closed_loop_avg_dab" {
             size = 100, 20
         ]
 
+        tag From11 {
+            value = "V_1"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8084, 8308
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From12 {
+            value = "V_2\'"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8640, 8312
+            rotation = down
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8260, 8268
@@ -779,16 +671,6 @@ model "closed_loop_avg_dab" {
         junction Junction2 pe
         [
             position = 8388, 8268
-        ]
-
-        junction Junction5 sp
-        [
-            position = 8164, 8384
-        ]
-
-        junction Junction6 sp
-        [
-            position = 8564, 8404
         ]
 
         junction Junction8 sp
@@ -816,16 +698,6 @@ model "closed_loop_avg_dab" {
             position = 8816, 8020
         ]
 
-        junction Junction13 sp
-        [
-            position = 8160, 8308
-        ]
-
-        junction Junction14 sp
-        [
-            position = 8564, 8312
-        ]
-
         junction Junction15 sp
         [
             position = 8464, 8648
@@ -844,6 +716,16 @@ model "closed_loop_avg_dab" {
         junction Junction18 sp
         [
             position = 9084, 8540
+        ]
+
+        junction Junction19 sp
+        [
+            position = 8164, 8308
+        ]
+
+        junction Junction20 sp
+        [
+            position = 8564, 8312
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -875,14 +757,8 @@ model "closed_loop_avg_dab" {
         ]
         connect Vsp1asd1.p_node i_L.n_node as Connection12
         connect i_L.p_node Junction2 as Connection13
-        connect V_1.in Junction5 as Connection20
-        connect Goto1 Junction5 as Connection22
         connect Goto2 i_L.out as Connection23
-        connect "V_2\'.in" Junction6 as Connection24
-        connect Goto3 Junction6 as Connection26
         connect From2 Product1.in1 as Connection34
-        connect Junction6 "Rate Transition1.out" as Connection36
-        connect Junction5 "Rate Transition2.out" as Connection38
         connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
@@ -913,24 +789,8 @@ model "closed_loop_avg_dab" {
             breakpoints = 8816, 7952; 8816, 8012
         ]
         connect From3 Product2.in as Connection78
-        connect Vsp1asd.in Junction13 as Connection80
-        connect Junction13 "Rate Transition2.in" as Connection81
-        [
-            breakpoints = 8164, 8308
-        ]
-        connect Product4.out Junction13 as Connection82
         connect Constant1.out Goto6 as Connection84
         connect From7 Product2.in1 as Connection86
-        connect From6 "Rate Transition4.in" as Connection87
-        connect "Rate Transition4.out" Product4.in1 as Connection88
-        connect Vsp1asd1.in Junction14 as Connection90
-        connect Junction14 "Rate Transition1.in" as Connection91
-        [
-            breakpoints = 8564, 8312
-        ]
-        connect Product5.out Junction14 as Connection92
-        connect From8 "Rate Transition5.in" as Connection94
-        connect "Rate Transition5.out" Product5.in as Connection95
         connect Junction15 Delay1.in as Connection131
         connect "Rate Transition6.out" secondary_carrier.in as Connection134
         connect primary_carrier.in "Rate Transition7.out" as Connection135
@@ -961,18 +821,29 @@ model "closed_loop_avg_dab" {
         ]
         connect Junction18 Constant6.out as Connection153
         connect Comparator2.in1 Junction18 as Connection154
-        connect "Square Wave Source2.out" "Rate Transition9.in" as Connection157
-        connect "Rate Transition9.out" Product5.in1 as Connection158
-        connect "Square Wave Source1.out" "Rate Transition10.in" as Connection159
-        connect "Rate Transition10.out" Product4.in as Connection160
-        connect "Rate Transition11.out" V2.in as Connection162
-        connect "Rate Transition12.out" V1.in as Connection164
         connect Comparator1.out Gain2.in as Connection165
         connect Comparator2.out Gain3.in as Connection167
+        [
+            hide_name = True
+        ]
         connect Gain2.out Offset1.in as Connection169
-        connect Offset1.out "Rate Transition12.in" as Connection170
         connect Gain3.out Offset2.in as Connection171
-        connect Offset2.out "Rate Transition11.in" as Connection172
+        connect "Rate Transition2.out" V_1.in as Connection174
+        connect Offset1.out Goto1 as Connection175
+        connect "Rate Transition1.out" "V_2\'.in" as Connection176
+        connect Goto3 Offset2.out as Connection177
+        [
+            hide_name = True
+        ]
+        connect "Rate Transition2.in" Junction19 as Connection178
+        connect Junction19 Vsp1asd.in as Connection179
+        [
+            breakpoints = 8164, 8308
+        ]
+        connect From11 Junction19 as Connection180
+        connect Vsp1asd1.in Junction20 as Connection181
+        connect Junction20 "Rate Transition1.in" as Connection182
+        connect From12 Junction20 as Connection183
     }
 
     default {
@@ -1045,17 +916,6 @@ model "closed_loop_avg_dab" {
         "core/Product" {
             signs = "2"
             execution_rate = "inherit"
-        }
-
-        "core/Square Wave Source" {
-            hs_output = "1"
-            ls_output = "0"
-            frequency = "50"
-            duty_cycle = "0.5"
-            phase = "0"
-            signal_type = "real"
-            execution_rate = "100e-6"
-            _tunable = "False"
         }
 
         "core/Sum" {
