@@ -165,7 +165,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_math"
         }
         [
-            position = 8704, 8020
+            position = 8656, 8020
             hide_name = True
         ]
 
@@ -173,7 +173,7 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8780, 7952
+            position = 8780, 7928
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
@@ -276,14 +276,14 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9428, 8244
+            position = 9436, 8220
         ]
 
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
         [
-            position = 8872, 7952
+            position = 8872, 7928
         ]
 
         component "core/Product" Product4 {
@@ -313,7 +313,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Product" Product5 {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8492, 8320
@@ -322,7 +322,7 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8568, 8352
@@ -497,11 +497,78 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Rate Transition" "Rate Transition10" {
-            execution_rate = "T_math"
+            execution_rate = "T_wave"
         }
         [
             position = 8568, 8296
             rotation = down
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition11" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9380, 8252
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition12" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9152, 8368
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition13" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9084, 8244
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition14" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8816, 7960
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition15" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8736, 7956
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition16" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8584, 7984
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition17" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8584, 8056
             hide_name = True
             size = 32, 32
         ]
@@ -551,7 +618,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8612, 7984
+            position = 8508, 7984
             hide_name = True
             size = 60, 20
         ]
@@ -563,7 +630,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8612, 8056
+            position = 8508, 8056
             hide_name = True
             size = 60, 20
         ]
@@ -822,17 +889,11 @@ model "closed_loop_avg_dab" {
         connect Goto2 i_L.out as Connection23
         connect "V_2\'.in" Junction6 as Connection24
         connect Goto3 Junction6 as Connection26
-        connect From2 Product1.in1 as Connection34
         connect Junction6 "Rate Transition1.out" as Connection36
         connect Junction5 "Rate Transition2.out" as Connection38
-        connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
         connect Sum1.in Junction8 as Connection57
-        connect Junction8 I_dc.in as Connection58
-        [
-            breakpoints = 9084, 8288
-        ]
         connect Product2.out Junction8 as Connection59
         [
             breakpoints = 9036, 8296; 9036, 8288
@@ -841,19 +902,12 @@ model "closed_loop_avg_dab" {
         connect From5 Product3.in as Connection62
         connect Product3.out Junction9 as Connection63
         connect Junction9 Sum1.in1 as Connection64
-        connect I_load.in Junction9 as Connection65
         connect Integrator1.out Junction10 as Connection66
         connect Junction10 Goto5 as Connection67
-        connect V_out.in Junction10 as Connection68
         connect Product1.out Junction11 as Connection72
         connect Junction11 "Mean Value1.in" as Connection73
-        connect P_raw.in Junction11 as Connection74
         connect Goto4 Junction12 as Connection75
         connect Junction12 "Mean Value1.out" as Connection76
-        connect P.in Junction12 as Connection77
-        [
-            breakpoints = 8816, 7952; 8816, 8012
-        ]
         connect From3 Product2.in as Connection78
         connect Vsp1asd.in Junction13 as Connection80
         connect Junction13 "Rate Transition2.in" as Connection81
@@ -909,6 +963,20 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition9.out" Junction14 as Connection158
         connect "Square Wave Source2.out" "Rate Transition10.in" as Connection159
         connect "Rate Transition10.out" Product5.in1 as Connection160
+        connect V_out.in "Rate Transition11.out" as Connection161
+        connect "Rate Transition11.in" Junction10 as Connection162
+        connect I_load.in "Rate Transition12.out" as Connection163
+        connect "Rate Transition12.in" Junction9 as Connection164
+        connect Junction8 "Rate Transition13.in" as Connection165
+        connect "Rate Transition13.out" I_dc.in as Connection166
+        connect P.in "Rate Transition14.out" as Connection167
+        connect "Rate Transition14.in" Junction12 as Connection168
+        connect P_raw.in "Rate Transition15.out" as Connection169
+        connect "Rate Transition15.in" Junction11 as Connection170
+        connect From1 "Rate Transition16.in" as Connection171
+        connect "Rate Transition16.out" Product1.in as Connection172
+        connect From2 "Rate Transition17.in" as Connection173
+        connect "Rate Transition17.out" Product1.in1 as Connection174
     }
 
     logically_deleted {
