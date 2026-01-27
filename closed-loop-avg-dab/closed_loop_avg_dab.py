@@ -52,5 +52,5 @@ tau     = (C*R_load_c)/2
 f_bw    = 0.05*fsw
 omega_c = 2*np.pi*f_bw
 
-Kp      = (tau*omega_c)/Gdc
-Ki      = Kp/tau
+K_p      = (tau*omega_c)/Gdc
+K_i      = K_p/tau
