@@ -471,8 +471,43 @@ model "closed_loop_avg_dab" {
             value = "0.125"
         }
         [
-            position = 8116, 8616
+            position = 8144, 8524
             hide_name = True
+        ]
+
+        component "core/PID controller" "PID controller1" {
+            controller_type = "PI"
+            execution_rate = "T_math"
+            ki = "K_i"
+            kp = "K_p"
+        }
+        [
+            position = 8148, 8616
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum2 {
+            signs = "+-"
+        }
+        [
+            position = 8056, 8616
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant8 {
+            execution_rate = "T_math"
+            value = "V_out"
+        }
+        [
+            position = 7952, 8608
+            hide_name = True
+        ]
+
+        component "core/Probe" PI_out {
+        }
+        [
+            position = 8328, 8560
+            rotation = left
         ]
 
         tag Goto1 {
@@ -681,6 +716,18 @@ model "closed_loop_avg_dab" {
             size = 60, 20
         ]
 
+        tag From13 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7952, 8664
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8260, 8268
@@ -744,6 +791,11 @@ model "closed_loop_avg_dab" {
         junction Junction24 sp
         [
             position = 8564, 8312
+        ]
+
+        junction Junction25 sp
+        [
+            position = 8328, 8616
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -862,12 +914,18 @@ model "closed_loop_avg_dab" {
         connect Goto3 Offset2.out as Connection225
         connect From2 "Rate Transition9.in" as Connection226
         connect "Rate Transition9.out" Product1.in1 as Connection227
-        connect Gain4.out Product6.in as Connection228
-        connect Constant7.out Gain4.in as Connection229
+        connect From13 Sum2.in1 as Connection230
+        connect Sum2.out "PID controller1.in" as Connection231
+        connect Constant8.out Sum2.in as Connection232
+        connect "PID controller1.out" Gain4.in as Connection233
+        connect Gain4.out Junction25 as Connection234
+        connect Junction25 Product6.in as Connection235
+        connect PI_out.in Junction25 as Connection236
     }
 
     logically_deleted {
         "deg"
+        "Constant7"
     }
 
     default {
@@ -923,6 +981,29 @@ model "closed_loop_avg_dab" {
 
         "core/Mean Value" {
             number_of_points = "1000"
+            execution_rate = "inherit"
+        }
+
+        "core/PID controller" {
+            controller_type = "PID"
+            kp = "1"
+            kp_source = "internal"
+            ki = "1"
+            ki_source = "internal"
+            kd = "0"
+            kd_source = "internal"
+            filt_coef = "100"
+            int_init_value = "0"
+            filt_init_value = "0"
+            enb_output_limit_out = "False"
+            show_reset = "none"
+            upper_sat_lim = "1"
+            upper_sat_lim_source = "internal"
+            lower_sat_lim = "-1"
+            lower_sat_lim_source = "internal"
+            enb_anti_windup_out = "False"
+            signal_out_type = "inherit"
+            _tunable = "False"
             execution_rate = "inherit"
         }
 
