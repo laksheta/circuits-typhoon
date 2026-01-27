@@ -368,14 +368,6 @@ model "closed_loop_avg_dab" {
             hide_name = True
         ]
 
-        component "core/Constant" deg {
-            execution_rate = "T_math"
-            value = "90"
-        }
-        [
-            position = 8088, 8524
-        ]
-
         component "core/Rate Transition" "Rate Transition8" {
             execution_rate = "T_delay"
         }
@@ -463,15 +455,6 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 8256, 8616
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant7 {
-            execution_rate = "T_math"
-            value = "0.125"
-        }
-        [
-            position = 8144, 8524
             hide_name = True
         ]
 
@@ -924,11 +907,6 @@ model "closed_loop_avg_dab" {
         connect Gain4.out Junction25 as Connection234
         connect Junction25 Product6.in as Connection235
         connect PI_out.in Junction25 as Connection236
-    }
-
-    logically_deleted {
-        "deg"
-        "Constant7"
     }
 
     default {
