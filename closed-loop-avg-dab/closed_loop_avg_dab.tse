@@ -477,9 +477,12 @@ model "closed_loop_avg_dab" {
 
         component "core/PID controller" "PID controller1" {
             controller_type = "PI"
+            enb_output_limit_out = "True"
             execution_rate = "T_math"
             ki = "K_i"
             kp = "K_p"
+            lower_sat_lim = "-0.25"
+            upper_sat_lim = "0.25"
         }
         [
             position = 8148, 8616
