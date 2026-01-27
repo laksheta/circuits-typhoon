@@ -468,7 +468,7 @@ model "closed_loop_avg_dab" {
 
         component "core/Constant" Constant7 {
             execution_rate = "T_math"
-            value = "0.25"
+            value = "0.125"
         }
         [
             position = 8116, 8616
