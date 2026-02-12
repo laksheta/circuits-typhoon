@@ -82,6 +82,7 @@ model "simple_avg_rectifier" {
         }
         [
             position = 8840, 8268
+            hide_name = True
             scale = -1, 1
             size = 62, 256
         ]
@@ -181,7 +182,7 @@ model "simple_avg_rectifier" {
         component "core/Sinusoidal Source" "Sinusoidal Source1" {
             amplitude = "V_rect"
             frequency = "F"
-            phase = "[0, -120, 120]"
+            phase = "phase"
         }
         [
             position = 7708, 8380
@@ -194,6 +195,12 @@ model "simple_avg_rectifier" {
         [
             position = 8264, 8312
             hide_name = True
+        ]
+
+        component "core/Probe" Probe1 {
+        }
+        [
+            position = 7764, 8380
         ]
 
         junction Junction1 pe
@@ -224,37 +231,38 @@ model "simple_avg_rectifier" {
         [
             breakpoints = 8328, 8328; 8328, 8404
         ]
+        connect "Sinusoidal Source1.out" Probe1.in as Connection20
     }
 
     logically_deleted {
         "Vs1"
         "L1"
         "L2"
-        "Connection1"
-        "Connection2"
         "L3"
-        "Connection3"
         "gnd1"
-        "Connection4"
         "R1"
         "R2"
         "R3"
+        "Vsp1"
+        "Vsp2"
+        "Vsp3"
+        "gnd2"
+        "Bus Split1"
+        "Junction1"
+        "Connection1"
+        "Connection2"
+        "Connection3"
+        "Connection4"
         "Connection5"
         "Connection6"
         "Connection7"
-        "Vsp1"
         "Connection8"
-        "Vsp2"
         "Connection9"
-        "Vsp3"
         "Connection10"
-        "gnd2"
-        "Junction1"
         "Connection12"
         "Connection13"
         "Connection14"
         "Connection15"
-        "Bus Split1"
         "Connection17"
         "Connection18"
         "Connection19"
@@ -272,6 +280,17 @@ model "simple_avg_rectifier" {
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
         }
 
         "core/Resistor" {
