@@ -263,6 +263,30 @@ model "simple_avg_rectifier" {
             scale = -1, 1
         ]
 
+        component "core/Meter Split" "Meter Split2" {
+            ia = "True"
+            ib = "True"
+            ic = "True"
+            van = "False"
+            vbn = "False"
+            vcn = "False"
+        }
+        [
+            position = 9024, 8064
+            rotation = down
+            hide_name = True
+            scale = -1, 1
+            size = 96, 72
+        ]
+
+        component "core/Bus Join" "Bus Join2" {
+            inputs = "3"
+        }
+        [
+            position = 9140, 8064
+            hide_name = True
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -273,6 +297,20 @@ model "simple_avg_rectifier" {
             position = 8272, 8060
             rotation = down
             hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto2 {
+            value = "i_abc"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9260, 8064
+            rotation = down
+            hide_name = True
+            scale = -1, 1
             size = 60, 20
         ]
 
@@ -331,6 +369,11 @@ model "simple_avg_rectifier" {
         connect "Bus Join1.in1" "Meter Split1.VBn" as Connection73
         connect "Meter Split1.VAn" "Bus Join1.in2" as Connection74
         connect "Bus Join1.out" Goto1 as Connection75
+        connect "Bus Join2.out" Goto2 as Connection79
+        connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
+        connect "Meter Split2.IC" "Bus Join2.in" as Connection81
+        connect "Meter Split2.IB" "Bus Join2.in1" as Connection82
+        connect "Meter Split2.IA" "Bus Join2.in2" as Connection83
     }
 
     default {
