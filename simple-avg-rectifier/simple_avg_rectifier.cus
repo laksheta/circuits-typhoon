@@ -48,8 +48,8 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_capture_preset><![CDATA[Default]]></active_capture_preset>
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
-                            <time_interval>0.01</time_interval>
-                            <sample_rate>10000000.0</sample_rate>
+                            <time_interval>0.1</time_interval>
+                            <sample_rate>1000000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
@@ -162,6 +162,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                         <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
+                                <analog>
+                                    <channel>9</channel>
+                                    <name><![CDATA[i_dc[0]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>9</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
                             </analog_signals>
                             <digital_signals>
                             </digital_signals>
@@ -206,8 +218,8 @@ SETTINGS_DIR = get_settings_dir_path()
                         </scope>
                         </presets>
                     <capture>
-                        <time_interval>0.01</time_interval>
-                        <sample_rate>10000000.0</sample_rate>
+                        <time_interval>0.1</time_interval>
+                        <sample_rate>1000000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
@@ -326,6 +338,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <row>8</row>
                                     <viewports>
                                         <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>9</channel>
+                                    <name><![CDATA[i_dc[0]]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>9</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
                                    </viewports>
                                </analog>
                         </analog_signals>
