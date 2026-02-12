@@ -314,7 +314,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         component "core/Probe" i_dc {
         }
         [
-            position = 8384, 7816
+            position = 8576, 7788
             rotation = left
         ]
 
@@ -352,6 +352,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 8724, 7640
             rotation = right
             size = 64, 32
+        ]
+
+        component "core/Bus Split" "Bus Split2" {
+            outputs = "6"
+        }
+        [
+            position = 8452, 7864
+            hide_name = True
         ]
 
         tag Goto1 {
@@ -412,7 +420,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8460, 7864
+            position = 8648, 7824
             hide_name = True
             size = 60, 20
         ]
@@ -439,11 +447,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 8172, 8304
         ]
 
-        junction Junction3 sp
-        [
-            position = 8388, 7864
-        ]
-
         junction Junction4 pe
         [
             position = 8520, 7704
@@ -462,6 +465,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction7 pe
         [
             position = 8520, 7576
+        ]
+
+        junction Junction8 sp
+        [
+            position = 8576, 7824
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -520,9 +528,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             breakpoints = 8176, 7884; 8140, 7884
         ]
         connect "C function1.in" "Bus Join3.out" as Connection86
-        connect "C function1.out" Junction3 as Connection88
-        connect Junction3 i_dc.in as Connection89
-        connect Goto3 Junction3 as Connection90
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
@@ -546,6 +551,10 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
+        connect "C function1.out" "Bus Split2.in" as Connection106
+        connect i_dc.in Junction8 as Connection108
+        connect Junction8 "Bus Split2.out" as Connection109
+        connect Goto3 Junction8 as Connection110
     }
 
     default {
