@@ -28,8 +28,8 @@ delta      = delta_rad * (180/np.pi)
 
 m = U_rect_amp / V_dc_target
 
-# phase = [0+delta, -120+delta, 120+delta]
-phase = delta
+phase = [0+delta, -120+delta, 120+delta]
+phase_3ph    = delta
 
 # phase = np.array([0+delta, -120+delta, 120+delta])
 
