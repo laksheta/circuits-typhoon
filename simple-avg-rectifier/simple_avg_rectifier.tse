@@ -183,7 +183,7 @@ model "simple_avg_rectifier" {
 
         component "core/Sinusoidal Source" "Sinusoidal Source1" {
             amplitude = "V_rect"
-            execution_rate = "0.1e-6"
+            execution_rate = "exec_sine"
             frequency = "F"
             phase = "phase"
         }
