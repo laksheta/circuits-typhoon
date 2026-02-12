@@ -21,14 +21,14 @@ u_d = V_grid_peak - (R * i_d_req - omega * L * i_q_req)
 u_q = 0 - (R * i_q_req + omega * L * i_d_req)
 
 U_rect_amp = np.sqrt(u_d**2 + u_q**2)
-delta_rad  = np.atan2(u_q, u_d)
+delta_rad  = np.arctan2(u_q, u_d)
 delta      = delta_rad * (180/np.pi)
 
 m = U_rect_amp / V_dc_target
 
-# phase = [0+delta -120+delta 120+delta]
+phase = [0+delta, -120+delta, 120+delta]
 
-phase = np.array([0+delta, -120+delta, 120+delta])
+# phase = np.array([0+delta, -120+delta, 120+delta])
 
 V_rect = m*V_dc_target
 
