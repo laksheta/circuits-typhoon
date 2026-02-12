@@ -237,11 +237,28 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/C function" "C function1" {
+            arb_defs = "/*Begin code section*/
+
+/*End code section*/"
+            init_fnc = "/*Begin code section*/
+
+/*End code section*/"
             input_terminals_dimensions = "inherit"
+            input_terminals_feedthrough = "True"
+            input_terminals_show_labels = "False"
+            output_fnc = "/*Begin code section*/
+out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
+/*End code section*/"
             output_terminals_dimensions = "inherit"
+            output_terminals_feedthrough = "True"
+            output_terminals_show_labels = "False"
+            update_fnc = "/*Begin code section*/
+
+/*End code section*/"
         }
         [
-            position = 8084, 8084
+            position = 7776, 8124
+            hide_name = True
             size = 48, 48
         ]
 
@@ -287,6 +304,19 @@ model "simple_avg_rectifier" {
             hide_name = True
         ]
 
+        component "core/Bus Join" "Bus Join3" {
+        }
+        [
+            position = 7636, 8124
+            hide_name = True
+        ]
+
+        component "core/Probe" i_dc {
+        }
+        [
+            position = 7856, 8124
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -311,6 +341,30 @@ model "simple_avg_rectifier" {
             rotation = down
             hide_name = True
             scale = -1, 1
+            size = 60, 20
+        ]
+
+        tag From1 {
+            value = "V_rect"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7516, 8108
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From2 {
+            value = "i_abc"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7516, 8144
+            hide_name = True
             size = 60, 20
         ]
 
@@ -374,6 +428,13 @@ model "simple_avg_rectifier" {
         connect "Meter Split2.IC" "Bus Join2.in" as Connection81
         connect "Meter Split2.IB" "Bus Join2.in1" as Connection82
         connect "Meter Split2.IA" "Bus Join2.in2" as Connection83
+        connect From1 "Bus Join3.in" as Connection84
+        connect "Bus Join3.in1" From2 as Connection85
+        [
+            breakpoints = 7596, 8144; 7560, 8144
+        ]
+        connect "C function1.in" "Bus Join3.out" as Connection86
+        connect "C function1.out" i_dc.in as Connection87
     }
 
     default {
