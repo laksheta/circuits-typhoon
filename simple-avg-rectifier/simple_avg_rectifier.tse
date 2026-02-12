@@ -175,6 +175,25 @@ model "simple_avg_rectifier" {
         }
         [
             position = 8412, 8476
+            hide_name = True
+        ]
+
+        component "core/Sinusoidal Source" "Sinusoidal Source1" {
+            amplitude = "V_rect"
+            frequency = "F"
+            phase = "[0, -120, 120]"
+        }
+        [
+            position = 7708, 8380
+            hide_name = True
+        ]
+
+        component "core/Bus Split" "Bus Split1" {
+            outputs = "3"
+        }
+        [
+            position = 8264, 8312
+            hide_name = True
         ]
 
         junction Junction1 pe
@@ -199,9 +218,54 @@ model "simple_avg_rectifier" {
         [
             breakpoints = 8360, 8444; 8412, 8444
         ]
+        connect "Bus Split1.out" Vsp1.in as Connection17
+        connect "Bus Split1.out1" Vsp2.in as Connection18
+        connect "Bus Split1.out2" Vsp3.in as Connection19
+        [
+            breakpoints = 8328, 8328; 8328, 8404
+        ]
+    }
+
+    logically_deleted {
+        "Vs1"
+        "L1"
+        "L2"
+        "Connection1"
+        "Connection2"
+        "L3"
+        "Connection3"
+        "gnd1"
+        "Connection4"
+        "R1"
+        "R2"
+        "R3"
+        "Connection5"
+        "Connection6"
+        "Connection7"
+        "Vsp1"
+        "Connection8"
+        "Vsp2"
+        "Connection9"
+        "Vsp3"
+        "Connection10"
+        "gnd2"
+        "Junction1"
+        "Connection12"
+        "Connection13"
+        "Connection14"
+        "Connection15"
+        "Bus Split1"
+        "Connection17"
+        "Connection18"
+        "Connection19"
     }
 
     default {
+        "core/Bus Split" {
+            outputs = "2"
+            execution_rate = "inherit"
+        }
+
         "core/Inductor" {
             signal_access = "inherit"
             inductance = "1e-3"
@@ -213,6 +277,15 @@ model "simple_avg_rectifier" {
         "core/Resistor" {
             resistance = "1"
             param_set = ""
+        }
+
+        "core/Sinusoidal Source" {
+            amplitude = "1"
+            dc_offset = "0"
+            frequency = "50"
+            phase = "0"
+            execution_rate = "100e-6"
+            _tunable = "False"
         }
 
         "core/Signal Controlled Voltage Source" {
