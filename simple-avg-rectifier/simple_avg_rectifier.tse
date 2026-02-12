@@ -147,7 +147,7 @@ model "simple_avg_rectifier" {
         component "core/Signal Controlled Voltage Source" Vsp1 {
         }
         [
-            position = 8752, 7732
+            position = 8356, 8212
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -157,7 +157,7 @@ model "simple_avg_rectifier" {
         component "core/Signal Controlled Voltage Source" Vsp2 {
         }
         [
-            position = 8804, 7828
+            position = 8408, 8308
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -167,7 +167,7 @@ model "simple_avg_rectifier" {
         component "core/Signal Controlled Voltage Source" Vsp3 {
         }
         [
-            position = 8852, 7920
+            position = 8456, 8400
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -177,7 +177,7 @@ model "simple_avg_rectifier" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 8804, 7992
+            position = 8408, 8472
             hide_name = True
         ]
 
@@ -187,7 +187,7 @@ model "simple_avg_rectifier" {
             phase = "phase"
         }
         [
-            position = 8580, 7828
+            position = 8184, 8308
             hide_name = True
         ]
 
@@ -195,7 +195,7 @@ model "simple_avg_rectifier" {
             outputs = "3"
         }
         [
-            position = 8656, 7828
+            position = 8260, 8308
             hide_name = True
         ]
 
@@ -218,7 +218,7 @@ model "simple_avg_rectifier" {
         component "core/Three-phase Meter" "Three-phase Meter2" {
         }
         [
-            position = 8556, 8264
+            position = 8584, 8264
             hide_name = True
             size = 56, 240
         ]
@@ -226,14 +226,14 @@ model "simple_avg_rectifier" {
         component "core/Ground" gnd4 {
         }
         [
-            position = 8556, 8440
+            position = 9452, 8160
             hide_name = True
         ]
 
         component "core/Probe" sine {
         }
         [
-            position = 8648, 7728
+            position = 8252, 8208
         ]
 
         component "core/Three Phase Voltage Source" Vs2 {
@@ -242,24 +242,24 @@ model "simple_avg_rectifier" {
             init_rms_value = "U_rect_rms"
         }
         [
-            position = 8428, 8264
+            position = 9324, 7984
             hide_name = True
             size = 62, 256
         ]
 
         junction Junction1 pe
         [
-            position = 8804, 7960
+            position = 8408, 8440
         ]
 
         junction Junction2 sp
         [
-            position = 8616, 7828
+            position = 8220, 8308
         ]
 
         junction Junction3 pe
         [
-            position = 8556, 8404
+            position = 8456, 8440
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -268,16 +268,15 @@ model "simple_avg_rectifier" {
         connect R1.n_node L1.p_node as Connection7
         connect Vsp2.n_node Junction1 as Connection12
         connect Junction1 gnd2.node as Connection13
-        connect Vsp3.n_node Junction1 as Connection14
         connect Vsp1.n_node Junction1 as Connection15
         [
-            breakpoints = 8752, 7960; 8804, 7960
+            breakpoints = 8356, 8440; 8408, 8440
         ]
         connect "Bus Split1.out" Vsp1.in as Connection17
         connect "Bus Split1.out1" Vsp2.in as Connection18
         connect "Bus Split1.out2" Vsp3.in as Connection19
         [
-            breakpoints = 8720, 7844; 8720, 7920
+            breakpoints = 8324, 8324; 8324, 8400
         ]
         connect L1.n_node "Three-phase Meter1.A-" as Connection21
         connect "Three-phase Meter1.A+" Vs1.a_node as Connection22
@@ -292,37 +291,25 @@ model "simple_avg_rectifier" {
         connect "Sinusoidal Source1.out" Junction2 as Connection35
         connect Junction2 "Bus Split1.in" as Connection36
         connect sine.in Junction2 as Connection37
-        connect "Three-phase Meter2.C-" R3.p_node as Connection38
-        connect "Three-phase Meter2.B-" R2.p_node as Connection39
-        connect "Three-phase Meter2.A-" R1.p_node as Connection40
-        connect "Three-phase Meter2.A+" Vs2.a_node as Connection41
-        connect "Three-phase Meter2.B+" Vs2.b_node as Connection42
-        connect Vs2.c_node "Three-phase Meter2.C+" as Connection43
-        connect gnd4.node Junction3 as Connection44
-        connect Junction3 "Three-phase Meter2.GND" as Connection45
-        connect Vs2.n_node Junction3 as Connection46
+        connect gnd4.node Vs2.n_node as Connection50
+        [
+            breakpoints = 9452, 8124
+        ]
+        connect R1.p_node "Three-phase Meter2.A-" as Connection51
+        connect "Three-phase Meter2.A+" Vsp1.p_node as Connection52
+        connect Vsp2.p_node "Three-phase Meter2.B+" as Connection53
+        connect "Three-phase Meter2.B-" R2.p_node as Connection54
+        connect Vsp3.p_node "Three-phase Meter2.C+" as Connection55
+        connect "Three-phase Meter2.C-" R3.p_node as Connection56
+        connect Vsp3.n_node Junction3 as Connection57
+        connect Junction3 Junction1 as Connection58
+        connect "Three-phase Meter2.GND" Junction3 as Connection59
     }
 
     logically_deleted {
-        "Vsp1"
-        "Vsp2"
-        "Vsp3"
-        "gnd2"
-        "Sinusoidal Source1"
-        "Bus Split1"
-        "Junction1"
-        "sine"
-        "Junction2"
-        "Connection12"
-        "Connection13"
-        "Connection14"
-        "Connection15"
-        "Connection17"
-        "Connection18"
-        "Connection19"
-        "Connection35"
-        "Connection36"
-        "Connection37"
+        "gnd4"
+        "Vs2"
+        "Connection50"
     }
 
     default {
