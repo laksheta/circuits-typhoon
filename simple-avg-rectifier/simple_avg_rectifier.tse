@@ -87,6 +87,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Inductor" L1 {
+            inductance = "L"
         }
         [
             position = 8684, 8172
@@ -94,6 +95,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Inductor" L2 {
+            inductance = "L"
         }
         [
             position = 8684, 8268
@@ -101,6 +103,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Inductor" L3 {
+            inductance = "L"
         }
         [
             position = 8684, 8364
@@ -114,10 +117,88 @@ model "simple_avg_rectifier" {
             hide_name = True
         ]
 
+        component "core/Resistor" R1 {
+            resistance = "R"
+        }
+        [
+            position = 8576, 8172
+            hide_name = True
+        ]
+
+        component "core/Resistor" R2 {
+            resistance = "R"
+        }
+        [
+            position = 8576, 8268
+            hide_name = True
+        ]
+
+        component "core/Resistor" R3 {
+            resistance = "R"
+        }
+        [
+            position = 8576, 8364
+            hide_name = True
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp1 {
+        }
+        [
+            position = 8360, 8216
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp2 {
+        }
+        [
+            position = 8412, 8312
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Signal Controlled Voltage Source" Vsp3 {
+        }
+        [
+            position = 8460, 8404
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Ground" gnd2 {
+        }
+        [
+            position = 8412, 8476
+        ]
+
+        junction Junction1 pe
+        [
+            position = 8412, 8444
+        ]
+
         connect L1.n_node Vs1.a_node as Connection1
         connect L2.n_node Vs1.b_node as Connection2
         connect L3.n_node Vs1.c_node as Connection3
         connect Vs1.n_node gnd1.node as Connection4
+        connect R3.n_node L3.p_node as Connection5
+        connect L2.p_node R2.n_node as Connection6
+        connect R1.n_node L1.p_node as Connection7
+        connect Vsp1.p_node R1.p_node as Connection8
+        connect Vsp2.p_node R2.p_node as Connection9
+        connect Vsp3.p_node R3.p_node as Connection10
+        connect Vsp2.n_node Junction1 as Connection12
+        connect Junction1 gnd2.node as Connection13
+        connect Vsp3.n_node Junction1 as Connection14
+        connect Vsp1.n_node Junction1 as Connection15
+        [
+            breakpoints = 8360, 8444; 8412, 8444
+        ]
     }
 
     default {
@@ -127,6 +208,15 @@ model "simple_avg_rectifier" {
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Resistor" {
+            resistance = "1"
+            param_set = ""
+        }
+
+        "core/Signal Controlled Voltage Source" {
+            execution_rate = "inherit"
         }
 
         "core/Three Phase Voltage Source" {
