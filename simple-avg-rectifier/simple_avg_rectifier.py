@@ -1,8 +1,8 @@
 import numpy as np
 
 
-exec_meas   = 20e-6
-exec_sine   = exec_meas
+exec_meas   = 1e-6
+exec_sine   = 10e-6
 
 V_grid_peak = 220*np.sqrt(2)
 V_grid_rms  = 220
@@ -34,8 +34,6 @@ m = U_rect_amp / V_dc_target
 
 phase = [0+delta, -120+delta, 120+delta]
 phase_3ph    = delta
-
-# phase = np.array([0+delta, -120+delta, 120+delta])
 
 V_rect = m*V_dc_target
 

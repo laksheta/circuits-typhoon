@@ -188,7 +188,7 @@ model "simple_avg_rectifier" {
             phase = "phase"
         }
         [
-            position = 8136, 8304
+            position = 8080, 8304
             hide_name = True
         ]
 
@@ -228,7 +228,7 @@ model "simple_avg_rectifier" {
             execution_rate = "exec_meas"
         }
         [
-            position = 8172, 8244
+            position = 8144, 8204
             rotation = left
         ]
 
@@ -260,7 +260,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 /*End code section*/"
         }
         [
-            position = 8312, 7864
+            position = 8560, 7920
             hide_name = True
             size = 48, 48
         ]
@@ -312,7 +312,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         component "core/Bus Join" "Bus Join3" {
         }
         [
-            position = 8216, 7864
+            position = 8464, 7920
             hide_name = True
         ]
 
@@ -320,14 +320,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_meas"
         }
         [
-            position = 8576, 7788
+            position = 8824, 7844
             rotation = left
         ]
 
         component "core/Signal Controlled Current Source" Isp1 {
         }
         [
-            position = 8424, 7636
+            position = 8556, 7724
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -338,7 +338,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             capacitance = "C_out"
         }
         [
-            position = 8520, 7640
+            position = 8652, 7728
             rotation = right
             hide_name = True
         ]
@@ -347,7 +347,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             resistance = "R_load"
         }
         [
-            position = 8616, 7640
+            position = 8748, 7728
             rotation = right
             hide_name = True
         ]
@@ -355,7 +355,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         component "core/Voltage Measurement" V_out {
         }
         [
-            position = 8724, 7640
+            position = 8856, 7728
             rotation = right
             size = 64, 32
         ]
@@ -364,8 +364,18 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             outputs = "6"
         }
         [
-            position = 8448, 7864
+            position = 8696, 7920
             hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 8144, 8260
+            rotation = left
+            hide_name = True
+            size = 32, 32
         ]
 
         tag Goto1 {
@@ -402,7 +412,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 8096, 7848
+            position = 8344, 7904
             hide_name = True
             size = 60, 20
         ]
@@ -414,7 +424,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 8096, 7884
+            position = 8344, 7940
             hide_name = True
             size = 60, 20
         ]
@@ -426,7 +436,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8644, 7824
+            position = 8892, 7880
             hide_name = True
             size = 60, 20
         ]
@@ -438,7 +448,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 8348, 7636
+            position = 8480, 7724
             hide_name = True
             size = 60, 20
         ]
@@ -450,32 +460,32 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction2 sp
         [
-            position = 8172, 8304
+            position = 8144, 8304
         ]
 
         junction Junction4 pe
         [
-            position = 8520, 7704
+            position = 8652, 7792
         ]
 
         junction Junction5 pe
         [
-            position = 8616, 7704
+            position = 8748, 7792
         ]
 
         junction Junction6 pe
         [
-            position = 8616, 7576
+            position = 8748, 7664
         ]
 
         junction Junction7 pe
         [
-            position = 8520, 7576
+            position = 8652, 7664
         ]
 
         junction Junction8 sp
         [
-            position = 8576, 7824
+            position = 8824, 7880
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -513,7 +523,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
         connect "Bus Split1.in" Junction2 as Connection67
         connect Junction2 "Sinusoidal Source1.out" as Connection68
-        connect sine.in Junction2 as Connection69
         connect Vsp3.in "Bus Split1.out2" as Connection70
         [
             breakpoints = 8276, 8392; 8276, 8320
@@ -531,29 +540,29 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
         [
-            breakpoints = 8176, 7884; 8140, 7884
+            breakpoints = 8424, 7940; 8388, 7940
         ]
         connect "C function1.in" "Bus Join3.out" as Connection86
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
-            breakpoints = 8424, 7704
+            breakpoints = 8556, 7792
         ]
         connect C1.n_node Junction4 as Connection96
         connect Junction4 Junction5 as Connection97
         connect Junction5 V_out.n_node as Connection98
         [
-            breakpoints = 8724, 7704
+            breakpoints = 8856, 7792
         ]
         connect R4.n_node Junction5 as Connection99
         connect Junction6 V_out.p_node as Connection101
         [
-            breakpoints = 8724, 7576
+            breakpoints = 8856, 7664
         ]
         connect R4.p_node Junction6 as Connection102
         connect Isp1.p_node Junction7 as Connection103
         [
-            breakpoints = 8424, 7576
+            breakpoints = 8556, 7664
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
@@ -561,6 +570,8 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect i_dc.in Junction8 as Connection108
         connect Junction8 "Bus Split2.out" as Connection109
         connect Goto3 Junction8 as Connection110
+        connect sine.in "Rate Transition1.out" as Connection111
+        connect "Rate Transition1.in" Junction2 as Connection112
     }
 
     default {
@@ -696,6 +707,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             power_pfa = "False"
             power_pfb = "False"
             power_pfc = "False"
+        }
+
+        "core/Rate Transition" {
+            init_value = "0.0"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'generic\']"
         }
 
         "core/Signal Controlled Current Source" {
