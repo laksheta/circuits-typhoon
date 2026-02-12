@@ -9,7 +9,7 @@ model "simple_avg_rectifier" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = .01e-6
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -167,7 +167,7 @@ model "simple_avg_rectifier" {
         component "core/Signal Controlled Voltage Source" Vsp3 {
         }
         [
-            position = 8412, 8396
+            position = 8412, 8416
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -177,13 +177,13 @@ model "simple_avg_rectifier" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 8360, 8472
+            position = 8360, 8492
             hide_name = True
         ]
 
         component "core/Sinusoidal Source" "Sinusoidal Source1" {
             amplitude = "V_rect"
-            execution_rate = "1e-6"
+            execution_rate = "0.1e-6"
             frequency = "F"
             phase = "phase"
         }
@@ -201,7 +201,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Three-phase Meter" "Grid Meter" {
-            Ts = "1e-6"
+            Ts = "exec_meas"
         }
         [
             position = 8932, 8264
@@ -217,7 +217,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Three-phase Meter" "Rectifier Meter" {
-            Ts = "1e-6"
+            Ts = "exec_meas"
         }
         [
             position = 8584, 8264
@@ -225,6 +225,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Probe" sine {
+            execution_rate = "exec_meas"
         }
         [
             position = 8172, 8244
@@ -274,6 +275,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Bus Join" "Bus Join1" {
+            execution_rate = "exec_meas"
             inputs = "3"
         }
         [
@@ -299,6 +301,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Bus Join" "Bus Join2" {
+            execution_rate = "exec_meas"
             inputs = "3"
         }
         [
@@ -314,6 +317,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Probe" i_dc {
+            execution_rate = "exec_meas"
         }
         [
             position = 8576, 7788
@@ -441,7 +445,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction1 pe
         [
-            position = 8360, 8440
+            position = 8360, 8460
         ]
 
         junction Junction2 sp
@@ -482,7 +486,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Junction1 gnd2.node as Connection13
         connect Vsp1.n_node Junction1 as Connection15
         [
-            breakpoints = 8308, 8440; 8360, 8440
+            breakpoints = 8308, 8460; 8360, 8460
         ]
         connect "Bus Split1.out" Vsp1.in as Connection17
         connect "Bus Split1.out1" Vsp2.in as Connection18
@@ -501,7 +505,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Rectifier Meter.C-" R3.p_node as Connection56
         connect Vsp3.n_node Junction1 as Connection60
         [
-            breakpoints = 8408, 8440
+            breakpoints = 8408, 8460
         ]
         connect gnd5.node "Rectifier Meter.GND" as Connection61
         connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
