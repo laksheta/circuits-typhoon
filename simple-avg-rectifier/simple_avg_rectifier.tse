@@ -257,7 +257,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 /*End code section*/"
         }
         [
-            position = 7776, 8124
+            position = 8312, 7864
             hide_name = True
             size = 48, 48
         ]
@@ -307,14 +307,51 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         component "core/Bus Join" "Bus Join3" {
         }
         [
-            position = 7636, 8124
+            position = 8216, 7864
             hide_name = True
         ]
 
         component "core/Probe" i_dc {
         }
         [
-            position = 7856, 8124
+            position = 8384, 7816
+            rotation = left
+        ]
+
+        component "core/Signal Controlled Current Source" Isp1 {
+        }
+        [
+            position = 8424, 7636
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Capacitor" C1 {
+            capacitance = "C_out"
+        }
+        [
+            position = 8520, 7640
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Resistor" R4 {
+            resistance = "R_load"
+        }
+        [
+            position = 8616, 7640
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Voltage Measurement" V_out {
+        }
+        [
+            position = 8724, 7640
+            rotation = right
+            size = 64, 32
         ]
 
         tag Goto1 {
@@ -351,7 +388,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 7516, 8108
+            position = 8096, 7848
             hide_name = True
             size = 60, 20
         ]
@@ -363,7 +400,31 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 7516, 8144
+            position = 8096, 7884
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto3 {
+            value = "i_dc"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8460, 7864
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From3 {
+            value = "i_dc"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8348, 7636
             hide_name = True
             size = 60, 20
         ]
@@ -376,6 +437,31 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction2 sp
         [
             position = 8172, 8304
+        ]
+
+        junction Junction3 sp
+        [
+            position = 8388, 7864
+        ]
+
+        junction Junction4 pe
+        [
+            position = 8520, 7704
+        ]
+
+        junction Junction5 pe
+        [
+            position = 8616, 7704
+        ]
+
+        junction Junction6 pe
+        [
+            position = 8616, 7576
+        ]
+
+        junction Junction7 pe
+        [
+            position = 8520, 7576
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -431,10 +517,35 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
         [
-            breakpoints = 7596, 8144; 7560, 8144
+            breakpoints = 8176, 7884; 8140, 7884
         ]
         connect "C function1.in" "Bus Join3.out" as Connection86
-        connect "C function1.out" i_dc.in as Connection87
+        connect "C function1.out" Junction3 as Connection88
+        connect Junction3 i_dc.in as Connection89
+        connect Goto3 Junction3 as Connection90
+        connect Isp1.in From3 as Connection91
+        connect Isp1.n_node Junction4 as Connection94
+        [
+            breakpoints = 8424, 7704
+        ]
+        connect C1.n_node Junction4 as Connection96
+        connect Junction4 Junction5 as Connection97
+        connect Junction5 V_out.n_node as Connection98
+        [
+            breakpoints = 8724, 7704
+        ]
+        connect R4.n_node Junction5 as Connection99
+        connect Junction6 V_out.p_node as Connection101
+        [
+            breakpoints = 8724, 7576
+        ]
+        connect R4.p_node Junction6 as Connection102
+        connect Isp1.p_node Junction7 as Connection103
+        [
+            breakpoints = 8424, 7576
+        ]
+        connect Junction7 Junction6 as Connection104
+        connect C1.p_node Junction7 as Connection105
     }
 
     default {
@@ -483,6 +594,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "inherit"
             _supported_platforms = "[\'generic\']"
             refresh = "refresh"
+        }
+
+        "core/Capacitor" {
+            signal_access = "inherit"
+            capacitance = "1e-6"
+            initial_voltage = "0"
+            pole_shift_ignore = "False"
+            visible = "True"
         }
 
         "core/Inductor" {
@@ -564,6 +683,10 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             power_pfc = "False"
         }
 
+        "core/Signal Controlled Current Source" {
+            execution_rate = "inherit"
+        }
+
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
         }
@@ -606,6 +729,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             P_method = "alpha-beta"
             enable_extra_out = "False"
             P_meas = "False"
+        }
+
+        "core/Voltage Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
         }
     }
 
