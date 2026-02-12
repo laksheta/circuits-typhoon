@@ -167,7 +167,7 @@ model "simple_avg_rectifier" {
         component "core/Signal Controlled Voltage Source" Vsp3 {
         }
         [
-            position = 8412, 8392
+            position = 8412, 8396
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -177,13 +177,13 @@ model "simple_avg_rectifier" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 8360, 8468
+            position = 8360, 8472
             hide_name = True
         ]
 
         component "core/Sinusoidal Source" "Sinusoidal Source1" {
             amplitude = "V_rect"
-            execution_rate = "10e-6"
+            execution_rate = "1e-6"
             frequency = "F"
             phase = "phase"
         }
@@ -201,6 +201,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Three-phase Meter" "Grid Meter" {
+            Ts = "1e-6"
         }
         [
             position = 8932, 8264
@@ -216,6 +217,7 @@ model "simple_avg_rectifier" {
         ]
 
         component "core/Three-phase Meter" "Rectifier Meter" {
+            Ts = "1e-6"
         }
         [
             position = 8584, 8264
@@ -358,7 +360,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             outputs = "6"
         }
         [
-            position = 8452, 7864
+            position = 8448, 7864
             hide_name = True
         ]
 
@@ -420,7 +422,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8648, 7824
+            position = 8644, 7824
             hide_name = True
             size = 60, 20
         ]
@@ -439,7 +441,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction1 pe
         [
-            position = 8360, 8436
+            position = 8360, 8440
         ]
 
         junction Junction2 sp
@@ -480,7 +482,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Junction1 gnd2.node as Connection13
         connect Vsp1.n_node Junction1 as Connection15
         [
-            breakpoints = 8308, 8436; 8360, 8436
+            breakpoints = 8308, 8440; 8360, 8440
         ]
         connect "Bus Split1.out" Vsp1.in as Connection17
         connect "Bus Split1.out1" Vsp2.in as Connection18
@@ -499,7 +501,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Rectifier Meter.C-" R3.p_node as Connection56
         connect Vsp3.n_node Junction1 as Connection60
         [
-            breakpoints = 8408, 8436
+            breakpoints = 8408, 8440
         ]
         connect gnd5.node "Rectifier Meter.GND" as Connection61
         connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
