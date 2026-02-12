@@ -2,7 +2,7 @@ import numpy as np
 
 
 exec_meas   = 20e-6
-
+exec_sine   = exec_meas
 
 V_grid_peak = 220*np.sqrt(2)
 V_grid_rms  = 220
