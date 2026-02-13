@@ -181,25 +181,6 @@ model "simple_avg_dq_rectifier" {
             hide_name = True
         ]
 
-        component "core/Sinusoidal Source" "Sinusoidal Source1" {
-            amplitude = "V_rect"
-            execution_rate = "exec_sine"
-            frequency = "F"
-            phase = "phase"
-        }
-        [
-            position = 8080, 8304
-            hide_name = True
-        ]
-
-        component "core/Bus Split" "Bus Split1" {
-            outputs = "3"
-        }
-        [
-            position = 8212, 8304
-            hide_name = True
-        ]
-
         component "core/Three-phase Meter" "Grid Meter" {
             Ts = "exec_meas"
         }
@@ -222,14 +203,6 @@ model "simple_avg_dq_rectifier" {
         [
             position = 8584, 8264
             size = 56, 240
-        ]
-
-        component "core/Probe" sine {
-            execution_rate = "exec_meas"
-        }
-        [
-            position = 8144, 8204
-            rotation = left
         ]
 
         component "core/Ground" gnd5 {
@@ -365,16 +338,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
-        component "core/Rate Transition" "Rate Transition1" {
-            execution_rate = "exec_meas"
-        }
-        [
-            position = 8144, 8260
-            rotation = left
-            hide_name = True
-            size = 32, 32
-        ]
-
         component "core/Bus Join" "Bus Join4" {
             execution_rate = "exec_meas"
             inputs = "3"
@@ -405,7 +368,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_meas"
         }
         [
-            position = 7840, 8336
+            position = 8204, 8304
             hide_name = True
             size = 48, 80
         ]
@@ -415,7 +378,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "0"
         }
         [
-            position = 7712, 8344
+            position = 8076, 8312
             hide_name = True
         ]
 
@@ -424,7 +387,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "u_d"
         }
         [
-            position = 7712, 8280
+            position = 8076, 8248
             hide_name = True
         ]
 
@@ -433,7 +396,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "u_q"
         }
         [
-            position = 7712, 8312
+            position = 8076, 8280
             hide_name = True
         ]
 
@@ -557,7 +520,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 7712, 8392
+            position = 8076, 8360
             hide_name = True
             size = 60, 20
         ]
@@ -565,11 +528,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction1 pe
         [
             position = 8360, 8460
-        ]
-
-        junction Junction2 sp
-        [
-            position = 8144, 8304
         ]
 
         junction Junction4 pe
@@ -607,8 +565,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8308, 8460; 8360, 8460
         ]
-        connect "Bus Split1.out" Vsp1.in as Connection17
-        connect "Bus Split1.out1" Vsp2.in as Connection18
         connect L1.n_node "Grid Meter.A-" as Connection21
         connect "Grid Meter.A+" Vs1.a_node as Connection22
         connect L2.n_node "Grid Meter.B-" as Connection23
@@ -630,12 +586,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
         connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
         connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
-        connect "Bus Split1.in" Junction2 as Connection67
-        connect Junction2 "Sinusoidal Source1.out" as Connection68
-        connect Vsp3.in "Bus Split1.out2" as Connection70
-        [
-            breakpoints = 8276, 8392; 8276, 8320
-        ]
         connect "Meter Split1.Input" "Rectifier Meter.Out" as Connection71
         connect "Meter Split1.VCn" "Bus Join1.in" as Connection72
         connect "Bus Join1.in1" "Meter Split1.VBn" as Connection73
@@ -685,8 +635,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect i_dc.in Junction8 as Connection108
         connect Junction8 "Bus Split2.out" as Connection109
         connect Goto3 Junction8 as Connection110
-        connect sine.in "Rate Transition1.out" as Connection111
-        connect "Rate Transition1.in" Junction2 as Connection112
         connect "Bus Join4.out" Goto4 as Connection113
         connect "Meter Split2.VAn" "Bus Join4.in" as Connection114
         connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
@@ -706,9 +654,15 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Constant1.out "dq to abc1.zero_input" as Connection123
         connect Constant3.out "dq to abc1.q_input" as Connection124
         [
-            breakpoints = 7788, 8312; 7788, 8328
+            breakpoints = 8152, 8280; 8152, 8296
         ]
         connect Constant2.out "dq to abc1.d_input" as Connection125
+        connect "dq to abc1.phase_b" Vsp2.in as Connection127
+        connect "dq to abc1.phase_a" Vsp1.in as Connection128
+        connect "dq to abc1.phase_c" Vsp3.in as Connection129
+        [
+            breakpoints = 8276, 8328; 8276, 8416
+        ]
     }
 
     default {
@@ -798,15 +752,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             param_set = ""
         }
 
-        "core/Sinusoidal Source" {
-            amplitude = "1"
-            dc_offset = "0"
-            frequency = "50"
-            phase = "0"
-            execution_rate = "100e-6"
-            _tunable = "False"
-        }
-
         "core/Meter Split" {
             van = "True"
             vbn = "True"
@@ -851,12 +796,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             power_pfa = "False"
             power_pfb = "False"
             power_pfc = "False"
-        }
-
-        "core/Rate Transition" {
-            init_value = "0.0"
-            execution_rate = "100e-6"
-            _supported_platforms = "[\'generic\']"
         }
 
         "core/Signal Controlled Current Source" {
