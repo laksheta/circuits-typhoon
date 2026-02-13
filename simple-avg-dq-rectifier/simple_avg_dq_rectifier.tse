@@ -401,10 +401,40 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
-        component "core/Probe" theta {
+        component "core/dq to abc" "dq to abc1" {
+            execution_rate = "exec_meas"
         }
         [
-            position = 9336, 7808
+            position = 7840, 8336
+            hide_name = True
+            size = 48, 80
+        ]
+
+        component "core/Constant" Constant1 {
+            execution_rate = "exec_meas"
+            value = "0"
+        }
+        [
+            position = 7712, 8344
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant2 {
+            execution_rate = "exec_meas"
+            value = "u_d"
+        }
+        [
+            position = 7712, 8280
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant3 {
+            execution_rate = "exec_meas"
+            value = "u_q"
+        }
+        [
+            position = 7712, 8312
+            hide_name = True
         ]
 
         tag Goto1 {
@@ -504,6 +534,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 9052, 7792
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto5 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9320, 7808
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From5 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7712, 8392
             hide_name = True
             size = 60, 20
         ]
@@ -647,7 +701,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
         connect "Bus Split3.out1" "Three phase PLL1.vb" as Connection119
         connect "Three phase PLL1.vc" "Bus Split3.out2" as Connection120
-        connect theta.in "Three phase PLL1.theta" as Connection121
+        connect Goto5 "Three phase PLL1.theta" as Connection121
+        connect From5 "dq to abc1.wt" as Connection122
+        connect Constant1.out "dq to abc1.zero_input" as Connection123
+        connect Constant3.out "dq to abc1.q_input" as Connection124
+        [
+            breakpoints = 7788, 8312; 7788, 8328
+        ]
+        connect Constant2.out "dq to abc1.d_input" as Connection125
     }
 
     default {
@@ -704,6 +765,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             initial_voltage = "0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
         }
 
         "core/Inductor" {
@@ -886,6 +954,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             visible = "True"
             override_signal_name = "False"
             signal_name = ""
+        }
+
+        "core/dq to abc" {
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            execution_rate = "0"
         }
     }
 
