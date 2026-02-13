@@ -288,16 +288,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             ia = "True"
             ib = "True"
             ic = "True"
-            van = "False"
-            vbn = "False"
-            vcn = "False"
         }
         [
-            position = 9024, 8064
+            position = 9028, 8032
             rotation = down
             hide_name = True
             scale = -1, 1
-            size = 96, 72
+            size = 96, 112
         ]
 
         component "core/Bus Join" "Bus Join2" {
@@ -305,7 +302,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             inputs = "3"
         }
         [
-            position = 9140, 8064
+            position = 9140, 7976
             hide_name = True
         ]
 
@@ -378,6 +375,15 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 32, 32
         ]
 
+        component "core/Bus Join" "Bus Join4" {
+            execution_rate = "exec_meas"
+            inputs = "3"
+        }
+        [
+            position = 9140, 8088
+            hide_name = True
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -398,7 +404,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 9260, 8064
+            position = 9260, 7976
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -450,6 +456,20 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             position = 8480, 7724
             hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto4 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9260, 8088
+            rotation = down
+            hide_name = True
+            scale = -1, 1
             size = 60, 20
         ]
 
@@ -535,7 +555,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
         connect "Meter Split2.IC" "Bus Join2.in" as Connection81
+        [
+            breakpoints = 9092, 7992; 9092, 7960
+        ]
         connect "Meter Split2.IB" "Bus Join2.in1" as Connection82
+        [
+            breakpoints = 9096, 8008; 9096, 7976
+        ]
         connect "Meter Split2.IA" "Bus Join2.in2" as Connection83
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
@@ -572,6 +598,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Goto3 Junction8 as Connection110
         connect sine.in "Rate Transition1.out" as Connection111
         connect "Rate Transition1.in" Junction2 as Connection112
+        connect "Bus Join4.out" Goto4 as Connection113
+        connect "Meter Split2.VAn" "Bus Join4.in" as Connection114
+        connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
+        connect "Meter Split2.VCn" "Bus Join4.in2" as Connection116
+        [
+            breakpoints = 9092, 8040; 9092, 8104
+        ]
     }
 
     default {
