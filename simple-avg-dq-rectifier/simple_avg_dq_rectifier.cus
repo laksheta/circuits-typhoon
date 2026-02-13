@@ -49,7 +49,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
                             <time_interval>1.0</time_interval>
-                            <sample_rate>1000000</sample_rate>
+                            <sample_rate>1000000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
@@ -171,6 +171,17 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>9</row>
                                     <viewports>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>10</channel>
+                                    <name><![CDATA[theta]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>10</row>
+                                    <viewports>
                                         <num_viewport>4</num_viewport>
                                    </viewports>
                                </analog>
@@ -231,7 +242,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         </presets>
                     <capture>
                         <time_interval>1.0</time_interval>
-                        <sample_rate>1000000</sample_rate>
+                        <sample_rate>1000000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
@@ -360,6 +371,17 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>9</row>
+                                    <viewports>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>10</channel>
+                                    <name><![CDATA[theta]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>10</row>
                                     <viewports>
                                         <num_viewport>4</num_viewport>
                                    </viewports>
