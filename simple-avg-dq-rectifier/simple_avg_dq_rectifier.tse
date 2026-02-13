@@ -384,6 +384,29 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
+        component "core/Three phase PLL" "Three phase PLL1" {
+        }
+        [
+            position = 9212, 7792
+            hide_name = True
+            size = 64, 128
+        ]
+
+        component "core/Bus Split" "Bus Split3" {
+            execution_rate = "exec_meas"
+            outputs = "3"
+        }
+        [
+            position = 9124, 7792
+            hide_name = True
+        ]
+
+        component "core/Probe" theta {
+        }
+        [
+            position = 9336, 7808
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -470,6 +493,18 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             rotation = down
             hide_name = True
             scale = -1, 1
+            size = 60, 20
+        ]
+
+        tag From4 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9052, 7792
+            hide_name = True
             size = 60, 20
         ]
 
@@ -605,6 +640,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 9092, 8040; 9092, 8104
         ]
+        connect "Bus Split3.in" From4 as Connection117
+        connect "Bus Split3.out" "Three phase PLL1.va" as Connection118
+        [
+            breakpoints = 9164, 7776; 9164, 7744
+        ]
+        connect "Bus Split3.out1" "Three phase PLL1.vb" as Connection119
+        connect "Three phase PLL1.vc" "Bus Split3.out2" as Connection120
+        connect theta.in "Three phase PLL1.theta" as Connection121
     }
 
     default {
@@ -760,6 +803,31 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             init_rms_value = "0.0"
             init_frequency = "50.0"
             init_phase = "0.0"
+        }
+
+        "core/Three phase PLL" {
+            initial_filter_output = "60"
+            wn = "157.0796"
+            zeta = "0.707"
+            rate_high = "12"
+            rate_low = "-12"
+            freq_unit = "Hz"
+            kp = "100"
+            ki = "3200"
+            kd = "1"
+            N = "714.2857"
+            initial_pid_output = "376.99111843"
+            up_lim = "1e4"
+            low_lim = "-1e4"
+            kb = "1"
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            disable_filter = "False"
+            wn_LPFdq = "62.83185307"
+            execution_rate = "inherit"
+            enable_pk = "False"
+            enable_zero = "True"
+            enable_sin = "True"
         }
 
         "core/Three-phase Meter" {
