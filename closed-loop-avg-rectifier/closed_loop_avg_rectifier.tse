@@ -347,7 +347,7 @@ out[0] = (result > 0.0f) ? result : 0.0f;
         ]
 
         component "core/Bus Split" "Bus Split2" {
-            outputs = "6"
+            outputs = "7"
         }
         [
             position = 8696, 7920
