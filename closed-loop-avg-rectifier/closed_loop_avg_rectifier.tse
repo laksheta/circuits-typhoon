@@ -462,7 +462,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         component "core/Sum" Sum1 {
             execution_rate = "exec_controller"
-            signs = "++"
+            signs = "+-"
         }
         [
             position = 7836, 8600
@@ -480,7 +480,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             upper_sat_lim = "350"
         }
         [
-            position = 7960, 8736
+            position = 7956, 8756
             hide_name = True
         ]
 
@@ -489,7 +489,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "i_q_req"
         }
         [
-            position = 7724, 8704
+            position = 7720, 8724
             hide_name = True
         ]
 
@@ -497,17 +497,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_meas"
         }
         [
-            position = 8140, 8680
-        ]
-
-        component "core/SCADA Input" u_q_reset {
-            execution_rate = "exec_controller"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 7840, 8768
+            position = 8136, 8700
         ]
 
         component "core/Sum" Sum2 {
@@ -515,7 +505,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             signs = "++"
         }
         [
-            position = 7840, 8720
+            position = 7836, 8740
             hide_name = True
         ]
 
@@ -735,7 +725,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8068, 8736
+            position = 8064, 8756
             hide_name = True
             size = 60, 20
         ]
@@ -747,7 +737,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 7716, 8760
+            position = 7712, 8780
             hide_name = True
             size = 60, 20
         ]
@@ -801,7 +791,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction10 sp
         [
-            position = 8012, 8736
+            position = 8008, 8756
+        ]
+
+        junction Junction11 sp
+        [
+            position = 7912, 8648
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -914,7 +909,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8008, 8604
         ]
-        connect u_d_reset.out "PID controller1.reset" as Connection136
         connect From7 "abc to dq1.wt" as Connection137
         connect "Bus Split4.out" "abc to dq1.va" as Connection138
         connect "Bus Split4.out1" "abc to dq1.vb" as Connection139
@@ -932,21 +926,34 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Junction10 "PID controller2.out" as Connection148
         connect u_q_pi.in Junction10 as Connection149
         [
-            breakpoints = 8012, 8728
+            breakpoints = 8008, 8748
         ]
-        connect u_q_reset.out "PID controller2.reset" as Connection150
         connect Sum2.out "PID controller2.in" as Connection151
         connect Constant5.out Sum2.in as Connection152
         connect From10 Sum2.in1 as Connection153
-        connect From11 "dq to abc1.q_input" as Connection154
-        [
-            breakpoints = 8144, 8260; 8144, 8296
-        ]
+        connect "dq to abc1.q_input" Constant3.out as Connection154
+        connect u_d_reset.out Junction11 as Connection155
+        connect Junction11 "PID controller1.reset" as Connection156
+        connect "PID controller2.reset" Junction11 as Connection157
     }
 
     logically_deleted {
         "Constant2"
-        "Constant3"
+        "PID controller2"
+        "Constant5"
+        "Goto9"
+        "u_q_pi"
+        "Junction10"
+        "Sum2"
+        "From10"
+        "Connection147"
+        "Connection148"
+        "Connection149"
+        "Connection151"
+        "Connection152"
+        "Connection153"
+        "From11"
+        "Connection157"
     }
 
     default {
