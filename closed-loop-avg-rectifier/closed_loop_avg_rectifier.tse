@@ -869,7 +869,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction15 sp
         [
-            position = 8128, 8260
+            position = 8128, 8204
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -1014,25 +1014,33 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Junction14 u_d_reset.out as Connection189
         connect "PID controller2.reset" Junction14 as Connection190
         connect "PID controller2.out" Goto9 as Connection192
-        connect u_q_pi.in Junction15 as Connection194
+        connect u_q_pi.in Junction15 as Connection198
+        connect Junction15 "dq to abc1.q_input" as Connection199
         [
-            breakpoints = 8128, 8204
+            breakpoints = 8128, 8204; 8128, 8296
         ]
-        connect Junction15 "dq to abc1.q_input" as Connection195
-        [
-            breakpoints = 8128, 8296
-        ]
-        connect From11 Junction15 as Connection196
+        connect Constant3.out Junction15 as Connection200
     }
 
     logically_deleted {
+        "PID controller2"
+        "Constant5"
+        "Sum2"
         "PID controller3"
         "Sum3"
         "Constant6"
+        "Goto9"
+        "From10"
+        "From11"
         "From12"
+        "Connection151"
+        "Connection152"
+        "Connection153"
         "Connection178"
         "Connection179"
         "Connection181"
+        "Connection190"
+        "Connection192"
     }
 
     default {
