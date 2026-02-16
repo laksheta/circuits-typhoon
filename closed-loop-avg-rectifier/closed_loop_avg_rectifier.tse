@@ -223,20 +223,20 @@ model "closed_loop_avg_rectifier" {
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
-// out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
+out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
 
-// Calculate the dot product of the two vectors
-float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
+// // Calculate the dot product of the two vectors
+// float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
 
-// Calculate the divisor: max(u[7], 1)
-// We use a ternary or fmaxf to ensure we don\'t divide by zero
-float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
+// // Calculate the divisor: max(u[7], 1)
+// // We use a ternary or fmaxf to ensure we don\'t divide by zero
+// float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
 
-// Calculate the intermediate result: -(dot_product / divisor)
-float result = -dot_product / divisor;
+// // Calculate the intermediate result: -(dot_product / divisor)
+// float result = -dot_product / divisor;
 
-// Final output: max(0, result)
-out[0] = (result > 0.0f) ? result : 0.0f;
+// // Final output: max(0, result)
+// out[0] = (result > 0.0f) ? result : 0.0f;
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
@@ -304,7 +304,7 @@ out[0] = (result > 0.0f) ? result : 0.0f;
             execution_rate = "exec_meas"
         }
         [
-            position = 8772, 7844
+            position = 8768, 7836
             rotation = left
         ]
 
@@ -651,7 +651,7 @@ out[0] = (result > 0.0f) ? result : 0.0f;
             direction = in
         }
         [
-            position = 8840, 7880
+            position = 8836, 7872
             hide_name = True
             size = 60, 20
         ]
@@ -901,7 +901,7 @@ out[0] = (result > 0.0f) ? result : 0.0f;
 
         junction Junction8 sp
         [
-            position = 8772, 7880
+            position = 8768, 7872
         ]
 
         junction Junction12 sp
