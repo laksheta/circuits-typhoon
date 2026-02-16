@@ -387,7 +387,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "u_d"
         }
         [
-            position = 8076, 8248
+            position = 8072, 8160
             hide_name = True
         ]
 
@@ -398,6 +398,33 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             position = 8076, 8280
             hide_name = True
+        ]
+
+        component "core/PID controller" "PID controller1" {
+            controller_type = "PI"
+            execution_rate = "exec_controller"
+            ki = "Ki_i"
+            kp = "Kp_i"
+        }
+        [
+            position = 7956, 8612
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant4 {
+            execution_rate = "exec_controller"
+            value = "i_d_req"
+        }
+        [
+            position = 7864, 8612
+            hide_name = True
+        ]
+
+        component "core/Probe" u_d_pi {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 8136, 8560
         ]
 
         tag Goto1 {
@@ -525,6 +552,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 60, 20
         ]
 
+        tag Goto6 {
+            value = "u_d_pi"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8064, 8612
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From6 {
+            value = "u_d_pi"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7992, 8224
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -553,6 +604,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction8 sp
         [
             position = 8824, 7880
+        ]
+
+        junction Junction9 sp
+        [
+            position = 8008, 8612
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -656,13 +712,24 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8152, 8280; 8152, 8296
         ]
-        connect Constant2.out "dq to abc1.d_input" as Connection125
         connect "dq to abc1.phase_b" Vsp2.in as Connection127
         connect "dq to abc1.phase_a" Vsp1.in as Connection128
         connect "dq to abc1.phase_c" Vsp3.in as Connection129
         [
             breakpoints = 8276, 8328; 8276, 8416
         ]
+        connect Constant4.out "PID controller1.in" as Connection130
+        connect From6 "dq to abc1.d_input" as Connection132
+        connect Goto6 Junction9 as Connection133
+        connect Junction9 "PID controller1.out" as Connection134
+        connect u_d_pi.in Junction9 as Connection135
+        [
+            breakpoints = 8008, 8604
+        ]
+    }
+
+    logically_deleted {
+        "Constant2"
     }
 
     default {
@@ -735,6 +802,29 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/PID controller" {
+            controller_type = "PID"
+            kp = "1"
+            kp_source = "internal"
+            ki = "1"
+            ki_source = "internal"
+            kd = "0"
+            kd_source = "internal"
+            filt_coef = "100"
+            int_init_value = "0"
+            filt_init_value = "0"
+            enb_output_limit_out = "False"
+            show_reset = "none"
+            upper_sat_lim = "1"
+            upper_sat_lim_source = "internal"
+            lower_sat_lim = "-1"
+            lower_sat_lim_source = "internal"
+            enb_anti_windup_out = "False"
+            signal_out_type = "inherit"
+            _tunable = "False"
+            execution_rate = "inherit"
         }
 
         "core/Probe" {
