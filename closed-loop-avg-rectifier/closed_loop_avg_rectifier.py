@@ -43,11 +43,11 @@ V_rect = m*V_dc_target
 # Controller
 f_bw_i      = f_sw*0.1
 omega_ci    = 2*np.pi*f_bw_i
-Kp_i        = 0.1* omega_ci * L
-Ki_i        = 0.1* omega_ci * R
+Kp_i        = omega_ci * L
+Ki_i        = omega_ci * R
 
 f_bw_v      = 20
 omega_cv    = 2*np.pi*f_bw_v
 zeta        = 0.707
-Kp_v        = 0.1*2*zeta*omega_cv*C_out
-Ki_v        = 0.1*(omega_cv**2)*C_out
+Kp_v        = 2*zeta*omega_cv*C_out
+Ki_v        = (omega_cv**2)*C_out
