@@ -9,7 +9,7 @@ model "closed_loop_avg_rectifier" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = 1e-6
+        simulation_time_step = auto
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -323,6 +323,8 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Voltage Measurement" V_out {
+            execution_rate = "exec_meas"
+            sig_output = "True"
         }
         [
             position = 8856, 7728
@@ -403,6 +405,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         component "core/PID controller" "PID controller1" {
             controller_type = "PI"
+            enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
             execution_rate = "exec_controller"
             ki = "Ki_i"
@@ -421,7 +424,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "i_d_req"
         }
         [
-            position = 7720, 8584
+            position = 7672, 8472
             hide_name = True
         ]
 
@@ -429,7 +432,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_meas"
         }
         [
-            position = 8136, 8560
+            position = 8220, 8180
         ]
 
         component "core/SCADA Input" u_d_reset {
@@ -462,7 +465,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         component "core/Sum" Sum1 {
             execution_rate = "exec_controller"
-            signs = "+-"
+            signs = "++"
         }
         [
             position = 7836, 8600
@@ -506,6 +509,38 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 7836, 8740
+            hide_name = True
+        ]
+
+        component "core/Probe" u_d_error {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 7956, 8500
+        ]
+
+        component "core/PID controller" "PID controller3" {
+            controller_type = "PI"
+            enb_anti_windup_out = "True"
+            enb_output_limit_out = "True"
+            execution_rate = "exec_controller"
+            ki = "Ki_i"
+            kp = "Kp_i"
+            lower_sat_lim = "-350"
+            show_reset = "rising"
+            upper_sat_lim = "350"
+        }
+        [
+            position = 7592, 8612
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum3 {
+            execution_rate = "exec_controller"
+            signs = "+-"
+        }
+        [
+            position = 7476, 8604
             hide_name = True
         ]
 
@@ -754,6 +789,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 60, 20
         ]
 
+        tag From12 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7348, 8636
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto10 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8936, 7728
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -784,11 +843,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 8824, 7880
         ]
 
-        junction Junction9 sp
-        [
-            position = 8008, 8612
-        ]
-
         junction Junction10 sp
         [
             position = 8008, 8756
@@ -797,6 +851,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction11 sp
         [
             position = 7912, 8648
+        ]
+
+        junction Junction12 sp
+        [
+            position = 7888, 8600
+        ]
+
+        junction Junction13 sp
+        [
+            position = 8164, 8224
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -902,13 +966,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8276, 8328; 8276, 8416
         ]
-        connect From6 "dq to abc1.d_input" as Connection132
-        connect Goto6 Junction9 as Connection133
-        connect Junction9 "PID controller1.out" as Connection134
-        connect u_d_pi.in Junction9 as Connection135
-        [
-            breakpoints = 8008, 8604
-        ]
         connect From7 "abc to dq1.wt" as Connection137
         connect "Bus Split4.out" "abc to dq1.va" as Connection138
         connect "Bus Split4.out1" "abc to dq1.vb" as Connection139
@@ -918,8 +975,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
         connect From8 "Bus Split4.in" as Connection141
         connect "abc to dq1.d_axis" Goto7 as Connection142
-        connect Sum1.out "PID controller1.in" as Connection143
-        connect Constant4.out Sum1.in as Connection144
         connect From9 Sum1.in1 as Connection145
         connect "abc to dq1.q_axis" Goto8 as Connection146
         connect Goto9 Junction10 as Connection147
@@ -935,25 +990,26 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect u_d_reset.out Junction11 as Connection155
         connect Junction11 "PID controller1.reset" as Connection156
         connect "PID controller2.reset" Junction11 as Connection157
+        connect Sum1.out Junction12 as Connection158
+        connect Junction12 "PID controller1.in" as Connection159
+        connect u_d_error.in Junction12 as Connection160
+        connect "PID controller1.out" Goto6 as Connection161
+        connect "dq to abc1.d_input" Junction13 as Connection175
+        [
+            breakpoints = 8164, 8228
+        ]
+        connect Junction13 u_d_pi.in as Connection176
+        [
+            breakpoints = 8164, 8184; 8164, 8180
+        ]
+        connect From6 Junction13 as Connection177
+        connect From12 Sum3.in1 as Connection178
+        connect Sum3.out "PID controller3.in" as Connection179
+        connect V_out.out Goto10 as Connection180
     }
 
     logically_deleted {
-        "Constant2"
-        "PID controller2"
-        "Constant5"
-        "Goto9"
-        "u_q_pi"
-        "Junction10"
-        "Sum2"
-        "From10"
-        "Connection147"
-        "Connection148"
-        "Connection149"
-        "Connection151"
-        "Connection152"
-        "Connection153"
         "From11"
-        "Connection157"
     }
 
     default {
