@@ -223,20 +223,20 @@ model "closed_loop_avg_rectifier" {
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
-out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
+// out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
 
-// // Calculate the dot product of the two vectors
-// float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
+// Calculate the dot product of the two vectors
+float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
 
-// // Calculate the divisor: max(u[7], 1)
-// // We use a ternary or fmaxf to ensure we don\'t divide by zero
-// float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
+// Calculate the divisor: max(u[7], 1)
+// We use a ternary or fmaxf to ensure we don\'t divide by zero
+float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
 
-// // Calculate the intermediate result: -(dot_product / divisor)
-// float result = -dot_product / divisor;
+// Calculate the intermediate result: -(dot_product / divisor)
+float result = -dot_product / divisor;
 
-// // Final output: max(0, result)
-// out[0] = (result > 0.0f) ? result : 0.0f;
+// Final output: max(0, result)
+out[0] = (result > 0.0f) ? result : 0.0f;
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
@@ -593,6 +593,81 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             position = 7632, 8524
         ]
 
+        component "core/abc to dq" "abc to dq2" {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 9600, 7672
+            hide_name = True
+            size = 48, 80
+        ]
+
+        component "core/Bus Split" "Bus Split5" {
+            execution_rate = "exec_meas"
+            outputs = "3"
+        }
+        [
+            position = 9508, 7664
+            hide_name = True
+        ]
+
+        component "core/Probe" V_d {
+        }
+        [
+            position = 9728, 7588
+        ]
+
+        component "core/Probe" V_q {
+        }
+        [
+            position = 9728, 7712
+        ]
+
+        component "core/Product" Product1 {
+        }
+        [
+            position = 9504, 7836
+        ]
+
+        component "core/Product" Product2 {
+        }
+        [
+            position = 9500, 7920
+        ]
+
+        component "core/Sum" Sum4 {
+        }
+        [
+            position = 9644, 7896
+        ]
+
+        component "core/Gain" Gain1 {
+            gain = "1.5"
+        }
+        [
+            position = 9728, 7896
+        ]
+
+        component "core/Product" Product3 {
+            signs = "*/"
+        }
+        [
+            position = 9840, 7912
+        ]
+
+        component "core/Probe" i_dc_dq {
+        }
+        [
+            position = 9936, 7932
+        ]
+
+        component "core/Gain" Gain2 {
+            gain = "-1"
+        }
+        [
+            position = 9572, 7836
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -874,6 +949,109 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             size = 60, 20
         ]
 
+        tag From14 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9512, 7720
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From15 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9400, 7664
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto11 {
+            value = "V_d"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9712, 7648
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto12 {
+            value = "V_q"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9712, 7672
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From16 {
+            value = "V_d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9420, 7820
+            size = 60, 20
+        ]
+
+        tag From17 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9420, 7860
+            size = 60, 20
+        ]
+
+        tag From18 {
+            value = "V_q"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9416, 7904
+            size = 60, 20
+        ]
+
+        tag From19 {
+            value = "i_q"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9416, 7944
+            size = 60, 20
+        ]
+
+        tag From20 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9732, 7968
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -947,6 +1125,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         junction Junction24 sp
         [
             position = 7572, 8584
+        ]
+
+        junction Junction25 sp
+        [
+            position = 9648, 7648
+        ]
+
+        junction Junction26 sp
+        [
+            position = 9648, 7672
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -1108,10 +1296,58 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         connect V_out_error.in Junction24 as Connection235
         connect From2 "Bus Join3.in1" as Connection236
         connect From13 "Bus Join3.in2" as Connection237
+        connect From14 "abc to dq2.wt" as Connection238
+        connect "Bus Split5.out" "abc to dq2.va" as Connection239
+        connect "Bus Split5.out1" "abc to dq2.vb" as Connection240
+        [
+            breakpoints = 9568, 7664
+        ]
+        connect "Bus Split5.out2" "abc to dq2.vc" as Connection241
+        connect From15 "Bus Split5.in" as Connection242
+        connect "abc to dq2.d_axis" Junction25 as Connection243
+        connect Junction25 Goto11 as Connection244
+        connect V_d.in Junction25 as Connection245
+        connect "abc to dq2.q_axis" Junction26 as Connection246
+        connect Junction26 Goto12 as Connection247
+        connect V_q.in Junction26 as Connection248
+        connect From16 Product1.in as Connection249
+        connect From17 Product1.in1 as Connection250
+        connect From18 Product2.in as Connection251
+        connect From19 Product2.in1 as Connection252
+        connect Sum4.in1 Product2.out as Connection254
+        connect Sum4.out Gain1.in as Connection255
+        connect From20 Product3.in1 as Connection256
+        connect Product3.in Gain1.out as Connection257
+        connect Product3.out i_dc_dq.in as Connection258
+        connect Product1.out Gain2.in as Connection259
+        connect Gain2.out Sum4.in as Connection260
     }
 
     logically_deleted {
         "Constant4"
+        "From16"
+        "Product1"
+        "Connection249"
+        "From17"
+        "Connection250"
+        "From18"
+        "Product2"
+        "From19"
+        "Connection251"
+        "Connection252"
+        "Sum4"
+        "Connection254"
+        "Gain1"
+        "Connection255"
+        "Product3"
+        "From20"
+        "Connection256"
+        "Connection257"
+        "i_dc_dq"
+        "Connection258"
+        "Gain2"
+        "Connection259"
+        "Connection260"
     }
 
     default {
@@ -1178,6 +1414,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             _tunable = "False"
         }
 
+        "core/Gain" {
+            gain = "1"
+            multiplication = "Element-wise(K.*u)"
+            force_tml = "True"
+            _tunable = "False"
+            execution_rate = "inherit"
+        }
+
         "core/Inductor" {
             signal_access = "inherit"
             inductance = "1e-3"
@@ -1217,6 +1461,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             signal_type = "generic"
             streaming_en = "False"
             streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/Product" {
+            signs = "2"
             execution_rate = "inherit"
         }
 
