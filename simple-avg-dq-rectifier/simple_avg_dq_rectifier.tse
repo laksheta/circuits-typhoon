@@ -275,7 +275,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             inputs = "3"
         }
         [
-            position = 9140, 7976
+            position = 9144, 7976
             hide_name = True
         ]
 
@@ -424,10 +424,38 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 48, 80
         ]
 
-        component "core/Low-Pass Filter" "Low-Pass Filter1" {
+        component "core/Probe" i_q {
         }
         [
-            position = 9344, 7496
+            position = 9420, 7620
+        ]
+
+        component "core/Bus Split" "Bus Split5" {
+            execution_rate = "exec_meas"
+            outputs = "3"
+        }
+        [
+            position = 9564, 7804
+            hide_name = True
+        ]
+
+        component "core/Probe" V_d {
+        }
+        [
+            position = 9836, 7724
+        ]
+
+        component "core/abc to dq" "abc to dq1" {
+        }
+        [
+            position = 9648, 7812
+            size = 48, 80
+        ]
+
+        component "core/Probe" V_q {
+        }
+        [
+            position = 9840, 7848
         ]
 
         tag Goto1 {
@@ -574,7 +602,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 9036, 7576
+            position = 9004, 7576
             hide_name = True
             size = 60, 20
         ]
@@ -599,6 +627,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 9348, 7584
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From9 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9560, 7860
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From10 {
+            value = "V_abc_n"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9424, 7804
             hide_name = True
             size = 60, 20
         ]
@@ -635,7 +687,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction9 sp
         [
-            position = 9284, 7560
+            position = 9292, 7560
+        ]
+
+        junction Junction10 sp
+        [
+            position = 9292, 7584
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -676,15 +733,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
-        connect "Meter Split2.IC" "Bus Join2.in" as Connection81
-        [
-            breakpoints = 9092, 7992; 9092, 7960
-        ]
-        connect "Meter Split2.IB" "Bus Join2.in1" as Connection82
-        [
-            breakpoints = 9096, 8008; 9096, 7976
-        ]
-        connect "Meter Split2.IA" "Bus Join2.in2" as Connection83
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
         [
@@ -739,7 +787,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8276, 8328; 8276, 8416
         ]
-        connect From8 "Bus Split4.in" as Connection141
         connect "Bus Split3.out1" "Three phase PLL.vb" as Connection204
         connect "Bus Split3.out2" "Three phase PLL.vc" as Connection205
         connect "Three phase PLL.va" "Bus Split3.out" as Connection206
@@ -748,17 +795,38 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "abc to dq.vb" "Bus Split4.out1" as Connection210
         connect "Bus Split4.out2" "abc to dq.vc" as Connection211
         connect "abc to dq.wt" From7 as Connection212
-        connect "abc to dq.q_axis" Goto8 as Connection213
+        connect Goto7 Junction9 as Connection222
+        connect Junction9 "abc to dq.d_axis" as Connection223
+        [
+            breakpoints = 9284, 7560
+        ]
+        connect i_d.in Junction9 as Connection224
+        [
+            breakpoints = 9292, 7556; 9288, 7556
+        ]
+        connect "abc to dq.q_axis" Junction10 as Connection225
+        connect Junction10 Goto8 as Connection226
         [
             breakpoints = 9308, 7584
         ]
-        connect Goto7 Junction9 as Connection214
-        connect "abc to dq.d_axis" Junction9 as Connection216
-        connect Junction9 "Low-Pass Filter1.in" as Connection217
+        connect i_q.in Junction10 as Connection227
+        connect From8 "Bus Split4.in" as Connection228
+        connect "Bus Split5.out" "abc to dq1.va" as Connection229
+        connect "abc to dq1.vb" "Bus Split5.out1" as Connection230
+        connect "Bus Split5.out2" "abc to dq1.vc" as Connection231
+        connect "abc to dq1.wt" From9 as Connection232
+        connect From10 "Bus Split5.in" as Connection239
+        connect "abc to dq1.q_axis" V_q.in as Connection241
         [
-            breakpoints = 9284, 7560; 9284, 7496
+            breakpoints = 9712, 7812
         ]
-        connect "Low-Pass Filter1.out" i_d.in as Connection218
+        connect V_d.in "abc to dq1.d_axis" as Connection240
+        [
+            breakpoints = 9712, 7784; 9708, 7784; 9712, 7788; 9704, 7788
+        ]
+        connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
+        connect "Bus Join2.in" "Meter Split2.IA" as Connection244
+        connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
     }
 
     default {
@@ -831,14 +899,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
-        }
-
-        "core/Low-Pass Filter" {
-            frequency = "500"
-            init_out = "0"
-            unit = "Hz"
-            execution_rate = "inherit"
-            _tunable = "False"
         }
 
         "core/Probe" {
