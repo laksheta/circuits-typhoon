@@ -290,7 +290,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_meas"
         }
         [
-            position = 8824, 7844
+            position = 8772, 7844
             rotation = left
         ]
 
@@ -630,7 +630,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8892, 7880
+            position = 8840, 7880
             hide_name = True
             size = 60, 20
         ]
@@ -868,7 +868,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction8 sp
         [
-            position = 8824, 7880
+            position = 8772, 7880
         ]
 
         junction Junction12 sp
