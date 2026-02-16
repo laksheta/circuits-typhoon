@@ -396,16 +396,19 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "u_q"
         }
         [
-            position = 8076, 8280
+            position = 8080, 8264
             hide_name = True
         ]
 
         component "core/PID controller" "PID controller1" {
             controller_type = "PI"
+            enb_output_limit_out = "True"
             execution_rate = "exec_controller"
             ki = "Ki_i"
             kp = "Kp_i"
+            lower_sat_lim = "=350"
             show_reset = "rising"
+            upper_sat_lim = "350"
         }
         [
             position = 7956, 8612
