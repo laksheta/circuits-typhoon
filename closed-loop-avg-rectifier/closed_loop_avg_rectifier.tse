@@ -553,6 +553,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
+        component "core/Probe" i_d {
+        }
+        [
+            position = 9292, 7580
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -857,11 +863,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 7888, 8600
         ]
 
-        junction Junction13 sp
-        [
-            position = 8164, 8224
-        ]
-
         junction Junction14 sp
         [
             position = 7892, 8648
@@ -870,6 +871,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction15 sp
         [
             position = 8128, 8204
+        ]
+
+        junction Junction16 sp
+        [
+            position = 9212, 7640
+        ]
+
+        junction Junction17 sp
+        [
+            position = 8164, 8164
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -983,7 +994,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
         connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
         connect From8 "Bus Split4.in" as Connection141
-        connect "abc to dq1.d_axis" Goto7 as Connection142
         connect From9 Sum1.in1 as Connection145
         connect "abc to dq1.q_axis" Goto8 as Connection146
         connect Sum2.out "PID controller2.in" as Connection151
@@ -993,15 +1003,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Junction12 "PID controller1.in" as Connection159
         connect u_d_error.in Junction12 as Connection160
         connect "PID controller1.out" Goto6 as Connection161
-        connect "dq to abc1.d_input" Junction13 as Connection175
-        [
-            breakpoints = 8164, 8228
-        ]
-        connect Junction13 u_d_pi.in as Connection176
-        [
-            breakpoints = 8164, 8184; 8164, 8180
-        ]
-        connect From6 Junction13 as Connection177
         connect From12 Sum3.in1 as Connection178
         connect Sum3.out "PID controller3.in" as Connection179
         connect V_out.out Goto10 as Connection180
@@ -1020,6 +1021,15 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             breakpoints = 8128, 8204; 8128, 8296
         ]
         connect Constant3.out Junction15 as Connection200
+        connect "abc to dq1.d_axis" Junction16 as Connection201
+        connect Junction16 Goto7 as Connection202
+        connect i_d.in Junction16 as Connection203
+        connect "dq to abc1.d_input" Junction17 as Connection205
+        [
+            breakpoints = 8164, 8228; 8164, 8184; 8164, 8180
+        ]
+        connect Junction17 u_d_pi.in as Connection206
+        connect Constant2.out Junction17 as Connection207
     }
 
     logically_deleted {
