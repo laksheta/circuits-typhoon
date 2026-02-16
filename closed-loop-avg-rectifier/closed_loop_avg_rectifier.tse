@@ -280,6 +280,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Bus Join" "Bus Join3" {
+            inputs = "3"
         }
         [
             position = 8464, 7920
@@ -613,7 +614,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 8344, 7904
+            position = 8344, 7884
             hide_name = True
             size = 60, 20
         ]
@@ -625,7 +626,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 8344, 7940
+            position = 8344, 7920
             hide_name = True
             size = 60, 20
         ]
@@ -848,6 +849,18 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 60, 20
         ]
 
+        tag From13 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8344, 7960
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -962,10 +975,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
         connect From1 "Bus Join3.in" as Connection84
-        connect "Bus Join3.in1" From2 as Connection85
-        [
-            breakpoints = 8424, 7940; 8388, 7940
-        ]
         connect "C function1.in" "Bus Join3.out" as Connection86
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
@@ -1084,6 +1093,8 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Sum3.out Junction24 as Connection233
         connect Junction24 "PID controller3.in" as Connection234
         connect V_out_error.in Junction24 as Connection235
+        connect From2 "Bus Join3.in1" as Connection236
+        connect From13 "Bus Join3.in2" as Connection237
     }
 
     logically_deleted {
