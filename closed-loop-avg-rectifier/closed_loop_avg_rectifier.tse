@@ -348,9 +348,10 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Three phase PLL" "Three phase PLL1" {
+            execution_rate = "exec_meas"
         }
         [
-            position = 9212, 7792
+            position = 9164, 7856
             hide_name = True
             size = 64, 128
         ]
@@ -360,7 +361,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             outputs = "3"
         }
         [
-            position = 9124, 7792
+            position = 9076, 7856
             hide_name = True
         ]
 
@@ -406,7 +407,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_controller"
             ki = "Ki_i"
             kp = "Kp_i"
-            lower_sat_lim = "=350"
+            lower_sat_lim = "-350"
             show_reset = "rising"
             upper_sat_lim = "350"
         }
@@ -439,6 +440,24 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 7836, 8648
+        ]
+
+        component "core/abc to dq" "abc to dq1" {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 9164, 7664
+            hide_name = True
+            size = 48, 80
+        ]
+
+        component "core/Bus Split" "Bus Split4" {
+            execution_rate = "exec_meas"
+            outputs = "3"
+        }
+        [
+            position = 9072, 7656
+            hide_name = True
         ]
 
         tag Goto1 {
@@ -537,7 +556,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 9052, 7792
+            position = 9004, 7856
             hide_name = True
             size = 60, 20
         ]
@@ -549,7 +568,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 9320, 7808
+            position = 9272, 7872
             hide_name = True
             size = 60, 20
         ]
@@ -586,6 +605,42 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 7992, 8224
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From7 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9076, 7712
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From8 {
+            value = "i_abc"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8964, 7656
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto7 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9276, 7640
             hide_name = True
             size = 60, 20
         ]
@@ -715,7 +770,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Split3.in" From4 as Connection117
         connect "Bus Split3.out" "Three phase PLL1.va" as Connection118
         [
-            breakpoints = 9164, 7776; 9164, 7744
+            breakpoints = 9116, 7840; 9116, 7808
         ]
         connect "Bus Split3.out1" "Three phase PLL1.vb" as Connection119
         connect "Three phase PLL1.vc" "Bus Split3.out2" as Connection120
@@ -741,6 +796,15 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             breakpoints = 8008, 8604
         ]
         connect u_d_reset.out "PID controller1.reset" as Connection136
+        connect From7 "abc to dq1.wt" as Connection137
+        connect "Bus Split4.out" "abc to dq1.va" as Connection138
+        connect "Bus Split4.out1" "abc to dq1.vb" as Connection139
+        [
+            breakpoints = 9132, 7656
+        ]
+        connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
+        connect From8 "Bus Split4.in" as Connection141
+        connect "abc to dq1.d_axis" Goto7 as Connection142
     }
 
     logically_deleted {
@@ -1013,6 +1077,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             visible = "True"
             override_signal_name = "False"
             signal_name = ""
+        }
+
+        "core/abc to dq" {
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            disable_filter = "True"
+            initial_filter_output = "0"
+            wn_LPFdq = "1000"
+            execution_rate = "inherit"
+            _tunable = "False"
         }
 
         "core/dq to abc" {
