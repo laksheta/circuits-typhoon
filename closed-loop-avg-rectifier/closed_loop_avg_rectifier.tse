@@ -397,7 +397,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "u_q"
         }
         [
-            position = 8080, 8264
+            position = 8072, 8192
             hide_name = True
         ]
 
@@ -466,6 +466,56 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 7836, 8600
+            hide_name = True
+        ]
+
+        component "core/PID controller" "PID controller2" {
+            controller_type = "PI"
+            enb_output_limit_out = "True"
+            execution_rate = "exec_controller"
+            ki = "Ki_i"
+            kp = "Kp_i"
+            lower_sat_lim = "-350"
+            show_reset = "rising"
+            upper_sat_lim = "350"
+        }
+        [
+            position = 7960, 8736
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant5 {
+            execution_rate = "exec_controller"
+            value = "i_q_req"
+        }
+        [
+            position = 7724, 8704
+            hide_name = True
+        ]
+
+        component "core/Probe" u_q_pi {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 8140, 8680
+        ]
+
+        component "core/SCADA Input" u_q_reset {
+            execution_rate = "exec_controller"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7840, 8768
+        ]
+
+        component "core/Sum" Sum2 {
+            execution_rate = "exec_controller"
+            signs = "++"
+        }
+        [
+            position = 7840, 8720
             hide_name = True
         ]
 
@@ -666,6 +716,54 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 60, 20
         ]
 
+        tag Goto8 {
+            value = "i_q"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9276, 7664
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto9 {
+            value = "u_q_pi"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8068, 8736
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From10 {
+            value = "i_q"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7716, 8760
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From11 {
+            value = "u_q_pi"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7992, 8260
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -699,6 +797,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction9 sp
         [
             position = 8008, 8612
+        ]
+
+        junction Junction10 sp
+        [
+            position = 8012, 8736
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -798,10 +901,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Goto5 "Three phase PLL1.theta" as Connection121
         connect From5 "dq to abc1.wt" as Connection122
         connect Constant1.out "dq to abc1.zero_input" as Connection123
-        connect Constant3.out "dq to abc1.q_input" as Connection124
-        [
-            breakpoints = 8152, 8280; 8152, 8296
-        ]
         connect "dq to abc1.phase_b" Vsp2.in as Connection127
         connect "dq to abc1.phase_a" Vsp1.in as Connection128
         connect "dq to abc1.phase_c" Vsp3.in as Connection129
@@ -828,10 +927,26 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Sum1.out "PID controller1.in" as Connection143
         connect Constant4.out Sum1.in as Connection144
         connect From9 Sum1.in1 as Connection145
+        connect "abc to dq1.q_axis" Goto8 as Connection146
+        connect Goto9 Junction10 as Connection147
+        connect Junction10 "PID controller2.out" as Connection148
+        connect u_q_pi.in Junction10 as Connection149
+        [
+            breakpoints = 8012, 8728
+        ]
+        connect u_q_reset.out "PID controller2.reset" as Connection150
+        connect Sum2.out "PID controller2.in" as Connection151
+        connect Constant5.out Sum2.in as Connection152
+        connect From10 Sum2.in1 as Connection153
+        connect From11 "dq to abc1.q_input" as Connection154
+        [
+            breakpoints = 8144, 8260; 8144, 8296
+        ]
     }
 
     logically_deleted {
         "Constant2"
+        "Constant3"
     }
 
     default {
