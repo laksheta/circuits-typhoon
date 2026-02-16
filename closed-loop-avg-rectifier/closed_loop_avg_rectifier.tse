@@ -559,6 +559,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 9292, 7580
         ]
 
+        component "core/Probe" i_q {
+        }
+        [
+            position = 9292, 7704
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -883,6 +889,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 8164, 8164
         ]
 
+        junction Junction18 sp
+        [
+            position = 9212, 7664
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect R3.n_node L3.p_node as Connection5
         connect L2.p_node R2.n_node as Connection6
@@ -921,15 +932,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
-        connect "Meter Split2.IC" "Bus Join2.in" as Connection81
-        [
-            breakpoints = 9092, 7992; 9092, 7960
-        ]
-        connect "Meter Split2.IB" "Bus Join2.in1" as Connection82
-        [
-            breakpoints = 9096, 8008; 9096, 7976
-        ]
-        connect "Meter Split2.IA" "Bus Join2.in2" as Connection83
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
         [
@@ -995,7 +997,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
         connect From8 "Bus Split4.in" as Connection141
         connect From9 Sum1.in1 as Connection145
-        connect "abc to dq1.q_axis" Goto8 as Connection146
         connect Sum2.out "PID controller2.in" as Connection151
         connect Constant5.out Sum2.in as Connection152
         connect From10 Sum2.in1 as Connection153
@@ -1030,6 +1031,12 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
         connect Junction17 u_d_pi.in as Connection206
         connect Constant2.out Junction17 as Connection207
+        connect "Meter Split2.IA" "Bus Join2.in" as Connection208
+        connect "Meter Split2.IC" "Bus Join2.in2" as Connection209
+        connect "Bus Join2.in1" "Meter Split2.IB" as Connection210
+        connect "abc to dq1.q_axis" Junction18 as Connection211
+        connect Junction18 Goto8 as Connection212
+        connect i_q.in Junction18 as Connection213
     }
 
     logically_deleted {
