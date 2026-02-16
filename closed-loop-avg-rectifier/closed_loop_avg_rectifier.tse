@@ -405,6 +405,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_controller"
             ki = "Ki_i"
             kp = "Kp_i"
+            show_reset = "rising"
         }
         [
             position = 7956, 8612
@@ -416,7 +417,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "i_d_req"
         }
         [
-            position = 7864, 8612
+            position = 7872, 8580
             hide_name = True
         ]
 
@@ -425,6 +426,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 8136, 8560
+        ]
+
+        component "core/SCADA Input" u_d_reset {
+            execution_rate = "exec_controller"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7836, 8648
         ]
 
         tag Goto1 {
@@ -726,6 +737,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8008, 8604
         ]
+        connect u_d_reset.out "PID controller1.reset" as Connection136
     }
 
     logically_deleted {
@@ -841,6 +853,20 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         "core/Resistor" {
             resistance = "1"
             param_set = ""
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
         }
 
         "core/Meter Split" {
