@@ -297,7 +297,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         component "core/Signal Controlled Current Source" Isp1 {
         }
         [
-            position = 8556, 7724
+            position = 8468, 7716
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -308,7 +308,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             capacitance = "C_out"
         }
         [
-            position = 8652, 7728
+            position = 8564, 7720
             rotation = right
             hide_name = True
         ]
@@ -317,7 +317,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             resistance = "R_load"
         }
         [
-            position = 8748, 7728
+            position = 8660, 7720
             rotation = right
             hide_name = True
         ]
@@ -327,7 +327,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             sig_output = "True"
         }
         [
-            position = 8856, 7728
+            position = 8768, 7720
             rotation = right
             size = 64, 32
         ]
@@ -623,7 +623,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 8480, 7724
+            position = 8392, 7716
             hide_name = True
             size = 60, 20
         ]
@@ -817,7 +817,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8936, 7728
+            position = 8848, 7720
             hide_name = True
             size = 60, 20
         ]
@@ -829,22 +829,22 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction4 pe
         [
-            position = 8652, 7792
+            position = 8564, 7784
         ]
 
         junction Junction5 pe
         [
-            position = 8748, 7792
+            position = 8660, 7784
         ]
 
         junction Junction6 pe
         [
-            position = 8748, 7664
+            position = 8660, 7656
         ]
 
         junction Junction7 pe
         [
-            position = 8652, 7664
+            position = 8564, 7656
         ]
 
         junction Junction8 sp
@@ -928,23 +928,23 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
-            breakpoints = 8556, 7792
+            breakpoints = 8468, 7784
         ]
         connect C1.n_node Junction4 as Connection96
         connect Junction4 Junction5 as Connection97
         connect Junction5 V_out.n_node as Connection98
         [
-            breakpoints = 8856, 7792
+            breakpoints = 8768, 7784
         ]
         connect R4.n_node Junction5 as Connection99
         connect Junction6 V_out.p_node as Connection101
         [
-            breakpoints = 8856, 7664
+            breakpoints = 8768, 7656
         ]
         connect R4.p_node Junction6 as Connection102
         connect Isp1.p_node Junction7 as Connection103
         [
-            breakpoints = 8556, 7664
+            breakpoints = 8468, 7656
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
@@ -1023,21 +1023,58 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
     }
 
     logically_deleted {
+        "C function1"
+        "Bus Join3"
+        "i_dc"
+        "Isp1"
+        "C1"
+        "R4"
+        "V_out"
+        "Bus Split2"
         "PID controller2"
         "Constant5"
         "Sum2"
         "PID controller3"
         "Sum3"
         "Constant6"
+        "From1"
+        "From2"
+        "Goto3"
+        "From3"
         "Goto9"
         "From10"
         "From11"
         "From12"
+        "Goto10"
+        "Junction4"
+        "Junction5"
+        "Junction6"
+        "Junction7"
+        "Junction8"
+        "Connection84"
+        "Connection85"
+        "Connection86"
+        "Connection91"
+        "Connection94"
+        "Connection96"
+        "Connection97"
+        "Connection98"
+        "Connection99"
+        "Connection101"
+        "Connection102"
+        "Connection103"
+        "Connection104"
+        "Connection105"
+        "Connection106"
+        "Connection108"
+        "Connection109"
+        "Connection110"
         "Connection151"
         "Connection152"
         "Connection153"
         "Connection178"
         "Connection179"
+        "Connection180"
         "Connection181"
         "Connection190"
         "Connection192"
