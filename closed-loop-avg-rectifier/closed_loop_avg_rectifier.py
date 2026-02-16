@@ -1,7 +1,9 @@
 import numpy as np
 
 
-
+exec_meas   = 1e-6
+exec_sine   = 1e-6
+exec_controller = 1e-6
 
 V_grid_peak = 220*np.sqrt(2)
 V_grid_rms  = 220
@@ -41,11 +43,11 @@ V_rect = m*V_dc_target
 # Controller
 f_bw_i      = f_sw*0.1
 omega_ci    = 2*np.pi*f_bw_i
-Kp_i        = omega_ci * L
-Ki_i        = omega_ci * R
+Kp_i        = 0.1* omega_ci * L
+Ki_i        = 0.1* omega_ci * R
 
 f_bw_v      = 20
 omega_cv    = 2*np.pi*f_bw_v
 zeta        = 0.707
-Kp_v        = 2*zeta*omega_cv*C_out
-Ki_v        = (omega_cv**2)*C_out
+Kp_v        = 0.1*2*zeta*omega_cv*C_out
+Ki_v        = 0.1*(omega_cv**2)*C_out
