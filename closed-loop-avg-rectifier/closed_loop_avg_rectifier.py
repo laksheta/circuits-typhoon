@@ -9,6 +9,8 @@ V_grid_rms  = 220
 F           = 50
 omega       = 2*np.pi*F
 
+f_sw        = 50e3
+
 R           = 1e-1
 L           = 1e-3
 
@@ -37,3 +39,14 @@ phase_3ph    = delta
 
 V_rect = m*V_dc_target
 
+# Controller
+f_bw_i      = f_sw*0.1
+omega_ci    = 2*np.pi*f_bw_i
+Kp_i        = omega_ci * L
+Ki_i        = omega_ci * R
+
+f_bw_v      = 20
+omega_cv    = 2*np.pi*f_bw_v
+zeta        = 0.707
+Kp_v        = 2*zeta*omega_cv*C_out
+Ki_v        = (omega_cv**2)*C_out
