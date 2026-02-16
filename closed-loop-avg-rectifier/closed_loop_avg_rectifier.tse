@@ -9,7 +9,7 @@ model "closed_loop_avg_rectifier" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -526,9 +526,9 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_controller"
             ki = "Ki_v"
             kp = "Kp_v"
-            lower_sat_lim = "-350"
+            lower_sat_lim = "-15"
             show_reset = "rising"
-            upper_sat_lim = "350"
+            upper_sat_lim = "15"
         }
         [
             position = 7592, 8592
@@ -1338,5 +1338,9 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         # Read and execute the entire file
         with open(param_file_path, 'r') as f:
             exec(f.read(), globals(), locals())
+            
+        exec_meas   = 1e-6
+        exec_sine   = 1e-6
+        exec_controller = 1e-6
     ENDCODE
 }
