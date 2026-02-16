@@ -424,7 +424,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "i_d_req"
         }
         [
-            position = 7652, 8500
+            position = 7668, 8436
             hide_name = True
         ]
 
@@ -531,7 +531,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             upper_sat_lim = "15"
         }
         [
-            position = 7592, 8592
+            position = 7632, 8592
             hide_name = True
         ]
 
@@ -540,7 +540,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             signs = "+-"
         }
         [
-            position = 7476, 8584
+            position = 7516, 8584
             hide_name = True
         ]
 
@@ -549,7 +549,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "V_dc_target"
         }
         [
-            position = 7352, 8560
+            position = 7392, 8560
             hide_name = True
         ]
 
@@ -570,6 +570,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 7952, 8796
+        ]
+
+        component "core/Probe" V_out_error {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 7632, 8524
         ]
 
         tag Goto1 {
@@ -824,7 +831,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 7348, 8616
+            position = 7388, 8616
             hide_name = True
             size = 60, 20
         ]
@@ -901,14 +908,19 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 7888, 8740
         ]
 
-        junction Junction21 sp
-        [
-            position = 7904, 8692
-        ]
-
         junction Junction22 sp
         [
             position = 8128, 8260
+        ]
+
+        junction Junction23 sp
+        [
+            position = 7904, 8696
+        ]
+
+        junction Junction24 sp
+        [
+            position = 7572, 8584
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -1021,7 +1033,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect u_d_error.in Junction12 as Connection160
         connect "PID controller1.out" Goto6 as Connection161
         connect From12 Sum3.in1 as Connection178
-        connect Sum3.out "PID controller3.in" as Connection179
         connect V_out.out Goto10 as Connection180
         connect Constant6.out Sum3.in as Connection181
         connect "PID controller1.reset" Junction14 as Connection188
@@ -1052,24 +1063,27 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Junction20 "PID controller2.in" as Connection219
         connect u_q_error.in Junction20 as Connection220
         connect "PID controller3.out" Sum1.in as Connection221
-        connect "PID controller2.reset" Junction21 as Connection222
-        [
-            breakpoints = 7912, 8756; 7904, 8756
-        ]
-        connect Junction21 Junction14 as Connection223
-        [
-            breakpoints = 7904, 8688; 7904, 8688; 7904, 8648
-        ]
-        connect "PID controller3.reset" Junction21 as Connection224
-        [
-            breakpoints = 7532, 8612; 7900, 8692
-        ]
         connect "dq to abc1.q_input" Junction22 as Connection226
         [
             breakpoints = 8128, 8296
         ]
         connect Junction22 u_q_pi.in as Connection227
         connect From11 Junction22 as Connection228
+        connect "PID controller2.reset" Junction23 as Connection230
+        [
+            breakpoints = 7912, 8756; 7904, 8756
+        ]
+        connect Junction23 Junction14 as Connection231
+        [
+            breakpoints = 7904, 8688; 7904, 8688; 7904, 8648
+        ]
+        connect "PID controller3.reset" Junction23 as Connection232
+        [
+            breakpoints = 7572, 8608
+        ]
+        connect Sum3.out Junction24 as Connection233
+        connect Junction24 "PID controller3.in" as Connection234
+        connect V_out_error.in Junction24 as Connection235
     }
 
     logically_deleted {
