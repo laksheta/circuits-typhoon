@@ -421,7 +421,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "i_d_req"
         }
         [
-            position = 7872, 8580
+            position = 7720, 8584
             hide_name = True
         ]
 
@@ -457,6 +457,15 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 9072, 7656
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum1 {
+            execution_rate = "exec_controller"
+            signs = "++"
+        }
+        [
+            position = 7836, 8600
             hide_name = True
         ]
 
@@ -645,6 +654,18 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 60, 20
         ]
 
+        tag From9 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7712, 8636
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -787,7 +808,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8276, 8328; 8276, 8416
         ]
-        connect Constant4.out "PID controller1.in" as Connection130
         connect From6 "dq to abc1.d_input" as Connection132
         connect Goto6 Junction9 as Connection133
         connect Junction9 "PID controller1.out" as Connection134
@@ -805,6 +825,9 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
         connect From8 "Bus Split4.in" as Connection141
         connect "abc to dq1.d_axis" Goto7 as Connection142
+        connect Sum1.out "PID controller1.in" as Connection143
+        connect Constant4.out Sum1.in as Connection144
+        connect From9 Sum1.in1 as Connection145
     }
 
     logically_deleted {
@@ -934,6 +957,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
+        }
+
+        "core/Sum" {
+            signs = "2"
+            execution_rate = "inherit"
         }
 
         "core/Meter Split" {
