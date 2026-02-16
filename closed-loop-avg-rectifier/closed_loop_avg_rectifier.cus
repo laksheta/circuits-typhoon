@@ -135,7 +135,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -147,7 +146,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>7</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -159,7 +157,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>8</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -193,6 +190,30 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>11</row>
                                     <viewports>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>12</channel>
+                                    <name><![CDATA[V_out]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>12</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>13</channel>
+                                    <name><![CDATA[i_dc]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>13</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             </analog_signals>
@@ -334,7 +355,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -346,7 +366,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>7</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -358,7 +377,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>8</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -392,6 +410,30 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>11</row>
                                     <viewports>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>12</channel>
+                                    <name><![CDATA[V_out]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>12</row>
+                                    <viewports>
+                                        <num_viewport>4</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>13</channel>
+                                    <name><![CDATA[i_dc]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>13</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                         </analog_signals>
@@ -476,7 +518,7 @@ widgetValue = None
 widgetValue = hil.model_read('u_d_reset')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[1.0]]></inputValue>
+                <inputValue><![CDATA[0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
