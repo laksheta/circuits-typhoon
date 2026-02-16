@@ -347,19 +347,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
-        component "core/Three phase PLL" "Three phase PLL1" {
-            alignment = "0"
-            enable_sin = "False"
-            enable_zero = "False"
-            execution_rate = "exec_meas"
-            initial_filter_output = "50"
-        }
-        [
-            position = 9220, 7792
-            hide_name = True
-            size = 64, 128
-        ]
-
         component "core/Bus Split" "Bus Split3" {
             execution_rate = "exec_meas"
             outputs = "3"
@@ -405,16 +392,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
-        component "core/abc to dq" "abc to dq1" {
-            alignment = "0"
-            execution_rate = "exec_meas"
-        }
-        [
-            position = 9236, 7584
-            hide_name = True
-            size = 48, 80
-        ]
-
         component "core/Bus Split" "Bus Split4" {
             execution_rate = "exec_meas"
             outputs = "3"
@@ -427,7 +404,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         component "core/Probe" i_d {
         }
         [
-            position = 9364, 7500
+            position = 9416, 7496
+        ]
+
+        component "core/Three phase PLL" "Three phase PLL" {
+            enable_sin = "False"
+            enable_zero = "False"
+            initial_filter_output = "50"
+        }
+        [
+            position = 9228, 7792
+            size = 64, 128
+        ]
+
+        component "core/abc to dq" "abc to dq" {
+        }
+        [
+            position = 9228, 7584
+            size = 48, 80
+        ]
+
+        component "core/Low-Pass Filter" "Low-Pass Filter1" {
+        }
+        [
+            position = 9344, 7496
         ]
 
         tag Goto1 {
@@ -562,7 +562,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = out
         }
         [
-            position = 9148, 7632
+            position = 9140, 7632
             hide_name = True
             size = 60, 20
         ]
@@ -633,7 +633,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 8824, 7880
         ]
 
-        junction Junction16 sp
+        junction Junction9 sp
         [
             position = 9284, 7560
         ]
@@ -726,13 +726,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             breakpoints = 9092, 8040; 9092, 8104
         ]
         connect "Bus Split3.in" From4 as Connection117
-        connect "Bus Split3.out" "Three phase PLL1.va" as Connection118
-        [
-            breakpoints = 9164, 7776; 9164, 7744
-        ]
-        connect "Bus Split3.out1" "Three phase PLL1.vb" as Connection119
-        connect "Three phase PLL1.vc" "Bus Split3.out2" as Connection120
-        connect Goto5 "Three phase PLL1.theta" as Connection121
         connect From5 "dq to abc1.wt" as Connection122
         connect Constant1.out "dq to abc1.zero_input" as Connection123
         connect Constant3.out "dq to abc1.q_input" as Connection124
@@ -746,18 +739,26 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8276, 8328; 8276, 8416
         ]
-        connect From7 "abc to dq1.wt" as Connection137
-        connect "Bus Split4.out" "abc to dq1.va" as Connection138
-        connect "Bus Split4.out1" "abc to dq1.vb" as Connection139
-        [
-            breakpoints = 9204, 7576
-        ]
-        connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
         connect From8 "Bus Split4.in" as Connection141
-        connect "abc to dq1.q_axis" Goto8 as Connection146
-        connect "abc to dq1.d_axis" Junction16 as Connection201
-        connect Junction16 Goto7 as Connection202
-        connect i_d.in Junction16 as Connection203
+        connect "Bus Split3.out1" "Three phase PLL.vb" as Connection204
+        connect "Bus Split3.out2" "Three phase PLL.vc" as Connection205
+        connect "Three phase PLL.va" "Bus Split3.out" as Connection206
+        connect "Three phase PLL.theta" Goto5 as Connection207
+        connect "Bus Split4.out" "abc to dq.va" as Connection209
+        connect "abc to dq.vb" "Bus Split4.out1" as Connection210
+        connect "Bus Split4.out2" "abc to dq.vc" as Connection211
+        connect "abc to dq.wt" From7 as Connection212
+        connect "abc to dq.q_axis" Goto8 as Connection213
+        [
+            breakpoints = 9308, 7584
+        ]
+        connect Goto7 Junction9 as Connection214
+        connect "abc to dq.d_axis" Junction9 as Connection216
+        connect Junction9 "Low-Pass Filter1.in" as Connection217
+        [
+            breakpoints = 9284, 7560; 9284, 7496
+        ]
+        connect "Low-Pass Filter1.out" i_d.in as Connection218
     }
 
     default {
@@ -830,6 +831,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Low-Pass Filter" {
+            frequency = "500"
+            init_out = "0"
+            unit = "Hz"
+            execution_rate = "inherit"
+            _tunable = "False"
         }
 
         "core/Probe" {
