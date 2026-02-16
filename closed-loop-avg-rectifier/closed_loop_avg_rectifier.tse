@@ -415,7 +415,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             upper_sat_lim = "350"
         }
         [
-            position = 7956, 8612
+            position = 7956, 8608
             hide_name = True
         ]
 
@@ -483,7 +483,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             upper_sat_lim = "350"
         }
         [
-            position = 7956, 8756
+            position = 7952, 8748
             hide_name = True
         ]
 
@@ -516,7 +516,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             execution_rate = "exec_meas"
         }
         [
-            position = 7956, 8500
+            position = 7956, 8540
         ]
 
         component "core/PID controller" "PID controller3" {
@@ -563,6 +563,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 9292, 7704
+        ]
+
+        component "core/Probe" u_q_error {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 7952, 8796
         ]
 
         tag Goto1 {
@@ -697,7 +704,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8064, 8612
+            position = 8064, 8608
             hide_name = True
             size = 60, 20
         ]
@@ -781,7 +788,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             direction = in
         }
         [
-            position = 8064, 8756
+            position = 8060, 8748
             hide_name = True
             size = 60, 20
         ]
@@ -871,7 +878,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
 
         junction Junction14 sp
         [
-            position = 7892, 8648
+            position = 7904, 8648
         ]
 
         junction Junction15 sp
@@ -892,6 +899,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction19 sp
         [
             position = 8164, 8224
+        ]
+
+        junction Junction20 sp
+        [
+            position = 7888, 8740
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -997,7 +1009,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
         connect From8 "Bus Split4.in" as Connection141
         connect From9 Sum1.in1 as Connection145
-        connect Sum2.out "PID controller2.in" as Connection151
         connect Constant5.out Sum2.in as Connection152
         connect From10 Sum2.in1 as Connection153
         connect Sum1.out Junction12 as Connection158
@@ -1015,6 +1026,9 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
         connect Junction14 u_d_reset.out as Connection189
         connect "PID controller2.reset" Junction14 as Connection190
+        [
+            breakpoints = 7912, 8756; 7904, 8756; 7904, 8688; 7904, 8688; 7904, 8648
+        ]
         connect "PID controller2.out" Goto9 as Connection192
         connect u_q_pi.in Junction15 as Connection198
         connect Junction15 "dq to abc1.q_input" as Connection199
@@ -1040,6 +1054,9 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             breakpoints = 8164, 8184; 8164, 8180; 8164, 8164
         ]
         connect From6 Junction19 as Connection217
+        connect Sum2.out Junction20 as Connection218
+        connect Junction20 "PID controller2.in" as Connection219
+        connect u_q_error.in Junction20 as Connection220
     }
 
     logically_deleted {
@@ -1051,9 +1068,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         "R4"
         "V_out"
         "Bus Split2"
-        "PID controller2"
-        "Constant5"
-        "Sum2"
         "PID controller3"
         "Sum3"
         "Constant6"
@@ -1061,8 +1075,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         "From2"
         "Goto3"
         "From3"
-        "Goto9"
-        "From10"
         "From11"
         "From12"
         "Goto10"
@@ -1089,15 +1101,10 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         "Connection108"
         "Connection109"
         "Connection110"
-        "Connection151"
-        "Connection152"
-        "Connection153"
         "Connection178"
         "Connection179"
         "Connection180"
         "Connection181"
-        "Connection190"
-        "Connection192"
     }
 
     default {
