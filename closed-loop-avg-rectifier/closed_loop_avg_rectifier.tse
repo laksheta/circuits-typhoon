@@ -424,7 +424,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             value = "i_d_req"
         }
         [
-            position = 7672, 8472
+            position = 7716, 8588
             hide_name = True
         ]
 
@@ -884,14 +884,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             position = 9212, 7640
         ]
 
-        junction Junction17 sp
-        [
-            position = 8164, 8164
-        ]
-
         junction Junction18 sp
         [
             position = 9212, 7664
+        ]
+
+        junction Junction19 sp
+        [
+            position = 8164, 8224
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -1025,18 +1025,21 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "abc to dq1.d_axis" Junction16 as Connection201
         connect Junction16 Goto7 as Connection202
         connect i_d.in Junction16 as Connection203
-        connect "dq to abc1.d_input" Junction17 as Connection205
-        [
-            breakpoints = 8164, 8228; 8164, 8184; 8164, 8180
-        ]
-        connect Junction17 u_d_pi.in as Connection206
-        connect Constant2.out Junction17 as Connection207
         connect "Meter Split2.IA" "Bus Join2.in" as Connection208
         connect "Meter Split2.IC" "Bus Join2.in2" as Connection209
         connect "Bus Join2.in1" "Meter Split2.IB" as Connection210
         connect "abc to dq1.q_axis" Junction18 as Connection211
         connect Junction18 Goto8 as Connection212
         connect i_q.in Junction18 as Connection213
+        connect "dq to abc1.d_input" Junction19 as Connection215
+        [
+            breakpoints = 8164, 8228
+        ]
+        connect Junction19 u_d_pi.in as Connection216
+        [
+            breakpoints = 8164, 8184; 8164, 8180; 8164, 8164
+        ]
+        connect From6 Junction19 as Connection217
     }
 
     logically_deleted {
