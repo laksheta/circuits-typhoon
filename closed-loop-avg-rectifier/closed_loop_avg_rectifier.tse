@@ -1,10 +1,10 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1
 //
 
-model "simple_avg_dq_rectifier" {
+model "closed_loop_avg_rectifier" {
     configuration {
         hil_device = "VHIL+"
         hil_configuration_id = 1
@@ -668,6 +668,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
     default {
         "core/Bus Join" {
             inputs = "2"
+            force_tml = "True"
             execution_rate = "inherit"
         }
 
@@ -915,7 +916,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         model_dir = os.path.dirname(mdl.get_model_file_path())
         
         # Create the full path to your parameter file
-        param_file_path = os.path.join(model_dir, "simple_avg_dq_rectifier.py")
+        param_file_path = os.path.join(model_dir, "closed_loop_avg_rectifier.py")
         
         # Read and execute the entire file
         with open(param_file_path, 'r') as f:
