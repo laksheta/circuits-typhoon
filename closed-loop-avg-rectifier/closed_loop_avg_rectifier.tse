@@ -524,14 +524,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
             execution_rate = "exec_controller"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_v"
+            kp = "Kp_v"
             lower_sat_lim = "-350"
             show_reset = "rising"
             upper_sat_lim = "350"
         }
         [
-            position = 7592, 8612
+            position = 7592, 8592
             hide_name = True
         ]
 
@@ -540,7 +540,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             signs = "+-"
         }
         [
-            position = 7476, 8604
+            position = 7476, 8584
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant6 {
+            execution_rate = "exec_controller"
+            value = "V_dc_target"
+        }
+        [
+            position = 7352, 8560
             hide_name = True
         ]
 
@@ -790,13 +799,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         tag From12 {
-            value = "i_d"
+            value = "V_out"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 7348, 8636
+            position = 7348, 8616
             hide_name = True
             size = 60, 20
         ]
@@ -861,6 +870,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction13 sp
         [
             position = 8164, 8224
+        ]
+
+        junction Junction14 sp
+        [
+            position = 7912, 8692
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -989,7 +1003,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect "dq to abc1.q_input" Constant3.out as Connection154
         connect u_d_reset.out Junction11 as Connection155
         connect Junction11 "PID controller1.reset" as Connection156
-        connect "PID controller2.reset" Junction11 as Connection157
         connect Sum1.out Junction12 as Connection158
         connect Junction12 "PID controller1.in" as Connection159
         connect u_d_error.in Junction12 as Connection160
@@ -1006,6 +1019,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect From12 Sum3.in1 as Connection178
         connect Sum3.out "PID controller3.in" as Connection179
         connect V_out.out Goto10 as Connection180
+        connect Constant6.out Sum3.in as Connection181
+        connect "PID controller2.reset" Junction14 as Connection182
+        connect Junction14 Junction11 as Connection183
+        connect "PID controller3.reset" Junction14 as Connection184
+        connect Sum1.in "PID controller3.out" as Connection185
     }
 
     logically_deleted {
