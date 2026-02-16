@@ -348,9 +348,14 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Three phase PLL" "Three phase PLL1" {
+            alignment = "0"
+            enable_sin = "False"
+            enable_zero = "False"
+            execution_rate = "exec_meas"
+            initial_filter_output = "50"
         }
         [
-            position = 9212, 7792
+            position = 9220, 7792
             hide_name = True
             size = 64, 128
         ]
@@ -401,6 +406,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/abc to dq" "abc to dq1" {
+            alignment = "0"
             execution_rate = "exec_meas"
         }
         [
