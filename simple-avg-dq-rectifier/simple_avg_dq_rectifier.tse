@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1
 //
 
 model "simple_avg_dq_rectifier" {
@@ -400,6 +400,30 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             hide_name = True
         ]
 
+        component "core/abc to dq" "abc to dq1" {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 9236, 7584
+            hide_name = True
+            size = 48, 80
+        ]
+
+        component "core/Bus Split" "Bus Split4" {
+            execution_rate = "exec_meas"
+            outputs = "3"
+        }
+        [
+            position = 9144, 7576
+            hide_name = True
+        ]
+
+        component "core/Probe" i_d {
+        }
+        [
+            position = 9364, 7500
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -525,6 +549,54 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             size = 60, 20
         ]
 
+        tag From7 {
+            value = "theta"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9148, 7632
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From8 {
+            value = "i_abc"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9036, 7576
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto7 {
+            value = "i_d"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9348, 7560
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto8 {
+            value = "i_q"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9348, 7584
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -553,6 +625,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         junction Junction8 sp
         [
             position = 8824, 7880
+        ]
+
+        junction Junction16 sp
+        [
+            position = 9284, 7560
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -663,11 +740,24 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         [
             breakpoints = 8276, 8328; 8276, 8416
         ]
+        connect From7 "abc to dq1.wt" as Connection137
+        connect "Bus Split4.out" "abc to dq1.va" as Connection138
+        connect "Bus Split4.out1" "abc to dq1.vb" as Connection139
+        [
+            breakpoints = 9204, 7576
+        ]
+        connect "Bus Split4.out2" "abc to dq1.vc" as Connection140
+        connect From8 "Bus Split4.in" as Connection141
+        connect "abc to dq1.q_axis" Goto8 as Connection146
+        connect "abc to dq1.d_axis" Junction16 as Connection201
+        connect Junction16 Goto7 as Connection202
+        connect i_d.in Junction16 as Connection203
     }
 
     default {
         "core/Bus Join" {
             inputs = "2"
+            force_tml = "True"
             execution_rate = "inherit"
         }
 
@@ -893,6 +983,16 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
             visible = "True"
             override_signal_name = "False"
             signal_name = ""
+        }
+
+        "core/abc to dq" {
+            power_form = "variant - Clarke\'s original"
+            alignment = "-pi/2"
+            disable_filter = "True"
+            initial_filter_output = "0"
+            wn_LPFdq = "1000"
+            execution_rate = "inherit"
+            _tunable = "False"
         }
 
         "core/dq to abc" {

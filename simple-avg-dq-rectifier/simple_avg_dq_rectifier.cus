@@ -164,10 +164,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>9</channel>
-                                    <name><![CDATA[V_out]]></name>
+                                    <name><![CDATA[i_d]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>9</row>
                                     <viewports>
@@ -354,10 +354,10 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>9</channel>
-                                    <name><![CDATA[V_out]]></name>
+                                    <name><![CDATA[i_d]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
+                                    <vertical_offset>0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>9</row>
                                     <viewports>
