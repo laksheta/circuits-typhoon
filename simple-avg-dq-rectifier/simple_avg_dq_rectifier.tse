@@ -225,24 +225,13 @@ model "simple_avg_dq_rectifier" {
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
-// float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
-// float v_dc = fmax(in[6], 1.0); // Prevents division by zero, same as your max(u[7],1)
-
-// float i_dc_raw = p_ac / v_dc;
-
-// // Output the result, ensuring it\'s not negative (same as your max(0, ...))
-// out[0] = fmax(0.0, i_dc_raw);
-
-// inputs: in[0,1,2] = Va,Vb,Vc | in[3,4,5] = Ia,Ib,Ic | in[6] = Vdc
 float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
+float v_dc = fmax(in[6], 1.0); // Prevents division by zero
 
-// Prevent division by zero (equivalent to max(u[7], 1))
-float v_dc_safe = fmax(in[6], 1.0); 
+float i_dc_raw = p_ac / v_dc;
 
-float i_dc_calc = p_ac / v_dc_safe;
-
-// Force to zero if negative (equivalent to max(0, ...))
-out[0] = fmax(0.0, i_dc_calc);
+// Output the result
+out[0] = fmax(0.0, i_dc_raw);
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
@@ -252,7 +241,7 @@ out[0] = fmax(0.0, i_dc_calc);
 /*End code section*/"
         }
         [
-            position = 8560, 7920
+            position = 8556, 7920
             hide_name = True
             size = 48, 48
         ]
@@ -311,7 +300,7 @@ out[0] = fmax(0.0, i_dc_calc);
             execution_rate = "exec_meas"
         }
         [
-            position = 8760, 7836
+            position = 8692, 7836
             rotation = left
         ]
 
@@ -358,7 +347,7 @@ out[0] = fmax(0.0, i_dc_calc);
             outputs = "7"
         }
         [
-            position = 8700, 7920
+            position = 8632, 7920
             hide_name = True
         ]
 
@@ -376,7 +365,7 @@ out[0] = fmax(0.0, i_dc_calc);
             outputs = "3"
         }
         [
-            position = 9124, 7792
+            position = 8920, 7812
             hide_name = True
         ]
 
@@ -437,7 +426,7 @@ out[0] = fmax(0.0, i_dc_calc);
             initial_filter_output = "50"
         }
         [
-            position = 9228, 7792
+            position = 9024, 7812
             size = 64, 128
         ]
 
@@ -445,6 +434,7 @@ out[0] = fmax(0.0, i_dc_calc);
         }
         [
             position = 9228, 7584
+            hide_name = True
             size = 48, 80
         ]
 
@@ -459,27 +449,28 @@ out[0] = fmax(0.0, i_dc_calc);
             outputs = "3"
         }
         [
-            position = 9564, 7804
+            position = 8608, 7480
             hide_name = True
         ]
 
         component "core/Probe" V_d {
         }
         [
-            position = 9780, 7788
+            position = 8824, 7464
         ]
 
         component "core/abc to dq" "abc to dq1" {
         }
         [
-            position = 9648, 7812
+            position = 8692, 7488
+            hide_name = True
             size = 48, 80
         ]
 
         component "core/Probe" V_q {
         }
         [
-            position = 9780, 7844
+            position = 8824, 7520
         ]
 
         component "core/Ground" gnd6 {
@@ -523,7 +514,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = out
         }
         [
-            position = 8344, 7904
+            position = 8340, 7884
             hide_name = True
             size = 60, 20
         ]
@@ -535,7 +526,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = out
         }
         [
-            position = 8344, 7940
+            position = 8340, 7920
             hide_name = True
             size = 60, 20
         ]
@@ -547,7 +538,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = in
         }
         [
-            position = 8828, 7872
+            position = 8760, 7872
             hide_name = True
             size = 60, 20
         ]
@@ -585,7 +576,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = out
         }
         [
-            position = 9052, 7792
+            position = 8848, 7812
             hide_name = True
             size = 60, 20
         ]
@@ -597,7 +588,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = in
         }
         [
-            position = 9320, 7808
+            position = 9116, 7828
             hide_name = True
             size = 60, 20
         ]
@@ -669,7 +660,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = out
         }
         [
-            position = 9560, 7860
+            position = 8604, 7536
             hide_name = True
             size = 60, 20
         ]
@@ -681,7 +672,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = out
         }
         [
-            position = 9424, 7804
+            position = 8468, 7480
             hide_name = True
             size = 60, 20
         ]
@@ -705,7 +696,7 @@ out[0] = fmax(0.0, i_dc_calc);
             direction = out
         }
         [
-            position = 8344, 7972
+            position = 8340, 7956
             hide_name = True
             size = 60, 20
         ]
@@ -737,7 +728,7 @@ out[0] = fmax(0.0, i_dc_calc);
 
         junction Junction8 sp
         [
-            position = 8760, 7872
+            position = 8692, 7872
         ]
 
         junction Junction9 sp
@@ -793,7 +784,7 @@ out[0] = fmax(0.0, i_dc_calc);
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
         [
-            breakpoints = 8424, 7940; 8388, 7940
+            breakpoints = 8424, 7920; 8388, 7920
         ]
         connect "C function1.in" "Bus Join3.out" as Connection86
         connect Isp1.in From3 as Connection91
@@ -874,23 +865,20 @@ out[0] = fmax(0.0, i_dc_calc);
         connect From10 "Bus Split5.in" as Connection239
         connect "abc to dq1.q_axis" V_q.in as Connection241
         [
-            breakpoints = 9712, 7812
+            breakpoints = 8756, 7488
         ]
         connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
         connect "Bus Join2.in" "Meter Split2.IA" as Connection244
         connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
         connect V_d.in "abc to dq1.d_axis" as Connection246
         connect V_out.out Goto9 as Connection247
-        connect From11 "Bus Join3.in2" as Connection248
-        [
-            breakpoints = 8412, 7972; 8412, 7936
-        ]
         connect Junction4 Junction11 as Connection249
         connect Junction11 Junction5 as Connection250
         connect gnd6.node Junction11 as Connection251
         connect "Bus Join1.in" "Meter Split1.VAn" as Connection252
         connect "Meter Split1.VCn" "Bus Join1.in2" as Connection253
         connect "Meter Split1.VBn" "Bus Join1.in1" as Connection254
+        connect From11 "Bus Join3.in2" as Connection255
     }
 
     default {
