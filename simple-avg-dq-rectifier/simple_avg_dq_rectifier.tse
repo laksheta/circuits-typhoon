@@ -202,13 +202,14 @@ model "simple_avg_dq_rectifier" {
         }
         [
             position = 8588, 8264
+            scale = -1, 1
             size = 56, 240
         ]
 
         component "core/Ground" gnd5 {
         }
         [
-            position = 8584, 8436
+            position = 8588, 8436
             hide_name = True
         ]
 
@@ -763,17 +764,17 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             hide_name = True
         ]
-        connect R1.p_node "Rectifier Meter.A-" as Connection51
-        connect "Rectifier Meter.B-" R2.p_node as Connection54
-        connect "Rectifier Meter.C-" R3.p_node as Connection56
+        connect R1.p_node "Rectifier Meter.A+" as Connection51
+        connect "Rectifier Meter.B+" R2.p_node as Connection54
+        connect "Rectifier Meter.C+" R3.p_node as Connection56
         connect Vsp3.n_node Junction1 as Connection60
         [
             breakpoints = 8408, 8460
         ]
         connect gnd5.node "Rectifier Meter.GND" as Connection61
-        connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
-        connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
-        connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
+        connect "Rectifier Meter.C-" Vsp3.p_node as Connection63
+        connect Vsp2.p_node "Rectifier Meter.B-" as Connection64
+        connect Vsp1.p_node "Rectifier Meter.A-" as Connection65
         connect "Meter Split1.Input" "Rectifier Meter.Out" as Connection71
         connect "Meter Split1.VCn" "Bus Join1.in" as Connection72
         connect "Bus Join1.in1" "Meter Split1.VBn" as Connection73
