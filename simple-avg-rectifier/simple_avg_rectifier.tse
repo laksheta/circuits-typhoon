@@ -242,9 +242,10 @@ model "simple_avg_rectifier" {
         component "core/Meter Split" "Meter Split1" {
         }
         [
-            position = 8508, 8060
+            position = 8884, 7780
             rotation = down
             hide_name = True
+            scale = -1, 1
             size = 96, 72
         ]
 
@@ -253,9 +254,8 @@ model "simple_avg_rectifier" {
             inputs = "3"
         }
         [
-            position = 8392, 8060
+            position = 9000, 7780
             hide_name = True
-            scale = -1, 1
         ]
 
         component "core/Meter Split" "Meter Split2" {
@@ -267,7 +267,7 @@ model "simple_avg_rectifier" {
             vcn = "False"
         }
         [
-            position = 9020, 8064
+            position = 8884, 7876
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -279,14 +279,14 @@ model "simple_avg_rectifier" {
             inputs = "3"
         }
         [
-            position = 9140, 8064
+            position = 9004, 7876
             hide_name = True
         ]
 
         component "core/Signal Controlled Current Source" Isp1 {
         }
         [
-            position = 8556, 7724
+            position = 8152, 7880
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -297,7 +297,7 @@ model "simple_avg_rectifier" {
             capacitance = "C_out"
         }
         [
-            position = 8652, 7728
+            position = 8248, 7884
             rotation = right
             hide_name = True
         ]
@@ -306,7 +306,7 @@ model "simple_avg_rectifier" {
             resistance = "R_load"
         }
         [
-            position = 8748, 7728
+            position = 8344, 7884
             rotation = right
             hide_name = True
         ]
@@ -316,7 +316,7 @@ model "simple_avg_rectifier" {
             sig_output = "True"
         }
         [
-            position = 8856, 7728
+            position = 8452, 7884
             rotation = right
             size = 64, 32
         ]
@@ -359,7 +359,7 @@ out[0] = fmax(0.0, i_dc_raw);
 /*End code section*/"
         }
         [
-            position = 8588, 7920
+            position = 8900, 7652
             hide_name = True
             size = 48, 48
         ]
@@ -369,7 +369,7 @@ out[0] = fmax(0.0, i_dc_raw);
             inputs = "3"
         }
         [
-            position = 8492, 7920
+            position = 8804, 7652
             hide_name = True
         ]
 
@@ -377,7 +377,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "exec_meas"
         }
         [
-            position = 8740, 7840
+            position = 9052, 7572
             rotation = left
         ]
 
@@ -386,7 +386,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "7"
         }
         [
-            position = 8680, 7920
+            position = 8992, 7652
             hide_name = True
         ]
 
@@ -397,9 +397,10 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8272, 8060
+            position = 9092, 7780
             rotation = down
             hide_name = True
+            scale = -1, 1
             size = 60, 20
         ]
 
@@ -410,7 +411,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9260, 8064
+            position = 9092, 7876
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -424,7 +425,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8480, 7724
+            position = 8076, 7880
             hide_name = True
             size = 60, 20
         ]
@@ -436,7 +437,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8936, 7728
+            position = 8532, 7884
             hide_name = True
             size = 60, 20
         ]
@@ -448,7 +449,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8372, 7884
+            position = 8684, 7616
             hide_name = True
             size = 60, 20
         ]
@@ -460,7 +461,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8372, 7920
+            position = 8684, 7652
             hide_name = True
             size = 60, 20
         ]
@@ -472,7 +473,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8372, 7956
+            position = 8684, 7688
             hide_name = True
             size = 60, 20
         ]
@@ -484,9 +485,60 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8808, 7872
+            position = 9120, 7604
             hide_name = True
             size = 60, 20
+        ]
+
+        tag Goto12 {
+            value = "out_Grid_meter"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9008, 8120
+            hide_name = True
+            size = 108, 20
+        ]
+
+        tag Goto13 {
+            value = "out_Rectifier_meter"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8488, 8120
+            rotation = down
+            hide_name = True
+            size = 116, 20
+        ]
+
+        tag From19 {
+            value = "out_Grid_meter"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8732, 7876
+            hide_name = True
+            size = 108, 20
+        ]
+
+        tag From20 {
+            value = "out_Rectifier_meter"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8732, 7780
+            rotation = down
+            hide_name = True
+            scale = -1, 1
+            size = 116, 20
         ]
 
         junction Junction1 pe
@@ -501,27 +553,56 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction4 pe
         [
-            position = 8652, 7792
+            position = 8248, 7948
         ]
 
         junction Junction5 pe
         [
-            position = 8748, 7792
+            position = 8344, 7948
         ]
 
         junction Junction6 pe
         [
-            position = 8748, 7664
+            position = 8344, 7820
         ]
 
         junction Junction7 pe
         [
-            position = 8652, 7664
+            position = 8248, 7820
         ]
 
         junction Junction8 sp
         [
-            position = 8740, 7872
+            position = 9052, 7604
+        ]
+
+        scheme_area Area1 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
+        }
+        [
+            position = 8296, 7864
+            size = 544, 200
+            box_outline = True
+        ]
+
+        scheme_area Area2 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">AC Side</p></body></html>
+        }
+        [
+            position = 8612, 8276
+            size = 1176, 500
+            background_color = #0e0000ff
+            box_outline = True
+        ]
+
+        scheme_area Area3 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
+        }
+        [
+            position = 8896, 7732
+            size = 564, 464
+            background_color = #0eaa00ff
+            box_outline = True
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -563,30 +644,28 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             breakpoints = 8276, 8392; 8276, 8320
         ]
-        connect "Meter Split1.Input" "Rectifier Meter.Out" as Connection71
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
-        connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
-            breakpoints = 8556, 7792
+            breakpoints = 8152, 7948
         ]
         connect C1.n_node Junction4 as Connection96
         connect Junction4 Junction5 as Connection97
         connect Junction5 V_out.n_node as Connection98
         [
-            breakpoints = 8856, 7792
+            breakpoints = 8452, 7948
         ]
         connect R4.n_node Junction5 as Connection99
         connect Junction6 V_out.p_node as Connection101
         [
-            breakpoints = 8856, 7664
+            breakpoints = 8452, 7820
         ]
         connect R4.p_node Junction6 as Connection102
         connect Isp1.p_node Junction7 as Connection103
         [
-            breakpoints = 8556, 7664
+            breakpoints = 8152, 7820
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
@@ -596,7 +675,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From1 "Bus Join3.in" as Connection84
         connect "Bus Join3.in1" From2 as Connection85
         [
-            breakpoints = 8452, 7920; 8420, 7920
+            breakpoints = 8764, 7652; 8732, 7652
         ]
         connect "C function1.in" "Bus Join3.out" as Connection86
         connect From11 "Bus Join3.in2" as Connection255
@@ -610,6 +689,10 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Meter Split2.IA" "Bus Join2.in" as Connection260
         connect "Meter Split2.IC" "Bus Join2.in2" as Connection261
         connect "Bus Join2.in1" "Meter Split2.IB" as Connection262
+        connect Goto12 "Grid Meter.Out" as Connection263
+        connect "Rectifier Meter.Out" Goto13 as Connection264
+        connect From19 "Meter Split2.Input" as Connection265
+        connect From20 "Meter Split1.Input" as Connection266
     }
 
     default {
