@@ -267,7 +267,7 @@ model "simple_avg_rectifier" {
             vcn = "False"
         }
         [
-            position = 9024, 8064
+            position = 9020, 8064
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -567,9 +567,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
-        connect "Meter Split2.IC" "Bus Join2.in" as Connection81
-        connect "Meter Split2.IB" "Bus Join2.in1" as Connection82
-        connect "Meter Split2.IA" "Bus Join2.in2" as Connection83
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
@@ -610,6 +607,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Bus Join1.in2" "Meter Split1.VCn" as Connection257
         connect "Bus Join1.in" "Meter Split1.VAn" as Connection258
         connect "Meter Split1.VBn" "Bus Join1.in1" as Connection259
+        connect "Meter Split2.IA" "Bus Join2.in" as Connection260
+        connect "Meter Split2.IC" "Bus Join2.in2" as Connection261
+        connect "Bus Join2.in1" "Meter Split2.IB" as Connection262
     }
 
     default {
