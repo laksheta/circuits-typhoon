@@ -625,6 +625,13 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
+        component "core/Probe" i_d_req {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 7856, 8456
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -1010,6 +1017,11 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8128, 8260
         ]
 
+        junction Junction27 sp
+        [
+            position = 7796, 8540
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect R3.n_node L3.p_node as Connection5
         connect L2.p_node R2.n_node as Connection6
@@ -1082,7 +1094,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Sum3.out Junction24 as Connection233
         connect Junction24 "PID controller3.in" as Connection234
         connect V_out_error.in Junction24 as Connection235
-        connect Constant4.out Sum1.in as Connection261
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect From1 "Bus Join3.in" as Connection84
@@ -1196,6 +1207,9 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 8128, 8260; 8128, 8212
         ]
         connect From11 Junction26 as Connection285
+        connect Constant4.out Junction27 as Connection286
+        connect Junction27 Sum1.in as Connection287
+        connect i_d_req.in Junction27 as Connection288
     }
 
     logically_deleted {
