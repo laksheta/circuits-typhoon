@@ -224,7 +224,13 @@ model "simple_avg_dq_rectifier" {
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
-out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
+float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
+float v_dc = fmax(in[6], 1.0); // Prevents division by zero, same as your max(u[7],1)
+
+float i_dc_raw = p_ac / v_dc;
+
+// Output the result, ensuring it\'s not negative (same as your max(0, ...))
+out[0] = fmax(0.0, i_dc_raw);
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
@@ -337,7 +343,7 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
 
         component "core/Bus Split" "Bus Split2" {
             execution_rate = "exec_meas"
-            outputs = "6"
+            outputs = "7"
         }
         [
             position = 8700, 7920
