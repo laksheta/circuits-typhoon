@@ -32,7 +32,7 @@ SETTINGS_DIR = get_settings_dir_path()
                 <description><![CDATA[]]></description>
                 <working_mode>windowed</working_mode>
                 <widget_settings>
-                    <x>328</x>
+                    <x>336</x>
                     <y>184</y>
                     <width>120</width>
                     <height>120</height>
@@ -135,6 +135,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -146,6 +147,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>7</row>
                                     <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -157,6 +159,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>8</row>
                                     <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -168,7 +171,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>9</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -180,7 +182,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>10</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -210,7 +211,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[HIL0 analog input 1]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>14</row>
                                     <viewports>
@@ -221,7 +222,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>13</row>
                                     <viewports>
@@ -379,6 +380,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -390,6 +392,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>7</row>
                                     <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -401,6 +404,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>8</row>
                                     <viewports>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -412,7 +416,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>9</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -424,7 +427,6 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>10</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -454,7 +456,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[HIL0 analog input 1]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>14</row>
                                     <viewports>
@@ -465,7 +467,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>13</row>
                                     <viewports>
