@@ -664,6 +664,13 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
+        component "core/Ground" gnd6 {
+        }
+        [
+            position = 8620, 7812
+            hide_name = True
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -1133,6 +1140,11 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8728, 7876
         ]
 
+        junction Junction27 pe
+        [
+            position = 8620, 7784
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect R3.n_node L3.p_node as Connection5
         connect L2.p_node R2.n_node as Connection6
@@ -1174,7 +1186,6 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 8468, 7784
         ]
         connect C1.n_node Junction4 as Connection96
-        connect Junction4 Junction5 as Connection97
         connect Junction5 V_out.n_node as Connection98
         [
             breakpoints = 8768, 7784
@@ -1320,6 +1331,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction8 "Bus Split2.out" as Connection109
         connect Goto3 Junction8 as Connection110
         connect From21 "Bus Join3.in2" as Connection265
+        connect Junction4 Junction27 as Connection266
+        connect Junction27 Junction5 as Connection267
+        connect gnd6.node Junction27 as Connection268
     }
 
     logically_deleted {
