@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1
 //
 
 model "simple_avg_rectifier" {
@@ -353,6 +353,8 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         ]
 
         component "core/Voltage Measurement" V_out {
+            execution_rate = "exec_meas"
+            sig_output = "True"
         }
         [
             position = 8856, 7728
@@ -449,6 +451,18 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         }
         [
             position = 8480, 7724
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto9 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8936, 7728
             hide_name = True
             size = 60, 20
         ]
@@ -572,11 +586,13 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/780;
         connect Goto3 Junction8 as Connection110
         connect sine.in "Rate Transition1.out" as Connection111
         connect "Rate Transition1.in" Junction2 as Connection112
+        connect V_out.out Goto9 as Connection113
     }
 
     default {
         "core/Bus Join" {
             inputs = "2"
+            force_tml = "True"
             execution_rate = "inherit"
         }
 
