@@ -33,7 +33,7 @@ SETTINGS_DIR = get_settings_dir_path()
                 <working_mode>windowed</working_mode>
                 <widget_settings>
                     <x>328</x>
-                    <y>184</y>
+                    <y>192</y>
                     <width>120</width>
                     <height>120</height>
                     <hierarchy_position>1</hierarchy_position>
@@ -48,8 +48,8 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_capture_preset><![CDATA[Default]]></active_capture_preset>
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
-                            <time_interval>1.0</time_interval>
-                            <sample_rate>1000000</sample_rate>
+                            <time_interval>4.0</time_interval>
+                            <sample_rate>1000000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
@@ -230,8 +230,8 @@ SETTINGS_DIR = get_settings_dir_path()
                         </scope>
                         </presets>
                     <capture>
-                        <time_interval>1.0</time_interval>
-                        <sample_rate>1000000</sample_rate>
+                        <time_interval>4.0</time_interval>
+                        <sample_rate>1000000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
