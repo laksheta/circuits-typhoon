@@ -299,14 +299,14 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "exec_meas"
         }
         [
-            position = 8824, 7844
+            position = 8760, 7836
             rotation = left
         ]
 
         component "core/Signal Controlled Current Source" Isp1 {
         }
         [
-            position = 8556, 7724
+            position = 8544, 7660
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -317,7 +317,7 @@ out[0] = fmax(0.0, i_dc_raw);
             capacitance = "C_out"
         }
         [
-            position = 8652, 7728
+            position = 8640, 7664
             rotation = right
             hide_name = True
         ]
@@ -326,7 +326,7 @@ out[0] = fmax(0.0, i_dc_raw);
             resistance = "R_load"
         }
         [
-            position = 8748, 7728
+            position = 8736, 7664
             rotation = right
             hide_name = True
         ]
@@ -336,7 +336,7 @@ out[0] = fmax(0.0, i_dc_raw);
             sig_output = "True"
         }
         [
-            position = 8856, 7728
+            position = 8844, 7664
             rotation = right
             size = 64, 32
         ]
@@ -470,6 +470,13 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 9780, 7844
         ]
 
+        component "core/Ground" gnd6 {
+        }
+        [
+            position = 8700, 7760
+            hide_name = True
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -528,7 +535,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8892, 7880
+            position = 8828, 7872
             hide_name = True
             size = 60, 20
         ]
@@ -540,7 +547,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8480, 7724
+            position = 8468, 7660
             hide_name = True
             size = 60, 20
         ]
@@ -674,7 +681,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8932, 7728
+            position = 8920, 7664
             hide_name = True
             size = 60, 20
         ]
@@ -698,27 +705,27 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction4 pe
         [
-            position = 8652, 7792
+            position = 8640, 7728
         ]
 
         junction Junction5 pe
         [
-            position = 8748, 7792
+            position = 8736, 7728
         ]
 
         junction Junction6 pe
         [
-            position = 8748, 7664
+            position = 8736, 7600
         ]
 
         junction Junction7 pe
         [
-            position = 8652, 7664
+            position = 8640, 7600
         ]
 
         junction Junction8 sp
         [
-            position = 8824, 7880
+            position = 8760, 7872
         ]
 
         junction Junction9 sp
@@ -729,6 +736,11 @@ out[0] = fmax(0.0, i_dc_raw);
         junction Junction10 sp
         [
             position = 9292, 7584
+        ]
+
+        junction Junction11 pe
+        [
+            position = 8700, 7728
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -778,23 +790,22 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
-            breakpoints = 8556, 7792
+            breakpoints = 8544, 7728
         ]
         connect C1.n_node Junction4 as Connection96
-        connect Junction4 Junction5 as Connection97
         connect Junction5 V_out.n_node as Connection98
         [
-            breakpoints = 8856, 7792
+            breakpoints = 8844, 7728
         ]
         connect R4.n_node Junction5 as Connection99
         connect Junction6 V_out.p_node as Connection101
         [
-            breakpoints = 8856, 7664
+            breakpoints = 8844, 7600
         ]
         connect R4.p_node Junction6 as Connection102
         connect Isp1.p_node Junction7 as Connection103
         [
-            breakpoints = 8556, 7664
+            breakpoints = 8544, 7600
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
@@ -865,6 +876,9 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             breakpoints = 8412, 7972; 8412, 7936
         ]
+        connect Junction4 Junction11 as Connection249
+        connect Junction11 Junction5 as Connection250
+        connect gnd6.node Junction11 as Connection251
     }
 
     default {
