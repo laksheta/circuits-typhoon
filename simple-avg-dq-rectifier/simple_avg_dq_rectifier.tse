@@ -225,13 +225,24 @@ model "simple_avg_dq_rectifier" {
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
+// float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
+// float v_dc = fmax(in[6], 1.0); // Prevents division by zero, same as your max(u[7],1)
+
+// float i_dc_raw = p_ac / v_dc;
+
+// // Output the result, ensuring it\'s not negative (same as your max(0, ...))
+// out[0] = fmax(0.0, i_dc_raw);
+
+// inputs: in[0,1,2] = Va,Vb,Vc | in[3,4,5] = Ia,Ib,Ic | in[6] = Vdc
 float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
-float v_dc = fmax(in[6], 1.0); // Prevents division by zero, same as your max(u[7],1)
 
-float i_dc_raw = p_ac / v_dc;
+// Prevent division by zero (equivalent to max(u[7], 1))
+float v_dc_safe = fmax(in[6], 1.0); 
 
-// Output the result, ensuring it\'s not negative (same as your max(0, ...))
-out[0] = fmax(0.0, i_dc_raw);
+float i_dc_calc = p_ac / v_dc_safe;
+
+// Force to zero if negative (equivalent to max(0, ...))
+out[0] = fmax(0.0, i_dc_calc);
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
@@ -776,9 +787,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Vsp2.p_node "Rectifier Meter.B-" as Connection64
         connect Vsp1.p_node "Rectifier Meter.A-" as Connection65
         connect "Meter Split1.Input" "Rectifier Meter.Out" as Connection71
-        connect "Meter Split1.VCn" "Bus Join1.in" as Connection72
-        connect "Bus Join1.in1" "Meter Split1.VBn" as Connection73
-        connect "Meter Split1.VAn" "Bus Join1.in2" as Connection74
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
@@ -880,6 +888,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction4 Junction11 as Connection249
         connect Junction11 Junction5 as Connection250
         connect gnd6.node Junction11 as Connection251
+        connect "Bus Join1.in" "Meter Split1.VAn" as Connection252
+        connect "Meter Split1.VCn" "Bus Join1.in2" as Connection253
+        connect "Meter Split1.VBn" "Bus Join1.in1" as Connection254
     }
 
     default {
