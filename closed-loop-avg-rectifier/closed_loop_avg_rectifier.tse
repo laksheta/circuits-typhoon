@@ -223,20 +223,20 @@ model "closed_loop_avg_rectifier" {
             input_terminals_feedthrough = "True"
             input_terminals_show_labels = "False"
             output_fnc = "/*Begin code section*/
-// out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
+out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
 
-// Calculate the dot product of the two vectors
-float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
+// // Calculate the dot product of the two vectors
+// float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
 
-// Calculate the divisor: max(u[7], 1)
-// We use a ternary or fmaxf to ensure we don\'t divide by zero
-float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
+// // Calculate the divisor: max(u[7], 1)
+// // We use a ternary or fmaxf to ensure we don\'t divide by zero
+// float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
 
-// Calculate the intermediate result: -(dot_product / divisor)
-float result = -dot_product / divisor;
+// // Calculate the intermediate result: -(dot_product / divisor)
+// float result = -dot_product / divisor;
 
-// Final output: max(0, result)
-out[0] = (result > 0.0f) ? result : 0.0f;
+// // Final output: max(0, result)
+// out[0] = (result > 0.0f) ? result : 0.0f;
 /*End code section*/"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
@@ -438,7 +438,7 @@ out[0] = (result > 0.0f) ? result : 0.0f;
             value = "i_d_req"
         }
         [
-            position = 7668, 8436
+            position = 7720, 8540
             hide_name = True
         ]
 
@@ -1272,7 +1272,6 @@ out[0] = (result > 0.0f) ? result : 0.0f;
         connect Sum2.out Junction20 as Connection218
         connect Junction20 "PID controller2.in" as Connection219
         connect u_q_error.in Junction20 as Connection220
-        connect "PID controller3.out" Sum1.in as Connection221
         connect "dq to abc1.q_input" Junction22 as Connection226
         [
             breakpoints = 8128, 8296
@@ -1321,10 +1320,22 @@ out[0] = (result > 0.0f) ? result : 0.0f;
         connect Product3.out i_dc_dq.in as Connection258
         connect Product1.out Gain2.in as Connection259
         connect Gain2.out Sum4.in as Connection260
+        connect Constant4.out Sum1.in as Connection261
     }
 
     logically_deleted {
-        "Constant4"
+        "PID controller3"
+        "Sum3"
+        "Constant6"
+        "From12"
+        "Connection178"
+        "Connection181"
+        "Connection232"
+        "V_out_error"
+        "Junction24"
+        "Connection233"
+        "Connection234"
+        "Connection235"
         "From16"
         "Product1"
         "Connection249"
