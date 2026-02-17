@@ -1012,11 +1012,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8128, 8260
         ]
 
-        junction Junction27 sp
-        [
-            position = 7796, 8540
-        ]
-
         junction Junction28 sp
         [
             position = 9496, 7628
@@ -1198,27 +1193,14 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 8128, 8260; 8128, 8212
         ]
         connect From11 Junction26 as Connection285
-        connect Constant4.out Junction27 as Connection286
-        connect Junction27 Sum1.in as Connection287
-        connect i_d_req.in Junction27 as Connection288
         connect Goto7 Junction28 as Connection290
         connect Junction28 "abc to dq.d_axis" as Connection291
         connect i_d.in Junction28 as Connection292
-    }
-
-    logically_deleted {
-        "PID controller3"
-        "Sum3"
-        "Constant6"
-        "V_out_error"
-        "From12"
-        "Junction24"
-        "Connection178"
-        "Connection181"
-        "Connection232"
-        "Connection233"
-        "Connection234"
-        "Connection235"
+        connect i_d_req.in Constant4.out as Connection293
+        [
+            breakpoints = 7796, 8540
+        ]
+        connect "PID controller3.out" Sum1.in as Connection294
     }
 
     default {
