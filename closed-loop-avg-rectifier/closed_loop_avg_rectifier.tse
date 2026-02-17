@@ -212,45 +212,6 @@ model "closed_loop_avg_rectifier" {
             hide_name = True
         ]
 
-        component "core/C function" "C function1" {
-            arb_defs = "/*Begin code section*/
-
-/*End code section*/"
-            init_fnc = "/*Begin code section*/
-
-/*End code section*/"
-            input_terminals_dimensions = "inherit"
-            input_terminals_feedthrough = "True"
-            input_terminals_show_labels = "False"
-            output_fnc = "/*Begin code section*/
-out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
-
-// // Calculate the dot product of the two vectors
-// float dot_product = (in[0] * in[3]) + (in[1] * in[4]) + (in[2] * in[5]);
-
-// // Calculate the divisor: max(u[7], 1)
-// // We use a ternary or fmaxf to ensure we don\'t divide by zero
-// float divisor = (in[6] > 1.0f) ? in[6] : 1.0f;
-
-// // Calculate the intermediate result: -(dot_product / divisor)
-// float result = -dot_product / divisor;
-
-// // Final output: max(0, result)
-// out[0] = (result > 0.0f) ? result : 0.0f;
-/*End code section*/"
-            output_terminals_dimensions = "inherit"
-            output_terminals_feedthrough = "True"
-            output_terminals_show_labels = "False"
-            update_fnc = "/*Begin code section*/
-
-/*End code section*/"
-        }
-        [
-            position = 8560, 7920
-            hide_name = True
-            size = 48, 48
-        ]
-
         component "core/Meter Split" "Meter Split1" {
         }
         [
@@ -292,22 +253,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             hide_name = True
         ]
 
-        component "core/Bus Join" "Bus Join3" {
-            inputs = "3"
-        }
-        [
-            position = 8464, 7920
-            hide_name = True
-        ]
-
-        component "core/Probe" i_dc {
-            execution_rate = "exec_meas"
-        }
-        [
-            position = 8768, 7836
-            rotation = left
-        ]
-
         component "core/Signal Controlled Current Source" Isp1 {
         }
         [
@@ -344,14 +289,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             position = 8768, 7720
             rotation = right
             size = 64, 32
-        ]
-
-        component "core/Bus Split" "Bus Split2" {
-            outputs = "7"
-        }
-        [
-            position = 8696, 7920
-            hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join4" {
@@ -668,6 +605,65 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             position = 9572, 7836
         ]
 
+        component "core/C function" "C function1" {
+            arb_defs = "/*Begin code section*/
+
+/*End code section*/"
+            execution_rate = "exec_meas"
+            init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            input_terminals_dimensions = "inherit"
+            input_terminals_feedthrough = "True"
+            input_terminals_show_labels = "False"
+            output_fnc = "/*Begin code section*/
+float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
+float v_dc = fmax(in[6], 1.0); // Prevents division by zero
+
+float i_dc_raw = p_ac / v_dc;
+
+// Output the result
+out[0] = fmax(0.0, i_dc_raw);
+/*End code section*/"
+            output_terminals_dimensions = "inherit"
+            output_terminals_feedthrough = "True"
+            output_terminals_show_labels = "False"
+            update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+        }
+        [
+            position = 8592, 7924
+            hide_name = True
+            size = 48, 48
+        ]
+
+        component "core/Bus Join" "Bus Join3" {
+            execution_rate = "exec_meas"
+            inputs = "3"
+        }
+        [
+            position = 8500, 7924
+            hide_name = True
+        ]
+
+        component "core/Probe" i_dc {
+            execution_rate = "exec_meas"
+        }
+        [
+            position = 8728, 7840
+            rotation = left
+        ]
+
+        component "core/Bus Split" "Bus Split2" {
+            execution_rate = "exec_meas"
+            outputs = "7"
+        }
+        [
+            position = 8668, 7924
+            hide_name = True
+        ]
+
         tag Goto1 {
             value = "V_rect"
             scope = local
@@ -692,42 +688,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             rotation = down
             hide_name = True
             scale = -1, 1
-            size = 60, 20
-        ]
-
-        tag From1 {
-            value = "V_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8344, 7884
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From2 {
-            value = "i_abc"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8344, 7920
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto3 {
-            value = "i_dc"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 8836, 7872
-            hide_name = True
             size = 60, 20
         ]
 
@@ -937,18 +897,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             size = 60, 20
         ]
 
-        tag From13 {
-            value = "V_out"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8344, 7960
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag From14 {
             value = "theta"
             scope = local
@@ -1052,6 +1000,54 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             size = 60, 20
         ]
 
+        tag From1 {
+            value = "V_rect"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8376, 7888
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From2 {
+            value = "i_abc"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8376, 7924
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto3 {
+            value = "i_dc"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8796, 7876
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From21 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8376, 7960
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -1075,11 +1071,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         junction Junction7 pe
         [
             position = 8564, 7656
-        ]
-
-        junction Junction8 sp
-        [
-            position = 8768, 7872
         ]
 
         junction Junction12 sp
@@ -1137,6 +1128,11 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
             position = 9648, 7672
         ]
 
+        junction Junction8 sp
+        [
+            position = 8728, 7876
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect R3.n_node L3.p_node as Connection5
         connect L2.p_node R2.n_node as Connection6
@@ -1172,8 +1168,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
-        connect From1 "Bus Join3.in" as Connection84
-        connect "C function1.in" "Bus Join3.out" as Connection86
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
@@ -1197,10 +1191,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
-        connect "C function1.out" "Bus Split2.in" as Connection106
-        connect i_dc.in Junction8 as Connection108
-        connect Junction8 "Bus Split2.out" as Connection109
-        connect Goto3 Junction8 as Connection110
         connect "Bus Join4.out" Goto4 as Connection113
         connect "Meter Split2.VAn" "Bus Join4.in" as Connection114
         connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
@@ -1290,8 +1280,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         connect Sum3.out Junction24 as Connection233
         connect Junction24 "PID controller3.in" as Connection234
         connect V_out_error.in Junction24 as Connection235
-        connect From2 "Bus Join3.in1" as Connection236
-        connect From13 "Bus Join3.in2" as Connection237
         connect From14 "abc to dq2.wt" as Connection238
         connect "Bus Split5.out" "abc to dq2.va" as Connection239
         connect "Bus Split5.out1" "abc to dq2.vb" as Connection240
@@ -1321,6 +1309,17 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         connect "Bus Join1.in2" "Meter Split1.VCn" as Connection262
         connect "Bus Join1.in" "Meter Split1.VAn" as Connection263
         connect "Meter Split1.VBn" "Bus Join1.in1" as Connection264
+        connect From1 "Bus Join3.in" as Connection84
+        connect "Bus Join3.in1" From2 as Connection85
+        [
+            breakpoints = 8460, 7924; 8424, 7924
+        ]
+        connect "C function1.in" "Bus Join3.out" as Connection86
+        connect "C function1.out" "Bus Split2.in" as Connection106
+        connect i_dc.in Junction8 as Connection108
+        connect Junction8 "Bus Split2.out" as Connection109
+        connect Goto3 Junction8 as Connection110
+        connect From21 "Bus Join3.in2" as Connection265
     }
 
     logically_deleted {
