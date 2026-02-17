@@ -202,6 +202,7 @@ model "closed_loop_avg_rectifier" {
         }
         [
             position = 8584, 8264
+            scale = -1, 1
             size = 56, 240
         ]
 
@@ -266,7 +267,7 @@ model "closed_loop_avg_rectifier" {
 
         component "core/Constant" Constant4 {
             execution_rate = "exec_controller"
-            value = "i_d_req"
+            value = "-i_d_req"
         }
         [
             position = 7720, 8540
@@ -992,11 +993,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8708, 7860
         ]
 
-        junction Junction9 sp
-        [
-            position = 9496, 7628
-        ]
-
         junction Junction10 sp
         [
             position = 9496, 7652
@@ -1022,6 +1018,11 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 7796, 8540
         ]
 
+        junction Junction28 sp
+        [
+            position = 9496, 7628
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect R3.n_node L3.p_node as Connection5
         connect L2.p_node R2.n_node as Connection6
@@ -1042,17 +1043,17 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             hide_name = True
         ]
-        connect R1.p_node "Rectifier Meter.A-" as Connection51
-        connect "Rectifier Meter.B-" R2.p_node as Connection54
-        connect "Rectifier Meter.C-" R3.p_node as Connection56
+        connect R1.p_node "Rectifier Meter.A+" as Connection51
+        connect "Rectifier Meter.B+" R2.p_node as Connection54
+        connect "Rectifier Meter.C+" R3.p_node as Connection56
         connect Vsp3.n_node Junction1 as Connection60
         [
             breakpoints = 8408, 8460
         ]
         connect gnd5.node "Rectifier Meter.GND" as Connection61
-        connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
-        connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
-        connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
+        connect "Rectifier Meter.C-" Vsp3.p_node as Connection63
+        connect Vsp2.p_node "Rectifier Meter.B-" as Connection64
+        connect Vsp1.p_node "Rectifier Meter.A-" as Connection65
         connect From5 "dq to abc1.wt" as Connection122
         connect Constant1.out "dq to abc1.zero_input" as Connection123
         connect "dq to abc1.phase_b" Vsp2.in as Connection127
@@ -1144,15 +1145,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "abc to dq.vb" "Bus Split4.out1" as Connection210
         connect "Bus Split4.out2" "abc to dq.vc" as Connection211
         connect "abc to dq.wt" From7 as Connection212
-        connect Goto7 Junction9 as Connection222
-        connect Junction9 "abc to dq.d_axis" as Connection223
-        [
-            breakpoints = 9488, 7628
-        ]
-        connect i_d.in Junction9 as Connection224
-        [
-            breakpoints = 9496, 7624; 9492, 7624
-        ]
         connect "abc to dq.q_axis" Junction10 as Connection225
         connect Junction10 Goto8 as Connection262
         [
@@ -1210,6 +1202,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Constant4.out Junction27 as Connection286
         connect Junction27 Sum1.in as Connection287
         connect i_d_req.in Junction27 as Connection288
+        connect Goto7 Junction28 as Connection290
+        connect Junction28 "abc to dq.d_axis" as Connection291
+        connect i_d.in Junction28 as Connection292
     }
 
     logically_deleted {
