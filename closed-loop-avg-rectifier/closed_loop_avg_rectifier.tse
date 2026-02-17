@@ -488,7 +488,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Signal Controlled Current Source" Isp1 {
         }
         [
-            position = 7944, 7584
+            position = 7396, 7796
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -499,7 +499,7 @@ out[0] = fmax(0.0, i_dc_raw);
             capacitance = "C_out"
         }
         [
-            position = 8040, 7588
+            position = 7492, 7800
             rotation = right
             hide_name = True
         ]
@@ -508,7 +508,7 @@ out[0] = fmax(0.0, i_dc_raw);
             resistance = "R_load"
         }
         [
-            position = 8136, 7588
+            position = 7588, 7800
             rotation = right
             hide_name = True
         ]
@@ -518,7 +518,7 @@ out[0] = fmax(0.0, i_dc_raw);
             sig_output = "True"
         }
         [
-            position = 8244, 7588
+            position = 7696, 7800
             rotation = right
             size = 64, 32
         ]
@@ -621,7 +621,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Ground" gnd6 {
         }
         [
-            position = 8100, 7684
+            position = 7552, 7896
             hide_name = True
         ]
 
@@ -798,7 +798,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 7868, 7584
+            position = 7320, 7796
             hide_name = True
             size = 60, 20
         ]
@@ -920,7 +920,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8320, 7588
+            position = 7772, 7800
             hide_name = True
             size = 60, 20
         ]
@@ -949,6 +949,42 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
+        tag From16 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7544, 8628
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From17 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7848, 8640
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From18 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7824, 8796
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8360, 8460
@@ -971,22 +1007,22 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction4 pe
         [
-            position = 8040, 7652
+            position = 7492, 7864
         ]
 
         junction Junction5 pe
         [
-            position = 8136, 7652
+            position = 7588, 7864
         ]
 
         junction Junction6 pe
         [
-            position = 8136, 7524
+            position = 7588, 7736
         ]
 
         junction Junction7 pe
         [
-            position = 8040, 7524
+            position = 7492, 7736
         ]
 
         junction Junction8 sp
@@ -1001,7 +1037,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction11 pe
         [
-            position = 8100, 7652
+            position = 7552, 7864
         ]
 
         junction Junction28 sp
@@ -1023,7 +1059,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:14pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC side</p></body></html>
         }
         [
-            position = 8088, 7604
+            position = 7540, 7816
             size = 572, 232
             box_outline = True
         ]
@@ -1032,8 +1068,8 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:14pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">PI Controller</p></body></html>
         }
         [
-            position = 7764, 8680
-            size = 960, 560
+            position = 7764, 8628
+            size = 960, 456
             background_color = #0e55ffff
             box_outline = True
         ]
@@ -1102,22 +1138,22 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
-            breakpoints = 7944, 7652
+            breakpoints = 7396, 7864
         ]
         connect C1.n_node Junction4 as Connection96
         connect Junction5 V_out.n_node as Connection98
         [
-            breakpoints = 8244, 7652
+            breakpoints = 7696, 7864
         ]
         connect R4.n_node Junction5 as Connection99
         connect Junction6 V_out.p_node as Connection101
         [
-            breakpoints = 8244, 7524
+            breakpoints = 7696, 7736
         ]
         connect R4.p_node Junction6 as Connection102
         connect Isp1.p_node Junction7 as Connection103
         [
-            breakpoints = 7944, 7524
+            breakpoints = 7396, 7736
         ]
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
@@ -1200,6 +1236,12 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction30 Goto9 as Connection301
         connect u_q_pi.in Junction30 as Connection302
         connect reset_sig.out Goto11 as Connection304
+        connect "PID controller3.reset" From16 as Connection305
+        connect "PID controller1.reset" From17 as Connection306
+        connect "PID controller2.reset" From18 as Connection307
+        [
+            breakpoints = 7888, 8744; 7888, 8796
+        ]
     }
 
     default {
