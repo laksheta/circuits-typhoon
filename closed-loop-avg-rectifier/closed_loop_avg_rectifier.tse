@@ -1169,9 +1169,6 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
         connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
         connect "Meter Split1.Input" "Rectifier Meter.Out" as Connection71
-        connect "Meter Split1.VCn" "Bus Join1.in" as Connection72
-        connect "Bus Join1.in1" "Meter Split1.VBn" as Connection73
-        connect "Meter Split1.VAn" "Bus Join1.in2" as Connection74
         connect "Bus Join1.out" Goto1 as Connection75
         connect "Bus Join2.out" Goto2 as Connection79
         connect "Meter Split2.Input" "Grid Meter.Out" as Connection80
@@ -1321,42 +1318,45 @@ out[0]=-(in[0]*in[3] + in[1]*in[4] + in[2]*in[5])/in[6];
         connect Product1.out Gain2.in as Connection259
         connect Gain2.out Sum4.in as Connection260
         connect Constant4.out Sum1.in as Connection261
+        connect "Bus Join1.in2" "Meter Split1.VCn" as Connection262
+        connect "Bus Join1.in" "Meter Split1.VAn" as Connection263
+        connect "Meter Split1.VBn" "Bus Join1.in1" as Connection264
     }
 
     logically_deleted {
         "PID controller3"
         "Sum3"
         "Constant6"
+        "V_out_error"
+        "Product1"
+        "Product2"
+        "Sum4"
+        "Gain1"
+        "Product3"
+        "i_dc_dq"
+        "Gain2"
         "From12"
+        "From16"
+        "From17"
+        "From18"
+        "From19"
+        "From20"
+        "Junction24"
         "Connection178"
         "Connection181"
         "Connection232"
-        "V_out_error"
-        "Junction24"
         "Connection233"
         "Connection234"
         "Connection235"
-        "From16"
-        "Product1"
         "Connection249"
-        "From17"
         "Connection250"
-        "From18"
-        "Product2"
-        "From19"
         "Connection251"
         "Connection252"
-        "Sum4"
         "Connection254"
-        "Gain1"
         "Connection255"
-        "Product3"
-        "From20"
         "Connection256"
         "Connection257"
-        "i_dc_dq"
         "Connection258"
-        "Gain2"
         "Connection259"
         "Connection260"
     }
