@@ -1002,12 +1002,12 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction25 sp
         [
-            position = 8164, 8156
+            position = 8164, 8224
         ]
 
         junction Junction26 sp
         [
-            position = 8128, 8212
+            position = 8128, 8260
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -1178,18 +1178,24 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
         connect "Rectifier Meter.Out" "Meter Split1.Input" as Connection268
         connect "Grid Meter.Out" "Meter Split2.Input" as Connection269
-        connect "dq to abc1.d_input" Junction25 as Connection272
+        connect u_d_pi.in Junction25 as Connection280
         [
-            breakpoints = 8164, 8228; 8164, 8184; 8164, 8180; 8164, 8164
+            breakpoints = 8164, 8156; 8164, 8164; 8164, 8180; 8164, 8184
         ]
-        connect Junction25 u_d_pi.in as Connection273
-        connect Constant2.out Junction25 as Connection274
-        connect "dq to abc1.q_input" Junction26 as Connection275
+        connect Junction25 "dq to abc1.d_input" as Connection281
         [
-            breakpoints = 8128, 8296; 8128, 8260
+            breakpoints = 8164, 8228
         ]
-        connect Junction26 u_q_pi.in as Connection276
-        connect Constant3.out Junction26 as Connection277
+        connect From6 Junction25 as Connection282
+        connect "dq to abc1.q_input" Junction26 as Connection283
+        [
+            breakpoints = 8128, 8296
+        ]
+        connect Junction26 u_q_pi.in as Connection284
+        [
+            breakpoints = 8128, 8260; 8128, 8212
+        ]
+        connect From11 Junction26 as Connection285
     }
 
     logically_deleted {

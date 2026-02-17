@@ -37,3 +37,7 @@ phase_3ph    = delta
 
 V_rect = m*V_dc_target
 
+print(u_d)
+print(u_q)
+
+print(i_d_req)
