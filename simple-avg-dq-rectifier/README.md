@@ -7,6 +7,6 @@
 # Result
 
 <p align='center'>
-    <img src='attachments/README-2026-02-13-18-57-29.png' width='800'>
+    <img src='attachments/result.png' width='800'>
 </p>
 
