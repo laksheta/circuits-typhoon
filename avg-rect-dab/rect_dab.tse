@@ -944,7 +944,7 @@ out[0] = fmax(0.0, i_dc_raw);
             value = "0.5"
         }
         [
-            position = 10332, 7540
+            position = 10236, 7480
             hide_name = True
         ]
 
@@ -1115,6 +1115,31 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             position = 10172, 7188
             hide_name = True
+        ]
+
+        component "core/Signal switch" "Signal switch2" {
+        }
+        [
+            position = 10320, 7500
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant14 {
+            execution_rate = "T_delay_dab"
+        }
+        [
+            position = 10236, 7524
+            hide_name = True
+        ]
+
+        component "core/SCADA Input" sw_DAB {
+            execution_rate = "T_math_dab"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 10168, 7444
         ]
 
         tag From5 {
@@ -1879,11 +1904,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 10076, 7608
         ]
 
-        junction Junction18 sp
-        [
-            position = 10416, 7540
-        ]
-
         junction Junction23 sp
         [
             position = 9340, 7192
@@ -1902,6 +1922,11 @@ out[0] = fmax(0.0, i_dc_raw);
         junction Junction26 sp
         [
             position = 10332, 7164
+        ]
+
+        junction Junction36 sp
+        [
+            position = 10416, 7540
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -2221,12 +2246,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Goto21 Junction17 as Connection148
         connect From26 Comparator1.in2 as Connection149
         connect From27 Comparator2.in2 as Connection151
-        connect Comparator1.in1 Junction18 as Connection328
-        [
-            breakpoints = 10440, 7564; 10440, 7540
-        ]
-        connect Junction18 Constant11.out as Connection329
-        connect Comparator2.in1 Junction18 as Connection154
         connect Comparator1.out Gain2.in as Connection165
         [
             hide_name = True
@@ -2288,6 +2307,15 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Goto22 "Signal switch1.out" as Connection345
         connect From25 Limit1.in as Connection346
         connect Limit1.out Product2.in1 as Connection347
+        connect Constant11.out "Signal switch2.in" as Connection349
+        connect Comparator2.in1 Junction36 as Connection350
+        connect Junction36 Comparator1.in1 as Connection351
+        [
+            breakpoints = 10416, 7540; 10440, 7540; 10440, 7564
+        ]
+        connect "Signal switch2.out" Junction36 as Connection352
+        connect Constant14.out "Signal switch2.in1" as Connection353
+        connect sw_DAB.out "Signal switch2.in2" as Connection354
     }
 
     logically_deleted {
