@@ -513,7 +513,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Voltage Measurement" V_out {
+        component "core/Voltage Measurement" V_out_rect {
             execution_rate = "exec_meas_rect"
             sig_output = "True"
         }
@@ -661,14 +661,14 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 64, 32
         ]
 
-        component "core/Voltage Measurement" V_L {
+        component "core/Voltage Measurement" V_L_dab {
         }
         [
             position = 9104, 7056
             size = 64, 32
         ]
 
-        component "core/Current Measurement" i_L {
+        component "core/Current Measurement" i_L_dab {
             execution_rate = "T_meas_dab"
             sig_output = "True"
         }
@@ -677,7 +677,7 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 64, 32
         ]
 
-        component "core/Probe" V_1 {
+        component "core/Probe" V_1_dab {
             execution_rate = "T_meas_dab"
         }
         [
@@ -685,7 +685,7 @@ out[0] = fmax(0.0, i_dc_raw);
             rotation = right
         ]
 
-        component "core/Probe" "V_2\'" {
+        component "core/Probe" "V_2\'_dab" {
             execution_rate = "T_meas_dab"
         }
         [
@@ -701,7 +701,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" P_raw {
+        component "core/Probe" P_raw_dab {
             execution_rate = "T_meas_dab"
         }
         [
@@ -772,11 +772,11 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" I_dc {
+        component "core/Probe" I_dc_dab {
             execution_rate = "T_meas_dab"
         }
         [
-            position = 9936, 7032
+            position = 9936, 7084
             rotation = left
         ]
 
@@ -797,21 +797,21 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" I_load {
+        component "core/Probe" I_load_dab {
             execution_rate = "T_meas_dab"
         }
         [
             position = 10048, 7208
         ]
 
-        component "core/Probe" V_out1 {
+        component "core/Probe" V_out_dab {
             execution_rate = "T_meas_dab"
         }
         [
             position = 10280, 7080
         ]
 
-        component "core/Probe" P {
+        component "core/Probe" P_dab {
             execution_rate = "T_meas_dab"
         }
         [
@@ -827,7 +827,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" primary_carrier {
+        component "core/Probe" primary_carrier_dab {
             execution_rate = "T_meas_dab"
         }
         [
@@ -858,11 +858,11 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" secondary_carrier {
+        component "core/Probe" secondary_carrier_dab {
             execution_rate = "T_meas_dab"
         }
         [
-            position = 9708, 7680
+            position = 9680, 7680
             rotation = right
         ]
 
@@ -870,7 +870,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_dab"
         }
         [
-            position = 9708, 7616
+            position = 9680, 7616
             rotation = right
             hide_name = True
             size = 32, 32
@@ -936,6 +936,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10076, 7536
+            hide_name = True
         ]
 
         component "core/Constant" Constant11 {
@@ -952,6 +953,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10076, 7624
+            hide_name = True
         ]
 
         component "core/Gain" Gain2 {
@@ -960,6 +962,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10152, 7536
+            hide_name = True
         ]
 
         component "core/Gain" Gain3 {
@@ -968,6 +971,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10152, 7624
+            hide_name = True
         ]
 
         component "core/Offset" Offset1 {
@@ -976,6 +980,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10228, 7536
+            hide_name = True
             size = 48, 48
         ]
 
@@ -985,6 +990,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10228, 7624
+            hide_name = True
             size = 48, 48
         ]
 
@@ -1039,14 +1045,14 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" PI_out {
+        component "core/Probe" PI_out_dab {
         }
         [
             position = 9312, 7528
             rotation = left
         ]
 
-        component "core/SCADA Input" V_out_ref {
+        component "core/SCADA Input" V_out_ref_dab {
             def_value = "780"
             execution_rate = "T_math_dab"
             max = "1000"
@@ -1057,7 +1063,7 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8876, 7568
         ]
 
-        component "core/SCADA Input" reset_PI {
+        component "core/SCADA Input" reset_PI_dab {
             execution_rate = "T_math_dab"
             max = "1"
             min = "0"
@@ -1473,7 +1479,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto14 {
-            value = "V_1"
+            value = "V_1_dab"
             scope = local
             kind = sp
             direction = in
@@ -1485,7 +1491,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto15 {
-            value = "i_L"
+            value = "i_L_dab"
             scope = local
             kind = sp
             direction = in
@@ -1498,7 +1504,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto16 {
-            value = "V_2\'"
+            value = "V_2\'_dab"
             scope = local
             kind = sp
             direction = in
@@ -1510,7 +1516,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From21 {
-            value = "i_L"
+            value = "i_L_dab"
             scope = local
             kind = sp
             direction = out
@@ -1522,7 +1528,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From22 {
-            value = "V_2\'"
+            value = "V_2\'_dab"
             scope = local
             kind = sp
             direction = out
@@ -1534,7 +1540,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto17 {
-            value = "P"
+            value = "P_dab"
             scope = local
             kind = sp
             direction = in
@@ -1546,7 +1552,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From23 {
-            value = "P"
+            value = "P_dab"
             scope = local
             kind = sp
             direction = out
@@ -1558,7 +1564,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto18 {
-            value = "V_out"
+            value = "V_out_dab"
             scope = local
             kind = sp
             direction = in
@@ -1570,7 +1576,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From24 {
-            value = "V_out"
+            value = "V_out_dab"
             scope = local
             kind = sp
             direction = out
@@ -1582,7 +1588,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto19 {
-            value = "V_in"
+            value = "V_in_dab"
             scope = local
             kind = sp
             direction = in
@@ -1594,7 +1600,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From25 {
-            value = "V_in"
+            value = "V_in_dab"
             scope = local
             kind = sp
             direction = out
@@ -1606,55 +1612,55 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto20 {
-            value = "primary_carrier"
+            value = "primary_carrier_dab"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 9612, 7444
+            position = 9636, 7444
             hide_name = True
-            size = 92, 20
+            size = 140, 20
         ]
 
         tag Goto21 {
-            value = "secondary_carrier"
+            value = "secondary_carrier_dab"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 9816, 7572
+            position = 9764, 7572
             hide_name = True
-            size = 100, 20
+            size = 132, 20
         ]
 
         tag From26 {
-            value = "primary_carrier"
+            value = "primary_carrier_dab"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 9952, 7564
+            position = 9928, 7564
             hide_name = True
-            size = 92, 20
+            size = 140, 20
         ]
 
         tag From27 {
-            value = "secondary_carrier"
+            value = "secondary_carrier_dab"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 9952, 7648
+            position = 9928, 7648
             hide_name = True
-            size = 100, 20
+            size = 148, 20
         ]
 
         tag From28 {
-            value = "V_1"
+            value = "V_1_dab"
             scope = local
             kind = sp
             direction = out
@@ -1666,7 +1672,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From29 {
-            value = "V_2\'"
+            value = "V_2\'_dab"
             scope = local
             kind = sp
             direction = out
@@ -1679,7 +1685,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From30 {
-            value = "V_out"
+            value = "V_out_dab"
             scope = local
             kind = sp
             direction = out
@@ -1802,7 +1808,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction17 sp
         [
-            position = 9708, 7572
+            position = 9680, 7572
         ]
 
         junction Junction18 sp
@@ -1837,7 +1843,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2 '</p></body></html> ENDCOMMENT 
         [
-            position = 9244, 7144
+            position = 9240, 7152
         ]
 
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
@@ -1991,12 +1997,12 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 6680, 7172
         ]
         connect C1.n_node Junction4 as Connection96
-        connect Junction5 V_out.n_node as Connection98
+        connect Junction5 V_out_rect.n_node as Connection98
         [
             breakpoints = 6980, 7172
         ]
         connect R4.n_node Junction5 as Connection99
-        connect Junction6 V_out.p_node as Connection101
+        connect Junction6 V_out_rect.p_node as Connection101
         [
             breakpoints = 6980, 7044
         ]
@@ -2047,7 +2053,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Bus Join2.in" "Meter Split2.IA" as Connection244
         connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
         connect V_d_rect.in "abc to dq1.d_axis" as Connection246
-        connect V_out.out Goto10 as Connection247
+        connect V_out_rect.out Goto10 as Connection247
         connect Junction4 Junction11 as Connection249
         connect Junction11 Junction5 as Connection250
         connect gnd6.node Junction11 as Connection251
@@ -2094,15 +2100,15 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
         connect L4.p_node Junction31 as Connection315
         connect Junction31 Vsp1asd.p_node as Connection316
-        connect V_L.p_node Junction31 as Connection8
+        connect V_L_dab.p_node Junction31 as Connection8
         connect Junction2 L4.n_node as Connection10
-        connect V_L.n_node Junction2 as Connection11
+        connect V_L_dab.n_node Junction2 as Connection11
         [
             breakpoints = 9168, 7056; 9168, 7116
         ]
-        connect Vsp1asd1.p_node i_L.n_node as Connection317
-        connect i_L.p_node Junction2 as Connection318
-        connect Goto15 i_L.out as Connection319
+        connect Vsp1asd1.p_node i_L_dab.n_node as Connection317
+        connect i_L_dab.p_node Junction2 as Connection318
+        connect Goto15 i_L_dab.out as Connection319
         connect From21 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum4.out Gain1.in as Connection55
@@ -2110,16 +2116,16 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From24 Product3.in as Connection62
         connect Product3.out Junction9 as Connection321
         connect Junction9 Sum4.in1 as Connection322
-        connect I_load.in Junction9 as Connection323
+        connect I_load_dab.in Junction9 as Connection323
         connect Integrator1.out Junction32 as Connection66
         connect Junction32 Goto18 as Connection67
-        connect V_out1.in Junction32 as Connection68
+        connect V_out_dab.in Junction32 as Connection68
         connect Product1.out Junction33 as Connection72
         connect Junction33 "Mean Value1.in" as Connection73
-        connect P_raw.in Junction33 as Connection74
+        connect P_raw_dab.in Junction33 as Connection74
         connect Goto17 Junction34 as Connection324
         connect Junction34 "Mean Value1.out" as Connection76
-        connect P.in Junction34 as Connection77
+        connect P_dab.in Junction34 as Connection77
         [
             breakpoints = 10084, 6844; 10084, 6904
         ]
@@ -2127,8 +2133,8 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Constant7.out Goto19 as Connection325
         connect From25 Product2.in1 as Connection326
         connect Junction15 Delay1.in as Connection131
-        connect "Rate Transition6.out" secondary_carrier.in as Connection134
-        connect primary_carrier.in "Rate Transition7.out" as Connection135
+        connect "Rate Transition6.out" secondary_carrier_dab.in as Connection134
+        connect primary_carrier_dab.in "Rate Transition7.out" as Connection135
         connect "Rate Transition7.in" Junction15 as Connection136
         connect Constant8.out Product6.in1 as Connection137
         connect Constant9.out Product6.in2 as Connection138
@@ -2148,30 +2154,26 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction17 "Rate Transition6.in" as Connection147
         connect Goto21 Junction17 as Connection148
         connect From26 Comparator1.in2 as Connection149
-        [
-            hide_name = True
-        ]
         connect From27 Comparator2.in2 as Connection151
-        [
-            hide_name = True
-        ]
         connect Comparator1.in1 Junction18 as Connection328
         [
-            hide_name = True
             breakpoints = 10044, 7528; 10044, 7504
         ]
         connect Junction18 Constant11.out as Connection329
         connect Comparator2.in1 Junction18 as Connection154
-        [
-            hide_name = True
-        ]
         connect Comparator1.out Gain2.in as Connection165
-        connect Comparator2.out Gain3.in as Connection167
         [
             hide_name = True
         ]
+        connect Comparator2.out Gain3.in as Connection167
         connect Gain2.out Offset1.in as Connection169
+        [
+            hide_name = True
+        ]
         connect Gain3.out Offset2.in as Connection171
+        [
+            hide_name = True
+        ]
         connect Vsp1asd.in Junction23 as Connection216
         connect Junction23 "Rate Transition2.in" as Connection217
         [
@@ -2184,8 +2186,8 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 9344, 7164
         ]
         connect From29 Junction35 as Connection221
-        connect "Rate Transition1.out" "V_2\'.in" as Connection222
-        connect "Rate Transition2.out" V_1.in as Connection223
+        connect "Rate Transition1.out" "V_2\'_dab.in" as Connection222
+        connect "Rate Transition2.out" V_1_dab.in as Connection223
         connect Goto14 Offset1.out as Connection224
         [
             hide_name = True
@@ -2200,12 +2202,12 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Sum5.out "PID controller4.in" as Connection231
         connect Gain4.out Junction25 as Connection334
         connect Junction25 Product6.in as Connection335
-        connect PI_out.in Junction25 as Connection236
-        connect V_out_ref.out Sum5.in as Connection237
-        connect reset_PI.out "PID controller4.reset" as Connection238
+        connect PI_out_dab.in Junction25 as Connection236
+        connect V_out_ref_dab.out Sum5.in as Connection237
+        connect reset_PI_dab.out "PID controller4.reset" as Connection238
         connect "PID controller4.out" Gain4.in as Connection336
         connect Sum4.in Junction26 as Connection337
-        connect Junction26 I_dc.in as Connection338
+        connect Junction26 I_dc_dab.in as Connection338
         [
             breakpoints = 9936, 7128
         ]
@@ -2258,7 +2260,7 @@ out[0] = fmax(0.0, i_dc_raw);
         "Isp1"
         "C1"
         "R4"
-        "V_out"
+        "V_out_rect"
         "Bus Split2"
         "Bus Join4"
         "Bus Split3"
