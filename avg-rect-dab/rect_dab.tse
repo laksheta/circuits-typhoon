@@ -815,7 +815,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_dab"
         }
         [
-            position = 10536, 6880
+            position = 10520, 6880
         ]
 
         component "core/Constant" Constant7 {
@@ -944,7 +944,7 @@ out[0] = fmax(0.0, i_dc_raw);
             value = "0.5"
         }
         [
-            position = 10236, 7480
+            position = 10356, 7512
             hide_name = True
         ]
 
@@ -1118,30 +1118,31 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Signal switch" "Signal switch2" {
-            execution_rate = "T_delay_dab"
+            execution_rate = "T_math_dab"
         }
         [
-            position = 10320, 7500
+            position = 10608, 6964
             hide_name = True
         ]
 
         component "core/Constant" Constant14 {
-            execution_rate = "T_delay_dab"
+            execution_rate = "T_math_dab"
             value = "0"
         }
         [
-            position = 10236, 7524
+            position = 10524, 6988
             hide_name = True
         ]
 
         component "core/SCADA Input" sw_DAB {
-            execution_rate = "T_delay_dab"
+            execution_rate = "T_math_dab"
             max = "1"
             min = "0"
             unit = ""
         }
         [
-            position = 10168, 7444
+            position = 10608, 6888
+            rotation = right
         ]
 
         tag From5 {
@@ -1617,7 +1618,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 10540, 6948
+            position = 10688, 6964
             hide_name = True
             size = 60, 20
         ]
@@ -1886,11 +1887,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 10400, 6948
         ]
 
-        junction Junction34 sp
-        [
-            position = 10480, 6948
-        ]
-
         junction Junction15 sp
         [
             position = 9960, 7600
@@ -1928,7 +1924,12 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction36 sp
         [
-            position = 10416, 7540
+            position = 10416, 7536
+        ]
+
+        junction Junction37 sp
+        [
+            position = 10480, 6948
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -2218,12 +2219,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Product1.out Junction33 as Connection72
         connect Junction33 "Mean Value1.in" as Connection73
         connect P_raw_dab.in Junction33 as Connection74
-        connect Goto17 Junction34 as Connection324
-        connect Junction34 "Mean Value1.out" as Connection76
-        connect P_dab.in Junction34 as Connection77
-        [
-            breakpoints = 10480, 6880; 10480, 6940
-        ]
         connect From23 Product2.in as Connection78
         connect Junction15 Delay1.in as Connection131
         connect "Rate Transition6.out" secondary_carrier_dab.in as Connection134
@@ -2309,15 +2304,21 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Goto22 "Signal switch1.out" as Connection345
         connect From25 Limit1.in as Connection346
         connect Limit1.out Product2.in1 as Connection347
-        connect Constant11.out "Signal switch2.in" as Connection349
-        connect Comparator2.in1 Junction36 as Connection350
-        connect Junction36 Comparator1.in1 as Connection351
+        connect Constant14.out "Signal switch2.in1" as Connection353
+        connect sw_DAB.out "Signal switch2.in2" as Connection354
+        connect Comparator2.in1 Junction36 as Connection356
+        connect Junction36 Comparator1.in1 as Connection357
         [
             breakpoints = 10416, 7540; 10440, 7540; 10440, 7564
         ]
-        connect "Signal switch2.out" Junction36 as Connection352
-        connect Constant14.out "Signal switch2.in1" as Connection353
-        connect sw_DAB.out "Signal switch2.in2" as Connection354
+        connect Constant11.out Junction36 as Connection358
+        connect "Mean Value1.out" Junction37 as Connection360
+        connect Junction37 P_dab.in as Connection361
+        [
+            breakpoints = 10480, 6948; 10480, 6940; 10480, 6880
+        ]
+        connect "Signal switch2.in" Junction37 as Connection362
+        connect "Signal switch2.out" Goto17 as Connection363
     }
 
     logically_deleted {
