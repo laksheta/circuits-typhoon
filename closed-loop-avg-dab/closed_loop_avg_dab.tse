@@ -519,7 +519,7 @@ model "closed_loop_avg_dab" {
 
         component "core/Constant" Constant9 {
             execution_rate = "inherit"
-            value = "45"
+            value = "0.125"
         }
         [
             position = 8124, 8616
