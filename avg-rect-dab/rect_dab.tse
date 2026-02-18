@@ -652,7 +652,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd1 {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_dab"
         }
         [
             position = 9312, 7160
@@ -820,7 +820,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant7 {
             execution_rate = "T_math_dab"
-            value = "V_in"
+            value = "V_in_dab"
         }
         [
             position = 9096, 6860
@@ -936,7 +936,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10076, 7536
-            hide_name = True
         ]
 
         component "core/Constant" Constant11 {
@@ -953,7 +952,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10076, 7624
-            hide_name = True
         ]
 
         component "core/Gain" Gain2 {
@@ -962,7 +960,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10152, 7536
-            hide_name = True
         ]
 
         component "core/Gain" Gain3 {
@@ -971,7 +968,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10152, 7624
-            hide_name = True
         ]
 
         component "core/Offset" Offset1 {
@@ -980,7 +976,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10228, 7536
-            hide_name = True
             size = 48, 48
         ]
 
@@ -990,7 +985,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10228, 7624
-            hide_name = True
             size = 48, 48
         ]
 
@@ -1053,6 +1047,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/SCADA Input" V_out_ref {
+            def_value = "780"
             execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
@@ -2153,26 +2148,30 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction17 "Rate Transition6.in" as Connection147
         connect Goto21 Junction17 as Connection148
         connect From26 Comparator1.in2 as Connection149
+        [
+            hide_name = True
+        ]
         connect From27 Comparator2.in2 as Connection151
+        [
+            hide_name = True
+        ]
         connect Comparator1.in1 Junction18 as Connection328
         [
+            hide_name = True
             breakpoints = 10044, 7528; 10044, 7504
         ]
         connect Junction18 Constant11.out as Connection329
         connect Comparator2.in1 Junction18 as Connection154
+        [
+            hide_name = True
+        ]
         connect Comparator1.out Gain2.in as Connection165
-        [
-            hide_name = True
-        ]
         connect Comparator2.out Gain3.in as Connection167
+        [
+            hide_name = True
+        ]
         connect Gain2.out Offset1.in as Connection169
-        [
-            hide_name = True
-        ]
         connect Gain3.out Offset2.in as Connection171
-        [
-            hide_name = True
-        ]
         connect Vsp1asd.in Junction23 as Connection216
         connect Junction23 "Rate Transition2.in" as Connection217
         [
@@ -2188,7 +2187,13 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition1.out" "V_2\'.in" as Connection222
         connect "Rate Transition2.out" V_1.in as Connection223
         connect Goto14 Offset1.out as Connection224
+        [
+            hide_name = True
+        ]
         connect Goto16 Offset2.out as Connection333
+        [
+            hide_name = True
+        ]
         connect From22 "Rate Transition9.in" as Connection226
         connect "Rate Transition9.out" Product1.in1 as Connection227
         connect From30 Sum5.in1 as Connection230
@@ -2208,6 +2213,233 @@ out[0] = fmax(0.0, i_dc_raw);
     }
 
     logically_deleted {
+        "Vs1"
+        "L1"
+        "L2"
+        "L3"
+        "gnd1"
+        "R1"
+        "R2"
+        "R3"
+        "Vsp1"
+        "Vsp2"
+        "Vsp3"
+        "gnd2"
+        "Grid Meter"
+        "gnd3"
+        "Rectifier Meter"
+        "gnd5"
+        "dq to abc1"
+        "Constant1"
+        "Constant2"
+        "Constant3"
+        "PID controller1"
+        "Constant4"
+        "u_d_pi_rect"
+        "reset_sig_rect"
+        "Sum1"
+        "PID controller2"
+        "Constant5"
+        "u_q_pi_rect"
+        "Sum2"
+        "u_d_error_rect"
+        "PID controller3"
+        "Sum3"
+        "Constant6"
+        "u_q_error_rect"
+        "V_out_error_rect"
+        "C function1"
+        "Meter Split1"
+        "Bus Join1"
+        "Meter Split2"
+        "Bus Join2"
+        "Bus Join3"
+        "i_dc_rect"
+        "Isp1"
+        "C1"
+        "R4"
+        "V_out"
+        "Bus Split2"
+        "Bus Join4"
+        "Bus Split3"
+        "Bus Split4"
+        "i_d_rect"
+        "Three phase PLL"
+        "abc to dq"
+        "i_q_rect"
+        "Bus Split5"
+        "V_d_rect"
+        "abc to dq1"
+        "V_q_rect"
+        "gnd6"
+        "i_d_req_rect"
+        "From5"
+        "Goto6"
+        "From6"
+        "From9"
+        "Goto9"
+        "From10"
+        "From11"
+        "From12"
+        "Goto1"
+        "Goto2"
+        "From1"
+        "From2"
+        "Goto3"
+        "From3"
+        "Goto4"
+        "From4"
+        "Goto5"
+        "From7"
+        "From8"
+        "Goto7"
+        "Goto8"
+        "From13"
+        "From14"
+        "Goto10"
+        "From15"
+        "Goto11"
+        "From16"
+        "From17"
+        "From18"
+        "Goto12"
+        "From19"
+        "Goto13"
+        "From20"
+        "Junction1"
+        "Junction12"
+        "Junction20"
+        "Junction24"
+        "Junction4"
+        "Junction5"
+        "Junction6"
+        "Junction7"
+        "Junction8"
+        "Junction10"
+        "Junction11"
+        "Junction28"
+        "Junction29"
+        "Junction30"
+        "Area1"
+        "Area2"
+        "Area4"
+        "Area5"
+        "Connection4"
+        "Connection5"
+        "Connection6"
+        "Connection7"
+        "Connection12"
+        "Connection13"
+        "Connection15"
+        "Connection21"
+        "Connection22"
+        "Connection23"
+        "Connection24"
+        "Connection25"
+        "Connection26"
+        "Connection27"
+        "Connection51"
+        "Connection54"
+        "Connection56"
+        "Connection60"
+        "Connection61"
+        "Connection63"
+        "Connection64"
+        "Connection65"
+        "Connection122"
+        "Connection123"
+        "Connection127"
+        "Connection128"
+        "Connection129"
+        "Connection145"
+        "Connection152"
+        "Connection153"
+        "Connection158"
+        "Connection159"
+        "Connection160"
+        "Connection178"
+        "Connection181"
+        "Connection218"
+        "Connection219"
+        "Connection220"
+        "Connection233"
+        "Connection234"
+        "Connection235"
+        "Connection75"
+        "Connection79"
+        "Connection84"
+        "Connection85"
+        "Connection86"
+        "Connection91"
+        "Connection94"
+        "Connection96"
+        "Connection98"
+        "Connection99"
+        "Connection101"
+        "Connection102"
+        "Connection103"
+        "Connection104"
+        "Connection105"
+        "Connection106"
+        "Connection108"
+        "Connection109"
+        "Connection110"
+        "Connection113"
+        "Connection114"
+        "Connection115"
+        "Connection116"
+        "Connection117"
+        "Connection204"
+        "Connection205"
+        "Connection206"
+        "Connection207"
+        "Connection209"
+        "Connection210"
+        "Connection211"
+        "Connection212"
+        "Connection225"
+        "Connection262"
+        "Connection263"
+        "Connection264"
+        "Connection229"
+        "Connection265"
+        "Connection266"
+        "Connection267"
+        "Connection239"
+        "Connection241"
+        "Connection242"
+        "Connection244"
+        "Connection245"
+        "Connection246"
+        "Connection247"
+        "Connection249"
+        "Connection250"
+        "Connection251"
+        "Connection254"
+        "Connection255"
+        "Connection256"
+        "Connection257"
+        "Connection290"
+        "Connection291"
+        "Connection292"
+        "Connection293"
+        "Connection294"
+        "Connection297"
+        "Connection298"
+        "Connection299"
+        "Connection300"
+        "Connection301"
+        "Connection302"
+        "Connection304"
+        "Connection305"
+        "Connection306"
+        "Connection307"
+        "Connection308"
+        "Connection309"
+        "Connection310"
+        "Connection311"
+        "Connection312"
+        "Connection313"
         "Constant12"
     }
 
