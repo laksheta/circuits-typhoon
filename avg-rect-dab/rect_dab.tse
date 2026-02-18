@@ -633,7 +633,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_dab"
         }
         [
             position = 8976, 7156
@@ -669,7 +669,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Current Measurement" i_L {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
             sig_output = "True"
         }
         [
@@ -678,7 +678,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" V_1 {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 8944, 7276
@@ -686,7 +686,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" "V_2\'" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9344, 7272
@@ -694,7 +694,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Product" Product1 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
         }
         [
             position = 9972, 6912
@@ -702,14 +702,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" P_raw {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 10048, 6844
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9344, 7216
@@ -719,7 +719,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition2" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 8944, 7216
@@ -729,7 +729,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Mean Value" "Mean Value1" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             number_of_points = "10000"
         }
         [
@@ -738,7 +738,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Product" Product2 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             signs = "*/"
         }
         [
@@ -747,7 +747,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Sum" Sum4 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             signs = "+-"
         }
         [
@@ -756,7 +756,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" R_load {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "R_load"
         }
         [
@@ -764,7 +764,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Product" Product3 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             signs = "*/"
         }
         [
@@ -773,7 +773,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" I_dc {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9936, 7032
@@ -781,7 +781,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Gain" Gain1 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             gain = "1/C"
         }
         [
@@ -790,7 +790,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Integrator" Integrator1 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
         }
         [
             position = 10192, 7136
@@ -798,28 +798,28 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" I_load {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 10048, 7208
         ]
 
         component "core/Probe" V_out1 {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 10280, 7080
         ]
 
         component "core/Probe" P {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 10140, 6844
         ]
 
         component "core/Constant" Constant7 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "V_in"
         }
         [
@@ -828,7 +828,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" primary_carrier {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9564, 7488
@@ -837,7 +837,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
             duty_cycle = "0"
-            execution_rate = "T_wave"
+            execution_rate = "T_wave_dab"
             frequency = "10e3"
             max_val = "1"
             min_val = "0"
@@ -850,7 +850,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Delay" Delay1 {
             del_length = "83.33"
             delay_type = "Variable delay"
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
             max_delay_length = "100"
         }
         [
@@ -859,7 +859,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" secondary_carrier {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9708, 7680
@@ -867,7 +867,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition6" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9708, 7616
@@ -877,7 +877,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition7" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9564, 7536
@@ -887,7 +887,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Product" Product6 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             signs = "****"
         }
         [
@@ -896,7 +896,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" Constant8 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "1/360"
         }
         [
@@ -905,7 +905,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" Constant9 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "T"
         }
         [
@@ -914,7 +914,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" Constant10 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "1/T_delay"
         }
         [
@@ -923,7 +923,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition8" {
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
         }
         [
             position = 9468, 7608
@@ -932,7 +932,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Comparator" Comparator1 {
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
         }
         [
             position = 10076, 7536
@@ -940,7 +940,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" Constant11 {
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
             value = "0.5"
         }
         [
@@ -949,7 +949,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Comparator" Comparator2 {
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
         }
         [
             position = 10076, 7624
@@ -957,7 +957,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Gain" Gain2 {
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
             gain = "2*V_in"
         }
         [
@@ -966,7 +966,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Gain" Gain3 {
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
             gain = "2*V_in"
         }
         [
@@ -976,26 +976,24 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Offset" Offset1 {
             const_val = "-V_in"
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
         }
         [
             position = 10228, 7536
-            hide_name = True
             size = 48, 48
         ]
 
         component "core/Offset" Offset2 {
             const_val = "-V_in"
-            execution_rate = "T_delay"
+            execution_rate = "T_delay_dab"
         }
         [
             position = 10228, 7624
-            hide_name = True
             size = 48, 48
         ]
 
         component "core/Rate Transition" "Rate Transition9" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
         }
         [
             position = 9892, 6956
@@ -1004,7 +1002,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Gain" Gain4 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             gain = "(90/0.25)"
         }
         [
@@ -1016,7 +1014,7 @@ out[0] = fmax(0.0, i_dc_raw);
             controller_type = "PI"
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             ki = "K_i"
             kp = "K_p"
             lower_sat_lim = "-0.25"
@@ -1037,7 +1035,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" Constant12 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "V_out"
         }
         [
@@ -1053,7 +1051,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/SCADA Input" V_out_ref {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
             unit = ""
@@ -1063,7 +1061,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/SCADA Input" reset_PI {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             max = "1"
             min = "0"
             unit = ""
@@ -1485,7 +1483,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10324, 7536
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1510,7 +1507,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10324, 7624
-            hide_name = True
             size = 60, 20
         ]
 
@@ -2182,7 +2178,13 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition1.out" "V_2\'.in" as Connection222
         connect "Rate Transition2.out" V_1.in as Connection223
         connect Goto14 Offset1.out as Connection224
+        [
+            hide_name = True
+        ]
         connect Goto16 Offset2.out as Connection333
+        [
+            hide_name = True
+        ]
         connect From22 "Rate Transition9.in" as Connection226
         connect "Rate Transition9.out" Product1.in1 as Connection227
         connect From30 Sum5.in1 as Connection230
