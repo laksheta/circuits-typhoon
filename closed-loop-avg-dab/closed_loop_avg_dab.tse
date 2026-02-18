@@ -522,7 +522,7 @@ model "closed_loop_avg_dab" {
             value = "0.125"
         }
         [
-            position = 8124, 8616
+            position = 8040, 8496
         ]
 
         tag Goto1 {
@@ -936,20 +936,12 @@ model "closed_loop_avg_dab" {
         connect PI_out.in Junction25 as Connection236
         connect V_out_ref.out Sum2.in as Connection237
         connect reset_PI.out "PID controller1.reset" as Connection238
-        connect Constant9.out Gain4.in as Connection239
+        connect "PID controller1.out" Gain4.in as Connection239
     }
 
     logically_deleted {
         "Constant8"
-        "PID controller1"
-        "Sum2"
-        "From13"
-        "V_out_ref"
-        "reset_PI"
-        "Connection230"
-        "Connection231"
-        "Connection237"
-        "Connection238"
+        "Constant9"
     }
 
     default {
