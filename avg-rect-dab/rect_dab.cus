@@ -32,8 +32,8 @@ SETTINGS_DIR = get_settings_dir_path()
                 <description><![CDATA[]]></description>
                 <working_mode>windowed</working_mode>
                 <widget_settings>
-                    <x>776</x>
-                    <y>224</y>
+                    <x>792</x>
+                    <y>312</y>
                     <width>120</width>
                     <height>120</height>
                     <hierarchy_position>1</hierarchy_position>
@@ -231,8 +231,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>952</x>
-                    <y>184</y>
+                    <x>288</x>
+                    <y>376</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -434,13 +434,13 @@ widgetValue = None
 widgetValue = hil.model_read('sw_Rect_DAB')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>720</x>
-                    <y>424</y>
+                    <x>392</x>
+                    <y>584</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -502,13 +502,13 @@ widgetValue = None
 widgetValue = hil.model_read('sw_DAB')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>888</x>
-                    <y>424</y>
+                    <x>544</x>
+                    <y>584</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
