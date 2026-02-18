@@ -644,7 +644,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Inductor" L4 {
-            inductance = "L"
+            inductance = "L_dab"
         }
         [
             position = 9104, 7116
@@ -757,7 +757,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" R_load {
             execution_rate = "T_math_dab"
-            value = "R_load"
+            value = "R_load_dab"
         }
         [
             position = 9816, 7240
@@ -782,7 +782,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Gain" Gain1 {
             execution_rate = "T_math_dab"
-            gain = "1/C"
+            gain = "1/C_dab"
         }
         [
             position = 10112, 7136
@@ -906,7 +906,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant9 {
             execution_rate = "T_math_dab"
-            value = "T"
+            value = "T_dab"
         }
         [
             position = 9264, 7684
@@ -915,7 +915,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant10 {
             execution_rate = "T_math_dab"
-            value = "1/T_delay"
+            value = "1/T_delay_dab"
         }
         [
             position = 9264, 7716
@@ -958,7 +958,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Gain" Gain2 {
             execution_rate = "T_delay_dab"
-            gain = "2*V_in"
+            gain = "2*V_in_dab"
         }
         [
             position = 10152, 7536
@@ -967,7 +967,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Gain" Gain3 {
             execution_rate = "T_delay_dab"
-            gain = "2*V_in"
+            gain = "2*V_in_dab"
         }
         [
             position = 10152, 7624
@@ -975,20 +975,22 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Offset" Offset1 {
-            const_val = "-V_in"
+            const_val = "-V_in_dab"
             execution_rate = "T_delay_dab"
         }
         [
             position = 10228, 7536
+            hide_name = True
             size = 48, 48
         ]
 
         component "core/Offset" Offset2 {
-            const_val = "-V_in"
+            const_val = "-V_in_dab"
             execution_rate = "T_delay_dab"
         }
         [
             position = 10228, 7624
+            hide_name = True
             size = 48, 48
         ]
 
@@ -1015,8 +1017,8 @@ out[0] = fmax(0.0, i_dc_raw);
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
             execution_rate = "T_math_dab"
-            ki = "K_i"
-            kp = "K_p"
+            ki = "K_i_dab"
+            kp = "K_p_dab"
             lower_sat_lim = "-0.25"
             show_reset = "rising"
             upper_sat_lim = "0.25"
@@ -1483,6 +1485,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10324, 7536
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1507,6 +1510,7 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 10324, 7624
+            hide_name = True
             size = 60, 20
         ]
 
@@ -2157,12 +2161,18 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction18 Constant11.out as Connection329
         connect Comparator2.in1 Junction18 as Connection154
         connect Comparator1.out Gain2.in as Connection165
-        connect Comparator2.out Gain3.in as Connection167
         [
             hide_name = True
         ]
+        connect Comparator2.out Gain3.in as Connection167
         connect Gain2.out Offset1.in as Connection169
+        [
+            hide_name = True
+        ]
         connect Gain3.out Offset2.in as Connection171
+        [
+            hide_name = True
+        ]
         connect Vsp1asd.in Junction23 as Connection216
         connect Junction23 "Rate Transition2.in" as Connection217
         [
@@ -2178,13 +2188,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition1.out" "V_2\'.in" as Connection222
         connect "Rate Transition2.out" V_1.in as Connection223
         connect Goto14 Offset1.out as Connection224
-        [
-            hide_name = True
-        ]
         connect Goto16 Offset2.out as Connection333
-        [
-            hide_name = True
-        ]
         connect From22 "Rate Transition9.in" as Connection226
         connect "Rate Transition9.out" Product1.in1 as Connection227
         connect From30 Sum5.in1 as Connection230
