@@ -48,8 +48,8 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_capture_preset><![CDATA[Default]]></active_capture_preset>
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
-                            <time_interval>0.1</time_interval>
-                            <sample_rate>10000000</sample_rate>
+                            <time_interval>2.0</time_interval>
+                            <sample_rate>10000000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
@@ -71,7 +71,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[i_L]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -83,7 +83,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_L]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -94,7 +94,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
@@ -106,7 +106,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_2']]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>4</row>
                                     <viewports>
@@ -118,7 +118,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>5</row>
                                     <viewports>
@@ -130,7 +130,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[I_dc]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
@@ -141,7 +141,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[I_load]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>7</row>
                                     <viewports>
@@ -152,7 +152,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P_raw]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>8</row>
                                     <viewports>
@@ -183,7 +183,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             <layout>Grid</layout>
                             <legend>True</legend>
                             <show_viewports>1</show_viewports>
-                            <decimation>26</decimation>
+                            <decimation>26.0</decimation>
                             <time_base>0.005</time_base>
                             <analog_signals>
                                 <analog>
@@ -191,7 +191,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
@@ -214,8 +214,8 @@ SETTINGS_DIR = get_settings_dir_path()
                         </scope>
                         </presets>
                     <capture>
-                        <time_interval>0.1</time_interval>
-                        <sample_rate>10000000</sample_rate>
+                        <time_interval>2.0</time_interval>
+                        <sample_rate>10000000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
@@ -245,7 +245,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[i_L]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -257,7 +257,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_L]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -268,7 +268,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
@@ -280,7 +280,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_2']]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>4</row>
                                     <viewports>
@@ -292,7 +292,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>5</row>
                                     <viewports>
@@ -304,7 +304,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[I_dc]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>6</row>
                                     <viewports>
@@ -315,7 +315,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[I_load]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>7</row>
                                     <viewports>
@@ -326,7 +326,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P_raw]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>8</row>
                                     <viewports>
@@ -355,7 +355,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
