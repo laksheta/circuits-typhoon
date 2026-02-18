@@ -16,7 +16,7 @@ T_plant = 1e-6
 
 delay_deg   = 45
 delay_N = ((delay_deg/360)*T)/T_delay
-print(delay_N)
+# print(delay_N)
 
 V_in  = 780
 V_out = 780
@@ -33,7 +33,7 @@ deg = d*(90/0.5)
 phi = (deg/360)*(1/fsw)
 
 phi_pu = 1-phi*fsw
-print(phi_pu)
+# print(phi_pu)
 
 I = V1*D*(1-D)/(2*fsw*L)
 R_load = V1/I
@@ -42,7 +42,7 @@ R_load = V1/I
 
 # PI Controller
 P_c = 5e3
-R_load_c  = (V_out^2) / P_c 
+R_load_c  = (V_out**2) / P_c 
 
 d_c = d*0.5
 
@@ -54,3 +54,5 @@ omega_c = 2*np.pi*f_bw
 
 K_p      = (tau*omega_c)/Gdc
 K_i      = K_p/tau
+
+print(R_load_c)
