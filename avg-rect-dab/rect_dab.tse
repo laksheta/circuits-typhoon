@@ -182,7 +182,7 @@ model "rect_dab" {
         ]
 
         component "core/Three-phase Meter" "Grid Meter" {
-            Ts = "exec_meas"
+            Ts = "exec_meas_rect"
         }
         [
             position = 8264, 7524
@@ -198,7 +198,7 @@ model "rect_dab" {
         ]
 
         component "core/Three-phase Meter" "Rectifier Meter" {
-            Ts = "exec_meas"
+            Ts = "exec_meas_rect"
         }
         [
             position = 7916, 7524
@@ -213,7 +213,7 @@ model "rect_dab" {
         ]
 
         component "core/dq to abc" "dq to abc1" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
         }
         [
             position = 7536, 7564
@@ -222,7 +222,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             value = "0"
         }
         [
@@ -231,7 +231,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant2 {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             value = "u_d"
         }
         [
@@ -240,7 +240,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             value = "u_q"
         }
         [
@@ -266,7 +266,7 @@ model "rect_dab" {
 
         component "core/Constant" Constant4 {
             execution_rate = "exec_controller_rect"
-            value = "-i_d_req"
+            value = "-i_d_req_rect"
         }
         [
             position = 6780, 7488
@@ -315,7 +315,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant5 {
-            execution_rate = "exec_controller"
+            execution_rate = "exec_controller_rect"
             value = "i_q_req"
         }
         [
@@ -398,7 +398,7 @@ model "rect_dab" {
             arb_defs = "/*Begin code section*/
 
 /*End code section*/"
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             init_fnc = "/*Begin code section*/
 
 /*End code section*/"
@@ -438,7 +438,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join1" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             inputs = "3"
         }
         [
@@ -460,7 +460,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join2" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             inputs = "3"
         }
         [
@@ -469,7 +469,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join3" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             inputs = "3"
         }
         [
@@ -478,7 +478,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_dc {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
         }
         [
             position = 7756, 6932
@@ -514,7 +514,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Voltage Measurement" V_out {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             sig_output = "True"
         }
         [
@@ -524,7 +524,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split2" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             outputs = "7"
         }
         [
@@ -533,7 +533,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join4" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             inputs = "3"
         }
         [
@@ -542,7 +542,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split3" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             outputs = "3"
         }
         [
@@ -551,7 +551,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split4" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             outputs = "3"
         }
         [
@@ -590,7 +590,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split5" {
-            execution_rate = "exec_meas"
+            execution_rate = "exec_meas_rect"
             outputs = "3"
         }
         [
