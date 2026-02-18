@@ -469,7 +469,7 @@ model "closed_loop_avg_dab" {
             upper_sat_lim = "0.25"
         }
         [
-            position = 8148, 8616
+            position = 7836, 8592
             hide_name = True
         ]
 
@@ -477,7 +477,7 @@ model "closed_loop_avg_dab" {
             signs = "+-"
         }
         [
-            position = 8056, 8616
+            position = 7744, 8592
             hide_name = True
         ]
 
@@ -504,7 +504,7 @@ model "closed_loop_avg_dab" {
             unit = ""
         }
         [
-            position = 7884, 8608
+            position = 7572, 8584
         ]
 
         component "core/SCADA Input" reset_PI {
@@ -514,7 +514,15 @@ model "closed_loop_avg_dab" {
             unit = ""
         }
         [
-            position = 7956, 8720
+            position = 7644, 8696
+        ]
+
+        component "core/Constant" Constant9 {
+            execution_rate = "inherit"
+            value = "45"
+        }
+        [
+            position = 8124, 8616
         ]
 
         tag Goto1 {
@@ -730,7 +738,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 7952, 8664
+            position = 7640, 8640
             hide_name = True
             size = 60, 20
         ]
@@ -923,16 +931,25 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition9.out" Product1.in1 as Connection227
         connect From13 Sum2.in1 as Connection230
         connect Sum2.out "PID controller1.in" as Connection231
-        connect "PID controller1.out" Gain4.in as Connection233
         connect Gain4.out Junction25 as Connection234
         connect Junction25 Product6.in as Connection235
         connect PI_out.in Junction25 as Connection236
         connect V_out_ref.out Sum2.in as Connection237
         connect reset_PI.out "PID controller1.reset" as Connection238
+        connect Constant9.out Gain4.in as Connection239
     }
 
     logically_deleted {
         "Constant8"
+        "PID controller1"
+        "Sum2"
+        "From13"
+        "V_out_ref"
+        "reset_PI"
+        "Connection230"
+        "Connection231"
+        "Connection237"
+        "Connection238"
     }
 
     default {
