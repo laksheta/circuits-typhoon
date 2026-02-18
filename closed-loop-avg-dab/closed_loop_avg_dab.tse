@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1
 //
 
 model "closed_loop_avg_dab" {
@@ -485,7 +485,7 @@ model "closed_loop_avg_dab" {
             value = "V_out"
         }
         [
-            position = 7952, 8608
+            position = 7904, 8492
             hide_name = True
         ]
 
@@ -494,6 +494,16 @@ model "closed_loop_avg_dab" {
         [
             position = 8328, 8560
             rotation = left
+        ]
+
+        component "core/SCADA Input" V_out_ref {
+            execution_rate = "T_math"
+            max = "1000"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7884, 8608
         ]
 
         tag Goto1 {
@@ -902,11 +912,15 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition9.out" Product1.in1 as Connection227
         connect From13 Sum2.in1 as Connection230
         connect Sum2.out "PID controller1.in" as Connection231
-        connect Constant8.out Sum2.in as Connection232
         connect "PID controller1.out" Gain4.in as Connection233
         connect Gain4.out Junction25 as Connection234
         connect Junction25 Product6.in as Connection235
         connect PI_out.in Junction25 as Connection236
+        connect V_out_ref.out Sum2.in as Connection237
+    }
+
+    logically_deleted {
+        "Constant8"
     }
 
     default {
@@ -934,7 +948,7 @@ model "closed_loop_avg_dab" {
         "core/Gain" {
             gain = "1"
             multiplication = "Element-wise(K.*u)"
-            tml_file = "gen_gain"
+            force_tml = "True"
             _tunable = "False"
             execution_rate = "inherit"
         }
@@ -957,6 +971,8 @@ model "closed_loop_avg_dab" {
             limit_lower = "-inf"
             show_state = "False"
             state_port_type = "inherit"
+            tml_file = "gen_accumulator_integrator"
+            mode = "integrator"
             execution_rate = "inherit"
         }
 
@@ -1002,6 +1018,20 @@ model "closed_loop_avg_dab" {
         "core/Product" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
         }
 
         "core/Sum" {
