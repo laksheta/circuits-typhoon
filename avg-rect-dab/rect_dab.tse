@@ -376,7 +376,7 @@ model "rect_dab" {
             value = "V_dc_target_rect"
         }
         [
-            position = 6072, 7500
+            position = 5472, 7560
             hide_name = True
         ]
 
@@ -1053,7 +1053,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/SCADA Input" V_out_ref_dab {
-            def_value = "780"
+            def_value = "10"
             execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
@@ -1074,6 +1074,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Signal switch" "Signal switch1" {
+            execution_rate = "T_math_dab"
         }
         [
             position = 8592, 7364
@@ -1081,6 +1082,9 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/SCADA Input" sw_Rect_DAB {
+            execution_rate = "T_math_dab"
+            max = "1"
+            min = "0"
             unit = ""
         }
         [
@@ -1089,11 +1093,20 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant13 {
             execution_rate = "T_math_dab"
-            value = "0"
+            value = "10"
         }
         [
             position = 8512, 7388
             hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition10" {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 8524, 7348
+            hide_name = True
+            size = 32, 32
         ]
 
         tag From5 {
@@ -1726,7 +1739,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8504, 7348
+            position = 8448, 7348
             hide_name = True
             size = 60, 20
         ]
@@ -2259,15 +2272,13 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
         connect Product2.out Junction26 as Connection243
         connect sw_Rect_DAB.out "Signal switch1.in2" as Connection339
-        connect From31 "Signal switch1.in" as Connection340
         connect Constant13.out "Signal switch1.in1" as Connection341
         [
             hide_name = True
         ]
-        connect Goto22 "Signal switch1.out" as Connection342
-        [
-            hide_name = True
-        ]
+        connect From31 "Rate Transition10.in" as Connection343
+        connect "Rate Transition10.out" "Signal switch1.in" as Connection344
+        connect Goto22 "Signal switch1.out" as Connection345
     }
 
     logically_deleted {
