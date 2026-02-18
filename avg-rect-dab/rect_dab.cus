@@ -392,7 +392,7 @@ widgetValue = hil.model_read('sw_Rect_DAB')
                 <step>1.0</step>
                 <widget_settings>
                     <x>808</x>
-                    <y>392</y>
+                    <y>400</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
