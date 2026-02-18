@@ -1093,7 +1093,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant13 {
             execution_rate = "T_math_dab"
-            value = "10"
+            value = "0"
         }
         [
             position = 8512, 7388
@@ -1107,6 +1107,14 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8524, 7348
             hide_name = True
             size = 32, 32
+        ]
+
+        component "core/Limit" Limit1 {
+            lower_limit = "1e-3"
+        }
+        [
+            position = 10172, 7188
+            hide_name = True
         ]
 
         tag From5 {
@@ -1642,7 +1650,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 10124, 7192
+            position = 10112, 7188
             hide_name = True
             size = 60, 20
         ]
@@ -2190,7 +2198,6 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 10480, 6880; 10480, 6940
         ]
         connect From23 Product2.in as Connection78
-        connect From25 Product2.in1 as Connection326
         connect Junction15 Delay1.in as Connection131
         connect "Rate Transition6.out" secondary_carrier_dab.in as Connection134
         connect primary_carrier_dab.in "Rate Transition7.out" as Connection135
@@ -2279,6 +2286,8 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From31 "Rate Transition10.in" as Connection343
         connect "Rate Transition10.out" "Signal switch1.in" as Connection344
         connect Goto22 "Signal switch1.out" as Connection345
+        connect From25 Limit1.in as Connection346
+        connect Limit1.out Product2.in1 as Connection347
     }
 
     logically_deleted {
@@ -2393,6 +2402,12 @@ out[0] = fmax(0.0, i_dc_raw);
             state_port_type = "inherit"
             tml_file = "gen_accumulator_integrator"
             mode = "integrator"
+            execution_rate = "inherit"
+        }
+
+        "core/Limit" {
+            upper_limit = "[\'inf\']"
+            lower_limit = "[\'-inf\']"
             execution_rate = "inherit"
         }
 
