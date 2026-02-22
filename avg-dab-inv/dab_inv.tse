@@ -84,7 +84,6 @@ model "dab_inv" {
         [
             position = 8956, 7168
             rotation = right
-            hide_name = True
             scale = -1, 1
             size = 64, 32
         ]
@@ -94,7 +93,6 @@ model "dab_inv" {
         }
         [
             position = 9084, 7128
-            hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd1 {
@@ -103,7 +101,6 @@ model "dab_inv" {
         [
             position = 9292, 7172
             rotation = right
-            hide_name = True
             size = 64, 32
         ]
 
@@ -111,6 +108,7 @@ model "dab_inv" {
         }
         [
             position = 9084, 7068
+            hide_name = True
             size = 64, 32
         ]
 
@@ -120,6 +118,7 @@ model "dab_inv" {
         }
         [
             position = 9212, 7128
+            hide_name = True
             size = 64, 32
         ]
 
@@ -129,6 +128,7 @@ model "dab_inv" {
         [
             position = 8924, 7288
             rotation = right
+            hide_name = True
         ]
 
         component "core/Probe" "V_2\'_dab" {
@@ -137,6 +137,7 @@ model "dab_inv" {
         [
             position = 9324, 7284
             rotation = right
+            hide_name = True
         ]
 
         component "core/Product" Product1 {
@@ -144,7 +145,6 @@ model "dab_inv" {
         }
         [
             position = 9952, 6924
-            hide_name = True
         ]
 
         component "core/Probe" P_raw_dab {
@@ -152,6 +152,7 @@ model "dab_inv" {
         }
         [
             position = 10028, 6856
+            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
@@ -160,7 +161,6 @@ model "dab_inv" {
         [
             position = 9324, 7228
             rotation = right
-            hide_name = True
             size = 32, 32
         ]
 
@@ -170,7 +170,6 @@ model "dab_inv" {
         [
             position = 8924, 7228
             rotation = right
-            hide_name = True
             size = 32, 32
         ]
 
@@ -180,7 +179,6 @@ model "dab_inv" {
         }
         [
             position = 10020, 6924
-            hide_name = True
         ]
 
         component "core/Product" Product2 {
@@ -189,7 +187,6 @@ model "dab_inv" {
         }
         [
             position = 9832, 7140
-            hide_name = True
         ]
 
         component "core/Sum" Sum4 {
@@ -198,7 +195,6 @@ model "dab_inv" {
         }
         [
             position = 9996, 7148
-            hide_name = True
         ]
 
         component "core/Constant" R_load {
@@ -207,6 +203,7 @@ model "dab_inv" {
         }
         [
             position = 9796, 7252
+            hide_name = True
         ]
 
         component "core/Product" Product3 {
@@ -215,7 +212,6 @@ model "dab_inv" {
         }
         [
             position = 9896, 7236
-            hide_name = True
         ]
 
         component "core/Probe" I_dc_dab {
@@ -224,6 +220,7 @@ model "dab_inv" {
         [
             position = 9916, 7096
             rotation = left
+            hide_name = True
         ]
 
         component "core/Gain" Gain1 {
@@ -232,7 +229,6 @@ model "dab_inv" {
         }
         [
             position = 10092, 7148
-            hide_name = True
         ]
 
         component "core/Integrator" Integrator1 {
@@ -240,7 +236,6 @@ model "dab_inv" {
         }
         [
             position = 10172, 7148
-            hide_name = True
         ]
 
         component "core/Probe" I_load_dab {
@@ -248,6 +243,7 @@ model "dab_inv" {
         }
         [
             position = 10028, 7220
+            hide_name = True
         ]
 
         component "core/Probe" V_out_dab {
@@ -255,6 +251,7 @@ model "dab_inv" {
         }
         [
             position = 10260, 7092
+            hide_name = True
         ]
 
         component "core/Probe" P_dab {
@@ -262,6 +259,7 @@ model "dab_inv" {
         }
         [
             position = 10104, 6856
+            hide_name = True
         ]
 
         component "core/Constant" Constant7 {
@@ -270,7 +268,6 @@ model "dab_inv" {
         }
         [
             position = 8872, 6872
-            hide_name = True
         ]
 
         component "core/Probe" primary_carrier_dab {
@@ -279,6 +276,7 @@ model "dab_inv" {
         [
             position = 9544, 7500
             rotation = left
+            hide_name = True
         ]
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
@@ -290,7 +288,6 @@ model "dab_inv" {
         }
         [
             position = 9448, 7576
-            hide_name = True
         ]
 
         component "core/Delay" Delay1 {
@@ -301,7 +298,6 @@ model "dab_inv" {
         }
         [
             position = 9616, 7584
-            hide_name = True
         ]
 
         component "core/Probe" secondary_carrier_dab {
@@ -310,6 +306,7 @@ model "dab_inv" {
         [
             position = 9660, 7692
             rotation = right
+            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition6" {
@@ -318,7 +315,6 @@ model "dab_inv" {
         [
             position = 9660, 7628
             rotation = right
-            hide_name = True
             size = 32, 32
         ]
 
@@ -328,7 +324,6 @@ model "dab_inv" {
         [
             position = 9544, 7548
             rotation = left
-            hide_name = True
             size = 32, 32
         ]
 
@@ -338,7 +333,6 @@ model "dab_inv" {
         }
         [
             position = 9380, 7620
-            hide_name = True
         ]
 
         component "core/Constant" Constant8 {
@@ -347,7 +341,6 @@ model "dab_inv" {
         }
         [
             position = 9244, 7664
-            hide_name = True
         ]
 
         component "core/Constant" Constant9 {
@@ -356,7 +349,6 @@ model "dab_inv" {
         }
         [
             position = 9244, 7696
-            hide_name = True
         ]
 
         component "core/Constant" Constant10 {
@@ -365,7 +357,6 @@ model "dab_inv" {
         }
         [
             position = 9244, 7728
-            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition8" {
@@ -373,7 +364,6 @@ model "dab_inv" {
         }
         [
             position = 9448, 7620
-            hide_name = True
             size = 32, 32
         ]
 
@@ -382,7 +372,6 @@ model "dab_inv" {
         }
         [
             position = 10056, 7548
-            hide_name = True
         ]
 
         component "core/Constant" Constant11 {
@@ -391,7 +380,6 @@ model "dab_inv" {
         }
         [
             position = 9940, 7488
-            hide_name = True
         ]
 
         component "core/Comparator" Comparator2 {
@@ -399,7 +387,6 @@ model "dab_inv" {
         }
         [
             position = 10056, 7636
-            hide_name = True
         ]
 
         component "core/Gain" Gain2 {
@@ -408,7 +395,6 @@ model "dab_inv" {
         }
         [
             position = 10132, 7548
-            hide_name = True
         ]
 
         component "core/Gain" Gain3 {
@@ -417,7 +403,6 @@ model "dab_inv" {
         }
         [
             position = 10132, 7636
-            hide_name = True
         ]
 
         component "core/Offset" Offset1 {
@@ -426,7 +411,6 @@ model "dab_inv" {
         }
         [
             position = 10208, 7548
-            hide_name = True
             size = 48, 48
         ]
 
@@ -436,7 +420,6 @@ model "dab_inv" {
         }
         [
             position = 10208, 7636
-            hide_name = True
             size = 48, 48
         ]
 
@@ -445,7 +428,6 @@ model "dab_inv" {
         }
         [
             position = 9872, 6968
-            hide_name = True
             size = 32, 32
         ]
 
@@ -455,7 +437,6 @@ model "dab_inv" {
         }
         [
             position = 9220, 7596
-            hide_name = True
         ]
 
         component "core/PID controller" "PID controller4" {
@@ -471,7 +452,6 @@ model "dab_inv" {
         }
         [
             position = 9112, 7596
-            hide_name = True
         ]
 
         component "core/Sum" Sum5 {
@@ -479,7 +459,6 @@ model "dab_inv" {
         }
         [
             position = 9028, 7588
-            hide_name = True
         ]
 
         component "core/Constant" Constant12 {
@@ -488,7 +467,6 @@ model "dab_inv" {
         }
         [
             position = 8856, 7532
-            hide_name = True
         ]
 
         component "core/Probe" PI_out_dab {
@@ -496,6 +474,7 @@ model "dab_inv" {
         [
             position = 9292, 7540
             rotation = left
+            hide_name = True
         ]
 
         component "core/SCADA Input" V_out_ref_dab {
@@ -507,6 +486,7 @@ model "dab_inv" {
         }
         [
             position = 8856, 7580
+            hide_name = True
         ]
 
         component "core/SCADA Input" reset_PI_dab {
@@ -517,6 +497,7 @@ model "dab_inv" {
         }
         [
             position = 9028, 7664
+            hide_name = True
         ]
 
         component "core/Limit" Limit1 {
@@ -524,7 +505,6 @@ model "dab_inv" {
         }
         [
             position = 9756, 7164
-            hide_name = True
         ]
 
         component "core/Signal switch" "Signal switch2" {
@@ -532,7 +512,6 @@ model "dab_inv" {
         }
         [
             position = 10192, 6940
-            hide_name = True
         ]
 
         component "core/Constant" Constant14 {
@@ -541,7 +520,6 @@ model "dab_inv" {
         }
         [
             position = 10108, 6964
-            hide_name = True
         ]
 
         component "core/SCADA Input" sw_DAB {
@@ -553,81 +531,82 @@ model "dab_inv" {
         [
             position = 10192, 6864
             rotation = right
+            hide_name = True
         ]
 
         component "core/Inductor" L1 {
-            inductance = "L_inv"
+            inductance = "L"
         }
         [
-            position = 12888, 7196
+            position = 12660, 7376
             hide_name = True
         ]
 
         component "core/Inductor" L2 {
-            inductance = "L_inv"
+            inductance = "L"
         }
         [
-            position = 12888, 7292
+            position = 12660, 7472
             hide_name = True
         ]
 
         component "core/Inductor" L3 {
-            inductance = "L_inv"
+            inductance = "L"
         }
         [
-            position = 12888, 7388
+            position = 12660, 7568
             hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 12340, 7580
+            position = 12112, 7760
             hide_name = True
         ]
 
         component "core/Resistor" R1 {
-            resistance = "R_inv"
+            resistance = "R"
         }
         [
-            position = 13016, 7196
+            position = 12788, 7376
             hide_name = True
         ]
 
         component "core/Resistor" R2 {
-            resistance = "R_inv"
+            resistance = "R"
         }
         [
-            position = 13016, 7292
+            position = 12788, 7472
             hide_name = True
         ]
 
         component "core/Resistor" R3 {
-            resistance = "R_inv"
+            resistance = "R"
         }
         [
-            position = 13016, 7388
+            position = 12788, 7568
             hide_name = True
         ]
 
         component "core/Three-phase Meter" "Grid Measurement" {
             R = "100000.0"
-            Ts = "T_meas_inv"
+            Ts = "T_meas"
             VAB = "True"
             VBC = "True"
             VCA = "True"
         }
         [
-            position = 13188, 7292
+            position = 12960, 7472
             size = 56, 240
         ]
 
         component "core/Three Phase Voltage Source" U_grid {
-            init_frequency = "F_inv"
-            init_rms_value = "V_rms_inv"
+            init_frequency = "F"
+            init_rms_value = "V_rms"
         }
         [
-            position = 13332, 7292
+            position = 13104, 7472
             scale = -1, 1
             size = 62, 256
         ]
@@ -635,7 +614,7 @@ model "dab_inv" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 13272, 7488
+            position = 13044, 7668
             hide_name = True
         ]
 
@@ -645,7 +624,7 @@ model "dab_inv" {
             initial_filter_output = "50"
         }
         [
-            position = 12276, 6884
+            position = 12048, 7064
             size = 64, 128
         ]
 
@@ -653,14 +632,14 @@ model "dab_inv" {
             outputs = "3"
         }
         [
-            position = 12168, 6884
+            position = 11940, 7064
             hide_name = True
         ]
 
         component "core/abc to dq" "abc to dq" {
         }
         [
-            position = 12660, 6908
+            position = 12432, 7088
             size = 48, 80
         ]
 
@@ -668,21 +647,21 @@ model "dab_inv" {
             outputs = "3"
         }
         [
-            position = 12564, 6900
+            position = 12336, 7080
             hide_name = True
         ]
 
-        component "core/Probe" i_d_inv {
+        component "core/Probe" i_d {
         }
         [
-            position = 12712, 6832
+            position = 12484, 6972
             rotation = left
         ]
 
-        component "core/Probe" i_q_inv {
+        component "core/Probe" i_q {
         }
         [
-            position = 12772, 6796
+            position = 12544, 6976
             rotation = left
         ]
 
@@ -690,13 +669,13 @@ model "dab_inv" {
             IA = "False"
             IB = "False"
             IC = "False"
-            Ts = "T_meas_inv"
+            Ts = "T_meas"
             VAB = "True"
             VBn = "False"
             VCn = "False"
         }
         [
-            position = 12720, 7292
+            position = 12492, 7472
             size = 56, 240
         ]
 
@@ -706,7 +685,7 @@ model "dab_inv" {
             ic = "True"
         }
         [
-            position = 13040, 6892
+            position = 12812, 7072
             size = 96, 112
         ]
 
@@ -714,7 +693,7 @@ model "dab_inv" {
             inputs = "3"
         }
         [
-            position = 13172, 6844
+            position = 12944, 7024
             hide_name = True
         ]
 
@@ -722,14 +701,14 @@ model "dab_inv" {
             inputs = "3"
         }
         [
-            position = 13172, 6928
+            position = 12944, 7108
             hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1 {
         }
         [
-            position = 12280, 7236
+            position = 12052, 7416
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -739,7 +718,7 @@ model "dab_inv" {
         component "core/Signal Controlled Voltage Source" Vsp2 {
         }
         [
-            position = 12340, 7332
+            position = 12112, 7512
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -749,7 +728,7 @@ model "dab_inv" {
         component "core/Signal Controlled Voltage Source" Vsp3 {
         }
         [
-            position = 12400, 7436
+            position = 12172, 7616
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -760,25 +739,25 @@ model "dab_inv" {
             execution_rate = "inherit"
         }
         [
-            position = 11612, 7364
+            position = 11384, 7544
             size = 48, 80
         ]
 
         component "core/Constant" Constant1 {
             execution_rate = "inherit"
-            value = "u_d_inv"
+            value = "u_d"
         }
         [
-            position = 11248, 7264
+            position = 11020, 7444
             hide_name = True
         ]
 
         component "core/Constant" Constant2 {
             execution_rate = "inherit"
-            value = "u_q_inv"
+            value = "u_q"
         }
         [
-            position = 11248, 7332
+            position = 11020, 7512
             hide_name = True
         ]
 
@@ -787,39 +766,39 @@ model "dab_inv" {
             value = "0"
         }
         [
-            position = 11436, 7412
+            position = 11208, 7592
             hide_name = True
         ]
 
         component "core/PID controller" PI_i_d {
             controller_type = "PI"
-            ki = "Ki_i_inv"
-            kp = "Kp_i_inv"
+            ki = "Ki_i"
+            kp = "Kp_i"
         }
         [
-            position = 11180, 7296
+            position = 10952, 7476
         ]
 
         component "core/PID controller" PI_i_q {
             controller_type = "PI"
-            ki = "Ki_i_inv"
-            kp = "Kp_i_inv"
+            ki = "Ki_i"
+            kp = "Kp_i"
         }
         [
-            position = 11180, 7364
+            position = 10952, 7544
         ]
 
         component "core/Bus Join" "Bus Join3" {
         }
         [
-            position = 11332, 7284
+            position = 11104, 7464
             hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join4" {
         }
         [
-            position = 11332, 7356
+            position = 11104, 7536
             hide_name = True
         ]
 
@@ -827,7 +806,7 @@ model "dab_inv" {
             signs = "+-"
         }
         [
-            position = 11064, 7296
+            position = 10836, 7476
             hide_name = True
         ]
 
@@ -835,7 +814,7 @@ model "dab_inv" {
             signs = "+-"
         }
         [
-            position = 11064, 7364
+            position = 10836, 7544
             hide_name = True
         ]
 
@@ -844,25 +823,25 @@ model "dab_inv" {
             value = "0"
         }
         [
-            position = 10880, 7356
+            position = 10652, 7536
             hide_name = True
         ]
 
-        component "core/Probe" u_d_inv {
+        component "core/Probe" u_d {
         }
         [
-            position = 11500, 7212
+            position = 11272, 7392
             rotation = left
         ]
 
-        component "core/Probe" u_q_inv {
+        component "core/Probe" u_q {
         }
         [
-            position = 11540, 7252
+            position = 11312, 7432
             rotation = left
         ]
 
-        component "core/SCADA Input" scada_i_d_inv {
+        component "core/SCADA Input" scada_i_d {
             def_value = "10"
             execution_rate = "inherit"
             format = "int"
@@ -872,14 +851,14 @@ model "dab_inv" {
             unit = ""
         }
         [
-            position = 10876, 7268
+            position = 10648, 7448
         ]
 
         component "core/Gain" Gain5 {
             gain = "0.5"
         }
         [
-            position = 11308, 7124
+            position = 11080, 7304
             hide_name = True
         ]
 
@@ -887,7 +866,7 @@ model "dab_inv" {
             gain = "-0.5"
         }
         [
-            position = 11308, 7164
+            position = 11080, 7344
             hide_name = True
         ]
 
@@ -895,7 +874,7 @@ model "dab_inv" {
             signal_indexes = "[1]"
         }
         [
-            position = 11428, 7284
+            position = 11200, 7464
             hide_name = True
         ]
 
@@ -903,7 +882,7 @@ model "dab_inv" {
             signal_indexes = "[1]"
         }
         [
-            position = 11428, 7356
+            position = 11200, 7536
             hide_name = True
         ]
 
@@ -983,7 +962,7 @@ model "dab_inv" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 12132, 7236
+            position = 11904, 7416
             size = 80, 64
         ]
 
@@ -1063,7 +1042,7 @@ model "dab_inv" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 12132, 7332
+            position = 11904, 7512
             size = 80, 64
         ]
 
@@ -1143,18 +1122,18 @@ model "dab_inv" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 12132, 7436
+            position = 11904, 7616
             size = 80, 64
         ]
 
-        component "core/SCADA Input" dc_input_inv {
+        component "core/SCADA Input" dc_input {
             execution_rate = "inherit"
             max = "1e3"
             min = "-1000"
             unit = ""
         }
         [
-            position = 11216, 7144
+            position = 10988, 7324
         ]
 
         tag Goto14 {
@@ -1165,7 +1144,6 @@ model "dab_inv" {
         }
         [
             position = 10304, 7548
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1178,7 +1156,6 @@ model "dab_inv" {
         [
             position = 9212, 7068
             rotation = left
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1190,7 +1167,6 @@ model "dab_inv" {
         }
         [
             position = 10304, 7636
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1202,7 +1178,6 @@ model "dab_inv" {
         }
         [
             position = 9860, 6888
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1214,7 +1189,6 @@ model "dab_inv" {
         }
         [
             position = 9800, 6968
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1226,7 +1200,6 @@ model "dab_inv" {
         }
         [
             position = 10272, 6940
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1238,7 +1211,6 @@ model "dab_inv" {
         }
         [
             position = 9708, 7112
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1250,7 +1222,6 @@ model "dab_inv" {
         }
         [
             position = 10264, 7148
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1262,7 +1233,6 @@ model "dab_inv" {
         }
         [
             position = 9788, 7208
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1274,7 +1244,6 @@ model "dab_inv" {
         }
         [
             position = 8968, 6872
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1286,7 +1255,6 @@ model "dab_inv" {
         }
         [
             position = 9696, 7164
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1298,7 +1266,6 @@ model "dab_inv" {
         }
         [
             position = 9616, 7456
-            hide_name = True
             size = 140, 20
         ]
 
@@ -1310,7 +1277,6 @@ model "dab_inv" {
         }
         [
             position = 9744, 7584
-            hide_name = True
             size = 132, 20
         ]
 
@@ -1322,7 +1288,6 @@ model "dab_inv" {
         }
         [
             position = 9908, 7576
-            hide_name = True
             size = 140, 20
         ]
 
@@ -1334,7 +1299,6 @@ model "dab_inv" {
         }
         [
             position = 9908, 7660
-            hide_name = True
             size = 148, 20
         ]
 
@@ -1346,7 +1310,6 @@ model "dab_inv" {
         }
         [
             position = 8868, 7168
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1359,7 +1322,6 @@ model "dab_inv" {
         [
             position = 9376, 7172
             rotation = down
-            hide_name = True
             size = 60, 20
         ]
 
@@ -1371,164 +1333,163 @@ model "dab_inv" {
         }
         [
             position = 8924, 7636
-            hide_name = True
             size = 60, 20
         ]
 
         tag From1 {
-            value = "V_abc_n_inv"
+            value = "V_abc_n"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 12072, 6884
+            position = 11844, 7064
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto2 {
-            value = "theta_inv"
+            value = "theta"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 12380, 6900
+            position = 12152, 7080
             hide_name = True
             size = 60, 20
         ]
 
         tag From3 {
-            value = "theta_inv"
+            value = "theta"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 12564, 6956
+            position = 12336, 7136
             hide_name = True
             size = 60, 20
         ]
 
         tag From4 {
-            value = "I_abc_inv"
+            value = "I_abc"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 12468, 6900
+            position = 12240, 7080
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto3 {
-            value = "V_abc_n_inv"
+            value = "V_abc_n"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 13260, 6844
+            position = 13032, 7024
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto4 {
-            value = "I_abc_inv"
+            value = "I_abc"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 13260, 6928
+            position = 13032, 7108
             hide_name = True
             size = 60, 20
         ]
 
         tag From5 {
-            value = "theta_inv"
+            value = "theta"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 11516, 7404
+            position = 11288, 7584
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto5 {
-            value = "i_d_inv"
+            value = "i_d"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 12824, 6884
+            position = 12596, 7064
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto6 {
-            value = "i_q_inv"
+            value = "i_q"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 12824, 6908
+            position = 12596, 7088
             hide_name = True
             size = 60, 20
         ]
 
         tag From6 {
-            value = "i_d_inv"
+            value = "i_d"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 10948, 7324
+            position = 10720, 7504
             hide_name = True
             size = 60, 20
         ]
 
         tag From7 {
-            value = "i_q_inv"
+            value = "i_q"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 10948, 7392
+            position = 10720, 7572
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto7 {
-            value = "upper_lim_inv"
+            value = "upper_lim"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 11412, 7124
+            position = 11176, 7304
             hide_name = True
-            size = 76, 20
+            size = 60, 20
         ]
 
         tag Goto8 {
-            value = "lower_lim_inv"
+            value = "lower_lim"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 11412, 7164
+            position = 11176, 7344
             hide_name = True
-            size = 76, 20
+            size = 60, 20
         ]
 
         tag Goto9 {
@@ -1538,7 +1499,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 11700, 7340
+            position = 11472, 7520
             hide_name = True
             size = 60, 20
         ]
@@ -1550,7 +1511,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 11700, 7364
+            position = 11472, 7544
             hide_name = True
             size = 60, 20
         ]
@@ -1562,93 +1523,93 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 11700, 7388
+            position = 11472, 7568
             hide_name = True
             size = 60, 20
         ]
 
         tag From9 {
-            value = "upper_lim_inv"
+            value = "upper_lim"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 12028, 7108
+            position = 11800, 7288
             rotation = right
             hide_name = True
             size = 60, 20
         ]
 
         tag From10 {
-            value = "lower_lim_inv"
+            value = "lower_lim"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 12052, 7108
+            position = 11824, 7288
             rotation = right
             hide_name = True
             size = 60, 20
         ]
 
         tag From11 {
-            value = "V_a_inv"
+            value = "V_a"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 11972, 7220
+            position = 11744, 7400
             hide_name = True
             size = 60, 20
         ]
 
         tag From12 {
-            value = "V_b_inv"
+            value = "V_b"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 11972, 7316
+            position = 11744, 7496
             hide_name = True
             size = 60, 20
         ]
 
         tag From13 {
-            value = "V_c_inv"
+            value = "V_c"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 11972, 7420
+            position = 11744, 7600
             hide_name = True
             size = 60, 20
         ]
 
         tag Goto12 {
-            value = "Grid_out_inv"
+            value = "Grid_out"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 13268, 7124
+            position = 13040, 7304
             hide_name = True
             size = 60, 20
         ]
 
         tag From14 {
-            value = "Grid_out_inv"
+            value = "Grid_out"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 12920, 6892
+            position = 12692, 7072
             hide_name = True
             size = 60, 20
         ]
@@ -1656,156 +1617,169 @@ model "dab_inv" {
         junction Junction31 pe
         [
             position = 9020, 7128
+            hide_name = True
         ]
 
         junction Junction2 pe
         [
             position = 9148, 7128
+            hide_name = True
         ]
 
         junction Junction9 sp
         [
             position = 9956, 7220
+            hide_name = True
         ]
 
         junction Junction32 sp
         [
             position = 10212, 7148
+            hide_name = True
         ]
 
         junction Junction33 sp
         [
             position = 9984, 6924
+            hide_name = True
         ]
 
         junction Junction15 sp
         [
             position = 9544, 7576
+            hide_name = True
         ]
 
         junction Junction16 sp
         [
             position = 9496, 7576
+            hide_name = True
         ]
 
         junction Junction17 sp
         [
             position = 9660, 7584
+            hide_name = True
         ]
 
         junction Junction23 sp
         [
             position = 8924, 7168
+            hide_name = True
         ]
 
         junction Junction35 sp
         [
             position = 9324, 7172
+            hide_name = True
         ]
 
         junction Junction25 sp
         [
             position = 9292, 7596
+            hide_name = True
         ]
 
         junction Junction26 sp
         [
             position = 9916, 7140
+            hide_name = True
         ]
 
         junction Junction36 sp
         [
             position = 10000, 7512
+            hide_name = True
         ]
 
         junction Junction37 sp
         [
             position = 10064, 6924
+            hide_name = True
         ]
 
         junction Junction38 pe
         [
-            position = 13268, 7448
+            position = 13040, 7628
         ]
 
         junction Junction3 pe
         [
-            position = 12340, 7512
+            position = 12112, 7692
         ]
 
         junction Junction4 pe
         [
-            position = 12400, 7512
+            position = 12172, 7692
         ]
 
         junction Junction5 sp
         [
-            position = 12772, 6908
+            position = 12544, 7088
         ]
 
         junction Junction6 sp
         [
-            position = 12712, 6884
+            position = 12484, 7064
         ]
 
         junction Junction13 sp
         [
-            position = 11540, 7356
+            position = 11312, 7536
         ]
 
         junction Junction14 sp
         [
-            position = 11500, 7284
+            position = 11272, 7464
         ]
 
         junction Junction39 sp
         [
-            position = 12052, 7236
+            position = 11824, 7416
         ]
 
         junction Junction40 sp
         [
-            position = 12052, 7332
+            position = 11824, 7512
         ]
 
         junction Junction41 sp
         [
-            position = 12028, 7252
+            position = 11800, 7432
         ]
 
         junction Junction18 sp
         [
-            position = 12028, 7348
+            position = 11800, 7528
         ]
 
         junction Junction19 sp
         [
-            position = 11272, 7144
+            position = 11044, 7324
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
         [
             position = 8984, 7156
+            hide_name = True
         ]
 
         comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2 '</p></body></html> ENDCOMMENT 
         [
             position = 9220, 7164
+            hide_name = True
         ]
 
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
         [
             position = 10220, 7164
+            hide_name = True
         ]
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
             position = 9520, 6568
-        ]
-
-        comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
-        [
-            position = 12084, 6548
+            hide_name = True
         ]
 
         scheme_area Area6 {
@@ -1852,7 +1826,7 @@ model "dab_inv" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
         [
-            position = 12656, 7312
+            position = 12448, 7520
             size = 1556, 584
             background_color = #0e55007f
             box_outline = True
@@ -1862,7 +1836,7 @@ model "dab_inv" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
         }
         [
-            position = 12652, 6856
+            position = 12444, 7064
             size = 1556, 264
             background_color = #0eff5500
             box_outline = True
@@ -1872,7 +1846,7 @@ model "dab_inv" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
         }
         [
-            position = 11284, 7248
+            position = 11076, 7456
             size = 944, 428
             background_color = #0e55ff00
             box_outline = True
@@ -1880,126 +1854,318 @@ model "dab_inv" {
 
         connect Vsp1asd1.n_node Vsp1asd.n_node as Connection314
         [
+            hide_name = True
             breakpoints = 9212, 7220; 8956, 7220
         ]
         connect L4.p_node Junction31 as Connection315
+        [
+            hide_name = True
+        ]
         connect Junction31 Vsp1asd.p_node as Connection316
+        [
+            hide_name = True
+        ]
         connect V_L_dab.p_node Junction31 as Connection8
+        [
+            hide_name = True
+        ]
         connect Junction2 L4.n_node as Connection10
+        [
+            hide_name = True
+        ]
         connect V_L_dab.n_node Junction2 as Connection11
         [
+            hide_name = True
             breakpoints = 9148, 7068; 9148, 7128
         ]
         connect Vsp1asd1.p_node i_L_dab.n_node as Connection317
+        [
+            hide_name = True
+        ]
         connect i_L_dab.p_node Junction2 as Connection318
+        [
+            hide_name = True
+        ]
         connect Goto15 i_L_dab.out as Connection319
+        [
+            hide_name = True
+        ]
         connect From21 Product1.in as Connection40
+        [
+            hide_name = True
+        ]
         connect R_load.out Product3.in1 as Connection53
+        [
+            hide_name = True
+        ]
         connect Sum4.out Gain1.in as Connection55
+        [
+            hide_name = True
+        ]
         connect Integrator1.in Gain1.out as Connection320
+        [
+            hide_name = True
+        ]
         connect From24 Product3.in as Connection62
+        [
+            hide_name = True
+        ]
         connect Product3.out Junction9 as Connection321
+        [
+            hide_name = True
+        ]
         connect Junction9 Sum4.in1 as Connection322
+        [
+            hide_name = True
+        ]
         connect I_load_dab.in Junction9 as Connection323
+        [
+            hide_name = True
+        ]
         connect Integrator1.out Junction32 as Connection66
+        [
+            hide_name = True
+        ]
         connect Junction32 Goto18 as Connection67
+        [
+            hide_name = True
+        ]
         connect V_out_dab.in Junction32 as Connection68
+        [
+            hide_name = True
+        ]
         connect Product1.out Junction33 as Connection72
+        [
+            hide_name = True
+        ]
         connect Junction33 "Mean Value1.in" as Connection73
+        [
+            hide_name = True
+        ]
         connect P_raw_dab.in Junction33 as Connection74
+        [
+            hide_name = True
+        ]
         connect From23 Product2.in as Connection78
+        [
+            hide_name = True
+        ]
         connect Junction15 Delay1.in as Connection131
+        [
+            hide_name = True
+        ]
         connect "Rate Transition6.out" secondary_carrier_dab.in as Connection134
+        [
+            hide_name = True
+        ]
         connect primary_carrier_dab.in "Rate Transition7.out" as Connection135
+        [
+            hide_name = True
+        ]
         connect "Rate Transition7.in" Junction15 as Connection136
+        [
+            hide_name = True
+        ]
         connect Constant8.out Product6.in1 as Connection137
+        [
+            hide_name = True
+        ]
         connect Constant9.out Product6.in2 as Connection138
         [
+            hide_name = True
             breakpoints = 9324, 7696; 9324, 7628
         ]
         connect Constant10.out Product6.in3 as Connection139
         [
+            hide_name = True
             breakpoints = 9308, 7728; 9308, 7644
         ]
         connect Product6.out "Rate Transition8.in" as Connection141
+        [
+            hide_name = True
+        ]
         connect "Rate Transition8.out" Delay1.delay_in as Connection142
+        [
+            hide_name = True
+        ]
         connect "Triangular Wave Source3.out" Junction16 as Connection143
+        [
+            hide_name = True
+        ]
         connect Junction16 Junction15 as Connection144
+        [
+            hide_name = True
+        ]
         connect Goto20 Junction16 as Connection327
+        [
+            hide_name = True
+        ]
         connect Delay1.out Junction17 as Connection146
+        [
+            hide_name = True
+        ]
         connect Junction17 "Rate Transition6.in" as Connection147
+        [
+            hide_name = True
+        ]
         connect Goto21 Junction17 as Connection148
+        [
+            hide_name = True
+        ]
         connect From26 Comparator1.in2 as Connection149
+        [
+            hide_name = True
+        ]
         connect From27 Comparator2.in2 as Connection151
+        [
+            hide_name = True
+        ]
         connect Comparator1.out Gain2.in as Connection165
-        [
-            hide_name = True
-        ]
         connect Comparator2.out Gain3.in as Connection167
+        [
+            hide_name = True
+        ]
         connect Gain2.out Offset1.in as Connection169
-        [
-            hide_name = True
-        ]
         connect Gain3.out Offset2.in as Connection171
+        connect Vsp1asd.in Junction23 as Connection216
         [
             hide_name = True
         ]
-        connect Vsp1asd.in Junction23 as Connection216
         connect Junction23 "Rate Transition2.in" as Connection217
         [
+            hide_name = True
             breakpoints = 8924, 7172
         ]
         connect From28 Junction23 as Connection330
+        [
+            hide_name = True
+        ]
         connect "Rate Transition1.in" Junction35 as Connection331
+        [
+            hide_name = True
+        ]
         connect Junction35 Vsp1asd1.in as Connection332
         [
+            hide_name = True
             breakpoints = 9324, 7176
         ]
         connect From29 Junction35 as Connection221
+        [
+            hide_name = True
+        ]
         connect "Rate Transition1.out" "V_2\'_dab.in" as Connection222
+        [
+            hide_name = True
+        ]
         connect "Rate Transition2.out" V_1_dab.in as Connection223
+        [
+            hide_name = True
+        ]
         connect Goto14 Offset1.out as Connection224
-        [
-            hide_name = True
-        ]
         connect Goto16 Offset2.out as Connection333
+        connect From22 "Rate Transition9.in" as Connection226
         [
             hide_name = True
         ]
-        connect From22 "Rate Transition9.in" as Connection226
         connect "Rate Transition9.out" Product1.in1 as Connection227
+        [
+            hide_name = True
+        ]
         connect From30 Sum5.in1 as Connection230
+        [
+            hide_name = True
+        ]
         connect Sum5.out "PID controller4.in" as Connection231
+        [
+            hide_name = True
+        ]
         connect Gain4.out Junction25 as Connection334
+        [
+            hide_name = True
+        ]
         connect Junction25 Product6.in as Connection335
+        [
+            hide_name = True
+        ]
         connect PI_out_dab.in Junction25 as Connection236
+        [
+            hide_name = True
+        ]
         connect V_out_ref_dab.out Sum5.in as Connection237
+        [
+            hide_name = True
+        ]
         connect reset_PI_dab.out "PID controller4.reset" as Connection238
+        [
+            hide_name = True
+        ]
         connect "PID controller4.out" Gain4.in as Connection336
+        [
+            hide_name = True
+        ]
         connect Sum4.in Junction26 as Connection337
+        [
+            hide_name = True
+        ]
         connect Junction26 I_dc_dab.in as Connection338
         [
+            hide_name = True
             breakpoints = 9916, 7140
         ]
         connect Product2.out Junction26 as Connection243
+        [
+            hide_name = True
+        ]
         connect From25 Limit1.in as Connection346
+        [
+            hide_name = True
+        ]
         connect Limit1.out Product2.in1 as Connection347
+        [
+            hide_name = True
+        ]
         connect Constant14.out "Signal switch2.in1" as Connection353
+        [
+            hide_name = True
+        ]
         connect sw_DAB.out "Signal switch2.in2" as Connection354
+        [
+            hide_name = True
+        ]
         connect Comparator2.in1 Junction36 as Connection356
+        [
+            hide_name = True
+        ]
         connect Junction36 Comparator1.in1 as Connection357
         [
+            hide_name = True
             breakpoints = 10000, 7516; 10024, 7516; 10024, 7540
         ]
         connect Constant11.out Junction36 as Connection358
+        [
+            hide_name = True
+        ]
         connect "Mean Value1.out" Junction37 as Connection360
+        [
+            hide_name = True
+        ]
         connect Junction37 P_dab.in as Connection361
         [
+            hide_name = True
             breakpoints = 10064, 6924; 10064, 6916; 10064, 6856
         ]
         connect "Signal switch2.in" Junction37 as Connection362
+        [
+            hide_name = True
+        ]
         connect "Signal switch2.out" Goto17 as Connection363
+        [
+            hide_name = True
+        ]
         connect Constant7.out Goto19 as Connection364
+        [
+            hide_name = True
+        ]
         connect R1.p_node L1.n_node as Connection13
         connect R2.p_node L2.n_node as Connection14
         connect R3.p_node L3.n_node as Connection15
@@ -2016,7 +2182,7 @@ model "dab_inv" {
         connect U_grid.n_node Junction38 as Connection58
         connect Junction38 gnd2.node as Connection59
         [
-            breakpoints = 13272, 7448
+            breakpoints = 13044, 7628
         ]
         connect "Bus Split3.out1" "abc to dq.vb" as Connection366
         connect "abc to dq.vc" "Bus Split3.out2" as Connection367
@@ -2025,14 +2191,14 @@ model "dab_inv" {
         connect "Inverter Measurement.A-" L1.p_node as Connection79
         connect "Grid Measurement.GND" Junction38 as Connection92
         [
-            breakpoints = 13188, 7444
+            breakpoints = 12960, 7624
         ]
         connect R1.n_node "Grid Measurement.A+" as Connection93
         connect R2.n_node "Grid Measurement.B+" as Connection94
         connect R3.n_node "Grid Measurement.C+" as Connection95
         connect Goto2 "Three phase PLL.theta" as Connection97
         [
-            breakpoints = 12332, 6900
+            breakpoints = 12104, 7080
         ]
         connect "Meter Split.IA" "Bus Join2.in" as Connection98
         connect "Meter Split.IB" "Bus Join2.in1" as Connection99
@@ -2050,14 +2216,14 @@ model "dab_inv" {
         connect Junction3 Junction4 as Connection113
         connect Junction4 "Inverter Measurement.GND" as Connection114
         [
-            breakpoints = 12452, 7512; 12536, 7512
+            breakpoints = 12224, 7692; 12308, 7692
         ]
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
         connect From5 "dq to abc.wt" as Connection124
         connect Constant3.out "dq to abc.zero_input" as Connection368
         [
-            breakpoints = 11468, 7396; 11468, 7372
+            breakpoints = 11240, 7576; 11240, 7552
         ]
         connect Constant1.out "Bus Join3.in" as Connection369
         connect PI_i_d.out "Bus Join3.in1" as Connection370
@@ -2066,32 +2232,32 @@ model "dab_inv" {
         connect Sum1.out PI_i_d.in as Connection140
         connect Sum2.out PI_i_q.in as Connection373
         connect "abc to dq.q_axis" Junction5 as Connection374
-        connect Junction5 i_q_inv.in as Connection375
+        connect Junction5 i_q.in as Connection375
         connect Goto6 Junction5 as Connection376
         connect "abc to dq.d_axis" Junction6 as Connection145
-        connect Junction6 i_d_inv.in as Connection377
+        connect Junction6 i_d.in as Connection377
         connect Goto5 Junction6 as Connection378
         connect From6 Sum1.in1 as Connection379
         connect From7 Sum2.in1 as Connection380
         connect Constant4.out Sum2.in as Connection381
-        connect scada_i_d_inv.out Sum1.in as Connection168
+        connect scada_i_d.out Sum1.in as Connection168
         [
-            breakpoints = 11012, 7268; 11012, 7288
+            breakpoints = 10784, 7448; 10784, 7468
         ]
         connect Gain5.out Goto7 as Connection179
         connect Goto8 Gain6.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
         connect "Bus Selector2.in" "Bus Join4.out" as Connection207
-        connect u_q_inv.in Junction13 as Connection208
+        connect u_q.in Junction13 as Connection208
         connect Junction13 "dq to abc.q_input" as Connection209
         [
-            breakpoints = 11540, 7356
+            breakpoints = 11312, 7536
         ]
         connect "Bus Selector2.out" Junction13 as Connection210
-        connect u_d_inv.in Junction14 as Connection211
+        connect u_d.in Junction14 as Connection211
         connect Junction14 "dq to abc.d_input" as Connection212
         [
-            breakpoints = 11500, 7284
+            breakpoints = 11272, 7464
         ]
         connect "Bus Selector1.out" Junction14 as Connection213
         connect "dq to abc.phase_a" Goto9 as Connection214
@@ -2106,7 +2272,7 @@ model "dab_inv" {
         connect From10 Junction39 as Connection225
         connect Junction39 Adap_Limiter.low_lim as Connection387
         [
-            breakpoints = 12052, 7236; 12076, 7236
+            breakpoints = 11824, 7416; 11848, 7416
         ]
         connect Adap_Limiter_1.low_lim Junction40 as Connection228
         connect Junction40 Junction39 as Connection229
@@ -2118,7 +2284,7 @@ model "dab_inv" {
         connect Adap_Limiter_1.up_lim Junction18 as Connection390
         connect Gain5.in Junction19 as Connection391
         connect Junction19 Gain6.in as Connection239
-        connect dc_input_inv.out Junction19 as Connection240
+        connect dc_input.out Junction19 as Connection240
         connect Goto12 "Grid Measurement.Out" as Connection241
         connect From14 "Meter Split.Input" as Connection242
     }
@@ -2297,7 +2463,6 @@ model "dab_inv" {
         "Connection362"
         "Connection363"
         "Connection364"
-        "Comment5"
     }
 
     default {
