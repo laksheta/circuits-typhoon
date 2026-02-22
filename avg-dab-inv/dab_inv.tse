@@ -1155,11 +1155,10 @@ model "dab_inv" {
             unit = ""
         }
         [
-            position = 10720, 7112
+            position = 10736, 7368
         ]
 
         component "core/Signal switch" "Signal switch1" {
-            execution_rate = "T_math_dab"
         }
         [
             position = 10088, 7440
@@ -1167,7 +1166,7 @@ model "dab_inv" {
         ]
 
         component "core/SCADA Input" sw_dab_inv {
-            execution_rate = "T_math_dab"
+            execution_rate = "inherit"
             max = "1"
             min = "0"
             unit = ""
@@ -1177,7 +1176,7 @@ model "dab_inv" {
         ]
 
         component "core/Constant" Constant13 {
-            execution_rate = "T_math_dab"
+            execution_rate = "T_meas_dab"
             value = "0"
         }
         [
@@ -1186,10 +1185,19 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition10" {
-            execution_rate = "T_math_dab"
+            execution_rate = "inherit"
         }
         [
             position = 10020, 7424
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition11" {
+            execution_rate = "inherit"
+        }
+        [
+            position = 11856, 7064
             hide_name = True
             size = 32, 32
         ]
@@ -1419,7 +1427,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 11844, 7064
+            position = 11776, 7064
             hide_name = True
             size = 60, 20
         ]
@@ -1703,7 +1711,7 @@ model "dab_inv" {
         ]
 
         tag Goto22 {
-            value = "V_in_dab"
+            value = "V_in_inv"
             scope = local
             kind = sp
             direction = in
@@ -1715,7 +1723,7 @@ model "dab_inv" {
         ]
 
         tag From32 {
-            value = "tag"
+            value = "V_in_inv"
             scope = local
             kind = sp
             direction = out
@@ -2089,7 +2097,6 @@ model "dab_inv" {
         connect "Bus Split2.out" "Three phase PLL.va" as Connection31
         connect "Bus Split2.out1" "Three phase PLL.vb" as Connection32
         connect "Bus Split2.out2" "Three phase PLL.vc" as Connection33
-        connect "Bus Split2.in" From1 as Connection34
         connect From3 "abc to dq.wt" as Connection46
         connect "Bus Split3.in" From4 as Connection47
         connect "Bus Split3.out" "abc to dq.va" as Connection48
@@ -2212,6 +2219,12 @@ model "dab_inv" {
         connect Gain5.in Junction42 as Connection393
         connect Junction42 Gain6.in as Connection394
         connect From32 Junction42 as Connection395
+        connect "Bus Split2.in" "Rate Transition11.out" as Connection396
+        connect "Rate Transition11.in" From1 as Connection397
+    }
+
+    logically_deleted {
+        "dc_input_inv"
     }
 
     default {
