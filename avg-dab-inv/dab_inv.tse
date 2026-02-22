@@ -535,7 +535,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L1 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12660, 7376
@@ -543,7 +543,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L2 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12660, 7472
@@ -551,7 +551,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L3 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12660, 7568

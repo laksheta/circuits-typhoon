@@ -136,7 +136,7 @@ if 'info' not in globals():
 # F = 50
 # phase = np.array([0,-120,120])
 
-L = 1e-3
+# L = 1e-3
 # R = L / tau
 
 i_d = 10
@@ -152,7 +152,7 @@ i_q = 0
 f_wb_i = 1e3
 omega_c = 2*np.pi*f_wb_i
 
-Kp_i    = omega_c*L
+# Kp_i    = omega_c*L
 # Ki_i    = omega_c*R
 
 # info(f"u_d: {u_d:.2f}")
