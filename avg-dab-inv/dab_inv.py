@@ -125,8 +125,8 @@ if 'info' not in globals():
 # upper_lim = +V_dc/2
 # lower_lim = -V_dc/2
 
-V_g = 220 * np.sqrt(2)
-V_rms = 220
+# V_g = 220 * np.sqrt(2)
+# V_rms = 220
 u_grid_d  = 220*np.sqrt(2)
 V_peak    = u_grid_d
 u_grid_q  = 0
