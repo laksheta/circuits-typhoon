@@ -133,7 +133,7 @@ if 'info' not in globals():
 # u_grid_amp    = np.sqrt(u_grid_d**2+u_grid_q**2)
 # u_grid_ph     = np.arctan2(u_grid_q, u_grid_d)
 
-F = 50
+# F = 50
 phase = np.array([0,-120,120])
 
 L = 1e-3
@@ -141,7 +141,7 @@ L = 1e-3
 
 i_d = 10
 i_q = 0
-omega   = 2*np.pi*F
+# omega   = 2*np.pi*F
 
 # u_d = u_grid_d + R*i_d - omega*L*i_q
 # u_q = u_grid_q + R*i_q + omega*L*i_d
