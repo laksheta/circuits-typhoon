@@ -1493,7 +1493,7 @@ model "dab_inv" {
         ]
 
         tag Goto9 {
-            value = "V_a"
+            value = "V_a_inv"
             scope = local
             kind = sp
             direction = in
@@ -1505,7 +1505,7 @@ model "dab_inv" {
         ]
 
         tag Goto10 {
-            value = "V_b"
+            value = "V_b_inv"
             scope = local
             kind = sp
             direction = in
@@ -1517,7 +1517,7 @@ model "dab_inv" {
         ]
 
         tag Goto11 {
-            value = "V_c"
+            value = "V_c_inv"
             scope = local
             kind = sp
             direction = in
@@ -1555,7 +1555,7 @@ model "dab_inv" {
         ]
 
         tag From11 {
-            value = "V_a"
+            value = "V_a_inv"
             scope = local
             kind = sp
             direction = out
@@ -1567,7 +1567,7 @@ model "dab_inv" {
         ]
 
         tag From12 {
-            value = "V_b"
+            value = "V_b_inv"
             scope = local
             kind = sp
             direction = out
@@ -1579,7 +1579,7 @@ model "dab_inv" {
         ]
 
         tag From13 {
-            value = "V_c"
+            value = "V_c_inv"
             scope = local
             kind = sp
             direction = out
