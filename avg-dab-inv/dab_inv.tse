@@ -841,7 +841,7 @@ model "dab_inv" {
             rotation = left
         ]
 
-        component "core/SCADA Input" scada_i_d {
+        component "core/SCADA Input" scada_i_d_inv {
             def_value = "10"
             execution_rate = "inherit"
             format = "int"
@@ -1421,7 +1421,7 @@ model "dab_inv" {
         ]
 
         tag Goto5 {
-            value = "i_d"
+            value = "i_d_inv"
             scope = local
             kind = sp
             direction = in
@@ -1433,7 +1433,7 @@ model "dab_inv" {
         ]
 
         tag Goto6 {
-            value = "i_q"
+            value = "i_q_inv"
             scope = local
             kind = sp
             direction = in
@@ -1445,7 +1445,7 @@ model "dab_inv" {
         ]
 
         tag From6 {
-            value = "i_d"
+            value = "i_d_inv"
             scope = local
             kind = sp
             direction = out
@@ -1457,7 +1457,7 @@ model "dab_inv" {
         ]
 
         tag From7 {
-            value = "i_q"
+            value = "i_q_inv"
             scope = local
             kind = sp
             direction = out
@@ -2240,7 +2240,7 @@ model "dab_inv" {
         connect From6 Sum1.in1 as Connection379
         connect From7 Sum2.in1 as Connection380
         connect Constant4.out Sum2.in as Connection381
-        connect scada_i_d.out Sum1.in as Connection168
+        connect scada_i_d_inv.out Sum1.in as Connection168
         [
             breakpoints = 10784, 7448; 10784, 7468
         ]
