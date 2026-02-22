@@ -134,7 +134,7 @@ if 'info' not in globals():
 # u_grid_ph     = np.arctan2(u_grid_q, u_grid_d)
 
 # F = 50
-phase = np.array([0,-120,120])
+# phase = np.array([0,-120,120])
 
 L = 1e-3
 # R = L / tau
