@@ -651,14 +651,14 @@ model "dab_inv" {
             hide_name = True
         ]
 
-        component "core/Probe" i_d {
+        component "core/Probe" i_d_inv {
         }
         [
-            position = 12484, 6972
+            position = 12484, 7028
             rotation = left
         ]
 
-        component "core/Probe" i_q {
+        component "core/Probe" i_q_inv {
         }
         [
             position = 12544, 6976
@@ -1337,7 +1337,7 @@ model "dab_inv" {
         ]
 
         tag From1 {
-            value = "V_abc_n"
+            value = "V_abc_n_inv"
             scope = local
             kind = sp
             direction = out
@@ -1373,7 +1373,7 @@ model "dab_inv" {
         ]
 
         tag From4 {
-            value = "I_abc"
+            value = "I_abc_inv"
             scope = local
             kind = sp
             direction = out
@@ -1385,7 +1385,7 @@ model "dab_inv" {
         ]
 
         tag Goto3 {
-            value = "V_abc_n"
+            value = "V_abc_n_inv"
             scope = local
             kind = sp
             direction = in
@@ -1397,7 +1397,7 @@ model "dab_inv" {
         ]
 
         tag Goto4 {
-            value = "I_abc"
+            value = "I_abc_inv"
             scope = local
             kind = sp
             direction = in
@@ -1591,7 +1591,7 @@ model "dab_inv" {
         ]
 
         tag Goto12 {
-            value = "Grid_out"
+            value = "Grid_out_inv"
             scope = local
             kind = sp
             direction = in
@@ -1603,7 +1603,7 @@ model "dab_inv" {
         ]
 
         tag From14 {
-            value = "Grid_out"
+            value = "Grid_out_inv"
             scope = local
             kind = sp
             direction = out
@@ -2232,10 +2232,10 @@ model "dab_inv" {
         connect Sum1.out PI_i_d.in as Connection140
         connect Sum2.out PI_i_q.in as Connection373
         connect "abc to dq.q_axis" Junction5 as Connection374
-        connect Junction5 i_q.in as Connection375
+        connect Junction5 i_q_inv.in as Connection375
         connect Goto6 Junction5 as Connection376
         connect "abc to dq.d_axis" Junction6 as Connection145
-        connect Junction6 i_d.in as Connection377
+        connect Junction6 i_d_inv.in as Connection377
         connect Goto5 Junction6 as Connection378
         connect From6 Sum1.in1 as Connection379
         connect From7 Sum2.in1 as Connection380
