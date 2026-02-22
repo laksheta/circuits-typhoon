@@ -672,14 +672,14 @@ model "dab_inv" {
             hide_name = True
         ]
 
-        component "core/Probe" i_d {
+        component "core/Probe" i_d_inv {
         }
         [
-            position = 12712, 6792
+            position = 12712, 6832
             rotation = left
         ]
 
-        component "core/Probe" i_q {
+        component "core/Probe" i_q_inv {
         }
         [
             position = 12772, 6796
@@ -1376,7 +1376,7 @@ model "dab_inv" {
         ]
 
         tag From1 {
-            value = "V_abc_n"
+            value = "V_abc_n_inv"
             scope = local
             kind = sp
             direction = out
@@ -1388,7 +1388,7 @@ model "dab_inv" {
         ]
 
         tag Goto2 {
-            value = "theta"
+            value = "theta_inv"
             scope = local
             kind = sp
             direction = in
@@ -1400,7 +1400,7 @@ model "dab_inv" {
         ]
 
         tag From3 {
-            value = "theta"
+            value = "theta_inv"
             scope = local
             kind = sp
             direction = out
@@ -1412,7 +1412,7 @@ model "dab_inv" {
         ]
 
         tag From4 {
-            value = "I_abc"
+            value = "I_abc_inv"
             scope = local
             kind = sp
             direction = out
@@ -1424,7 +1424,7 @@ model "dab_inv" {
         ]
 
         tag Goto3 {
-            value = "V_abc_n"
+            value = "V_abc_n_inv"
             scope = local
             kind = sp
             direction = in
@@ -1436,7 +1436,7 @@ model "dab_inv" {
         ]
 
         tag Goto4 {
-            value = "I_abc"
+            value = "I_abc_inv"
             scope = local
             kind = sp
             direction = in
@@ -1460,7 +1460,7 @@ model "dab_inv" {
         ]
 
         tag Goto5 {
-            value = "i_d"
+            value = "i_d_inv"
             scope = local
             kind = sp
             direction = in
@@ -1472,7 +1472,7 @@ model "dab_inv" {
         ]
 
         tag Goto6 {
-            value = "i_q"
+            value = "i_q_inv"
             scope = local
             kind = sp
             direction = in
@@ -1568,7 +1568,7 @@ model "dab_inv" {
         ]
 
         tag From9 {
-            value = "upper_lim"
+            value = "upper_lim_inv"
             scope = local
             kind = sp
             direction = out
@@ -1581,7 +1581,7 @@ model "dab_inv" {
         ]
 
         tag From10 {
-            value = "lower_lim"
+            value = "lower_lim_inv"
             scope = local
             kind = sp
             direction = out
@@ -1594,7 +1594,7 @@ model "dab_inv" {
         ]
 
         tag From11 {
-            value = "V_a"
+            value = "V_a_inv"
             scope = local
             kind = sp
             direction = out
@@ -1606,7 +1606,7 @@ model "dab_inv" {
         ]
 
         tag From12 {
-            value = "V_b"
+            value = "V_b_inv"
             scope = local
             kind = sp
             direction = out
@@ -1618,7 +1618,7 @@ model "dab_inv" {
         ]
 
         tag From13 {
-            value = "V_c"
+            value = "V_c_inv"
             scope = local
             kind = sp
             direction = out
@@ -1630,7 +1630,7 @@ model "dab_inv" {
         ]
 
         tag Goto12 {
-            value = "Grid_out"
+            value = "Grid_out_inv"
             scope = local
             kind = sp
             direction = in
@@ -1642,7 +1642,7 @@ model "dab_inv" {
         ]
 
         tag From14 {
-            value = "Grid_out"
+            value = "Grid_out_inv"
             scope = local
             kind = sp
             direction = out
@@ -2066,10 +2066,10 @@ model "dab_inv" {
         connect Sum1.out PI_i_d.in as Connection140
         connect Sum2.out PI_i_q.in as Connection373
         connect "abc to dq.q_axis" Junction5 as Connection374
-        connect Junction5 i_q.in as Connection375
+        connect Junction5 i_q_inv.in as Connection375
         connect Goto6 Junction5 as Connection376
         connect "abc to dq.d_axis" Junction6 as Connection145
-        connect Junction6 i_d.in as Connection377
+        connect Junction6 i_d_inv.in as Connection377
         connect Goto5 Junction6 as Connection378
         connect From6 Sum1.in1 as Connection379
         connect From7 Sum2.in1 as Connection380
