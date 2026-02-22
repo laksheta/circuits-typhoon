@@ -4,7 +4,7 @@ version = 4.2
 // Saved by sw version: 2026.1
 //
 
-model "rect_dab" {
+model "dab_inv" {
     configuration {
         hil_device = "VHIL+"
         hil_configuration_id = 1
@@ -2347,9 +2347,9 @@ out[0] = fmax(0.0, i_dc_raw);
     }
 
     logically_deleted {
+        "Constant7"
         "Constant12"
         "Goto19"
-        "Constant7"
     }
 
     default {
@@ -2760,7 +2760,7 @@ out[0] = fmax(0.0, i_dc_raw);
         model_dir = os.path.dirname(mdl.get_model_file_path())
         
         # Create the full path to your parameter file
-        param_file_path = os.path.join(model_dir, "rect_dab.py")
+        param_file_path = os.path.join(model_dir, "dab_inv.py")
         
         # Read and execute the entire file
         with open(param_file_path, 'r') as f:
