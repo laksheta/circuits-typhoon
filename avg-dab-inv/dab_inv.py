@@ -139,7 +139,7 @@ if 'info' not in globals():
 # L = 1e-3
 # R = L / tau
 
-i_d = 10
+# i_d = 10
 i_q = 0
 # omega   = 2*np.pi*F
 
