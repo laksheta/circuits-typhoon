@@ -556,7 +556,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L1 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12888, 7196
@@ -564,7 +564,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L2 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12888, 7292
@@ -572,7 +572,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L3 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12888, 7388
@@ -587,7 +587,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R1 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 13016, 7196
@@ -595,7 +595,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R2 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 13016, 7292
@@ -603,7 +603,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R3 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 13016, 7388
@@ -612,7 +612,7 @@ model "dab_inv" {
 
         component "core/Three-phase Meter" "Grid Measurement" {
             R = "100000.0"
-            Ts = "T_meas"
+            Ts = "T_meas_inv"
             VAB = "True"
             VBC = "True"
             VCA = "True"
@@ -623,8 +623,8 @@ model "dab_inv" {
         ]
 
         component "core/Three Phase Voltage Source" U_grid {
-            init_frequency = "F"
-            init_rms_value = "V_rms"
+            init_frequency = "F_inv"
+            init_rms_value = "V_rms_inv"
         }
         [
             position = 13332, 7292
@@ -690,7 +690,7 @@ model "dab_inv" {
             IA = "False"
             IB = "False"
             IC = "False"
-            Ts = "T_meas"
+            Ts = "T_meas_inv"
             VAB = "True"
             VBn = "False"
             VCn = "False"
@@ -766,7 +766,7 @@ model "dab_inv" {
 
         component "core/Constant" Constant1 {
             execution_rate = "inherit"
-            value = "u_d"
+            value = "u_d_inv"
         }
         [
             position = 11248, 7264
@@ -775,7 +775,7 @@ model "dab_inv" {
 
         component "core/Constant" Constant2 {
             execution_rate = "inherit"
-            value = "u_q"
+            value = "u_q_inv"
         }
         [
             position = 11248, 7332
@@ -793,8 +793,8 @@ model "dab_inv" {
 
         component "core/PID controller" PI_i_d {
             controller_type = "PI"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_i_inv"
+            kp = "Kp_i_inv"
         }
         [
             position = 11180, 7296
@@ -802,8 +802,8 @@ model "dab_inv" {
 
         component "core/PID controller" PI_i_q {
             controller_type = "PI"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_i_inv"
+            kp = "Kp_i_inv"
         }
         [
             position = 11180, 7364
