@@ -140,7 +140,7 @@ if 'info' not in globals():
 # R = L / tau
 
 # i_d = 10
-i_q = 0
+# i_q = 0
 # omega   = 2*np.pi*F
 
 # u_d = u_grid_d + R*i_d - omega*L*i_q
