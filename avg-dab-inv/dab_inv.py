@@ -127,11 +127,11 @@ if 'info' not in globals():
 
 # V_g = 220 * np.sqrt(2)
 # V_rms = 220
-u_grid_d  = 220*np.sqrt(2)
-V_peak    = u_grid_d
-u_grid_q  = 0
-u_grid_amp    = np.sqrt(u_grid_d**2+u_grid_q**2)
-u_grid_ph     = np.arctan2(u_grid_q, u_grid_d)
+# u_grid_d  = 220*np.sqrt(2)
+# V_peak    = u_grid_d
+# u_grid_q  = 0
+# u_grid_amp    = np.sqrt(u_grid_d**2+u_grid_q**2)
+# u_grid_ph     = np.arctan2(u_grid_q, u_grid_d)
 
 F = 50
 phase = np.array([0,-120,120])
