@@ -1197,7 +1197,16 @@ model "dab_inv" {
             execution_rate = "inherit"
         }
         [
-            position = 11856, 7064
+            position = 13016, 7024
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition12" {
+            execution_rate = "inherit"
+        }
+        [
+            position = 13016, 7108
             hide_name = True
             size = 32, 32
         ]
@@ -1475,7 +1484,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 13032, 7024
+            position = 13080, 7024
             hide_name = True
             size = 60, 20
         ]
@@ -1487,7 +1496,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 13032, 7108
+            position = 13080, 7108
             hide_name = True
             size = 60, 20
         ]
@@ -2130,8 +2139,6 @@ model "dab_inv" {
         connect "Meter Split.VAn" "Bus Join1.in" as Connection101
         connect "Meter Split.VBn" "Bus Join1.in1" as Connection102
         connect "Meter Split.VCn" "Bus Join1.in2" as Connection103
-        connect "Bus Join2.out" Goto4 as Connection104
-        connect Goto3 "Bus Join1.out" as Connection105
         connect "Inverter Measurement.C+" Vsp3.p_node as Connection107
         connect Vsp2.p_node "Inverter Measurement.B+" as Connection108
         connect "Inverter Measurement.A+" Vsp1.p_node as Connection109
@@ -2219,8 +2226,11 @@ model "dab_inv" {
         connect Gain5.in Junction42 as Connection393
         connect Junction42 Gain6.in as Connection394
         connect From32 Junction42 as Connection395
-        connect "Bus Split2.in" "Rate Transition11.out" as Connection396
-        connect "Rate Transition11.in" From1 as Connection397
+        connect Goto3 "Rate Transition11.out" as Connection396
+        connect "Rate Transition11.in" "Bus Join1.out" as Connection397
+        connect From1 "Bus Split2.in" as Connection398
+        connect "Bus Join2.out" "Rate Transition12.in" as Connection399
+        connect "Rate Transition12.out" Goto4 as Connection400
     }
 
     logically_deleted {
