@@ -827,14 +827,14 @@ model "dab_inv" {
             hide_name = True
         ]
 
-        component "core/Probe" u_d {
+        component "core/Probe" u_d_inv {
         }
         [
             position = 11272, 7392
             rotation = left
         ]
 
-        component "core/Probe" u_q {
+        component "core/Probe" u_q_inv {
         }
         [
             position = 11312, 7432
@@ -1126,7 +1126,7 @@ model "dab_inv" {
             size = 80, 64
         ]
 
-        component "core/SCADA Input" dc_input {
+        component "core/SCADA Input" dc_input_inv {
             execution_rate = "inherit"
             max = "1e3"
             min = "-1000"
@@ -2248,13 +2248,13 @@ model "dab_inv" {
         connect Goto8 Gain6.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
         connect "Bus Selector2.in" "Bus Join4.out" as Connection207
-        connect u_q.in Junction13 as Connection208
+        connect u_q_inv.in Junction13 as Connection208
         connect Junction13 "dq to abc.q_input" as Connection209
         [
             breakpoints = 11312, 7536
         ]
         connect "Bus Selector2.out" Junction13 as Connection210
-        connect u_d.in Junction14 as Connection211
+        connect u_d_inv.in Junction14 as Connection211
         connect Junction14 "dq to abc.d_input" as Connection212
         [
             breakpoints = 11272, 7464
@@ -2284,7 +2284,7 @@ model "dab_inv" {
         connect Adap_Limiter_1.up_lim Junction18 as Connection390
         connect Gain5.in Junction19 as Connection391
         connect Junction19 Gain6.in as Connection239
-        connect dc_input.out Junction19 as Connection240
+        connect dc_input_inv.out Junction19 as Connection240
         connect Goto12 "Grid Measurement.Out" as Connection241
         connect From14 "Meter Split.Input" as Connection242
     }
