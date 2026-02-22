@@ -591,7 +591,7 @@ model "dab_inv" {
 
         component "core/Three-phase Meter" "Grid Measurement" {
             R = "100000.0"
-            Ts = "T_meas"
+            Ts = "T_meas_inv"
             VAB = "True"
             VBC = "True"
             VCA = "True"
