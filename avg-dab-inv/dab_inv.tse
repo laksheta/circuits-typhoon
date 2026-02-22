@@ -566,7 +566,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R1 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 12788, 7376
@@ -574,7 +574,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R2 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 12788, 7472
@@ -582,7 +582,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R3 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 12788, 7568
@@ -669,7 +669,7 @@ model "dab_inv" {
             IA = "False"
             IB = "False"
             IC = "False"
-            Ts = "T_meas"
+            Ts = "T_meas_inv"
             VAB = "True"
             VBn = "False"
             VCn = "False"
@@ -745,7 +745,7 @@ model "dab_inv" {
 
         component "core/Constant" Constant1 {
             execution_rate = "inherit"
-            value = "u_d"
+            value = "u_d_inv"
         }
         [
             position = 11020, 7444
@@ -754,7 +754,7 @@ model "dab_inv" {
 
         component "core/Constant" Constant2 {
             execution_rate = "inherit"
-            value = "u_q"
+            value = "u_q_inv"
         }
         [
             position = 11020, 7512
@@ -772,8 +772,8 @@ model "dab_inv" {
 
         component "core/PID controller" PI_i_d {
             controller_type = "PI"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_i_inv"
+            kp = "Kp_i_inv"
         }
         [
             position = 10952, 7476
@@ -781,8 +781,8 @@ model "dab_inv" {
 
         component "core/PID controller" PI_i_q {
             controller_type = "PI"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_i_inv"
+            kp = "Kp_i_inv"
         }
         [
             position = 10952, 7544
