@@ -1469,27 +1469,27 @@ model "dab_inv" {
         ]
 
         tag Goto7 {
-            value = "upper_lim"
+            value = "upper_lim_inv"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 11176, 7304
+            position = 11192, 7304
             hide_name = True
-            size = 60, 20
+            size = 92, 20
         ]
 
         tag Goto8 {
-            value = "lower_lim"
+            value = "lower_lim_inv"
             scope = local
             kind = sp
             direction = in
         }
         [
-            position = 11176, 7344
+            position = 11200, 7344
             hide_name = True
-            size = 60, 20
+            size = 108, 20
         ]
 
         tag Goto9 {
@@ -1529,29 +1529,29 @@ model "dab_inv" {
         ]
 
         tag From9 {
-            value = "upper_lim"
+            value = "upper_lim_inv"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 11800, 7288
+            position = 11800, 7332
             rotation = right
             hide_name = True
-            size = 60, 20
+            size = 76, 20
         ]
 
         tag From10 {
-            value = "lower_lim"
+            value = "lower_lim_inv"
             scope = local
             kind = sp
             direction = out
         }
         [
-            position = 11824, 7288
+            position = 11824, 7332
             rotation = right
             hide_name = True
-            size = 60, 20
+            size = 76, 20
         ]
 
         tag From11 {
