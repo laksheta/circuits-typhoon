@@ -149,8 +149,8 @@ if 'info' not in globals():
 # U_inv_amp = np.sqrt(u_d**2+u_q**2)
 # U_inv_ph  = np.arctan2(u_q, u_d)
 
-f_wb_i = 1e3
-omega_c = 2*np.pi*f_wb_i
+# f_wb_i = 1e3
+# omega_c = 2*np.pi*f_wb_i
 
 # Kp_i    = omega_c*L
 # Ki_i    = omega_c*R
