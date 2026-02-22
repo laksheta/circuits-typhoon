@@ -84,6 +84,7 @@ model "dab_inv" {
         [
             position = 8956, 7168
             rotation = right
+            hide_name = True
             scale = -1, 1
             size = 64, 32
         ]
@@ -93,6 +94,7 @@ model "dab_inv" {
         }
         [
             position = 9084, 7128
+            hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1asd1 {
@@ -101,6 +103,7 @@ model "dab_inv" {
         [
             position = 9292, 7172
             rotation = right
+            hide_name = True
             size = 64, 32
         ]
 
@@ -108,7 +111,6 @@ model "dab_inv" {
         }
         [
             position = 9084, 7068
-            hide_name = True
             size = 64, 32
         ]
 
@@ -118,7 +120,6 @@ model "dab_inv" {
         }
         [
             position = 9212, 7128
-            hide_name = True
             size = 64, 32
         ]
 
@@ -128,7 +129,6 @@ model "dab_inv" {
         [
             position = 8924, 7288
             rotation = right
-            hide_name = True
         ]
 
         component "core/Probe" "V_2\'_dab" {
@@ -137,7 +137,6 @@ model "dab_inv" {
         [
             position = 9324, 7284
             rotation = right
-            hide_name = True
         ]
 
         component "core/Product" Product1 {
@@ -145,6 +144,7 @@ model "dab_inv" {
         }
         [
             position = 9952, 6924
+            hide_name = True
         ]
 
         component "core/Probe" P_raw_dab {
@@ -152,7 +152,6 @@ model "dab_inv" {
         }
         [
             position = 10028, 6856
-            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
@@ -161,6 +160,7 @@ model "dab_inv" {
         [
             position = 9324, 7228
             rotation = right
+            hide_name = True
             size = 32, 32
         ]
 
@@ -170,6 +170,7 @@ model "dab_inv" {
         [
             position = 8924, 7228
             rotation = right
+            hide_name = True
             size = 32, 32
         ]
 
@@ -179,6 +180,7 @@ model "dab_inv" {
         }
         [
             position = 10020, 6924
+            hide_name = True
         ]
 
         component "core/Product" Product2 {
@@ -187,6 +189,7 @@ model "dab_inv" {
         }
         [
             position = 9832, 7140
+            hide_name = True
         ]
 
         component "core/Sum" Sum4 {
@@ -195,6 +198,7 @@ model "dab_inv" {
         }
         [
             position = 9996, 7148
+            hide_name = True
         ]
 
         component "core/Constant" R_load {
@@ -203,7 +207,6 @@ model "dab_inv" {
         }
         [
             position = 9796, 7252
-            hide_name = True
         ]
 
         component "core/Product" Product3 {
@@ -212,6 +215,7 @@ model "dab_inv" {
         }
         [
             position = 9896, 7236
+            hide_name = True
         ]
 
         component "core/Probe" I_dc_dab {
@@ -220,7 +224,6 @@ model "dab_inv" {
         [
             position = 9916, 7096
             rotation = left
-            hide_name = True
         ]
 
         component "core/Gain" Gain1 {
@@ -229,6 +232,7 @@ model "dab_inv" {
         }
         [
             position = 10092, 7148
+            hide_name = True
         ]
 
         component "core/Integrator" Integrator1 {
@@ -236,6 +240,7 @@ model "dab_inv" {
         }
         [
             position = 10172, 7148
+            hide_name = True
         ]
 
         component "core/Probe" I_load_dab {
@@ -243,7 +248,6 @@ model "dab_inv" {
         }
         [
             position = 10028, 7220
-            hide_name = True
         ]
 
         component "core/Probe" V_out_dab {
@@ -251,7 +255,6 @@ model "dab_inv" {
         }
         [
             position = 10260, 7092
-            hide_name = True
         ]
 
         component "core/Probe" P_dab {
@@ -259,7 +262,6 @@ model "dab_inv" {
         }
         [
             position = 10104, 6856
-            hide_name = True
         ]
 
         component "core/Constant" Constant7 {
@@ -268,6 +270,7 @@ model "dab_inv" {
         }
         [
             position = 8872, 6872
+            hide_name = True
         ]
 
         component "core/Probe" primary_carrier_dab {
@@ -276,7 +279,6 @@ model "dab_inv" {
         [
             position = 9544, 7500
             rotation = left
-            hide_name = True
         ]
 
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
@@ -288,6 +290,7 @@ model "dab_inv" {
         }
         [
             position = 9448, 7576
+            hide_name = True
         ]
 
         component "core/Delay" Delay1 {
@@ -298,6 +301,7 @@ model "dab_inv" {
         }
         [
             position = 9616, 7584
+            hide_name = True
         ]
 
         component "core/Probe" secondary_carrier_dab {
@@ -306,7 +310,6 @@ model "dab_inv" {
         [
             position = 9660, 7692
             rotation = right
-            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition6" {
@@ -315,6 +318,7 @@ model "dab_inv" {
         [
             position = 9660, 7628
             rotation = right
+            hide_name = True
             size = 32, 32
         ]
 
@@ -324,6 +328,7 @@ model "dab_inv" {
         [
             position = 9544, 7548
             rotation = left
+            hide_name = True
             size = 32, 32
         ]
 
@@ -333,6 +338,7 @@ model "dab_inv" {
         }
         [
             position = 9380, 7620
+            hide_name = True
         ]
 
         component "core/Constant" Constant8 {
@@ -341,6 +347,7 @@ model "dab_inv" {
         }
         [
             position = 9244, 7664
+            hide_name = True
         ]
 
         component "core/Constant" Constant9 {
@@ -349,6 +356,7 @@ model "dab_inv" {
         }
         [
             position = 9244, 7696
+            hide_name = True
         ]
 
         component "core/Constant" Constant10 {
@@ -357,6 +365,7 @@ model "dab_inv" {
         }
         [
             position = 9244, 7728
+            hide_name = True
         ]
 
         component "core/Rate Transition" "Rate Transition8" {
@@ -364,6 +373,7 @@ model "dab_inv" {
         }
         [
             position = 9448, 7620
+            hide_name = True
             size = 32, 32
         ]
 
@@ -372,6 +382,7 @@ model "dab_inv" {
         }
         [
             position = 10056, 7548
+            hide_name = True
         ]
 
         component "core/Constant" Constant11 {
@@ -380,6 +391,7 @@ model "dab_inv" {
         }
         [
             position = 9940, 7488
+            hide_name = True
         ]
 
         component "core/Comparator" Comparator2 {
@@ -387,6 +399,7 @@ model "dab_inv" {
         }
         [
             position = 10056, 7636
+            hide_name = True
         ]
 
         component "core/Gain" Gain2 {
@@ -395,6 +408,7 @@ model "dab_inv" {
         }
         [
             position = 10132, 7548
+            hide_name = True
         ]
 
         component "core/Gain" Gain3 {
@@ -403,6 +417,7 @@ model "dab_inv" {
         }
         [
             position = 10132, 7636
+            hide_name = True
         ]
 
         component "core/Offset" Offset1 {
@@ -411,6 +426,7 @@ model "dab_inv" {
         }
         [
             position = 10208, 7548
+            hide_name = True
             size = 48, 48
         ]
 
@@ -420,6 +436,7 @@ model "dab_inv" {
         }
         [
             position = 10208, 7636
+            hide_name = True
             size = 48, 48
         ]
 
@@ -428,6 +445,7 @@ model "dab_inv" {
         }
         [
             position = 9872, 6968
+            hide_name = True
             size = 32, 32
         ]
 
@@ -437,6 +455,7 @@ model "dab_inv" {
         }
         [
             position = 9220, 7596
+            hide_name = True
         ]
 
         component "core/PID controller" "PID controller4" {
@@ -452,6 +471,7 @@ model "dab_inv" {
         }
         [
             position = 9112, 7596
+            hide_name = True
         ]
 
         component "core/Sum" Sum5 {
@@ -459,6 +479,7 @@ model "dab_inv" {
         }
         [
             position = 9028, 7588
+            hide_name = True
         ]
 
         component "core/Constant" Constant12 {
@@ -467,6 +488,7 @@ model "dab_inv" {
         }
         [
             position = 8856, 7532
+            hide_name = True
         ]
 
         component "core/Probe" PI_out_dab {
@@ -474,7 +496,6 @@ model "dab_inv" {
         [
             position = 9292, 7540
             rotation = left
-            hide_name = True
         ]
 
         component "core/SCADA Input" V_out_ref_dab {
@@ -486,7 +507,6 @@ model "dab_inv" {
         }
         [
             position = 8856, 7580
-            hide_name = True
         ]
 
         component "core/SCADA Input" reset_PI_dab {
@@ -497,7 +517,6 @@ model "dab_inv" {
         }
         [
             position = 9028, 7664
-            hide_name = True
         ]
 
         component "core/Limit" Limit1 {
@@ -505,6 +524,7 @@ model "dab_inv" {
         }
         [
             position = 9756, 7164
+            hide_name = True
         ]
 
         component "core/Signal switch" "Signal switch2" {
@@ -512,6 +532,7 @@ model "dab_inv" {
         }
         [
             position = 10192, 6940
+            hide_name = True
         ]
 
         component "core/Constant" Constant14 {
@@ -520,6 +541,7 @@ model "dab_inv" {
         }
         [
             position = 10108, 6964
+            hide_name = True
         ]
 
         component "core/SCADA Input" sw_DAB {
@@ -531,7 +553,6 @@ model "dab_inv" {
         [
             position = 10192, 6864
             rotation = right
-            hide_name = True
         ]
 
         component "core/Inductor" L1 {
@@ -1145,6 +1166,7 @@ model "dab_inv" {
         }
         [
             position = 10304, 7548
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1157,6 +1179,7 @@ model "dab_inv" {
         [
             position = 9212, 7068
             rotation = left
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1168,6 +1191,7 @@ model "dab_inv" {
         }
         [
             position = 10304, 7636
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1179,6 +1203,7 @@ model "dab_inv" {
         }
         [
             position = 9860, 6888
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1190,6 +1215,7 @@ model "dab_inv" {
         }
         [
             position = 9800, 6968
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1201,6 +1227,7 @@ model "dab_inv" {
         }
         [
             position = 10272, 6940
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1212,6 +1239,7 @@ model "dab_inv" {
         }
         [
             position = 9708, 7112
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1223,6 +1251,7 @@ model "dab_inv" {
         }
         [
             position = 10264, 7148
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1234,6 +1263,7 @@ model "dab_inv" {
         }
         [
             position = 9788, 7208
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1245,6 +1275,7 @@ model "dab_inv" {
         }
         [
             position = 8968, 6872
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1256,6 +1287,7 @@ model "dab_inv" {
         }
         [
             position = 9696, 7164
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1267,6 +1299,7 @@ model "dab_inv" {
         }
         [
             position = 9616, 7456
+            hide_name = True
             size = 140, 20
         ]
 
@@ -1278,6 +1311,7 @@ model "dab_inv" {
         }
         [
             position = 9744, 7584
+            hide_name = True
             size = 132, 20
         ]
 
@@ -1289,6 +1323,7 @@ model "dab_inv" {
         }
         [
             position = 9908, 7576
+            hide_name = True
             size = 140, 20
         ]
 
@@ -1300,6 +1335,7 @@ model "dab_inv" {
         }
         [
             position = 9908, 7660
+            hide_name = True
             size = 148, 20
         ]
 
@@ -1311,6 +1347,7 @@ model "dab_inv" {
         }
         [
             position = 8868, 7168
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1323,6 +1360,7 @@ model "dab_inv" {
         [
             position = 9376, 7172
             rotation = down
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1334,6 +1372,7 @@ model "dab_inv" {
         }
         [
             position = 8924, 7636
+            hide_name = True
             size = 60, 20
         ]
 
@@ -1618,85 +1657,71 @@ model "dab_inv" {
         junction Junction31 pe
         [
             position = 9020, 7128
-            hide_name = True
         ]
 
         junction Junction2 pe
         [
             position = 9148, 7128
-            hide_name = True
         ]
 
         junction Junction9 sp
         [
             position = 9956, 7220
-            hide_name = True
         ]
 
         junction Junction32 sp
         [
             position = 10212, 7148
-            hide_name = True
         ]
 
         junction Junction33 sp
         [
             position = 9984, 6924
-            hide_name = True
         ]
 
         junction Junction15 sp
         [
             position = 9544, 7576
-            hide_name = True
         ]
 
         junction Junction16 sp
         [
             position = 9496, 7576
-            hide_name = True
         ]
 
         junction Junction17 sp
         [
             position = 9660, 7584
-            hide_name = True
         ]
 
         junction Junction23 sp
         [
             position = 8924, 7168
-            hide_name = True
         ]
 
         junction Junction35 sp
         [
             position = 9324, 7172
-            hide_name = True
         ]
 
         junction Junction25 sp
         [
             position = 9292, 7596
-            hide_name = True
         ]
 
         junction Junction26 sp
         [
             position = 9916, 7140
-            hide_name = True
         ]
 
         junction Junction36 sp
         [
             position = 10000, 7512
-            hide_name = True
         ]
 
         junction Junction37 sp
         [
             position = 10064, 6924
-            hide_name = True
         ]
 
         junction Junction38 pe
@@ -1762,19 +1787,16 @@ model "dab_inv" {
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
         [
             position = 8984, 7156
-            hide_name = True
         ]
 
         comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_2 '</p></body></html> ENDCOMMENT 
         [
             position = 9220, 7164
-            hide_name = True
         ]
 
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
         [
             position = 10220, 7164
-            hide_name = True
         ]
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
@@ -1788,6 +1810,7 @@ model "dab_inv" {
         }
         [
             position = 9580, 7560
+            hide_name = True
             size = 1572, 416
             background_color = #0e0000ff
             box_outline = True
@@ -1798,6 +1821,7 @@ model "dab_inv" {
         }
         [
             position = 9980, 7044
+            hide_name = True
             size = 756, 556
             background_color = #0eaa00ff
             box_outline = True
@@ -1808,6 +1832,7 @@ model "dab_inv" {
         }
         [
             position = 8924, 6848
+            hide_name = True
             size = 252, 192
             background_color = #0eff0000
             box_outline = True
@@ -1818,6 +1843,7 @@ model "dab_inv" {
         }
         [
             position = 9116, 7148
+            hide_name = True
             size = 640, 360
             background_color = #0eff5500
             box_outline = True
@@ -1855,318 +1881,126 @@ model "dab_inv" {
 
         connect Vsp1asd1.n_node Vsp1asd.n_node as Connection314
         [
-            hide_name = True
             breakpoints = 9212, 7220; 8956, 7220
         ]
         connect L4.p_node Junction31 as Connection315
-        [
-            hide_name = True
-        ]
         connect Junction31 Vsp1asd.p_node as Connection316
-        [
-            hide_name = True
-        ]
         connect V_L_dab.p_node Junction31 as Connection8
-        [
-            hide_name = True
-        ]
         connect Junction2 L4.n_node as Connection10
-        [
-            hide_name = True
-        ]
         connect V_L_dab.n_node Junction2 as Connection11
         [
-            hide_name = True
             breakpoints = 9148, 7068; 9148, 7128
         ]
         connect Vsp1asd1.p_node i_L_dab.n_node as Connection317
-        [
-            hide_name = True
-        ]
         connect i_L_dab.p_node Junction2 as Connection318
-        [
-            hide_name = True
-        ]
         connect Goto15 i_L_dab.out as Connection319
-        [
-            hide_name = True
-        ]
         connect From21 Product1.in as Connection40
-        [
-            hide_name = True
-        ]
         connect R_load.out Product3.in1 as Connection53
-        [
-            hide_name = True
-        ]
         connect Sum4.out Gain1.in as Connection55
-        [
-            hide_name = True
-        ]
         connect Integrator1.in Gain1.out as Connection320
-        [
-            hide_name = True
-        ]
         connect From24 Product3.in as Connection62
-        [
-            hide_name = True
-        ]
         connect Product3.out Junction9 as Connection321
-        [
-            hide_name = True
-        ]
         connect Junction9 Sum4.in1 as Connection322
-        [
-            hide_name = True
-        ]
         connect I_load_dab.in Junction9 as Connection323
-        [
-            hide_name = True
-        ]
         connect Integrator1.out Junction32 as Connection66
-        [
-            hide_name = True
-        ]
         connect Junction32 Goto18 as Connection67
-        [
-            hide_name = True
-        ]
         connect V_out_dab.in Junction32 as Connection68
-        [
-            hide_name = True
-        ]
         connect Product1.out Junction33 as Connection72
-        [
-            hide_name = True
-        ]
         connect Junction33 "Mean Value1.in" as Connection73
-        [
-            hide_name = True
-        ]
         connect P_raw_dab.in Junction33 as Connection74
-        [
-            hide_name = True
-        ]
         connect From23 Product2.in as Connection78
-        [
-            hide_name = True
-        ]
         connect Junction15 Delay1.in as Connection131
-        [
-            hide_name = True
-        ]
         connect "Rate Transition6.out" secondary_carrier_dab.in as Connection134
-        [
-            hide_name = True
-        ]
         connect primary_carrier_dab.in "Rate Transition7.out" as Connection135
-        [
-            hide_name = True
-        ]
         connect "Rate Transition7.in" Junction15 as Connection136
-        [
-            hide_name = True
-        ]
         connect Constant8.out Product6.in1 as Connection137
-        [
-            hide_name = True
-        ]
         connect Constant9.out Product6.in2 as Connection138
         [
-            hide_name = True
             breakpoints = 9324, 7696; 9324, 7628
         ]
         connect Constant10.out Product6.in3 as Connection139
         [
-            hide_name = True
             breakpoints = 9308, 7728; 9308, 7644
         ]
         connect Product6.out "Rate Transition8.in" as Connection141
-        [
-            hide_name = True
-        ]
         connect "Rate Transition8.out" Delay1.delay_in as Connection142
-        [
-            hide_name = True
-        ]
         connect "Triangular Wave Source3.out" Junction16 as Connection143
-        [
-            hide_name = True
-        ]
         connect Junction16 Junction15 as Connection144
-        [
-            hide_name = True
-        ]
         connect Goto20 Junction16 as Connection327
-        [
-            hide_name = True
-        ]
         connect Delay1.out Junction17 as Connection146
-        [
-            hide_name = True
-        ]
         connect Junction17 "Rate Transition6.in" as Connection147
-        [
-            hide_name = True
-        ]
         connect Goto21 Junction17 as Connection148
-        [
-            hide_name = True
-        ]
         connect From26 Comparator1.in2 as Connection149
-        [
-            hide_name = True
-        ]
         connect From27 Comparator2.in2 as Connection151
-        [
-            hide_name = True
-        ]
         connect Comparator1.out Gain2.in as Connection165
+        [
+            hide_name = True
+        ]
         connect Comparator2.out Gain3.in as Connection167
-        [
-            hide_name = True
-        ]
         connect Gain2.out Offset1.in as Connection169
-        connect Gain3.out Offset2.in as Connection171
-        connect Vsp1asd.in Junction23 as Connection216
         [
             hide_name = True
         ]
+        connect Gain3.out Offset2.in as Connection171
+        [
+            hide_name = True
+        ]
+        connect Vsp1asd.in Junction23 as Connection216
         connect Junction23 "Rate Transition2.in" as Connection217
         [
-            hide_name = True
             breakpoints = 8924, 7172
         ]
         connect From28 Junction23 as Connection330
-        [
-            hide_name = True
-        ]
         connect "Rate Transition1.in" Junction35 as Connection331
-        [
-            hide_name = True
-        ]
         connect Junction35 Vsp1asd1.in as Connection332
         [
-            hide_name = True
             breakpoints = 9324, 7176
         ]
         connect From29 Junction35 as Connection221
-        [
-            hide_name = True
-        ]
         connect "Rate Transition1.out" "V_2\'_dab.in" as Connection222
-        [
-            hide_name = True
-        ]
         connect "Rate Transition2.out" V_1_dab.in as Connection223
-        [
-            hide_name = True
-        ]
         connect Goto14 Offset1.out as Connection224
+        [
+            hide_name = True
+        ]
         connect Goto16 Offset2.out as Connection333
+        [
+            hide_name = True
+        ]
         connect From22 "Rate Transition9.in" as Connection226
-        [
-            hide_name = True
-        ]
         connect "Rate Transition9.out" Product1.in1 as Connection227
-        [
-            hide_name = True
-        ]
         connect From30 Sum5.in1 as Connection230
-        [
-            hide_name = True
-        ]
         connect Sum5.out "PID controller4.in" as Connection231
-        [
-            hide_name = True
-        ]
         connect Gain4.out Junction25 as Connection334
-        [
-            hide_name = True
-        ]
         connect Junction25 Product6.in as Connection335
-        [
-            hide_name = True
-        ]
         connect PI_out_dab.in Junction25 as Connection236
-        [
-            hide_name = True
-        ]
         connect V_out_ref_dab.out Sum5.in as Connection237
-        [
-            hide_name = True
-        ]
         connect reset_PI_dab.out "PID controller4.reset" as Connection238
-        [
-            hide_name = True
-        ]
         connect "PID controller4.out" Gain4.in as Connection336
-        [
-            hide_name = True
-        ]
         connect Sum4.in Junction26 as Connection337
-        [
-            hide_name = True
-        ]
         connect Junction26 I_dc_dab.in as Connection338
         [
-            hide_name = True
             breakpoints = 9916, 7140
         ]
         connect Product2.out Junction26 as Connection243
-        [
-            hide_name = True
-        ]
         connect From25 Limit1.in as Connection346
-        [
-            hide_name = True
-        ]
         connect Limit1.out Product2.in1 as Connection347
-        [
-            hide_name = True
-        ]
         connect Constant14.out "Signal switch2.in1" as Connection353
-        [
-            hide_name = True
-        ]
         connect sw_DAB.out "Signal switch2.in2" as Connection354
-        [
-            hide_name = True
-        ]
         connect Comparator2.in1 Junction36 as Connection356
-        [
-            hide_name = True
-        ]
         connect Junction36 Comparator1.in1 as Connection357
         [
-            hide_name = True
             breakpoints = 10000, 7516; 10024, 7516; 10024, 7540
         ]
         connect Constant11.out Junction36 as Connection358
-        [
-            hide_name = True
-        ]
         connect "Mean Value1.out" Junction37 as Connection360
-        [
-            hide_name = True
-        ]
         connect Junction37 P_dab.in as Connection361
         [
-            hide_name = True
             breakpoints = 10064, 6924; 10064, 6916; 10064, 6856
         ]
         connect "Signal switch2.in" Junction37 as Connection362
-        [
-            hide_name = True
-        ]
         connect "Signal switch2.out" Goto17 as Connection363
-        [
-            hide_name = True
-        ]
         connect Constant7.out Goto19 as Connection364
-        [
-            hide_name = True
-        ]
         connect R1.p_node L1.n_node as Connection13
         connect R2.p_node L2.n_node as Connection14
         connect R3.p_node L3.n_node as Connection15
