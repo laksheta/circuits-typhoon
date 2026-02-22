@@ -559,7 +559,7 @@ model "dab_inv" {
             inductance = "L"
         }
         [
-            position = 7708, 7296
+            position = 12888, 7196
             hide_name = True
         ]
 
@@ -567,7 +567,7 @@ model "dab_inv" {
             inductance = "L"
         }
         [
-            position = 7708, 7392
+            position = 12888, 7292
             hide_name = True
         ]
 
@@ -575,14 +575,14 @@ model "dab_inv" {
             inductance = "L"
         }
         [
-            position = 7708, 7488
+            position = 12888, 7388
             hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 7160, 7680
+            position = 12340, 7580
             hide_name = True
         ]
 
@@ -590,7 +590,7 @@ model "dab_inv" {
             resistance = "R"
         }
         [
-            position = 7836, 7296
+            position = 13016, 7196
             hide_name = True
         ]
 
@@ -598,7 +598,7 @@ model "dab_inv" {
             resistance = "R"
         }
         [
-            position = 7836, 7392
+            position = 13016, 7292
             hide_name = True
         ]
 
@@ -606,7 +606,7 @@ model "dab_inv" {
             resistance = "R"
         }
         [
-            position = 7836, 7488
+            position = 13016, 7388
             hide_name = True
         ]
 
@@ -618,7 +618,7 @@ model "dab_inv" {
             VCA = "True"
         }
         [
-            position = 8008, 7392
+            position = 13188, 7292
             size = 56, 240
         ]
 
@@ -627,7 +627,7 @@ model "dab_inv" {
             init_rms_value = "V_rms"
         }
         [
-            position = 8152, 7392
+            position = 13332, 7292
             scale = -1, 1
             size = 62, 256
         ]
@@ -635,7 +635,7 @@ model "dab_inv" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 8092, 7588
+            position = 13272, 7488
             hide_name = True
         ]
 
@@ -645,7 +645,7 @@ model "dab_inv" {
             initial_filter_output = "50"
         }
         [
-            position = 7096, 6984
+            position = 12276, 6884
             size = 64, 128
         ]
 
@@ -653,14 +653,14 @@ model "dab_inv" {
             outputs = "3"
         }
         [
-            position = 6988, 6984
+            position = 12168, 6884
             hide_name = True
         ]
 
         component "core/abc to dq" "abc to dq" {
         }
         [
-            position = 7480, 7008
+            position = 12660, 6908
             size = 48, 80
         ]
 
@@ -668,21 +668,21 @@ model "dab_inv" {
             outputs = "3"
         }
         [
-            position = 7384, 7000
+            position = 12564, 6900
             hide_name = True
         ]
 
         component "core/Probe" i_d {
         }
         [
-            position = 7532, 6892
+            position = 12712, 6792
             rotation = left
         ]
 
         component "core/Probe" i_q {
         }
         [
-            position = 7592, 6896
+            position = 12772, 6796
             rotation = left
         ]
 
@@ -696,7 +696,7 @@ model "dab_inv" {
             VCn = "False"
         }
         [
-            position = 7540, 7392
+            position = 12720, 7292
             size = 56, 240
         ]
 
@@ -706,7 +706,7 @@ model "dab_inv" {
             ic = "True"
         }
         [
-            position = 7860, 6992
+            position = 13040, 6892
             size = 96, 112
         ]
 
@@ -714,7 +714,7 @@ model "dab_inv" {
             inputs = "3"
         }
         [
-            position = 7992, 6944
+            position = 13172, 6844
             hide_name = True
         ]
 
@@ -722,14 +722,14 @@ model "dab_inv" {
             inputs = "3"
         }
         [
-            position = 7992, 7028
+            position = 13172, 6928
             hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1 {
         }
         [
-            position = 7100, 7336
+            position = 12280, 7236
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -739,7 +739,7 @@ model "dab_inv" {
         component "core/Signal Controlled Voltage Source" Vsp2 {
         }
         [
-            position = 7160, 7432
+            position = 12340, 7332
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -749,7 +749,7 @@ model "dab_inv" {
         component "core/Signal Controlled Voltage Source" Vsp3 {
         }
         [
-            position = 7220, 7536
+            position = 12400, 7436
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -760,7 +760,7 @@ model "dab_inv" {
             execution_rate = "inherit"
         }
         [
-            position = 6432, 7464
+            position = 11612, 7364
             size = 48, 80
         ]
 
@@ -769,7 +769,7 @@ model "dab_inv" {
             value = "u_d"
         }
         [
-            position = 6068, 7364
+            position = 11248, 7264
             hide_name = True
         ]
 
@@ -778,7 +778,7 @@ model "dab_inv" {
             value = "u_q"
         }
         [
-            position = 6068, 7432
+            position = 11248, 7332
             hide_name = True
         ]
 
@@ -787,7 +787,7 @@ model "dab_inv" {
             value = "0"
         }
         [
-            position = 6256, 7512
+            position = 11436, 7412
             hide_name = True
         ]
 
@@ -797,7 +797,7 @@ model "dab_inv" {
             kp = "Kp_i"
         }
         [
-            position = 6000, 7396
+            position = 11180, 7296
         ]
 
         component "core/PID controller" PI_i_q {
@@ -806,20 +806,20 @@ model "dab_inv" {
             kp = "Kp_i"
         }
         [
-            position = 6000, 7464
+            position = 11180, 7364
         ]
 
         component "core/Bus Join" "Bus Join3" {
         }
         [
-            position = 6152, 7384
+            position = 11332, 7284
             hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join4" {
         }
         [
-            position = 6152, 7456
+            position = 11332, 7356
             hide_name = True
         ]
 
@@ -827,7 +827,7 @@ model "dab_inv" {
             signs = "+-"
         }
         [
-            position = 5884, 7396
+            position = 11064, 7296
             hide_name = True
         ]
 
@@ -835,7 +835,7 @@ model "dab_inv" {
             signs = "+-"
         }
         [
-            position = 5884, 7464
+            position = 11064, 7364
             hide_name = True
         ]
 
@@ -844,21 +844,21 @@ model "dab_inv" {
             value = "0"
         }
         [
-            position = 5700, 7456
+            position = 10880, 7356
             hide_name = True
         ]
 
         component "core/Probe" u_d {
         }
         [
-            position = 6320, 7312
+            position = 11500, 7212
             rotation = left
         ]
 
         component "core/Probe" u_q {
         }
         [
-            position = 6360, 7352
+            position = 11540, 7252
             rotation = left
         ]
 
@@ -872,14 +872,14 @@ model "dab_inv" {
             unit = ""
         }
         [
-            position = 5696, 7368
+            position = 10876, 7268
         ]
 
         component "core/Gain" Gain5 {
             gain = "0.5"
         }
         [
-            position = 6128, 7224
+            position = 11308, 7124
             hide_name = True
         ]
 
@@ -887,7 +887,7 @@ model "dab_inv" {
             gain = "-0.5"
         }
         [
-            position = 6128, 7264
+            position = 11308, 7164
             hide_name = True
         ]
 
@@ -895,7 +895,7 @@ model "dab_inv" {
             signal_indexes = "[1]"
         }
         [
-            position = 6248, 7384
+            position = 11428, 7284
             hide_name = True
         ]
 
@@ -903,7 +903,7 @@ model "dab_inv" {
             signal_indexes = "[1]"
         }
         [
-            position = 6248, 7456
+            position = 11428, 7356
             hide_name = True
         ]
 
@@ -983,7 +983,7 @@ model "dab_inv" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 6952, 7336
+            position = 12132, 7236
             size = 80, 64
         ]
 
@@ -1063,7 +1063,7 @@ model "dab_inv" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 6952, 7432
+            position = 12132, 7332
             size = 80, 64
         ]
 
@@ -1143,7 +1143,7 @@ model "dab_inv" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 6952, 7536
+            position = 12132, 7436
             size = 80, 64
         ]
 
@@ -1154,7 +1154,7 @@ model "dab_inv" {
             unit = ""
         }
         [
-            position = 6036, 7244
+            position = 11216, 7144
         ]
 
         tag Goto14 {
@@ -1382,7 +1382,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6892, 6984
+            position = 12072, 6884
             hide_name = True
             size = 60, 20
         ]
@@ -1394,7 +1394,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 7200, 7000
+            position = 12380, 6900
             hide_name = True
             size = 60, 20
         ]
@@ -1406,7 +1406,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 7384, 7056
+            position = 12564, 6956
             hide_name = True
             size = 60, 20
         ]
@@ -1418,7 +1418,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 7288, 7000
+            position = 12468, 6900
             hide_name = True
             size = 60, 20
         ]
@@ -1430,7 +1430,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 8080, 6944
+            position = 13260, 6844
             hide_name = True
             size = 60, 20
         ]
@@ -1442,7 +1442,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 8080, 7028
+            position = 13260, 6928
             hide_name = True
             size = 60, 20
         ]
@@ -1454,7 +1454,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6336, 7504
+            position = 11516, 7404
             hide_name = True
             size = 60, 20
         ]
@@ -1466,7 +1466,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 7644, 6984
+            position = 12824, 6884
             hide_name = True
             size = 60, 20
         ]
@@ -1478,7 +1478,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 7644, 7008
+            position = 12824, 6908
             hide_name = True
             size = 60, 20
         ]
@@ -1490,7 +1490,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 5768, 7424
+            position = 10948, 7324
             hide_name = True
             size = 60, 20
         ]
@@ -1502,7 +1502,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 5768, 7492
+            position = 10948, 7392
             hide_name = True
             size = 60, 20
         ]
@@ -1514,7 +1514,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 6224, 7224
+            position = 11404, 7124
             hide_name = True
             size = 60, 20
         ]
@@ -1526,7 +1526,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 6224, 7264
+            position = 11404, 7164
             hide_name = True
             size = 60, 20
         ]
@@ -1538,7 +1538,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 6520, 7440
+            position = 11700, 7340
             hide_name = True
             size = 60, 20
         ]
@@ -1550,7 +1550,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 6520, 7464
+            position = 11700, 7364
             hide_name = True
             size = 60, 20
         ]
@@ -1562,7 +1562,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 6520, 7488
+            position = 11700, 7388
             hide_name = True
             size = 60, 20
         ]
@@ -1574,7 +1574,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6848, 7208
+            position = 12028, 7108
             rotation = right
             hide_name = True
             size = 60, 20
@@ -1587,7 +1587,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6872, 7208
+            position = 12052, 7108
             rotation = right
             hide_name = True
             size = 60, 20
@@ -1600,7 +1600,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6792, 7320
+            position = 11972, 7220
             hide_name = True
             size = 60, 20
         ]
@@ -1612,7 +1612,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6792, 7416
+            position = 11972, 7316
             hide_name = True
             size = 60, 20
         ]
@@ -1624,7 +1624,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 6792, 7520
+            position = 11972, 7420
             hide_name = True
             size = 60, 20
         ]
@@ -1636,7 +1636,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 8088, 7224
+            position = 13268, 7124
             hide_name = True
             size = 60, 20
         ]
@@ -1648,7 +1648,7 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 7740, 6992
+            position = 12920, 6892
             hide_name = True
             size = 60, 20
         ]
@@ -1725,62 +1725,62 @@ model "dab_inv" {
 
         junction Junction38 pe
         [
-            position = 8088, 7548
+            position = 13268, 7448
         ]
 
         junction Junction3 pe
         [
-            position = 7160, 7612
+            position = 12340, 7512
         ]
 
         junction Junction4 pe
         [
-            position = 7220, 7612
+            position = 12400, 7512
         ]
 
         junction Junction5 sp
         [
-            position = 7592, 7008
+            position = 12772, 6908
         ]
 
         junction Junction6 sp
         [
-            position = 7532, 6984
+            position = 12712, 6884
         ]
 
         junction Junction13 sp
         [
-            position = 6360, 7456
+            position = 11540, 7356
         ]
 
         junction Junction14 sp
         [
-            position = 6320, 7384
+            position = 11500, 7284
         ]
 
         junction Junction39 sp
         [
-            position = 6872, 7336
+            position = 12052, 7236
         ]
 
         junction Junction40 sp
         [
-            position = 6872, 7432
+            position = 12052, 7332
         ]
 
         junction Junction41 sp
         [
-            position = 6848, 7352
+            position = 12028, 7252
         ]
 
         junction Junction18 sp
         [
-            position = 6848, 7448
+            position = 12028, 7348
         ]
 
         junction Junction19 sp
         [
-            position = 6092, 7244
+            position = 11272, 7144
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -1801,6 +1801,11 @@ model "dab_inv" {
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
             position = 9520, 6568
+        ]
+
+        comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
+        [
+            position = 12084, 6548
         ]
 
         scheme_area Area6 {
@@ -1847,7 +1852,7 @@ model "dab_inv" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
         [
-            position = 7476, 7412
+            position = 12656, 7312
             size = 1556, 584
             background_color = #0e55007f
             box_outline = True
@@ -1857,7 +1862,7 @@ model "dab_inv" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
         }
         [
-            position = 7472, 6956
+            position = 12652, 6856
             size = 1556, 264
             background_color = #0eff5500
             box_outline = True
@@ -1867,7 +1872,7 @@ model "dab_inv" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
         }
         [
-            position = 6104, 7348
+            position = 11284, 7248
             size = 944, 428
             background_color = #0e55ff00
             box_outline = True
@@ -2011,7 +2016,7 @@ model "dab_inv" {
         connect U_grid.n_node Junction38 as Connection58
         connect Junction38 gnd2.node as Connection59
         [
-            breakpoints = 8092, 7548
+            breakpoints = 13272, 7448
         ]
         connect "Bus Split3.out1" "abc to dq.vb" as Connection366
         connect "abc to dq.vc" "Bus Split3.out2" as Connection367
@@ -2020,14 +2025,14 @@ model "dab_inv" {
         connect "Inverter Measurement.A-" L1.p_node as Connection79
         connect "Grid Measurement.GND" Junction38 as Connection92
         [
-            breakpoints = 8008, 7544
+            breakpoints = 13188, 7444
         ]
         connect R1.n_node "Grid Measurement.A+" as Connection93
         connect R2.n_node "Grid Measurement.B+" as Connection94
         connect R3.n_node "Grid Measurement.C+" as Connection95
         connect Goto2 "Three phase PLL.theta" as Connection97
         [
-            breakpoints = 7152, 7000
+            breakpoints = 12332, 6900
         ]
         connect "Meter Split.IA" "Bus Join2.in" as Connection98
         connect "Meter Split.IB" "Bus Join2.in1" as Connection99
@@ -2045,14 +2050,14 @@ model "dab_inv" {
         connect Junction3 Junction4 as Connection113
         connect Junction4 "Inverter Measurement.GND" as Connection114
         [
-            breakpoints = 7272, 7612; 7356, 7612
+            breakpoints = 12452, 7512; 12536, 7512
         ]
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
         connect From5 "dq to abc.wt" as Connection124
         connect Constant3.out "dq to abc.zero_input" as Connection368
         [
-            breakpoints = 6288, 7496; 6288, 7472
+            breakpoints = 11468, 7396; 11468, 7372
         ]
         connect Constant1.out "Bus Join3.in" as Connection369
         connect PI_i_d.out "Bus Join3.in1" as Connection370
@@ -2071,7 +2076,7 @@ model "dab_inv" {
         connect Constant4.out Sum2.in as Connection381
         connect scada_i_d.out Sum1.in as Connection168
         [
-            breakpoints = 5832, 7368; 5832, 7388
+            breakpoints = 11012, 7268; 11012, 7288
         ]
         connect Gain5.out Goto7 as Connection179
         connect Goto8 Gain6.out as Connection180
@@ -2080,13 +2085,13 @@ model "dab_inv" {
         connect u_q.in Junction13 as Connection208
         connect Junction13 "dq to abc.q_input" as Connection209
         [
-            breakpoints = 6360, 7456
+            breakpoints = 11540, 7356
         ]
         connect "Bus Selector2.out" Junction13 as Connection210
         connect u_d.in Junction14 as Connection211
         connect Junction14 "dq to abc.d_input" as Connection212
         [
-            breakpoints = 6320, 7384
+            breakpoints = 11500, 7284
         ]
         connect "Bus Selector1.out" Junction14 as Connection213
         connect "dq to abc.phase_a" Goto9 as Connection214
@@ -2101,7 +2106,7 @@ model "dab_inv" {
         connect From10 Junction39 as Connection225
         connect Junction39 Adap_Limiter.low_lim as Connection387
         [
-            breakpoints = 6872, 7336; 6896, 7336
+            breakpoints = 12052, 7236; 12076, 7236
         ]
         connect Adap_Limiter_1.low_lim Junction40 as Connection228
         connect Junction40 Junction39 as Connection229
@@ -2292,6 +2297,7 @@ model "dab_inv" {
         "Connection362"
         "Connection363"
         "Connection364"
+        "Comment5"
     }
 
     default {
