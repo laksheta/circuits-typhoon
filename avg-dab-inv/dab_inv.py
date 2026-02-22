@@ -51,3 +51,56 @@ omega_c_dab = 2*np.pi*f_bw_dab
 K_p_dab      = (tau_dab*omega_c_dab)/Gdc_dab
 K_i_dab      = K_p_dab/tau_dab
 
+
+
+
+#################
+#################
+#####Inverter####
+#################
+#################
+
+if 'info' not in globals():
+    info = print
+
+sig_select_inv = [1]
+
+T_meas_inv = 1e-6
+tau_inv = 1e-3
+
+V_dc_inv = 780
+upper_lim_inv = +V_dc_inv/2
+lower_lim_inv = -V_dc_inv/2
+
+V_g_inv = 220 * np.sqrt(2)
+V_rms_inv = 220
+u_grid_d_inv  = 220*np.sqrt(2)
+V_peak_inv    = u_grid_d_inv
+u_grid_q_inv  = 0
+u_grid_amp_inv    = np.sqrt(u_grid_d_inv**2+u_grid_q_inv**2)
+u_grid_ph_inv     = np.arctan2(u_grid_q_inv, u_grid_d_inv)
+
+F_inv = 50
+phase_inv = np.array([0,-120,120])
+
+L_inv = 1e-3
+R_inv = L_inv / tau_inv
+
+i_d_inv = 10
+i_q_inv = 0
+omega_inv   = 2*np.pi*F_inv
+
+u_d_inv = u_grid_d_inv + R_inv*i_d_inv - omega_inv*L_inv*i_q_inv
+u_q_inv = u_grid_q_inv + R_inv*i_q_inv + omega_inv*L_inv*i_d_inv
+
+U_inv_amp_inv = np.sqrt(u_d_inv**2+u_q_inv**2)
+U_inv_ph_inv  = np.arctan2(u_q_inv, u_d_inv)
+
+f_wb_i_inv = 1e3
+omega_c_inv = 2*np.pi*f_wb_i_inv
+
+Kp_i_inv    = omega_c_inv*L_inv
+Ki_i_inv    = omega_c_inv*R_inv
+
+info(f"u_d_inv: {u_d_inv:.2f}")
+info(f"u_q_inv: {u_q_inv:.2f}")
