@@ -1127,6 +1127,7 @@ model "dab_inv" {
         ]
 
         component "core/SCADA Input" dc_input_inv {
+            def_value = "780"
             execution_rate = "inherit"
             max = "1e3"
             min = "-1000"
