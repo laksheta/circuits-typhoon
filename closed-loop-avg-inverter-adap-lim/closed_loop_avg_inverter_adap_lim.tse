@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1
 //
 
 model "closed_loop_avg_inverter_adap_lim" {
@@ -195,14 +195,14 @@ model "closed_loop_avg_inverter_adap_lim" {
             hide_name = True
         ]
 
-        component "core/Probe" d {
+        component "core/Probe" i_d {
         }
         [
             position = 8880, 7728
             rotation = left
         ]
 
-        component "core/Probe" q {
+        component "core/Probe" i_q {
         }
         [
             position = 8940, 7732
@@ -314,7 +314,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             hide_name = True
         ]
 
-        component "core/PID controller" i_d {
+        component "core/PID controller" PI_i_d {
             controller_type = "PI"
             ki = "Ki_i"
             kp = "Kp_i"
@@ -323,7 +323,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             position = 7148, 8100
         ]
 
-        component "core/PID controller" i_q {
+        component "core/PID controller" PI_i_q {
             controller_type = "PI"
             ki = "Ki_i"
             kp = "Kp_i"
@@ -1055,16 +1055,16 @@ model "closed_loop_avg_inverter_adap_lim" {
             breakpoints = 7436, 8200; 7436, 8176
         ]
         connect Constant1.out "Bus Join3.in" as Connection136
-        connect i_d.out "Bus Join3.in1" as Connection137
+        connect PI_i_d.out "Bus Join3.in1" as Connection137
         connect Constant2.out "Bus Join4.in" as Connection138
-        connect i_q.out "Bus Join4.in1" as Connection139
-        connect Sum1.out i_d.in as Connection140
-        connect Sum2.out i_q.in as Connection141
+        connect PI_i_q.out "Bus Join4.in1" as Connection139
+        connect Sum1.out PI_i_d.in as Connection140
+        connect Sum2.out PI_i_q.in as Connection141
         connect "abc to dq.q_axis" Junction5 as Connection142
-        connect Junction5 q.in as Connection143
+        connect Junction5 i_q.in as Connection143
         connect Goto6 Junction5 as Connection144
         connect "abc to dq.d_axis" Junction6 as Connection145
-        connect Junction6 d.in as Connection146
+        connect Junction6 i_d.in as Connection146
         connect Goto5 Junction6 as Connection147
         connect From6 Sum1.in1 as Connection148
         connect From7 Sum2.in1 as Connection149
@@ -1119,6 +1119,7 @@ model "closed_loop_avg_inverter_adap_lim" {
     default {
         "core/Bus Join" {
             inputs = "2"
+            force_tml = "True"
             execution_rate = "inherit"
         }
 
@@ -1142,7 +1143,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         "core/Gain" {
             gain = "1"
             multiplication = "Element-wise(K.*u)"
-            tml_file = "gen_gain"
+            force_tml = "True"
             _tunable = "False"
             execution_rate = "inherit"
         }
