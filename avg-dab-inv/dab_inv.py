@@ -65,7 +65,11 @@ if 'info' not in globals():
 
 sig_select_inv = [1]
 
-T_meas_inv = 1e-6
+T_meas_inv = 0.1e-6
+T_wave_dab  = 1e-6  
+T_cont_inv  = 0.1e-6
+T_plant_inv = 1e-6
+
 tau_inv = 1e-3
 
 V_dc_inv = 780
