@@ -151,7 +151,8 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9112, 8032
+            position = 9068, 8004
+            rotation = left
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
@@ -254,14 +255,16 @@ model "closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9344, 8268
+            position = 9296, 8228
+            rotation = left
         ]
 
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
         [
-            position = 9204, 8032
+            position = 9148, 8000
+            rotation = left
         ]
 
         component "core/Constant" Constant1 {
@@ -516,6 +519,55 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 8112, 8840
+        ]
+
+        component "core/Rate Transition" "Rate Transition10" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9000, 8272
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition11" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9296, 8280
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition12" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9148, 8056
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition13" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9068, 8052
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition14" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9068, 8396
+            hide_name = True
+            size = 32, 32
         ]
 
         tag Goto1 {
@@ -883,19 +935,12 @@ model "closed_loop_avg_dab" {
         connect From5 Product3.in as Connection62
         connect Product3.out Junction9 as Connection63
         connect Junction9 Sum1.in1 as Connection64
-        connect I_load.in Junction9 as Connection65
         connect Integrator1.out Junction10 as Connection66
         connect Junction10 Goto5 as Connection67
-        connect V_out.in Junction10 as Connection68
         connect Product1.out Junction11 as Connection72
         connect Junction11 "Mean Value1.in" as Connection73
-        connect P_raw.in Junction11 as Connection74
         connect Goto4 Junction12 as Connection75
         connect Junction12 "Mean Value1.out" as Connection76
-        connect P.in Junction12 as Connection77
-        [
-            breakpoints = 9148, 8032; 9148, 8092
-        ]
         connect From3 Product2.in as Connection78
         connect Constant1.out Goto6 as Connection84
         connect From7 Product2.in1 as Connection86
@@ -962,11 +1007,17 @@ model "closed_loop_avg_dab" {
         connect reset_PI.out "PID controller1.reset" as Connection238
         connect "PID controller1.out" Gain4.in as Connection239
         connect Sum1.in Junction26 as Connection241
-        connect Junction26 I_dc.in as Connection242
-        [
-            breakpoints = 9000, 8316
-        ]
         connect Product2.out Junction26 as Connection243
+        connect Junction26 "Rate Transition10.in" as Connection244
+        connect "Rate Transition10.out" I_dc.in as Connection245
+        connect V_out.in "Rate Transition11.out" as Connection246
+        connect "Rate Transition11.in" Junction10 as Connection247
+        connect P.in "Rate Transition12.out" as Connection248
+        connect "Rate Transition12.in" Junction12 as Connection249
+        connect P_raw.in "Rate Transition13.out" as Connection250
+        connect "Rate Transition13.in" Junction11 as Connection251
+        connect I_load.in "Rate Transition14.out" as Connection252
+        connect "Rate Transition14.in" Junction9 as Connection253
     }
 
     logically_deleted {
