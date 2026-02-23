@@ -759,6 +759,33 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
+        component "core/Rate Transition" "Rate Transition14" {
+            execution_rate = "T_controller"
+        }
+        [
+            position = 7756, 8548
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition15" {
+            execution_rate = "T_controller"
+        }
+        [
+            position = 7776, 8416
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition16" {
+            execution_rate = "T_controller"
+        }
+        [
+            position = 7444, 8392
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -802,7 +829,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 7732, 8416
+            position = 7700, 8416
             hide_name = True
             size = 60, 20
         ]
@@ -826,7 +853,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 7716, 8548
+            position = 7692, 8548
             hide_name = True
             size = 60, 20
         ]
@@ -850,7 +877,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 7412, 8396
+            position = 7384, 8392
             hide_name = True
             size = 60, 20
         ]
@@ -1306,12 +1333,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
         connect From5 "dq to abc1.wt" as Connection122
         connect Constant1.out "dq to abc1.zero_input" as Connection123
-        connect From9 Sum1.in1 as Connection145
         connect Constant5.out Sum2.in as Connection152
-        connect From10 Sum2.in1 as Connection153
         connect Sum1.out Junction12 as Connection158
         connect Junction12 "PID controller1.in" as Connection159
-        connect From12 Sum3.in1 as Connection178
         connect Constant6.out Sum3.in as Connection181
         connect Sum2.out Junction20 as Connection218
         connect Junction20 "PID controller2.in" as Connection219
@@ -1444,6 +1468,12 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition12.out" "dq to abc1.d_input" as Connection337
         connect "dq to abc1.q_input" "Rate Transition13.out" as Connection338
         connect "Rate Transition13.in" From11 as Connection339
+        connect From10 "Rate Transition14.in" as Connection340
+        connect "Rate Transition14.out" Sum2.in1 as Connection341
+        connect From9 "Rate Transition15.in" as Connection342
+        connect "Rate Transition15.out" Sum1.in1 as Connection343
+        connect From12 "Rate Transition16.in" as Connection344
+        connect "Rate Transition16.out" Sum3.in1 as Connection345
     }
 
     default {
