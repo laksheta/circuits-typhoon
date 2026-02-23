@@ -283,7 +283,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/dq to abc" "dq to abc" {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
         }
         [
             position = 7476, 8204
@@ -291,7 +291,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "u_d"
         }
         [
@@ -300,7 +300,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Constant" Constant2 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "u_q"
         }
         [
@@ -309,7 +309,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "0"
         }
         [
@@ -319,6 +319,7 @@ model "closed_loop_avg_inverter_adap_lim" {
 
         component "core/PID controller" PI_i_d {
             controller_type = "PI"
+            execution_rate = "T_math"
             ki = "Ki_i"
             kp = "Kp_i"
         }
@@ -328,6 +329,7 @@ model "closed_loop_avg_inverter_adap_lim" {
 
         component "core/PID controller" PI_i_q {
             controller_type = "PI"
+            execution_rate = "T_math"
             ki = "Ki_i"
             kp = "Kp_i"
         }
@@ -336,6 +338,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Join" "Bus Join3" {
+            execution_rate = "T_math"
         }
         [
             position = 7196, 8124
@@ -343,6 +346,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Join" "Bus Join4" {
+            execution_rate = "T_math"
         }
         [
             position = 7196, 8196
@@ -350,6 +354,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Sum" Sum1 {
+            execution_rate = "T_math"
             signs = "+-"
         }
         [
@@ -358,6 +363,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Sum" Sum2 {
+            execution_rate = "T_math"
             signs = "+-"
         }
         [
@@ -366,7 +372,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Constant" Constant4 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "0"
         }
         [
@@ -390,7 +396,7 @@ model "closed_loop_avg_inverter_adap_lim" {
 
         component "core/SCADA Input" scada_i_d {
             def_value = "10"
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             format = "int"
             max = "100"
             min = "-100"
@@ -402,6 +408,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Gain" Gain1 {
+            execution_rate = "T_math"
             gain = "0.5"
         }
         [
@@ -410,6 +417,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Gain" Gain2 {
+            execution_rate = "T_math"
             gain = "-0.5"
         }
         [
@@ -418,6 +426,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Selector" "Bus Selector1" {
+            execution_rate = "T_math"
             signal_indexes = "[1]"
         }
         [
@@ -426,6 +435,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Selector" "Bus Selector2" {
+            execution_rate = "T_math"
             signal_indexes = "[1]"
         }
         [
@@ -674,7 +684,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/SCADA Input" dc_input {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             max = "1e3"
             min = "-1000"
             unit = ""
