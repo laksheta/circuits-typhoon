@@ -252,7 +252,7 @@ model "closed_loop_avg_rectifier" {
             controller_type = "PI"
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             ki = "Ki_i"
             kp = "Kp_i"
             lower_sat_lim = "-350"
@@ -265,7 +265,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Constant" Constant4 {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             value = "-i_d_req"
         }
         [
@@ -281,7 +281,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/SCADA Input" reset_sig {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             max = "1"
             min = "0"
             unit = ""
@@ -291,7 +291,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Sum" Sum1 {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             signs = "++"
         }
         [
@@ -302,7 +302,7 @@ model "closed_loop_avg_rectifier" {
         component "core/PID controller" "PID controller2" {
             controller_type = "PI"
             enb_output_limit_out = "True"
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             ki = "Ki_i"
             kp = "Kp_i"
             lower_sat_lim = "-350"
@@ -315,7 +315,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Constant" Constant5 {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             value = "i_q_req"
         }
         [
@@ -331,7 +331,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Sum" Sum2 {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             signs = "++"
         }
         [
@@ -350,7 +350,7 @@ model "closed_loop_avg_rectifier" {
             controller_type = "PI"
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             ki = "Ki_v"
             kp = "Kp_v"
             lower_sat_lim = "-15"
@@ -363,7 +363,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Sum" Sum3 {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             signs = "+-"
         }
         [
@@ -372,7 +372,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Constant" Constant6 {
-            execution_rate = "exec_controller"
+            execution_rate = "T_controller"
             value = "V_dc_target"
         }
         [
