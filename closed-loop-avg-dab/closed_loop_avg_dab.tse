@@ -300,7 +300,7 @@ model "closed_loop_avg_dab" {
             del_length = "83.33"
             delay_type = "Variable delay"
             execution_rate = "T_delay"
-            max_delay_length = "100"
+            max_delay_length = "25"
         }
         [
             position = 8700, 8760
