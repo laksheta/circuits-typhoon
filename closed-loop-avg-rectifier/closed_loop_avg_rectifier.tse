@@ -639,6 +639,24 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 7876, 8236
         ]
 
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9216, 7788
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 9216, 7936
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -1312,11 +1330,13 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 7908, 8524; 7908, 8576
         ]
         connect Goto12 "Grid Meter.Out" as Connection308
-        connect "Meter Split2.Input" From19 as Connection309
         connect Goto13 "Rectifier Meter.Out" as Connection310
-        connect From20 "Meter Split1.Input" as Connection311
         connect From6 "dq to abc1.d_input" as Connection312
         connect "dq to abc1.q_input" From11 as Connection313
+        connect From20 "Rate Transition1.in" as Connection314
+        connect "Rate Transition1.out" "Meter Split1.Input" as Connection315
+        connect "Meter Split2.Input" "Rate Transition2.out" as Connection316
+        connect "Rate Transition2.in" From19 as Connection317
     }
 
     default {
@@ -1493,6 +1513,12 @@ out[0] = fmax(0.0, i_dc_raw);
             power_pfa = "False"
             power_pfb = "False"
             power_pfc = "False"
+        }
+
+        "core/Rate Transition" {
+            init_value = "0.0"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'generic\']"
         }
 
         "core/Signal Controlled Current Source" {
