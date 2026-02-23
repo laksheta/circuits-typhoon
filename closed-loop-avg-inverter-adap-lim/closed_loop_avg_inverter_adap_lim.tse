@@ -250,6 +250,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1 {
+            execution_rate = "T_plant"
         }
         [
             position = 8144, 8076
@@ -260,6 +261,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp2 {
+            execution_rate = "T_plant"
         }
         [
             position = 8204, 8172
@@ -270,6 +272,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp3 {
+            execution_rate = "T_plant"
         }
         [
             position = 8264, 8276
@@ -678,6 +681,33 @@ model "closed_loop_avg_inverter_adap_lim" {
         }
         [
             position = 7080, 7984
+        ]
+
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8080, 8076
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8084, 8172
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition3" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8084, 8276
+            hide_name = True
+            size = 32, 32
         ]
 
         tag From1 {
@@ -1145,9 +1175,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect "dq to abc.phase_a" Goto9 as Connection214
         connect "dq to abc.phase_b" Goto10 as Connection215
         connect "dq to abc.phase_c" Goto11 as Connection216
-        connect Adap_Limiter.Out Vsp1.in as Connection217
-        connect Adap_Limiter_1.Out Vsp2.in as Connection218
-        connect Adap_Limiter_2.Out Vsp3.in as Connection219
         connect From11 Adap_Limiter.In as Connection222
         connect From13 Adap_Limiter_2.In as Connection223
         connect From12 Adap_Limiter_1.In as Connection224
@@ -1169,6 +1196,12 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect dc_input.out Junction19 as Connection240
         connect Goto12 "Grid Measurement.Out" as Connection241
         connect From14 "Meter Split.Input" as Connection242
+        connect Adap_Limiter.Out "Rate Transition1.in" as Connection243
+        connect "Rate Transition1.out" Vsp1.in as Connection244
+        connect Adap_Limiter_1.Out "Rate Transition2.in" as Connection245
+        connect "Rate Transition2.out" Vsp2.in as Connection246
+        connect Adap_Limiter_2.Out "Rate Transition3.in" as Connection247
+        connect "Rate Transition3.out" Vsp3.in as Connection248
     }
 
     default {
@@ -1319,6 +1352,12 @@ model "closed_loop_avg_inverter_adap_lim" {
             power_pfa = "False"
             power_pfb = "False"
             power_pfc = "False"
+        }
+
+        "core/Rate Transition" {
+            init_value = "0.0"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'generic\']"
         }
 
         "core/Signal Controlled Voltage Source" {
