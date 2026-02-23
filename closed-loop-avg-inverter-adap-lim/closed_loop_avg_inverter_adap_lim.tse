@@ -165,6 +165,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         component "core/Three phase PLL" "Three phase PLL" {
             enable_sin = "False"
             enable_zero = "False"
+            execution_rate = "T_meas"
             initial_filter_output = "50"
         }
         [
@@ -173,6 +174,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Split" "Bus Split2" {
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
@@ -181,6 +183,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/abc to dq" "abc to dq" {
+            execution_rate = "T_meas"
         }
         [
             position = 8524, 7748
@@ -188,6 +191,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Split" "Bus Split3" {
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
@@ -196,6 +200,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Probe" i_d {
+            execution_rate = "T_meas"
         }
         [
             position = 8576, 7632
@@ -203,6 +208,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Probe" i_q {
+            execution_rate = "T_meas"
         }
         [
             position = 8636, 7636
@@ -234,6 +240,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Join" "Bus Join1" {
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
@@ -242,6 +249,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Bus Join" "Bus Join2" {
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
@@ -726,6 +734,26 @@ model "closed_loop_avg_inverter_adap_lim" {
             size = 32, 32
         ]
 
+        component "core/Rate Transition" "Rate Transition4" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 7364, 8096
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition5" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 7404, 8140
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag From1 {
             value = "V_abc_n"
             scope = local
@@ -1176,13 +1204,11 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Goto8 Gain2.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
         connect "Bus Selector2.in" "Bus Join4.out" as Connection207
-        connect u_q.in Junction13 as Connection208
         connect Junction13 "dq to abc.q_input" as Connection209
         [
             breakpoints = 7404, 8196
         ]
         connect "Bus Selector2.out" Junction13 as Connection210
-        connect u_d.in Junction14 as Connection211
         connect Junction14 "dq to abc.d_input" as Connection212
         [
             breakpoints = 7364, 8124
@@ -1218,6 +1244,10 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect "Rate Transition2.out" Vsp2.in as Connection246
         connect Adap_Limiter_2.Out "Rate Transition3.in" as Connection247
         connect "Rate Transition3.out" Vsp3.in as Connection248
+        connect u_d.in "Rate Transition4.out" as Connection249
+        connect "Rate Transition4.in" Junction14 as Connection250
+        connect u_q.in "Rate Transition5.out" as Connection251
+        connect "Rate Transition5.in" Junction13 as Connection252
     }
 
     default {
