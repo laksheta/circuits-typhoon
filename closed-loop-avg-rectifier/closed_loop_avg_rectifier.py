@@ -3,7 +3,7 @@ import numpy as np
 
 T_meas   = 1e-6
 T_sine   = 1e-6
-exec_controller = 1e-6
+T_controller = 1e-6
 
 V_grid_peak = 220*np.sqrt(2)
 V_grid_rms  = 220
