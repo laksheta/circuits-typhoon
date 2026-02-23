@@ -1,9 +1,8 @@
 import numpy as np
 
-
-exec_meas   = 1e-6
-exec_sine   = 1e-6
-exec_controller = 1e-6
+T_plant = 1e-6
+T_meas   = 10e-6
+T_controller = 10e-6
 
 V_grid_peak = 220*np.sqrt(2)
 V_grid_rms  = 220
