@@ -83,7 +83,7 @@ model "closed_loop_avg_rectifier" {
             init_rms_value = "V_grid_rms"
         }
         [
-            position = 9376, 8356
+            position = 9412, 8356
             hide_name = True
             scale = -1, 1
             size = 62, 256
@@ -93,7 +93,7 @@ model "closed_loop_avg_rectifier" {
             inductance = "L"
         }
         [
-            position = 9112, 8260
+            position = 9148, 8260
             hide_name = True
         ]
 
@@ -101,7 +101,7 @@ model "closed_loop_avg_rectifier" {
             inductance = "L"
         }
         [
-            position = 9112, 8356
+            position = 9148, 8356
             hide_name = True
         ]
 
@@ -109,14 +109,14 @@ model "closed_loop_avg_rectifier" {
             inductance = "L"
         }
         [
-            position = 9112, 8452
+            position = 9148, 8452
             hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 9456, 8420
+            position = 9492, 8420
             hide_name = True
         ]
 
@@ -124,7 +124,7 @@ model "closed_loop_avg_rectifier" {
             resistance = "R"
         }
         [
-            position = 9000, 8260
+            position = 9036, 8260
             hide_name = True
         ]
 
@@ -132,7 +132,7 @@ model "closed_loop_avg_rectifier" {
             resistance = "R"
         }
         [
-            position = 9000, 8356
+            position = 9036, 8356
             hide_name = True
         ]
 
@@ -140,14 +140,15 @@ model "closed_loop_avg_rectifier" {
             resistance = "R"
         }
         [
-            position = 9000, 8452
+            position = 9036, 8452
             hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1 {
+            execution_rate = "T_plant"
         }
         [
-            position = 8600, 8300
+            position = 8636, 8300
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -155,9 +156,10 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp2 {
+            execution_rate = "T_plant"
         }
         [
-            position = 8652, 8396
+            position = 8688, 8396
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -165,9 +167,10 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp3 {
+            execution_rate = "T_plant"
         }
         [
-            position = 8704, 8508
+            position = 8740, 8508
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -177,7 +180,7 @@ model "closed_loop_avg_rectifier" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 8652, 8584
+            position = 8688, 8584
             hide_name = True
         ]
 
@@ -185,7 +188,7 @@ model "closed_loop_avg_rectifier" {
             Ts = "T_meas"
         }
         [
-            position = 9224, 8356
+            position = 9260, 8356
             scale = -1, 1
             size = 56, 240
         ]
@@ -193,7 +196,7 @@ model "closed_loop_avg_rectifier" {
         component "core/Ground" gnd3 {
         }
         [
-            position = 9224, 8528
+            position = 9260, 8528
             hide_name = True
         ]
 
@@ -201,14 +204,14 @@ model "closed_loop_avg_rectifier" {
             Ts = "T_meas"
         }
         [
-            position = 8876, 8356
+            position = 8912, 8356
             size = 56, 240
         ]
 
         component "core/Ground" gnd5 {
         }
         [
-            position = 8876, 8528
+            position = 8912, 8528
             hide_name = True
         ]
 
@@ -657,6 +660,33 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
+        component "core/Rate Transition" "Rate Transition3" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8568, 8344
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition4" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8568, 8396
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition5" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8568, 8456
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -1018,7 +1048,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9300, 8204
+            position = 9336, 8204
             hide_name = True
             size = 108, 20
         ]
@@ -1042,7 +1072,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8780, 8204
+            position = 8816, 8204
             rotation = down
             hide_name = True
             size = 116, 20
@@ -1064,7 +1094,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction1 pe
         [
-            position = 8652, 8552
+            position = 8688, 8552
         ]
 
         junction Junction12 sp
@@ -1179,7 +1209,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction1 gnd2.node as Connection13
         connect Vsp1.n_node Junction1 as Connection15
         [
-            breakpoints = 8600, 8552; 8652, 8552
+            breakpoints = 8636, 8552; 8688, 8552
         ]
         connect L1.n_node "Grid Meter.A-" as Connection21
         connect "Grid Meter.A+" Vs1.a_node as Connection22
@@ -1196,7 +1226,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rectifier Meter.C-" R3.p_node as Connection56
         connect Vsp3.n_node Junction1 as Connection60
         [
-            breakpoints = 8700, 8552
+            breakpoints = 8736, 8552
         ]
         connect gnd5.node "Rectifier Meter.GND" as Connection61
         connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
@@ -1204,12 +1234,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
         connect From5 "dq to abc1.wt" as Connection122
         connect Constant1.out "dq to abc1.zero_input" as Connection123
-        connect "dq to abc1.phase_b" Vsp2.in as Connection127
-        connect "dq to abc1.phase_a" Vsp1.in as Connection128
-        connect "dq to abc1.phase_c" Vsp3.in as Connection129
-        [
-            breakpoints = 8568, 8420; 8568, 8508
-        ]
         connect From9 Sum1.in1 as Connection145
         connect Constant5.out Sum2.in as Connection152
         connect From10 Sum2.in1 as Connection153
@@ -1337,6 +1361,12 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition1.out" "Meter Split1.Input" as Connection315
         connect "Meter Split2.Input" "Rate Transition2.out" as Connection316
         connect "Rate Transition2.in" From19 as Connection317
+        connect "dq to abc1.phase_a" "Rate Transition3.in" as Connection318
+        connect "Rate Transition3.out" Vsp1.in as Connection319
+        connect "dq to abc1.phase_b" "Rate Transition4.in" as Connection320
+        connect "Rate Transition4.out" Vsp2.in as Connection321
+        connect Vsp3.in "Rate Transition5.out" as Connection322
+        connect "Rate Transition5.in" "dq to abc1.phase_c" as Connection323
     }
 
     default {
