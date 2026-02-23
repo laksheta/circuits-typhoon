@@ -1,6 +1,6 @@
 import numpy as np
 
-
+T_plant = 1e-6
 T_meas   = 1e-6
 T_sine   = 1e-6
 T_controller = 1e-6
