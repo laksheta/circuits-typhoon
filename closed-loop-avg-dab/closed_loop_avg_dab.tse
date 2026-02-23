@@ -570,6 +570,15 @@ model "closed_loop_avg_dab" {
             size = 32, 32
         ]
 
+        component "core/Rate Transition" "Rate Transition15" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8960, 8060
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag Goto1 {
             value = "V_1"
             scope = local
@@ -614,7 +623,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8944, 8064
+            position = 8884, 8060
             hide_name = True
             size = 60, 20
         ]
@@ -928,7 +937,6 @@ model "closed_loop_avg_dab" {
         connect Vsp1asd1.p_node i_L.n_node as Connection12
         connect i_L.p_node Junction2 as Connection13
         connect Goto2 i_L.out as Connection23
-        connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
         connect Integrator1.in Gain1.out as Connection60
@@ -1018,6 +1026,8 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition13.in" Junction11 as Connection251
         connect I_load.in "Rate Transition14.out" as Connection252
         connect "Rate Transition14.in" Junction9 as Connection253
+        connect From1 "Rate Transition15.in" as Connection254
+        connect "Rate Transition15.out" Product1.in as Connection255
     }
 
     logically_deleted {
