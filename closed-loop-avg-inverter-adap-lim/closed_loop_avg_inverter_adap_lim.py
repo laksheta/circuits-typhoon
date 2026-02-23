@@ -11,6 +11,7 @@ if 'info' not in globals():
 sig_select = [1]
 
 T_plant = 0.1e-6
+T_math = 1e-6
 T_meas = 1e-6
 tau = 1e-3
 
