@@ -1,7 +1,7 @@
 import numpy as np
 
 
-exec_meas   = 1e-6
+T_meas   = 1e-6
 exec_sine   = 1e-6
 exec_controller = 1e-6
 
