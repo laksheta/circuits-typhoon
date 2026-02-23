@@ -287,7 +287,7 @@ model "closed_loop_avg_dab" {
         component "core/Triangular Wave Source" "Triangular Wave Source3" {
             duty_cycle = "0"
             execution_rate = "T_wave"
-            frequency = "10e3"
+            frequency = "fsw"
             max_val = "1"
             min_val = "0"
         }
@@ -495,9 +495,10 @@ model "closed_loop_avg_dab" {
         ]
 
         component "core/Probe" PI_out {
+            execution_rate = "T_meas"
         }
         [
-            position = 8376, 8716
+            position = 8376, 8692
             rotation = left
         ]
 
@@ -575,6 +576,35 @@ model "closed_loop_avg_dab" {
         }
         [
             position = 8960, 8060
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition16" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 7972, 8344
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition17" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8428, 8348
+            hide_name = True
+            scale = -1, 1
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition18" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8376, 8744
+            rotation = left
             hide_name = True
             size = 32, 32
         ]
@@ -767,7 +797,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 7952, 8344
+            position = 7916, 8344
             hide_name = True
             size = 60, 20
         ]
@@ -779,7 +809,7 @@ model "closed_loop_avg_dab" {
             direction = out
         }
         [
-            position = 8460, 8348
+            position = 8488, 8348
             rotation = down
             hide_name = True
             size = 60, 20
@@ -849,7 +879,7 @@ model "closed_loop_avg_dab" {
 
         junction Junction23 sp
         [
-            position = 8008, 8344
+            position = 7992, 8344
         ]
 
         junction Junction24 sp
@@ -993,13 +1023,11 @@ model "closed_loop_avg_dab" {
         [
             breakpoints = 8008, 8348
         ]
-        connect From11 Junction23 as Connection218
         connect "Rate Transition1.in" Junction24 as Connection219
         connect Junction24 Vsp1asd1.in as Connection220
         [
             breakpoints = 8408, 8352
         ]
-        connect From12 Junction24 as Connection221
         connect "Rate Transition1.out" "V_2\'.in" as Connection222
         connect "Rate Transition2.out" V_1.in as Connection223
         connect Goto1 Offset1.out as Connection224
@@ -1010,7 +1038,6 @@ model "closed_loop_avg_dab" {
         connect Sum2.out "PID controller1.in" as Connection231
         connect Gain4.out Junction25 as Connection234
         connect Junction25 Product6.in as Connection235
-        connect PI_out.in Junction25 as Connection236
         connect V_out_ref.out Sum2.in as Connection237
         connect reset_PI.out "PID controller1.reset" as Connection238
         connect "PID controller1.out" Gain4.in as Connection239
@@ -1028,6 +1055,12 @@ model "closed_loop_avg_dab" {
         connect "Rate Transition14.in" Junction9 as Connection253
         connect From1 "Rate Transition15.in" as Connection254
         connect "Rate Transition15.out" Product1.in as Connection255
+        connect From11 "Rate Transition16.in" as Connection256
+        connect "Rate Transition16.out" Junction23 as Connection257
+        connect From12 "Rate Transition17.in" as Connection258
+        connect "Rate Transition17.out" Junction24 as Connection259
+        connect PI_out.in "Rate Transition18.out" as Connection260
+        connect "Rate Transition18.in" Junction25 as Connection261
     }
 
     logically_deleted {
