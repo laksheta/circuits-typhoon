@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1
 //
 
 model "closed_loop_avg_inverter_adap_lim" {
@@ -82,7 +82,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             inductance = "L"
         }
         [
-            position = 8756, 8036
+            position = 8752, 8036
             hide_name = True
         ]
 
@@ -90,7 +90,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             inductance = "L"
         }
         [
-            position = 8756, 8132
+            position = 8752, 8132
             hide_name = True
         ]
 
@@ -98,14 +98,14 @@ model "closed_loop_avg_inverter_adap_lim" {
             inductance = "L"
         }
         [
-            position = 8756, 8228
+            position = 8752, 8228
             hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 8208, 8420
+            position = 8204, 8420
             hide_name = True
         ]
 
@@ -113,7 +113,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             resistance = "R"
         }
         [
-            position = 8884, 8036
+            position = 8880, 8036
             hide_name = True
         ]
 
@@ -121,7 +121,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             resistance = "R"
         }
         [
-            position = 8884, 8132
+            position = 8880, 8132
             hide_name = True
         ]
 
@@ -129,7 +129,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             resistance = "R"
         }
         [
-            position = 8884, 8228
+            position = 8880, 8228
             hide_name = True
         ]
 
@@ -141,7 +141,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             VCA = "True"
         }
         [
-            position = 9056, 8132
+            position = 9052, 8132
             size = 56, 240
         ]
 
@@ -150,7 +150,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             init_rms_value = "V_rms"
         }
         [
-            position = 9200, 8132
+            position = 9196, 8132
             scale = -1, 1
             size = 62, 256
         ]
@@ -158,54 +158,60 @@ model "closed_loop_avg_inverter_adap_lim" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 9140, 8328
+            position = 9136, 8328
             hide_name = True
         ]
 
         component "core/Three phase PLL" "Three phase PLL" {
             enable_sin = "False"
             enable_zero = "False"
+            execution_rate = "T_meas"
             initial_filter_output = "50"
         }
         [
-            position = 8440, 7848
+            position = 8140, 7724
             size = 64, 128
         ]
 
         component "core/Bus Split" "Bus Split2" {
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
-            position = 8332, 7848
+            position = 8032, 7724
             hide_name = True
         ]
 
         component "core/abc to dq" "abc to dq" {
+            execution_rate = "T_meas"
         }
         [
-            position = 8828, 7844
+            position = 8524, 7748
             size = 48, 80
         ]
 
         component "core/Bus Split" "Bus Split3" {
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
-            position = 8732, 7836
+            position = 8428, 7740
             hide_name = True
         ]
 
-        component "core/Probe" d {
+        component "core/Probe" i_d {
+            execution_rate = "T_meas"
         }
         [
-            position = 8880, 7728
+            position = 8528, 7628
             rotation = left
         ]
 
-        component "core/Probe" q {
+        component "core/Probe" i_q {
+            execution_rate = "T_meas"
         }
         [
-            position = 8940, 7732
+            position = 8600, 7628
             rotation = left
         ]
 
@@ -219,7 +225,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             VCn = "False"
         }
         [
-            position = 8588, 8132
+            position = 8584, 8132
             size = 56, 240
         ]
 
@@ -229,30 +235,33 @@ model "closed_loop_avg_inverter_adap_lim" {
             ic = "True"
         }
         [
-            position = 9180, 7892
+            position = 8904, 7732
             size = 96, 112
         ]
 
         component "core/Bus Join" "Bus Join1" {
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
-            position = 9312, 7844
+            position = 9036, 7684
             hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join2" {
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
-            position = 9312, 7928
+            position = 9036, 7768
             hide_name = True
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1 {
+            execution_rate = "T_plant"
         }
         [
-            position = 8148, 8076
+            position = 8144, 8076
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -260,9 +269,10 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp2 {
+            execution_rate = "T_plant"
         }
         [
-            position = 8208, 8172
+            position = 8204, 8172
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -270,9 +280,10 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp3 {
+            execution_rate = "T_plant"
         }
         [
-            position = 8268, 8276
+            position = 8264, 8276
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -280,114 +291,120 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/dq to abc" "dq to abc" {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
         }
         [
-            position = 7580, 8168
+            position = 7476, 8204
             size = 48, 80
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "u_d"
         }
         [
-            position = 7216, 8068
+            position = 7112, 8104
             hide_name = True
         ]
 
         component "core/Constant" Constant2 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "u_q"
         }
         [
-            position = 7216, 8136
+            position = 7112, 8172
             hide_name = True
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "0"
         }
         [
-            position = 7404, 8216
+            position = 7300, 8252
             hide_name = True
         ]
 
-        component "core/PID controller" i_d {
+        component "core/PID controller" PI_i_d {
             controller_type = "PI"
+            execution_rate = "T_math"
             ki = "Ki_i"
             kp = "Kp_i"
         }
         [
-            position = 7148, 8100
+            position = 7044, 8136
         ]
 
-        component "core/PID controller" i_q {
+        component "core/PID controller" PI_i_q {
             controller_type = "PI"
+            execution_rate = "T_math"
             ki = "Ki_i"
             kp = "Kp_i"
         }
         [
-            position = 7148, 8168
+            position = 7044, 8204
         ]
 
         component "core/Bus Join" "Bus Join3" {
+            execution_rate = "T_math"
         }
         [
-            position = 7300, 8088
+            position = 7196, 8124
             hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join4" {
+            execution_rate = "T_math"
         }
         [
-            position = 7300, 8160
+            position = 7196, 8196
             hide_name = True
         ]
 
         component "core/Sum" Sum1 {
+            execution_rate = "T_math"
             signs = "+-"
         }
         [
-            position = 7032, 8100
+            position = 6928, 8136
             hide_name = True
         ]
 
         component "core/Sum" Sum2 {
+            execution_rate = "T_math"
             signs = "+-"
         }
         [
-            position = 7032, 8168
+            position = 6928, 8204
             hide_name = True
         ]
 
         component "core/Constant" Constant4 {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             value = "0"
         }
         [
-            position = 6848, 8160
+            position = 6744, 8196
             hide_name = True
         ]
 
         component "core/Probe" u_d {
         }
         [
-            position = 7468, 8016
+            position = 7364, 8052
             rotation = left
         ]
 
         component "core/Probe" u_q {
         }
         [
-            position = 7508, 8056
+            position = 7404, 8092
             rotation = left
         ]
 
         component "core/SCADA Input" scada_i_d {
             def_value = "10"
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             format = "int"
             max = "100"
             min = "-100"
@@ -395,44 +412,49 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 6844, 8072
+            position = 6740, 8108
         ]
 
         component "core/Gain" Gain1 {
+            execution_rate = "T_math"
             gain = "0.5"
         }
         [
-            position = 7308, 7840
+            position = 7172, 7964
             hide_name = True
         ]
 
         component "core/Gain" Gain2 {
+            execution_rate = "T_math"
             gain = "-0.5"
         }
         [
-            position = 7308, 7880
+            position = 7172, 8004
             hide_name = True
         ]
 
         component "core/Bus Selector" "Bus Selector1" {
+            execution_rate = "T_math"
             signal_indexes = "[1]"
         }
         [
-            position = 7396, 8088
+            position = 7292, 8124
             hide_name = True
         ]
 
         component "core/Bus Selector" "Bus Selector2" {
+            execution_rate = "T_math"
             signal_indexes = "[1]"
         }
         [
-            position = 7396, 8160
+            position = 7292, 8196
             hide_name = True
         ]
 
         component Subsystem Adap_Limiter {
             layout = dynamic
             component "core/Min Max" "Min Max1" {
+                execution_rate = "T_math"
             }
             [
                 position = 8128, 8192
@@ -440,6 +462,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             ]
 
             component "core/Min Max" "Min Max2" {
+                execution_rate = "T_math"
                 operation = "max"
             }
             [
@@ -506,13 +529,14 @@ model "closed_loop_avg_inverter_adap_lim" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 8000, 8076
+            position = 7996, 8076
             size = 80, 64
         ]
 
         component Subsystem Adap_Limiter_1 {
             layout = dynamic
             component "core/Min Max" "Min Max1" {
+                execution_rate = "T_math"
             }
             [
                 position = 8128, 8192
@@ -520,6 +544,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             ]
 
             component "core/Min Max" "Min Max2" {
+                execution_rate = "T_math"
                 operation = "max"
             }
             [
@@ -586,13 +611,14 @@ model "closed_loop_avg_inverter_adap_lim" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 8000, 8172
+            position = 7996, 8172
             size = 80, 64
         ]
 
         component Subsystem Adap_Limiter_2 {
             layout = dynamic
             component "core/Min Max" "Min Max1" {
+                execution_rate = "T_math"
             }
             [
                 position = 8128, 8192
@@ -600,6 +626,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             ]
 
             component "core/Min Max" "Min Max2" {
+                execution_rate = "T_math"
                 operation = "max"
             }
             [
@@ -666,18 +693,83 @@ model "closed_loop_avg_inverter_adap_lim" {
             connect "Min Max2.in" "Min Max1.out" as Connection192
         }
         [
-            position = 8000, 8276
+            position = 7996, 8276
             size = 80, 64
         ]
 
         component "core/SCADA Input" dc_input {
-            execution_rate = "inherit"
+            execution_rate = "T_math"
             max = "1e3"
             min = "-1000"
             unit = ""
         }
         [
-            position = 7216, 7860
+            position = 7080, 7984
+        ]
+
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8080, 8076
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8084, 8172
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition3" {
+            execution_rate = "T_plant"
+        }
+        [
+            position = 8084, 8276
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition4" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 7364, 8096
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition5" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 7404, 8140
+            rotation = left
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition6" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8640, 7704
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition7" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 8640, 7760
+            hide_name = True
+            size = 32, 32
         ]
 
         tag From1 {
@@ -687,7 +779,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 8236, 7848
+            position = 7936, 7724
             hide_name = True
             size = 60, 20
         ]
@@ -699,7 +791,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 8544, 7864
+            position = 8244, 7740
             hide_name = True
             size = 60, 20
         ]
@@ -711,7 +803,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 8732, 7892
+            position = 8428, 7796
             hide_name = True
             size = 60, 20
         ]
@@ -723,7 +815,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 8636, 7836
+            position = 8332, 7740
             hide_name = True
             size = 60, 20
         ]
@@ -735,7 +827,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 9400, 7844
+            position = 9124, 7684
             hide_name = True
             size = 60, 20
         ]
@@ -747,7 +839,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 9400, 7928
+            position = 9124, 7768
             hide_name = True
             size = 60, 20
         ]
@@ -759,7 +851,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7484, 8208
+            position = 7380, 8244
             hide_name = True
             size = 60, 20
         ]
@@ -771,7 +863,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 8992, 7820
+            position = 8696, 7704
             hide_name = True
             size = 60, 20
         ]
@@ -783,7 +875,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 8992, 7844
+            position = 8700, 7760
             hide_name = True
             size = 60, 20
         ]
@@ -795,7 +887,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 6916, 8128
+            position = 6812, 8164
             hide_name = True
             size = 60, 20
         ]
@@ -807,7 +899,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 6916, 8196
+            position = 6812, 8232
             hide_name = True
             size = 60, 20
         ]
@@ -819,7 +911,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7404, 7840
+            position = 7268, 7964
             hide_name = True
             size = 60, 20
         ]
@@ -831,7 +923,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7404, 7880
+            position = 7268, 8004
             hide_name = True
             size = 60, 20
         ]
@@ -843,7 +935,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7668, 8144
+            position = 7564, 8180
             hide_name = True
             size = 60, 20
         ]
@@ -855,7 +947,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7668, 8168
+            position = 7564, 8204
             hide_name = True
             size = 60, 20
         ]
@@ -867,7 +959,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7668, 8192
+            position = 7564, 8228
             hide_name = True
             size = 60, 20
         ]
@@ -879,7 +971,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7896, 7948
+            position = 7892, 7948
             rotation = right
             hide_name = True
             size = 60, 20
@@ -892,7 +984,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7920, 7948
+            position = 7916, 7948
             rotation = right
             hide_name = True
             size = 60, 20
@@ -905,7 +997,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7840, 8060
+            position = 7836, 8060
             hide_name = True
             size = 60, 20
         ]
@@ -917,7 +1009,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7840, 8156
+            position = 7836, 8156
             hide_name = True
             size = 60, 20
         ]
@@ -929,69 +1021,123 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7840, 8260
+            position = 7836, 8260
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto12 {
+            value = "Grid_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9132, 7964
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From14 {
+            value = "Grid_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8784, 7732
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction2 pe
         [
-            position = 9136, 8288
+            position = 9132, 8288
         ]
 
         junction Junction3 pe
         [
-            position = 8208, 8352
+            position = 8204, 8352
         ]
 
         junction Junction4 pe
         [
-            position = 8268, 8352
-        ]
-
-        junction Junction5 sp
-        [
-            position = 8940, 7844
-        ]
-
-        junction Junction6 sp
-        [
-            position = 8880, 7820
+            position = 8264, 8352
         ]
 
         junction Junction13 sp
         [
-            position = 7508, 8160
+            position = 7404, 8196
         ]
 
         junction Junction14 sp
         [
-            position = 7468, 8088
+            position = 7364, 8124
         ]
 
         junction Junction15 sp
         [
-            position = 7920, 8076
+            position = 7916, 8076
         ]
 
         junction Junction16 sp
         [
-            position = 7920, 8172
+            position = 7916, 8172
         ]
 
         junction Junction17 sp
         [
-            position = 7896, 8092
+            position = 7892, 8092
         ]
 
         junction Junction18 sp
         [
-            position = 7896, 8188
+            position = 7892, 8188
         ]
 
         junction Junction19 sp
         [
-            position = 7272, 7860
+            position = 7136, 7984
+        ]
+
+        junction Junction20 sp
+        [
+            position = 8568, 7724
+        ]
+
+        junction Junction21 sp
+        [
+            position = 8600, 7748
+        ]
+
+        scheme_area Area1 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
+        }
+        [
+            position = 8520, 8152
+            size = 1556, 584
+            background_color = #0e55007f
+            box_outline = True
+        ]
+
+        scheme_area Area2 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
+        }
+        [
+            position = 8516, 7696
+            size = 1556, 264
+            background_color = #0eff5500
+            box_outline = True
+        ]
+
+        scheme_area Area3 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
+        }
+        [
+            position = 7148, 8088
+            size = 944, 428
+            background_color = #0e55ff00
+            box_outline = True
         ]
 
         connect R1.p_node L1.n_node as Connection13
@@ -1010,7 +1156,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect U_grid.n_node Junction2 as Connection58
         connect Junction2 gnd2.node as Connection59
         [
-            breakpoints = 9140, 8288
+            breakpoints = 9136, 8288
         ]
         connect "Bus Split3.out1" "abc to dq.vb" as Connection72
         connect "abc to dq.vc" "Bus Split3.out2" as Connection73
@@ -1019,15 +1165,14 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect "Inverter Measurement.A-" L1.p_node as Connection79
         connect "Grid Measurement.GND" Junction2 as Connection92
         [
-            breakpoints = 9056, 8284
+            breakpoints = 9052, 8284
         ]
         connect R1.n_node "Grid Measurement.A+" as Connection93
         connect R2.n_node "Grid Measurement.B+" as Connection94
         connect R3.n_node "Grid Measurement.C+" as Connection95
-        connect "Meter Split.Input" "Grid Measurement.Out" as Connection96
         connect Goto2 "Three phase PLL.theta" as Connection97
         [
-            breakpoints = 8496, 7864
+            breakpoints = 8196, 7740
         ]
         connect "Meter Split.IA" "Bus Join2.in" as Connection98
         connect "Meter Split.IB" "Bus Join2.in1" as Connection99
@@ -1045,63 +1190,52 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Junction3 Junction4 as Connection113
         connect Junction4 "Inverter Measurement.GND" as Connection114
         [
-            breakpoints = 8320, 8352; 8404, 8352
+            breakpoints = 8316, 8352; 8400, 8352
         ]
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
         connect From5 "dq to abc.wt" as Connection124
         connect Constant3.out "dq to abc.zero_input" as Connection131
         [
-            breakpoints = 7436, 8200; 7436, 8176
+            breakpoints = 7332, 8236; 7332, 8212
         ]
         connect Constant1.out "Bus Join3.in" as Connection136
-        connect i_d.out "Bus Join3.in1" as Connection137
+        connect PI_i_d.out "Bus Join3.in1" as Connection137
         connect Constant2.out "Bus Join4.in" as Connection138
-        connect i_q.out "Bus Join4.in1" as Connection139
-        connect Sum1.out i_d.in as Connection140
-        connect Sum2.out i_q.in as Connection141
-        connect "abc to dq.q_axis" Junction5 as Connection142
-        connect Junction5 q.in as Connection143
-        connect Goto6 Junction5 as Connection144
-        connect "abc to dq.d_axis" Junction6 as Connection145
-        connect Junction6 d.in as Connection146
-        connect Goto5 Junction6 as Connection147
+        connect PI_i_q.out "Bus Join4.in1" as Connection139
+        connect Sum1.out PI_i_d.in as Connection140
+        connect Sum2.out PI_i_q.in as Connection141
         connect From6 Sum1.in1 as Connection148
         connect From7 Sum2.in1 as Connection149
         connect Constant4.out Sum2.in as Connection151
         connect scada_i_d.out Sum1.in as Connection168
         [
-            breakpoints = 6980, 8072; 6980, 8092
+            breakpoints = 6876, 8108; 6876, 8128
         ]
         connect Gain1.out Goto7 as Connection179
         connect Goto8 Gain2.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
         connect "Bus Selector2.in" "Bus Join4.out" as Connection207
-        connect u_q.in Junction13 as Connection208
         connect Junction13 "dq to abc.q_input" as Connection209
         [
-            breakpoints = 7508, 8160
+            breakpoints = 7404, 8196
         ]
         connect "Bus Selector2.out" Junction13 as Connection210
-        connect u_d.in Junction14 as Connection211
         connect Junction14 "dq to abc.d_input" as Connection212
         [
-            breakpoints = 7468, 8088
+            breakpoints = 7364, 8124
         ]
         connect "Bus Selector1.out" Junction14 as Connection213
         connect "dq to abc.phase_a" Goto9 as Connection214
         connect "dq to abc.phase_b" Goto10 as Connection215
         connect "dq to abc.phase_c" Goto11 as Connection216
-        connect Adap_Limiter.Out Vsp1.in as Connection217
-        connect Adap_Limiter_1.Out Vsp2.in as Connection218
-        connect Adap_Limiter_2.Out Vsp3.in as Connection219
         connect From11 Adap_Limiter.In as Connection222
         connect From13 Adap_Limiter_2.In as Connection223
         connect From12 Adap_Limiter_1.In as Connection224
         connect From10 Junction15 as Connection225
         connect Junction15 Adap_Limiter.low_lim as Connection226
         [
-            breakpoints = 7920, 8076; 7944, 8076
+            breakpoints = 7916, 8076; 7940, 8076
         ]
         connect Adap_Limiter_1.low_lim Junction16 as Connection228
         connect Junction16 Junction15 as Connection229
@@ -1114,11 +1248,35 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Gain1.in Junction19 as Connection238
         connect Junction19 Gain2.in as Connection239
         connect dc_input.out Junction19 as Connection240
+        connect Goto12 "Grid Measurement.Out" as Connection241
+        connect From14 "Meter Split.Input" as Connection242
+        connect Adap_Limiter.Out "Rate Transition1.in" as Connection243
+        connect "Rate Transition1.out" Vsp1.in as Connection244
+        connect Adap_Limiter_1.Out "Rate Transition2.in" as Connection245
+        connect "Rate Transition2.out" Vsp2.in as Connection246
+        connect Adap_Limiter_2.Out "Rate Transition3.in" as Connection247
+        connect "Rate Transition3.out" Vsp3.in as Connection248
+        connect u_d.in "Rate Transition4.out" as Connection249
+        connect "Rate Transition4.in" Junction14 as Connection250
+        connect u_q.in "Rate Transition5.out" as Connection251
+        connect "Rate Transition5.in" Junction13 as Connection252
+        connect Junction20 "abc to dq.d_axis" as Connection255
+        connect i_d.in Junction20 as Connection256
+        [
+            breakpoints = 8532, 7676
+        ]
+        connect i_q.in Junction21 as Connection258
+        connect Junction21 "abc to dq.q_axis" as Connection259
+        connect Goto5 "Rate Transition6.out" as Connection261
+        connect "Rate Transition6.in" Junction20 as Connection262
+        connect Goto6 "Rate Transition7.out" as Connection263
+        connect "Rate Transition7.in" Junction21 as Connection264
     }
 
     default {
         "core/Bus Join" {
             inputs = "2"
+            force_tml = "True"
             execution_rate = "inherit"
         }
 
@@ -1142,7 +1300,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         "core/Gain" {
             gain = "1"
             multiplication = "Element-wise(K.*u)"
-            tml_file = "gen_gain"
+            force_tml = "True"
             _tunable = "False"
             execution_rate = "inherit"
         }
@@ -1263,6 +1421,12 @@ model "closed_loop_avg_inverter_adap_lim" {
             power_pfa = "False"
             power_pfb = "False"
             power_pfc = "False"
+        }
+
+        "core/Rate Transition" {
+            init_value = "0.0"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'generic\']"
         }
 
         "core/Signal Controlled Voltage Source" {
