@@ -398,7 +398,7 @@ model "closed_loop_avg_rectifier" {
             arb_defs = "/*Begin code section*/
 
 /*End code section*/"
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             init_fnc = "/*Begin code section*/
 
 /*End code section*/"
@@ -430,7 +430,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Meter Split" "Meter Split1" {
         }
         [
-            position = 9260, 7788
+            position = 9304, 7788
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -438,11 +438,11 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join1" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
-            position = 9384, 7788
+            position = 9428, 7788
             hide_name = True
         ]
 
@@ -452,7 +452,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ic = "True"
         }
         [
-            position = 9264, 7936
+            position = 9308, 7936
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -460,16 +460,16 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join2" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
-            position = 9384, 7880
+            position = 9428, 7880
             hide_name = True
         ]
 
         component "core/Bus Join" "Bus Join3" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
@@ -478,7 +478,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_dc {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 8716, 7764
@@ -524,7 +524,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split2" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             outputs = "7"
         }
         [
@@ -533,16 +533,16 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join4" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             inputs = "3"
         }
         [
-            position = 9384, 7992
+            position = 9428, 7992
             hide_name = True
         ]
 
         component "core/Bus Split" "Bus Split3" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
@@ -551,7 +551,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split4" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
@@ -560,6 +560,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_d {
+            execution_rate = "T_meas"
         }
         [
             position = 9008, 7628
@@ -568,6 +569,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Three phase PLL" "Three phase PLL" {
             enable_sin = "False"
             enable_zero = "False"
+            execution_rate = "T_meas"
             initial_filter_output = "50"
         }
         [
@@ -576,6 +578,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/abc to dq" "abc to dq" {
+            execution_rate = "T_meas"
         }
         [
             position = 8908, 7704
@@ -584,13 +587,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_q {
+            execution_rate = "T_meas"
         }
         [
             position = 9008, 7752
         ]
 
         component "core/Bus Split" "Bus Split5" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             outputs = "3"
         }
         [
@@ -599,12 +603,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" V_d {
+            execution_rate = "T_meas"
         }
         [
             position = 9012, 7896
         ]
 
         component "core/abc to dq" "abc to dq1" {
+            execution_rate = "T_meas"
         }
         [
             position = 8908, 7920
@@ -613,6 +619,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" V_q {
+            execution_rate = "T_meas"
         }
         [
             position = 9012, 7952
@@ -735,7 +742,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9468, 7788
+            position = 9512, 7788
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -749,7 +756,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9468, 7880
+            position = 9512, 7880
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -811,7 +818,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9468, 7992
+            position = 9512, 7992
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -1140,8 +1147,8 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
         }
         [
-            position = 8916, 7792
-            size = 1232, 596
+            position = 8948, 7780
+            size = 1296, 572
             background_color = #0eff0000
             box_outline = True
         ]
@@ -1238,7 +1245,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
         connect "Meter Split2.VCn" "Bus Join4.in2" as Connection116
         [
-            breakpoints = 9328, 7944; 9328, 8008
+            breakpoints = 9372, 7944; 9372, 8008
         ]
         connect "Bus Split3.in" From4 as Connection117
         connect "Bus Split3.out1" "Three phase PLL.vb" as Connection204
@@ -1277,11 +1284,11 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From15 "Bus Join3.in2" as Connection255
         connect "Bus Join1.in" "Meter Split1.VAn" as Connection256
         [
-            breakpoints = 9324, 7776
+            breakpoints = 9368, 7776
         ]
         connect "Bus Join1.in2" "Meter Split1.VCn" as Connection257
         [
-            breakpoints = 9336, 7800
+            breakpoints = 9380, 7800
         ]
         connect Goto7 Junction28 as Connection290
         connect Junction28 "abc to dq.d_axis" as Connection291
