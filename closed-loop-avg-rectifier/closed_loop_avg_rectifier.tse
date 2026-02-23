@@ -182,7 +182,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Three-phase Meter" "Grid Meter" {
-            Ts = "exec_meas"
+            Ts = "T_meas"
         }
         [
             position = 9224, 8356
@@ -198,7 +198,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Three-phase Meter" "Rectifier Meter" {
-            Ts = "exec_meas"
+            Ts = "T_meas"
         }
         [
             position = 8876, 8356
@@ -213,7 +213,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/dq to abc" "dq to abc1" {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 8496, 8396
@@ -222,7 +222,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             value = "0"
         }
         [
@@ -231,7 +231,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Constant" Constant2 {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             value = "u_d"
         }
         [
@@ -240,7 +240,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             value = "u_q"
         }
         [
@@ -274,7 +274,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Probe" u_d_pi {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 8204, 8356
@@ -324,7 +324,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Probe" u_q_pi {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 8188, 8548
@@ -340,7 +340,7 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Probe" u_d_error {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 7980, 8320
@@ -381,14 +381,14 @@ model "closed_loop_avg_rectifier" {
         ]
 
         component "core/Probe" u_q_error {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 7956, 8564
         ]
 
         component "core/Probe" V_out_error {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 7652, 8304
@@ -514,7 +514,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Voltage Measurement" V_out {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
             sig_output = "True"
         }
         [
@@ -633,7 +633,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_d_req {
-            execution_rate = "exec_meas"
+            execution_rate = "T_meas"
         }
         [
             position = 7876, 8236
