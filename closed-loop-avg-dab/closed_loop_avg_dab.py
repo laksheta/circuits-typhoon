@@ -3,7 +3,7 @@ import numpy as np
 fsw = 10e3
 T = 1/fsw
 
-T_meas = 0.1e-6
+T_meas = 1e-6
 T_wave  = 1e-6  
 T_math  = 0.1e-6
 T_delay = 1e-6
