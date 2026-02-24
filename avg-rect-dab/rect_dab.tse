@@ -1002,6 +1002,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Signal Controlled Current Source" Isp1 {
+            execution_rate = "T_plant_rect"
         }
         [
             position = 5972, 7096
@@ -1295,6 +1296,15 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 5776, 7552
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition24" {
+            execution_rate = "T_plant_rect"
+        }
+        [
+            position = 5928, 7096
             hide_name = True
             size = 32, 32
         ]
@@ -1708,7 +1718,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 5896, 7096
+            position = 5864, 7096
             hide_name = True
             size = 60, 20
         ]
@@ -2382,7 +2392,6 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 6776, 7008; 6744, 7008
         ]
         connect "C function1.in" "Bus Join3.out" as Connection86
-        connect Isp1.in From3 as Connection91
         connect Isp1.n_node Junction4 as Connection94
         [
             breakpoints = 5972, 7164
@@ -2508,6 +2517,8 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From12 "Rate Transition23.in" as Connection387
         connect "Rate Transition23.out" Sum3.in1 as Connection388
         connect Constant7.out Goto19 as Connection389
+        connect Isp1.in "Rate Transition24.out" as Connection390
+        connect "Rate Transition24.in" From3 as Connection391
     }
 
     logically_deleted {
