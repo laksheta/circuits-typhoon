@@ -770,7 +770,7 @@ model "dab_inv" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp1 {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_inv"
         }
         [
             position = 11880, 7384
@@ -781,7 +781,7 @@ model "dab_inv" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp2 {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_inv"
         }
         [
             position = 11940, 7480
@@ -792,7 +792,7 @@ model "dab_inv" {
         ]
 
         component "core/Signal Controlled Voltage Source" Vsp3 {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_inv"
         }
         [
             position = 12000, 7584
@@ -1221,7 +1221,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition11" {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_inv"
         }
         [
             position = 11816, 7384
@@ -1230,7 +1230,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition12" {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_inv"
         }
         [
             position = 11820, 7480
@@ -1239,7 +1239,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition3" {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_inv"
         }
         [
             position = 11820, 7584
