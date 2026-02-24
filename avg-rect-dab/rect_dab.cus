@@ -41,7 +41,7 @@ SETTINGS_DIR = get_settings_dir_path()
                     <use_label>False</use_label>
                     <appearance><![CDATA[Flat]]></appearance>
                     <state>Capture</state>
-                    <layout></layout>
+                    <layout>None</layout>
                     <virtual_signals_definitions>
                     </virtual_signals_definitions>
                     <presets>
@@ -49,45 +49,21 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
                             <time_interval>0.1</time_interval>
-                            <sample_rate>10000000</sample_rate>
+                            <sample_rate>10000000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
                             <analog_signals>
-                                <analog>
-                                    <channel>0</channel>
-                                    <name><![CDATA[V_out_rect]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>1</channel>
-                                    <name><![CDATA[V_out_dab]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>1</row>
-                                    <viewports>
-                                        <num_viewport>2</num_viewport>
-                                   </viewports>
-                               </analog>
                             </analog_signals>
                             <digital_signals>
                             </digital_signals>
                             <virtual_signals>
                             </virtual_signals>
                             <trigger>
-                                <device>0</device>
-                                <is_force>True</is_force>
+                                <device>-1</device>
+                                <is_force>False</is_force>
                                 <type>Analog</type>
-                                <source><![CDATA[V_out_rect]]></source>
+                                <source><![CDATA[None]]></source>
                                 <edge>Rising edge</edge>
                                 <treshold>0.0</treshold>
                                 <offset>0.0</offset>
@@ -103,7 +79,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             <layout>Grid</layout>
                             <legend>True</legend>
                             <show_viewports>1</show_viewports>
-                            <decimation>26</decimation>
+                            <decimation>26.0</decimation>
                             <time_base>0.005</time_base>
                             <analog_signals>
                             </analog_signals>
@@ -123,43 +99,19 @@ SETTINGS_DIR = get_settings_dir_path()
                         </presets>
                     <capture>
                         <time_interval>0.1</time_interval>
-                        <sample_rate>10000000</sample_rate>
+                        <sample_rate>10000000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
                         <trigger>
                             <type>Analog</type>
-                            <source>V_out_rect</source>
+                            <source>None</source>
                             <edge>Rising edge</edge>
                             <treshold>0.0</treshold>
                             <offset>0.0</offset>
                             <useFirstTrigger>False</useFirstTrigger>
                         </trigger>
                         <analog_signals>
-                            <analog>
-                                    <channel>0</channel>
-                                    <name><![CDATA[V_out_rect]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>1</channel>
-                                    <name><![CDATA[V_out_dab]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>1</row>
-                                    <viewports>
-                                        <num_viewport>2</num_viewport>
-                                   </viewports>
-                               </analog>
                         </analog_signals>
                          <digital_signals>
                          </digital_signals>
@@ -244,8 +196,8 @@ displayValue = data
                 <advance_widget_settings>
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100</y_range_min>
-                    <y_range_max>100</y_range_max>
+                    <y_range_min>-100.0</y_range_min>
+                    <y_range_max>100.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>True</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -340,8 +292,8 @@ displayValue = data
                 <advance_widget_settings>
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100</y_range_min>
-                    <y_range_max>100</y_range_max>
+                    <y_range_min>-100.0</y_range_min>
+                    <y_range_max>100.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>True</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -434,7 +386,7 @@ widgetValue = None
 widgetValue = hil.model_read('sw_Rect_DAB')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[1.0]]></inputValue>
+                <inputValue><![CDATA[0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -502,7 +454,7 @@ widgetValue = None
 widgetValue = hil.model_read('sw_DAB')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[1.0]]></inputValue>
+                <inputValue><![CDATA[0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
