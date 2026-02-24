@@ -889,7 +889,7 @@ model "rect_dab" {
 
         component "core/Constant" Constant6 {
             execution_rate = "T_controller_rect"
-            value = "V_dc_target"
+            value = "V_dc_target_rect"
         }
         [
             position = 5744, 7500
