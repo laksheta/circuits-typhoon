@@ -59,7 +59,6 @@ K_i_dab      = K_p_dab/tau_dab
 #################
 #################
 
-import numpy as np
 
 T_plant_rect = 50e-6
 T_meas_rect   = 100e-6
