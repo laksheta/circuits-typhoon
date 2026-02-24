@@ -1552,7 +1552,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From5 {
-            value = "theta"
+            value = "theta_rect"
             scope = local
             kind = sp
             direction = out
@@ -1576,7 +1576,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From6 {
-            value = "u_d_pi"
+            value = "u_d_pi_rect"
             scope = local
             kind = sp
             direction = out
@@ -1624,7 +1624,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From11 {
-            value = "u_q_pi"
+            value = "u_q_pi_rect"
             scope = local
             kind = sp
             direction = out
@@ -1906,7 +1906,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto12 {
-            value = "out_Grid_meter"
+            value = "out_Grid_meter_rect"
             scope = local
             kind = sp
             direction = in
@@ -1930,7 +1930,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto13 {
-            value = "out_Rectifier_meter"
+            value = "out_Rectifier_meter_rect"
             scope = local
             kind = sp
             direction = in
