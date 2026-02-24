@@ -715,7 +715,7 @@ model "dab_inv" {
             execution_rate = "T_meas"
         }
         [
-            position = 12264, 6936
+            position = 12308, 6968
             rotation = left
         ]
 
@@ -723,7 +723,7 @@ model "dab_inv" {
             execution_rate = "T_meas"
         }
         [
-            position = 12336, 6936
+            position = 12364, 6936
             rotation = left
         ]
 
@@ -1210,6 +1210,7 @@ model "dab_inv" {
         ]
 
         component "core/SCADA Input" dc_input {
+            def_value = "780"
             execution_rate = "T_math"
             max = "1e3"
             min = "-1000"
@@ -1270,7 +1271,7 @@ model "dab_inv" {
             execution_rate = "T_math"
         }
         [
-            position = 12376, 7012
+            position = 12404, 7012
             hide_name = True
             size = 32, 32
         ]
@@ -1279,7 +1280,7 @@ model "dab_inv" {
             execution_rate = "T_math"
         }
         [
-            position = 12376, 7068
+            position = 12404, 7068
             hide_name = True
             size = 32, 32
         ]
@@ -1629,7 +1630,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 12432, 7012
+            position = 12460, 7012
             hide_name = True
             size = 60, 20
         ]
@@ -1641,7 +1642,7 @@ model "dab_inv" {
             direction = in
         }
         [
-            position = 12436, 7068
+            position = 12464, 7068
             hide_name = True
             size = 60, 20
         ]
@@ -1941,14 +1942,14 @@ model "dab_inv" {
             position = 10872, 7292
         ]
 
-        junction Junction20 sp
-        [
-            position = 12304, 7032
-        ]
-
         junction Junction21 sp
         [
-            position = 12336, 7056
+            position = 12364, 7056
+        ]
+
+        junction Junction48 sp
+        [
+            position = 12308, 7012
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -2314,17 +2315,17 @@ model "dab_inv" {
         connect "Rate Transition4.in" Junction14 as Connection250
         connect u_q.in "Rate Transition5.out" as Connection251
         connect "Rate Transition5.in" Junction13 as Connection252
-        connect Junction20 "abc to dq.d_axis" as Connection255
-        connect i_d.in Junction20 as Connection256
-        [
-            breakpoints = 12268, 6984
-        ]
         connect i_q.in Junction21 as Connection258
         connect Junction21 "abc to dq.q_axis" as Connection259
         connect Goto5 "Rate Transition13.out" as Connection261
-        connect "Rate Transition13.in" Junction20 as Connection262
         connect Goto6 "Rate Transition14.out" as Connection263
         connect "Rate Transition14.in" Junction21 as Connection264
+        connect "Rate Transition13.in" Junction48 as Connection427
+        connect Junction48 "abc to dq.d_axis" as Connection428
+        [
+            breakpoints = 12304, 7032
+        ]
+        connect i_d.in Junction48 as Connection429
     }
 
     logically_deleted {
