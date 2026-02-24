@@ -711,7 +711,7 @@ model "dab_inv" {
             hide_name = True
         ]
 
-        component "core/Probe" i_d {
+        component "core/Probe" i_d_inv {
             execution_rate = "T_meas_inv"
         }
         [
@@ -719,7 +719,7 @@ model "dab_inv" {
             rotation = left
         ]
 
-        component "core/Probe" i_q {
+        component "core/Probe" i_q_inv {
             execution_rate = "T_meas_inv"
         }
         [
@@ -837,7 +837,7 @@ model "dab_inv" {
             hide_name = True
         ]
 
-        component "core/PID controller" PI_i_d {
+        component "core/PID controller" PI_i_d_inv {
             controller_type = "PI"
             execution_rate = "T_math_inv"
             ki = "Ki_i_inv"
@@ -847,7 +847,7 @@ model "dab_inv" {
             position = 10780, 7444
         ]
 
-        component "core/PID controller" PI_i_q {
+        component "core/PID controller" PI_i_q_inv {
             controller_type = "PI"
             execution_rate = "T_math_inv"
             ki = "Ki_i_inv"
@@ -900,7 +900,7 @@ model "dab_inv" {
             hide_name = True
         ]
 
-        component "core/Probe" u_d {
+        component "core/Probe" u_d_inv {
             execution_rate = "T_meas_inv"
         }
         [
@@ -908,7 +908,7 @@ model "dab_inv" {
             rotation = left
         ]
 
-        component "core/Probe" u_q {
+        component "core/Probe" u_q_inv {
             execution_rate = "T_meas_inv"
         }
         [
@@ -916,7 +916,7 @@ model "dab_inv" {
             rotation = left
         ]
 
-        component "core/SCADA Input" scada_i_d {
+        component "core/SCADA Input" scada_i_d_inv {
             def_value = "10"
             execution_rate = "T_math_inv"
             format = "int"
@@ -1211,7 +1211,7 @@ model "dab_inv" {
             size = 80, 64
         ]
 
-        component "core/SCADA Input" dc_input {
+        component "core/SCADA Input" dc_input_inv {
             def_value = "780"
             execution_rate = "T_math_inv"
             max = "1e3"
@@ -1542,7 +1542,7 @@ model "dab_inv" {
         ]
 
         tag From1 {
-            value = "V_abc_n"
+            value = "V_abc_n_inv"
             scope = local
             kind = sp
             direction = out
@@ -1554,7 +1554,7 @@ model "dab_inv" {
         ]
 
         tag Goto2 {
-            value = "theta"
+            value = "theta_inv"
             scope = local
             kind = sp
             direction = in
@@ -1566,7 +1566,7 @@ model "dab_inv" {
         ]
 
         tag From3 {
-            value = "theta"
+            value = "theta_inv"
             scope = local
             kind = sp
             direction = out
@@ -1578,7 +1578,7 @@ model "dab_inv" {
         ]
 
         tag From4 {
-            value = "I_abc"
+            value = "I_abc_inv"
             scope = local
             kind = sp
             direction = out
@@ -1590,7 +1590,7 @@ model "dab_inv" {
         ]
 
         tag Goto3 {
-            value = "V_abc_n"
+            value = "V_abc_n_inv"
             scope = local
             kind = sp
             direction = in
@@ -1602,7 +1602,7 @@ model "dab_inv" {
         ]
 
         tag Goto4 {
-            value = "I_abc"
+            value = "I_abc_inv"
             scope = local
             kind = sp
             direction = in
@@ -1614,7 +1614,7 @@ model "dab_inv" {
         ]
 
         tag From5 {
-            value = "theta"
+            value = "theta_inv"
             scope = local
             kind = sp
             direction = out
@@ -1626,7 +1626,7 @@ model "dab_inv" {
         ]
 
         tag Goto5 {
-            value = "i_d"
+            value = "i_d_inv"
             scope = local
             kind = sp
             direction = in
@@ -1638,7 +1638,7 @@ model "dab_inv" {
         ]
 
         tag Goto6 {
-            value = "i_q"
+            value = "i_q_inv"
             scope = local
             kind = sp
             direction = in
@@ -1650,7 +1650,7 @@ model "dab_inv" {
         ]
 
         tag From6 {
-            value = "i_d"
+            value = "i_d_inv"
             scope = local
             kind = sp
             direction = out
@@ -1662,7 +1662,7 @@ model "dab_inv" {
         ]
 
         tag From7 {
-            value = "i_q"
+            value = "i_q_inv"
             scope = local
             kind = sp
             direction = out
@@ -1674,7 +1674,7 @@ model "dab_inv" {
         ]
 
         tag Goto7 {
-            value = "upper_lim"
+            value = "upper_lim_inv"
             scope = local
             kind = sp
             direction = in
@@ -1686,7 +1686,7 @@ model "dab_inv" {
         ]
 
         tag Goto8 {
-            value = "lower_lim"
+            value = "lower_lim_inv"
             scope = local
             kind = sp
             direction = in
@@ -1698,7 +1698,7 @@ model "dab_inv" {
         ]
 
         tag Goto9 {
-            value = "V_a"
+            value = "V_a_inv"
             scope = local
             kind = sp
             direction = in
@@ -1710,7 +1710,7 @@ model "dab_inv" {
         ]
 
         tag Goto10 {
-            value = "V_b"
+            value = "V_b_inv"
             scope = local
             kind = sp
             direction = in
@@ -1722,7 +1722,7 @@ model "dab_inv" {
         ]
 
         tag Goto11 {
-            value = "V_c"
+            value = "V_c_inv"
             scope = local
             kind = sp
             direction = in
@@ -1734,7 +1734,7 @@ model "dab_inv" {
         ]
 
         tag From9 {
-            value = "upper_lim"
+            value = "upper_lim_inv"
             scope = local
             kind = sp
             direction = out
@@ -1747,7 +1747,7 @@ model "dab_inv" {
         ]
 
         tag From10 {
-            value = "lower_lim"
+            value = "lower_lim_inv"
             scope = local
             kind = sp
             direction = out
@@ -1760,7 +1760,7 @@ model "dab_inv" {
         ]
 
         tag From11 {
-            value = "V_a"
+            value = "V_a_inv"
             scope = local
             kind = sp
             direction = out
@@ -1772,7 +1772,7 @@ model "dab_inv" {
         ]
 
         tag From12 {
-            value = "V_b"
+            value = "V_b_inv"
             scope = local
             kind = sp
             direction = out
@@ -1784,7 +1784,7 @@ model "dab_inv" {
         ]
 
         tag From13 {
-            value = "V_c"
+            value = "V_c_inv"
             scope = local
             kind = sp
             direction = out
@@ -1796,7 +1796,7 @@ model "dab_inv" {
         ]
 
         tag Goto12 {
-            value = "Grid_out"
+            value = "Grid_out_inv"
             scope = local
             kind = sp
             direction = in
@@ -1808,7 +1808,7 @@ model "dab_inv" {
         ]
 
         tag From14 {
-            value = "Grid_out"
+            value = "Grid_out_inv"
             scope = local
             kind = sp
             direction = out
@@ -2257,15 +2257,15 @@ model "dab_inv" {
             breakpoints = 11068, 7544; 11068, 7520
         ]
         connect Constant1.out "Bus Join3.in" as Connection408
-        connect PI_i_d.out "Bus Join3.in1" as Connection409
+        connect PI_i_d_inv.out "Bus Join3.in1" as Connection409
         connect Constant2.out "Bus Join4.in" as Connection410
-        connect PI_i_q.out "Bus Join4.in1" as Connection411
-        connect Sum1.out PI_i_d.in as Connection140
-        connect Sum2.out PI_i_q.in as Connection412
+        connect PI_i_q_inv.out "Bus Join4.in1" as Connection411
+        connect Sum1.out PI_i_d_inv.in as Connection140
+        connect Sum2.out PI_i_q_inv.in as Connection412
         connect From6 Sum1.in1 as Connection413
         connect From7 Sum2.in1 as Connection414
         connect Constant4.out Sum2.in as Connection415
-        connect scada_i_d.out Sum1.in as Connection168
+        connect scada_i_d_inv.out Sum1.in as Connection168
         [
             breakpoints = 10612, 7416; 10612, 7436
         ]
@@ -2304,7 +2304,7 @@ model "dab_inv" {
         connect Adap_Limiter_1.up_lim Junction18 as Connection423
         connect Gain5.in Junction19 as Connection424
         connect Junction19 Gain6.in as Connection239
-        connect dc_input.out Junction19 as Connection240
+        connect dc_input_inv.out Junction19 as Connection240
         connect Goto12 "Grid Measurement.Out" as Connection241
         connect From14 "Meter Split.Input" as Connection242
         connect Adap_Limiter.Out "Rate Transition11.in" as Connection425
@@ -2313,11 +2313,11 @@ model "dab_inv" {
         connect "Rate Transition12.out" Vsp2.in as Connection246
         connect Adap_Limiter_2.Out "Rate Transition3.in" as Connection247
         connect "Rate Transition3.out" Vsp3.in as Connection248
-        connect u_d.in "Rate Transition4.out" as Connection249
+        connect u_d_inv.in "Rate Transition4.out" as Connection249
         connect "Rate Transition4.in" Junction14 as Connection250
-        connect u_q.in "Rate Transition5.out" as Connection251
+        connect u_q_inv.in "Rate Transition5.out" as Connection251
         connect "Rate Transition5.in" Junction13 as Connection252
-        connect i_q.in Junction21 as Connection258
+        connect i_q_inv.in Junction21 as Connection258
         connect Junction21 "abc to dq.q_axis" as Connection259
         connect Goto5 "Rate Transition13.out" as Connection261
         connect Goto6 "Rate Transition14.out" as Connection263
@@ -2327,7 +2327,7 @@ model "dab_inv" {
         [
             breakpoints = 12304, 7032
         ]
-        connect i_d.in Junction48 as Connection429
+        connect i_d_inv.in Junction48 as Connection429
     }
 
     logically_deleted {
