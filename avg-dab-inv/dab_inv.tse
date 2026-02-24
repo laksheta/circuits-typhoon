@@ -658,8 +658,8 @@ model "dab_inv" {
         ]
 
         component "core/Three Phase Voltage Source" U_grid {
-            init_frequency = "F"
-            init_rms_value = "V_rms"
+            init_frequency = "F_inv"
+            init_rms_value = "V_rms_inv"
         }
         [
             position = 12932, 7440
