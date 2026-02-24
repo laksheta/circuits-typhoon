@@ -83,20 +83,20 @@ P_load_rect = (V_dc_target_rect**2) / R_load_rect
 i_d_req_rect = -(2 * P_load_rect) / (3 * V_grid_peak_rect)
 i_q_req_rect = 0
 
-u_d = V_grid_peak_rect - (R_rect * i_d_req_rect - omega_rect * L_rect * i_q_req_rect)
-u_q = 0 - (R_rect * i_q_req_rect + omega_rect * L_rect * i_d_req_rect)
+u_d_rect = V_grid_peak_rect - (R_rect * i_d_req_rect - omega_rect * L_rect * i_q_req_rect)
+u_q_rect = 0 - (R_rect * i_q_req_rect + omega_rect * L_rect * i_d_req_rect)
 
-U_rect_amp = np.sqrt(u_d**2 + u_q**2)
-U_rect_rms = U_rect_amp/np.sqrt(2)
-delta_rad  = np.arctan2(u_q, u_d)
-delta      = delta_rad * (180/np.pi)
+U_rect_amp_rect = np.sqrt(u_d_rect**2 + u_q_rect**2)
+U_rect_rms_rect = U_rect_amp_rect/np.sqrt(2)
+delta_rad_rect  = np.arctan2(u_q_rect, u_d_rect)
+delta_rect      = delta_rad_rect * (180/np.pi)
 
-m = U_rect_amp / V_dc_target_rect
+m_rect = U_rect_amp_rect / V_dc_target_rect
 
-phase = [0+delta, -120+delta, 120+delta]
-phase_3ph    = delta
+phase_rect = [0+delta_rect, -120+delta_rect, 120+delta_rect]
+phase_3ph_rect    = delta_rect
 
-V_rect = m*V_dc_target_rect
+V_rect = m_rect*V_dc_target_rect
 
 # Controller
 f_bw_i      = 1e3
