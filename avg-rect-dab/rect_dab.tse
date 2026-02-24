@@ -782,7 +782,7 @@ model "rect_dab" {
 
         component "core/Constant" Constant4 {
             execution_rate = "T_controller_rect"
-            value = "-i_d_req"
+            value = "-i_d_req_rect"
         }
         [
             position = 6080, 7412
@@ -832,7 +832,7 @@ model "rect_dab" {
 
         component "core/Constant" Constant5 {
             execution_rate = "T_controller_rect"
-            value = "i_q_req"
+            value = "i_q_req_rect"
         }
         [
             position = 6056, 7652
