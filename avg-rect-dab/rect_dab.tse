@@ -603,7 +603,7 @@ model "rect_dab" {
         ]
 
         component "core/Inductor" L1 {
-            inductance = "L"
+            inductance = "L_rect"
         }
         [
             position = 7508, 7420
@@ -611,7 +611,7 @@ model "rect_dab" {
         ]
 
         component "core/Inductor" L2 {
-            inductance = "L"
+            inductance = "L_rect"
         }
         [
             position = 7508, 7516
@@ -619,7 +619,7 @@ model "rect_dab" {
         ]
 
         component "core/Inductor" L3 {
-            inductance = "L"
+            inductance = "L_rect"
         }
         [
             position = 7508, 7612
@@ -634,7 +634,7 @@ model "rect_dab" {
         ]
 
         component "core/Resistor" R1 {
-            resistance = "R"
+            resistance = "R_rect"
         }
         [
             position = 7396, 7420
@@ -642,7 +642,7 @@ model "rect_dab" {
         ]
 
         component "core/Resistor" R2 {
-            resistance = "R"
+            resistance = "R_rect"
         }
         [
             position = 7396, 7516
@@ -650,7 +650,7 @@ model "rect_dab" {
         ]
 
         component "core/Resistor" R3 {
-            resistance = "R"
+            resistance = "R_rect"
         }
         [
             position = 7396, 7612
