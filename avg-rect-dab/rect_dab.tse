@@ -698,7 +698,7 @@ model "rect_dab" {
         ]
 
         component "core/Three-phase Meter" "Grid Meter" {
-            Ts = "T_meas"
+            Ts = "T_meas_rect"
         }
         [
             position = 7620, 7516
@@ -714,7 +714,7 @@ model "rect_dab" {
         ]
 
         component "core/Three-phase Meter" "Rectifier Meter" {
-            Ts = "T_meas"
+            Ts = "T_meas_rect"
         }
         [
             position = 7272, 7516
@@ -729,7 +729,7 @@ model "rect_dab" {
         ]
 
         component "core/dq to abc" "dq to abc1" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6856, 7556
@@ -738,16 +738,16 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             value = "0"
         }
         [
-            position = 6700, 7564
+            position = 6700, 7568
             hide_name = True
         ]
 
         component "core/Constant" Constant2 {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             value = "u_d"
         }
         [
@@ -756,7 +756,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             value = "u_q"
         }
         [
@@ -790,7 +790,7 @@ model "rect_dab" {
         ]
 
         component "core/Probe" u_d_pi {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6536, 7516
@@ -840,7 +840,7 @@ model "rect_dab" {
         ]
 
         component "core/Probe" u_q_pi {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6536, 7704
@@ -856,7 +856,7 @@ model "rect_dab" {
         ]
 
         component "core/Probe" u_d_error {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6320, 7456
@@ -897,14 +897,14 @@ model "rect_dab" {
         ]
 
         component "core/Probe" u_q_error {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6316, 7748
         ]
 
         component "core/Probe" V_out_error {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6016, 7428
@@ -914,7 +914,7 @@ model "rect_dab" {
             arb_defs = "/*Begin code section*/
 
 /*End code section*/"
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             init_fnc = "/*Begin code section*/
 
 /*End code section*/"
@@ -954,7 +954,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join1" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             inputs = "3"
         }
         [
@@ -976,7 +976,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join2" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             inputs = "3"
         }
         [
@@ -985,7 +985,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join3" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             inputs = "3"
         }
         [
@@ -994,7 +994,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_dc {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7048, 6924
@@ -1030,7 +1030,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Voltage Measurement" V_out {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             sig_output = "True"
         }
         [
@@ -1040,7 +1040,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split2" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             outputs = "7"
         }
         [
@@ -1049,7 +1049,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Join" "Bus Join4" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             inputs = "3"
         }
         [
@@ -1058,7 +1058,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split3" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             outputs = "3"
         }
         [
@@ -1067,7 +1067,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Bus Split" "Bus Split4" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             outputs = "3"
         }
         [
@@ -1076,7 +1076,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_d {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7340, 6788
@@ -1085,7 +1085,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Three phase PLL" "Three phase PLL" {
             enable_sin = "False"
             enable_zero = "False"
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             initial_filter_output = "50"
         }
         [
@@ -1094,7 +1094,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/abc to dq" "abc to dq" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7240, 6864
@@ -1103,14 +1103,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_q {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7340, 6912
         ]
 
         component "core/Bus Split" "Bus Split5" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
             outputs = "3"
         }
         [
@@ -1119,14 +1119,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" V_d {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7344, 7056
         ]
 
         component "core/abc to dq" "abc to dq1" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7240, 7080
@@ -1135,7 +1135,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" V_q {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7344, 7112
@@ -1149,14 +1149,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" i_d_req {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6216, 7412
         ]
 
         component "core/Rate Transition" "Rate Transition11" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7548, 6948
@@ -1165,7 +1165,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition12" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 7548, 7096
@@ -1201,7 +1201,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition13" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6476, 7516
@@ -1210,7 +1210,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition14" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6472, 7704
@@ -1219,7 +1219,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition15" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6272, 7748
@@ -1228,7 +1228,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition16" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6272, 7456
@@ -1237,7 +1237,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition17" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6148, 7412
@@ -1246,7 +1246,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition18" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 5964, 7428
@@ -1255,7 +1255,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition19" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6780, 7500
@@ -1264,10 +1264,10 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition20" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_rect"
         }
         [
-            position = 6780, 7544
+            position = 6780, 7548
             hide_name = True
             size = 32, 32
         ]
@@ -1548,7 +1548,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 6696, 7600
+            position = 6692, 7604
             hide_name = True
             size = 60, 20
         ]
@@ -1620,7 +1620,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 6696, 7524
+            position = 6696, 7528
             hide_name = True
             size = 60, 20
         ]
