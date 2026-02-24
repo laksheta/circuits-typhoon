@@ -803,7 +803,7 @@ model "dab_inv" {
         ]
 
         component "core/dq to abc" "dq to abc" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
         }
         [
             position = 11212, 7512
@@ -811,7 +811,7 @@ model "dab_inv" {
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             value = "u_d"
         }
         [
@@ -820,7 +820,7 @@ model "dab_inv" {
         ]
 
         component "core/Constant" Constant2 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             value = "u_q"
         }
         [
@@ -829,7 +829,7 @@ model "dab_inv" {
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             value = "0"
         }
         [
@@ -839,7 +839,7 @@ model "dab_inv" {
 
         component "core/PID controller" PI_i_d {
             controller_type = "PI"
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             ki = "Ki_i"
             kp = "Kp_i"
         }
@@ -849,7 +849,7 @@ model "dab_inv" {
 
         component "core/PID controller" PI_i_q {
             controller_type = "PI"
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             ki = "Ki_i"
             kp = "Kp_i"
         }
@@ -858,7 +858,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Join" "Bus Join3" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
         }
         [
             position = 10932, 7432
@@ -866,7 +866,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Join" "Bus Join4" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
         }
         [
             position = 10932, 7504
@@ -874,7 +874,7 @@ model "dab_inv" {
         ]
 
         component "core/Sum" Sum1 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             signs = "+-"
         }
         [
@@ -883,7 +883,7 @@ model "dab_inv" {
         ]
 
         component "core/Sum" Sum2 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             signs = "+-"
         }
         [
@@ -892,7 +892,7 @@ model "dab_inv" {
         ]
 
         component "core/Constant" Constant4 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             value = "0"
         }
         [
@@ -916,7 +916,7 @@ model "dab_inv" {
 
         component "core/SCADA Input" scada_i_d {
             def_value = "10"
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             format = "int"
             max = "100"
             min = "-100"
@@ -928,7 +928,7 @@ model "dab_inv" {
         ]
 
         component "core/Gain" Gain5 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             gain = "0.5"
         }
         [
@@ -937,7 +937,7 @@ model "dab_inv" {
         ]
 
         component "core/Gain" Gain6 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             gain = "-0.5"
         }
         [
@@ -946,7 +946,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Selector" "Bus Selector1" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             signal_indexes = "[1]"
         }
         [
@@ -955,7 +955,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Selector" "Bus Selector2" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             signal_indexes = "[1]"
         }
         [
@@ -966,7 +966,7 @@ model "dab_inv" {
         component Subsystem Adap_Limiter {
             layout = dynamic
             component "core/Min Max" "Min Max1" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
             }
             [
                 position = 8128, 8192
@@ -974,7 +974,7 @@ model "dab_inv" {
             ]
 
             component "core/Min Max" "Min Max2" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
                 operation = "max"
             }
             [
@@ -1048,7 +1048,7 @@ model "dab_inv" {
         component Subsystem Adap_Limiter_1 {
             layout = dynamic
             component "core/Min Max" "Min Max1" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
             }
             [
                 position = 8128, 8192
@@ -1056,7 +1056,7 @@ model "dab_inv" {
             ]
 
             component "core/Min Max" "Min Max2" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
                 operation = "max"
             }
             [
@@ -1130,7 +1130,7 @@ model "dab_inv" {
         component Subsystem Adap_Limiter_2 {
             layout = dynamic
             component "core/Min Max" "Min Max1" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
             }
             [
                 position = 8128, 8192
@@ -1138,7 +1138,7 @@ model "dab_inv" {
             ]
 
             component "core/Min Max" "Min Max2" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
                 operation = "max"
             }
             [
@@ -1211,7 +1211,7 @@ model "dab_inv" {
 
         component "core/SCADA Input" dc_input {
             def_value = "780"
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
             max = "1e3"
             min = "-1000"
             unit = ""
@@ -1268,7 +1268,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition13" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
         }
         [
             position = 12404, 7012
@@ -1277,7 +1277,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition14" {
-            execution_rate = "T_math"
+            execution_rate = "T_math_inv"
         }
         [
             position = 12404, 7068
