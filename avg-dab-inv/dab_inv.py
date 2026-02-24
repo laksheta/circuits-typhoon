@@ -60,104 +60,43 @@ K_i_dab      = K_p_dab/tau_dab
 #################
 #################
 
-if 'info' not in globals():
-    info = print
+T_plant = 50e-6
+T_math = 100e-6
+T_meas = 100e-6
 
-sig_select_inv = [1]
+tau = 1e-3
 
-T_meas_inv = 0.1e-6
-T_wave_dab  = 1e-6  
-T_cont_inv  = 0.1e-6
-T_plant_inv = 1e-6
+V_dc = 780
+upper_lim = +V_dc/2
+lower_lim = -V_dc/2
 
-tau_inv = 1e-3
+V_g = 220 * np.sqrt(2)
+V_rms = 220
+u_grid_d  = 220*np.sqrt(2)
+V_peak    = u_grid_d
+u_grid_q  = 0
+u_grid_amp    = np.sqrt(u_grid_d**2+u_grid_q**2)
+u_grid_ph     = np.arctan2(u_grid_q, u_grid_d)
 
-V_dc_inv = 780
-upper_lim_inv = +V_dc_inv/2
-lower_lim_inv = -V_dc_inv/2
+F = 50
+phase = np.array([0,-120,120])
 
-V_g_inv = 220 * np.sqrt(2)
-V_rms_inv = 220
-u_grid_d_inv  = 220*np.sqrt(2)
-V_peak_inv    = u_grid_d_inv
-u_grid_q_inv  = 0
-u_grid_amp_inv    = np.sqrt(u_grid_d_inv**2+u_grid_q_inv**2)
-u_grid_ph_inv     = np.arctan2(u_grid_q_inv, u_grid_d_inv)
+L = 1e-3
+R = L / tau
 
-F_inv = 50
-phase_inv = np.array([0,-120,120])
+i_d = 10
+i_q = 0
+omega   = 2*np.pi*F
 
-L_inv = 1e-3
-R_inv = L_inv / tau_inv
+u_d = u_grid_d + R*i_d - omega*L*i_q
+u_q = u_grid_q + R*i_q + omega*L*i_d
 
-i_d_inv = 10
-i_q_inv = 0
-omega_inv   = 2*np.pi*F_inv
+U_inv_amp = np.sqrt(u_d**2+u_q**2)
+U_inv_ph  = np.arctan2(u_q, u_d)
 
-u_d_inv = u_grid_d_inv + R_inv*i_d_inv - omega_inv*L_inv*i_q_inv
-u_q_inv = u_grid_q_inv + R_inv*i_q_inv + omega_inv*L_inv*i_d_inv
+f_wb_i = 1e3
+omega_c = 2*np.pi*f_wb_i
 
-U_inv_amp_inv = np.sqrt(u_d_inv**2+u_q_inv**2)
-U_inv_ph_inv  = np.arctan2(u_q_inv, u_d_inv)
+Kp_i    = omega_c*L
+Ki_i    = omega_c*R
 
-f_wb_i_inv = 1e3
-omega_c_inv = 2*np.pi*f_wb_i_inv
-
-Kp_i_inv    = omega_c_inv*L_inv
-Ki_i_inv    = omega_c_inv*R_inv
-
-info(f"u_d_inv: {u_d_inv:.2f}")
-info(f"u_q_inv: {u_q_inv:.2f}")
-
-
-# Numpy module is imported as 'np'
-# Scipy module is imported as 'sp'
-# The Schematic API is imported as 'mdl'
-# To get the model file path, use 'mdl.get_model_file_path()'
-# To print information to the console, use info()
-import numpy as np
-
-if 'info' not in globals():
-    info = print
-
-# sig_select = [1]
-
-# T_meas = 1e-6
-# tau = 1e-3
-
-# V_dc = 780
-# upper_lim = +V_dc/2
-# lower_lim = -V_dc/2
-
-# V_g = 220 * np.sqrt(2)
-# V_rms = 220
-# u_grid_d  = 220*np.sqrt(2)
-# V_peak    = u_grid_d
-# u_grid_q  = 0
-# u_grid_amp    = np.sqrt(u_grid_d**2+u_grid_q**2)
-# u_grid_ph     = np.arctan2(u_grid_q, u_grid_d)
-
-# F = 50
-# phase = np.array([0,-120,120])
-
-# L = 1e-3
-# R = L / tau
-
-# i_d = 10
-# i_q = 0
-# omega   = 2*np.pi*F
-
-# u_d = u_grid_d + R*i_d - omega*L*i_q
-# u_q = u_grid_q + R*i_q + omega*L*i_d
-
-# U_inv_amp = np.sqrt(u_d**2+u_q**2)
-# U_inv_ph  = np.arctan2(u_q, u_d)
-
-# f_wb_i = 1e3
-# omega_c = 2*np.pi*f_wb_i
-
-# Kp_i    = omega_c*L
-# Ki_i    = omega_c*R
-
-# info(f"u_d: {u_d:.2f}")
-# info(f"u_q: {u_q:.2f}")
