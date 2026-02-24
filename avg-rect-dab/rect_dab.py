@@ -59,53 +59,53 @@ K_i_dab      = K_p_dab/tau_dab
 #################
 #################
 
-exec_meas_rect   = 1e-6
-exec_sine_rect   = 1e-6
-exec_controller_rect = 1e-6
+import numpy as np
 
-V_grid_peak_rect = 220*np.sqrt(2)
-V_grid_rms_rect  = 220
-F_rect           = 50
-omega_rect       = 2*np.pi*F_rect
+T_plant = 50e-6
+T_meas   = 100e-6
+T_controller = 100e-6
 
-f_sw_rect        = 50e3
+V_grid_peak = 220*np.sqrt(2)
+V_grid_rms  = 220
+F           = 50
+omega       = 2*np.pi*F
 
-R_rect           = 1e-1
-L_rect           = 1e-3
+R           = 1e-1
+L           = 1e-3
 
-R_load_rect      = 100
-C_out_rect       = 10e-6
+R_load      = 100
+C_out       = 10e-6
 
-V_dc_target_rect = 780
+V_dc_target = 780
 
-P_load_rect = (V_dc_target_rect**2) / R_load_rect
+P_load = (V_dc_target**2) / R_load
 
-i_d_req_rect = -(2 * P_load_rect) / (3 * V_grid_peak_rect)
-i_q_req_rect = 0
+i_d_req = -(2 * P_load) / (3 * V_grid_peak)
+i_q_req = 0
 
-u_d_rect = V_grid_peak_rect - (R_rect * i_d_req_rect - omega_rect * L_rect * i_q_req_rect)
-u_q_rect = 0 - (R_rect * i_q_req_rect + omega_rect * L_rect * i_d_req_rect)
+u_d = V_grid_peak - (R * i_d_req - omega * L * i_q_req)
+u_q = 0 - (R * i_q_req + omega * L * i_d_req)
 
-U_rect_amp_rect = np.sqrt(u_d_rect**2 + u_q_rect**2)
-U_rect_rms_rect = U_rect_amp_rect/np.sqrt(2)
-delta_rad_rect  = np.arctan2(u_q_rect, u_d_rect)
-delta_rect      = delta_rad_rect * (180/np.pi)
+U_rect_amp = np.sqrt(u_d**2 + u_q**2)
+U_rect_rms = U_rect_amp/np.sqrt(2)
+delta_rad  = np.arctan2(u_q, u_d)
+delta      = delta_rad * (180/np.pi)
 
-m_rect = U_rect_amp_rect / V_dc_target_rect
+m = U_rect_amp / V_dc_target
 
-phase_rect = [0+delta_rect, -120+delta_rect, 120+delta_rect]
-phase_3ph_rect    = delta_rect
+phase = [0+delta, -120+delta, 120+delta]
+phase_3ph    = delta
 
-V_rect_rect = m_rect*V_dc_target_rect
+V_rect = m*V_dc_target
 
 # Controller
-f_bw_i_rect      = f_sw_rect*0.1
-omega_ci_rect    = 2*np.pi*f_bw_i_rect
-Kp_i_rect        = omega_ci_rect * L_rect
-Ki_i_rect        = omega_ci_rect * R_rect
+f_bw_i      = 1e3
+omega_ci    = 2*np.pi*f_bw_i
+Kp_i        = omega_ci * L
+Ki_i        = omega_ci * R
 
-f_bw_v_rect      = 20
-omega_cv_rect    = 2*np.pi*f_bw_v_rect
-zeta_rect        = 0.707
-Kp_v_rect        = 2*zeta_rect*omega_cv_rect*C_out_rect
-Ki_v_rect        = (omega_cv_rect**2)*C_out_rect
+f_bw_v      = 20
+omega_cv    = 2*np.pi*f_bw_v
+zeta        = 0.707
+Kp_v        = 2*zeta*omega_cv*C_out
+Ki_v        = (omega_cv**2)*C_out
