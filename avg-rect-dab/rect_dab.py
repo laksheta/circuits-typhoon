@@ -65,10 +65,10 @@ T_plant_rect = 50e-6
 T_meas_rect   = 100e-6
 T_controller_rect = 100e-6
 
-V_grid_peak = 220*np.sqrt(2)
-V_grid_rms  = 220
-F           = 50
-omega       = 2*np.pi*F
+V_grid_peak_rect = 220*np.sqrt(2)
+V_grid_rms_rect  = 220
+F_rect           = 50
+omega_rect       = 2*np.pi*F_rect
 
 R           = 1e-1
 L           = 1e-3
@@ -80,11 +80,11 @@ V_dc_target = 780
 
 P_load = (V_dc_target**2) / R_load
 
-i_d_req = -(2 * P_load) / (3 * V_grid_peak)
+i_d_req = -(2 * P_load) / (3 * V_grid_peak_rect)
 i_q_req = 0
 
-u_d = V_grid_peak - (R * i_d_req - omega * L * i_q_req)
-u_q = 0 - (R * i_q_req + omega * L * i_d_req)
+u_d = V_grid_peak_rect - (R * i_d_req - omega_rect * L * i_q_req)
+u_q = 0 - (R * i_q_req + omega_rect * L * i_d_req)
 
 U_rect_amp = np.sqrt(u_d**2 + u_q**2)
 U_rect_rms = U_rect_amp/np.sqrt(2)
