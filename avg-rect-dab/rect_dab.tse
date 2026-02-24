@@ -1012,7 +1012,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Capacitor" C1 {
-            capacitance = "C_out"
+            capacitance = "C_out_rect"
         }
         [
             position = 6068, 7100
@@ -1021,7 +1021,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Resistor" R4 {
-            resistance = "R_load"
+            resistance = "R_load_rect"
         }
         [
             position = 6164, 7100
