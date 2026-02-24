@@ -78,13 +78,13 @@ C_out_rect       = 10e-6
 
 V_dc_target_rect = 780
 
-P_load = (V_dc_target_rect**2) / R_load_rect
+P_load_rect = (V_dc_target_rect**2) / R_load_rect
 
-i_d_req = -(2 * P_load) / (3 * V_grid_peak_rect)
-i_q_req = 0
+i_d_req_rect = -(2 * P_load_rect) / (3 * V_grid_peak_rect)
+i_q_req_rect = 0
 
-u_d = V_grid_peak_rect - (R_rect * i_d_req - omega_rect * L_rect * i_q_req)
-u_q = 0 - (R_rect * i_q_req + omega_rect * L_rect * i_d_req)
+u_d = V_grid_peak_rect - (R_rect * i_d_req_rect - omega_rect * L_rect * i_q_req_rect)
+u_q = 0 - (R_rect * i_q_req_rect + omega_rect * L_rect * i_d_req_rect)
 
 U_rect_amp = np.sqrt(u_d**2 + u_q**2)
 U_rect_rms = U_rect_amp/np.sqrt(2)
