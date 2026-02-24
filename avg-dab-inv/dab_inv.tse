@@ -591,7 +591,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L1 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12488, 7344
@@ -599,7 +599,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L2 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12488, 7440
@@ -607,7 +607,7 @@ model "dab_inv" {
         ]
 
         component "core/Inductor" L3 {
-            inductance = "L"
+            inductance = "L_inv"
         }
         [
             position = 12488, 7536
@@ -622,7 +622,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R1 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 12616, 7344
@@ -630,7 +630,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R2 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 12616, 7440
@@ -638,7 +638,7 @@ model "dab_inv" {
         ]
 
         component "core/Resistor" R3 {
-            resistance = "R"
+            resistance = "R_inv"
         }
         [
             position = 12616, 7536
@@ -812,7 +812,7 @@ model "dab_inv" {
 
         component "core/Constant" Constant1 {
             execution_rate = "T_math_inv"
-            value = "u_d"
+            value = "u_d_inv"
         }
         [
             position = 10848, 7412
@@ -821,7 +821,7 @@ model "dab_inv" {
 
         component "core/Constant" Constant2 {
             execution_rate = "T_math_inv"
-            value = "u_q"
+            value = "u_q_inv"
         }
         [
             position = 10848, 7480
@@ -840,8 +840,8 @@ model "dab_inv" {
         component "core/PID controller" PI_i_d {
             controller_type = "PI"
             execution_rate = "T_math_inv"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_i_inv"
+            kp = "Kp_i_inv"
         }
         [
             position = 10780, 7444
@@ -850,8 +850,8 @@ model "dab_inv" {
         component "core/PID controller" PI_i_q {
             controller_type = "PI"
             execution_rate = "T_math_inv"
-            ki = "Ki_i"
-            kp = "Kp_i"
+            ki = "Ki_i_inv"
+            kp = "Kp_i_inv"
         }
         [
             position = 10780, 7512
