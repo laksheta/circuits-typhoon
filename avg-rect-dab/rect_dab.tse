@@ -2511,6 +2511,7 @@ out[0] = fmax(0.0, i_dc_raw);
     }
 
     logically_deleted {
+        "Constant12"
         "Signal switch1"
         "sw_Rect_DAB"
         "Constant13"
