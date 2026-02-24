@@ -64,11 +64,11 @@ T_plant_inv = 50e-6
 T_math_inv = 100e-6
 T_meas_inv = 100e-6
 
-tau = 1e-3
+tau_inv = 1e-3
 
-V_dc = 780
-upper_lim = +V_dc/2
-lower_lim = -V_dc/2
+V_dc_inv = 780
+upper_lim_inv = +V_dc_inv/2
+lower_lim_inv = -V_dc_inv/2
 
 V_g = 220 * np.sqrt(2)
 V_rms = 220
@@ -82,7 +82,7 @@ F = 50
 phase = np.array([0,-120,120])
 
 L = 1e-3
-R = L / tau
+R = L / tau_inv
 
 i_d = 10
 i_q = 0
