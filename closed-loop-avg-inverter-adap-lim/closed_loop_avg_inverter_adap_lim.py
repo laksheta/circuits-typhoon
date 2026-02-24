@@ -10,7 +10,10 @@ if 'info' not in globals():
 
 sig_select = [1]
 
-T_meas = 1e-6
+T_plant = 50e-6
+T_math = 100e-6
+T_meas = 100e-6
+
 tau = 1e-3
 
 V_dc = 780
