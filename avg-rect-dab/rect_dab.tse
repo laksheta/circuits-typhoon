@@ -789,14 +789,14 @@ model "rect_dab" {
             hide_name = True
         ]
 
-        component "core/Probe" u_d_pi {
+        component "core/Probe" u_d_pi_rect {
             execution_rate = "T_meas_rect"
         }
         [
             position = 6536, 7516
         ]
 
-        component "core/SCADA Input" reset_sig {
+        component "core/SCADA Input" reset_sig_rect {
             execution_rate = "T_controller_rect"
             max = "1"
             min = "0"
@@ -839,7 +839,7 @@ model "rect_dab" {
             hide_name = True
         ]
 
-        component "core/Probe" u_q_pi {
+        component "core/Probe" u_q_pi_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -855,7 +855,7 @@ model "rect_dab" {
             hide_name = True
         ]
 
-        component "core/Probe" u_d_error {
+        component "core/Probe" u_d_error_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -896,14 +896,14 @@ model "rect_dab" {
             hide_name = True
         ]
 
-        component "core/Probe" u_q_error {
+        component "core/Probe" u_q_error_rect {
             execution_rate = "T_meas_rect"
         }
         [
             position = 6316, 7748
         ]
 
-        component "core/Probe" V_out_error {
+        component "core/Probe" V_out_error_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1149,7 +1149,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" i_d_req {
+        component "core/Probe" i_d_req_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1564,7 +1564,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto6 {
-            value = "u_d_pi"
+            value = "u_d_pi_rect"
             scope = local
             kind = sp
             direction = in
@@ -1588,7 +1588,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From9 {
-            value = "i_d"
+            value = "i_d_rect"
             scope = local
             kind = sp
             direction = out
@@ -1600,7 +1600,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto9 {
-            value = "u_q_pi"
+            value = "u_q_pi_rect"
             scope = local
             kind = sp
             direction = in
@@ -1612,7 +1612,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From10 {
-            value = "i_q"
+            value = "i_q_rect"
             scope = local
             kind = sp
             direction = out
@@ -1636,7 +1636,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From12 {
-            value = "V_out"
+            value = "V_out_rect"
             scope = local
             kind = sp
             direction = out
@@ -1834,7 +1834,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto10 {
-            value = "V_out"
+            value = "V_out_rect"
             scope = local
             kind = sp
             direction = in
@@ -1858,7 +1858,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto11 {
-            value = "reset"
+            value = "reset_rect"
             scope = local
             kind = sp
             direction = in
@@ -1870,7 +1870,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From16 {
-            value = "reset"
+            value = "reset_rect"
             scope = local
             kind = sp
             direction = out
@@ -1882,7 +1882,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From17 {
-            value = "reset"
+            value = "reset_rect"
             scope = local
             kind = sp
             direction = out
@@ -1894,7 +1894,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From18 {
-            value = "reset"
+            value = "reset_rect"
             scope = local
             kind = sp
             direction = out
@@ -2475,7 +2475,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction29 Goto6 as Connection298
         connect "PID controller2.out" Junction30 as Connection300
         connect Junction30 Goto9 as Connection301
-        connect reset_sig.out Goto11 as Connection304
+        connect reset_sig_rect.out Goto11 as Connection304
         connect "PID controller3.reset" From16 as Connection305
         connect "PID controller1.reset" From17 as Connection306
         connect "PID controller2.reset" From18 as Connection307
@@ -2494,17 +2494,17 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition4.out" Vsp2.in as Connection371
         connect Vsp3.in "Rate Transition5.out" as Connection372
         connect "Rate Transition5.in" "dq to abc1.phase_c" as Connection373
-        connect u_d_pi.in "Rate Transition13.out" as Connection324
+        connect u_d_pi_rect.in "Rate Transition13.out" as Connection324
         connect "Rate Transition13.in" Junction29 as Connection325
-        connect u_q_pi.in "Rate Transition14.out" as Connection326
+        connect u_q_pi_rect.in "Rate Transition14.out" as Connection326
         connect "Rate Transition14.in" Junction30 as Connection374
-        connect u_q_error.in "Rate Transition15.out" as Connection328
+        connect u_q_error_rect.in "Rate Transition15.out" as Connection328
         connect "Rate Transition15.in" Junction20 as Connection329
-        connect u_d_error.in "Rate Transition16.out" as Connection375
+        connect u_d_error_rect.in "Rate Transition16.out" as Connection375
         connect "Rate Transition16.in" Junction12 as Connection376
-        connect "Rate Transition17.out" i_d_req.in as Connection377
+        connect "Rate Transition17.out" i_d_req_rect.in as Connection377
         connect Constant4.out "Rate Transition17.in" as Connection378
-        connect V_out_error.in "Rate Transition18.out" as Connection379
+        connect V_out_error_rect.in "Rate Transition18.out" as Connection379
         connect "Rate Transition18.in" Junction24 as Connection380
         connect From6 "Rate Transition19.in" as Connection381
         connect "Rate Transition19.out" "dq to abc1.d_input" as Connection382
