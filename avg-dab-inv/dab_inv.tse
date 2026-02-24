@@ -647,7 +647,7 @@ model "dab_inv" {
 
         component "core/Three-phase Meter" "Grid Measurement" {
             R = "100000.0"
-            Ts = "T_meas"
+            Ts = "T_meas_inv"
             VAB = "True"
             VBC = "True"
             VCA = "True"
@@ -677,7 +677,7 @@ model "dab_inv" {
         component "core/Three phase PLL" "Three phase PLL" {
             enable_sin = "False"
             enable_zero = "False"
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
             initial_filter_output = "50"
         }
         [
@@ -686,7 +686,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Split" "Bus Split2" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
             outputs = "3"
         }
         [
@@ -695,7 +695,7 @@ model "dab_inv" {
         ]
 
         component "core/abc to dq" "abc to dq" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
         }
         [
             position = 12260, 7056
@@ -703,7 +703,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Split" "Bus Split3" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
             outputs = "3"
         }
         [
@@ -712,7 +712,7 @@ model "dab_inv" {
         ]
 
         component "core/Probe" i_d {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
         }
         [
             position = 12308, 6968
@@ -720,7 +720,7 @@ model "dab_inv" {
         ]
 
         component "core/Probe" i_q {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
         }
         [
             position = 12364, 6936
@@ -731,7 +731,7 @@ model "dab_inv" {
             IA = "False"
             IB = "False"
             IC = "False"
-            Ts = "T_meas"
+            Ts = "T_meas_inv"
             VAB = "True"
             VBn = "False"
             VCn = "False"
@@ -752,7 +752,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Join" "Bus Join1" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
             inputs = "3"
         }
         [
@@ -761,7 +761,7 @@ model "dab_inv" {
         ]
 
         component "core/Bus Join" "Bus Join2" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
             inputs = "3"
         }
         [
@@ -901,6 +901,7 @@ model "dab_inv" {
         ]
 
         component "core/Probe" u_d {
+            execution_rate = "T_meas_inv"
         }
         [
             position = 11100, 7360
@@ -908,6 +909,7 @@ model "dab_inv" {
         ]
 
         component "core/Probe" u_q {
+            execution_rate = "T_meas_inv"
         }
         [
             position = 11140, 7400
@@ -1248,7 +1250,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition4" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
         }
         [
             position = 11100, 7404
@@ -1258,7 +1260,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_inv"
         }
         [
             position = 11140, 7448
