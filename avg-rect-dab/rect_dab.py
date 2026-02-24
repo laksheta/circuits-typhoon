@@ -99,13 +99,13 @@ phase_3ph_rect    = delta_rect
 V_rect = m_rect*V_dc_target_rect
 
 # Controller
-f_bw_i      = 1e3
-omega_ci    = 2*np.pi*f_bw_i
-Kp_i        = omega_ci * L_rect
-Ki_i        = omega_ci * R_rect
+f_bw_i_rect      = 1e3
+omega_ci_rect    = 2*np.pi*f_bw_i_rect
+Kp_i_rect        = omega_ci_rect * L_rect
+Ki_i_rect        = omega_ci_rect * R_rect
 
-f_bw_v      = 20
-omega_cv    = 2*np.pi*f_bw_v
-zeta        = 0.707
-Kp_v        = 2*zeta*omega_cv*C_out_rect
-Ki_v        = (omega_cv**2)*C_out_rect
+f_bw_v_rect      = 20
+omega_cv_rect    = 2*np.pi*f_bw_v_rect
+zeta_rect        = 0.707
+Kp_v_rect        = 2*zeta_rect*omega_cv_rect*C_out_rect
+Ki_v_rect        = (omega_cv_rect**2)*C_out_rect
