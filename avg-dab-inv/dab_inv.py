@@ -81,22 +81,22 @@ u_grid_ph_inv     = np.arctan2(u_grid_q_inv, u_grid_d_inv)
 F_inv = 50
 phase_inv = np.array([0,-120,120])
 
-L = 1e-3
-R = L / tau_inv
+L_inv = 1e-3
+R_inv = L_inv / tau_inv
 
-i_d = 10
-i_q = 0
-omega   = 2*np.pi*F_inv
+i_d_inv = 10
+i_q_inv = 0
+omega_inv   = 2*np.pi*F_inv
 
-u_d = u_grid_d_inv + R*i_d - omega*L*i_q
-u_q = u_grid_q_inv + R*i_q + omega*L*i_d
+u_d_inv = u_grid_d_inv + R_inv*i_d_inv - omega_inv*L_inv*i_q_inv
+u_q_inv = u_grid_q_inv + R_inv*i_q_inv + omega_inv*L_inv*i_d_inv
 
-U_inv_amp = np.sqrt(u_d**2+u_q**2)
-U_inv_ph  = np.arctan2(u_q, u_d)
+U_inv_amp_inv = np.sqrt(u_d_inv**2+u_q_inv**2)
+U_inv_ph_inv  = np.arctan2(u_q_inv, u_d_inv)
 
-f_wb_i = 1e3
-omega_c = 2*np.pi*f_wb_i
+f_wb_i_inv = 1e3
+omega_c_inv = 2*np.pi*f_wb_i_inv
 
-Kp_i    = omega_c*L
-Ki_i    = omega_c*R
+Kp_i_inv    = omega_c_inv*L_inv
+Ki_i_inv    = omega_c_inv*R_inv
 
