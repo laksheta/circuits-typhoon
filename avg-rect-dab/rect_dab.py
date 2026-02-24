@@ -73,12 +73,12 @@ omega_rect       = 2*np.pi*F_rect
 R_rect           = 1e-1
 L_rect           = 1e-3
 
-R_load      = 100
-C_out       = 10e-6
+R_load_rect      = 100
+C_out_rect       = 10e-6
 
 V_dc_target = 780
 
-P_load = (V_dc_target**2) / R_load
+P_load = (V_dc_target**2) / R_load_rect
 
 i_d_req = -(2 * P_load) / (3 * V_grid_peak_rect)
 i_q_req = 0
@@ -107,5 +107,5 @@ Ki_i        = omega_ci * R_rect
 f_bw_v      = 20
 omega_cv    = 2*np.pi*f_bw_v
 zeta        = 0.707
-Kp_v        = 2*zeta*omega_cv*C_out
-Ki_v        = (omega_cv**2)*C_out
+Kp_v        = 2*zeta*omega_cv*C_out_rect
+Ki_v        = (omega_cv**2)*C_out_rect
