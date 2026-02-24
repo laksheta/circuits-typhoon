@@ -62,7 +62,7 @@ K_i_dab      = K_p_dab/tau_dab
 
 T_plant_inv = 50e-6
 T_math_inv = 100e-6
-T_meas = 100e-6
+T_meas_inv = 100e-6
 
 tau = 1e-3
 
