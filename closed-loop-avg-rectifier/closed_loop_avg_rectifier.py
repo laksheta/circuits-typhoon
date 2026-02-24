@@ -1,16 +1,13 @@
 import numpy as np
 
-
-exec_meas   = 1e-6
-exec_sine   = 1e-6
-exec_controller = 1e-6
+T_plant = 50e-6
+T_meas   = 100e-6
+T_controller = 100e-6
 
 V_grid_peak = 220*np.sqrt(2)
 V_grid_rms  = 220
 F           = 50
 omega       = 2*np.pi*F
-
-f_sw        = 50e3
 
 R           = 1e-1
 L           = 1e-3
@@ -41,7 +38,7 @@ phase_3ph    = delta
 V_rect = m*V_dc_target
 
 # Controller
-f_bw_i      = f_sw*0.1
+f_bw_i      = 1e3
 omega_ci    = 2*np.pi*f_bw_i
 Kp_i        = omega_ci * L
 Ki_i        = omega_ci * R
