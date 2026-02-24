@@ -62,7 +62,7 @@ K_i_dab      = K_p_dab/tau_dab
 import numpy as np
 
 T_plant_rect = 50e-6
-T_meas   = 100e-6
+T_meas_rect   = 100e-6
 T_controller = 100e-6
 
 V_grid_peak = 220*np.sqrt(2)
