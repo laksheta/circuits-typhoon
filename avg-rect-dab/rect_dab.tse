@@ -993,7 +993,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" i_dc {
+        component "core/Probe" i_dc_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1076,7 +1076,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" i_d {
+        component "core/Probe" i_d_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1103,7 +1103,7 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 48, 80
         ]
 
-        component "core/Probe" i_q {
+        component "core/Probe" i_q_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1119,7 +1119,7 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
-        component "core/Probe" V_d {
+        component "core/Probe" V_d_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1135,7 +1135,7 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 48, 80
         ]
 
-        component "core/Probe" V_q {
+        component "core/Probe" V_q_rect {
             execution_rate = "T_meas_rect"
         }
         [
@@ -1662,7 +1662,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto2 {
-            value = "i_abc"
+            value = "i_abc_rect"
             scope = local
             kind = sp
             direction = in
@@ -1688,7 +1688,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From2 {
-            value = "i_abc"
+            value = "i_abc_rect"
             scope = local
             kind = sp
             direction = out
@@ -1700,7 +1700,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto3 {
-            value = "i_dc"
+            value = "i_dc_rect"
             scope = local
             kind = sp
             direction = in
@@ -1712,7 +1712,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From3 {
-            value = "i_dc"
+            value = "i_dc_rect"
             scope = local
             kind = sp
             direction = out
@@ -1724,7 +1724,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto4 {
-            value = "V_abc_n"
+            value = "V_abc_n_rect"
             scope = local
             kind = sp
             direction = in
@@ -1738,7 +1738,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From4 {
-            value = "V_abc_n"
+            value = "V_abc_n_rect"
             scope = local
             kind = sp
             direction = out
@@ -1750,7 +1750,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto5 {
-            value = "theta"
+            value = "theta_rect"
             scope = local
             kind = sp
             direction = in
@@ -1762,7 +1762,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From7 {
-            value = "theta"
+            value = "theta_rect"
             scope = local
             kind = sp
             direction = out
@@ -1774,7 +1774,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From8 {
-            value = "i_abc"
+            value = "i_abc_rect"
             scope = local
             kind = sp
             direction = out
@@ -1786,7 +1786,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto7 {
-            value = "i_d"
+            value = "i_d_rect"
             scope = local
             kind = sp
             direction = in
@@ -1798,7 +1798,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag Goto8 {
-            value = "i_q"
+            value = "i_q_rect"
             scope = local
             kind = sp
             direction = in
@@ -1810,7 +1810,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From13 {
-            value = "theta"
+            value = "theta_rect"
             scope = local
             kind = sp
             direction = out
@@ -1822,7 +1822,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From14 {
-            value = "V_abc_n"
+            value = "V_abc_n_rect"
             scope = local
             kind = sp
             direction = out
@@ -1846,7 +1846,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From15 {
-            value = "V_out"
+            value = "V_out_rect"
             scope = local
             kind = sp
             direction = out
@@ -1918,7 +1918,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From19 {
-            value = "out_Grid_meter"
+            value = "out_Grid_meter_rect"
             scope = local
             kind = sp
             direction = out
@@ -1943,7 +1943,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         tag From20 {
-            value = "out_Rectifier_meter"
+            value = "out_Rectifier_meter_rect"
             scope = local
             kind = sp
             direction = out
@@ -2414,7 +2414,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
         connect "C function1.out" "Bus Split2.in" as Connection106
-        connect i_dc.in Junction8 as Connection108
+        connect i_dc_rect.in Junction8 as Connection108
         connect Junction8 "Bus Split2.out" as Connection109
         connect Goto3 Junction8 as Connection110
         connect "Bus Join4.out" Goto4 as Connection113
@@ -2438,21 +2438,21 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             breakpoints = 7320, 6864
         ]
-        connect i_q.in Junction10 as Connection263
+        connect i_q_rect.in Junction10 as Connection263
         connect From8 "Bus Split4.in" as Connection264
         connect "Bus Split5.out" "abc to dq1.va" as Connection229
         connect "abc to dq1.vb" "Bus Split5.out1" as Connection265
         connect "Bus Split5.out2" "abc to dq1.vc" as Connection266
         connect "abc to dq1.wt" From13 as Connection267
         connect From14 "Bus Split5.in" as Connection239
-        connect "abc to dq1.q_axis" V_q.in as Connection241
+        connect "abc to dq1.q_axis" V_q_rect.in as Connection241
         [
             breakpoints = 7304, 7080
         ]
         connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
         connect "Bus Join2.in" "Meter Split2.IA" as Connection244
         connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
-        connect V_d.in "abc to dq1.d_axis" as Connection246
+        connect V_d_rect.in "abc to dq1.d_axis" as Connection246
         connect V_out.out Goto10 as Connection247
         connect Junction4 Junction11 as Connection249
         connect Junction11 Junction5 as Connection250
@@ -2469,7 +2469,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
         connect Goto7 Junction28 as Connection290
         connect Junction28 "abc to dq.d_axis" as Connection291
-        connect i_d.in Junction28 as Connection292
+        connect i_d_rect.in Junction28 as Connection292
         connect "PID controller3.out" Sum1.in as Connection294
         connect "PID controller1.out" Junction29 as Connection297
         connect Junction29 Goto6 as Connection298
