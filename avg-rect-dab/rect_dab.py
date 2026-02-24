@@ -76,9 +76,9 @@ L_rect           = 1e-3
 R_load_rect      = 100
 C_out_rect       = 10e-6
 
-V_dc_target = 780
+V_dc_target_rect = 780
 
-P_load = (V_dc_target**2) / R_load_rect
+P_load = (V_dc_target_rect**2) / R_load_rect
 
 i_d_req = -(2 * P_load) / (3 * V_grid_peak_rect)
 i_q_req = 0
@@ -91,12 +91,12 @@ U_rect_rms = U_rect_amp/np.sqrt(2)
 delta_rad  = np.arctan2(u_q, u_d)
 delta      = delta_rad * (180/np.pi)
 
-m = U_rect_amp / V_dc_target
+m = U_rect_amp / V_dc_target_rect
 
 phase = [0+delta, -120+delta, 120+delta]
 phase_3ph    = delta
 
-V_rect = m*V_dc_target
+V_rect = m*V_dc_target_rect
 
 # Controller
 f_bw_i      = 1e3
