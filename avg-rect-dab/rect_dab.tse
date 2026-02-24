@@ -768,7 +768,7 @@ model "rect_dab" {
             controller_type = "PI"
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             ki = "Ki_i"
             kp = "Kp_i"
             lower_sat_lim = "-350"
@@ -781,7 +781,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant4 {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             value = "-i_d_req"
         }
         [
@@ -797,7 +797,7 @@ model "rect_dab" {
         ]
 
         component "core/SCADA Input" reset_sig {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             max = "1"
             min = "0"
             unit = ""
@@ -807,7 +807,7 @@ model "rect_dab" {
         ]
 
         component "core/Sum" Sum1 {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             signs = "++"
         }
         [
@@ -818,7 +818,7 @@ model "rect_dab" {
         component "core/PID controller" "PID controller2" {
             controller_type = "PI"
             enb_output_limit_out = "True"
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             ki = "Ki_i"
             kp = "Kp_i"
             lower_sat_lim = "-350"
@@ -831,7 +831,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant5 {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             value = "i_q_req"
         }
         [
@@ -847,7 +847,7 @@ model "rect_dab" {
         ]
 
         component "core/Sum" Sum2 {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             signs = "++"
         }
         [
@@ -866,7 +866,7 @@ model "rect_dab" {
             controller_type = "PI"
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             ki = "Ki_v"
             kp = "Kp_v"
             lower_sat_lim = "-15"
@@ -879,7 +879,7 @@ model "rect_dab" {
         ]
 
         component "core/Sum" Sum3 {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             signs = "+-"
         }
         [
@@ -888,7 +888,7 @@ model "rect_dab" {
         ]
 
         component "core/Constant" Constant6 {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
             value = "V_dc_target"
         }
         [
@@ -1273,7 +1273,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition21" {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
         }
         [
             position = 6088, 7708
@@ -1282,7 +1282,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition22" {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
         }
         [
             position = 6108, 7576
@@ -1291,7 +1291,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Rate Transition" "Rate Transition23" {
-            execution_rate = "T_controller"
+            execution_rate = "T_controller_rect"
         }
         [
             position = 5776, 7552
