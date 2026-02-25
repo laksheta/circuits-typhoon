@@ -33,7 +33,7 @@ SETTINGS_DIR = get_settings_dir_path()
                 <working_mode>windowed</working_mode>
                 <widget_settings>
                     <x>704</x>
-                    <y>328</y>
+                    <y>336</y>
                     <width>120</width>
                     <height>120</height>
                     <hierarchy_position>1</hierarchy_position>
