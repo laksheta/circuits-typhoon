@@ -2027,6 +2027,42 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
+        component "core/Signal switch" "Signal switch3" {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 5392, 8336
+            hide_name = True
+        ]
+
+        component "core/SCADA Input" sw_Rect_DAB {
+            execution_rate = "T_math_dab"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 5344, 8212
+        ]
+
+        component "core/Constant" Constant19 {
+            execution_rate = "T_math_dab"
+            value = "0"
+        }
+        [
+            position = 5312, 8360
+            hide_name = True
+        ]
+
+        component "core/Rate Transition" "Rate Transition33" {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 5324, 8320
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag Goto14 {
             value = "V_1_dab"
             scope = local
@@ -3013,6 +3049,30 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 116, 20
         ]
 
+        tag From47 {
+            value = "V_out_rect"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 5248, 8320
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto36 {
+            value = "V_in_dab"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 5484, 8336
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction31 pe
         [
             position = 6068, 8048
@@ -3255,6 +3315,11 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 3640, 7360
         ]
 
+        comment Comment7 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">Rectifier-DAB Switching Interface</span></p></body></html> ENDCOMMENT 
+        [
+            position = 5068, 8036
+        ]
+
         scheme_area Area6 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
         }
@@ -3375,6 +3440,16 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 4056, 7784
             size = 1296, 572
             background_color = #0eff0000
+            box_outline = True
+        ]
+
+        scheme_area Area9 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
+        }
+        [
+            position = 5360, 8276
+            size = 484, 284
+            background_color = #0eff00ff
             box_outline = True
         ]
 
@@ -3825,11 +3900,22 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition31.out" Sum3.in1 as Connection388
         connect Isp1.in "Rate Transition32.out" as Connection390
         connect "Rate Transition32.in" From42 as Connection391
+        connect sw_Rect_DAB.out "Signal switch3.in2" as Connection339
+        connect Constant19.out "Signal switch3.in1" as Connection488
+        [
+            hide_name = True
+        ]
+        connect From47 "Rate Transition33.in" as Connection489
+        connect "Rate Transition33.out" "Signal switch3.in" as Connection490
+        connect "Signal switch3.out" Goto36 as Connection392
     }
 
     logically_deleted {
+        "Constant7"
         "dc_input_inv"
+        "Goto19"
         "Comment4"
+        "Connection364"
     }
 
     default {
