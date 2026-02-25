@@ -1846,6 +1846,19 @@ model "dab_inv" {
             size = 60, 20
         ]
 
+        tag Goto24 {
+            value = "Inverter_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 12232, 7284
+            rotation = down
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction31 pe
         [
             position = 8296, 7184
@@ -2363,6 +2376,7 @@ model "dab_inv" {
         connect From33 Junction50 as Connection435
         connect Junction50 PI_i_q_inv.reset as Connection436
         connect PI_i_d_inv.reset Junction50 as Connection437
+        connect Goto24 "Inverter Measurement.Out" as Connection438
     }
 
     logically_deleted {
