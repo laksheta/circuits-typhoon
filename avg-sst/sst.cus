@@ -82,8 +82,8 @@ widgetValue = hil.model_read('sw_DAB')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>848</x>
-                    <y>224</y>
+                    <x>864</x>
+                    <y>72</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -134,8 +134,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>656</x>
-                    <y>352</y>
+                    <x>688</x>
+                    <y>200</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -246,8 +246,8 @@ widgetValue = hil.model_read('V_out_ref_dab')
                 <max>1000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>736</x>
-                    <y>560</y>
+                    <x>768</x>
+                    <y>408</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -314,8 +314,8 @@ widgetValue = hil.model_read('sw_dab_inv')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1176</x>
-                    <y>248</y>
+                    <x>1112</x>
+                    <y>256</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -366,8 +366,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>1392</x>
-                    <y>232</y>
+                    <x>1232</x>
+                    <y>104</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -478,8 +478,8 @@ widgetValue = hil.model_read('scada_i_d_inv')
                 <max>100.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1448</x>
-                    <y>656</y>
+                    <x>1288</x>
+                    <y>528</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -530,8 +530,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>1392</x>
-                    <y>440</y>
+                    <x>1232</x>
+                    <y>312</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -592,8 +592,8 @@ referenceCurves = [refCurveData1]
                 <description><![CDATA[]]></description>
                 <working_mode>windowed</working_mode>
                 <widget_settings>
-                    <x>1160</x>
-                    <y>408</y>
+                    <x>832</x>
+                    <y>488</y>
                     <width>120</width>
                     <height>120</height>
                     <hierarchy_position>1</hierarchy_position>
@@ -783,9 +783,9 @@ widgetValue = hil.model_read('sw_Rect_DAB')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>312</x>
-                    <y>464</y>
-                    <width>80</width>
+                    <x>560</x>
+                    <y>264</y>
+                    <width>96</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -835,7 +835,7 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>144</x>
+                    <x>136</x>
                     <y>208</y>
                     <width>400</width>
                     <height>200</height>
