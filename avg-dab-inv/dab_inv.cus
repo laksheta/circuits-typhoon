@@ -63,7 +63,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
-                                        <num_viewport>1</num_viewport>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                                 <analog>
@@ -76,6 +76,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <row>1</row>
                                     <viewports>
                                         <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>2</channel>
+                                    <name><![CDATA[V_out_dab]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>2</row>
+                                    <viewports>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                             </analog_signals>
@@ -145,7 +157,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
-                                        <num_viewport>1</num_viewport>
+                                        <num_viewport>3</num_viewport>
                                    </viewports>
                                </analog>
                             <analog>
@@ -158,6 +170,18 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <row>1</row>
                                     <viewports>
                                         <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>2</channel>
+                                    <name><![CDATA[V_out_dab]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>2</row>
+                                    <viewports>
+                                        <num_viewport>1</num_viewport>
                                    </viewports>
                                </analog>
                         </analog_signals>
