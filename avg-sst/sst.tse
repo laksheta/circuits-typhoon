@@ -1314,7 +1314,7 @@ model "sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 4564, 8348
+            position = 4840, 8428
             hide_name = True
             scale = -1, 1
             size = 62, 256
@@ -1324,7 +1324,7 @@ model "sst" {
             inductance = "L_rect"
         }
         [
-            position = 4300, 8252
+            position = 4576, 8332
             hide_name = True
         ]
 
@@ -1332,7 +1332,7 @@ model "sst" {
             inductance = "L_rect"
         }
         [
-            position = 4300, 8348
+            position = 4576, 8428
             hide_name = True
         ]
 
@@ -1340,14 +1340,14 @@ model "sst" {
             inductance = "L_rect"
         }
         [
-            position = 4300, 8444
+            position = 4576, 8524
             hide_name = True
         ]
 
         component "core/Ground" gnd3 {
         }
         [
-            position = 4644, 8412
+            position = 4920, 8492
             hide_name = True
         ]
 
@@ -1355,7 +1355,7 @@ model "sst" {
             resistance = "R_rect"
         }
         [
-            position = 4188, 8252
+            position = 4464, 8332
             hide_name = True
         ]
 
@@ -1363,7 +1363,7 @@ model "sst" {
             resistance = "R_rect"
         }
         [
-            position = 4188, 8348
+            position = 4464, 8428
             hide_name = True
         ]
 
@@ -1371,7 +1371,7 @@ model "sst" {
             resistance = "R_rect"
         }
         [
-            position = 4188, 8444
+            position = 4464, 8524
             hide_name = True
         ]
 
@@ -1379,7 +1379,7 @@ model "sst" {
             execution_rate = "T_plant_rect"
         }
         [
-            position = 3788, 8292
+            position = 4064, 8372
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -1390,7 +1390,7 @@ model "sst" {
             execution_rate = "T_plant_rect"
         }
         [
-            position = 3840, 8388
+            position = 4116, 8468
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -1401,7 +1401,7 @@ model "sst" {
             execution_rate = "T_plant_rect"
         }
         [
-            position = 3892, 8500
+            position = 4168, 8580
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -1411,7 +1411,7 @@ model "sst" {
         component "core/Ground" gnd4 {
         }
         [
-            position = 3840, 8576
+            position = 4116, 8656
             hide_name = True
         ]
 
@@ -1419,7 +1419,7 @@ model "sst" {
             Ts = "T_meas_rect"
         }
         [
-            position = 4412, 8348
+            position = 4688, 8428
             scale = -1, 1
             size = 56, 240
         ]
@@ -1427,7 +1427,7 @@ model "sst" {
         component "core/Ground" gnd5 {
         }
         [
-            position = 4412, 8520
+            position = 4688, 8600
             hide_name = True
         ]
 
@@ -1435,14 +1435,14 @@ model "sst" {
             Ts = "T_meas_rect"
         }
         [
-            position = 4064, 8348
+            position = 4340, 8428
             size = 56, 240
         ]
 
         component "core/Ground" gnd6 {
         }
         [
-            position = 4064, 8520
+            position = 4340, 8600
             hide_name = True
         ]
 
@@ -1450,7 +1450,7 @@ model "sst" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3648, 8388
+            position = 3924, 8468
             hide_name = True
             size = 48, 80
         ]
@@ -1460,7 +1460,7 @@ model "sst" {
             value = "0"
         }
         [
-            position = 3492, 8400
+            position = 3768, 8480
             hide_name = True
         ]
 
@@ -1469,7 +1469,7 @@ model "sst" {
             value = "u_d_rect"
         }
         [
-            position = 3488, 8244
+            position = 3764, 8324
             hide_name = True
         ]
 
@@ -1478,7 +1478,7 @@ model "sst" {
             value = "u_q_rect"
         }
         [
-            position = 3488, 8276
+            position = 3764, 8356
             hide_name = True
         ]
 
@@ -1494,7 +1494,7 @@ model "sst" {
             upper_sat_lim = "350"
         }
         [
-            position = 3104, 8380
+            position = 3380, 8460
             hide_name = True
         ]
 
@@ -1503,7 +1503,7 @@ model "sst" {
             value = "-i_d_req_rect"
         }
         [
-            position = 2872, 8244
+            position = 3148, 8324
             hide_name = True
         ]
 
@@ -1511,7 +1511,7 @@ model "sst" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3328, 8348
+            position = 3604, 8428
         ]
 
         component "core/SCADA Input" reset_sig_rect {
@@ -1521,7 +1521,7 @@ model "sst" {
             unit = ""
         }
         [
-            position = 2552, 8484
+            position = 2828, 8564
         ]
 
         component "core/Sum" Sum6 {
@@ -1529,7 +1529,7 @@ model "sst" {
             signs = "++"
         }
         [
-            position = 2984, 8372
+            position = 3260, 8452
             hide_name = True
         ]
 
@@ -1544,7 +1544,7 @@ model "sst" {
             upper_sat_lim = "350"
         }
         [
-            position = 3080, 8508
+            position = 3356, 8588
             hide_name = True
         ]
 
@@ -1553,7 +1553,7 @@ model "sst" {
             value = "i_q_req_rect"
         }
         [
-            position = 2848, 8484
+            position = 3124, 8564
             hide_name = True
         ]
 
@@ -1561,7 +1561,7 @@ model "sst" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3328, 8536
+            position = 3604, 8616
         ]
 
         component "core/Sum" Sum7 {
@@ -1569,7 +1569,7 @@ model "sst" {
             signs = "++"
         }
         [
-            position = 2968, 8500
+            position = 3244, 8580
             hide_name = True
         ]
 
@@ -1577,7 +1577,7 @@ model "sst" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3112, 8288
+            position = 3388, 8368
         ]
 
         component "core/PID controller" "PID controller3" {
@@ -1592,7 +1592,7 @@ model "sst" {
             upper_sat_lim = "15"
         }
         [
-            position = 2776, 8364
+            position = 3052, 8444
             hide_name = True
         ]
 
@@ -1601,7 +1601,7 @@ model "sst" {
             signs = "+-"
         }
         [
-            position = 2664, 8356
+            position = 2940, 8436
             hide_name = True
         ]
 
@@ -1610,7 +1610,7 @@ model "sst" {
             value = "V_dc_target_rect"
         }
         [
-            position = 2536, 8332
+            position = 2812, 8412
             hide_name = True
         ]
 
@@ -1618,14 +1618,14 @@ model "sst" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3108, 8580
+            position = 3384, 8660
         ]
 
         component "core/Probe" V_out_error_rect {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 2808, 8260
+            position = 3084, 8340
         ]
 
         component "core/C function" "C function1" {
@@ -1656,7 +1656,7 @@ out[0] = fmax(0.0, i_dc_raw);
 /*End code section*/"
         }
         [
-            position = 3704, 7840
+            position = 3980, 7920
             hide_name = True
             size = 48, 48
         ]
@@ -1664,7 +1664,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Meter Split" "Meter Split1" {
         }
         [
-            position = 4428, 7780
+            position = 4704, 7860
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -1676,7 +1676,7 @@ out[0] = fmax(0.0, i_dc_raw);
             inputs = "3"
         }
         [
-            position = 4552, 7780
+            position = 4828, 7860
             hide_name = True
         ]
 
@@ -1686,7 +1686,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ic = "True"
         }
         [
-            position = 4432, 7928
+            position = 4708, 8008
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -1698,7 +1698,7 @@ out[0] = fmax(0.0, i_dc_raw);
             inputs = "3"
         }
         [
-            position = 4552, 7872
+            position = 4828, 7952
             hide_name = True
         ]
 
@@ -1707,7 +1707,7 @@ out[0] = fmax(0.0, i_dc_raw);
             inputs = "3"
         }
         [
-            position = 3608, 7840
+            position = 3884, 7920
             hide_name = True
         ]
 
@@ -1715,7 +1715,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3840, 7756
+            position = 4116, 7836
             rotation = left
         ]
 
@@ -1723,7 +1723,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant_rect"
         }
         [
-            position = 2764, 7928
+            position = 3040, 8008
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -1734,7 +1734,7 @@ out[0] = fmax(0.0, i_dc_raw);
             capacitance = "C_out_rect"
         }
         [
-            position = 2860, 7932
+            position = 3136, 8012
             rotation = right
             hide_name = True
         ]
@@ -1743,7 +1743,7 @@ out[0] = fmax(0.0, i_dc_raw);
             resistance = "R_load_rect"
         }
         [
-            position = 2956, 7932
+            position = 3232, 8012
             rotation = right
             hide_name = True
         ]
@@ -1753,7 +1753,7 @@ out[0] = fmax(0.0, i_dc_raw);
             sig_output = "True"
         }
         [
-            position = 3064, 7932
+            position = 3340, 8012
             rotation = right
             size = 64, 32
         ]
@@ -1763,7 +1763,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "7"
         }
         [
-            position = 3776, 7840
+            position = 4052, 7920
             hide_name = True
         ]
 
@@ -1772,7 +1772,7 @@ out[0] = fmax(0.0, i_dc_raw);
             inputs = "3"
         }
         [
-            position = 4552, 7984
+            position = 4828, 8064
             hide_name = True
         ]
 
@@ -1781,7 +1781,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "3"
         }
         [
-            position = 4372, 7624
+            position = 4648, 7704
             hide_name = True
         ]
 
@@ -1790,7 +1790,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "3"
         }
         [
-            position = 3948, 7688
+            position = 4224, 7768
             hide_name = True
         ]
 
@@ -1798,7 +1798,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4132, 7620
+            position = 4408, 7700
         ]
 
         component "core/Three phase PLL" "Three phase PLL1" {
@@ -1808,7 +1808,7 @@ out[0] = fmax(0.0, i_dc_raw);
             initial_filter_output = "50"
         }
         [
-            position = 4476, 7624
+            position = 4752, 7704
             size = 64, 128
         ]
 
@@ -1816,7 +1816,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4032, 7696
+            position = 4308, 7776
             hide_name = True
             size = 48, 80
         ]
@@ -1825,7 +1825,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4132, 7744
+            position = 4408, 7824
         ]
 
         component "core/Bus Split" "Bus Split7" {
@@ -1833,7 +1833,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "3"
         }
         [
-            position = 3948, 7904
+            position = 4224, 7984
             hide_name = True
         ]
 
@@ -1841,14 +1841,14 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4136, 7888
+            position = 4412, 7968
         ]
 
         component "core/abc to dq" "abc to dq2" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4032, 7912
+            position = 4308, 7992
             hide_name = True
             size = 48, 80
         ]
@@ -1857,13 +1857,13 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4136, 7944
+            position = 4412, 8024
         ]
 
         component "core/Ground" gnd7 {
         }
         [
-            position = 2920, 8028
+            position = 3196, 8108
             hide_name = True
         ]
 
@@ -1871,14 +1871,14 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3008, 8244
+            position = 3284, 8324
         ]
 
         component "core/Rate Transition" "Rate Transition16" {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4340, 7780
+            position = 4616, 7860
             hide_name = True
             size = 32, 32
         ]
@@ -1887,7 +1887,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 4340, 7928
+            position = 4616, 8008
             hide_name = True
             size = 32, 32
         ]
@@ -1896,7 +1896,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant_rect"
         }
         [
-            position = 3720, 8336
+            position = 3996, 8416
             hide_name = True
             size = 32, 32
         ]
@@ -1905,7 +1905,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant_rect"
         }
         [
-            position = 3720, 8388
+            position = 3996, 8468
             hide_name = True
             size = 32, 32
         ]
@@ -1914,7 +1914,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant_rect"
         }
         [
-            position = 3720, 8448
+            position = 3996, 8528
             hide_name = True
             size = 32, 32
         ]
@@ -1923,7 +1923,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3268, 8348
+            position = 3544, 8428
             hide_name = True
             size = 32, 32
         ]
@@ -1932,7 +1932,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3264, 8536
+            position = 3540, 8616
             hide_name = True
             size = 32, 32
         ]
@@ -1941,7 +1941,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3064, 8580
+            position = 3340, 8660
             hide_name = True
             size = 32, 32
         ]
@@ -1950,7 +1950,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3064, 8288
+            position = 3340, 8368
             hide_name = True
             size = 32, 32
         ]
@@ -1959,7 +1959,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 2940, 8244
+            position = 3216, 8324
             hide_name = True
             size = 32, 32
         ]
@@ -1968,7 +1968,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 2756, 8260
+            position = 3032, 8340
             hide_name = True
             size = 32, 32
         ]
@@ -1977,7 +1977,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3572, 8332
+            position = 3848, 8412
             hide_name = True
             size = 32, 32
         ]
@@ -1986,7 +1986,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_rect"
         }
         [
-            position = 3572, 8380
+            position = 3848, 8460
             hide_name = True
             size = 32, 32
         ]
@@ -1995,7 +1995,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_controller_rect"
         }
         [
-            position = 2880, 8540
+            position = 3156, 8620
             hide_name = True
             size = 32, 32
         ]
@@ -2004,7 +2004,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_controller_rect"
         }
         [
-            position = 2900, 8408
+            position = 3176, 8488
             hide_name = True
             size = 32, 32
         ]
@@ -2013,7 +2013,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_controller_rect"
         }
         [
-            position = 2568, 8384
+            position = 2844, 8464
             hide_name = True
             size = 32, 32
         ]
@@ -2022,7 +2022,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant_rect"
         }
         [
-            position = 2720, 7928
+            position = 2996, 8008
             hide_name = True
             size = 32, 32
         ]
@@ -2651,7 +2651,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3484, 8436
+            position = 3760, 8516
             hide_name = True
             size = 60, 20
         ]
@@ -2663,7 +2663,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 3208, 8380
+            position = 3484, 8460
             hide_name = True
             size = 60, 20
         ]
@@ -2675,7 +2675,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3488, 8332
+            position = 3764, 8412
             hide_name = True
             size = 60, 20
         ]
@@ -2687,7 +2687,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2824, 8408
+            position = 3100, 8488
             hide_name = True
             size = 60, 20
         ]
@@ -2699,7 +2699,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 3192, 8508
+            position = 3468, 8588
             hide_name = True
             size = 60, 20
         ]
@@ -2711,7 +2711,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2816, 8540
+            position = 3092, 8620
             hide_name = True
             size = 60, 20
         ]
@@ -2723,7 +2723,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3488, 8360
+            position = 3764, 8440
             hide_name = True
             size = 60, 20
         ]
@@ -2735,7 +2735,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2508, 8384
+            position = 2784, 8464
             hide_name = True
             size = 60, 20
         ]
@@ -2747,7 +2747,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4636, 7780
+            position = 4912, 7860
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2761,7 +2761,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4636, 7872
+            position = 4912, 7952
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2775,7 +2775,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3488, 7804
+            position = 3764, 7884
             hide_name = True
             size = 60, 20
         ]
@@ -2787,7 +2787,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3488, 7840
+            position = 3764, 7920
             hide_name = True
             size = 60, 20
         ]
@@ -2799,7 +2799,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 3904, 7792
+            position = 4180, 7872
             hide_name = True
             size = 60, 20
         ]
@@ -2811,7 +2811,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2656, 7928
+            position = 2932, 8008
             hide_name = True
             size = 60, 20
         ]
@@ -2823,7 +2823,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4636, 7984
+            position = 4912, 8064
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -2837,7 +2837,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 4300, 7624
+            position = 4576, 7704
             hide_name = True
             size = 60, 20
         ]
@@ -2849,7 +2849,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4568, 7640
+            position = 4844, 7720
             hide_name = True
             size = 60, 20
         ]
@@ -2861,7 +2861,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3944, 7744
+            position = 4220, 7824
             hide_name = True
             size = 60, 20
         ]
@@ -2873,7 +2873,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3860, 7688
+            position = 4136, 7768
             hide_name = True
             size = 60, 20
         ]
@@ -2885,7 +2885,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4152, 7672
+            position = 4428, 7752
             hide_name = True
             size = 60, 20
         ]
@@ -2897,7 +2897,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4152, 7696
+            position = 4428, 7776
             hide_name = True
             size = 60, 20
         ]
@@ -2909,7 +2909,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3944, 7960
+            position = 4220, 8040
             hide_name = True
             size = 60, 20
         ]
@@ -2921,7 +2921,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3860, 7904
+            position = 4136, 7984
             hide_name = True
             size = 60, 20
         ]
@@ -2933,7 +2933,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 3140, 7932
+            position = 3416, 8012
             hide_name = True
             size = 60, 20
         ]
@@ -2945,7 +2945,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 3488, 7876
+            position = 3764, 7956
             hide_name = True
             size = 60, 20
         ]
@@ -2957,7 +2957,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 2656, 8484
+            position = 2932, 8564
             hide_name = True
             size = 60, 20
         ]
@@ -2969,7 +2969,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2688, 8400
+            position = 2964, 8480
             hide_name = True
             size = 60, 20
         ]
@@ -2981,7 +2981,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2992, 8412
+            position = 3268, 8492
             hide_name = True
             size = 60, 20
         ]
@@ -2993,7 +2993,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 2968, 8568
+            position = 3244, 8648
             hide_name = True
             size = 60, 20
         ]
@@ -3005,7 +3005,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 4488, 8196
+            position = 4764, 8276
             hide_name = True
             size = 108, 20
         ]
@@ -3017,7 +3017,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 4256, 7928
+            position = 4532, 8008
             hide_name = True
             size = 108, 20
         ]
@@ -3029,7 +3029,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 3968, 8196
+            position = 4244, 8276
             rotation = down
             hide_name = True
             size = 116, 20
@@ -3042,7 +3042,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 4252, 7780
+            position = 4528, 7860
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -3215,72 +3215,72 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction1 pe
         [
-            position = 3840, 8544
+            position = 4116, 8624
         ]
 
         junction Junction12 sp
         [
-            position = 3032, 8372
+            position = 3308, 8452
         ]
 
         junction Junction20 sp
         [
-            position = 3016, 8500
+            position = 3292, 8580
         ]
 
         junction Junction24 sp
         [
-            position = 2720, 8356
+            position = 2996, 8436
         ]
 
         junction Junction51 pe
         [
-            position = 2860, 7996
+            position = 3136, 8076
         ]
 
         junction Junction5 pe
         [
-            position = 2956, 7996
+            position = 3232, 8076
         ]
 
         junction Junction6 pe
         [
-            position = 2956, 7868
+            position = 3232, 7948
         ]
 
         junction Junction7 pe
         [
-            position = 2860, 7868
+            position = 3136, 7948
         ]
 
         junction Junction8 sp
         [
-            position = 3840, 7792
+            position = 4116, 7872
         ]
 
         junction Junction10 sp
         [
-            position = 4096, 7696
+            position = 4372, 7776
         ]
 
         junction Junction11 pe
         [
-            position = 2920, 7996
+            position = 3196, 8076
         ]
 
         junction Junction28 sp
         [
-            position = 4096, 7672
+            position = 4372, 7752
         ]
 
         junction Junction29 sp
         [
-            position = 3152, 8380
+            position = 3428, 8460
         ]
 
         junction Junction30 sp
         [
-            position = 3128, 8508
+            position = 3404, 8588
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -3306,18 +3306,23 @@ out[0] = fmax(0.0, i_dc_raw);
 
         comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
         [
-            position = 9252, 7596
+            position = 9964, 7596
             hide_name = True
         ]
 
         comment Comment6 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
         [
-            position = 3640, 7360
+            position = 3916, 7440
         ]
 
         comment Comment7 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">Rectifier-DAB Switching Interface</span></p></body></html> ENDCOMMENT 
         [
             position = 5068, 8036
+        ]
+
+        comment Comment8 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">DAB-Inverter Switching Interface</span> </p></body></html> ENDCOMMENT 
+        [
+            position = 7496, 8008
         ]
 
         scheme_area Area6 {
@@ -3408,7 +3413,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
         }
         [
-            position = 2904, 7924
+            position = 3180, 8004
             size = 572, 248
             box_outline = True
         ]
@@ -3417,7 +3422,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">PI Controller</p></body></html>
         }
         [
-            position = 2904, 8372
+            position = 3180, 8452
             size = 960, 496
             background_color = #0e55ffff
             box_outline = True
@@ -3427,7 +3432,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">AC Side</p></body></html>
         }
         [
-            position = 4056, 8364
+            position = 4332, 8444
             size = 1268, 492
             background_color = #0effaa00
             box_outline = True
@@ -3437,7 +3442,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
         }
         [
-            position = 4056, 7784
+            position = 4332, 7864
             size = 1296, 572
             background_color = #0eff0000
             box_outline = True
@@ -3733,7 +3738,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction1 gnd4.node as Connection450
         connect Vsp4.n_node Junction1 as Connection451
         [
-            breakpoints = 3788, 8544; 3840, 8544
+            breakpoints = 4064, 8624; 4116, 8624
         ]
         connect L5.n_node "Grid Meter.A-" as Connection21
         connect "Grid Meter.A+" Vs1.a_node as Connection22
@@ -3750,7 +3755,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rectifier Meter.C-" R6.p_node as Connection452
         connect Vsp6.n_node Junction1 as Connection60
         [
-            breakpoints = 3888, 8544
+            breakpoints = 4164, 8624
         ]
         connect gnd6.node "Rectifier Meter.GND" as Connection61
         connect "Rectifier Meter.C+" Vsp6.p_node as Connection63
@@ -3771,27 +3776,27 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From41 "Bus Join7.in" as Connection84
         connect "Bus Join7.in1" From2 as Connection85
         [
-            breakpoints = 3568, 7840; 3536, 7840
+            breakpoints = 3844, 7920; 3812, 7920
         ]
         connect "C function1.in" "Bus Join7.out" as Connection86
         connect Isp1.n_node Junction51 as Connection94
         [
-            breakpoints = 2764, 7996
+            breakpoints = 3040, 8076
         ]
         connect C1.n_node Junction51 as Connection96
         connect Junction5 V_out_rect.n_node as Connection456
         [
-            breakpoints = 3064, 7996
+            breakpoints = 3340, 8076
         ]
         connect R7.n_node Junction5 as Connection457
         connect Junction6 V_out_rect.p_node as Connection458
         [
-            breakpoints = 3064, 7868
+            breakpoints = 3340, 7948
         ]
         connect R7.p_node Junction6 as Connection459
         connect Isp1.p_node Junction7 as Connection460
         [
-            breakpoints = 2764, 7868
+            breakpoints = 3040, 7948
         ]
         connect Junction7 Junction6 as Connection461
         connect C1.p_node Junction7 as Connection462
@@ -3804,7 +3809,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Meter Split2.VBn" "Bus Join8.in1" as Connection468
         connect "Meter Split2.VCn" "Bus Join8.in2" as Connection469
         [
-            breakpoints = 4496, 7936; 4496, 8000
+            breakpoints = 4772, 8016; 4772, 8080
         ]
         connect "Bus Split5.in" From43 as Connection117
         connect "Bus Split5.out1" "Three phase PLL1.vb" as Connection204
@@ -3818,7 +3823,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "abc to dq1.q_axis" Junction10 as Connection474
         connect Junction10 Goto32 as Connection262
         [
-            breakpoints = 4112, 7696
+            breakpoints = 4388, 7776
         ]
         connect i_q_rect.in Junction10 as Connection475
         connect From8 "Bus Split6.in" as Connection476
@@ -3829,7 +3834,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From46 "Bus Split7.in" as Connection239
         connect "abc to dq2.q_axis" V_q_rect.in as Connection478
         [
-            breakpoints = 4096, 7912
+            breakpoints = 4372, 7992
         ]
         connect "Meter Split2.IC" "Bus Join6.in2" as Connection479
         connect "Bus Join6.in" "Meter Split2.IA" as Connection480
@@ -3843,11 +3848,11 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From15 "Bus Join7.in2" as Connection255
         connect "Bus Join5.in" "Meter Split1.VAn" as Connection256
         [
-            breakpoints = 4492, 7768
+            breakpoints = 4768, 7848
         ]
         connect "Bus Join5.in2" "Meter Split1.VCn" as Connection257
         [
-            breakpoints = 4504, 7792
+            breakpoints = 4780, 7872
         ]
         connect Goto31 Junction28 as Connection290
         connect Junction28 "abc to dq1.d_axis" as Connection291
@@ -3862,7 +3867,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "PID controller1.reset" From17 as Connection306
         connect "PID controller2.reset" From18 as Connection307
         [
-            breakpoints = 3032, 8516; 3032, 8568
+            breakpoints = 3308, 8596; 3308, 8648
         ]
         connect Goto35 "Grid Meter.Out" as Connection308
         connect Goto13 "Rectifier Meter.Out" as Connection310
