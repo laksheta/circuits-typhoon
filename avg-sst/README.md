@@ -1,11 +1,11 @@
 # Schematic
 
 <p align='center'>
-    <img src='./attachements/sst.png' width='800'>
+    <img src='./attachments/sst.png' width='800'>
 </p>
 
 # Result
 
 <p align='center'>
-    <img src='./attachements/cus.png' width='800'>
+    <img src='./attachments/cus.png' width='800'>
 </p>
