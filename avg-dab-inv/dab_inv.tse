@@ -1290,6 +1290,25 @@ model "dab_inv" {
             size = 32, 32
         ]
 
+        component "core/Triple Pole Single Throw Contactor" S1 {
+            ctrl_src = "Model"
+            execution_rate = "T_plant_inv"
+        }
+        [
+            position = 12696, 7440
+            hide_name = True
+            size = 64, 256
+        ]
+
+        component "core/Rate Transition" "Rate Transition15" {
+            execution_rate = "T_plant_inv"
+        }
+        [
+            position = 12648, 7264
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag Goto14 {
             value = "V_1_dab"
             scope = local
@@ -1859,6 +1878,18 @@ model "dab_inv" {
             size = 60, 20
         ]
 
+        tag From34 {
+            value = "reset_signal"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 12580, 7264
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction31 pe
         [
             position = 8296, 7184
@@ -2269,9 +2300,6 @@ model "dab_inv" {
         [
             breakpoints = 12788, 7592
         ]
-        connect R1.n_node "Grid Measurement.A+" as Connection93
-        connect R2.n_node "Grid Measurement.B+" as Connection94
-        connect R3.n_node "Grid Measurement.C+" as Connection95
         connect Goto2 "Three phase PLL.theta" as Connection97
         [
             breakpoints = 11932, 7048
@@ -2377,6 +2405,14 @@ model "dab_inv" {
         connect Junction50 PI_i_q_inv.reset as Connection436
         connect PI_i_d_inv.reset Junction50 as Connection437
         connect Goto24 "Inverter Measurement.Out" as Connection438
+        connect S1.a_out "Grid Measurement.A+" as Connection440
+        connect S1.b_out "Grid Measurement.B+" as Connection442
+        connect S1.c_out "Grid Measurement.C+" as Connection444
+        connect R1.n_node S1.a_in as Connection445
+        connect R2.n_node S1.b_in as Connection446
+        connect R3.n_node S1.c_in as Connection447
+        connect "Rate Transition15.out" S1.ctrl_in as Connection448
+        connect From34 "Rate Transition15.in" as Connection449
     }
 
     logically_deleted {
@@ -2699,6 +2735,24 @@ model "dab_inv" {
             P_method = "alpha-beta"
             enable_extra_out = "False"
             P_meas = "False"
+        }
+
+        "core/Triple Pole Single Throw Contactor" {
+            signal_access = "inherit"
+            switches_option = "False"
+            resistance = "1.0"
+            ctrl_src = "Digital input"
+            Sa = "1"
+            Sa_logic = "active high"
+            enable_fb_out = "False"
+            fb_out_type = "real"
+            execution_rate = "inherit"
+            dtsm_switch_name = ""
+            initial_state = "off"
+            on_delay = "0"
+            off_delay = "0"
+            switching = "zero current"
+            hide_int_meas = "False"
         }
 
         "core/Voltage Measurement" {
