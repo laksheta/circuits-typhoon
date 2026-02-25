@@ -556,6 +556,7 @@ model "dab_inv" {
         ]
 
         component "core/Signal switch" "Signal switch1" {
+            execution_rate = "T_math_inv"
         }
         [
             position = 10088, 7440
@@ -563,7 +564,7 @@ model "dab_inv" {
         ]
 
         component "core/SCADA Input" sw_dab_inv {
-            execution_rate = "inherit"
+            execution_rate = "T_math_inv"
             max = "1"
             min = "0"
             unit = ""
@@ -573,7 +574,7 @@ model "dab_inv" {
         ]
 
         component "core/Constant" Constant13 {
-            execution_rate = "T_meas_dab"
+            execution_rate = "T_math_inv"
             value = "0"
         }
         [
@@ -582,7 +583,7 @@ model "dab_inv" {
         ]
 
         component "core/Rate Transition" "Rate Transition10" {
-            execution_rate = "inherit"
+            execution_rate = "T_math_inv"
         }
         [
             position = 10020, 7424
@@ -1219,7 +1220,7 @@ model "dab_inv" {
             unit = ""
         }
         [
-            position = 10816, 7292
+            position = 10492, 7304
         ]
 
         component "core/Rate Transition" "Rate Transition11" {
@@ -1819,6 +1820,18 @@ model "dab_inv" {
             size = 60, 20
         ]
 
+        tag From32 {
+            value = "V_in_inv"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 10776, 7292
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction31 pe
         [
             position = 8296, 7184
@@ -1939,11 +1952,6 @@ model "dab_inv" {
             position = 11628, 7496
         ]
 
-        junction Junction19 sp
-        [
-            position = 10872, 7292
-        ]
-
         junction Junction21 sp
         [
             position = 12364, 7056
@@ -1952,6 +1960,11 @@ model "dab_inv" {
         junction Junction48 sp
         [
             position = 12308, 7012
+        ]
+
+        junction Junction49 sp
+        [
+            position = 10872, 7292
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -2302,9 +2315,6 @@ model "dab_inv" {
         connect Adap_Limiter_2.up_lim Junction18 as Connection234
         connect Junction18 Junction47 as Connection235
         connect Adap_Limiter_1.up_lim Junction18 as Connection423
-        connect Gain5.in Junction19 as Connection424
-        connect Junction19 Gain6.in as Connection239
-        connect dc_input_inv.out Junction19 as Connection240
         connect Goto12 "Grid Measurement.Out" as Connection241
         connect From14 "Meter Split.Input" as Connection242
         connect Adap_Limiter.Out "Rate Transition11.in" as Connection425
@@ -2328,26 +2338,15 @@ model "dab_inv" {
             breakpoints = 12304, 7032
         ]
         connect i_d_inv.in Junction48 as Connection429
+        connect Gain5.in Junction49 as Connection431
+        connect Junction49 Gain6.in as Connection432
+        connect From32 Junction49 as Connection433
     }
 
     logically_deleted {
-        "Signal switch1"
-        "sw_dab_inv"
-        "Constant13"
-        "Rate Transition10"
-        "From31"
-        "Goto22"
-        "Goto23"
-        "Junction43"
         "Comment4"
         "Area10"
-        "Connection341"
-        "Connection343"
-        "Connection344"
-        "Connection345"
-        "Connection401"
-        "Connection402"
-        "Connection403"
+        "dc_input_inv"
     }
 
     default {
