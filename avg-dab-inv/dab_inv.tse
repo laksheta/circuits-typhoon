@@ -843,9 +843,10 @@ model "dab_inv" {
             execution_rate = "T_math_inv"
             ki = "Ki_i_inv"
             kp = "Kp_i_inv"
+            show_reset = "rising"
         }
         [
-            position = 10780, 7444
+            position = 10784, 7452
         ]
 
         component "core/PID controller" PI_i_q_inv {
@@ -853,9 +854,10 @@ model "dab_inv" {
             execution_rate = "T_math_inv"
             ki = "Ki_i_inv"
             kp = "Kp_i_inv"
+            show_reset = "rising"
         }
         [
-            position = 10780, 7512
+            position = 10784, 7520
         ]
 
         component "core/Bus Join" "Bus Join3" {
@@ -1827,7 +1829,19 @@ model "dab_inv" {
             direction = out
         }
         [
-            position = 10776, 7292
+            position = 10780, 7292
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From33 {
+            value = "reset_signal"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 10688, 7576
             hide_name = True
             size = 60, 20
         ]
@@ -1965,6 +1979,11 @@ model "dab_inv" {
         junction Junction49 sp
         [
             position = 10872, 7292
+        ]
+
+        junction Junction50 sp
+        [
+            position = 10744, 7528
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -2341,6 +2360,9 @@ model "dab_inv" {
         connect Gain5.in Junction49 as Connection431
         connect Junction49 Gain6.in as Connection432
         connect From32 Junction49 as Connection433
+        connect From33 Junction50 as Connection435
+        connect Junction50 PI_i_q_inv.reset as Connection436
+        connect PI_i_d_inv.reset Junction50 as Connection437
     }
 
     logically_deleted {
