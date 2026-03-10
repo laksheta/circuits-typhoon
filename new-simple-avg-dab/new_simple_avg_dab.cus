@@ -56,7 +56,7 @@ SETTINGS_DIR = get_settings_dir_path()
                             <analog_signals>
                                 <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[V_out]]></name>
+                                    <name><![CDATA[I_dc]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
@@ -68,7 +68,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[V_1]]></name>
+                                    <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
@@ -80,7 +80,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>2</channel>
-                                    <name><![CDATA[V_2']]></name>
+                                    <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
@@ -97,9 +97,9 @@ SETTINGS_DIR = get_settings_dir_path()
                             </virtual_signals>
                             <trigger>
                                 <device>0</device>
-                                <is_force>True</is_force>
+                                <is_force>False</is_force>
                                 <type>Analog</type>
-                                <source><![CDATA[V_out]]></source>
+                                <source><![CDATA[I_dc]]></source>
                                 <edge>Rising edge</edge>
                                 <treshold>0.0</treshold>
                                 <offset>0.0</offset>
@@ -141,7 +141,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         <legend>True</legend>
                         <trigger>
                             <type>Analog</type>
-                            <source>V_out</source>
+                            <source>I_dc</source>
                             <edge>Rising edge</edge>
                             <treshold>0.0</treshold>
                             <offset>0.0</offset>
@@ -150,7 +150,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         <analog_signals>
                             <analog>
                                     <channel>0</channel>
-                                    <name><![CDATA[V_out]]></name>
+                                    <name><![CDATA[I_dc]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
@@ -162,7 +162,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>1</channel>
-                                    <name><![CDATA[V_1]]></name>
+                                    <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
@@ -174,7 +174,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>2</channel>
-                                    <name><![CDATA[V_2']]></name>
+                                    <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0</vertical_offset>
