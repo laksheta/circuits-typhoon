@@ -224,6 +224,13 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             hide_name = True
         ]
 
+        component "core/Probe" L {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8668, 7888
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -391,6 +398,11 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 8696, 8248
         ]
 
+        junction Junction16 sp
+        [
+            position = 8620, 7924
+        ]
+
         connect From3 Product2.in as Connection78
         connect From7 Product2.in1 as Connection86
         connect V_in.out Goto6 as Connection99
@@ -412,7 +424,6 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         [
             breakpoints = 8616, 7964; 8616, 7996
         ]
-        connect Constant2.out "Power Calculation.n" as Connection106
         connect Isp1.n_node Junction4 as Connection94
         [
             breakpoints = 8944, 8188
@@ -445,6 +456,9 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect I_dc.in Junction15 as Connection263
         connect From11 Isp1.in as Connection264
         connect Goto10 V_out.out as Connection265
+        connect Constant2.out Junction16 as Connection266
+        connect Junction16 "Power Calculation.n" as Connection267
+        connect L.in Junction16 as Connection268
     }
 
     default {
