@@ -269,7 +269,7 @@ widgetValue = hil.model_read('D')
                 <inputValue><![CDATA[0.5]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
-                <step>1.0</step>
+                <step>0.1</step>
                 <widget_settings>
                     <x>608</x>
                     <y>168</y>
