@@ -82,7 +82,7 @@ model "new_simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8768, 8008
+            position = 8768, 8004
         ]
 
         component "core/Constant" Constant2 {
@@ -224,7 +224,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8768, 8052
+            position = 8736, 8052
             hide_name = True
             size = 60, 20
         ]
