@@ -6,8 +6,8 @@ version = 4.2
 
 model "simple_avg_dab" {
     configuration {
-        hil_device = "HIL604"
-        hil_configuration_id = 2
+        hil_device = "VHIL+"
+        hil_configuration_id = 1
         simulation_method = exact
         simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
@@ -81,8 +81,7 @@ model "simple_avg_dab" {
         component "core/Square Wave Source" "Square Wave Source1" {
             execution_rate = "T_wave"
             frequency = "fsw"
-            hs_output = "780"
-            ls_output = "-780"
+            ls_output = "-1"
         }
         [
             position = 7976, 8276
@@ -110,8 +109,7 @@ model "simple_avg_dab" {
         component "core/Square Wave Source" "Square Wave Source2" {
             execution_rate = "T_wave"
             frequency = "fsw"
-            hs_output = "780"
-            ls_output = "-780"
+            ls_output = "-1"
             phase = "phi_pu"
         }
         [
@@ -149,7 +147,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8092, 8520
+            position = 8164, 8416
             rotation = right
         ]
 
@@ -157,7 +155,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8504, 8564
+            position = 8564, 8436
             rotation = right
         ]
 
@@ -180,7 +178,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8504, 8496
+            position = 8564, 8368
             rotation = right
             hide_name = True
             size = 32, 32
@@ -190,7 +188,7 @@ model "simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8092, 8460
+            position = 8164, 8356
             rotation = right
             hide_name = True
             size = 32, 32
@@ -290,7 +288,7 @@ model "simple_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-            position = 7952, 8368
+            position = 8080, 8308
             hide_name = True
         ]
 
@@ -307,7 +305,7 @@ model "simple_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-            position = 7872, 8404
+            position = 8000, 8344
             hide_name = True
             size = 32, 32
         ]
@@ -316,7 +314,7 @@ model "simple_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-            position = 8564, 8440
+            position = 8624, 8312
             rotation = down
             hide_name = True
         ]
@@ -325,24 +323,10 @@ model "simple_avg_dab" {
             execution_rate = "T_wave"
         }
         [
-            position = 8640, 8472
+            position = 8700, 8344
             rotation = down
             hide_name = True
             size = 32, 32
-        ]
-
-        component "core/Constant" Constant2 {
-            execution_rate = "T_math"
-        }
-        [
-            position = 8164, 7940
-        ]
-
-        component "core/Constant" Constant3 {
-            execution_rate = "T_math"
-        }
-        [
-            position = 8164, 7992
         ]
 
         tag Goto1 {
@@ -352,7 +336,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8008, 8488
+            position = 8080, 8384
             rotation = down
             hide_name = True
             size = 60, 20
@@ -378,7 +362,7 @@ model "simple_avg_dab" {
             direction = in
         }
         [
-            position = 8600, 8532
+            position = 8660, 8404
             hide_name = True
             size = 60, 20
         ]
@@ -474,7 +458,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 7792, 8404
+            position = 7920, 8344
             hide_name = True
             size = 60, 20
         ]
@@ -498,7 +482,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8720, 8472
+            position = 8780, 8344
             rotation = down
             hide_name = True
             size = 60, 20
@@ -514,9 +498,14 @@ model "simple_avg_dab" {
             position = 8388, 8268
         ]
 
+        junction Junction5 sp
+        [
+            position = 8164, 8384
+        ]
+
         junction Junction6 sp
         [
-            position = 8504, 8532
+            position = 8564, 8404
         ]
 
         junction Junction8 sp
@@ -542,6 +531,16 @@ model "simple_avg_dab" {
         junction Junction12 sp
         [
             position = 8816, 8020
+        ]
+
+        junction Junction13 sp
+        [
+            position = 8160, 8308
+        ]
+
+        junction Junction14 sp
+        [
+            position = 8564, 8312
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_1</p></body></html> ENDCOMMENT 
@@ -573,10 +572,13 @@ model "simple_avg_dab" {
         ]
         connect Vsp1asd1.p_node i_L.n_node as Connection12
         connect i_L.p_node Junction2 as Connection13
+        connect V_1.in Junction5 as Connection20
+        connect Goto1 Junction5 as Connection22
         connect Goto2 i_L.out as Connection23
         connect "V_2\'.in" Junction6 as Connection24
         connect Goto3 Junction6 as Connection26
         connect Junction6 "Rate Transition1.out" as Connection36
+        connect Junction5 "Rate Transition2.out" as Connection38
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
         connect Sum1.in Junction8 as Connection57
@@ -606,93 +608,28 @@ model "simple_avg_dab" {
             breakpoints = 8816, 7952; 8816, 8012
         ]
         connect From3 Product2.in as Connection78
+        connect Vsp1asd.in Junction13 as Connection80
+        connect Junction13 "Rate Transition2.in" as Connection81
+        [
+            breakpoints = 8164, 8308
+        ]
+        connect Product4.out Junction13 as Connection82
+        connect "Square Wave Source1.out" Product4.in as Connection83
         connect Constant1.out Goto6 as Connection84
         connect From7 Product2.in1 as Connection86
         connect From6 "Rate Transition4.in" as Connection87
         connect "Rate Transition4.out" Product4.in1 as Connection88
+        connect Vsp1asd1.in Junction14 as Connection90
+        connect Junction14 "Rate Transition1.in" as Connection91
+        [
+            breakpoints = 8564, 8312
+        ]
+        connect Product5.out Junction14 as Connection92
+        connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
         connect From2 Product1.in1 as Connection96
         connect Product1.in From1 as Connection97
-        connect "Square Wave Source1.out" Vsp1asd.in as Connection98
-        connect "Square Wave Source2.out" Vsp1asd1.in as Connection99
-    }
-
-    logically_deleted {
-        "Product1"
-        "P_raw"
-        "Mean Value1"
-        "Product2"
-        "Sum1"
-        "R_load"
-        "Product3"
-        "I_dc"
-        "Gain1"
-        "Integrator1"
-        "I_load"
-        "V_out"
-        "P"
-        "Constant1"
-        "Goto4"
-        "From3"
-        "Goto5"
-        "From5"
-        "Goto6"
-        "From7"
-        "Junction8"
-        "Junction9"
-        "Junction10"
-        "Junction11"
-        "Junction12"
-        "Comment3"
-        "Connection53"
-        "Connection55"
-        "Connection57"
-        "Connection58"
-        "Connection59"
-        "Connection60"
-        "Connection62"
-        "Connection63"
-        "Connection64"
-        "Connection65"
-        "Connection66"
-        "Connection67"
-        "Connection68"
-        "Connection72"
-        "Connection73"
-        "Connection74"
-        "Connection75"
-        "Connection76"
-        "Connection77"
-        "Connection78"
-        "Connection84"
-        "Connection86"
-        "From1"
-        "From2"
-        "Constant2"
-        "Constant3"
-        "Connection96"
-        "Connection97"
-        "Product4"
-        "Rate Transition4"
-        "From6"
-        "Connection87"
-        "Connection88"
-        "V_2\'"
-        "Rate Transition1"
-        "Product5"
-        "Rate Transition5"
-        "Goto3"
-        "From8"
-        "Junction6"
-        "Connection24"
-        "Connection26"
-        "Connection36"
-        "Connection94"
-        "Connection95"
-        "V_1"
-        "Rate Transition2"
-        "Goto1"
     }
 
     default {
