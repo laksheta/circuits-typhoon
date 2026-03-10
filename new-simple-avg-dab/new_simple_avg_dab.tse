@@ -94,13 +94,6 @@ model "new_simple_avg_dab" {
             position = 8744, 8200
         ]
 
-        component "core/Probe" V_out {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 9312, 8076
-        ]
-
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
@@ -214,14 +207,13 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             hide_name = True
         ]
 
-        component "core/Voltage Measurement" V_out1 {
+        component "core/Voltage Measurement" V_out {
             execution_rate = "T_meas"
             sig_output = "True"
         }
         [
             position = 9240, 8124
             rotation = right
-            hide_name = True
             size = 64, 32
         ]
 
@@ -389,11 +381,6 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 9096, 8188
         ]
 
-        junction Junction13 sp
-        [
-            position = 9280, 8124
-        ]
-
         junction Junction14 sp
         [
             position = 8724, 8020
@@ -431,12 +418,12 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             breakpoints = 8944, 8188
         ]
         connect C1.n_node Junction4 as Connection96
-        connect Junction5 V_out1.n_node as Connection98
+        connect Junction5 V_out.n_node as Connection98
         [
             breakpoints = 9240, 8188
         ]
         connect R4.n_node Junction5 as Connection110
-        connect Junction6 V_out1.p_node as Connection111
+        connect Junction6 V_out.p_node as Connection111
         [
             breakpoints = 9240, 8060
         ]
@@ -450,9 +437,6 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect Junction4 Junction12 as Connection249
         connect Junction12 Junction5 as Connection250
         connect gnd6.node Junction12 as Connection251
-        connect V_out1.out Junction13 as Connection253
-        connect Junction13 Goto10 as Connection254
-        connect V_out.in Junction13 as Connection255
         connect Goto4 Junction14 as Connection257
         connect Junction14 "Power Calculation.P" as Connection258
         connect P.in Junction14 as Connection259
@@ -460,6 +444,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect Junction15 Product2.out as Connection262
         connect I_dc.in Junction15 as Connection263
         connect From11 Isp1.in as Connection264
+        connect Goto10 V_out.out as Connection265
     }
 
     default {
