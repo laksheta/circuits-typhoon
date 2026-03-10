@@ -6,8 +6,8 @@ version = 4.2
 
 model "simple_avg_dab" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
+        hil_device = "HIL604"
+        hil_configuration_id = 2
         simulation_method = exact
         simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
