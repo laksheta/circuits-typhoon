@@ -9,7 +9,7 @@ model "new_simple_avg_dab" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = 1e-6
+        simulation_time_step = auto
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -134,7 +134,7 @@ model "new_simple_avg_dab" {
             unit = ""
         }
         [
-            position = 8184, 7992
+            position = 8268, 8064
         ]
 
         component "core/SCADA Input" D {
@@ -145,7 +145,7 @@ model "new_simple_avg_dab" {
             unit = ""
         }
         [
-            position = 8184, 8064
+            position = 8268, 8136
         ]
 
         component "core/C function" "Power Calculation" {
@@ -263,7 +263,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = in
         }
         [
-            position = 8276, 7992
+            position = 8360, 8064
             hide_name = True
             size = 60, 20
         ]
@@ -311,7 +311,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = in
         }
         [
-            position = 8276, 8064
+            position = 8360, 8136
             hide_name = True
             size = 60, 20
         ]
