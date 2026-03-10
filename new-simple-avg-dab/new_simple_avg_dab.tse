@@ -78,22 +78,6 @@ model "new_simple_avg_dab" {
     }
 
     component Subsystem Root {
-        component "core/Product" Product2 {
-            execution_rate = "T_math"
-            signs = "*/"
-        }
-        [
-            position = 8648, 8248
-            hide_name = True
-        ]
-
-        component "core/Probe" I_dc {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 8744, 8200
-        ]
-
         component "core/Probe" P {
             execution_rate = "T_meas"
         }
@@ -154,12 +138,14 @@ model "new_simple_avg_dab" {
             input_terminals_feedthrough = "True;True;True;True;True;True"
             input_terminals_show_labels = "False;False;False;False;False;False"
             output_fnc = "/*Begin code section*/
-P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+    
+P = I_out * V_out;
 /*End code section*/"
-            output_terminals = "real P;"
-            output_terminals_dimensions = "inherit"
-            output_terminals_feedthrough = "True"
-            output_terminals_show_labels = "False"
+            output_terminals = "real P;real I_out;"
+            output_terminals_dimensions = "inherit;inherit"
+            output_terminals_feedthrough = "True;True"
+            output_terminals_show_labels = "False;False"
             update_fnc = "/*Begin code section*/
 
 /*End code section*/"
@@ -266,6 +252,13 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 8668, 7680
         ]
 
+        component "core/Probe" I_out {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8796, 8140
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -278,18 +271,6 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             size = 60, 20
         ]
 
-        tag From3 {
-            value = "P"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8528, 8220
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag Goto6 {
             value = "V_in"
             scope = local
@@ -298,18 +279,6 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         }
         [
             position = 8360, 8064
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From7 {
-            value = "V_in"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8528, 8276
             hide_name = True
             size = 60, 20
         ]
@@ -374,26 +343,26 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             size = 60, 20
         ]
 
-        tag Goto11 {
-            value = "I_dc"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 8744, 8248
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag From11 {
-            value = "I_dc"
+            value = "I_out"
             scope = local
             kind = sp
             direction = out
         }
         [
             position = 8848, 8120
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto11 {
+            value = "I_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8804, 8068
             hide_name = True
             size = 60, 20
         ]
@@ -428,11 +397,6 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 8724, 8020
         ]
 
-        junction Junction15 sp
-        [
-            position = 8696, 8248
-        ]
-
         junction Junction16 sp
         [
             position = 8624, 8060
@@ -463,8 +427,11 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 8584, 7924
         ]
 
-        connect From3 Product2.in as Connection78
-        connect From7 Product2.in1 as Connection86
+        junction Junction22 sp
+        [
+            position = 8724, 8068
+        ]
+
         connect V_in.out Goto6 as Connection99
         connect D.out Goto7 as Connection100
         connect Isp1.n_node Junction4 as Connection94
@@ -494,9 +461,6 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect Goto4 Junction14 as Connection257
         connect Junction14 "Power Calculation.P" as Connection258
         connect P.in Junction14 as Connection259
-        connect Goto11 Junction15 as Connection261
-        connect Junction15 Product2.out as Connection262
-        connect I_dc.in Junction15 as Connection263
         connect From11 Isp1.in as Connection264
         connect Goto10 V_out.out as Connection265
         connect Constant4.out Junction16 as Connection274
@@ -541,6 +505,9 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         ]
         connect Junction21 Constant2.out as Connection290
         connect cek_n.in Junction21 as Connection291
+        connect Goto11 Junction22 as Connection293
+        connect Junction22 "Power Calculation.I_out" as Connection294
+        connect I_out.in Junction22 as Connection295
     }
 
     default {
@@ -604,11 +571,6 @@ P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             signal_type = "generic"
             streaming_en = "False"
             streaming_er_idx = "0"
-            execution_rate = "inherit"
-        }
-
-        "core/Product" {
-            signs = "2"
             execution_rate = "inherit"
         }
 
