@@ -188,6 +188,17 @@ model "new_simple_avg_dab" {
             position = 7984, 8204
         ]
 
+        component "core/SCADA Input" D {
+            def_value = "0.5"
+            execution_rate = "T_math"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7984, 8276
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -283,6 +294,18 @@ model "new_simple_avg_dab" {
             size = 60, 20
         ]
 
+        tag Goto7 {
+            value = "D"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8076, 8276
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction8 sp
         [
             position = 9084, 8288
@@ -329,6 +352,7 @@ model "new_simple_avg_dab" {
             breakpoints = 8816, 7952; 8816, 8012; 8816, 8020
         ]
         connect V_in.out Goto6 as Connection99
+        connect D.out Goto7 as Connection100
     }
 
     default {
