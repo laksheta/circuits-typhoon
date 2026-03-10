@@ -159,13 +159,33 @@ model "new_simple_avg_dab" {
             position = 8872, 7952
         ]
 
-        component "core/Constant" Constant1 {
+        component "core/Constant" Constant2 {
             execution_rate = "T_math"
-            value = "V_in"
+            value = "n"
         }
         [
-            position = 7980, 8200
+            position = 8228, 7864
             hide_name = True
+        ]
+
+        component "core/Constant" Constant3 {
+            execution_rate = "T_math"
+            value = "2*fsw*L"
+        }
+        [
+            position = 8416, 8100
+            hide_name = True
+        ]
+
+        component "core/SCADA Input" V_in {
+            def_value = "780"
+            execution_rate = "T_math"
+            max = "1000"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7984, 8204
         ]
 
         tag Goto4 {
@@ -223,7 +243,7 @@ model "new_simple_avg_dab" {
             direction = in
         }
         [
-            position = 8076, 8200
+            position = 8076, 8204
             hide_name = True
             size = 60, 20
         ]
@@ -237,6 +257,29 @@ model "new_simple_avg_dab" {
         [
             position = 8872, 8324
             hide_name = True
+            size = 60, 20
+        ]
+
+        tag From8 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8228, 7920
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From9 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8228, 7960
             size = 60, 20
         ]
 
@@ -280,12 +323,12 @@ model "new_simple_avg_dab" {
         connect Junction10 Goto5 as Connection67
         connect V_out.in Junction10 as Connection68
         connect From3 Product2.in as Connection78
-        connect Constant1.out Goto6 as Connection84
         connect From7 Product2.in1 as Connection86
         connect P.in Goto4 as Connection98
         [
             breakpoints = 8816, 7952; 8816, 8012; 8816, 8020
         ]
+        connect V_in.out Goto6 as Connection99
     }
 
     default {
@@ -333,6 +376,20 @@ model "new_simple_avg_dab" {
         "core/Product" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
         }
 
         "core/Sum" {
