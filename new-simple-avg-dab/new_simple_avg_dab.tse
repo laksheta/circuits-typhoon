@@ -149,7 +149,7 @@ model "new_simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9428, 8244
+            position = 9108, 8532
         ]
 
         component "core/Probe" P {
@@ -164,7 +164,7 @@ model "new_simple_avg_dab" {
             value = "n"
         }
         [
-            position = 8228, 7924
+            position = 8528, 7924
             hide_name = True
         ]
 
@@ -173,7 +173,7 @@ model "new_simple_avg_dab" {
             value = "fsw"
         }
         [
-            position = 8228, 8068
+            position = 8528, 8068
             hide_name = True
         ]
 
@@ -223,7 +223,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
 /*End code section*/"
         }
         [
-            position = 8364, 8020
+            position = 8664, 8020
             size = 48, 128
         ]
 
@@ -232,7 +232,53 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             value = "L"
         }
         [
-            position = 8228, 8112
+            position = 8528, 8112
+            hide_name = True
+        ]
+
+        component "core/Signal Controlled Current Source" Isp1 {
+        }
+        [
+            position = 8736, 8576
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Capacitor" C1 {
+            capacitance = "C_out"
+        }
+        [
+            position = 8832, 8580
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Resistor" R4 {
+            resistance = "R_load"
+        }
+        [
+            position = 8928, 8580
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Voltage Measurement" V_out1 {
+            execution_rate = "T_meas"
+            sig_output = "True"
+        }
+        [
+            position = 9036, 8580
+            rotation = right
+            hide_name = True
+            size = 64, 32
+        ]
+
+        component "core/Ground" gnd6 {
+        }
+        [
+            position = 8892, 8676
             hide_name = True
         ]
 
@@ -315,7 +361,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = out
         }
         [
-            position = 8228, 7964
+            position = 8528, 7964
             hide_name = True
             size = 60, 20
         ]
@@ -327,7 +373,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = out
         }
         [
-            position = 8228, 8000
+            position = 8528, 8000
             hide_name = True
             size = 60, 20
         ]
@@ -351,7 +397,19 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = out
         }
         [
-            position = 8228, 8028
+            position = 8528, 8028
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto10 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9112, 8580
             hide_name = True
             size = 60, 20
         ]
@@ -366,9 +424,39 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 9124, 8368
         ]
 
-        junction Junction10 sp
+        junction Junction11 sp
         [
-            position = 9380, 8296
+            position = 8816, 8020
+        ]
+
+        junction Junction4 pe
+        [
+            position = 8832, 8644
+        ]
+
+        junction Junction5 pe
+        [
+            position = 8928, 8644
+        ]
+
+        junction Junction6 pe
+        [
+            position = 8928, 8516
+        ]
+
+        junction Junction7 pe
+        [
+            position = 8832, 8516
+        ]
+
+        junction Junction12 pe
+        [
+            position = 8892, 8644
+        ]
+
+        junction Junction13 sp
+        [
+            position = 9072, 8580
         ]
 
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
@@ -392,35 +480,65 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect Product3.out Junction9 as Connection63
         connect Junction9 Sum1.in1 as Connection64
         connect I_load.in Junction9 as Connection65
-        connect Integrator1.out Junction10 as Connection66
-        connect Junction10 Goto5 as Connection67
-        connect V_out.in Junction10 as Connection68
         connect From3 Product2.in as Connection78
         connect From7 Product2.in1 as Connection86
-        connect P.in Goto4 as Connection98
-        [
-            breakpoints = 8816, 7952; 8816, 8012; 8816, 8020
-        ]
         connect V_in.out Goto6 as Connection99
         connect D.out Goto7 as Connection100
         connect From10 "Power Calculation.D" as Connection101
         connect Constant3.out "Power Calculation.fsw" as Connection102
         [
-            breakpoints = 8284, 8068; 8284, 8044
+            breakpoints = 8584, 8068; 8584, 8044
         ]
         connect Constant4.out "Power Calculation.L" as Connection103
         [
-            breakpoints = 8300, 8112; 8300, 8060
+            breakpoints = 8600, 8112; 8600, 8060
         ]
         connect From9 "Power Calculation.V_out" as Connection104
         [
-            breakpoints = 8272, 8000; 8324, 8000
+            breakpoints = 8572, 8000; 8624, 8000
         ]
         connect From8 "Power Calculation.V_in" as Connection105
         [
-            breakpoints = 8316, 7964; 8316, 7996
+            breakpoints = 8616, 7964; 8616, 7996
         ]
         connect Constant2.out "Power Calculation.n" as Connection106
+        connect P.in Junction11 as Connection107
+        [
+            breakpoints = 8816, 7952; 8816, 8012
+        ]
+        connect Junction11 Goto4 as Connection108
+        [
+            breakpoints = 8816, 8020
+        ]
+        connect "Power Calculation.P" Junction11 as Connection109
+        connect Isp1.n_node Junction4 as Connection94
+        [
+            breakpoints = 8736, 8644
+        ]
+        connect C1.n_node Junction4 as Connection96
+        connect Junction5 V_out1.n_node as Connection98
+        [
+            breakpoints = 9036, 8644
+        ]
+        connect R4.n_node Junction5 as Connection110
+        connect Junction6 V_out1.p_node as Connection111
+        [
+            breakpoints = 9036, 8516
+        ]
+        connect R4.p_node Junction6 as Connection112
+        connect Isp1.p_node Junction7 as Connection113
+        [
+            breakpoints = 8736, 8516
+        ]
+        connect Junction7 Junction6 as Connection114
+        connect C1.p_node Junction7 as Connection115
+        connect Junction4 Junction12 as Connection249
+        connect Junction12 Junction5 as Connection250
+        connect gnd6.node Junction12 as Connection251
+        connect Goto5 Integrator1.out as Connection252
+        connect V_out1.out Junction13 as Connection253
+        connect Junction13 Goto10 as Connection254
+        connect V_out.in Junction13 as Connection255
     }
 
     default {
@@ -459,6 +577,14 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             execution_rate = "inherit"
             _supported_platforms = "[\'generic\']"
             refresh = "refresh"
+        }
+
+        "core/Capacitor" {
+            signal_access = "inherit"
+            capacitance = "1e-6"
+            initial_voltage = "0"
+            pole_shift_ignore = "False"
+            visible = "True"
         }
 
         "core/Constant" {
@@ -507,6 +633,11 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             execution_rate = "inherit"
         }
 
+        "core/Resistor" {
+            resistance = "1"
+            param_set = ""
+        }
+
         "core/SCADA Input" {
             signal_access = "inherit"
             addr = "0"
@@ -524,6 +655,34 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         "core/Sum" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/Signal Controlled Current Source" {
+            execution_rate = "inherit"
+        }
+
+        "core/Voltage Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
         }
     }
 
