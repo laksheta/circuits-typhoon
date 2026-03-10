@@ -170,10 +170,10 @@ model "new_simple_avg_dab" {
 
         component "core/Constant" Constant3 {
             execution_rate = "T_math"
-            value = "2*fsw*L"
+            value = "fsw"
         }
         [
-            position = 8416, 8100
+            position = 8228, 8100
             hide_name = True
         ]
 
@@ -197,6 +197,42 @@ model "new_simple_avg_dab" {
         }
         [
             position = 7984, 8276
+        ]
+
+        component "core/C function" "C function1" {
+            arb_defs = "/*Begin code section*/
+
+/*End code section*/"
+            execution_rate = "T_math"
+            init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;"
+            input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit"
+            input_terminals_feedthrough = "True;True;True;True;True;True"
+            input_terminals_show_labels = "False;False;False;False;False;False"
+            output_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            output_terminals_dimensions = "inherit"
+            output_terminals_feedthrough = "True"
+            output_terminals_show_labels = "False"
+            update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+        }
+        [
+            position = 8352, 8028
+            size = 48, 128
+        ]
+
+        component "core/Constant" Constant4 {
+            execution_rate = "T_math"
+            value = "L"
+        }
+        [
+            position = 8228, 8148
+            hide_name = True
         ]
 
         tag Goto4 {
@@ -291,6 +327,7 @@ model "new_simple_avg_dab" {
         }
         [
             position = 8228, 7960
+            hide_name = True
             size = 60, 20
         ]
 
@@ -302,6 +339,18 @@ model "new_simple_avg_dab" {
         }
         [
             position = 8076, 8276
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From10 {
+            value = "D"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8228, 8056
             hide_name = True
             size = 60, 20
         ]
@@ -356,6 +405,43 @@ model "new_simple_avg_dab" {
     }
 
     default {
+        "core/C function" {
+            input_terminals = "real in;"
+            input_terminals_show_labels = "False;"
+            input_terminals_feedthrough = "True;"
+            input_terminals_dimensions = "inherit;"
+            output_terminals = "real out;"
+            output_terminals_show_labels = "False;"
+            output_terminals_feedthrough = "True;"
+            output_terminals_dimensions = "inherit;"
+            output_fnc = ""
+            update_fnc = ""
+            init_fnc = ""
+            global_variables = ""
+            parameters = ""
+            library_load_type = "Compile-time load"
+            dll_file_path = ""
+            dll_file_path_full = ""
+            arm_a9_file_path = ""
+            arm_a9_file_path_full = ""
+            arm_a53_file_path = ""
+            arm_a53_file_path_full = ""
+            h_file_path = ""
+            h_file_path_full = ""
+            add_src_path = ""
+            add_src_path_full = ""
+            convert_to_relative_dll = "True"
+            convert_to_relative_a = "True"
+            convert_to_relative_src = "True"
+            arb_defs = ""
+            add_macros = ""
+            skip_pre_cmpl_check = "False"
+            generate_for_hil = "True"
+            execution_rate = "inherit"
+            _supported_platforms = "[\'generic\']"
+            refresh = "refresh"
+        }
+
         "core/Constant" {
             value = "1"
             signal_type = "real"
