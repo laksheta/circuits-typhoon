@@ -231,6 +231,13 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 8668, 7888
         ]
 
+        component "core/Probe" cek_D {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8668, 7844
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -403,11 +410,15 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 8620, 7924
         ]
 
+        junction Junction17 sp
+        [
+            position = 8600, 8028
+        ]
+
         connect From3 Product2.in as Connection78
         connect From7 Product2.in1 as Connection86
         connect V_in.out Goto6 as Connection99
         connect D.out Goto7 as Connection100
-        connect From10 "Power Calculation.D" as Connection101
         connect Constant3.out "Power Calculation.fsw" as Connection102
         [
             breakpoints = 8584, 8068; 8584, 8044
@@ -459,6 +470,9 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect Constant2.out Junction16 as Connection266
         connect Junction16 "Power Calculation.n" as Connection267
         connect L.in Junction16 as Connection268
+        connect From10 Junction17 as Connection269
+        connect Junction17 "Power Calculation.D" as Connection270
+        connect cek_D.in Junction17 as Connection271
     }
 
     default {
