@@ -247,7 +247,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         ]
 
         component "core/Capacitor" C1 {
-            capacitance = "C_out"
+            capacitance = "C"
         }
         [
             position = 8832, 8580
