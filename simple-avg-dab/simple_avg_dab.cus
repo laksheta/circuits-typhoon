@@ -49,7 +49,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
                             <time_interval>1.0</time_interval>
-                            <sample_rate>10000000.0</sample_rate>
+                            <sample_rate>100000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
@@ -91,71 +91,14 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                                 <analog>
                                     <channel>3</channel>
-                                    <name><![CDATA[P]]></name>
+                                    <name><![CDATA[V_2']]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>4</channel>
-                                    <name><![CDATA[V_2']]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>4</row>
-                                    <viewports>
                                         <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>5</channel>
-                                    <name><![CDATA[V_out]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>5</row>
-                                    <viewports>
-                                        <num_viewport>4</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>6</channel>
-                                    <name><![CDATA[I_dc]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>6</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>7</channel>
-                                    <name><![CDATA[I_load]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>7</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>8</channel>
-                                    <name><![CDATA[P_raw]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>8</row>
-                                    <viewports>
                                    </viewports>
                                </analog>
                             </analog_signals>
@@ -186,26 +129,14 @@ SETTINGS_DIR = get_settings_dir_path()
                             <decimation>26.0</decimation>
                             <time_base>0.005</time_base>
                             <analog_signals>
-                                <analog>
-                                    <channel>0</channel>
-                                    <name><![CDATA[P]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
                             </analog_signals>
                             <digital_signals>
                             </digital_signals>
                             <trigger>
-                                <device>0</device>
+                                <device>-1</device>
                                 <is_force>False</is_force>
                                 <type>Analog</type>
-                                <source>P</source>
+                                <source>None</source>
                                 <edge>Rising edge</edge>
                                 <treshold>0.0</treshold>
                                 <offset>50.0</offset>
@@ -215,7 +146,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         </presets>
                     <capture>
                         <time_interval>1.0</time_interval>
-                        <sample_rate>10000000.0</sample_rate>
+                        <sample_rate>100000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
@@ -265,71 +196,14 @@ SETTINGS_DIR = get_settings_dir_path()
                                </analog>
                             <analog>
                                     <channel>3</channel>
-                                    <name><![CDATA[P]]></name>
+                                    <name><![CDATA[V_2']]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
                                     <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>3</row>
                                     <viewports>
-                                        <num_viewport>3</num_viewport>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>4</channel>
-                                    <name><![CDATA[V_2']]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>4</row>
-                                    <viewports>
                                         <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>5</channel>
-                                    <name><![CDATA[V_out]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>5</row>
-                                    <viewports>
-                                        <num_viewport>4</num_viewport>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>6</channel>
-                                    <name><![CDATA[I_dc]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>6</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>7</channel>
-                                    <name><![CDATA[I_load]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>7</row>
-                                    <viewports>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>8</channel>
-                                    <name><![CDATA[P_raw]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>8</row>
-                                    <viewports>
                                    </viewports>
                                </analog>
                         </analog_signals>
@@ -344,24 +218,12 @@ SETTINGS_DIR = get_settings_dir_path()
                         <trigger>
                             <mode>Auto</mode>
                             <type>Analog</type>
-                            <source>P</source>
+                            <source>None</source>
                             <edge>Rising edge</edge>
                             <treshold>0.0</treshold>
                             <offset>50.0</offset>
                         </trigger>
                          <analog_signals>
-                            <analog>
-                                    <channel>0</channel>
-                                    <name><![CDATA[P]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
                         </analog_signals>
                         <digital_signals>
                         </digital_signals>
