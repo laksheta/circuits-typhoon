@@ -330,12 +330,14 @@ model "simple_avg_dab" {
         ]
 
         component "core/Constant" Constant2 {
+            execution_rate = "T_math"
         }
         [
             position = 8580, 7996
         ]
 
         component "core/Constant" Constant3 {
+            execution_rate = "T_math"
         }
         [
             position = 8580, 8048
@@ -645,61 +647,6 @@ model "simple_avg_dab" {
     }
 
     logically_deleted {
-        "Square Wave Source1"
-        "Vsp1asd"
-        "L1"
-        "Square Wave Source2"
-        "Vsp1asd1"
-        "V_L"
-        "i_L"
-        "V_1"
-        "V_2\'"
-        "Rate Transition1"
-        "Rate Transition2"
-        "Product4"
-        "Rate Transition4"
-        "Product5"
-        "Rate Transition5"
-        "Goto1"
-        "Goto2"
-        "Goto3"
-        "From6"
-        "From8"
-        "Junction1"
-        "Junction2"
-        "Junction5"
-        "Junction6"
-        "Junction13"
-        "Junction14"
-        "Comment1"
-        "Comment2"
-        "Connection5"
-        "Connection6"
-        "Connection7"
-        "Connection8"
-        "Connection10"
-        "Connection11"
-        "Connection12"
-        "Connection13"
-        "Connection20"
-        "Connection22"
-        "Connection23"
-        "Connection24"
-        "Connection26"
-        "Connection36"
-        "Connection38"
-        "Connection80"
-        "Connection81"
-        "Connection82"
-        "Connection83"
-        "Connection87"
-        "Connection88"
-        "Connection90"
-        "Connection91"
-        "Connection92"
-        "Connection93"
-        "Connection94"
-        "Connection95"
         "From1"
         "From2"
     }
