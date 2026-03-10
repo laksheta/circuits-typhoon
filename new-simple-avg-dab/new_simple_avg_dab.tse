@@ -83,7 +83,7 @@ model "new_simple_avg_dab" {
             signs = "*/"
         }
         [
-            position = 8996, 8296
+            position = 8648, 8248
             hide_name = True
         ]
 
@@ -117,8 +117,7 @@ model "new_simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 9084, 8196
-            rotation = left
+            position = 8744, 8200
         ]
 
         component "core/Gain" Gain1 {
@@ -156,7 +155,7 @@ model "new_simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8872, 7952
+            position = 8800, 7948
         ]
 
         component "core/Constant" Constant2 {
@@ -185,7 +184,7 @@ model "new_simple_avg_dab" {
             unit = ""
         }
         [
-            position = 7984, 8204
+            position = 8184, 7992
         ]
 
         component "core/SCADA Input" D {
@@ -196,7 +195,7 @@ model "new_simple_avg_dab" {
             unit = ""
         }
         [
-            position = 7984, 8276
+            position = 8184, 8064
         ]
 
         component "core/C function" "Power Calculation" {
@@ -237,6 +236,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         ]
 
         component "core/Signal Controlled Current Source" Isp1 {
+            execution_rate = "T_plant"
         }
         [
             position = 8736, 8576
@@ -289,7 +289,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = in
         }
         [
-            position = 8876, 8020
+            position = 8804, 8020
             hide_name = True
             size = 60, 20
         ]
@@ -301,7 +301,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = out
         }
         [
-            position = 8872, 8268
+            position = 8528, 8220
             hide_name = True
             size = 60, 20
         ]
@@ -337,7 +337,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = in
         }
         [
-            position = 8076, 8204
+            position = 8276, 7992
             hide_name = True
             size = 60, 20
         ]
@@ -349,7 +349,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = out
         }
         [
-            position = 8872, 8324
+            position = 8528, 8276
             hide_name = True
             size = 60, 20
         ]
@@ -385,7 +385,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             direction = in
         }
         [
-            position = 8076, 8276
+            position = 8276, 8064
             hide_name = True
             size = 60, 20
         ]
@@ -414,19 +414,21 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             size = 60, 20
         ]
 
-        junction Junction8 sp
+        tag Goto11 {
+            value = "I_dc"
+            scope = local
+            kind = sp
+            direction = in
+        }
         [
-            position = 9084, 8288
+            position = 8744, 8248
+            hide_name = True
+            size = 60, 20
         ]
 
         junction Junction9 sp
         [
             position = 9124, 8368
-        ]
-
-        junction Junction11 sp
-        [
-            position = 8816, 8020
         ]
 
         junction Junction4 pe
@@ -459,6 +461,16 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             position = 9072, 8580
         ]
 
+        junction Junction14 sp
+        [
+            position = 8724, 8020
+        ]
+
+        junction Junction15 sp
+        [
+            position = 8696, 8248
+        ]
+
         comment Comment3 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">V_out</p></body></html> ENDCOMMENT 
         [
             position = 9388, 8316
@@ -466,15 +478,6 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
 
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
-        connect Sum1.in Junction8 as Connection57
-        connect Junction8 I_dc.in as Connection58
-        [
-            breakpoints = 9084, 8288
-        ]
-        connect Product2.out Junction8 as Connection59
-        [
-            breakpoints = 9036, 8296; 9036, 8288
-        ]
         connect Integrator1.in Gain1.out as Connection60
         connect From5 Product3.in as Connection62
         connect Product3.out Junction9 as Connection63
@@ -502,15 +505,6 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
             breakpoints = 8616, 7964; 8616, 7996
         ]
         connect Constant2.out "Power Calculation.n" as Connection106
-        connect P.in Junction11 as Connection107
-        [
-            breakpoints = 8816, 7952; 8816, 8012
-        ]
-        connect Junction11 Goto4 as Connection108
-        [
-            breakpoints = 8816, 8020
-        ]
-        connect "Power Calculation.P" Junction11 as Connection109
         connect Isp1.n_node Junction4 as Connection94
         [
             breakpoints = 8736, 8644
@@ -539,6 +533,12 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         connect V_out1.out Junction13 as Connection253
         connect Junction13 Goto10 as Connection254
         connect V_out.in Junction13 as Connection255
+        connect Goto4 Junction14 as Connection257
+        connect Junction14 "Power Calculation.P" as Connection258
+        connect P.in Junction14 as Connection259
+        connect Goto11 Junction15 as Connection261
+        connect Junction15 Product2.out as Connection262
+        connect I_dc.in Junction15 as Connection263
     }
 
     default {
