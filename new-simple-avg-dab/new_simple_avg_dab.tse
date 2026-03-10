@@ -592,7 +592,7 @@ P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
         model_dir = os.path.dirname(mdl.get_model_file_path())
         
         # Create the full path to your parameter file
-        param_file_path = os.path.join(model_dir, "simple_avg_dab.py")
+        param_file_path = os.path.join(model_dir, "new_simple_avg_dab.py")
         
         # Read and execute the entire file
         with open(param_file_path, 'r') as f:
