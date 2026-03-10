@@ -329,11 +329,16 @@ model "simple_avg_dab" {
             size = 32, 32
         ]
 
-        component "core/CPU Time Slot utilization" "CPU Time Slot utilization1" {
+        component "core/Constant" Constant2 {
         }
         [
-            position = 8140, 8056
-            size = 48, 48
+            position = 8580, 7996
+        ]
+
+        component "core/Constant" Constant3 {
+        }
+        [
+            position = 8580, 8048
         ]
 
         tag Goto1 {
@@ -381,7 +386,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8612, 7984
+            position = 8348, 7956
             hide_name = True
             size = 60, 20
         ]
@@ -393,7 +398,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8612, 8056
+            position = 8348, 8028
             hide_name = True
             size = 60, 20
         ]
@@ -584,10 +589,8 @@ model "simple_avg_dab" {
         connect Goto2 i_L.out as Connection23
         connect "V_2\'.in" Junction6 as Connection24
         connect Goto3 Junction6 as Connection26
-        connect From2 Product1.in1 as Connection34
         connect Junction6 "Rate Transition1.out" as Connection36
         connect Junction5 "Rate Transition2.out" as Connection38
-        connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
         connect Sum1.in Junction8 as Connection57
@@ -637,10 +640,68 @@ model "simple_avg_dab" {
         connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
+        connect Constant2.out Product1.in as Connection96
+        connect Constant3.out Product1.in1 as Connection97
     }
 
     logically_deleted {
-        "CPU Time Slot utilization1"
+        "Square Wave Source1"
+        "Vsp1asd"
+        "L1"
+        "Square Wave Source2"
+        "Vsp1asd1"
+        "V_L"
+        "i_L"
+        "V_1"
+        "V_2\'"
+        "Rate Transition1"
+        "Rate Transition2"
+        "Product4"
+        "Rate Transition4"
+        "Product5"
+        "Rate Transition5"
+        "Goto1"
+        "Goto2"
+        "Goto3"
+        "From6"
+        "From8"
+        "Junction1"
+        "Junction2"
+        "Junction5"
+        "Junction6"
+        "Junction13"
+        "Junction14"
+        "Comment1"
+        "Comment2"
+        "Connection5"
+        "Connection6"
+        "Connection7"
+        "Connection8"
+        "Connection10"
+        "Connection11"
+        "Connection12"
+        "Connection13"
+        "Connection20"
+        "Connection22"
+        "Connection23"
+        "Connection24"
+        "Connection26"
+        "Connection36"
+        "Connection38"
+        "Connection80"
+        "Connection81"
+        "Connection82"
+        "Connection83"
+        "Connection87"
+        "Connection88"
+        "Connection90"
+        "Connection91"
+        "Connection92"
+        "Connection93"
+        "Connection94"
+        "Connection95"
+        "From1"
+        "From2"
     }
 
     default {
@@ -717,12 +778,6 @@ model "simple_avg_dab" {
         "core/Sum" {
             signs = "2"
             execution_rate = "inherit"
-        }
-
-        "core/CPU Time Slot utilization" {
-            hil_cpu_core_id = "0"
-            execution_rate = "inherit"
-            _supported_platforms = "[\'hil\']"
         }
 
         "core/Current Measurement" {
