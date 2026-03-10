@@ -164,7 +164,7 @@ model "new_simple_avg_dab" {
             value = "n"
         }
         [
-            position = 8228, 7864
+            position = 8228, 7924
             hide_name = True
         ]
 
@@ -173,7 +173,7 @@ model "new_simple_avg_dab" {
             value = "fsw"
         }
         [
-            position = 8228, 8100
+            position = 8228, 8068
             hide_name = True
         ]
 
@@ -199,7 +199,7 @@ model "new_simple_avg_dab" {
             position = 7984, 8276
         ]
 
-        component "core/C function" "C function1" {
+        component "core/C function" "Power Calculation" {
             arb_defs = "/*Begin code section*/
 
 /*End code section*/"
@@ -212,8 +212,9 @@ model "new_simple_avg_dab" {
             input_terminals_feedthrough = "True;True;True;True;True;True"
             input_terminals_show_labels = "False;False;False;False;False;False"
             output_fnc = "/*Begin code section*/
-
+P = (n*V_in*V_out*D*(1-abs(D)))/(2*fsw*L)
 /*End code section*/"
+            output_terminals = "real P;"
             output_terminals_dimensions = "inherit"
             output_terminals_feedthrough = "True"
             output_terminals_show_labels = "False"
@@ -222,7 +223,7 @@ model "new_simple_avg_dab" {
 /*End code section*/"
         }
         [
-            position = 8352, 8028
+            position = 8364, 8020
             size = 48, 128
         ]
 
@@ -231,7 +232,7 @@ model "new_simple_avg_dab" {
             value = "L"
         }
         [
-            position = 8228, 8148
+            position = 8228, 8112
             hide_name = True
         ]
 
@@ -314,7 +315,7 @@ model "new_simple_avg_dab" {
             direction = out
         }
         [
-            position = 8228, 7920
+            position = 8228, 7964
             hide_name = True
             size = 60, 20
         ]
@@ -326,7 +327,7 @@ model "new_simple_avg_dab" {
             direction = out
         }
         [
-            position = 8228, 7960
+            position = 8228, 8000
             hide_name = True
             size = 60, 20
         ]
@@ -350,7 +351,7 @@ model "new_simple_avg_dab" {
             direction = out
         }
         [
-            position = 8228, 8056
+            position = 8228, 8028
             hide_name = True
             size = 60, 20
         ]
@@ -402,6 +403,24 @@ model "new_simple_avg_dab" {
         ]
         connect V_in.out Goto6 as Connection99
         connect D.out Goto7 as Connection100
+        connect From10 "Power Calculation.D" as Connection101
+        connect Constant3.out "Power Calculation.fsw" as Connection102
+        [
+            breakpoints = 8284, 8068; 8284, 8044
+        ]
+        connect Constant4.out "Power Calculation.L" as Connection103
+        [
+            breakpoints = 8300, 8112; 8300, 8060
+        ]
+        connect From9 "Power Calculation.V_out" as Connection104
+        [
+            breakpoints = 8272, 8000; 8324, 8000
+        ]
+        connect From8 "Power Calculation.V_in" as Connection105
+        [
+            breakpoints = 8316, 7964; 8316, 7996
+        ]
+        connect Constant2.out "Power Calculation.n" as Connection106
     }
 
     default {
