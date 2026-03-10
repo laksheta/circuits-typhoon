@@ -1,15 +1,15 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1 SP1
 //
 
 model "simple_avg_dab" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
+        hil_device = "HIL604"
+        hil_configuration_id = 2
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -329,6 +329,13 @@ model "simple_avg_dab" {
             size = 32, 32
         ]
 
+        component "core/CPU Time Slot utilization" "CPU Time Slot utilization1" {
+        }
+        [
+            position = 8140, 8056
+            size = 48, 48
+        ]
+
         tag Goto1 {
             value = "V_1"
             scope = local
@@ -632,6 +639,59 @@ model "simple_avg_dab" {
         connect "Rate Transition5.out" Product5.in as Connection95
     }
 
+    logically_deleted {
+        "Product1"
+        "P_raw"
+        "Mean Value1"
+        "Product2"
+        "Sum1"
+        "R_load"
+        "Product3"
+        "I_dc"
+        "Gain1"
+        "Integrator1"
+        "I_load"
+        "V_out"
+        "P"
+        "From1"
+        "From2"
+        "Goto4"
+        "From3"
+        "Goto5"
+        "From5"
+        "From7"
+        "Junction8"
+        "Junction9"
+        "Junction10"
+        "Junction11"
+        "Junction12"
+        "Comment3"
+        "Connection34"
+        "Connection40"
+        "Connection53"
+        "Connection55"
+        "Connection57"
+        "Connection58"
+        "Connection59"
+        "Connection60"
+        "Connection62"
+        "Connection63"
+        "Connection64"
+        "Connection65"
+        "Connection66"
+        "Connection67"
+        "Connection68"
+        "Connection72"
+        "Connection73"
+        "Connection74"
+        "Connection75"
+        "Connection76"
+        "Connection77"
+        "Connection78"
+        "Connection86"
+        "CPU Time Slot utilization1"
+    }
+
     default {
         "core/Constant" {
             value = "1"
@@ -643,7 +703,7 @@ model "simple_avg_dab" {
         "core/Gain" {
             gain = "1"
             multiplication = "Element-wise(K.*u)"
-            tml_file = "gen_gain"
+            force_tml = "True"
             _tunable = "False"
             execution_rate = "inherit"
         }
@@ -666,6 +726,8 @@ model "simple_avg_dab" {
             limit_lower = "-inf"
             show_state = "False"
             state_port_type = "inherit"
+            tml_file = "gen_accumulator_integrator"
+            mode = "integrator"
             execution_rate = "inherit"
         }
 
@@ -704,6 +766,12 @@ model "simple_avg_dab" {
         "core/Sum" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/CPU Time Slot utilization" {
+            hil_cpu_core_id = "0"
+            execution_rate = "inherit"
+            _supported_platforms = "[\'hil\']"
         }
 
         "core/Current Measurement" {
