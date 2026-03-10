@@ -154,7 +154,7 @@ model "new_simple_avg_dab" {
             input_terminals_feedthrough = "True;True;True;True;True;True"
             input_terminals_show_labels = "False;False;False;False;False;False"
             output_fnc = "/*Begin code section*/
-P = (n * V_in * V_out * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+P = (n * V_in * 780* D * (1.0 - fabs(D))) / (2.0 * fsw * L);
 /*End code section*/"
             output_terminals = "real P;"
             output_terminals_dimensions = "inherit"
