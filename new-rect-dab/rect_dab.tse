@@ -836,7 +836,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas_dab"
         }
         [
-            position = 9644, 7172
+            position = 9336, 7040
         ]
 
         component "core/Constant" Constant14 {
@@ -844,7 +844,7 @@ out[0] = fmax(0.0, i_dc_raw);
             value = "n_dab"
         }
         [
-            position = 9372, 7168
+            position = 9064, 7036
             hide_name = True
         ]
 
@@ -853,19 +853,8 @@ out[0] = fmax(0.0, i_dc_raw);
             value = "fsw_dab"
         }
         [
-            position = 9372, 7312
+            position = 9064, 7180
             hide_name = True
-        ]
-
-        component "core/SCADA Input" V_in_dab {
-            def_value = "780"
-            execution_rate = "T_math_dab"
-            max = "1000"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 9000, 7340
         ]
 
         component "core/C function" "Power Calculation" {
@@ -894,7 +883,7 @@ P = I_out * V_out;
 /*End code section*/"
         }
         [
-            position = 9508, 7264
+            position = 9200, 7132
             size = 48, 128
         ]
 
@@ -903,7 +892,7 @@ P = I_out * V_out;
             value = "L_dab"
         }
         [
-            position = 9372, 7356
+            position = 9064, 7224
             hide_name = True
         ]
 
@@ -911,7 +900,7 @@ P = I_out * V_out;
             execution_rate = "T_plant_dab"
         }
         [
-            position = 9944, 7356
+            position = 9636, 7224
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -922,7 +911,7 @@ P = I_out * V_out;
             capacitance = "C_dab"
         }
         [
-            position = 10040, 7360
+            position = 9732, 7228
             rotation = right
             hide_name = True
         ]
@@ -931,7 +920,7 @@ P = I_out * V_out;
             resistance = "R_load_dab"
         }
         [
-            position = 10136, 7360
+            position = 9828, 7228
             rotation = right
             hide_name = True
         ]
@@ -941,7 +930,7 @@ P = I_out * V_out;
             sig_output = "True"
         }
         [
-            position = 10240, 7360
+            position = 9932, 7228
             rotation = right
             size = 64, 32
         ]
@@ -949,7 +938,7 @@ P = I_out * V_out;
         component "core/Ground" gnd7 {
         }
         [
-            position = 10096, 7456
+            position = 9788, 7324
             hide_name = True
         ]
 
@@ -957,7 +946,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_dab"
         }
         [
-            position = 9636, 7356
+            position = 9328, 7224
         ]
 
         component "core/PID controller" "PID controller4" {
@@ -972,7 +961,7 @@ P = I_out * V_out;
             upper_sat_lim = "0.5"
         }
         [
-            position = 9584, 7456
+            position = 9276, 7324
             hide_name = True
         ]
 
@@ -981,7 +970,7 @@ P = I_out * V_out;
             signs = "+-"
         }
         [
-            position = 9496, 7448
+            position = 9188, 7316
             hide_name = True
         ]
 
@@ -993,14 +982,14 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 9328, 7440
+            position = 9020, 7308
         ]
 
         component "core/Probe" out_PI {
             execution_rate = "T_meas_dab"
         }
         [
-            position = 9700, 7528
+            position = 9392, 7396
         ]
 
         tag From31 {
@@ -1439,19 +1428,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9612, 7220
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto24 {
-            value = "V_in_dab"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 9092, 7340
+            position = 9304, 7088
             hide_name = True
             size = 60, 20
         ]
@@ -1463,7 +1440,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9372, 7208
+            position = 9064, 7076
             hide_name = True
             size = 60, 20
         ]
@@ -1475,7 +1452,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9372, 7244
+            position = 9064, 7112
             hide_name = True
             size = 60, 20
         ]
@@ -1487,7 +1464,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9704, 7456
+            position = 9396, 7324
             hide_name = True
             size = 60, 20
         ]
@@ -1499,7 +1476,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9372, 7272
+            position = 9064, 7140
             hide_name = True
             size = 60, 20
         ]
@@ -1511,7 +1488,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 10320, 7360
+            position = 10012, 7228
             hide_name = True
             size = 60, 20
         ]
@@ -1523,7 +1500,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9848, 7356
+            position = 9540, 7224
             hide_name = True
             size = 60, 20
         ]
@@ -1535,7 +1512,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9612, 7308
+            position = 9304, 7176
             hide_name = True
             size = 60, 20
         ]
@@ -1547,7 +1524,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9392, 7496
+            position = 9084, 7364
             hide_name = True
             size = 60, 20
         ]
@@ -1571,7 +1548,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9428, 7528
+            position = 9120, 7396
             hide_name = True
             size = 60, 20
         ]
@@ -1648,37 +1625,37 @@ P = I_out * V_out;
 
         junction Junction31 pe
         [
-            position = 10040, 7424
+            position = 9732, 7292
         ]
 
         junction Junction32 pe
         [
-            position = 10136, 7424
+            position = 9828, 7292
         ]
 
         junction Junction33 pe
         [
-            position = 10136, 7296
+            position = 9828, 7164
         ]
 
         junction Junction34 pe
         [
-            position = 10040, 7296
+            position = 9732, 7164
         ]
 
         junction Junction35 pe
         [
-            position = 10096, 7424
+            position = 9788, 7292
         ]
 
         junction Junction14 sp
         [
-            position = 9564, 7220
+            position = 9256, 7088
         ]
 
         junction Junction22 sp
         [
-            position = 9572, 7308
+            position = 9264, 7176
         ]
 
         junction Junction36 sp
@@ -1688,12 +1665,12 @@ P = I_out * V_out;
 
         junction Junction37 sp
         [
-            position = 9640, 7456
+            position = 9332, 7324
         ]
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
-            position = 9492, 6876
+            position = 9184, 6744
         ]
 
         comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
@@ -1759,7 +1736,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller and Calculation</p></body></html>
         }
         [
-            position = 9504, 7332
+            position = 9196, 7200
             size = 476, 500
             background_color = #0eaaffff
             box_outline = True
@@ -1769,19 +1746,9 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Simple Plant</p></body></html>
         }
         [
-            position = 10096, 7364
+            position = 9788, 7232
             size = 572, 248
             background_color = #0effff7f
-            box_outline = True
-        ]
-
-        scheme_area Area12 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Input</p></body></html>
-        }
-        [
-            position = 9052, 7324
-            size = 164, 128
-            background_color = #0eaa5500
             box_outline = True
         ]
 
@@ -1967,25 +1934,24 @@ P = I_out * V_out;
         connect Isp1.in "Rate Transition24.out" as Connection390
         connect "Rate Transition24.in" From3 as Connection391
         connect "Signal switch1.out" Goto22 as Connection392
-        connect V_in_dab.out Goto24 as Connection393
         connect Isp2.n_node Junction31 as Connection394
         [
-            breakpoints = 9944, 7424
+            breakpoints = 9636, 7292
         ]
         connect C2.n_node Junction31 as Connection395
         connect Junction32 V_out_dab.n_node as Connection396
         [
-            breakpoints = 10240, 7424
+            breakpoints = 9932, 7292
         ]
         connect R5.n_node Junction32 as Connection397
         connect Junction33 V_out_dab.p_node as Connection111
         [
-            breakpoints = 10240, 7296
+            breakpoints = 9932, 7164
         ]
         connect R5.p_node Junction33 as Connection112
         connect Isp2.p_node Junction34 as Connection398
         [
-            breakpoints = 9944, 7296
+            breakpoints = 9636, 7164
         ]
         connect Junction34 Junction33 as Connection399
         connect C2.p_node Junction34 as Connection400
@@ -2000,32 +1966,32 @@ P = I_out * V_out;
         connect Goto27 Junction22 as Connection293
         connect Junction22 "Power Calculation.I_out" as Connection407
         [
-            breakpoints = 9572, 7308; 9548, 7308
+            breakpoints = 9264, 7176; 9240, 7176
         ]
         connect I_out_dab.in Junction22 as Connection295
         connect From32 "Power Calculation.V_in" as Connection408
         [
-            breakpoints = 9460, 7208; 9460, 7240
+            breakpoints = 9152, 7076; 9152, 7108
         ]
         connect "Power Calculation.n" Constant14.out as Connection409
         [
-            breakpoints = 9468, 7168
+            breakpoints = 9160, 7036
         ]
         connect Constant15.out "Power Calculation.fsw" as Connection296
         [
-            breakpoints = 9428, 7312; 9428, 7288; 9460, 7288
+            breakpoints = 9120, 7180; 9120, 7156; 9152, 7156
         ]
         connect "Power Calculation.V_out" From33 as Connection299
         [
-            breakpoints = 9468, 7244; 9420, 7244
+            breakpoints = 9160, 7112; 9112, 7112
         ]
         connect "Power Calculation.D" From34 as Connection410
         [
-            breakpoints = 9452, 7272; 9444, 7272
+            breakpoints = 9144, 7140; 9136, 7140
         ]
         connect "Power Calculation.L" Constant16.out as Connection411
         [
-            breakpoints = 9468, 7304; 9444, 7304; 9444, 7356
+            breakpoints = 9160, 7172; 9136, 7172; 9136, 7224
         ]
         connect From36 Sum4.in1 as Connection230
         connect Sum4.out "PID controller4.in" as Connection231
@@ -2041,9 +2007,6 @@ P = I_out * V_out;
 
     logically_deleted {
         "Comment4"
-        "V_in_dab"
-        "Goto24"
-        "Connection393"
     }
 
     default {
