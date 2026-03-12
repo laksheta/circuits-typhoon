@@ -985,6 +985,7 @@ P = I_out * V_out;
         ]
 
         component "core/SCADA Input" V_out_ref_dab {
+            def_value = "780"
             execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
