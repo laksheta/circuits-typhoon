@@ -622,7 +622,7 @@ widgetValue = None
 widgetValue = hil.model_read('V_out_ref')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0.0]]></inputValue>
+                <inputValue><![CDATA[780.0]]></inputValue>
                 <min>0.0</min>
                 <max>1000.0</max>
                 <step>1.0</step>
