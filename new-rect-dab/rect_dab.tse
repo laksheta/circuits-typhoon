@@ -832,7 +832,7 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
-        component "core/Probe" P {
+        component "core/Probe" P_dab {
             execution_rate = "T_meas_dab"
         }
         [
@@ -841,7 +841,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant14 {
             execution_rate = "T_math_dab"
-            value = "n"
+            value = "n_dab"
         }
         [
             position = 9372, 7168
@@ -850,14 +850,14 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/Constant" Constant15 {
             execution_rate = "T_math_dab"
-            value = "fsw"
+            value = "fsw_dab"
         }
         [
             position = 9372, 7312
             hide_name = True
         ]
 
-        component "core/SCADA Input" V_in {
+        component "core/SCADA Input" V_in_dab {
             def_value = "780"
             execution_rate = "T_math_dab"
             max = "1000"
@@ -900,7 +900,7 @@ P = I_out * V_out;
 
         component "core/Constant" Constant16 {
             execution_rate = "T_math_dab"
-            value = "L"
+            value = "L_dab"
         }
         [
             position = 9372, 7356
@@ -919,7 +919,7 @@ P = I_out * V_out;
         ]
 
         component "core/Capacitor" C2 {
-            capacitance = "C"
+            capacitance = "C_dab"
         }
         [
             position = 10040, 7360
@@ -928,7 +928,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R5 {
-            resistance = "R_load"
+            resistance = "R_load_dab"
         }
         [
             position = 10136, 7360
@@ -936,7 +936,7 @@ P = I_out * V_out;
             hide_name = True
         ]
 
-        component "core/Voltage Measurement" V_out {
+        component "core/Voltage Measurement" V_out_dab {
             execution_rate = "T_meas_dab"
             sig_output = "True"
         }
@@ -953,7 +953,7 @@ P = I_out * V_out;
             hide_name = True
         ]
 
-        component "core/Probe" I_out {
+        component "core/Probe" I_out_dab {
             execution_rate = "T_meas_dab"
         }
         [
@@ -965,8 +965,8 @@ P = I_out * V_out;
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
             execution_rate = "T_math_dab"
-            ki = "K_i"
-            kp = "K_p"
+            ki = "K_i_dab"
+            kp = "K_p_dab"
             lower_sat_lim = "0"
             show_reset = "rising"
         }
@@ -984,7 +984,7 @@ P = I_out * V_out;
             hide_name = True
         ]
 
-        component "core/SCADA Input" V_out_ref {
+        component "core/SCADA Input" V_out_ref_dab {
             execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
@@ -994,7 +994,7 @@ P = I_out * V_out;
             position = 9328, 7440
         ]
 
-        component "core/SCADA Input" reset_PI {
+        component "core/SCADA Input" reset_PI_dab {
             execution_rate = "T_math_dab"
             max = "1"
             min = "0"
@@ -1434,7 +1434,7 @@ P = I_out * V_out;
         ]
 
         tag Goto23 {
-            value = "P"
+            value = "P_dab"
             scope = local
             kind = sp
             direction = in
@@ -1446,7 +1446,7 @@ P = I_out * V_out;
         ]
 
         tag Goto24 {
-            value = "V_in"
+            value = "V_in_dab"
             scope = local
             kind = sp
             direction = in
@@ -1458,7 +1458,7 @@ P = I_out * V_out;
         ]
 
         tag From32 {
-            value = "V_in"
+            value = "V_in_dab"
             scope = local
             kind = sp
             direction = out
@@ -1470,7 +1470,7 @@ P = I_out * V_out;
         ]
 
         tag From33 {
-            value = "V_out"
+            value = "V_out_dab"
             scope = local
             kind = sp
             direction = out
@@ -1482,7 +1482,7 @@ P = I_out * V_out;
         ]
 
         tag Goto25 {
-            value = "D"
+            value = "D_dab"
             scope = local
             kind = sp
             direction = in
@@ -1494,7 +1494,7 @@ P = I_out * V_out;
         ]
 
         tag From34 {
-            value = "D"
+            value = "D_dab"
             scope = local
             kind = sp
             direction = out
@@ -1506,7 +1506,7 @@ P = I_out * V_out;
         ]
 
         tag Goto26 {
-            value = "V_out"
+            value = "V_out_dab"
             scope = local
             kind = sp
             direction = in
@@ -1518,7 +1518,7 @@ P = I_out * V_out;
         ]
 
         tag From35 {
-            value = "I_out"
+            value = "I_out_dab"
             scope = local
             kind = sp
             direction = out
@@ -1530,7 +1530,7 @@ P = I_out * V_out;
         ]
 
         tag Goto27 {
-            value = "I_out"
+            value = "I_out_dab"
             scope = local
             kind = sp
             direction = in
@@ -1542,7 +1542,7 @@ P = I_out * V_out;
         ]
 
         tag From36 {
-            value = "V_out"
+            value = "V_out_dab"
             scope = local
             kind = sp
             direction = out
@@ -1935,18 +1935,18 @@ P = I_out * V_out;
         connect Isp1.in "Rate Transition24.out" as Connection390
         connect "Rate Transition24.in" From3 as Connection391
         connect "Signal switch1.out" Goto22 as Connection392
-        connect V_in.out Goto24 as Connection393
+        connect V_in_dab.out Goto24 as Connection393
         connect Isp2.n_node Junction31 as Connection394
         [
             breakpoints = 9944, 7424
         ]
         connect C2.n_node Junction31 as Connection395
-        connect Junction32 V_out.n_node as Connection396
+        connect Junction32 V_out_dab.n_node as Connection396
         [
             breakpoints = 10240, 7424
         ]
         connect R5.n_node Junction32 as Connection397
-        connect Junction33 V_out.p_node as Connection111
+        connect Junction33 V_out_dab.p_node as Connection111
         [
             breakpoints = 10240, 7296
         ]
@@ -1962,15 +1962,15 @@ P = I_out * V_out;
         connect gnd7.node Junction35 as Connection403
         connect Goto23 Junction14 as Connection404
         connect Junction14 "Power Calculation.P" as Connection258
-        connect P.in Junction14 as Connection259
+        connect P_dab.in Junction14 as Connection259
         connect From35 Isp2.in as Connection405
-        connect Goto26 V_out.out as Connection406
+        connect Goto26 V_out_dab.out as Connection406
         connect Goto27 Junction22 as Connection293
         connect Junction22 "Power Calculation.I_out" as Connection407
         [
             breakpoints = 9572, 7308; 9548, 7308
         ]
-        connect I_out.in Junction22 as Connection295
+        connect I_out_dab.in Junction22 as Connection295
         connect From32 "Power Calculation.V_in" as Connection408
         [
             breakpoints = 9460, 7208; 9460, 7240
@@ -1997,8 +1997,8 @@ P = I_out * V_out;
         ]
         connect From36 Sum4.in1 as Connection230
         connect Sum4.out "PID controller4.in" as Connection231
-        connect V_out_ref.out Sum4.in as Connection237
-        connect reset_PI.out "PID controller4.reset" as Connection238
+        connect V_out_ref_dab.out Sum4.in as Connection237
+        connect reset_PI_dab.out "PID controller4.reset" as Connection238
         connect "PID controller4.out" Goto25 as Connection302
     }
 
