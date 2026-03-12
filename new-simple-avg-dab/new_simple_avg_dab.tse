@@ -82,7 +82,7 @@ model "new_simple_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8768, 8004
+            position = 8776, 8028
         ]
 
         component "core/Constant" Constant2 {
@@ -90,7 +90,7 @@ model "new_simple_avg_dab" {
             value = "n"
         }
         [
-            position = 8496, 8000
+            position = 8504, 8024
             hide_name = True
         ]
 
@@ -99,7 +99,7 @@ model "new_simple_avg_dab" {
             value = "fsw"
         }
         [
-            position = 8496, 8144
+            position = 8504, 8168
             hide_name = True
         ]
 
@@ -111,7 +111,7 @@ model "new_simple_avg_dab" {
             unit = ""
         }
         [
-            position = 8268, 8064
+            position = 8276, 8088
         ]
 
         component "core/SCADA Input" D {
@@ -122,7 +122,7 @@ model "new_simple_avg_dab" {
             unit = ""
         }
         [
-            position = 8268, 8136
+            position = 8276, 8160
         ]
 
         component "core/C function" "Power Calculation" {
@@ -151,7 +151,7 @@ P = I_out * V_out;
 /*End code section*/"
         }
         [
-            position = 8632, 8096
+            position = 8640, 8120
             size = 48, 128
         ]
 
@@ -160,7 +160,7 @@ P = I_out * V_out;
             value = "L"
         }
         [
-            position = 8496, 8188
+            position = 8504, 8212
             hide_name = True
         ]
 
@@ -214,7 +214,7 @@ P = I_out * V_out;
             execution_rate = "T_meas"
         }
         [
-            position = 8760, 8188
+            position = 8768, 8212
         ]
 
         tag Goto4 {
@@ -224,7 +224,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8736, 8052
+            position = 8744, 8076
             hide_name = True
             size = 60, 20
         ]
@@ -236,7 +236,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8360, 8064
+            position = 8368, 8088
             hide_name = True
             size = 60, 20
         ]
@@ -248,7 +248,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8496, 8040
+            position = 8504, 8064
             hide_name = True
             size = 60, 20
         ]
@@ -260,7 +260,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8496, 8076
+            position = 8504, 8100
             hide_name = True
             size = 60, 20
         ]
@@ -272,7 +272,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8360, 8136
+            position = 8368, 8160
             hide_name = True
             size = 60, 20
         ]
@@ -284,7 +284,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8496, 8104
+            position = 8504, 8128
             hide_name = True
             size = 60, 20
         ]
@@ -320,7 +320,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8736, 8140
+            position = 8744, 8164
             hide_name = True
             size = 60, 20
         ]
@@ -352,12 +352,12 @@ P = I_out * V_out;
 
         junction Junction14 sp
         [
-            position = 8688, 8052
+            position = 8696, 8076
         ]
 
         junction Junction22 sp
         [
-            position = 8696, 8140
+            position = 8704, 8164
         ]
 
         connect V_in.out Goto6 as Connection99
@@ -394,32 +394,32 @@ P = I_out * V_out;
         connect Goto11 Junction22 as Connection293
         connect Junction22 "Power Calculation.I_out" as Connection294
         [
-            breakpoints = 8696, 8140; 8672, 8140
+            breakpoints = 8704, 8164; 8680, 8164
         ]
         connect I_out.in Junction22 as Connection295
         connect From8 "Power Calculation.V_in" as Connection298
         [
-            breakpoints = 8584, 8040; 8584, 8072
+            breakpoints = 8592, 8064; 8592, 8096
         ]
         connect "Power Calculation.n" Constant2.out as Connection301
         [
-            breakpoints = 8592, 8000
+            breakpoints = 8600, 8024
         ]
         connect Constant3.out "Power Calculation.fsw" as Connection296
         [
-            breakpoints = 8552, 8144; 8552, 8120; 8584, 8120
+            breakpoints = 8560, 8168; 8560, 8144; 8592, 8144
         ]
         connect "Power Calculation.V_out" From9 as Connection299
         [
-            breakpoints = 8592, 8076; 8544, 8076
+            breakpoints = 8600, 8100; 8552, 8100
         ]
         connect "Power Calculation.D" From10 as Connection297
         [
-            breakpoints = 8576, 8104; 8568, 8104
+            breakpoints = 8584, 8128; 8576, 8128
         ]
         connect "Power Calculation.L" Constant4.out as Connection300
         [
-            breakpoints = 8592, 8136; 8568, 8136; 8568, 8188
+            breakpoints = 8600, 8160; 8576, 8160; 8576, 8212
         ]
     }
 
