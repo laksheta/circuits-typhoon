@@ -7,5 +7,5 @@
 # Result
 
 <p align='center'>
-    <img src='./attachments/cus.png' width='800'>
+    <img src='./attachments/image.png' width='800'>
 </p>
