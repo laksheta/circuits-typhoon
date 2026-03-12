@@ -114,17 +114,6 @@ model "new_closed_loop_avg_dab" {
             position = 8276, 8088
         ]
 
-        component "core/SCADA Input" D {
-            def_value = "0.5"
-            execution_rate = "T_math"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8276, 8160
-        ]
-
         component "core/C function" "Power Calculation" {
             arb_defs = "/*Begin code section*/
 
@@ -228,7 +217,7 @@ P = I_out * V_out;
             show_reset = "rising"
         }
         [
-            position = 8172, 8304
+            position = 8896, 8336
             hide_name = True
         ]
 
@@ -237,7 +226,7 @@ P = I_out * V_out;
             signs = "+-"
         }
         [
-            position = 8088, 8296
+            position = 8808, 8328
             hide_name = True
         ]
 
@@ -248,7 +237,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7916, 8288
+            position = 8640, 8320
         ]
 
         component "core/SCADA Input" reset_PI {
@@ -258,7 +247,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8088, 8372
+            position = 8808, 8400
         ]
 
         tag Goto4 {
@@ -316,7 +305,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8292, 8304
+            position = 9016, 8336
             hide_name = True
             size = 60, 20
         ]
@@ -376,7 +365,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7984, 8344
+            position = 8704, 8376
             hide_name = True
             size = 60, 20
         ]
@@ -481,10 +470,6 @@ P = I_out * V_out;
         connect V_out_ref.out Sum2.in as Connection237
         connect reset_PI.out "PID controller1.reset" as Connection238
         connect "PID controller1.out" Goto7 as Connection302
-    }
-
-    logically_deleted {
-        "D"
     }
 
     default {
