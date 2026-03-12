@@ -969,6 +969,7 @@ P = I_out * V_out;
             kp = "K_p_dab"
             lower_sat_lim = "0"
             show_reset = "rising"
+            upper_sat_lim = "2"
         }
         [
             position = 9584, 7456
