@@ -832,6 +832,177 @@ model "new_dab_inv" {
             size = 32, 32
         ]
 
+        component "core/Probe" P_dab {
+            execution_rate = "T_meas_dab"
+        }
+        [
+            position = 8736, 7240
+        ]
+
+        component "core/Constant" Constant14 {
+            execution_rate = "T_math_dab"
+            value = "n_dab"
+        }
+        [
+            position = 8464, 7236
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant15 {
+            execution_rate = "T_math_dab"
+            value = "fsw_dab"
+        }
+        [
+            position = 8464, 7380
+            hide_name = True
+        ]
+
+        component "core/C function" "Power Calculation" {
+            arb_defs = "/*Begin code section*/
+
+/*End code section*/"
+            execution_rate = "T_math_dab"
+            init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;"
+            input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit"
+            input_terminals_feedthrough = "True;True;True;True;True;True"
+            input_terminals_show_labels = "False;False;False;False;False;False"
+            output_fnc = "/*Begin code section*/
+I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+    
+P = I_out * V_out;
+/*End code section*/"
+            output_terminals = "real P;real I_out;"
+            output_terminals_dimensions = "inherit;inherit"
+            output_terminals_feedthrough = "True;True"
+            output_terminals_show_labels = "False;False"
+            update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+        }
+        [
+            position = 8600, 7332
+            size = 48, 128
+        ]
+
+        component "core/Constant" Constant16 {
+            execution_rate = "T_math_dab"
+            value = "L_dab"
+        }
+        [
+            position = 8464, 7424
+            hide_name = True
+        ]
+
+        component "core/Signal Controlled Current Source" Isp2 {
+            execution_rate = "T_plant_dab"
+        }
+        [
+            position = 9036, 7424
+            rotation = right
+            hide_name = True
+            scale = -1, 1
+            size = 64, 32
+        ]
+
+        component "core/Capacitor" C2 {
+            capacitance = "C_dab"
+        }
+        [
+            position = 9132, 7428
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Resistor" R5 {
+            resistance = "R_load_dab"
+        }
+        [
+            position = 9228, 7428
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Voltage Measurement" V_out_dab {
+            execution_rate = "T_meas_dab"
+            sig_output = "True"
+        }
+        [
+            position = 9332, 7428
+            rotation = right
+            size = 64, 32
+        ]
+
+        component "core/Ground" gnd7 {
+        }
+        [
+            position = 9188, 7524
+            hide_name = True
+        ]
+
+        component "core/Probe" I_out_dab {
+            execution_rate = "T_meas_dab"
+        }
+        [
+            position = 8728, 7424
+        ]
+
+        component "core/PID controller" "PID controller4" {
+            controller_type = "PI"
+            enb_anti_windup_out = "True"
+            enb_output_limit_out = "True"
+            execution_rate = "T_math_dab"
+            ki = "K_i_dab"
+            kp = "K_p_dab"
+            lower_sat_lim = "0"
+            show_reset = "rising"
+            upper_sat_lim = "0.5"
+        }
+        [
+            position = 8676, 7524
+            hide_name = True
+        ]
+
+        component "core/Sum" Sum4 {
+            execution_rate = "T_math_dab"
+            signs = "+-"
+        }
+        [
+            position = 8588, 7516
+            hide_name = True
+        ]
+
+        component "core/SCADA Input" V_out_ref_dab {
+            def_value = "780"
+            execution_rate = "T_math_dab"
+            max = "1000"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8420, 7508
+        ]
+
+        component "core/Probe" out_PI {
+            execution_rate = "T_meas_dab"
+        }
+        [
+            position = 8792, 7596
+        ]
+
+        component "core/SCADA Input" V_in_dab {
+            def_value = "780"
+            execution_rate = "T_math_dab"
+            max = "1000"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8060, 7420
+        ]
+
         tag From31 {
             value = "V_out_dab"
             scope = local
@@ -1195,6 +1366,138 @@ model "new_dab_inv" {
             size = 60, 20
         ]
 
+        tag Goto25 {
+            value = "P_dab"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8704, 7288
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From35 {
+            value = "V_in_dab"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8464, 7276
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From36 {
+            value = "V_out_dab"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8464, 7312
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto26 {
+            value = "D_dab"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8796, 7524
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From37 {
+            value = "D_dab"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8464, 7340
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto27 {
+            value = "V_out_dab"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9412, 7428
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From38 {
+            value = "I_out_dab"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8940, 7424
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto28 {
+            value = "I_out_dab"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8704, 7376
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From39 {
+            value = "V_out_dab"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8484, 7564
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From40 {
+            value = "reset_dab"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8520, 7596
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto29 {
+            value = "V_in_dab"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8152, 7420
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction43 sp
         [
             position = 10088, 7372
@@ -1265,10 +1568,55 @@ model "new_dab_inv" {
             position = 10744, 7528
         ]
 
+        junction Junction31 pe
+        [
+            position = 9132, 7492
+        ]
+
+        junction Junction32 pe
+        [
+            position = 9228, 7492
+        ]
+
+        junction Junction33 pe
+        [
+            position = 9228, 7364
+        ]
+
+        junction Junction34 pe
+        [
+            position = 9132, 7364
+        ]
+
+        junction Junction35 pe
+        [
+            position = 9188, 7492
+        ]
+
+        junction Junction51 sp
+        [
+            position = 8656, 7288
+        ]
+
+        junction Junction22 sp
+        [
+            position = 8664, 7376
+        ]
+
+        junction Junction37 sp
+        [
+            position = 8732, 7524
+        ]
+
         comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
         [
             position = 11480, 6732
             hide_name = True
+        ]
+
+        comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
+        [
+            position = 8584, 6944
         ]
 
         scheme_area Area10 {
@@ -1308,6 +1656,36 @@ model "new_dab_inv" {
             position = 10884, 7396
             size = 944, 428
             background_color = #0e55ff00
+            box_outline = True
+        ]
+
+        scheme_area Area12 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller and Calculation</p></body></html>
+        }
+        [
+            position = 8596, 7400
+            size = 476, 500
+            background_color = #0eaaffff
+            box_outline = True
+        ]
+
+        scheme_area Area13 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Simple Plant</p></body></html>
+        }
+        [
+            position = 9188, 7432
+            size = 572, 248
+            background_color = #0effff7f
+            box_outline = True
+        ]
+
+        scheme_area Area14 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Input</p></body></html>
+        }
+        [
+            position = 8108, 7408
+            size = 236, 128
+            background_color = #0e00aa00
             box_outline = True
         ]
 
@@ -1461,18 +1839,301 @@ model "new_dab_inv" {
         connect "Rate Transition15.out" S1.ctrl_in as Connection448
         connect From34 "Rate Transition15.in" as Connection449
         connect Goto22 dc_input_inv.out as Connection450
+        connect Isp2.n_node Junction31 as Connection394
+        [
+            breakpoints = 9036, 7492
+        ]
+        connect C2.n_node Junction31 as Connection395
+        connect Junction32 V_out_dab.n_node as Connection396
+        [
+            breakpoints = 9332, 7492
+        ]
+        connect R5.n_node Junction32 as Connection397
+        connect Junction33 V_out_dab.p_node as Connection111
+        [
+            breakpoints = 9332, 7364
+        ]
+        connect R5.p_node Junction33 as Connection451
+        connect Isp2.p_node Junction34 as Connection398
+        [
+            breakpoints = 9036, 7364
+        ]
+        connect Junction34 Junction33 as Connection399
+        connect C2.p_node Junction34 as Connection400
+        connect Junction31 Junction35 as Connection452
+        connect Junction35 Junction32 as Connection453
+        connect gnd7.node Junction35 as Connection454
+        connect Goto25 Junction51 as Connection455
+        connect Junction51 "Power Calculation.P" as Connection456
+        connect P_dab.in Junction51 as Connection457
+        connect From38 Isp2.in as Connection458
+        connect Goto27 V_out_dab.out as Connection459
+        connect Goto28 Junction22 as Connection293
+        connect Junction22 "Power Calculation.I_out" as Connection460
+        [
+            breakpoints = 8664, 7376; 8640, 7376
+        ]
+        connect I_out_dab.in Junction22 as Connection295
+        connect From35 "Power Calculation.V_in" as Connection461
+        [
+            breakpoints = 8552, 7276; 8552, 7308
+        ]
+        connect "Power Calculation.n" Constant14.out as Connection462
+        [
+            breakpoints = 8560, 7236
+        ]
+        connect Constant15.out "Power Calculation.fsw" as Connection296
+        [
+            breakpoints = 8520, 7380; 8520, 7356; 8552, 7356
+        ]
+        connect "Power Calculation.V_out" From36 as Connection299
+        [
+            breakpoints = 8560, 7312; 8512, 7312
+        ]
+        connect "Power Calculation.D" From37 as Connection463
+        [
+            breakpoints = 8544, 7340; 8536, 7340
+        ]
+        connect "Power Calculation.L" Constant16.out as Connection464
+        [
+            breakpoints = 8560, 7372; 8536, 7372; 8536, 7424
+        ]
+        connect From39 Sum4.in1 as Connection230
+        connect Sum4.out "PID controller4.in" as Connection231
+        connect V_out_ref_dab.out Sum4.in as Connection237
+        connect From40 "PID controller4.reset" as Connection465
+        connect "PID controller4.out" Junction37 as Connection466
+        connect Junction37 Goto26 as Connection467
+        connect out_PI.in Junction37 as Connection468
+        connect V_in_dab.out Goto29 as Connection469
     }
 
     logically_deleted {
         "Signal switch1"
+        "sw_dab_inv"
         "Constant13"
         "Rate Transition10"
+        "L1"
+        "L2"
+        "L3"
+        "gnd1"
+        "R1"
+        "R2"
+        "R3"
+        "Grid Measurement"
+        "U_grid"
+        "gnd2"
+        "Three phase PLL"
+        "Bus Split2"
+        "abc to dq"
+        "Bus Split3"
+        "i_d_inv"
+        "i_q_inv"
+        "Inverter Measurement"
+        "Meter Split"
+        "Bus Join1"
+        "Bus Join2"
+        "Vsp1"
+        "Vsp2"
+        "Vsp3"
+        "dq to abc"
+        "Constant1"
+        "Constant2"
+        "Constant3"
+        "PI_i_d_inv"
+        "PI_i_q_inv"
+        "Bus Join3"
+        "Bus Join4"
+        "Sum1"
+        "Sum2"
+        "Constant4"
+        "u_d_inv"
+        "u_q_inv"
+        "scada_i_d_inv"
+        "Gain5"
+        "Gain6"
+        "Bus Selector1"
+        "Bus Selector2"
+        "Adap_Limiter"
+        "Adap_Limiter_1"
+        "Adap_Limiter_2"
+        "dc_input_inv"
+        "Rate Transition11"
+        "Rate Transition12"
+        "Rate Transition3"
+        "Rate Transition4"
+        "Rate Transition5"
+        "Rate Transition13"
+        "Rate Transition14"
+        "S1"
+        "Rate Transition15"
         "From31"
+        "Goto23"
+        "From1"
+        "Goto2"
+        "From3"
+        "From4"
+        "Goto3"
+        "Goto4"
+        "From5"
+        "Goto5"
+        "Goto6"
+        "From6"
+        "From7"
+        "Goto7"
+        "Goto8"
+        "Goto9"
+        "Goto10"
+        "Goto11"
+        "From9"
+        "From10"
+        "From11"
+        "From12"
+        "From13"
+        "Goto12"
+        "From14"
+        "From32"
+        "From33"
+        "Goto24"
+        "From34"
+        "Junction43"
+        "Junction44"
+        "Junction3"
+        "Junction4"
+        "Junction13"
+        "Junction14"
+        "Junction45"
+        "Junction46"
+        "Junction47"
+        "Junction18"
+        "Junction21"
+        "Junction48"
+        "Junction49"
+        "Junction50"
+        "Comment5"
         "Area10"
+        "Area1"
+        "Area2"
+        "Area11"
         "Connection341"
         "Connection343"
         "Connection344"
+        "Connection401"
         "Connection402"
+        "Connection403"
+        "Connection13"
+        "Connection14"
+        "Connection15"
+        "Connection31"
+        "Connection32"
+        "Connection33"
+        "Connection34"
+        "Connection46"
+        "Connection47"
+        "Connection48"
+        "Connection404"
+        "Connection56"
+        "Connection57"
+        "Connection58"
+        "Connection59"
+        "Connection405"
+        "Connection406"
+        "Connection75"
+        "Connection77"
+        "Connection79"
+        "Connection92"
+        "Connection97"
+        "Connection98"
+        "Connection99"
+        "Connection100"
+        "Connection101"
+        "Connection102"
+        "Connection103"
+        "Connection104"
+        "Connection105"
+        "Connection107"
+        "Connection108"
+        "Connection109"
+        "Connection110"
+        "Connection112"
+        "Connection113"
+        "Connection114"
+        "Connection115"
+        "Connection116"
+        "Connection124"
+        "Connection407"
+        "Connection408"
+        "Connection409"
+        "Connection410"
+        "Connection411"
+        "Connection140"
+        "Connection412"
+        "Connection413"
+        "Connection414"
+        "Connection415"
+        "Connection168"
+        "Connection179"
+        "Connection180"
+        "Connection203"
+        "Connection207"
+        "Connection209"
+        "Connection210"
+        "Connection212"
+        "Connection213"
+        "Connection214"
+        "Connection215"
+        "Connection416"
+        "Connection417"
+        "Connection418"
+        "Connection419"
+        "Connection225"
+        "Connection420"
+        "Connection228"
+        "Connection229"
+        "Connection421"
+        "Connection422"
+        "Connection232"
+        "Connection234"
+        "Connection235"
+        "Connection423"
+        "Connection241"
+        "Connection242"
+        "Connection425"
+        "Connection244"
+        "Connection245"
+        "Connection246"
+        "Connection247"
+        "Connection248"
+        "Connection249"
+        "Connection250"
+        "Connection251"
+        "Connection252"
+        "Connection258"
+        "Connection259"
+        "Connection261"
+        "Connection263"
+        "Connection264"
+        "Connection427"
+        "Connection428"
+        "Connection429"
+        "Connection431"
+        "Connection432"
+        "Connection433"
+        "Connection435"
+        "Connection436"
+        "Connection437"
+        "Connection438"
+        "Connection440"
+        "Connection442"
+        "Connection444"
+        "Connection445"
+        "Connection446"
+        "Connection447"
+        "Connection448"
+        "Connection449"
+        "Goto22"
+        "Connection450"
+        "Comment4"
     }
 
     default {
@@ -1490,6 +2151,51 @@ model "new_dab_inv" {
         "core/Bus Split" {
             outputs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/C function" {
+            input_terminals = "real in;"
+            input_terminals_show_labels = "False;"
+            input_terminals_feedthrough = "True;"
+            input_terminals_dimensions = "inherit;"
+            output_terminals = "real out;"
+            output_terminals_show_labels = "False;"
+            output_terminals_feedthrough = "True;"
+            output_terminals_dimensions = "inherit;"
+            output_fnc = ""
+            update_fnc = ""
+            init_fnc = ""
+            global_variables = ""
+            parameters = ""
+            library_load_type = "Compile-time load"
+            dll_file_path = ""
+            dll_file_path_full = ""
+            arm_a9_file_path = ""
+            arm_a9_file_path_full = ""
+            arm_a53_file_path = ""
+            arm_a53_file_path_full = ""
+            h_file_path = ""
+            h_file_path_full = ""
+            add_src_path = ""
+            add_src_path_full = ""
+            convert_to_relative_dll = "True"
+            convert_to_relative_a = "True"
+            convert_to_relative_src = "True"
+            arb_defs = ""
+            add_macros = ""
+            skip_pre_cmpl_check = "False"
+            generate_for_hil = "True"
+            execution_rate = "inherit"
+            _supported_platforms = "[\'generic\']"
+            refresh = "refresh"
+        }
+
+        "core/Capacitor" {
+            signal_access = "inherit"
+            capacitance = "1e-6"
+            initial_voltage = "0"
+            pole_shift_ignore = "False"
+            visible = "True"
         }
 
         "core/Constant" {
@@ -1637,6 +2343,10 @@ model "new_dab_inv" {
             _supported_platforms = "[\'generic\']"
         }
 
+        "core/Signal Controlled Current Source" {
+            execution_rate = "inherit"
+        }
+
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
         }
@@ -1722,6 +2432,30 @@ model "new_dab_inv" {
             off_delay = "0"
             switching = "zero current"
             hide_int_meas = "False"
+        }
+
+        "core/Voltage Measurement" {
+            signal_access = "inherit"
+            bw_limit = "False"
+            frequency = "10e3"
+            comparator_enable = "False"
+            operator = "greater"
+            threshold = "0"
+            cmp_abs_value = "False"
+            feed_forward = "false"
+            sig_output = "False"
+            sig_output_filt_and_full_bw = "False"
+            execution_rate = "100e-6"
+            addr = "0"
+            nd_msr_estimation = "false"
+            dev_cpl_msr = "false"
+            host_device = "0"
+            output_to_device = "0"
+            dev_cpl_index = "0"
+            dev_cpl_var_nb = "0"
+            visible = "True"
+            override_signal_name = "False"
+            signal_name = ""
         }
 
         "core/abc to dq" {
