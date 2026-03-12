@@ -58,9 +58,9 @@ K_i_dab      = K_p_dab / tau_dab
 #################
 
 
-T_plant_rect = 50e-6
-T_meas_rect   = 100e-6
-T_controller_rect = 100e-6
+T_plant_rect = T_math_dab#50e-6
+T_meas_rect   = T_math_dab#100e-6
+T_controller_rect = T_math_dab#100e-6
 
 V_grid_peak_rect = 220*np.sqrt(2)
 V_grid_rms_rect  = 220
