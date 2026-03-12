@@ -995,6 +995,13 @@ P = I_out * V_out;
             position = 9328, 7440
         ]
 
+        component "core/Probe" out_PI {
+            execution_rate = "T_meas_dab"
+        }
+        [
+            position = 9700, 7528
+        ]
+
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -1678,6 +1685,11 @@ P = I_out * V_out;
             position = 8452, 7256
         ]
 
+        junction Junction37 sp
+        [
+            position = 9640, 7456
+        ]
+
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
             position = 9492, 6876
@@ -2017,11 +2029,13 @@ P = I_out * V_out;
         connect From36 Sum4.in1 as Connection230
         connect Sum4.out "PID controller4.in" as Connection231
         connect V_out_ref_dab.out Sum4.in as Connection237
-        connect "PID controller4.out" Goto25 as Connection302
         connect sw_Rect_DAB.out Junction36 as Connection412
         connect Junction36 "Signal switch1.in2" as Connection413
         connect Goto28 Junction36 as Connection414
         connect From37 "PID controller4.reset" as Connection415
+        connect "PID controller4.out" Junction37 as Connection416
+        connect Junction37 Goto25 as Connection417
+        connect out_PI.in Junction37 as Connection418
     }
 
     logically_deleted {
