@@ -224,9 +224,8 @@ P = I_out * V_out;
             execution_rate = "T_math"
             ki = "K_i"
             kp = "K_p"
-            lower_sat_lim = "-0.25"
+            lower_sat_lim = "0"
             show_reset = "rising"
-            upper_sat_lim = "0.25"
         }
         [
             position = 8172, 8304
