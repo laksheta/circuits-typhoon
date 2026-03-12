@@ -833,14 +833,14 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Probe" P {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9644, 7172
         ]
 
         component "core/Constant" Constant14 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "n"
         }
         [
@@ -849,7 +849,7 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Constant" Constant15 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "fsw"
         }
         [
@@ -859,7 +859,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component "core/SCADA Input" V_in {
             def_value = "780"
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
             unit = ""
@@ -872,7 +872,7 @@ out[0] = fmax(0.0, i_dc_raw);
             arb_defs = "/*Begin code section*/
 
 /*End code section*/"
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             init_fnc = "/*Begin code section*/
 
 /*End code section*/"
@@ -899,7 +899,7 @@ P = I_out * V_out;
         ]
 
         component "core/Constant" Constant16 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             value = "L"
         }
         [
@@ -908,7 +908,7 @@ P = I_out * V_out;
         ]
 
         component "core/Signal Controlled Current Source" Isp2 {
-            execution_rate = "T_plant"
+            execution_rate = "T_plant_dab"
         }
         [
             position = 9944, 7356
@@ -937,7 +937,7 @@ P = I_out * V_out;
         ]
 
         component "core/Voltage Measurement" V_out {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
             sig_output = "True"
         }
         [
@@ -954,7 +954,7 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" I_out {
-            execution_rate = "T_meas"
+            execution_rate = "T_meas_dab"
         }
         [
             position = 9636, 7356
@@ -964,7 +964,7 @@ P = I_out * V_out;
             controller_type = "PI"
             enb_anti_windup_out = "True"
             enb_output_limit_out = "True"
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             ki = "K_i"
             kp = "K_p"
             lower_sat_lim = "0"
@@ -976,7 +976,7 @@ P = I_out * V_out;
         ]
 
         component "core/Sum" Sum4 {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             signs = "+-"
         }
         [
@@ -985,7 +985,7 @@ P = I_out * V_out;
         ]
 
         component "core/SCADA Input" V_out_ref {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             max = "1000"
             min = "0"
             unit = ""
@@ -995,7 +995,7 @@ P = I_out * V_out;
         ]
 
         component "core/SCADA Input" reset_PI {
-            execution_rate = "T_math"
+            execution_rate = "T_math_dab"
             max = "1"
             min = "0"
             unit = ""
