@@ -836,7 +836,7 @@ model "new_dab_inv" {
             execution_rate = "T_meas_dab"
         }
         [
-            position = 8736, 7240
+            position = 8972, 7184
         ]
 
         component "core/Constant" Constant14 {
@@ -844,7 +844,7 @@ model "new_dab_inv" {
             value = "n_dab"
         }
         [
-            position = 8464, 7236
+            position = 8700, 7180
             hide_name = True
         ]
 
@@ -853,7 +853,7 @@ model "new_dab_inv" {
             value = "fsw_dab"
         }
         [
-            position = 8464, 7380
+            position = 8700, 7324
             hide_name = True
         ]
 
@@ -883,7 +883,7 @@ P = I_out * V_out;
 /*End code section*/"
         }
         [
-            position = 8600, 7332
+            position = 8836, 7276
             size = 48, 128
         ]
 
@@ -892,7 +892,7 @@ P = I_out * V_out;
             value = "L_dab"
         }
         [
-            position = 8464, 7424
+            position = 8700, 7368
             hide_name = True
         ]
 
@@ -900,7 +900,7 @@ P = I_out * V_out;
             execution_rate = "T_plant_dab"
         }
         [
-            position = 9036, 7424
+            position = 9272, 7368
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -911,7 +911,7 @@ P = I_out * V_out;
             capacitance = "C_dab"
         }
         [
-            position = 9132, 7428
+            position = 9368, 7372
             rotation = right
             hide_name = True
         ]
@@ -920,7 +920,7 @@ P = I_out * V_out;
             resistance = "R_load_dab"
         }
         [
-            position = 9228, 7428
+            position = 9464, 7372
             rotation = right
             hide_name = True
         ]
@@ -930,7 +930,7 @@ P = I_out * V_out;
             sig_output = "True"
         }
         [
-            position = 9332, 7428
+            position = 9568, 7372
             rotation = right
             size = 64, 32
         ]
@@ -938,7 +938,7 @@ P = I_out * V_out;
         component "core/Ground" gnd7 {
         }
         [
-            position = 9188, 7524
+            position = 9424, 7468
             hide_name = True
         ]
 
@@ -946,7 +946,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_dab"
         }
         [
-            position = 8728, 7424
+            position = 8964, 7368
         ]
 
         component "core/PID controller" "PID controller4" {
@@ -960,7 +960,7 @@ P = I_out * V_out;
             upper_sat_lim = "0.5"
         }
         [
-            position = 8676, 7524
+            position = 8912, 7468
             hide_name = True
         ]
 
@@ -969,7 +969,7 @@ P = I_out * V_out;
             signs = "+-"
         }
         [
-            position = 8588, 7516
+            position = 8824, 7460
             hide_name = True
         ]
 
@@ -981,14 +981,14 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8420, 7508
+            position = 8656, 7452
         ]
 
         component "core/Probe" out_PI {
             execution_rate = "T_meas_dab"
         }
         [
-            position = 8792, 7596
+            position = 9028, 7540
         ]
 
         component "core/SCADA Input" V_in_dab {
@@ -999,7 +999,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8060, 7420
+            position = 8296, 7364
         ]
 
         tag From31 {
@@ -1372,7 +1372,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8704, 7288
+            position = 8940, 7232
             hide_name = True
             size = 60, 20
         ]
@@ -1384,7 +1384,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8464, 7276
+            position = 8700, 7220
             hide_name = True
             size = 60, 20
         ]
@@ -1396,7 +1396,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8464, 7312
+            position = 8700, 7256
             hide_name = True
             size = 60, 20
         ]
@@ -1408,7 +1408,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8796, 7524
+            position = 9032, 7468
             hide_name = True
             size = 60, 20
         ]
@@ -1420,7 +1420,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8464, 7340
+            position = 8700, 7284
             hide_name = True
             size = 60, 20
         ]
@@ -1432,7 +1432,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9412, 7428
+            position = 9648, 7372
             hide_name = True
             size = 60, 20
         ]
@@ -1444,7 +1444,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8940, 7424
+            position = 9176, 7368
             hide_name = True
             size = 60, 20
         ]
@@ -1456,7 +1456,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8704, 7376
+            position = 8940, 7320
             hide_name = True
             size = 60, 20
         ]
@@ -1468,7 +1468,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8484, 7564
+            position = 8720, 7508
             hide_name = True
             size = 60, 20
         ]
@@ -1480,7 +1480,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8520, 7596
+            position = 8756, 7540
             hide_name = True
             size = 60, 20
         ]
@@ -1492,7 +1492,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8152, 7420
+            position = 8388, 7364
             hide_name = True
             size = 60, 20
         ]
@@ -1569,42 +1569,42 @@ P = I_out * V_out;
 
         junction Junction31 pe
         [
-            position = 9132, 7492
+            position = 9368, 7436
         ]
 
         junction Junction32 pe
         [
-            position = 9228, 7492
+            position = 9464, 7436
         ]
 
         junction Junction33 pe
         [
-            position = 9228, 7364
+            position = 9464, 7308
         ]
 
         junction Junction34 pe
         [
-            position = 9132, 7364
+            position = 9368, 7308
         ]
 
         junction Junction35 pe
         [
-            position = 9188, 7492
+            position = 9424, 7436
         ]
 
         junction Junction51 sp
         [
-            position = 8656, 7288
+            position = 8892, 7232
         ]
 
         junction Junction22 sp
         [
-            position = 8664, 7376
+            position = 8900, 7320
         ]
 
         junction Junction37 sp
         [
-            position = 8732, 7524
+            position = 8968, 7468
         ]
 
         comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
@@ -1615,7 +1615,7 @@ P = I_out * V_out;
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
-            position = 8584, 6944
+            position = 8820, 6888
         ]
 
         scheme_area Area10 {
@@ -1662,7 +1662,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller and Calculation</p></body></html>
         }
         [
-            position = 8596, 7400
+            position = 8832, 7344
             size = 476, 500
             background_color = #0eaaffff
             box_outline = True
@@ -1672,7 +1672,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Simple Plant</p></body></html>
         }
         [
-            position = 9188, 7432
+            position = 9424, 7376
             size = 572, 248
             background_color = #0effff7f
             box_outline = True
@@ -1682,7 +1682,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Input</p></body></html>
         }
         [
-            position = 8108, 7408
+            position = 8344, 7352
             size = 236, 128
             background_color = #0e00aa00
             box_outline = True
@@ -1839,22 +1839,22 @@ P = I_out * V_out;
         connect From34 "Rate Transition15.in" as Connection449
         connect Isp2.n_node Junction31 as Connection394
         [
-            breakpoints = 9036, 7492
+            breakpoints = 9272, 7436
         ]
         connect C2.n_node Junction31 as Connection395
         connect Junction32 V_out_dab.n_node as Connection396
         [
-            breakpoints = 9332, 7492
+            breakpoints = 9568, 7436
         ]
         connect R5.n_node Junction32 as Connection397
         connect Junction33 V_out_dab.p_node as Connection111
         [
-            breakpoints = 9332, 7364
+            breakpoints = 9568, 7308
         ]
         connect R5.p_node Junction33 as Connection451
         connect Isp2.p_node Junction34 as Connection398
         [
-            breakpoints = 9036, 7364
+            breakpoints = 9272, 7308
         ]
         connect Junction34 Junction33 as Connection399
         connect C2.p_node Junction34 as Connection400
@@ -1869,32 +1869,32 @@ P = I_out * V_out;
         connect Goto28 Junction22 as Connection293
         connect Junction22 "Power Calculation.I_out" as Connection460
         [
-            breakpoints = 8664, 7376; 8640, 7376
+            breakpoints = 8900, 7320; 8876, 7320
         ]
         connect I_out_dab.in Junction22 as Connection295
         connect From35 "Power Calculation.V_in" as Connection461
         [
-            breakpoints = 8552, 7276; 8552, 7308
+            breakpoints = 8788, 7220; 8788, 7252
         ]
         connect "Power Calculation.n" Constant14.out as Connection462
         [
-            breakpoints = 8560, 7236
+            breakpoints = 8796, 7180
         ]
         connect Constant15.out "Power Calculation.fsw" as Connection296
         [
-            breakpoints = 8520, 7380; 8520, 7356; 8552, 7356
+            breakpoints = 8756, 7324; 8756, 7300; 8788, 7300
         ]
         connect "Power Calculation.V_out" From36 as Connection299
         [
-            breakpoints = 8560, 7312; 8512, 7312
+            breakpoints = 8796, 7256; 8748, 7256
         ]
         connect "Power Calculation.D" From37 as Connection463
         [
-            breakpoints = 8544, 7340; 8536, 7340
+            breakpoints = 8780, 7284; 8772, 7284
         ]
         connect "Power Calculation.L" Constant16.out as Connection464
         [
-            breakpoints = 8560, 7372; 8536, 7372; 8536, 7424
+            breakpoints = 8796, 7316; 8772, 7316; 8772, 7368
         ]
         connect From39 Sum4.in1 as Connection230
         connect Sum4.out "PID controller4.in" as Connection231
