@@ -957,7 +957,6 @@ P = I_out * V_out;
             ki = "K_i_dab"
             kp = "K_p_dab"
             lower_sat_lim = "0"
-            show_reset = "rising"
             upper_sat_lim = "0.5"
         }
         [
@@ -1901,7 +1900,6 @@ P = I_out * V_out;
         connect From39 Sum4.in1 as Connection230
         connect Sum4.out "PID controller4.in" as Connection231
         connect V_out_ref_dab.out Sum4.in as Connection237
-        connect From40 "PID controller4.reset" as Connection465
         connect "PID controller4.out" Junction37 as Connection466
         connect Junction37 Goto26 as Connection467
         connect out_PI.in Junction37 as Connection468
@@ -2133,6 +2131,7 @@ P = I_out * V_out;
         "Connection449"
         "Goto22"
         "Connection450"
+        "From40"
         "Comment4"
     }
 
