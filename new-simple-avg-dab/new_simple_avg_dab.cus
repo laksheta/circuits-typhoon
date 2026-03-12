@@ -59,7 +59,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
@@ -71,7 +71,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -83,7 +83,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[I_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -153,7 +153,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[P]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>0</row>
                                     <viewports>
@@ -165,7 +165,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[V_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>1</row>
                                     <viewports>
@@ -177,7 +177,7 @@ SETTINGS_DIR = get_settings_dir_path()
                                     <name><![CDATA[I_out]]></name>
                                     <is_locked>False</is_locked>
                                     <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0</vertical_offset>
+                                    <vertical_offset>0.0</vertical_offset>
                                     <coupling>False</coupling>
                                     <row>2</row>
                                     <viewports>
@@ -351,11 +351,11 @@ widgetValue = hil.model_read('V_in')
                 </widget_settings>
             </component_data>
         <component_data>
-                <id>384aa9af1c5311f18498d843ae163fca</id>
-                <name><![CDATA[cek_D]]></name>
-                <type>DigitalDisplay</type>
+                <id>8b18cbba1db411f1b2c2d8bbc1a2437a</id>
+                <name><![CDATA[P]]></name>
+                <type>TraceDisplay</type>
                 <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
+                <data_type>Signals</data_type>
                 <code><![CDATA[# HIL API is imported as 'hil'
 # NOTE: Only read functions are available from the HIL API
 
@@ -364,21 +364,37 @@ widgetValue = hil.model_read('V_in')
 # 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
 # This object can be used as an argument in SCADA API functions.
 
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
+# mandatory variable used for storing values that will be displayed
+# specify data (one pairs of "names" and "values" parts are mandatory)
+data = {
+    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
+    "analog_names": [],
 
+    # analog data values: [aVal1,aVal2,aVal3]
+    "analog_values": [],
+
+    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
+    "digital_names": [],
+
+    # digital data values: [dVal1,dVal2,aVal3]
+    "digital_values": [],
+    }
+displayValue = data
 ]]></code>
-                <signal_name><![CDATA[cek_D]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <decimals><![CDATA[2]]></decimals>
-                <updateRate>500</updateRate>
-                <scaling_factor>1.0</scaling_factor>
+                <analog_signals><![CDATA[['P']]]></analog_signals>
+                <digital_signals><![CDATA[[]]]></digital_signals>
+                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
+                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
+                <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
+                <update_rate>250</update_rate>
+                <execution_rate>None</execution_rate>
+                <background_color>white</background_color>
                 <widget_settings>
-                    <x>632</x>
-                    <y>384</y>
-                    <width>144</width>
-                    <height>56</height>
+                    <x>296</x>
+                    <y>304</y>
+                    <width>400</width>
+                    <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
                     <is_background><![CDATA[False]]></is_background>
@@ -386,18 +402,56 @@ displayValue = 0.0
                     <use_label>False</use_label>
                 </widget_settings>
                 <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <green_range>(0, 0, 0, 0)</green_range>
-                    <orange_range>(0, 0, 0, 0)</orange_range>
-                    <red_range>(0, 0, 0, 0)</red_range>
+                    <x_title><![CDATA[x axes]]></x_title>
+                    <y_title><![CDATA[y axes]]></y_title>
+                    <y_range_min>-100</y_range_min>
+                    <y_range_max>100</y_range_max>
+                    <time_window>10</time_window>
+                    <auto_scale_enabled>True</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                    <x_axis_title_enabled>False</x_axis_title_enabled>
+                    <y_axis_title_enabled>False</y_axis_title_enabled>
+                    <use_reference_curve>False</use_reference_curve>
+                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
+# Selected time window is available through variable 'timeWindow'
+# Selected update rate is available through variable 'updateRate'
+
+# reference curve data point
+curveData = 12.0
+
+# specify curve options ('data' part is mandatory)
+refCurveData1 = {
+    # reference curve data point
+    "data": curveData,
+
+    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
+    "line_style": "dashed",
+
+    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
+    "line_color": 'red',
+
+    # curve line width: float number
+    "line_width": 2.0,
+    
+    # reference curve title
+    "title": "Reference curve",
+
+    # show a title in the legend
+    "show_in_legend": True
+}
+
+# list of reference curves data: [ref1, ref2,...refN]
+referenceCurves = [refCurveData1]
+
+]]></reference_curve_code>
                 </advance_widget_settings>
             </component_data>
         <component_data>
-                <id>951fe56c1c5311f1ae78d843ae163fca</id>
-                <name><![CDATA[cek_fsw]]></name>
-                <type>DigitalDisplay</type>
+                <id>8f16bd661db411f1852ed8bbc1a2437a</id>
+                <name><![CDATA[V_out]]></name>
+                <type>TraceDisplay</type>
                 <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
+                <data_type>Signals</data_type>
                 <code><![CDATA[# HIL API is imported as 'hil'
 # NOTE: Only read functions are available from the HIL API
 
@@ -406,21 +460,37 @@ displayValue = 0.0
 # 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
 # This object can be used as an argument in SCADA API functions.
 
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
+# mandatory variable used for storing values that will be displayed
+# specify data (one pairs of "names" and "values" parts are mandatory)
+data = {
+    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
+    "analog_names": [],
 
+    # analog data values: [aVal1,aVal2,aVal3]
+    "analog_values": [],
+
+    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
+    "digital_names": [],
+
+    # digital data values: [dVal1,dVal2,aVal3]
+    "digital_values": [],
+    }
+displayValue = data
 ]]></code>
-                <signal_name><![CDATA[cek_fsw]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <decimals><![CDATA[2]]></decimals>
-                <updateRate>500</updateRate>
-                <scaling_factor>1.0</scaling_factor>
+                <analog_signals><![CDATA[['V_out']]]></analog_signals>
+                <digital_signals><![CDATA[[]]]></digital_signals>
+                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
+                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
+                <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
+                <update_rate>250</update_rate>
+                <execution_rate>None</execution_rate>
+                <background_color>white</background_color>
                 <widget_settings>
-                    <x>632</x>
-                    <y>448</y>
-                    <width>144</width>
-                    <height>56</height>
+                    <x>752</x>
+                    <y>304</y>
+                    <width>400</width>
+                    <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
                     <is_background><![CDATA[False]]></is_background>
@@ -428,18 +498,56 @@ displayValue = 0.0
                     <use_label>False</use_label>
                 </widget_settings>
                 <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <green_range>(0, 0, 0, 0)</green_range>
-                    <orange_range>(0, 0, 0, 0)</orange_range>
-                    <red_range>(0, 0, 0, 0)</red_range>
+                    <x_title><![CDATA[x axes]]></x_title>
+                    <y_title><![CDATA[y axes]]></y_title>
+                    <y_range_min>-100</y_range_min>
+                    <y_range_max>100</y_range_max>
+                    <time_window>10</time_window>
+                    <auto_scale_enabled>True</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                    <x_axis_title_enabled>False</x_axis_title_enabled>
+                    <y_axis_title_enabled>False</y_axis_title_enabled>
+                    <use_reference_curve>False</use_reference_curve>
+                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
+# Selected time window is available through variable 'timeWindow'
+# Selected update rate is available through variable 'updateRate'
+
+# reference curve data point
+curveData = 12.0
+
+# specify curve options ('data' part is mandatory)
+refCurveData1 = {
+    # reference curve data point
+    "data": curveData,
+
+    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
+    "line_style": "dashed",
+
+    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
+    "line_color": 'red',
+
+    # curve line width: float number
+    "line_width": 2.0,
+    
+    # reference curve title
+    "title": "Reference curve",
+
+    # show a title in the legend
+    "show_in_legend": True
+}
+
+# list of reference curves data: [ref1, ref2,...refN]
+referenceCurves = [refCurveData1]
+
+]]></reference_curve_code>
                 </advance_widget_settings>
             </component_data>
         <component_data>
-                <id>96ddfb211c5311f1b4c3d843ae163fca</id>
-                <name><![CDATA[cek_L]]></name>
-                <type>DigitalDisplay</type>
+                <id>9365e0051db411f18269d8bbc1a2437a</id>
+                <name><![CDATA[I_out]]></name>
+                <type>TraceDisplay</type>
                 <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
+                <data_type>Signals</data_type>
                 <code><![CDATA[# HIL API is imported as 'hil'
 # NOTE: Only read functions are available from the HIL API
 
@@ -448,21 +556,37 @@ displayValue = 0.0
 # 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
 # This object can be used as an argument in SCADA API functions.
 
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
+# mandatory variable used for storing values that will be displayed
+# specify data (one pairs of "names" and "values" parts are mandatory)
+data = {
+    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
+    "analog_names": [],
 
+    # analog data values: [aVal1,aVal2,aVal3]
+    "analog_values": [],
+
+    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
+    "digital_names": [],
+
+    # digital data values: [dVal1,dVal2,aVal3]
+    "digital_values": [],
+    }
+displayValue = data
 ]]></code>
-                <signal_name><![CDATA[cek_L]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <decimals><![CDATA[6]]></decimals>
-                <updateRate>500</updateRate>
-                <scaling_factor>1.0</scaling_factor>
+                <analog_signals><![CDATA[['I_out']]]></analog_signals>
+                <digital_signals><![CDATA[[]]]></digital_signals>
+                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
+                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
+                <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
+                <update_rate>250</update_rate>
+                <execution_rate>None</execution_rate>
+                <background_color>white</background_color>
                 <widget_settings>
-                    <x>632</x>
-                    <y>512</y>
-                    <width>144</width>
-                    <height>56</height>
+                    <x>296</x>
+                    <y>528</y>
+                    <width>400</width>
+                    <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
                     <is_background><![CDATA[False]]></is_background>
@@ -470,136 +594,48 @@ displayValue = 0.0
                     <use_label>False</use_label>
                 </widget_settings>
                 <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <green_range>(0, 0, 0, 0)</green_range>
-                    <orange_range>(0, 0, 0, 0)</orange_range>
-                    <red_range>(0, 0, 0, 0)</red_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>991e7e691c5311f18989d843ae163fca</id>
-                <name><![CDATA[cek_n]]></name>
-                <type>DigitalDisplay</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
+                    <x_title><![CDATA[x axes]]></x_title>
+                    <y_title><![CDATA[y axes]]></y_title>
+                    <y_range_min>-100</y_range_min>
+                    <y_range_max>100</y_range_max>
+                    <time_window>10</time_window>
+                    <auto_scale_enabled>True</auto_scale_enabled>
+                    <legend_enabled>True</legend_enabled>
+                    <x_axis_title_enabled>False</x_axis_title_enabled>
+                    <y_axis_title_enabled>False</y_axis_title_enabled>
+                    <use_reference_curve>False</use_reference_curve>
+                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
+# Selected time window is available through variable 'timeWindow'
+# Selected update rate is available through variable 'updateRate'
 
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
+# reference curve data point
+curveData = 12.0
 
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
+# specify curve options ('data' part is mandatory)
+refCurveData1 = {
+    # reference curve data point
+    "data": curveData,
 
-]]></code>
-                <signal_name><![CDATA[cek_n]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <decimals><![CDATA[2]]></decimals>
-                <updateRate>500</updateRate>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>424</x>
-                    <y>448</y>
-                    <width>144</width>
-                    <height>56</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <green_range>(0, 0, 0, 0)</green_range>
-                    <orange_range>(0, 0, 0, 0)</orange_range>
-                    <red_range>(0, 0, 0, 0)</red_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>9b2bf6ed1c5311f19866d843ae163fca</id>
-                <name><![CDATA[cek_V_in]]></name>
-                <type>DigitalDisplay</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
+    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
+    "line_style": "dashed",
 
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
+    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
+    "line_color": 'red',
 
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
+    # curve line width: float number
+    "line_width": 2.0,
+    
+    # reference curve title
+    "title": "Reference curve",
 
-]]></code>
-                <signal_name><![CDATA[cek_V_in]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <decimals><![CDATA[2]]></decimals>
-                <updateRate>500</updateRate>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>424</x>
-                    <y>384</y>
-                    <width>144</width>
-                    <height>56</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <green_range>(0, 0, 0, 0)</green_range>
-                    <orange_range>(0, 0, 0, 0)</orange_range>
-                    <red_range>(0, 0, 0, 0)</red_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>9cc6af791c5311f18665d843ae163fca</id>
-                <name><![CDATA[cek_V_out]]></name>
-                <type>DigitalDisplay</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
+    # show a title in the legend
+    "show_in_legend": True
+}
 
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
+# list of reference curves data: [ref1, ref2,...refN]
+referenceCurves = [refCurveData1]
 
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
-
-]]></code>
-                <signal_name><![CDATA[cek_V_out]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <decimals><![CDATA[2]]></decimals>
-                <updateRate>500</updateRate>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>424</x>
-                    <y>504</y>
-                    <width>144</width>
-                    <height>56</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <green_range>(0, 0, 0, 0)</green_range>
-                    <orange_range>(0, 0, 0, 0)</orange_range>
-                    <red_range>(0, 0, 0, 0)</red_range>
+]]></reference_curve_code>
                 </advance_widget_settings>
             </component_data>
         </components>
