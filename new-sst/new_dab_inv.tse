@@ -2264,7 +2264,7 @@ P = I_out * V_out;
         model_dir = os.path.dirname(mdl.get_model_file_path())
         
         # Create the full path to your parameter file
-        param_file_path = os.path.join(model_dir, "new_dab_inv.py")
+        param_file_path = os.path.join(model_dir, "new_sst.py")
         
         # Read and execute the entire file
         with open(param_file_path, 'r') as f:
