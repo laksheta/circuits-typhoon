@@ -579,8 +579,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>848</x>
-                    <y>360</y>
+                    <x>864</x>
+                    <y>352</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -787,9 +787,9 @@ widgetValue = hil.model_read('sw_Rect_DAB')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>848</x>
+                    <x>832</x>
                     <y>96</y>
-                    <width>80</width>
+                    <width>96</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
