@@ -7,7 +7,7 @@ version = 4.2
 model "modbus_tcp" {
     configuration {
         hil_device = "HIL604"
-        hil_configuration_id = 1
+        hil_configuration_id = 2
         simulation_method = exact
         simulation_time_step = auto
         simulation_discret_scaling = 1.0
@@ -80,6 +80,7 @@ model "modbus_tcp" {
     component Subsystem Root {
         component "core/ModBus Device" "ModBus Device1" {
             configuration = "config_dab"
+            enable_pipeline = "False"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
         }
@@ -88,7 +89,7 @@ model "modbus_tcp" {
             size = 184, 184
         ]
 
-        component Subsystem holdings {
+        component Subsystem reg {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 inputs = "4"
@@ -157,12 +158,12 @@ model "modbus_tcp" {
             ]
         }
         [
-            position = 7976, 8136
+            position = 7924, 8184
             size = 56, 48
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "200e-6"
+            execution_rate = "Ts"
             value = "0"
         }
         [
@@ -214,22 +215,18 @@ model "modbus_tcp" {
             position = 8032, 8040
         ]
 
-        junction Junction2 sp
-        [
-            position = 8032, 8088
-        ]
-
         junction Junction3 sp
         [
             position = 8380, 8184
         ]
 
-        connect holdings.Out1 "ModBus Device1.holding_in" as Connection1
+        junction Junction4 sp
+        [
+            position = 8032, 8088
+        ]
+
         connect Constant1.out Junction1 as Connection3
         connect Junction1 "ModBus Device1.coil_in" as Connection4
-        connect "ModBus Device1.discrete_in" Junction2 as Connection6
-        connect Junction2 Junction1 as Connection7
-        connect "ModBus Device1.reg_in" Junction2 as Connection8
         connect coil_out.in "ModBus Device1.coil_out" as Connection9
         connect holding_out.in Junction3 as Connection11
         connect Junction3 "ModBus Device1.holding_out" as Connection12
@@ -240,6 +237,13 @@ model "modbus_tcp" {
         ]
         connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
         connect "Bus Split1.out2" DAB_ON.in as Connection16
+        connect "ModBus Device1.reg_in" reg.Out1 as Connection18
+        connect "ModBus Device1.discrete_in" Junction4 as Connection19
+        connect Junction4 Junction1 as Connection20
+        [
+            breakpoints = 8032, 8088
+        ]
+        connect "ModBus Device1.holding_in" Junction4 as Connection21
     }
 
     default {
@@ -327,7 +331,7 @@ model "modbus_tcp" {
         
         config_dab = {
             "port": 502,
-            "ip_addr": '192.168.1.100',
+            "ip_addr": '192.168.0.201',
             "netmask": '255.255.255.0',
             "slave_id": 2,
             
