@@ -331,7 +331,7 @@ model "modbus_tcp" {
         
         config_dab = {
             "port": 502,
-            "ip_addr": '192.168.0.201',
+            "ip_addr": '192.168.1.100',
             "netmask": '255.255.255.0',
             "slave_id": 2,
             
