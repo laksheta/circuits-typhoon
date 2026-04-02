@@ -183,6 +183,32 @@ model "modbus_tcp" {
             rotation = right
         ]
 
+        component "core/Bus Split" "Bus Split1" {
+            outputs = "3"
+        }
+        [
+            position = 8492, 8184
+            hide_name = True
+        ]
+
+        component "core/Probe" RESET_FAILSAFE_DAB {
+        }
+        [
+            position = 8612, 8124
+        ]
+
+        component "core/Probe" REF_VDC_OUT {
+        }
+        [
+            position = 8612, 8184
+        ]
+
+        component "core/Probe" DAB_ON {
+        }
+        [
+            position = 8612, 8240
+        ]
+
         junction Junction1 sp
         [
             position = 8032, 8040
@@ -193,6 +219,11 @@ model "modbus_tcp" {
             position = 8032, 8088
         ]
 
+        junction Junction3 sp
+        [
+            position = 8380, 8184
+        ]
+
         connect holdings.Out1 "ModBus Device1.holding_in" as Connection1
         connect Constant1.out Junction1 as Connection3
         connect Junction1 "ModBus Device1.coil_in" as Connection4
@@ -200,13 +231,26 @@ model "modbus_tcp" {
         connect Junction2 Junction1 as Connection7
         connect "ModBus Device1.reg_in" Junction2 as Connection8
         connect coil_out.in "ModBus Device1.coil_out" as Connection9
-        connect holding_out.in "ModBus Device1.holding_out" as Connection10
+        connect holding_out.in Junction3 as Connection11
+        connect Junction3 "ModBus Device1.holding_out" as Connection12
+        connect "Bus Split1.in" Junction3 as Connection13
+        connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
+        [
+            breakpoints = 8580, 8124; 8580, 8168
+        ]
+        connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
+        connect "Bus Split1.out2" DAB_ON.in as Connection16
     }
 
     default {
         "core/Bus Join" {
             inputs = "2"
             force_tml = "True"
+            execution_rate = "inherit"
+        }
+
+        "core/Bus Split" {
+            outputs = "2"
             execution_rate = "inherit"
         }
 
