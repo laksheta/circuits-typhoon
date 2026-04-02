@@ -331,6 +331,10 @@ model "modbus_tcp" {
             "netmask": '255.255.255.0',
             "slave_id": 2,
             
+            'coil_input_addresses': '',
+            'coil_output_addresses': '',
+            'discrete_input_addresses': '',
+            'input_register_adresses': '',
             # Data sent FROM Simulation TO PLC (PLC Reads these)
             # Mapping %IW23, %IW24, %IW25, and %IW29
             "holding_register_input_addresses": '23, 24, 25, 29',
