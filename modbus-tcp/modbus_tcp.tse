@@ -124,7 +124,7 @@ model "modbus_tcp" {
                 position = 7852, 8120
             ]
 
-            component "core/SCADA Input" Step_Reference_VDC_OUT {
+            component "core/SCADA Input" Step_Ref_VDC_OUT {
                 addr = "1426063412"
                 execution_rate = "Ts"
                 unit = ""
@@ -151,7 +151,7 @@ model "modbus_tcp" {
             connect Indicator_DAB.out "Bus Join1.in" as Connection3
             connect ACT_VDC_IN.out "Bus Join1.in1" as Connection4
             connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
-            connect Step_Reference_VDC_OUT.out "Bus Join1.in3" as Connection6
+            connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
             [
                 breakpoints = 7952, 8168; 7952, 8096
             ]
@@ -161,13 +161,70 @@ model "modbus_tcp" {
             size = 56, 48
         ]
 
+        component "core/Constant" Constant1 {
+            execution_rate = "200e-6"
+            value = "0"
+        }
+        [
+            position = 7912, 8040
+            hide_name = True
+        ]
+
+        component "core/Probe" coil_out {
+        }
+        [
+            position = 8384, 8040
+        ]
+
+        component "core/Probe" holding_out {
+        }
+        [
+            position = 8380, 8216
+            rotation = right
+        ]
+
+        junction Junction1 sp
+        [
+            position = 8032, 8040
+        ]
+
+        junction Junction2 sp
+        [
+            position = 8032, 8088
+        ]
+
         connect holdings.Out1 "ModBus Device1.holding_in" as Connection1
+        connect Constant1.out Junction1 as Connection3
+        connect Junction1 "ModBus Device1.coil_in" as Connection4
+        connect "ModBus Device1.discrete_in" Junction2 as Connection6
+        connect Junction2 Junction1 as Connection7
+        connect "ModBus Device1.reg_in" Junction2 as Connection8
+        connect coil_out.in "ModBus Device1.coil_out" as Connection9
+        connect holding_out.in "ModBus Device1.holding_out" as Connection10
     }
 
     default {
         "core/Bus Join" {
             inputs = "2"
             force_tml = "True"
+            execution_rate = "inherit"
+        }
+
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
+        }
+
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
             execution_rate = "inherit"
         }
 
