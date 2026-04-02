@@ -210,6 +210,12 @@ model "modbus_tcp" {
             position = 8612, 8240
         ]
 
+        component "core/Probe" reg_in {
+        }
+        [
+            position = 8084, 8264
+        ]
+
         junction Junction1 sp
         [
             position = 8032, 8040
@@ -225,6 +231,11 @@ model "modbus_tcp" {
             position = 8032, 8088
         ]
 
+        junction Junction5 sp
+        [
+            position = 8032, 8184
+        ]
+
         connect Constant1.out Junction1 as Connection3
         connect Junction1 "ModBus Device1.coil_in" as Connection4
         connect coil_out.in "ModBus Device1.coil_out" as Connection9
@@ -237,13 +248,15 @@ model "modbus_tcp" {
         ]
         connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
         connect "Bus Split1.out2" DAB_ON.in as Connection16
-        connect "ModBus Device1.reg_in" reg.Out1 as Connection18
         connect "ModBus Device1.discrete_in" Junction4 as Connection19
         connect Junction4 Junction1 as Connection20
         [
             breakpoints = 8032, 8088
         ]
         connect "ModBus Device1.holding_in" Junction4 as Connection21
+        connect "ModBus Device1.reg_in" Junction5 as Connection22
+        connect Junction5 reg.Out1 as Connection23
+        connect reg_in.in Junction5 as Connection24
     }
 
     default {
@@ -331,7 +344,7 @@ model "modbus_tcp" {
         
         config_dab = {
             "port": 502,
-            "ip_addr": '192.168.1.100',
+            "ip_addr": '192.168.0.202',
             "netmask": '255.255.255.0',
             "slave_id": 2,
             
@@ -343,11 +356,13 @@ model "modbus_tcp" {
             
             # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
             # Mapping %IW23, %IW24, %IW25, %IW29
-            "input_register_addresses": '22, 23, 24, 28',
+            # "input_register_addresses": '22, 23, 24, 28',
+            "input_register_addresses": '0u, 1u, 2u, 3u',
             
             # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
             # Mapping %QW11, %QW12, %QW13
-            "holding_register_output_addresses": '10, 11, 12'
+            # "holding_register_output_addresses": '10, 11, 12'
+            "holding_register_output_addresses": '0u, 1u, 2u'
         }
     ENDCODE
 }
