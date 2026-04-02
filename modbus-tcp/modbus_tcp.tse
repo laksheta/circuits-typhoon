@@ -79,11 +79,12 @@ model "modbus_tcp" {
 
     component Subsystem Root {
         component "core/ModBus Device" "ModBus Device1" {
+            configuration = "config_dab"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
         }
         [
-            position = 8136, 8112
+            position = 8176, 8112
             size = 184, 184
         ]
     }
@@ -118,4 +119,27 @@ model "modbus_tcp" {
             _supported_platforms = "[\'hil\']"
         }
     }
+
+    CODE model_init
+        # Numpy module is imported as 'np'
+        # Scipy module is imported as 'sp'
+        # The Schematic API is imported as 'mdl'
+        # To get the model file path, use 'mdl.get_model_file_path()'
+        # To print information to the console, use info()
+        
+        config_dab = {
+            "port": 502,
+            "ip_addr": '192.168.20.230',
+            "netmask": '255.255.255.0',
+            "slave_id": 17,
+            
+            # Data sent FROM Simulation TO PLC (PLC Reads these)
+            # Mapping %IW23, %IW24, %IW25, and %IW29
+            "holding_register_input_addresses": '23, 24, 25, 29',
+            
+            # Data sent FROM PLC TO Simulation (PLC Writes these)
+            # Mapping %QW11, %QW12, %QW13
+            "holding_register_output_addresses": '11, 12, 13'
+        }
+    ENDCODE
 }
