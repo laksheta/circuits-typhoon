@@ -335,15 +335,17 @@ model "modbus_tcp" {
             "netmask": '255.255.255.0',
             "slave_id": 2,
             
-            'coil_input_addresses': '',
-            'coil_output_addresses': '',
-            'discrete_input_addresses': '',
-            'input_register_adresses': '',
-            # Data sent FROM Simulation TO PLC (PLC Reads these)
-            # Mapping %IW23, %IW24, %IW25, and %IW29
-            "holding_register_input_addresses": '23, 24, 25, 29',
+            # Unused fields (Set to empty string so no memory is allocated)
+            "coil_input_addresses": '',
+            "coil_output_addresses": '',
+            "discrete_input_addresses": '',
+            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
             
-            # Data sent FROM PLC TO Simulation (PLC Writes these)
+            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+            # Mapping %IW23, %IW24, %IW25, %IW29
+            "input_register_addresses": '23, 24, 25, 29',
+            
+            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
             # Mapping %QW11, %QW12, %QW13
             "holding_register_output_addresses": '11, 12, 13'
         }
