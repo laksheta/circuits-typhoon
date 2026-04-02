@@ -87,9 +87,104 @@ model "modbus_tcp" {
             position = 8176, 8112
             size = 184, 184
         ]
+
+        component Subsystem holdings {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                inputs = "4"
+            }
+            [
+                position = 8008, 8072
+            ]
+
+            component "core/SCADA Input" Indicator_DAB {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8016
+            ]
+
+            component "core/SCADA Input" ACT_VDC_IN {
+                addr = "1426063412"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8064
+            ]
+
+            component "core/SCADA Input" ACT_VDC_OUT {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8120
+            ]
+
+            component "core/SCADA Input" Step_Reference_VDC_OUT {
+                addr = "1426063412"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8168
+            ]
+
+            port Out1 {
+                label = "Out1"
+                position = auto:auto
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8136, 8072
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection2
+            connect Indicator_DAB.out "Bus Join1.in" as Connection3
+            connect ACT_VDC_IN.out "Bus Join1.in1" as Connection4
+            connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
+            connect Step_Reference_VDC_OUT.out "Bus Join1.in3" as Connection6
+            [
+                breakpoints = 7952, 8168; 7952, 8096
+            ]
+        }
+        [
+            position = 7976, 8136
+            size = 56, 48
+        ]
+
+        connect holdings.Out1 "ModBus Device1.holding_in" as Connection1
     }
 
     default {
+        "core/Bus Join" {
+            inputs = "2"
+            force_tml = "True"
+            execution_rate = "inherit"
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
+        }
+
         "core/ModBus Device" {
             hil_id = "0"
             configuration = "config1"
@@ -126,6 +221,8 @@ model "modbus_tcp" {
         # The Schematic API is imported as 'mdl'
         # To get the model file path, use 'mdl.get_model_file_path()'
         # To print information to the console, use info()
+        
+        Ts = 100e-6
         
         config_dab = {
             "port": 502,
