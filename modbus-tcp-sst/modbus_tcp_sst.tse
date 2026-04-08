@@ -464,6 +464,241 @@ model "modbus_tcp_sst" {
             position = 8080, 8696
         ]
 
+        component "core/ModBus Device" "ModBus Device3" {
+            configuration = "config_mmc"
+            enable_pipeline = "False"
+            eth_port = "1"
+            ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+        }
+        [
+            position = 8176, 9004
+            size = 184, 184
+        ]
+
+        component Subsystem reg2 {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                inputs = "11"
+            }
+            [
+                position = 8036, 8176
+            ]
+
+            component "core/SCADA Input" INDICATOR_INVERTER {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7864
+            ]
+
+            component "core/SCADA Input" ACT_FREQUENCY {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7920
+            ]
+
+            component "core/SCADA Input" ACT_DCLINK {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7976
+            ]
+
+            component "core/SCADA Input" ACT_Vrms_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8032
+            ]
+
+            component "core/SCADA Input" ACT_Vrms_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8088
+            ]
+
+            component "core/SCADA Input" ACT_Vrms_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8144
+            ]
+
+            component "core/SCADA Input" ACT_Irms_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8200
+            ]
+
+            component "core/SCADA Input" ACT_Irms_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8260
+            ]
+
+            component "core/SCADA Input" ACT_Irms_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8316
+            ]
+
+            component "core/SCADA Input" STEP_REFERENCE_FREQUENCY {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8372
+            ]
+
+            component "core/SCADA Input" STEP_REFERENCE_VRMS {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8428
+            ]
+
+            port Out1 {
+                label = "Out1"
+                position = auto:auto
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8164, 8176
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection2
+            connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection3
+            connect ACT_FREQUENCY.out "Bus Join1.in1" as Connection4
+            [
+                breakpoints = 7988, 7920; 7988, 8104
+            ]
+            connect "Bus Join1.in2" ACT_DCLINK.out as Connection5
+            [
+                breakpoints = 7976, 8120; 7976, 7976
+            ]
+            connect "Bus Join1.in3" ACT_Vrms_R.out as Connection6
+            [
+                breakpoints = 7964, 8136; 7964, 8032
+            ]
+            connect "Bus Join1.in4" ACT_Vrms_S.out as Connection7
+            [
+                breakpoints = 7952, 8152; 7952, 8088
+            ]
+            connect "Bus Join1.in5" ACT_Vrms_T.out as Connection8
+            [
+                breakpoints = 7996, 8168; 7944, 8168; 7944, 8144
+            ]
+            connect ACT_Irms_R.out "Bus Join1.in6" as Connection9
+            [
+                breakpoints = 7880, 8184; 7996, 8184
+            ]
+            connect "Bus Join1.in7" ACT_Irms_S.out as Connection10
+            [
+                breakpoints = 7996, 8200; 7944, 8200; 7944, 8200; 7944, 8256
+            ]
+            connect "Bus Join1.in8" ACT_Irms_T.out as Connection11
+            [
+                breakpoints = 7996, 8216; 7952, 8216; 7952, 8216; 7952, 8312
+            ]
+            connect STEP_REFERENCE_FREQUENCY.out "Bus Join1.in9" as Connection12
+            [
+                breakpoints = 7964, 8368; 7964, 8232
+            ]
+            connect "Bus Join1.in10" STEP_REFERENCE_VRMS.out as Connection13
+            [
+                breakpoints = 7976, 8248; 7976, 8424
+            ]
+        }
+        [
+            position = 7924, 9076
+            size = 56, 48
+        ]
+
+        component "core/Constant" Constant3 {
+            execution_rate = "Ts"
+            value = "0"
+        }
+        [
+            position = 7912, 8932
+            hide_name = True
+        ]
+
+        component "core/Probe" coil_out2 {
+        }
+        [
+            position = 8384, 8932
+        ]
+
+        component "core/Probe" holding_out2 {
+        }
+        [
+            position = 8380, 9108
+            rotation = right
+        ]
+
+        component "core/Bus Split" "Bus Split3" {
+            outputs = "3"
+        }
+        [
+            position = 8492, 9076
+            hide_name = True
+        ]
+
+        component "core/Probe" REF_VDC_OUTPUT1 {
+        }
+        [
+            position = 8612, 9016
+        ]
+
+        component "core/Probe" DC_LINK_CONTACTOR1 {
+        }
+        [
+            position = 8612, 9076
+        ]
+
+        component "core/Probe" STATUS1 {
+        }
+        [
+            position = 8612, 9132
+        ]
+
+        component "core/Probe" reg_in2 {
+        }
+        [
+            position = 8084, 9156
+        ]
+
         junction Junction1 sp
         [
             position = 8028, 8004
@@ -504,6 +739,26 @@ model "modbus_tcp_sst" {
             position = 8028, 8616
         ]
 
+        junction Junction10 sp
+        [
+            position = 8032, 8932
+        ]
+
+        junction Junction11 sp
+        [
+            position = 8380, 9076
+        ]
+
+        junction Junction12 sp
+        [
+            position = 8032, 8980
+        ]
+
+        junction Junction13 sp
+        [
+            position = 8032, 9076
+        ]
+
         scheme_area Area1 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DAB</p></body></html>
         }
@@ -517,6 +772,14 @@ model "modbus_tcp_sst" {
         }
         [
             position = 8260, 8588
+            size = 836, 408
+        ]
+
+        scheme_area Area3 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
+        }
+        [
+            position = 8264, 9048
             size = 836, 408
         ]
 
@@ -562,6 +825,27 @@ model "modbus_tcp_sst" {
         connect "ModBus Device2.reg_in" Junction9 as Connection37
         connect Junction9 reg1.Out1 as Connection38
         connect reg_in1.in Junction9 as Connection39
+        connect Constant3.out Junction10 as Connection40
+        connect Junction10 "ModBus Device3.coil_in" as Connection41
+        connect coil_out2.in "ModBus Device3.coil_out" as Connection42
+        connect holding_out2.in Junction11 as Connection43
+        connect Junction11 "ModBus Device3.holding_out" as Connection44
+        connect "Bus Split3.in" Junction11 as Connection45
+        connect REF_VDC_OUTPUT1.in "Bus Split3.out" as Connection46
+        [
+            breakpoints = 8580, 9016; 8580, 9060
+        ]
+        connect "Bus Split3.out1" DC_LINK_CONTACTOR1.in as Connection47
+        connect "Bus Split3.out2" STATUS1.in as Connection48
+        connect "ModBus Device3.discrete_in" Junction12 as Connection49
+        connect Junction12 Junction10 as Connection50
+        [
+            breakpoints = 8032, 8980
+        ]
+        connect "ModBus Device3.holding_in" Junction12 as Connection51
+        connect "ModBus Device3.reg_in" Junction13 as Connection52
+        connect Junction13 reg2.Out1 as Connection53
+        connect reg_in2.in Junction13 as Connection54
     }
 
     default {
