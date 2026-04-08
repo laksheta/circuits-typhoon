@@ -362,7 +362,7 @@ model "modbus_tcp" {
             # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
             # Mapping %QW11, %QW12, %QW13
             # "holding_register_output_addresses": '10, 11, 12'
-            "holding_register_output_addresses": '0u, 1u, 2u'
+            "holding_register_output_addresses": '1u, 2u,3u'
         }
     ENDCODE
 }
