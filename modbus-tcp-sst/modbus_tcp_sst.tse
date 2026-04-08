@@ -230,46 +230,118 @@ model "modbus_tcp_sst" {
         component Subsystem reg1 {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
-                inputs = "4"
+                inputs = "12"
             }
             [
-                position = 8008, 8072
+                position = 8036, 8176
             ]
 
-            component "core/SCADA Input" Indicator_DAB {
+            component "core/SCADA Input" MAIN_INDICATOR {
                 addr = "1426063396"
                 execution_rate = "Ts"
                 unit = ""
             }
             [
-                position = 7852, 8016
+                position = 7844, 7864
             ]
 
-            component "core/SCADA Input" ACT_VDC_IN {
-                addr = "1426063412"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7852, 8064
-            ]
-
-            component "core/SCADA Input" ACT_VDC_OUT {
+            component "core/SCADA Input" INDICATOR_MMC {
                 addr = "1426063396"
                 execution_rate = "Ts"
                 unit = ""
             }
             [
-                position = 7852, 8120
+                position = 7844, 7920
             ]
 
-            component "core/SCADA Input" Step_Ref_VDC_OUT {
-                addr = "1426063412"
+            component "core/SCADA Input" ACT_VDC_OUTPUT {
+                addr = "1426063396"
                 execution_rate = "Ts"
                 unit = ""
             }
             [
-                position = 7852, 8168
+                position = 7844, 7976
+            ]
+
+            component "core/SCADA Input" ACT_VRMS_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8032
+            ]
+
+            component "core/SCADA Input" ACT_VRMS_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8088
+            ]
+
+            component "core/SCADA Input" ACT_VRMS_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8144
+            ]
+
+            component "core/SCADA Input" ACT_IRMS_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8200
+            ]
+
+            component "core/SCADA Input" ACT_IRMS_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8256
+            ]
+
+            component "core/SCADA Input" ACT_IRMS_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8312
+            ]
+
+            component "core/SCADA Input" ACT_FREQUENCY_MMC {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8368
+            ]
+
+            component "core/SCADA Input" CHARGING_COMPLETE {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8424
+            ]
+
+            component "core/SCADA Input" STEP_REFERENCE {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8480
             ]
 
             port Out1 {
@@ -283,16 +355,54 @@ model "modbus_tcp_sst" {
                 }
             }
             [
-                position = 8136, 8072
+                position = 8164, 8176
             ]
 
             connect "Bus Join1.out" Out1 as Connection2
-            connect Indicator_DAB.out "Bus Join1.in" as Connection3
-            connect ACT_VDC_IN.out "Bus Join1.in1" as Connection4
-            connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
-            connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
+            connect MAIN_INDICATOR.out "Bus Join1.in" as Connection3
+            connect INDICATOR_MMC.out "Bus Join1.in1" as Connection4
             [
-                breakpoints = 7952, 8168; 7952, 8096
+                breakpoints = 7988, 7920; 7988, 8104
+            ]
+            connect "Bus Join1.in2" ACT_VDC_OUTPUT.out as Connection5
+            [
+                breakpoints = 7976, 8120; 7976, 7976
+            ]
+            connect "Bus Join1.in3" ACT_VRMS_R.out as Connection6
+            [
+                breakpoints = 7964, 8136; 7964, 8032
+            ]
+            connect "Bus Join1.in4" ACT_VRMS_S.out as Connection7
+            [
+                breakpoints = 7952, 8152; 7952, 8088
+            ]
+            connect "Bus Join1.in5" ACT_VRMS_T.out as Connection8
+            [
+                breakpoints = 7996, 8168; 7944, 8168; 7944, 8144
+            ]
+            connect ACT_IRMS_R.out "Bus Join1.in6" as Connection9
+            [
+                breakpoints = 7880, 8184; 7996, 8184
+            ]
+            connect "Bus Join1.in7" ACT_IRMS_S.out as Connection10
+            [
+                breakpoints = 7944, 8200; 7944, 8256
+            ]
+            connect "Bus Join1.in8" ACT_IRMS_T.out as Connection11
+            [
+                breakpoints = 7952, 8216; 7952, 8312
+            ]
+            connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection12
+            [
+                breakpoints = 7964, 8368; 7964, 8232
+            ]
+            connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection13
+            [
+                breakpoints = 7976, 8248; 7976, 8424
+            ]
+            connect "Bus Join1.in11" STEP_REFERENCE.out as Connection14
+            [
+                breakpoints = 7992, 8264; 7992, 8480
             ]
         }
         [
