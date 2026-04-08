@@ -1792,8 +1792,8 @@ widgetValue = hil.model_read('reg2.INDICATOR_INVERTER')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>176</x>
-                    <y>1472</y>
+                    <x>400</x>
+                    <y>1336</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1860,8 +1860,8 @@ widgetValue = hil.model_read('reg2.ACT_FREQUENCY')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>168</x>
-                    <y>1600</y>
+                    <x>392</x>
+                    <y>1464</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1928,8 +1928,8 @@ widgetValue = hil.model_read('reg2.ACT_DCLINK')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>168</x>
-                    <y>1728</y>
+                    <x>392</x>
+                    <y>1592</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1996,8 +1996,8 @@ widgetValue = hil.model_read('reg2.ACT_Vrms_R')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>296</x>
-                    <y>1472</y>
+                    <x>520</x>
+                    <y>1336</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2064,8 +2064,8 @@ widgetValue = hil.model_read('reg2.ACT_Vrms_S')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>296</x>
-                    <y>1608</y>
+                    <x>520</x>
+                    <y>1472</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2132,8 +2132,8 @@ widgetValue = hil.model_read('reg2.ACT_Vrms_T')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>296</x>
-                    <y>1728</y>
+                    <x>520</x>
+                    <y>1592</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2200,8 +2200,8 @@ widgetValue = hil.model_read('reg2.ACT_Irms_R')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>408</x>
-                    <y>1472</y>
+                    <x>632</x>
+                    <y>1336</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2268,8 +2268,8 @@ widgetValue = hil.model_read('reg2.ACT_Irms_S')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>408</x>
-                    <y>1608</y>
+                    <x>632</x>
+                    <y>1472</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2336,8 +2336,8 @@ widgetValue = hil.model_read('reg2.ACT_Irms_T')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>408</x>
-                    <y>1728</y>
+                    <x>632</x>
+                    <y>1592</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2404,8 +2404,8 @@ widgetValue = hil.model_read('reg2.STEP_REFERENCE_FREQUENCY')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>536</x>
-                    <y>1480</y>
+                    <x>760</x>
+                    <y>1344</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2472,8 +2472,8 @@ widgetValue = hil.model_read('reg2.STEP_REFERENCE_VRMS')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>536</x>
-                    <y>1608</y>
+                    <x>760</x>
+                    <y>1472</y>
                     <width>88</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2482,6 +2482,221 @@ widgetValue = hil.model_read('reg2.STEP_REFERENCE_VRMS')
                     <label><![CDATA[]]></label>
                     <use_label>False</use_label>
                 </widget_settings>
+            </component_data>
+        <component_data>
+                <id>3e5dcafa331711f1b5dad843ae163fca</id>
+                <name><![CDATA[MMC_ON]]></name>
+                <type>Gauge</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# mandatory variable used for storing value that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[MMC_ON]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <updateRate>500</updateRate>
+                <decimals>2</decimals>
+                <scaling_factor>1.0</scaling_factor>
+                <widget_settings>
+                    <x>1040</x>
+                    <y>1256</y>
+                    <width>248</width>
+                    <height>144</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <min>0.0</min>
+                    <max>100.0</max>
+                    <warning_range>(0, 0, 0, 0)</warning_range>
+                    <critical_range>(0, 0, 0, 0)</critical_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>414d7977331711f1a9fbd843ae163fca</id>
+                <name><![CDATA[REF_FREQUENCY]]></name>
+                <type>Gauge</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# mandatory variable used for storing value that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[REF_FREQUENCY]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <updateRate>500</updateRate>
+                <decimals>2</decimals>
+                <scaling_factor>1.0</scaling_factor>
+                <widget_settings>
+                    <x>1040</x>
+                    <y>1408</y>
+                    <width>248</width>
+                    <height>144</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <min>0.0</min>
+                    <max>100.0</max>
+                    <warning_range>(0, 0, 0, 0)</warning_range>
+                    <critical_range>(0, 0, 0, 0)</critical_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>42c83a51331711f19ec9d843ae163fca</id>
+                <name><![CDATA[REF_VPEAK]]></name>
+                <type>Gauge</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# mandatory variable used for storing value that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[REF_VPEAK]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <updateRate>500</updateRate>
+                <decimals>2</decimals>
+                <scaling_factor>1.0</scaling_factor>
+                <widget_settings>
+                    <x>1032</x>
+                    <y>1568</y>
+                    <width>248</width>
+                    <height>144</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <min>0.0</min>
+                    <max>100.0</max>
+                    <warning_range>(0, 0, 0, 0)</warning_range>
+                    <critical_range>(0, 0, 0, 0)</critical_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>487ae2de331711f1a079d843ae163fca</id>
+                <name><![CDATA[RESET_FAILSAFE_INVERTER]]></name>
+                <type>Gauge</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# mandatory variable used for storing value that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[RESET_FAILSAFE_INVERTER]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <updateRate>500</updateRate>
+                <decimals>2</decimals>
+                <scaling_factor>1.0</scaling_factor>
+                <widget_settings>
+                    <x>1360</x>
+                    <y>1352</y>
+                    <width>248</width>
+                    <height>144</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <min>0.0</min>
+                    <max>100.0</max>
+                    <warning_range>(0, 0, 0, 0)</warning_range>
+                    <critical_range>(0, 0, 0, 0)</critical_range>
+                </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>4d776d6a331711f1a787d843ae163fca</id>
+                <name><![CDATA[INVERTER_ON]]></name>
+                <type>Gauge</type>
+                <description><![CDATA[]]></description>
+                <data_type>Analog signal</data_type>
+                <code><![CDATA[# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# mandatory variable used for storing value that will be displayed
+displayValue = 0.0
+
+]]></code>
+                <signal_name><![CDATA[INVERTER_ON]]></signal_name>
+                <unit><![CDATA[]]></unit>
+                <automatic_unit>True</automatic_unit>
+                <updateRate>500</updateRate>
+                <decimals>2</decimals>
+                <scaling_factor>1.0</scaling_factor>
+                <widget_settings>
+                    <x>1352</x>
+                    <y>1512</y>
+                    <width>248</width>
+                    <height>144</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                <advance_widget_settings>
+                    <color_range>False</color_range>
+                    <min>0.0</min>
+                    <max>100.0</max>
+                    <warning_range>(0, 0, 0, 0)</warning_range>
+                    <critical_range>(0, 0, 0, 0)</critical_range>
+                </advance_widget_settings>
             </component_data>
         </components>
 </ui_settings>
