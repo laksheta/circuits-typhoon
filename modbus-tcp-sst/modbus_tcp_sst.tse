@@ -668,35 +668,47 @@ model "modbus_tcp_sst" {
         ]
 
         component "core/Bus Split" "Bus Split3" {
-            outputs = "3"
+            outputs = "5"
         }
         [
             position = 8492, 9076
             hide_name = True
         ]
 
-        component "core/Probe" REF_VDC_OUTPUT1 {
+        component "core/Probe" MMC_ON {
         }
         [
-            position = 8612, 9016
+            position = 8616, 8964
         ]
 
-        component "core/Probe" DC_LINK_CONTACTOR1 {
+        component "core/Probe" REF_FREQUENCY {
+        }
+        [
+            position = 8612, 9020
+        ]
+
+        component "core/Probe" REF_VPEAK {
         }
         [
             position = 8612, 9076
-        ]
-
-        component "core/Probe" STATUS1 {
-        }
-        [
-            position = 8612, 9132
         ]
 
         component "core/Probe" reg_in2 {
         }
         [
             position = 8084, 9156
+        ]
+
+        component "core/Probe" RESET_FAILSAFE_INVERTER {
+        }
+        [
+            position = 8612, 9128
+        ]
+
+        component "core/Probe" INVERTER_ON {
+        }
+        [
+            position = 8612, 9180
         ]
 
         junction Junction1 sp
@@ -831,12 +843,12 @@ model "modbus_tcp_sst" {
         connect holding_out2.in Junction11 as Connection43
         connect Junction11 "ModBus Device3.holding_out" as Connection44
         connect "Bus Split3.in" Junction11 as Connection45
-        connect REF_VDC_OUTPUT1.in "Bus Split3.out" as Connection46
+        connect MMC_ON.in "Bus Split3.out" as Connection46
         [
             breakpoints = 8580, 9016; 8580, 9060
         ]
-        connect "Bus Split3.out1" DC_LINK_CONTACTOR1.in as Connection47
-        connect "Bus Split3.out2" STATUS1.in as Connection48
+        connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
+        connect "Bus Split3.out2" REF_VPEAK.in as Connection48
         connect "ModBus Device3.discrete_in" Junction12 as Connection49
         connect Junction12 Junction10 as Connection50
         [
@@ -846,6 +858,8 @@ model "modbus_tcp_sst" {
         connect "ModBus Device3.reg_in" Junction13 as Connection52
         connect Junction13 reg2.Out1 as Connection53
         connect reg_in2.in Junction13 as Connection54
+        connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
+        connect INVERTER_ON.in "Bus Split3.out4" as Connection56
     }
 
     default {
