@@ -50,8 +50,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>704</x>
-                    <y>112</y>
+                    <x>1240</x>
+                    <y>184</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -93,8 +93,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>704</x>
-                    <y>272</y>
+                    <x>1240</x>
+                    <y>344</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -136,8 +136,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>704</x>
-                    <y>432</y>
+                    <x>1240</x>
+                    <y>504</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -211,7 +211,7 @@ widgetValue = hil.model_read('reg.ACT_VDC_IN')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>384</x>
+                    <x>688</x>
                     <y>144</y>
                     <width>128</width>
                     <height>120</height>
@@ -279,7 +279,7 @@ widgetValue = hil.model_read('reg.ACT_VDC_OUT')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>368</x>
+                    <x>672</x>
                     <y>272</y>
                     <width>152</width>
                     <height>120</height>
@@ -347,7 +347,7 @@ widgetValue = hil.model_read('reg.Indicator_DAB')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>376</x>
+                    <x>688</x>
                     <y>392</y>
                     <width>128</width>
                     <height>120</height>
@@ -415,7 +415,7 @@ widgetValue = hil.model_read('reg.Step_Ref_VDC_OUT')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>360</x>
+                    <x>672</x>
                     <y>520</y>
                     <width>152</width>
                     <height>120</height>
@@ -425,370 +425,6 @@ widgetValue = hil.model_read('reg.Step_Ref_VDC_OUT')
                     <label><![CDATA[]]></label>
                     <use_label>False</use_label>
                 </widget_settings>
-            </component_data>
-        <component_data>
-                <id>d648913d2e5c11f18270d843ae163fca</id>
-                <name><![CDATA[reg_in[0]]]></name>
-                <type>Gauge</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
-
-]]></code>
-                <signal_name><![CDATA[reg_in[0]]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <updateRate>500</updateRate>
-                <decimals>2</decimals>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>1192</x>
-                    <y>112</y>
-                    <width>248</width>
-                    <height>144</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <min>0.0</min>
-                    <max>100.0</max>
-                    <warning_range>(0, 0, 0, 0)</warning_range>
-                    <critical_range>(0, 0, 0, 0)</critical_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>d880e56f2e5c11f198a5d843ae163fca</id>
-                <name><![CDATA[reg_in[1]]]></name>
-                <type>Gauge</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
-
-]]></code>
-                <signal_name><![CDATA[reg_in[1]]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <updateRate>500</updateRate>
-                <decimals>2</decimals>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>1184</x>
-                    <y>256</y>
-                    <width>248</width>
-                    <height>144</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <min>0.0</min>
-                    <max>100.0</max>
-                    <warning_range>(0, 0, 0, 0)</warning_range>
-                    <critical_range>(0, 0, 0, 0)</critical_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>da26fc132e5c11f1b01bd843ae163fca</id>
-                <name><![CDATA[reg_in[2]]]></name>
-                <type>Gauge</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
-
-]]></code>
-                <signal_name><![CDATA[reg_in[2]]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <updateRate>500</updateRate>
-                <decimals>2</decimals>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>1184</x>
-                    <y>400</y>
-                    <width>248</width>
-                    <height>144</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <min>0.0</min>
-                    <max>100.0</max>
-                    <warning_range>(0, 0, 0, 0)</warning_range>
-                    <critical_range>(0, 0, 0, 0)</critical_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>dcd5e4982e5c11f19a4cd843ae163fca</id>
-                <name><![CDATA[reg_in[3]]]></name>
-                <type>Gauge</type>
-                <description><![CDATA[]]></description>
-                <data_type>Analog signal</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# mandatory variable used for storing value that will be displayed
-displayValue = 0.0
-
-]]></code>
-                <signal_name><![CDATA[reg_in[3]]]></signal_name>
-                <unit><![CDATA[]]></unit>
-                <automatic_unit>True</automatic_unit>
-                <updateRate>500</updateRate>
-                <decimals>2</decimals>
-                <scaling_factor>1.0</scaling_factor>
-                <widget_settings>
-                    <x>1184</x>
-                    <y>544</y>
-                    <width>248</width>
-                    <height>144</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <color_range>False</color_range>
-                    <min>0.0</min>
-                    <max>100.0</max>
-                    <warning_range>(0, 0, 0, 0)</warning_range>
-                    <critical_range>(0, 0, 0, 0)</critical_range>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>4165129c2e6511f1a618d843ae163fca</id>
-                <name><![CDATA[holding_out[0]]]></name>
-                <type>TraceDisplay</type>
-                <description><![CDATA[]]></description>
-                <data_type>Signals</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# mandatory variable used for storing values that will be displayed
-# specify data (one pairs of "names" and "values" parts are mandatory)
-data = {
-    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
-    "analog_names": [],
-
-    # analog data values: [aVal1,aVal2,aVal3]
-    "analog_values": [],
-
-    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
-    "digital_names": [],
-
-    # digital data values: [dVal1,dVal2,aVal3]
-    "digital_values": [],
-    }
-displayValue = data
-]]></code>
-                <analog_signals><![CDATA[['holding_out[0]', 'holding_out[1]', 'holding_out[2]']]]></analog_signals>
-                <digital_signals><![CDATA[[]]]></digital_signals>
-                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
-                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'holding_out[0]': 1.0, 'holding_out[1]': 1.0, 'holding_out[2]': 1.0}]]></analog_signals_scaling_factors>
-                <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
-                <update_rate>250</update_rate>
-                <execution_rate>None</execution_rate>
-                <background_color>white</background_color>
-                <widget_settings>
-                    <x>1608</x>
-                    <y>216</y>
-                    <width>400</width>
-                    <height>200</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <x_title><![CDATA[x axes]]></x_title>
-                    <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100.0</y_range_min>
-                    <y_range_max>100.0</y_range_max>
-                    <time_window>10</time_window>
-                    <auto_scale_enabled>True</auto_scale_enabled>
-                    <legend_enabled>True</legend_enabled>
-                    <x_axis_title_enabled>False</x_axis_title_enabled>
-                    <y_axis_title_enabled>False</y_axis_title_enabled>
-                    <use_reference_curve>False</use_reference_curve>
-                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
-# Selected time window is available through variable 'timeWindow'
-# Selected update rate is available through variable 'updateRate'
-
-# reference curve data point
-curveData = 12.0
-
-# specify curve options ('data' part is mandatory)
-refCurveData1 = {
-    # reference curve data point
-    "data": curveData,
-
-    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
-    "line_style": "dashed",
-
-    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
-    "line_color": 'red',
-
-    # curve line width: float number
-    "line_width": 2.0,
-    
-    # reference curve title
-    "title": "Reference curve",
-
-    # show a title in the legend
-    "show_in_legend": True
-}
-
-# list of reference curves data: [ref1, ref2,...refN]
-referenceCurves = [refCurveData1]
-
-]]></reference_curve_code>
-                </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>5559268f2e6511f1898fd843ae163fca</id>
-                <name><![CDATA[coil_out]]></name>
-                <type>TraceDisplay</type>
-                <description><![CDATA[]]></description>
-                <data_type>Signals</data_type>
-                <code><![CDATA[# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# mandatory variable used for storing values that will be displayed
-# specify data (one pairs of "names" and "values" parts are mandatory)
-data = {
-    # analog like signals/data names: ["Analog 1 name","Analog 2 name","Analog N name"]
-    "analog_names": [],
-
-    # analog data values: [aVal1,aVal2,aVal3]
-    "analog_values": [],
-
-    # digital like signals/data names: ["Digital 1 name","Digital 2 name","Digital 3 name"]
-    "digital_names": [],
-
-    # digital data values: [dVal1,dVal2,aVal3]
-    "digital_values": [],
-    }
-displayValue = data
-]]></code>
-                <analog_signals><![CDATA[['coil_out']]]></analog_signals>
-                <digital_signals><![CDATA[[]]]></digital_signals>
-                <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
-                <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
-                <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
-                <update_rate>250</update_rate>
-                <execution_rate>None</execution_rate>
-                <background_color>white</background_color>
-                <widget_settings>
-                    <x>1608</x>
-                    <y>440</y>
-                    <width>400</width>
-                    <height>200</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-                <advance_widget_settings>
-                    <x_title><![CDATA[x axes]]></x_title>
-                    <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100.0</y_range_min>
-                    <y_range_max>100.0</y_range_max>
-                    <time_window>10</time_window>
-                    <auto_scale_enabled>True</auto_scale_enabled>
-                    <legend_enabled>True</legend_enabled>
-                    <x_axis_title_enabled>False</x_axis_title_enabled>
-                    <y_axis_title_enabled>False</y_axis_title_enabled>
-                    <use_reference_curve>False</use_reference_curve>
-                    <reference_curve_code><![CDATA[# NOTE: Global namespace variables are available
-# Selected time window is available through variable 'timeWindow'
-# Selected update rate is available through variable 'updateRate'
-
-# reference curve data point
-curveData = 12.0
-
-# specify curve options ('data' part is mandatory)
-refCurveData1 = {
-    # reference curve data point
-    "data": curveData,
-
-    # curve line style: 'solid', 'dashed', 'dashdot', 'dotted'
-    "line_style": "dashed",
-
-    # curve line color: 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow'
-    "line_color": 'red',
-
-    # curve line width: float number
-    "line_width": 2.0,
-    
-    # reference curve title
-    "title": "Reference curve",
-
-    # show a title in the legend
-    "show_in_legend": True
-}
-
-# list of reference curves data: [ref1, ref2,...refN]
-referenceCurves = [refCurveData1]
-
-]]></reference_curve_code>
-                </advance_widget_settings>
             </component_data>
         <component_data>
                 <id>1da44e3c331511f19b08d843ae163fca</id>
@@ -1792,9 +1428,9 @@ widgetValue = hil.model_read('reg2.INDICATOR_INVERTER')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>400</x>
+                    <x>304</x>
                     <y>1336</y>
-                    <width>80</width>
+                    <width>176</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -1860,9 +1496,9 @@ widgetValue = hil.model_read('reg2.ACT_FREQUENCY')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>392</x>
+                    <x>296</x>
                     <y>1464</y>
-                    <width>80</width>
+                    <width>176</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -1928,9 +1564,9 @@ widgetValue = hil.model_read('reg2.ACT_DCLINK')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>392</x>
+                    <x>296</x>
                     <y>1592</y>
-                    <width>80</width>
+                    <width>176</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -1998,7 +1634,7 @@ widgetValue = hil.model_read('reg2.ACT_Vrms_R')
                 <widget_settings>
                     <x>520</x>
                     <y>1336</y>
-                    <width>80</width>
+                    <width>120</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2066,7 +1702,7 @@ widgetValue = hil.model_read('reg2.ACT_Vrms_S')
                 <widget_settings>
                     <x>520</x>
                     <y>1472</y>
-                    <width>80</width>
+                    <width>120</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2134,7 +1770,7 @@ widgetValue = hil.model_read('reg2.ACT_Vrms_T')
                 <widget_settings>
                     <x>520</x>
                     <y>1592</y>
-                    <width>80</width>
+                    <width>112</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2200,9 +1836,9 @@ widgetValue = hil.model_read('reg2.ACT_Irms_R')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>632</x>
+                    <x>680</x>
                     <y>1336</y>
-                    <width>80</width>
+                    <width>112</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2268,9 +1904,9 @@ widgetValue = hil.model_read('reg2.ACT_Irms_S')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>632</x>
+                    <x>680</x>
                     <y>1472</y>
-                    <width>80</width>
+                    <width>112</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2336,9 +1972,9 @@ widgetValue = hil.model_read('reg2.ACT_Irms_T')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>632</x>
+                    <x>680</x>
                     <y>1592</y>
-                    <width>80</width>
+                    <width>112</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2404,9 +2040,9 @@ widgetValue = hil.model_read('reg2.STEP_REFERENCE_FREQUENCY')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>760</x>
-                    <y>1344</y>
-                    <width>80</width>
+                    <x>816</x>
+                    <y>1336</y>
+                    <width>216</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2472,9 +2108,9 @@ widgetValue = hil.model_read('reg2.STEP_REFERENCE_VRMS')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>760</x>
+                    <x>840</x>
                     <y>1472</y>
-                    <width>88</width>
+                    <width>184</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
                     <hierarchy_position><![CDATA[1]]></hierarchy_position>
@@ -2508,8 +2144,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>1040</x>
-                    <y>1256</y>
+                    <x>1160</x>
+                    <y>1272</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2551,8 +2187,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>1040</x>
-                    <y>1408</y>
+                    <x>1160</x>
+                    <y>1424</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2594,8 +2230,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>1032</x>
-                    <y>1568</y>
+                    <x>1152</x>
+                    <y>1584</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2637,8 +2273,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>1360</x>
-                    <y>1352</y>
+                    <x>1480</x>
+                    <y>1368</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2680,8 +2316,8 @@ displayValue = 0.0
                 <decimals>2</decimals>
                 <scaling_factor>1.0</scaling_factor>
                 <widget_settings>
-                    <x>1352</x>
-                    <y>1512</y>
+                    <x>1472</x>
+                    <y>1528</y>
                     <width>248</width>
                     <height>144</height>
                     <appearance><![CDATA[Flat]]></appearance>
