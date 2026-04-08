@@ -440,19 +440,19 @@ model "modbus_tcp_sst" {
             hide_name = True
         ]
 
-        component "core/Probe" RESET_FAILSAFE_DAB1 {
+        component "core/Probe" REF_VDC_OUTPUT {
         }
         [
             position = 8608, 8556
         ]
 
-        component "core/Probe" REF_VDC_OUT1 {
+        component "core/Probe" DC_LINK_CONTACTOR {
         }
         [
             position = 8608, 8616
         ]
 
-        component "core/Probe" DAB_ON1 {
+        component "core/Probe" STATUS {
         }
         [
             position = 8608, 8672
@@ -547,12 +547,12 @@ model "modbus_tcp_sst" {
         connect holding_out1.in Junction7 as Connection28
         connect Junction7 "ModBus Device2.holding_out" as Connection29
         connect "Bus Split2.in" Junction7 as Connection30
-        connect RESET_FAILSAFE_DAB1.in "Bus Split2.out" as Connection31
+        connect REF_VDC_OUTPUT.in "Bus Split2.out" as Connection31
         [
             breakpoints = 8576, 8556; 8576, 8600
         ]
-        connect "Bus Split2.out1" REF_VDC_OUT1.in as Connection32
-        connect "Bus Split2.out2" DAB_ON1.in as Connection33
+        connect "Bus Split2.out1" DC_LINK_CONTACTOR.in as Connection32
+        connect "Bus Split2.out2" STATUS.in as Connection33
         connect "ModBus Device2.discrete_in" Junction8 as Connection34
         connect Junction8 Junction6 as Connection35
         [
@@ -667,7 +667,30 @@ model "modbus_tcp_sst" {
             # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
             # Mapping %QW11, %QW12, %QW13
             # "holding_register_output_addresses": '10, 11, 12'
-            "holding_register_output_addresses": '0u, 1u, 2u'
+            "holding_register_output_addresses": '1u, 2u, 3u'
+        }
+        
+        config_mmc = {
+            "port": 502,
+            "ip_addr": '192.168.0.202',
+            "netmask": '255.255.255.0',
+            "slave_id": 2,
+            
+            # Unused fields (Set to empty string so no memory is allocated)
+            "coil_input_addresses": '',
+            "coil_output_addresses": '',
+            "discrete_input_addresses": '',
+            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+            
+            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+            # Mapping %IW23, %IW24, %IW25, %IW29
+            # "input_register_addresses": '22, 23, 24, 28',
+            "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u,11u',
+            
+            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+            # Mapping %QW11, %QW12, %QW13
+            # "holding_register_output_addresses": '10, 11, 12'
+            "holding_register_output_addresses": '1u, 2u, 3u'
         }
     ENDCODE
 }
