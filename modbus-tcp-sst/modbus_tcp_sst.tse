@@ -1,0 +1,1017 @@
+version = 4.2
+
+//
+// Saved by sw version: 2026.1 SP1
+//
+
+model "modbus_tcp_sst" {
+    configuration {
+        hil_device = "HIL604"
+        hil_configuration_id = 2
+        simulation_method = exact
+        simulation_time_step = auto
+        simulation_discret_scaling = 1.0
+        dsp_timer_periods = 100e-6, 50e-3
+        ss_calc_method = "systematic elimination"
+        enb_pole_shift = True
+        enb_gds_oversampling = True
+        show_modes = False
+        device_ao_limit_enable = False
+        reset_analog_outputs_on_sim_stop = True
+        reset_analog_outputs_on_sim_stop_mode = Offset values
+        reset_digital_outputs_on_sim_stop = True
+        vhil_adio_loopback = False
+        dma_enable = False
+        cpl_stb = False
+        enb_dep_sw_detect = False
+        code_section = "internal memory"
+        data_section = "internal memory"
+        sys_sp_rate_1 = 0.0001
+        sys_sp_rate_2 = 0.05
+        sys_real_type_precision = "default"
+        user_real_type_precision = "default"
+        sys_cpu_optimization = "high"
+        user_cpu_optimization = "high"
+        user_cpu_part_option = "default"
+        matrix_based_reduction = True
+        cpl_dynamics_analysis = False
+        export_ss_to_pickle = False
+        ground_scope_core = False
+        dss_num_tol = 1e-15
+        cce_platform = "generic"
+        cce_use_relative_names = False
+        cce_type_mapping_real = "double"
+        cce_type_mapping_uint = "unsigned int"
+        cce_type_mapping_int = "int"
+        cce_platform = "generic"
+        cce_use_relative_names = False
+        cce_type_mapping_real = "double"
+        cce_type_mapping_uint = "unsigned int"
+        cce_type_mapping_int = "int"
+        cce_term_var_location = "local"
+        cce_directory = ""
+        cce_custom_type_int = ""
+        cce_custom_type_uint = ""
+        cce_custom_type_real = ""
+        tunable_params = "component defined"
+        sp_compiler_type = "C compiler"
+        sig_stim = "off"
+        export_resource_list = ""
+        export_dependency_list = ""
+        excluded_resource_list = ""
+        excluded_component_from_locking_list = ""
+        export_out_file = ""
+        export_lock_top_level = True
+        export_encrypt_library = True
+        export_encrypt_resources = True
+        solver_type = "DAE"
+        integration_method = "BDF"
+        max_sim_step = 1e-4
+        simulation_time = 1.0
+        abs_tol = 1e-3
+        rel_tol = 1e-3
+        init_sim_step = 1e-6
+        r_on_sw = 1e-3
+        v_on_diode = 0.1
+        data_sampling_rate = 0
+        feedthrough_validation_error_level = error
+    }
+
+    component Subsystem Root {
+        component "core/ModBus Device" "ModBus Device1" {
+            configuration = "config_dab"
+            enable_pipeline = "False"
+            eth_port = "1"
+            ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+        }
+        [
+            position = 8172, 8076
+            size = 184, 184
+        ]
+
+        component Subsystem reg {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                inputs = "4"
+            }
+            [
+                position = 8008, 8072
+            ]
+
+            component "core/SCADA Input" Indicator_DAB {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8016
+            ]
+
+            component "core/SCADA Input" ACT_VDC_IN {
+                addr = "1426063412"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8064
+            ]
+
+            component "core/SCADA Input" ACT_VDC_OUT {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8120
+            ]
+
+            component "core/SCADA Input" Step_Ref_VDC_OUT {
+                addr = "1426063412"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8168
+            ]
+
+            port Out1 {
+                label = "Out1"
+                position = auto:auto
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8136, 8072
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection2
+            connect Indicator_DAB.out "Bus Join1.in" as Connection3
+            connect ACT_VDC_IN.out "Bus Join1.in1" as Connection4
+            connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
+            connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
+            [
+                breakpoints = 7952, 8168; 7952, 8096
+            ]
+        }
+        [
+            position = 7920, 8148
+            size = 56, 48
+        ]
+
+        component "core/Constant" Constant1 {
+            execution_rate = "Ts"
+            value = "0"
+        }
+        [
+            position = 7908, 8004
+            hide_name = True
+        ]
+
+        component "core/Probe" coil_out {
+        }
+        [
+            position = 8380, 8004
+        ]
+
+        component "core/Probe" holding_out {
+        }
+        [
+            position = 8376, 8180
+            rotation = right
+        ]
+
+        component "core/Bus Split" "Bus Split1" {
+            outputs = "3"
+        }
+        [
+            position = 8488, 8148
+            hide_name = True
+        ]
+
+        component "core/Probe" RESET_FAILSAFE_DAB {
+        }
+        [
+            position = 8608, 8088
+        ]
+
+        component "core/Probe" REF_VDC_OUT {
+        }
+        [
+            position = 8608, 8148
+        ]
+
+        component "core/Probe" DAB_ON {
+        }
+        [
+            position = 8608, 8204
+        ]
+
+        component "core/Probe" reg_in {
+        }
+        [
+            position = 8080, 8228
+        ]
+
+        component "core/ModBus Device" "ModBus Device2" {
+            configuration = "config_mmc"
+            enable_pipeline = "False"
+            eth_port = "1"
+            ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+        }
+        [
+            position = 8172, 8544
+            size = 184, 184
+        ]
+
+        component Subsystem reg1 {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                inputs = "12"
+            }
+            [
+                position = 8036, 8176
+            ]
+
+            component "core/SCADA Input" MAIN_INDICATOR {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7864
+            ]
+
+            component "core/SCADA Input" INDICATOR_MMC {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7920
+            ]
+
+            component "core/SCADA Input" ACT_VDC_OUTPUT {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7976
+            ]
+
+            component "core/SCADA Input" ACT_VRMS_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8032
+            ]
+
+            component "core/SCADA Input" ACT_VRMS_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8088
+            ]
+
+            component "core/SCADA Input" ACT_VRMS_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8144
+            ]
+
+            component "core/SCADA Input" ACT_IRMS_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8200
+            ]
+
+            component "core/SCADA Input" ACT_IRMS_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8256
+            ]
+
+            component "core/SCADA Input" ACT_IRMS_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8312
+            ]
+
+            component "core/SCADA Input" ACT_FREQUENCY_MMC {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8368
+            ]
+
+            component "core/SCADA Input" CHARGING_COMPLETE {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8424
+            ]
+
+            component "core/SCADA Input" STEP_REFERENCE {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8480
+            ]
+
+            port Out1 {
+                label = "Out1"
+                position = auto:auto
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8164, 8176
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection2
+            connect MAIN_INDICATOR.out "Bus Join1.in" as Connection3
+            connect INDICATOR_MMC.out "Bus Join1.in1" as Connection4
+            [
+                breakpoints = 7988, 7920; 7988, 8104
+            ]
+            connect "Bus Join1.in2" ACT_VDC_OUTPUT.out as Connection5
+            [
+                breakpoints = 7976, 8120; 7976, 7976
+            ]
+            connect "Bus Join1.in3" ACT_VRMS_R.out as Connection6
+            [
+                breakpoints = 7964, 8136; 7964, 8032
+            ]
+            connect "Bus Join1.in4" ACT_VRMS_S.out as Connection7
+            [
+                breakpoints = 7952, 8152; 7952, 8088
+            ]
+            connect "Bus Join1.in5" ACT_VRMS_T.out as Connection8
+            [
+                breakpoints = 7996, 8168; 7944, 8168; 7944, 8144
+            ]
+            connect ACT_IRMS_R.out "Bus Join1.in6" as Connection9
+            [
+                breakpoints = 7880, 8184; 7996, 8184
+            ]
+            connect "Bus Join1.in7" ACT_IRMS_S.out as Connection10
+            [
+                breakpoints = 7944, 8200; 7944, 8256
+            ]
+            connect "Bus Join1.in8" ACT_IRMS_T.out as Connection11
+            [
+                breakpoints = 7952, 8216; 7952, 8312
+            ]
+            connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection12
+            [
+                breakpoints = 7964, 8368; 7964, 8232
+            ]
+            connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection13
+            [
+                breakpoints = 7976, 8248; 7976, 8424
+            ]
+            connect "Bus Join1.in11" STEP_REFERENCE.out as Connection14
+            [
+                breakpoints = 7992, 8264; 7992, 8480
+            ]
+        }
+        [
+            position = 7920, 8616
+            size = 56, 48
+        ]
+
+        component "core/Constant" Constant2 {
+            execution_rate = "Ts"
+            value = "0"
+        }
+        [
+            position = 7908, 8472
+            hide_name = True
+        ]
+
+        component "core/Probe" coil_out1 {
+        }
+        [
+            position = 8380, 8472
+        ]
+
+        component "core/Probe" holding_out1 {
+        }
+        [
+            position = 8376, 8648
+            rotation = right
+        ]
+
+        component "core/Bus Split" "Bus Split2" {
+            outputs = "3"
+        }
+        [
+            position = 8488, 8616
+            hide_name = True
+        ]
+
+        component "core/Probe" REF_VDC_OUTPUT {
+        }
+        [
+            position = 8608, 8556
+        ]
+
+        component "core/Probe" DC_LINK_CONTACTOR {
+        }
+        [
+            position = 8608, 8616
+        ]
+
+        component "core/Probe" STATUS {
+        }
+        [
+            position = 8608, 8672
+        ]
+
+        component "core/Probe" reg_in1 {
+        }
+        [
+            position = 8080, 8696
+        ]
+
+        component "core/ModBus Device" "ModBus Device3" {
+            configuration = "config_inv"
+            enable_pipeline = "False"
+            eth_port = "1"
+            ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+        }
+        [
+            position = 8176, 9004
+            size = 184, 184
+        ]
+
+        component Subsystem reg2 {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                inputs = "11"
+            }
+            [
+                position = 8036, 8176
+            ]
+
+            component "core/SCADA Input" INDICATOR_INVERTER {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7864
+            ]
+
+            component "core/SCADA Input" ACT_FREQUENCY {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7920
+            ]
+
+            component "core/SCADA Input" ACT_DCLINK {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 7976
+            ]
+
+            component "core/SCADA Input" ACT_Vrms_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8032
+            ]
+
+            component "core/SCADA Input" ACT_Vrms_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8088
+            ]
+
+            component "core/SCADA Input" ACT_Vrms_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7844, 8144
+            ]
+
+            component "core/SCADA Input" ACT_Irms_R {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8200
+            ]
+
+            component "core/SCADA Input" ACT_Irms_S {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8260
+            ]
+
+            component "core/SCADA Input" ACT_Irms_T {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8316
+            ]
+
+            component "core/SCADA Input" STEP_REFERENCE_FREQUENCY {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8372
+            ]
+
+            component "core/SCADA Input" STEP_REFERENCE_VRMS {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7848, 8428
+            ]
+
+            port Out1 {
+                label = "Out1"
+                position = auto:auto
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8164, 8176
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection2
+            connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection3
+            connect ACT_FREQUENCY.out "Bus Join1.in1" as Connection4
+            [
+                breakpoints = 7988, 7920; 7988, 8104
+            ]
+            connect "Bus Join1.in2" ACT_DCLINK.out as Connection5
+            [
+                breakpoints = 7976, 8120; 7976, 7976
+            ]
+            connect "Bus Join1.in3" ACT_Vrms_R.out as Connection6
+            [
+                breakpoints = 7964, 8136; 7964, 8032
+            ]
+            connect "Bus Join1.in4" ACT_Vrms_S.out as Connection7
+            [
+                breakpoints = 7952, 8152; 7952, 8088
+            ]
+            connect "Bus Join1.in5" ACT_Vrms_T.out as Connection8
+            [
+                breakpoints = 7996, 8168; 7944, 8168; 7944, 8144
+            ]
+            connect ACT_Irms_R.out "Bus Join1.in6" as Connection9
+            [
+                breakpoints = 7880, 8184; 7996, 8184
+            ]
+            connect "Bus Join1.in7" ACT_Irms_S.out as Connection10
+            [
+                breakpoints = 7996, 8200; 7944, 8200; 7944, 8200; 7944, 8256
+            ]
+            connect "Bus Join1.in8" ACT_Irms_T.out as Connection11
+            [
+                breakpoints = 7996, 8216; 7952, 8216; 7952, 8216; 7952, 8312
+            ]
+            connect STEP_REFERENCE_FREQUENCY.out "Bus Join1.in9" as Connection12
+            [
+                breakpoints = 7964, 8368; 7964, 8232
+            ]
+            connect "Bus Join1.in10" STEP_REFERENCE_VRMS.out as Connection13
+            [
+                breakpoints = 7976, 8248; 7976, 8424
+            ]
+        }
+        [
+            position = 7924, 9076
+            size = 56, 48
+        ]
+
+        component "core/Constant" Constant3 {
+            execution_rate = "Ts"
+            value = "0"
+        }
+        [
+            position = 7912, 8932
+            hide_name = True
+        ]
+
+        component "core/Probe" coil_out2 {
+        }
+        [
+            position = 8384, 8932
+        ]
+
+        component "core/Probe" holding_out2 {
+        }
+        [
+            position = 8380, 9108
+            rotation = right
+        ]
+
+        component "core/Bus Split" "Bus Split3" {
+            outputs = "5"
+        }
+        [
+            position = 8492, 9076
+            hide_name = True
+        ]
+
+        component "core/Probe" MMC_ON {
+        }
+        [
+            position = 8616, 8964
+        ]
+
+        component "core/Probe" REF_FREQUENCY {
+        }
+        [
+            position = 8612, 9020
+        ]
+
+        component "core/Probe" REF_VPEAK {
+        }
+        [
+            position = 8612, 9076
+        ]
+
+        component "core/Probe" reg_in2 {
+        }
+        [
+            position = 8084, 9156
+        ]
+
+        component "core/Probe" RESET_FAILSAFE_INVERTER {
+        }
+        [
+            position = 8612, 9128
+        ]
+
+        component "core/Probe" INVERTER_ON {
+        }
+        [
+            position = 8612, 9180
+        ]
+
+        junction Junction1 sp
+        [
+            position = 8028, 8004
+        ]
+
+        junction Junction3 sp
+        [
+            position = 8376, 8148
+        ]
+
+        junction Junction4 sp
+        [
+            position = 8028, 8052
+        ]
+
+        junction Junction5 sp
+        [
+            position = 8028, 8148
+        ]
+
+        junction Junction6 sp
+        [
+            position = 8028, 8472
+        ]
+
+        junction Junction7 sp
+        [
+            position = 8376, 8616
+        ]
+
+        junction Junction8 sp
+        [
+            position = 8028, 8520
+        ]
+
+        junction Junction9 sp
+        [
+            position = 8028, 8616
+        ]
+
+        junction Junction10 sp
+        [
+            position = 8032, 8932
+        ]
+
+        junction Junction11 sp
+        [
+            position = 8380, 9076
+        ]
+
+        junction Junction12 sp
+        [
+            position = 8032, 8980
+        ]
+
+        junction Junction13 sp
+        [
+            position = 8032, 9076
+        ]
+
+        scheme_area Area1 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DAB</p></body></html>
+        }
+        [
+            position = 8260, 8120
+            size = 836, 408
+        ]
+
+        scheme_area Area2 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">MMC</p></body></html>
+        }
+        [
+            position = 8260, 8588
+            size = 836, 408
+        ]
+
+        scheme_area Area3 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
+        }
+        [
+            position = 8264, 9048
+            size = 836, 408
+        ]
+
+        connect Constant1.out Junction1 as Connection3
+        connect Junction1 "ModBus Device1.coil_in" as Connection4
+        connect coil_out.in "ModBus Device1.coil_out" as Connection9
+        connect holding_out.in Junction3 as Connection11
+        connect Junction3 "ModBus Device1.holding_out" as Connection12
+        connect "Bus Split1.in" Junction3 as Connection13
+        connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
+        [
+            breakpoints = 8576, 8088; 8576, 8132
+        ]
+        connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
+        connect "Bus Split1.out2" DAB_ON.in as Connection16
+        connect "ModBus Device1.discrete_in" Junction4 as Connection19
+        connect Junction4 Junction1 as Connection20
+        [
+            breakpoints = 8028, 8052
+        ]
+        connect "ModBus Device1.holding_in" Junction4 as Connection21
+        connect "ModBus Device1.reg_in" Junction5 as Connection22
+        connect Junction5 reg.Out1 as Connection23
+        connect reg_in.in Junction5 as Connection24
+        connect Constant2.out Junction6 as Connection25
+        connect Junction6 "ModBus Device2.coil_in" as Connection26
+        connect coil_out1.in "ModBus Device2.coil_out" as Connection27
+        connect holding_out1.in Junction7 as Connection28
+        connect Junction7 "ModBus Device2.holding_out" as Connection29
+        connect "Bus Split2.in" Junction7 as Connection30
+        connect REF_VDC_OUTPUT.in "Bus Split2.out" as Connection31
+        [
+            breakpoints = 8576, 8556; 8576, 8600
+        ]
+        connect "Bus Split2.out1" DC_LINK_CONTACTOR.in as Connection32
+        connect "Bus Split2.out2" STATUS.in as Connection33
+        connect "ModBus Device2.discrete_in" Junction8 as Connection34
+        connect Junction8 Junction6 as Connection35
+        [
+            breakpoints = 8028, 8520
+        ]
+        connect "ModBus Device2.holding_in" Junction8 as Connection36
+        connect "ModBus Device2.reg_in" Junction9 as Connection37
+        connect Junction9 reg1.Out1 as Connection38
+        connect reg_in1.in Junction9 as Connection39
+        connect Constant3.out Junction10 as Connection40
+        connect Junction10 "ModBus Device3.coil_in" as Connection41
+        connect coil_out2.in "ModBus Device3.coil_out" as Connection42
+        connect holding_out2.in Junction11 as Connection43
+        connect Junction11 "ModBus Device3.holding_out" as Connection44
+        connect "Bus Split3.in" Junction11 as Connection45
+        connect MMC_ON.in "Bus Split3.out" as Connection46
+        [
+            breakpoints = 8580, 9016; 8580, 9060
+        ]
+        connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
+        connect "Bus Split3.out2" REF_VPEAK.in as Connection48
+        connect "ModBus Device3.discrete_in" Junction12 as Connection49
+        connect Junction12 Junction10 as Connection50
+        [
+            breakpoints = 8032, 8980
+        ]
+        connect "ModBus Device3.holding_in" Junction12 as Connection51
+        connect "ModBus Device3.reg_in" Junction13 as Connection52
+        connect Junction13 reg2.Out1 as Connection53
+        connect reg_in2.in Junction13 as Connection54
+        connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
+        connect INVERTER_ON.in "Bus Split3.out4" as Connection56
+    }
+
+    default {
+        "core/Bus Join" {
+            inputs = "2"
+            force_tml = "True"
+            execution_rate = "inherit"
+        }
+
+        "core/Bus Split" {
+            outputs = "2"
+            execution_rate = "inherit"
+        }
+
+        "core/Constant" {
+            value = "1"
+            signal_type = "real"
+            execution_rate = "100e-6"
+            _tunable = "False"
+        }
+
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
+        }
+
+        "core/ModBus Device" {
+            hil_id = "0"
+            configuration = "config1"
+            preview = "Configuration preview"
+            eth_port = ""
+            ethernet_port_per_device = "{ \"HIL101\": {}, \"HIL402\": {}, \"HIL404\": {}, \"HIL506\": {}, \"HIL602+\": {}, \"HIL603\": {}, \"HIL604\": {}, \"HIL606\": {}, \"VHIL+\": {} }"
+            ip_addr = "192.168.0.210"
+            ip_addr_src = "Dictionary"
+            netmask = "255.255.255.0"
+            netmask_src = "Dictionary"
+            port = "502"
+            port_src = "Dictionary"
+            slave_id = "1"
+            slave_id_src = "Dictionary"
+            gateway_enable = "False"
+            gateway = "192.168.0.210"
+            gateway_src = "Dictionary"
+            enable_pipeline = "True"
+            ip_address_port = "False"
+            request_counter_port = "None"
+            message_delay = "None"
+            connection_loss = "None"
+            defines = ""
+            modbus_sunspec = "False"
+            logging = "False"
+            execution_rate = "100e-6"
+            _supported_platforms = "[\'hil\']"
+        }
+    }
+
+    CODE model_init
+        # Numpy module is imported as 'np'
+        # Scipy module is imported as 'sp'
+        # The Schematic API is imported as 'mdl'
+        # To get the model file path, use 'mdl.get_model_file_path()'
+        # To print information to the console, use info()
+        
+        Ts = 100e-6
+        
+        config_dab = {
+            "port": 502,
+            "ip_addr": '192.168.0.202',
+            "netmask": '255.255.255.0',
+            "slave_id": 2,
+            
+            # Unused fields (Set to empty string so no memory is allocated)
+            "coil_input_addresses": '',
+            "coil_output_addresses": '',
+            "discrete_input_addresses": '',
+            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+            
+            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+            # Mapping %IW23, %IW24, %IW25, %IW29
+            # "input_register_addresses": '22, 23, 24, 28',
+            "input_register_addresses": '0u, 1u, 2u, 3u',
+            
+            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+            # Mapping %QW11, %QW12, %QW13
+            # "holding_register_output_addresses": '10, 11, 12'
+            "holding_register_output_addresses": '1u, 2u, 3u'
+        }
+        
+        config_mmc = {
+            "port": 502,
+            "ip_addr": '192.168.0.202',
+            "netmask": '255.255.255.0',
+            "slave_id": 1,
+            
+            # Unused fields (Set to empty string so no memory is allocated)
+            "coil_input_addresses": '',
+            "coil_output_addresses": '',
+            "discrete_input_addresses": '',
+            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+            
+            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+            # Mapping %IW23, %IW24, %IW25, %IW29
+            # "input_register_addresses": '22, 23, 24, 28',
+            "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u,11u',
+            
+            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+            # Mapping %QW11, %QW12, %QW13
+            # "holding_register_output_addresses": '10, 11, 12'
+            "holding_register_output_addresses": '1u, 2u, 3u'
+        }
+        
+        config_inv = {
+            "port": 502,
+            "ip_addr": '192.168.0.202',
+            "netmask": '255.255.255.0',
+            "slave_id": 3,
+            
+            # Unused fields (Set to empty string so no memory is allocated)
+            "coil_input_addresses": '',
+            "coil_output_addresses": '',
+            "discrete_input_addresses": '',
+            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+            
+            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+            # Mapping %IW23, %IW24, %IW25, %IW29
+            # "input_register_addresses": '22, 23, 24, 28',
+            "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u',
+            
+            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+            # Mapping %QW11, %QW12, %QW13
+            # "holding_register_output_addresses": '10, 11, 12'
+            "holding_register_output_addresses": '1u, 2u, 3u, 4u,5u'
+        }
+    ENDCODE
+}
