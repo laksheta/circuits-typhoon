@@ -217,7 +217,7 @@ model "modbus_tcp_sst" {
         ]
 
         component "core/ModBus Device" "ModBus Device2" {
-            configuration = "config_dab"
+            configuration = "config_mmc"
             enable_pipeline = "False"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
@@ -674,7 +674,7 @@ model "modbus_tcp_sst" {
             "port": 502,
             "ip_addr": '192.168.0.202',
             "netmask": '255.255.255.0',
-            "slave_id": 2,
+            "slave_id": 1,
             
             # Unused fields (Set to empty string so no memory is allocated)
             "coil_input_addresses": '',
