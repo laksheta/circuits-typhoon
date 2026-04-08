@@ -995,7 +995,7 @@ model "modbus_tcp_sst" {
             "port": 502,
             "ip_addr": '192.168.0.202',
             "netmask": '255.255.255.0',
-            "slave_id": 2,
+            "slave_id": 3,
             
             # Unused fields (Set to empty string so no memory is allocated)
             "coil_input_addresses": '',
