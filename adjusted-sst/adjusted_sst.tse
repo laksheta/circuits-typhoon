@@ -1748,116 +1748,12 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 32, 32
             ]
 
-            port Out6 {
-                position = right:6
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8472, 8048
-            ]
-
-            port Out8 {
-                position = right:8
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8472, 8080
-            ]
-
-            port Out1 {
-                position = right:1
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 9176, 7800
-            ]
-
-            port Out3 {
-                position = right:3
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 9176, 7848
-            ]
-
-            port Out10 {
-                position = right:10
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8472, 8112
-            ]
-
             port P16 {
                 position = left:3
                 kind = pe
             }
             [
                 position = 9008, 8664
-            ]
-
-            port Out12 {
-                position = right:12
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8176, 8464
-            ]
-
-            port Out2 {
-                position = right:2
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 9176, 7816
-            ]
-
-            port Out9 {
-                position = right:9
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8472, 8096
             ]
 
             port P14 {
@@ -1868,77 +1764,12 @@ out[0] = fmax(0.0, i_dc_raw);
                 position = 9008, 8472
             ]
 
-            port Out7 {
-                position = right:7
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8472, 8064
-            ]
-
-            port Out4 {
-                position = right:4
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8728, 7944
-            ]
-
-            port Out13 {
-                position = right:13
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8176, 8496
-            ]
-
             port P15 {
                 position = left:2
                 kind = pe
             }
             [
                 position = 9008, 8568
-            ]
-
-            port Out5 {
-                position = right:5
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8472, 8032
-            ]
-
-            port Out11 {
-                position = right:11
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8728, 8160
             ]
 
             tag From5 {
@@ -2454,30 +2285,17 @@ out[0] = fmax(0.0, i_dc_raw);
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
             }
             [
-                position = 8676, 8008
+                position = 8676, 8012
                 size = 1296, 572
                 background_color = #0eff0000
                 box_outline = True
             ]
 
-            connect "Bus Split2.out5" Out9 as Connection400
             connect "Grid Meter.B+" P15 as Connection405
-            connect "Bus Split2.out1" Out5 as Connection406
-            connect "Bus Split2.out2" Out6 as Connection392
             connect "Grid Meter.A+" P14 as Connection401
-            connect "Three phase PLL.q_axis" Out2 as Connection399
-            connect "abc to dq1.zero_axis" Out11 as Connection407
-            connect "Bus Split2.out6" Out10 as Connection396
-            connect Constant3.out Out13 as Connection404
-            connect "Three phase PLL.freq" Out3 as Connection395
-            connect Constant2.out Out12 as Connection398
-            connect "Bus Split2.out4" Out8 as Connection393
             connect "Grid Meter.C+" P16 as Connection397
-            connect "abc to dq.zero_axis" Out4 as Connection403
             connect R3.n_node L3.p_node as Connection5
-            connect "Three phase PLL.d_axis" Out1 as Connection394
             connect L2.p_node R2.n_node as Connection6
-            connect "Bus Split2.out3" Out7 as Connection402
             connect R1.n_node L1.p_node as Connection7
             connect Vsp2.n_node Junction1 as Connection12
             connect Junction1 gnd2.node as Connection13
