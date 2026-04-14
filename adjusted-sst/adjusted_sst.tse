@@ -119,7 +119,7 @@ model "adjusted_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 5564, 8068
+            position = 7096, 7276
             hide_name = True
             size = 62, 256
         ]
@@ -127,7 +127,7 @@ model "adjusted_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 5484, 8132
+            position = 7016, 7340
             hide_name = True
             scale = -1, 1
         ]
@@ -2467,7 +2467,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition24.in" From3 as Connection391
         }
         [
-            position = 6556, 7420
+            position = 7504, 7240
             size = 48, 224
         ]
 
@@ -3777,7 +3777,7 @@ out[0] = fmax(0.0, i_dc_raw);
         model_dir = os.path.dirname(mdl.get_model_file_path())
         
         # Create the full path to your parameter file
-        param_file_path = os.path.join(model_dir, "new_sst.py")
+        param_file_path = os.path.join(model_dir, "adjusted_sst.py")
         
         # Read and execute the entire file
         with open(param_file_path, 'r') as f:
