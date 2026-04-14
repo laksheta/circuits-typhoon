@@ -4,7 +4,7 @@ version = 4.2
 // Saved by sw version: 2026.1 SP1
 //
 
-model "new_rect_dab" {
+model "adjusted_sst" {
     configuration {
         hil_device = "VHIL+"
         hil_configuration_id = 1
@@ -119,717 +119,17 @@ model "new_rect_dab" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 7772, 7516
+            position = 5564, 8068
             hide_name = True
-            scale = -1, 1
             size = 62, 256
-        ]
-
-        component "core/Inductor" L1 {
-            inductance = "L_rect"
-        }
-        [
-            position = 7508, 7420
-            hide_name = True
-        ]
-
-        component "core/Inductor" L2 {
-            inductance = "L_rect"
-        }
-        [
-            position = 7508, 7516
-            hide_name = True
-        ]
-
-        component "core/Inductor" L3 {
-            inductance = "L_rect"
-        }
-        [
-            position = 7508, 7612
-            hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 7852, 7580
-            hide_name = True
-        ]
-
-        component "core/Resistor" R1 {
-            resistance = "R_rect"
-        }
-        [
-            position = 7396, 7420
-            hide_name = True
-        ]
-
-        component "core/Resistor" R2 {
-            resistance = "R_rect"
-        }
-        [
-            position = 7396, 7516
-            hide_name = True
-        ]
-
-        component "core/Resistor" R3 {
-            resistance = "R_rect"
-        }
-        [
-            position = 7396, 7612
-            hide_name = True
-        ]
-
-        component "core/Signal Controlled Voltage Source" Vsp1 {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 6996, 7460
-            rotation = right
+            position = 5484, 8132
             hide_name = True
             scale = -1, 1
-            size = 64, 32
-        ]
-
-        component "core/Signal Controlled Voltage Source" Vsp2 {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 7048, 7556
-            rotation = right
-            hide_name = True
-            scale = -1, 1
-            size = 64, 32
-        ]
-
-        component "core/Signal Controlled Voltage Source" Vsp3 {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 7100, 7668
-            rotation = right
-            hide_name = True
-            scale = -1, 1
-            size = 64, 32
-        ]
-
-        component "core/Ground" gnd2 {
-        }
-        [
-            position = 7048, 7744
-            hide_name = True
-        ]
-
-        component "core/Three-phase Meter" "Grid Meter" {
-            Ts = "T_meas_rect"
-        }
-        [
-            position = 7620, 7516
-            scale = -1, 1
-            size = 56, 240
-        ]
-
-        component "core/Ground" gnd3 {
-        }
-        [
-            position = 7620, 7688
-            hide_name = True
-        ]
-
-        component "core/Three-phase Meter" "Rectifier Meter" {
-            Ts = "T_meas_rect"
-        }
-        [
-            position = 7272, 7516
-            size = 56, 240
-        ]
-
-        component "core/Ground" gnd5 {
-        }
-        [
-            position = 7272, 7688
-            hide_name = True
-        ]
-
-        component "core/dq to abc" "dq to abc1" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6856, 7556
-            hide_name = True
-            size = 48, 80
-        ]
-
-        component "core/Constant" Constant1 {
-            execution_rate = "T_meas_rect"
-            value = "0"
-        }
-        [
-            position = 6700, 7568
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant2 {
-            execution_rate = "T_meas_rect"
-            value = "u_d_rect"
-        }
-        [
-            position = 6696, 7412
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant3 {
-            execution_rate = "T_meas_rect"
-            value = "u_q_rect"
-        }
-        [
-            position = 6696, 7444
-            hide_name = True
-        ]
-
-        component "core/PID controller" "PID controller1" {
-            controller_type = "PI"
-            enb_anti_windup_out = "True"
-            enb_output_limit_out = "True"
-            execution_rate = "T_controller_rect"
-            ki = "Ki_i_rect"
-            kp = "Kp_i_rect"
-            lower_sat_lim = "-350"
-            show_reset = "rising"
-            upper_sat_lim = "350"
-        }
-        [
-            position = 6312, 7548
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant4 {
-            execution_rate = "T_controller_rect"
-            value = "-i_d_req_rect"
-        }
-        [
-            position = 6080, 7412
-            hide_name = True
-        ]
-
-        component "core/Probe" u_d_pi_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6536, 7516
-        ]
-
-        component "core/SCADA Input" reset_sig_rect {
-            execution_rate = "T_controller_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 5760, 7652
-        ]
-
-        component "core/Sum" Sum1 {
-            execution_rate = "T_controller_rect"
-            signs = "++"
-        }
-        [
-            position = 6192, 7540
-            hide_name = True
-        ]
-
-        component "core/PID controller" "PID controller2" {
-            controller_type = "PI"
-            enb_output_limit_out = "True"
-            execution_rate = "T_controller_rect"
-            ki = "Ki_i_rect"
-            kp = "Kp_i_rect"
-            lower_sat_lim = "-350"
-            show_reset = "rising"
-            upper_sat_lim = "350"
-        }
-        [
-            position = 6288, 7676
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant5 {
-            execution_rate = "T_controller_rect"
-            value = "i_q_req_rect"
-        }
-        [
-            position = 6056, 7652
-            hide_name = True
-        ]
-
-        component "core/Probe" u_q_pi_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6536, 7704
-        ]
-
-        component "core/Sum" Sum2 {
-            execution_rate = "T_controller_rect"
-            signs = "++"
-        }
-        [
-            position = 6176, 7668
-            hide_name = True
-        ]
-
-        component "core/Probe" u_d_error_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6320, 7456
-        ]
-
-        component "core/PID controller" "PID controller3" {
-            controller_type = "PI"
-            enb_anti_windup_out = "True"
-            enb_output_limit_out = "True"
-            execution_rate = "T_controller_rect"
-            ki = "Ki_v_rect"
-            kp = "Kp_v_rect"
-            lower_sat_lim = "-15"
-            show_reset = "rising"
-            upper_sat_lim = "15"
-        }
-        [
-            position = 5984, 7532
-            hide_name = True
-        ]
-
-        component "core/Sum" Sum3 {
-            execution_rate = "T_controller_rect"
-            signs = "+-"
-        }
-        [
-            position = 5872, 7524
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant6 {
-            execution_rate = "T_controller_rect"
-            value = "V_dc_target_rect"
-        }
-        [
-            position = 5744, 7500
-            hide_name = True
-        ]
-
-        component "core/Probe" u_q_error_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6316, 7748
-        ]
-
-        component "core/Probe" V_out_error_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6016, 7428
-        ]
-
-        component "core/C function" "C function1" {
-            arb_defs = "/*Begin code section*/
-
-/*End code section*/"
-            execution_rate = "T_meas_rect"
-            init_fnc = "/*Begin code section*/
-
-/*End code section*/"
-            input_terminals_dimensions = "inherit"
-            input_terminals_feedthrough = "True"
-            input_terminals_show_labels = "False"
-            output_fnc = "/*Begin code section*/
-float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
-float v_dc = fmax(in[6], 1.0); // Prevents division by zero
-
-float i_dc_raw = p_ac / v_dc;
-
-// Output the result
-out[0] = fmax(0.0, i_dc_raw);
-/*End code section*/"
-            output_terminals_dimensions = "inherit"
-            output_terminals_feedthrough = "True"
-            output_terminals_show_labels = "False"
-            update_fnc = "/*Begin code section*/
-
-/*End code section*/"
-        }
-        [
-            position = 6912, 7008
-            hide_name = True
-            size = 48, 48
-        ]
-
-        component "core/Meter Split" "Meter Split1" {
-        }
-        [
-            position = 7636, 6948
-            rotation = down
-            hide_name = True
-            scale = -1, 1
-            size = 96, 72
-        ]
-
-        component "core/Bus Join" "Bus Join1" {
-            execution_rate = "T_meas_rect"
-            inputs = "3"
-        }
-        [
-            position = 7760, 6948
-            hide_name = True
-        ]
-
-        component "core/Meter Split" "Meter Split2" {
-            ia = "True"
-            ib = "True"
-            ic = "True"
-        }
-        [
-            position = 7640, 7096
-            rotation = down
-            hide_name = True
-            scale = -1, 1
-            size = 96, 112
-        ]
-
-        component "core/Bus Join" "Bus Join2" {
-            execution_rate = "T_meas_rect"
-            inputs = "3"
-        }
-        [
-            position = 7760, 7040
-            hide_name = True
-        ]
-
-        component "core/Bus Join" "Bus Join3" {
-            execution_rate = "T_meas_rect"
-            inputs = "3"
-        }
-        [
-            position = 6816, 7008
-            hide_name = True
-        ]
-
-        component "core/Probe" i_dc_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7048, 6924
-            rotation = left
-        ]
-
-        component "core/Signal Controlled Current Source" Isp1 {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 5972, 7096
-            rotation = right
-            hide_name = True
-            scale = -1, 1
-            size = 64, 32
-        ]
-
-        component "core/Capacitor" C1 {
-            capacitance = "C_out_rect"
-        }
-        [
-            position = 6068, 7100
-            rotation = right
-            hide_name = True
-        ]
-
-        component "core/Resistor" R4 {
-            resistance = "R_load_rect"
-        }
-        [
-            position = 6164, 7100
-            rotation = right
-            hide_name = True
-        ]
-
-        component "core/Voltage Measurement" V_out_rect {
-            execution_rate = "T_meas_rect"
-            sig_output = "True"
-        }
-        [
-            position = 6272, 7100
-            rotation = right
-            size = 64, 32
-        ]
-
-        component "core/Bus Split" "Bus Split2" {
-            execution_rate = "T_meas_rect"
-            outputs = "7"
-        }
-        [
-            position = 6984, 7008
-            hide_name = True
-        ]
-
-        component "core/Bus Join" "Bus Join4" {
-            execution_rate = "T_meas_rect"
-            inputs = "3"
-        }
-        [
-            position = 7760, 7152
-            hide_name = True
-        ]
-
-        component "core/Bus Split" "Bus Split3" {
-            execution_rate = "T_meas_rect"
-            outputs = "3"
-        }
-        [
-            position = 7580, 6792
-            hide_name = True
-        ]
-
-        component "core/Bus Split" "Bus Split4" {
-            execution_rate = "T_meas_rect"
-            outputs = "3"
-        }
-        [
-            position = 7156, 6856
-            hide_name = True
-        ]
-
-        component "core/Probe" i_d_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7340, 6788
-        ]
-
-        component "core/Three phase PLL" "Three phase PLL" {
-            enable_sin = "False"
-            enable_zero = "False"
-            execution_rate = "T_meas_rect"
-            initial_filter_output = "50"
-        }
-        [
-            position = 7684, 6792
-            size = 64, 128
-        ]
-
-        component "core/abc to dq" "abc to dq" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7240, 6864
-            hide_name = True
-            size = 48, 80
-        ]
-
-        component "core/Probe" i_q_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7340, 6912
-        ]
-
-        component "core/Bus Split" "Bus Split5" {
-            execution_rate = "T_meas_rect"
-            outputs = "3"
-        }
-        [
-            position = 7156, 7072
-            hide_name = True
-        ]
-
-        component "core/Probe" V_d_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7344, 7056
-        ]
-
-        component "core/abc to dq" "abc to dq1" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7240, 7080
-            hide_name = True
-            size = 48, 80
-        ]
-
-        component "core/Probe" V_q_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7344, 7112
-        ]
-
-        component "core/Ground" gnd6 {
-        }
-        [
-            position = 6128, 7196
-            hide_name = True
-        ]
-
-        component "core/Probe" i_d_req_rect {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6216, 7412
-        ]
-
-        component "core/Rate Transition" "Rate Transition11" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7548, 6948
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition12" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 7548, 7096
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition3" {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 6928, 7504
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition4" {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 6928, 7556
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition5" {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 6928, 7616
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition13" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6476, 7516
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition14" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6472, 7704
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition15" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6272, 7748
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition16" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6272, 7456
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition17" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6148, 7412
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition18" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 5964, 7428
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition19" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6780, 7500
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition20" {
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6780, 7548
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition21" {
-            execution_rate = "T_controller_rect"
-        }
-        [
-            position = 6088, 7708
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition22" {
-            execution_rate = "T_controller_rect"
-        }
-        [
-            position = 6108, 7576
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition23" {
-            execution_rate = "T_controller_rect"
-        }
-        [
-            position = 5776, 7552
-            hide_name = True
-            size = 32, 32
-        ]
-
-        component "core/Rate Transition" "Rate Transition24" {
-            execution_rate = "T_plant_rect"
-        }
-        [
-            position = 5928, 7096
-            hide_name = True
-            size = 32, 32
         ]
 
         component "core/Probe" P_dab {
@@ -1746,6 +1046,1613 @@ P = I_out * V_out;
             size = 32, 32
         ]
 
+        component Subsystem Subsystem1 {
+            layout = dynamic
+            component "core/Inductor" L1 {
+                inductance = "L_rect"
+            }
+            [
+                position = 8920, 8472
+                hide_name = True
+            ]
+
+            component "core/Inductor" L2 {
+                inductance = "L_rect"
+            }
+            [
+                position = 8920, 8568
+                hide_name = True
+            ]
+
+            component "core/Inductor" L3 {
+                inductance = "L_rect"
+            }
+            [
+                position = 8920, 8664
+                hide_name = True
+            ]
+
+            component "core/Resistor" R1 {
+                resistance = "R_rect"
+            }
+            [
+                position = 8808, 8472
+                hide_name = True
+            ]
+
+            component "core/Resistor" R2 {
+                resistance = "R_rect"
+            }
+            [
+                position = 8808, 8568
+                hide_name = True
+            ]
+
+            component "core/Resistor" R3 {
+                resistance = "R_rect"
+            }
+            [
+                position = 8808, 8664
+                hide_name = True
+            ]
+
+            component "core/Signal Controlled Voltage Source" Vsp1 {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 8408, 8512
+                rotation = right
+                hide_name = True
+                scale = -1, 1
+                size = 64, 32
+            ]
+
+            component "core/Signal Controlled Voltage Source" Vsp2 {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 8460, 8608
+                rotation = right
+                hide_name = True
+                scale = -1, 1
+                size = 64, 32
+            ]
+
+            component "core/Signal Controlled Voltage Source" Vsp3 {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 8512, 8720
+                rotation = right
+                hide_name = True
+                scale = -1, 1
+                size = 64, 32
+            ]
+
+            component "core/Ground" gnd2 {
+            }
+            [
+                position = 8460, 8800
+                hide_name = True
+            ]
+
+            component "core/Three-phase Meter" "Grid Meter" {
+                Ts = "T_meas_rect"
+            }
+            [
+                position = 9032, 8568
+                scale = -1, 1
+                size = 56, 240
+            ]
+
+            component "core/Ground" gnd3 {
+            }
+            [
+                position = 9032, 8744
+                hide_name = True
+            ]
+
+            component "core/Three-phase Meter" "Rectifier Meter" {
+                Ts = "T_meas_rect"
+            }
+            [
+                position = 8684, 8568
+                size = 56, 240
+            ]
+
+            component "core/Ground" gnd5 {
+            }
+            [
+                position = 8684, 8744
+                hide_name = True
+            ]
+
+            component "core/dq to abc" "dq to abc1" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8268, 8608
+                hide_name = True
+                size = 48, 80
+            ]
+
+            component "core/Constant" Constant1 {
+                execution_rate = "T_meas_rect"
+                value = "0"
+            }
+            [
+                position = 8112, 8624
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant2 {
+                execution_rate = "T_meas_rect"
+                value = "u_d_rect"
+            }
+            [
+                position = 8108, 8464
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant3 {
+                execution_rate = "T_meas_rect"
+                value = "u_q_rect"
+            }
+            [
+                position = 8108, 8496
+                hide_name = True
+            ]
+
+            component "core/PID controller" "PID controller1" {
+                controller_type = "PI"
+                enb_anti_windup_out = "True"
+                enb_output_limit_out = "True"
+                execution_rate = "T_controller_rect"
+                ki = "Ki_i_rect"
+                kp = "Kp_i_rect"
+                lower_sat_lim = "-350"
+                show_reset = "rising"
+                upper_sat_lim = "350"
+            }
+            [
+                position = 7724, 8600
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant4 {
+                execution_rate = "T_controller_rect"
+                value = "-i_d_req_rect"
+            }
+            [
+                position = 7492, 8464
+                hide_name = True
+            ]
+
+            component "core/Probe" u_d_pi_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7948, 8568
+            ]
+
+            component "core/SCADA Input" reset_sig_rect {
+                execution_rate = "T_controller_rect"
+                max = "1"
+                min = "0"
+                unit = ""
+            }
+            [
+                position = 7172, 8704
+            ]
+
+            component "core/Sum" Sum1 {
+                execution_rate = "T_controller_rect"
+                signs = "++"
+            }
+            [
+                position = 7604, 8592
+                hide_name = True
+            ]
+
+            component "core/PID controller" "PID controller2" {
+                controller_type = "PI"
+                enb_output_limit_out = "True"
+                execution_rate = "T_controller_rect"
+                ki = "Ki_i_rect"
+                kp = "Kp_i_rect"
+                lower_sat_lim = "-350"
+                show_reset = "rising"
+                upper_sat_lim = "350"
+            }
+            [
+                position = 7700, 8728
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant5 {
+                execution_rate = "T_controller_rect"
+                value = "i_q_req_rect"
+            }
+            [
+                position = 7468, 8704
+                hide_name = True
+            ]
+
+            component "core/Probe" u_q_pi_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7948, 8760
+            ]
+
+            component "core/Sum" Sum2 {
+                execution_rate = "T_controller_rect"
+                signs = "++"
+            }
+            [
+                position = 7588, 8720
+                hide_name = True
+            ]
+
+            component "core/Probe" u_d_error_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7732, 8512
+            ]
+
+            component "core/PID controller" "PID controller3" {
+                controller_type = "PI"
+                enb_anti_windup_out = "True"
+                enb_output_limit_out = "True"
+                execution_rate = "T_controller_rect"
+                ki = "Ki_v_rect"
+                kp = "Kp_v_rect"
+                lower_sat_lim = "-15"
+                show_reset = "rising"
+                upper_sat_lim = "15"
+            }
+            [
+                position = 7396, 8584
+                hide_name = True
+            ]
+
+            component "core/Sum" Sum3 {
+                execution_rate = "T_controller_rect"
+                signs = "+-"
+            }
+            [
+                position = 7284, 8576
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant6 {
+                execution_rate = "T_controller_rect"
+                value = "V_dc_target_rect"
+            }
+            [
+                position = 7156, 8552
+                hide_name = True
+            ]
+
+            component "core/Probe" u_q_error_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7728, 8800
+            ]
+
+            component "core/Probe" V_out_error_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7428, 8480
+            ]
+
+            component "core/C function" "C function1" {
+                arb_defs = "/*Begin code section*/
+
+/*End code section*/"
+                execution_rate = "T_meas_rect"
+                init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+                input_terminals_dimensions = "inherit"
+                input_terminals_feedthrough = "True"
+                input_terminals_show_labels = "False"
+                output_fnc = "/*Begin code section*/
+float p_ac = -(in[0]*in[3] + in[1]*in[4] + in[2]*in[5]);
+float v_dc = fmax(in[6], 1.0); // Prevents division by zero
+
+float i_dc_raw = p_ac / v_dc;
+
+// Output the result
+out[0] = fmax(0.0, i_dc_raw);
+/*End code section*/"
+                output_terminals_dimensions = "inherit"
+                output_terminals_feedthrough = "True"
+                output_terminals_show_labels = "False"
+                update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            }
+            [
+                position = 8324, 8064
+                hide_name = True
+                size = 48, 48
+            ]
+
+            component "core/Meter Split" "Meter Split1" {
+            }
+            [
+                position = 9048, 8000
+                rotation = down
+                hide_name = True
+                scale = -1, 1
+                size = 96, 72
+            ]
+
+            component "core/Bus Join" "Bus Join1" {
+                execution_rate = "T_meas_rect"
+                inputs = "3"
+            }
+            [
+                position = 9172, 8000
+                hide_name = True
+            ]
+
+            component "core/Meter Split" "Meter Split2" {
+                ia = "True"
+                ib = "True"
+                ic = "True"
+            }
+            [
+                position = 9052, 8152
+                rotation = down
+                hide_name = True
+                scale = -1, 1
+                size = 96, 112
+            ]
+
+            component "core/Bus Join" "Bus Join2" {
+                execution_rate = "T_meas_rect"
+                inputs = "3"
+            }
+            [
+                position = 9172, 8096
+                hide_name = True
+            ]
+
+            component "core/Bus Join" "Bus Join3" {
+                execution_rate = "T_meas_rect"
+                inputs = "3"
+            }
+            [
+                position = 8228, 8064
+                hide_name = True
+            ]
+
+            component "core/Probe" i_dc_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8460, 7976
+                rotation = left
+            ]
+
+            component "core/Signal Controlled Current Source" Isp1 {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 7384, 8152
+                rotation = right
+                hide_name = True
+                scale = -1, 1
+                size = 64, 32
+            ]
+
+            component "core/Capacitor" C1 {
+                capacitance = "C_out_rect"
+            }
+            [
+                position = 7480, 8152
+                rotation = right
+                hide_name = True
+            ]
+
+            component "core/Resistor" R4 {
+                resistance = "R_load_rect"
+            }
+            [
+                position = 7576, 8152
+                rotation = right
+                hide_name = True
+            ]
+
+            component "core/Voltage Measurement" V_out_rect {
+                execution_rate = "T_meas_rect"
+                sig_output = "True"
+            }
+            [
+                position = 7684, 8152
+                rotation = right
+                size = 64, 32
+            ]
+
+            component "core/Bus Split" "Bus Split2" {
+                execution_rate = "T_meas_rect"
+                outputs = "7"
+            }
+            [
+                position = 8396, 8064
+                hide_name = True
+            ]
+
+            component "core/Bus Join" "Bus Join4" {
+                execution_rate = "T_meas_rect"
+                inputs = "3"
+            }
+            [
+                position = 9172, 8208
+                hide_name = True
+            ]
+
+            component "core/Bus Split" "Bus Split3" {
+                execution_rate = "T_meas_rect"
+                outputs = "3"
+            }
+            [
+                position = 8992, 7848
+                hide_name = True
+            ]
+
+            component "core/Bus Split" "Bus Split4" {
+                execution_rate = "T_meas_rect"
+                outputs = "3"
+            }
+            [
+                position = 8568, 7912
+                hide_name = True
+            ]
+
+            component "core/Probe" i_d_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8752, 7840
+            ]
+
+            component "core/Three phase PLL" "Three phase PLL" {
+                enable_sin = "False"
+                enable_zero = "False"
+                execution_rate = "T_meas_rect"
+                initial_filter_output = "50"
+            }
+            [
+                position = 9096, 7848
+                size = 64, 128
+            ]
+
+            component "core/abc to dq" "abc to dq" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8652, 7920
+                hide_name = True
+                size = 48, 80
+            ]
+
+            component "core/Probe" i_q_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8752, 7968
+            ]
+
+            component "core/Bus Split" "Bus Split5" {
+                execution_rate = "T_meas_rect"
+                outputs = "3"
+            }
+            [
+                position = 8568, 8128
+                hide_name = True
+            ]
+
+            component "core/Probe" V_d_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8756, 8112
+            ]
+
+            component "core/abc to dq" "abc to dq1" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8652, 8136
+                hide_name = True
+                size = 48, 80
+            ]
+
+            component "core/Probe" V_q_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8756, 8168
+            ]
+
+            component "core/Ground" gnd6 {
+            }
+            [
+                position = 7540, 8248
+                hide_name = True
+            ]
+
+            component "core/Probe" i_d_req_rect {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7628, 8464
+            ]
+
+            component "core/Rate Transition" "Rate Transition11" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8960, 8000
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition12" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8960, 8152
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition3" {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 8340, 8560
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition4" {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 8340, 8608
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition5" {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 8340, 8672
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition13" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7888, 8568
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition14" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7884, 8760
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition15" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7684, 8800
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition16" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7684, 8512
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition17" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7560, 8464
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition18" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7376, 8480
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition19" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8192, 8552
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition20" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 8192, 8600
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition21" {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7500, 8760
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition22" {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7520, 8632
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition23" {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7188, 8608
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition24" {
+                execution_rate = "T_plant_rect"
+            }
+            [
+                position = 7340, 8152
+                hide_name = True
+                size = 32, 32
+            ]
+
+            port Out6 {
+                position = right:6
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8472, 8048
+            ]
+
+            port Out8 {
+                position = right:8
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8472, 8080
+            ]
+
+            port Out1 {
+                position = right:1
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 9176, 7800
+            ]
+
+            port Out3 {
+                position = right:3
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 9176, 7848
+            ]
+
+            port Out10 {
+                position = right:10
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8472, 8112
+            ]
+
+            port P16 {
+                position = left:3
+                kind = pe
+            }
+            [
+                position = 9008, 8664
+            ]
+
+            port Out12 {
+                position = right:12
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8176, 8464
+            ]
+
+            port Out2 {
+                position = right:2
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 9176, 7816
+            ]
+
+            port Out9 {
+                position = right:9
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8472, 8096
+            ]
+
+            port P14 {
+                position = left:1
+                kind = pe
+            }
+            [
+                position = 9008, 8472
+            ]
+
+            port Out7 {
+                position = right:7
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8472, 8064
+            ]
+
+            port Out4 {
+                position = right:4
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8728, 7944
+            ]
+
+            port Out13 {
+                position = right:13
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8176, 8496
+            ]
+
+            port P15 {
+                position = left:2
+                kind = pe
+            }
+            [
+                position = 9008, 8568
+            ]
+
+            port Out5 {
+                position = right:5
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8472, 8032
+            ]
+
+            port Out11 {
+                position = right:11
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8728, 8160
+            ]
+
+            tag From5 {
+                value = "theta_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8104, 8656
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto6 {
+                value = "u_d_pi_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7828, 8600
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From6 {
+                value = "u_d_pi_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8108, 8552
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From9 {
+                value = "i_d_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7444, 8632
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto9 {
+                value = "u_q_pi_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7812, 8728
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From10 {
+                value = "i_q_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7436, 8760
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From11 {
+                value = "u_q_pi_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8108, 8584
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From12 {
+                value = "V_out_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7128, 8608
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto1 {
+                value = "V_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9256, 8000
+                rotation = down
+                hide_name = True
+                scale = -1, 1
+                size = 60, 20
+            ]
+
+            tag Goto2 {
+                value = "i_abc_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9256, 8096
+                rotation = down
+                hide_name = True
+                scale = -1, 1
+                size = 60, 20
+            ]
+
+            tag From1 {
+                value = "V_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8108, 8024
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From2 {
+                value = "i_abc_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8108, 8064
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto3 {
+                value = "i_dc_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8524, 8016
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From3 {
+                value = "i_dc_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7276, 8152
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto4 {
+                value = "V_abc_n_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9256, 8208
+                rotation = down
+                hide_name = True
+                scale = -1, 1
+                size = 60, 20
+            ]
+
+            tag From4 {
+                value = "V_abc_n_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8920, 7848
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto5 {
+                value = "theta_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9188, 7864
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From7 {
+                value = "theta_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8564, 7968
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From8 {
+                value = "i_abc_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8480, 7912
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto7 {
+                value = "i_d_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8772, 7896
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto8 {
+                value = "i_q_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8772, 7920
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From13 {
+                value = "theta_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8564, 8184
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From14 {
+                value = "V_abc_n_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8480, 8128
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto10 {
+                value = "V_out_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7760, 8152
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From15 {
+                value = "V_out_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8108, 8096
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto11 {
+                value = "reset_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7276, 8704
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From16 {
+                value = "reset_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7308, 8624
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From17 {
+                value = "reset_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7612, 8632
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From18 {
+                value = "reset_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7588, 8792
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto12 {
+                value = "out_Grid_meter_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9108, 8416
+                hide_name = True
+                size = 108, 20
+            ]
+
+            tag From19 {
+                value = "out_Grid_meter_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8876, 8152
+                hide_name = True
+                size = 108, 20
+            ]
+
+            tag Goto13 {
+                value = "out_Rectifier_meter_rect"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8588, 8416
+                rotation = down
+                hide_name = True
+                size = 116, 20
+            ]
+
+            tag From20 {
+                value = "out_Rectifier_meter_rect"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8872, 8000
+                rotation = down
+                hide_name = True
+                scale = -1, 1
+                size = 116, 20
+            ]
+
+            junction Junction1 pe
+            [
+                position = 8460, 8768
+            ]
+
+            junction Junction12 sp
+            [
+                position = 7652, 8592
+            ]
+
+            junction Junction20 sp
+            [
+                position = 7636, 8720
+            ]
+
+            junction Junction24 sp
+            [
+                position = 7340, 8576
+            ]
+
+            junction Junction4 pe
+            [
+                position = 7480, 8216
+            ]
+
+            junction Junction5 pe
+            [
+                position = 7576, 8216
+            ]
+
+            junction Junction6 pe
+            [
+                position = 7576, 8088
+            ]
+
+            junction Junction7 pe
+            [
+                position = 7480, 8088
+            ]
+
+            junction Junction8 sp
+            [
+                position = 8460, 8016
+            ]
+
+            junction Junction10 sp
+            [
+                position = 8716, 7920
+            ]
+
+            junction Junction11 pe
+            [
+                position = 7540, 8216
+            ]
+
+            junction Junction28 sp
+            [
+                position = 8716, 7896
+            ]
+
+            junction Junction29 sp
+            [
+                position = 7772, 8600
+            ]
+
+            junction Junction30 sp
+            [
+                position = 7748, 8728
+            ]
+
+            comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
+            [
+                position = 8260, 7584
+            ]
+
+            scheme_area Area1 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
+            }
+            [
+                position = 7524, 8144
+                size = 572, 248
+                box_outline = True
+            ]
+
+            scheme_area Area2 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">PI Controller</p></body></html>
+            }
+            [
+                position = 7524, 8592
+                size = 960, 496
+                background_color = #0e55ffff
+                box_outline = True
+            ]
+
+            scheme_area Area4 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">AC Side</p></body></html>
+            }
+            [
+                position = 8676, 8584
+                size = 1268, 492
+                background_color = #0effaa00
+                box_outline = True
+            ]
+
+            scheme_area Area5 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
+            }
+            [
+                position = 8676, 8008
+                size = 1296, 572
+                background_color = #0eff0000
+                box_outline = True
+            ]
+
+            connect "Bus Split2.out5" Out9 as Connection400
+            connect "Grid Meter.B+" P15 as Connection405
+            connect "Bus Split2.out1" Out5 as Connection406
+            connect "Bus Split2.out2" Out6 as Connection392
+            connect "Grid Meter.A+" P14 as Connection401
+            connect "Three phase PLL.q_axis" Out2 as Connection399
+            connect "abc to dq1.zero_axis" Out11 as Connection407
+            connect "Bus Split2.out6" Out10 as Connection396
+            connect Constant3.out Out13 as Connection404
+            connect "Three phase PLL.freq" Out3 as Connection395
+            connect Constant2.out Out12 as Connection398
+            connect "Bus Split2.out4" Out8 as Connection393
+            connect "Grid Meter.C+" P16 as Connection397
+            connect "abc to dq.zero_axis" Out4 as Connection403
+            connect R3.n_node L3.p_node as Connection5
+            connect "Three phase PLL.d_axis" Out1 as Connection394
+            connect L2.p_node R2.n_node as Connection6
+            connect "Bus Split2.out3" Out7 as Connection402
+            connect R1.n_node L1.p_node as Connection7
+            connect Vsp2.n_node Junction1 as Connection12
+            connect Junction1 gnd2.node as Connection13
+            connect Vsp1.n_node Junction1 as Connection15
+            [
+                breakpoints = 8408, 8768; 8460, 8768
+            ]
+            connect L1.n_node "Grid Meter.A-" as Connection21
+            connect L2.n_node "Grid Meter.B-" as Connection23
+            connect L3.n_node "Grid Meter.C-" as Connection25
+            connect gnd3.node "Grid Meter.GND" as Connection27
+            [
+                hide_name = True
+            ]
+            connect R1.p_node "Rectifier Meter.A-" as Connection51
+            connect "Rectifier Meter.B-" R2.p_node as Connection54
+            connect "Rectifier Meter.C-" R3.p_node as Connection56
+            connect Vsp3.n_node Junction1 as Connection60
+            [
+                breakpoints = 8508, 8768
+            ]
+            connect gnd5.node "Rectifier Meter.GND" as Connection61
+            connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
+            connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
+            connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
+            connect From5 "dq to abc1.wt" as Connection122
+            connect Constant1.out "dq to abc1.zero_input" as Connection123
+            connect Constant5.out Sum2.in as Connection152
+            connect Sum1.out Junction12 as Connection158
+            connect Junction12 "PID controller1.in" as Connection159
+            connect Constant6.out Sum3.in as Connection181
+            connect Sum2.out Junction20 as Connection218
+            connect Junction20 "PID controller2.in" as Connection219
+            connect Sum3.out Junction24 as Connection233
+            connect Junction24 "PID controller3.in" as Connection234
+            connect "Bus Join1.out" Goto1 as Connection75
+            connect "Bus Join2.out" Goto2 as Connection79
+            connect From1 "Bus Join3.in" as Connection84
+            connect "Bus Join3.in1" From2 as Connection85
+            [
+                breakpoints = 8188, 8064; 8156, 8064
+            ]
+            connect "C function1.in" "Bus Join3.out" as Connection86
+            connect Isp1.n_node Junction4 as Connection94
+            [
+                breakpoints = 7384, 8216
+            ]
+            connect C1.n_node Junction4 as Connection96
+            connect Junction5 V_out_rect.n_node as Connection98
+            [
+                breakpoints = 7684, 8216
+            ]
+            connect R4.n_node Junction5 as Connection99
+            connect Junction6 V_out_rect.p_node as Connection101
+            [
+                breakpoints = 7684, 8088
+            ]
+            connect R4.p_node Junction6 as Connection102
+            connect Isp1.p_node Junction7 as Connection103
+            [
+                breakpoints = 7384, 8088
+            ]
+            connect Junction7 Junction6 as Connection104
+            connect C1.p_node Junction7 as Connection105
+            connect "C function1.out" "Bus Split2.in" as Connection106
+            connect i_dc_rect.in Junction8 as Connection108
+            connect Junction8 "Bus Split2.out" as Connection109
+            connect Goto3 Junction8 as Connection110
+            connect "Bus Join4.out" Goto4 as Connection113
+            connect "Meter Split2.VAn" "Bus Join4.in" as Connection114
+            connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
+            connect "Meter Split2.VCn" "Bus Join4.in2" as Connection116
+            [
+                breakpoints = 9116, 8160; 9116, 8224
+            ]
+            connect "Bus Split3.in" From4 as Connection117
+            connect "Bus Split3.out1" "Three phase PLL.vb" as Connection204
+            connect "Bus Split3.out2" "Three phase PLL.vc" as Connection205
+            connect "Three phase PLL.va" "Bus Split3.out" as Connection206
+            connect "Three phase PLL.theta" Goto5 as Connection207
+            connect "Bus Split4.out" "abc to dq.va" as Connection209
+            connect "abc to dq.vb" "Bus Split4.out1" as Connection210
+            connect "Bus Split4.out2" "abc to dq.vc" as Connection211
+            connect "abc to dq.wt" From7 as Connection212
+            connect "abc to dq.q_axis" Junction10 as Connection225
+            connect Junction10 Goto8 as Connection262
+            [
+                breakpoints = 8732, 7920
+            ]
+            connect i_q_rect.in Junction10 as Connection263
+            connect From8 "Bus Split4.in" as Connection264
+            connect "Bus Split5.out" "abc to dq1.va" as Connection229
+            connect "abc to dq1.vb" "Bus Split5.out1" as Connection265
+            connect "Bus Split5.out2" "abc to dq1.vc" as Connection266
+            connect "abc to dq1.wt" From13 as Connection267
+            connect From14 "Bus Split5.in" as Connection239
+            connect "abc to dq1.q_axis" V_q_rect.in as Connection241
+            [
+                breakpoints = 8716, 8136
+            ]
+            connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
+            connect "Bus Join2.in" "Meter Split2.IA" as Connection244
+            connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
+            connect V_d_rect.in "abc to dq1.d_axis" as Connection246
+            connect V_out_rect.out Goto10 as Connection247
+            connect Junction4 Junction11 as Connection249
+            connect Junction11 Junction5 as Connection250
+            connect gnd6.node Junction11 as Connection251
+            connect "Meter Split1.VBn" "Bus Join1.in1" as Connection254
+            connect From15 "Bus Join3.in2" as Connection255
+            connect "Bus Join1.in" "Meter Split1.VAn" as Connection256
+            [
+                breakpoints = 9112, 7992
+            ]
+            connect "Bus Join1.in2" "Meter Split1.VCn" as Connection257
+            [
+                breakpoints = 9124, 8016
+            ]
+            connect Goto7 Junction28 as Connection290
+            connect Junction28 "abc to dq.d_axis" as Connection291
+            connect i_d_rect.in Junction28 as Connection292
+            connect "PID controller3.out" Sum1.in as Connection294
+            connect "PID controller1.out" Junction29 as Connection297
+            connect Junction29 Goto6 as Connection298
+            connect "PID controller2.out" Junction30 as Connection300
+            connect Junction30 Goto9 as Connection301
+            connect reset_sig_rect.out Goto11 as Connection304
+            connect "PID controller3.reset" From16 as Connection305
+            connect "PID controller1.reset" From17 as Connection306
+            connect "PID controller2.reset" From18 as Connection307
+            [
+                breakpoints = 7652, 8736; 7652, 8792
+            ]
+            connect Goto12 "Grid Meter.Out" as Connection308
+            connect Goto13 "Rectifier Meter.Out" as Connection310
+            connect From20 "Rate Transition11.in" as Connection364
+            connect "Rate Transition11.out" "Meter Split1.Input" as Connection365
+            connect "Meter Split2.Input" "Rate Transition12.out" as Connection366
+            connect "Rate Transition12.in" From19 as Connection367
+            connect "dq to abc1.phase_a" "Rate Transition3.in" as Connection368
+            connect "Rate Transition3.out" Vsp1.in as Connection369
+            connect "dq to abc1.phase_b" "Rate Transition4.in" as Connection370
+            connect "Rate Transition4.out" Vsp2.in as Connection371
+            connect Vsp3.in "Rate Transition5.out" as Connection372
+            connect "Rate Transition5.in" "dq to abc1.phase_c" as Connection373
+            connect u_d_pi_rect.in "Rate Transition13.out" as Connection324
+            connect "Rate Transition13.in" Junction29 as Connection325
+            connect u_q_pi_rect.in "Rate Transition14.out" as Connection326
+            connect "Rate Transition14.in" Junction30 as Connection374
+            connect u_q_error_rect.in "Rate Transition15.out" as Connection328
+            connect "Rate Transition15.in" Junction20 as Connection329
+            connect u_d_error_rect.in "Rate Transition16.out" as Connection375
+            connect "Rate Transition16.in" Junction12 as Connection376
+            connect "Rate Transition17.out" i_d_req_rect.in as Connection377
+            connect Constant4.out "Rate Transition17.in" as Connection378
+            connect V_out_error_rect.in "Rate Transition18.out" as Connection379
+            connect "Rate Transition18.in" Junction24 as Connection380
+            connect From6 "Rate Transition19.in" as Connection381
+            connect "Rate Transition19.out" "dq to abc1.d_input" as Connection382
+            connect "dq to abc1.q_input" "Rate Transition20.out" as Connection383
+            connect "Rate Transition20.in" From11 as Connection384
+            connect From10 "Rate Transition21.in" as Connection340
+            connect "Rate Transition21.out" Sum2.in1 as Connection385
+            connect From9 "Rate Transition22.in" as Connection342
+            connect "Rate Transition22.out" Sum1.in1 as Connection386
+            connect From12 "Rate Transition23.in" as Connection387
+            connect "Rate Transition23.out" Sum3.in1 as Connection388
+            connect Isp1.in "Rate Transition24.out" as Connection390
+            connect "Rate Transition24.in" From3 as Connection391
+        }
+        [
+            position = 6556, 7420
+            size = 48, 224
+        ]
+
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -1768,411 +2675,6 @@ P = I_out * V_out;
             position = 8540, 7380
             hide_name = True
             size = 60, 20
-        ]
-
-        tag From5 {
-            value = "theta_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6692, 7604
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto6 {
-            value = "u_d_pi_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 6416, 7548
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From6 {
-            value = "u_d_pi_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6696, 7500
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From9 {
-            value = "i_d_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6032, 7576
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto9 {
-            value = "u_q_pi_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 6400, 7676
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From10 {
-            value = "i_q_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6024, 7708
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From11 {
-            value = "u_q_pi_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6696, 7528
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From12 {
-            value = "V_out_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 5716, 7552
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto1 {
-            value = "V_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7844, 6948
-            rotation = down
-            hide_name = True
-            scale = -1, 1
-            size = 60, 20
-        ]
-
-        tag Goto2 {
-            value = "i_abc_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7844, 7040
-            rotation = down
-            hide_name = True
-            scale = -1, 1
-            size = 60, 20
-        ]
-
-        tag From1 {
-            value = "V_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6696, 6972
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From2 {
-            value = "i_abc_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6696, 7008
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto3 {
-            value = "i_dc_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7112, 6960
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From3 {
-            value = "i_dc_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 5864, 7096
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto4 {
-            value = "V_abc_n_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7844, 7152
-            rotation = down
-            hide_name = True
-            scale = -1, 1
-            size = 60, 20
-        ]
-
-        tag From4 {
-            value = "V_abc_n_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7508, 6792
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto5 {
-            value = "theta_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7776, 6808
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From7 {
-            value = "theta_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7152, 6912
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From8 {
-            value = "i_abc_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7068, 6856
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto7 {
-            value = "i_d_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7360, 6840
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto8 {
-            value = "i_q_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7360, 6864
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From13 {
-            value = "theta_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7152, 7128
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From14 {
-            value = "V_abc_n_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7068, 7072
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto10 {
-            value = "V_out_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 6348, 7100
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From15 {
-            value = "V_out_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6696, 7044
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto11 {
-            value = "reset_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 5864, 7652
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From16 {
-            value = "reset_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 5896, 7568
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From17 {
-            value = "reset_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6200, 7580
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From18 {
-            value = "reset_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6176, 7736
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto12 {
-            value = "out_Grid_meter_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7696, 7364
-            hide_name = True
-            size = 108, 20
-        ]
-
-        tag From19 {
-            value = "out_Grid_meter_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7464, 7096
-            hide_name = True
-            size = 108, 20
-        ]
-
-        tag Goto13 {
-            value = "out_Rectifier_meter_rect"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7176, 7364
-            rotation = down
-            hide_name = True
-            size = 116, 20
-        ]
-
-        tag From20 {
-            value = "out_Rectifier_meter_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7460, 6948
-            rotation = down
-            hide_name = True
-            scale = -1, 1
-            size = 116, 20
         ]
 
         tag Goto23 {
@@ -2670,76 +3172,6 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
-        junction Junction1 pe
-        [
-            position = 7048, 7712
-        ]
-
-        junction Junction12 sp
-        [
-            position = 6240, 7540
-        ]
-
-        junction Junction20 sp
-        [
-            position = 6224, 7668
-        ]
-
-        junction Junction24 sp
-        [
-            position = 5928, 7524
-        ]
-
-        junction Junction4 pe
-        [
-            position = 6068, 7164
-        ]
-
-        junction Junction5 pe
-        [
-            position = 6164, 7164
-        ]
-
-        junction Junction6 pe
-        [
-            position = 6164, 7036
-        ]
-
-        junction Junction7 pe
-        [
-            position = 6068, 7036
-        ]
-
-        junction Junction8 sp
-        [
-            position = 7048, 6960
-        ]
-
-        junction Junction10 sp
-        [
-            position = 7304, 6864
-        ]
-
-        junction Junction11 pe
-        [
-            position = 6128, 7164
-        ]
-
-        junction Junction28 sp
-        [
-            position = 7304, 6840
-        ]
-
-        junction Junction29 sp
-        [
-            position = 6360, 7548
-        ]
-
-        junction Junction30 sp
-        [
-            position = 6336, 7676
-        ]
-
         junction Junction31 pe
         [
             position = 9732, 7292
@@ -2860,11 +3292,6 @@ P = I_out * V_out;
             position = 9184, 6744
         ]
 
-        comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
-        [
-            position = 6848, 6528
-        ]
-
         comment Comment6 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">Rectifier-DAB Switching Interface</span></p></body></html> ENDCOMMENT 
         [
             position = 8124, 7080
@@ -2883,45 +3310,6 @@ P = I_out * V_out;
             position = 8416, 7320
             size = 484, 284
             background_color = #0eff00ff
-            box_outline = True
-        ]
-
-        scheme_area Area1 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
-        }
-        [
-            position = 6112, 7092
-            size = 572, 248
-            box_outline = True
-        ]
-
-        scheme_area Area2 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">PI Controller</p></body></html>
-        }
-        [
-            position = 6112, 7540
-            size = 960, 496
-            background_color = #0e55ffff
-            box_outline = True
-        ]
-
-        scheme_area Area4 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">AC Side</p></body></html>
-        }
-        [
-            position = 7264, 7532
-            size = 1268, 492
-            background_color = #0effaa00
-            box_outline = True
-        ]
-
-        scheme_area Area5 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
-        }
-        [
-            position = 7264, 6952
-            size = 1296, 572
-            background_color = #0eff0000
             box_outline = True
         ]
 
@@ -2992,180 +3380,6 @@ P = I_out * V_out;
         connect From31 "Rate Transition10.in" as Connection343
         connect "Rate Transition10.out" "Signal switch1.in" as Connection344
         connect Vs1.n_node gnd1.node as Connection4
-        connect R3.n_node L3.p_node as Connection5
-        connect L2.p_node R2.n_node as Connection6
-        connect R1.n_node L1.p_node as Connection7
-        connect Vsp2.n_node Junction1 as Connection12
-        connect Junction1 gnd2.node as Connection13
-        connect Vsp1.n_node Junction1 as Connection15
-        [
-            breakpoints = 6996, 7712; 7048, 7712
-        ]
-        connect L1.n_node "Grid Meter.A-" as Connection21
-        connect "Grid Meter.A+" Vs1.a_node as Connection22
-        connect L2.n_node "Grid Meter.B-" as Connection23
-        connect "Grid Meter.B+" Vs1.b_node as Connection24
-        connect L3.n_node "Grid Meter.C-" as Connection25
-        connect "Grid Meter.C+" Vs1.c_node as Connection26
-        connect gnd3.node "Grid Meter.GND" as Connection27
-        [
-            hide_name = True
-        ]
-        connect R1.p_node "Rectifier Meter.A-" as Connection51
-        connect "Rectifier Meter.B-" R2.p_node as Connection54
-        connect "Rectifier Meter.C-" R3.p_node as Connection56
-        connect Vsp3.n_node Junction1 as Connection60
-        [
-            breakpoints = 7096, 7712
-        ]
-        connect gnd5.node "Rectifier Meter.GND" as Connection61
-        connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
-        connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
-        connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
-        connect From5 "dq to abc1.wt" as Connection122
-        connect Constant1.out "dq to abc1.zero_input" as Connection123
-        connect Constant5.out Sum2.in as Connection152
-        connect Sum1.out Junction12 as Connection158
-        connect Junction12 "PID controller1.in" as Connection159
-        connect Constant6.out Sum3.in as Connection181
-        connect Sum2.out Junction20 as Connection218
-        connect Junction20 "PID controller2.in" as Connection219
-        connect Sum3.out Junction24 as Connection233
-        connect Junction24 "PID controller3.in" as Connection234
-        connect "Bus Join1.out" Goto1 as Connection75
-        connect "Bus Join2.out" Goto2 as Connection79
-        connect From1 "Bus Join3.in" as Connection84
-        connect "Bus Join3.in1" From2 as Connection85
-        [
-            breakpoints = 6776, 7008; 6744, 7008
-        ]
-        connect "C function1.in" "Bus Join3.out" as Connection86
-        connect Isp1.n_node Junction4 as Connection94
-        [
-            breakpoints = 5972, 7164
-        ]
-        connect C1.n_node Junction4 as Connection96
-        connect Junction5 V_out_rect.n_node as Connection98
-        [
-            breakpoints = 6272, 7164
-        ]
-        connect R4.n_node Junction5 as Connection99
-        connect Junction6 V_out_rect.p_node as Connection101
-        [
-            breakpoints = 6272, 7036
-        ]
-        connect R4.p_node Junction6 as Connection102
-        connect Isp1.p_node Junction7 as Connection103
-        [
-            breakpoints = 5972, 7036
-        ]
-        connect Junction7 Junction6 as Connection104
-        connect C1.p_node Junction7 as Connection105
-        connect "C function1.out" "Bus Split2.in" as Connection106
-        connect i_dc_rect.in Junction8 as Connection108
-        connect Junction8 "Bus Split2.out" as Connection109
-        connect Goto3 Junction8 as Connection110
-        connect "Bus Join4.out" Goto4 as Connection113
-        connect "Meter Split2.VAn" "Bus Join4.in" as Connection114
-        connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
-        connect "Meter Split2.VCn" "Bus Join4.in2" as Connection116
-        [
-            breakpoints = 7704, 7104; 7704, 7168
-        ]
-        connect "Bus Split3.in" From4 as Connection117
-        connect "Bus Split3.out1" "Three phase PLL.vb" as Connection204
-        connect "Bus Split3.out2" "Three phase PLL.vc" as Connection205
-        connect "Three phase PLL.va" "Bus Split3.out" as Connection206
-        connect "Three phase PLL.theta" Goto5 as Connection207
-        connect "Bus Split4.out" "abc to dq.va" as Connection209
-        connect "abc to dq.vb" "Bus Split4.out1" as Connection210
-        connect "Bus Split4.out2" "abc to dq.vc" as Connection211
-        connect "abc to dq.wt" From7 as Connection212
-        connect "abc to dq.q_axis" Junction10 as Connection225
-        connect Junction10 Goto8 as Connection262
-        [
-            breakpoints = 7320, 6864
-        ]
-        connect i_q_rect.in Junction10 as Connection263
-        connect From8 "Bus Split4.in" as Connection264
-        connect "Bus Split5.out" "abc to dq1.va" as Connection229
-        connect "abc to dq1.vb" "Bus Split5.out1" as Connection265
-        connect "Bus Split5.out2" "abc to dq1.vc" as Connection266
-        connect "abc to dq1.wt" From13 as Connection267
-        connect From14 "Bus Split5.in" as Connection239
-        connect "abc to dq1.q_axis" V_q_rect.in as Connection241
-        [
-            breakpoints = 7304, 7080
-        ]
-        connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
-        connect "Bus Join2.in" "Meter Split2.IA" as Connection244
-        connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
-        connect V_d_rect.in "abc to dq1.d_axis" as Connection246
-        connect V_out_rect.out Goto10 as Connection247
-        connect Junction4 Junction11 as Connection249
-        connect Junction11 Junction5 as Connection250
-        connect gnd6.node Junction11 as Connection251
-        connect "Meter Split1.VBn" "Bus Join1.in1" as Connection254
-        connect From15 "Bus Join3.in2" as Connection255
-        connect "Bus Join1.in" "Meter Split1.VAn" as Connection256
-        [
-            breakpoints = 7700, 6936
-        ]
-        connect "Bus Join1.in2" "Meter Split1.VCn" as Connection257
-        [
-            breakpoints = 7712, 6960
-        ]
-        connect Goto7 Junction28 as Connection290
-        connect Junction28 "abc to dq.d_axis" as Connection291
-        connect i_d_rect.in Junction28 as Connection292
-        connect "PID controller3.out" Sum1.in as Connection294
-        connect "PID controller1.out" Junction29 as Connection297
-        connect Junction29 Goto6 as Connection298
-        connect "PID controller2.out" Junction30 as Connection300
-        connect Junction30 Goto9 as Connection301
-        connect reset_sig_rect.out Goto11 as Connection304
-        connect "PID controller3.reset" From16 as Connection305
-        connect "PID controller1.reset" From17 as Connection306
-        connect "PID controller2.reset" From18 as Connection307
-        [
-            breakpoints = 6240, 7684; 6240, 7736
-        ]
-        connect Goto12 "Grid Meter.Out" as Connection308
-        connect Goto13 "Rectifier Meter.Out" as Connection310
-        connect From20 "Rate Transition11.in" as Connection364
-        connect "Rate Transition11.out" "Meter Split1.Input" as Connection365
-        connect "Meter Split2.Input" "Rate Transition12.out" as Connection366
-        connect "Rate Transition12.in" From19 as Connection367
-        connect "dq to abc1.phase_a" "Rate Transition3.in" as Connection368
-        connect "Rate Transition3.out" Vsp1.in as Connection369
-        connect "dq to abc1.phase_b" "Rate Transition4.in" as Connection370
-        connect "Rate Transition4.out" Vsp2.in as Connection371
-        connect Vsp3.in "Rate Transition5.out" as Connection372
-        connect "Rate Transition5.in" "dq to abc1.phase_c" as Connection373
-        connect u_d_pi_rect.in "Rate Transition13.out" as Connection324
-        connect "Rate Transition13.in" Junction29 as Connection325
-        connect u_q_pi_rect.in "Rate Transition14.out" as Connection326
-        connect "Rate Transition14.in" Junction30 as Connection374
-        connect u_q_error_rect.in "Rate Transition15.out" as Connection328
-        connect "Rate Transition15.in" Junction20 as Connection329
-        connect u_d_error_rect.in "Rate Transition16.out" as Connection375
-        connect "Rate Transition16.in" Junction12 as Connection376
-        connect "Rate Transition17.out" i_d_req_rect.in as Connection377
-        connect Constant4.out "Rate Transition17.in" as Connection378
-        connect V_out_error_rect.in "Rate Transition18.out" as Connection379
-        connect "Rate Transition18.in" Junction24 as Connection380
-        connect From6 "Rate Transition19.in" as Connection381
-        connect "Rate Transition19.out" "dq to abc1.d_input" as Connection382
-        connect "dq to abc1.q_input" "Rate Transition20.out" as Connection383
-        connect "Rate Transition20.in" From11 as Connection384
-        connect From10 "Rate Transition21.in" as Connection340
-        connect "Rate Transition21.out" Sum2.in1 as Connection385
-        connect From9 "Rate Transition22.in" as Connection342
-        connect "Rate Transition22.out" Sum1.in1 as Connection386
-        connect From12 "Rate Transition23.in" as Connection387
-        connect "Rate Transition23.out" Sum3.in1 as Connection388
-        connect Isp1.in "Rate Transition24.out" as Connection390
-        connect "Rate Transition24.in" From3 as Connection391
         connect "Signal switch1.out" Goto22 as Connection392
         connect Isp2.n_node Junction31 as Connection394
         [
@@ -3389,8 +3603,8 @@ P = I_out * V_out;
     }
 
     logically_deleted {
-        "Comment4"
         "dc_input_inv"
+        "Comment4"
     }
 
     default {
