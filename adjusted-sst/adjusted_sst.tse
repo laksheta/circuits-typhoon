@@ -1748,28 +1748,31 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 32, 32
             ]
 
-            port P16 {
+            port C {
                 position = left:3
                 kind = pe
             }
             [
-                position = 9008, 8664
+                position = 9128, 8664
+                rotation = down
             ]
 
-            port P14 {
+            port A {
                 position = left:1
                 kind = pe
             }
             [
-                position = 9008, 8472
+                position = 9128, 8472
+                rotation = down
             ]
 
-            port P15 {
+            port B {
                 position = left:2
                 kind = pe
             }
             [
-                position = 9008, 8568
+                position = 9128, 8568
+                rotation = down
             ]
 
             tag From5 {
@@ -2291,9 +2294,9 @@ out[0] = fmax(0.0, i_dc_raw);
                 box_outline = True
             ]
 
-            connect "Grid Meter.B+" P15 as Connection405
-            connect "Grid Meter.A+" P14 as Connection401
-            connect "Grid Meter.C+" P16 as Connection397
+            connect "Grid Meter.B+" B as Connection405
+            connect "Grid Meter.A+" A as Connection401
+            connect "Grid Meter.C+" C as Connection397
             connect R3.n_node L3.p_node as Connection5
             connect L2.p_node R2.n_node as Connection6
             connect R1.n_node L1.p_node as Connection7
@@ -2467,7 +2470,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition24.in" From3 as Connection391
         }
         [
-            position = 7504, 7240
+            position = 7348, 7272
             size = 48, 224
         ]
 
