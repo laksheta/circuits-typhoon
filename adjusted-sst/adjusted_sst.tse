@@ -82,7 +82,7 @@ model "adjusted_sst" {
             execution_rate = "T_math_dab"
         }
         [
-            position = 8448, 7380
+            position = 8980, 7400
             hide_name = True
         ]
 
@@ -101,7 +101,7 @@ model "adjusted_sst" {
             value = "0"
         }
         [
-            position = 8368, 7404
+            position = 8900, 7424
             hide_name = True
         ]
 
@@ -109,7 +109,7 @@ model "adjusted_sst" {
             execution_rate = "T_math_dab"
         }
         [
-            position = 8380, 7364
+            position = 8912, 7384
             hide_name = True
             size = 32, 32
         ]
@@ -136,7 +136,7 @@ model "adjusted_sst" {
             execution_rate = "T_math_inv"
         }
         [
-            position = 9072, 7400
+            position = 9604, 7420
             hide_name = True
         ]
 
@@ -155,7 +155,7 @@ model "adjusted_sst" {
             value = "0"
         }
         [
-            position = 8992, 7424
+            position = 9524, 7444
             hide_name = True
         ]
 
@@ -163,7 +163,7 @@ model "adjusted_sst" {
             execution_rate = "T_math_inv"
         }
         [
-            position = 9004, 7384
+            position = 9536, 7404
             hide_name = True
             size = 32, 32
         ]
@@ -3096,7 +3096,7 @@ P = I_out * V_out;
 
             tag From50 {
                 value = "Grid_out_inv"
-                scope = local
+                scope = global
                 kind = sp
                 direction = out
             }
@@ -3382,7 +3382,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 7920, 7616
+            position = 7984, 7268
             size = 56, 240
         ]
 
@@ -3391,7 +3391,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8064, 7616
+            position = 8128, 7268
             scale = -1, 1
             size = 62, 256
         ]
@@ -3399,7 +3399,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8004, 7808
+            position = 8068, 7460
             hide_name = True
         ]
 
@@ -3408,7 +3408,7 @@ P = I_out * V_out;
             execution_rate = "T_plant_inv"
         }
         [
-            position = 7828, 7616
+            position = 7892, 7268
             hide_name = True
             size = 64, 256
         ]
@@ -3417,7 +3417,7 @@ P = I_out * V_out;
             execution_rate = "T_plant_inv"
         }
         [
-            position = 7780, 7440
+            position = 7844, 7092
             hide_name = True
             size = 32, 32
         ]
@@ -3465,7 +3465,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8304, 7364
+            position = 8836, 7384
             hide_name = True
             size = 60, 20
         ]
@@ -3477,7 +3477,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8540, 7380
+            position = 9072, 7400
             hide_name = True
             size = 60, 20
         ]
@@ -3501,7 +3501,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8928, 7384
+            position = 9460, 7404
             hide_name = True
             size = 60, 20
         ]
@@ -3513,7 +3513,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9176, 7400
+            position = 9708, 7420
             hide_name = True
             size = 60, 20
         ]
@@ -3532,12 +3532,12 @@ P = I_out * V_out;
 
         tag Goto41 {
             value = "Grid_out_inv"
-            scope = local
+            scope = global
             kind = sp
             direction = in
         }
         [
-            position = 8000, 7448
+            position = 8064, 7100
             hide_name = True
             size = 60, 20
         ]
@@ -3549,14 +3549,14 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7712, 7440
+            position = 7776, 7092
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction44 pe
         [
-            position = 8000, 7768
+            position = 8064, 7420
         ]
 
         junction Junction45 sp
@@ -3591,17 +3591,17 @@ P = I_out * V_out;
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
-            position = 8208, 6840
+            position = 8740, 6860
         ]
 
         comment Comment6 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">Rectifier-DAB Switching Interface</span></p></body></html> ENDCOMMENT 
         [
-            position = 8124, 7080
+            position = 8656, 7100
         ]
 
         comment Comment7 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
         [
-            position = 8472, 6848
+            position = 9004, 6868
             hide_name = True
         ]
 
@@ -3609,7 +3609,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
         }
         [
-            position = 8416, 7320
+            position = 8948, 7340
             size = 484, 284
             background_color = #0eff00ff
             box_outline = True
@@ -3619,7 +3619,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
         }
         [
-            position = 9032, 7344
+            position = 9564, 7364
             size = 484, 284
             background_color = #0eff00ff
             box_outline = True
@@ -3646,11 +3646,11 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8004, 7768
+            breakpoints = 8068, 7420
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 7920, 7768
+            breakpoints = 7984, 7420
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
@@ -3683,6 +3683,9 @@ P = I_out * V_out;
         connect sw_dab_inv.out Junction50 as Connection537
         connect Junction50 Goto30 as Connection538
         connect S5.ctrl_in Junction50 as Connection539
+        connect S1.a_in Inverter.A as Connection540
+        connect Inverter.B S1.b_in as Connection541
+        connect S1.c_in Inverter.C as Connection542
     }
 
     logically_deleted {
@@ -3706,26 +3709,6 @@ P = I_out * V_out;
         "Connection421"
         "Connection504"
         "Inverter.dc_input_inv"
-        "Grid Measurement"
-        "U_grid"
-        "gnd9"
-        "S1"
-        "Rate Transition33"
-        "Goto41"
-        "From53"
-        "Junction44"
-        "Connection427"
-        "Connection428"
-        "Connection57"
-        "Connection58"
-        "Connection59"
-        "Connection92"
-        "Connection472"
-        "Connection496"
-        "Connection497"
-        "Connection498"
-        "Connection502"
-        "Connection503"
     }
 
     default {
