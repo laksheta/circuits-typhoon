@@ -1635,7 +1635,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 sig_output = "True"
             }
             [
-                position = 7332, 8020
+                position = 7340, 8204
                 rotation = right
                 size = 64, 32
             ]
@@ -1805,7 +1805,7 @@ P = I_out * V_out;
                 kind = pe
             }
             [
-                position = 7280, 7940
+                position = 7288, 8124
             ]
 
             port V_in_dab- {
@@ -1813,7 +1813,7 @@ P = I_out * V_out;
                 kind = pe
             }
             [
-                position = 7280, 8088
+                position = 7288, 8272
             ]
 
             port V_out_dab+ {
@@ -1841,7 +1841,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 7416, 8020
+                position = 7424, 8204
                 hide_name = True
                 size = 60, 20
             ]
@@ -2014,6 +2014,16 @@ P = I_out * V_out;
             junction Junction37 sp
             [
                 position = 8008, 8300
+            ]
+
+            scheme_area Area12 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Input</p></body></html>
+            }
+            [
+                position = 7336, 8180
+                size = 388, 276
+                background_color = #0effaa00
+                box_outline = True
             ]
 
             scheme_area Area10 {
