@@ -114,6 +114,7 @@ omega_rect       = 2*np.pi*F_rect
 
 R_rect           = 1e-1
 L_rect           = 1e-3
+R_pre_charge     = 10
 
 R_load_rect      = 100e3
 C_out_rect       = 10e-6
