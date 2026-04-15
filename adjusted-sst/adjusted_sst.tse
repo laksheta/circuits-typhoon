@@ -2098,7 +2098,7 @@ P = I_out * V_out;
             connect out_PI.in Junction37 as Connection418
         }
         [
-            position = 7324, 7260
+            position = 7388, 7260
             size = 168, 232
         ]
 
@@ -3429,6 +3429,14 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Resistor" R5 {
+        }
+        [
+            position = 7204, 7252
+            rotation = right
+            hide_name = True
+        ]
+
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -3550,6 +3558,16 @@ P = I_out * V_out;
             position = 7036, 7356
         ]
 
+        junction Junction48 pe
+        [
+            position = 7204, 7164
+        ]
+
+        junction Junction49 pe
+        [
+            position = 7204, 7356
+        ]
+
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
             position = 8208, 6840
@@ -3625,8 +3643,6 @@ P = I_out * V_out;
         connect Vs1.a_node Rectifier.A as Connection505
         connect Vs1.b_node Rectifier.B as Connection506
         connect Vs1.c_node Rectifier.C as Connection507
-        connect DAB.V_in_dab+ S4.a_out as Connection513
-        connect S4.b_out DAB.V_in_dab- as Connection516
         connect sw_Rect_DAB.out Junction45 as Connection517
         connect Junction45 Goto28 as Connection518
         connect S4.ctrl_in Junction45 as Connection519
@@ -3636,6 +3652,12 @@ P = I_out * V_out;
         connect Rectifier.V_out_rect- Junction47 as Connection523
         connect Junction47 S4.b_in as Connection524
         connect R4.n_node Junction47 as Connection525
+        connect DAB.V_in_dab+ Junction48 as Connection526
+        connect Junction48 S4.a_out as Connection527
+        connect R5.p_node Junction48 as Connection528
+        connect S4.b_out Junction49 as Connection529
+        connect Junction49 DAB.V_in_dab- as Connection530
+        connect R5.n_node Junction49 as Connection531
     }
 
     logically_deleted {
