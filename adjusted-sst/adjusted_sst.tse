@@ -3405,7 +3405,7 @@ P = I_out * V_out;
 
         component "core/Triple Pole Single Throw Contactor" S1 {
             ctrl_src = "Model"
-            execution_rate = "T_plant_inv"
+            execution_rate = "T_math_inv"
         }
         [
             position = 7892, 7268
