@@ -3406,6 +3406,7 @@ P = I_out * V_out;
         component "core/Triple Pole Single Throw Contactor" S1 {
             ctrl_src = "Model"
             execution_rate = "T_math_inv"
+            initial_state = "on"
         }
         [
             position = 7892, 7268
@@ -3450,6 +3451,7 @@ P = I_out * V_out;
         ]
 
         component "core/SCADA Input" sw_grid {
+            def_value = "1"
             execution_rate = "T_math_inv"
             max = "1"
             min = "0"
