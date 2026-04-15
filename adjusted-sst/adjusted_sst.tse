@@ -3430,6 +3430,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R5 {
+            resistance = "R_load_rect"
         }
         [
             position = 7204, 7252
