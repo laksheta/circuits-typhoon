@@ -3461,6 +3461,30 @@ P = I_out * V_out;
             size = 65, 320
         ]
 
+        component "core/Resistor" R8 {
+            resistance = "R_pre_charge"
+        }
+        [
+            position = 6468, 7140
+            hide_name = True
+        ]
+
+        component "core/Resistor" R9 {
+            resistance = "R_pre_charge"
+        }
+        [
+            position = 6468, 7236
+            hide_name = True
+        ]
+
+        component "core/Resistor" R10 {
+            resistance = "R_pre_charge"
+        }
+        [
+            position = 6468, 7332
+            hide_name = True
+        ]
+
         tag Goto28 {
             value = "reset_dab"
             scope = global
@@ -3552,6 +3576,21 @@ P = I_out * V_out;
             position = 7572, 7364
         ]
 
+        junction Junction55 pe
+        [
+            position = 6552, 7172
+        ]
+
+        junction Junction56 pe
+        [
+            position = 6552, 7268
+        ]
+
+        junction Junction57 pe
+        [
+            position = 6552, 7364
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect "Grid Measurement.A-" U_grid.a_node as Connection427
         connect "Grid Measurement.B-" U_grid.b_node as Connection428
@@ -3610,6 +3649,18 @@ P = I_out * V_out;
         connect S6.a_out S7.sa0 as Connection563
         connect S6.b_out S7.sb0 as Connection564
         connect S6.c_out S7.sc0 as Connection565
+        connect R8.n_node Junction55 as Connection567
+        connect Junction55 Rectifier.A as Connection568
+        connect S7.sa2 Junction55 as Connection569
+        connect S7.sa1 R8.p_node as Connection570
+        connect R9.n_node Junction56 as Connection572
+        connect Junction56 Rectifier.B as Connection573
+        connect S7.sb2 Junction56 as Connection574
+        connect S7.sb1 R9.p_node as Connection575
+        connect S7.sc1 R10.p_node as Connection576
+        connect R10.n_node Junction57 as Connection578
+        connect Junction57 Rectifier.C as Connection579
+        connect S7.sc2 Junction57 as Connection580
     }
 
     logically_deleted {
