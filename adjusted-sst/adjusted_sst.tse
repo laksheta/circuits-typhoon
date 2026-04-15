@@ -78,14 +78,6 @@ model "adjusted_sst" {
     }
 
     component Subsystem Root {
-        component "core/Signal switch" "Signal switch1" {
-            execution_rate = "T_math_dab"
-        }
-        [
-            position = 8980, 7400
-            hide_name = True
-        ]
-
         component "core/SCADA Input" sw_Rect_DAB {
             execution_rate = "T_math_dab"
             max = "1"
@@ -94,24 +86,6 @@ model "adjusted_sst" {
         }
         [
             position = 6872, 7088
-        ]
-
-        component "core/Constant" Constant13 {
-            execution_rate = "T_math_dab"
-            value = "0"
-        }
-        [
-            position = 8900, 7424
-            hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition10" {
-            execution_rate = "T_math_dab"
-        }
-        [
-            position = 8912, 7384
-            hide_name = True
-            size = 32, 32
         ]
 
         component "core/Three Phase Voltage Source" Vs1 {
@@ -132,14 +106,6 @@ model "adjusted_sst" {
             scale = -1, 1
         ]
 
-        component "core/Signal switch" "Signal switch2" {
-            execution_rate = "T_math_inv"
-        }
-        [
-            position = 9604, 7420
-            hide_name = True
-        ]
-
         component "core/SCADA Input" sw_dab_inv {
             execution_rate = "T_math_inv"
             max = "1"
@@ -148,24 +114,6 @@ model "adjusted_sst" {
         }
         [
             position = 7380, 7088
-        ]
-
-        component "core/Constant" Constant17 {
-            execution_rate = "T_math_inv"
-            value = "0"
-        }
-        [
-            position = 9524, 7444
-            hide_name = True
-        ]
-
-        component "core/Rate Transition" "Rate Transition25" {
-            execution_rate = "T_math_inv"
-        }
-        [
-            position = 9536, 7404
-            hide_name = True
-            size = 32, 32
         ]
 
         component Subsystem Rectifier {
@@ -3461,30 +3409,6 @@ P = I_out * V_out;
             position = 7832, 7080
         ]
 
-        tag From31 {
-            value = "V_out_rect"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8836, 7384
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto22 {
-            value = "V_in_dab"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 9072, 7400
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag Goto28 {
             value = "reset_dab"
             scope = global
@@ -3493,30 +3417,6 @@ P = I_out * V_out;
         }
         [
             position = 6988, 7088
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From38 {
-            value = "V_out_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9460, 7404
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto29 {
-            value = "V_in_inv"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 9708, 7420
             hide_name = True
             size = 60, 20
         ]
@@ -3580,57 +3480,7 @@ P = I_out * V_out;
             position = 7440, 7088
         ]
 
-        comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
-        [
-            position = 8740, 6860
-        ]
-
-        comment Comment6 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">Rectifier-DAB Switching Interface</span></p></body></html> ENDCOMMENT 
-        [
-            position = 8656, 7100
-        ]
-
-        comment Comment7 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
-        [
-            position = 9004, 6868
-            hide_name = True
-        ]
-
-        scheme_area Area9 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
-        }
-        [
-            position = 8948, 7340
-            size = 484, 284
-            background_color = #0eff00ff
-            box_outline = True
-        ]
-
-        scheme_area Area12 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
-        }
-        [
-            position = 9564, 7364
-            size = 484, 284
-            background_color = #0eff00ff
-            box_outline = True
-        ]
-
-        connect Constant13.out "Signal switch1.in1" as Connection341
-        [
-            hide_name = True
-        ]
-        connect From31 "Rate Transition10.in" as Connection343
-        connect "Rate Transition10.out" "Signal switch1.in" as Connection344
         connect Vs1.n_node gnd1.node as Connection4
-        connect "Signal switch1.out" Goto22 as Connection392
-        connect Constant17.out "Signal switch2.in1" as Connection419
-        [
-            hide_name = True
-        ]
-        connect From38 "Rate Transition25.in" as Connection420
-        connect "Rate Transition25.out" "Signal switch2.in" as Connection421
-        connect Goto29 "Signal switch2.out" as Connection504
         connect "Grid Measurement.A-" U_grid.a_node as Connection427
         connect "Grid Measurement.B-" U_grid.b_node as Connection428
         connect U_grid.c_node "Grid Measurement.C-" as Connection57
@@ -3679,25 +3529,6 @@ P = I_out * V_out;
     }
 
     logically_deleted {
-        "Signal switch1"
-        "Constant13"
-        "Rate Transition10"
-        "Signal switch2"
-        "Constant17"
-        "Rate Transition25"
-        "From31"
-        "Goto22"
-        "From38"
-        "Goto29"
-        "Comment4"
-        "Connection341"
-        "Connection343"
-        "Connection344"
-        "Connection392"
-        "Connection419"
-        "Connection420"
-        "Connection421"
-        "Connection504"
         "Inverter.dc_input_inv"
     }
 
@@ -3843,12 +3674,6 @@ P = I_out * V_out;
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
-        }
-
-        "core/Signal switch" {
-            criterion = "ctrl > threshold"
-            threshold = "0.5"
-            execution_rate = "inherit"
         }
 
         "core/Sum" {
