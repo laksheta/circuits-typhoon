@@ -113,7 +113,7 @@ model "adjusted_sst" {
             unit = ""
         }
         [
-            position = 7380, 7088
+            position = 7420, 7088
         ]
 
         component Subsystem Rectifier {
@@ -3318,7 +3318,7 @@ P = I_out * V_out;
             connect Goto24 "Inverter Measurement.Out" as Connection495
         }
         [
-            position = 7672, 7268
+            position = 7756, 7268
             size = 168, 232
         ]
 
@@ -3330,7 +3330,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 7984, 7268
+            position = 8068, 7268
             size = 56, 240
         ]
 
@@ -3339,7 +3339,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8128, 7268
+            position = 8212, 7268
             scale = -1, 1
             size = 62, 256
         ]
@@ -3347,7 +3347,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8068, 7460
+            position = 8152, 7460
             hide_name = True
         ]
 
@@ -3357,7 +3357,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 7892, 7268
+            position = 7976, 7268
             hide_name = True
             size = 64, 256
         ]
@@ -3394,7 +3394,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 7440, 7268
+            position = 7480, 7268
             size = 64, 256
         ]
 
@@ -3406,7 +3406,25 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7832, 7080
+            position = 7916, 7080
+        ]
+
+        component "core/Resistor" R6 {
+            resistance = "R_load_rect"
+        }
+        [
+            position = 7368, 7260
+            rotation = right
+            hide_name = True
+        ]
+
+        component "core/Resistor" R7 {
+            resistance = "R_load_rect"
+        }
+        [
+            position = 7572, 7260
+            rotation = right
+            hide_name = True
         ]
 
         tag Goto28 {
@@ -3428,7 +3446,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7524, 7088
+            position = 7564, 7088
             hide_name = True
             size = 108, 20
         ]
@@ -3440,14 +3458,14 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8064, 7100
+            position = 8148, 7100
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction44 pe
         [
-            position = 8064, 7420
+            position = 8148, 7420
         ]
 
         junction Junction45 sp
@@ -3477,7 +3495,27 @@ P = I_out * V_out;
 
         junction Junction50 sp
         [
-            position = 7440, 7088
+            position = 7480, 7088
+        ]
+
+        junction Junction51 pe
+        [
+            position = 7368, 7172
+        ]
+
+        junction Junction52 pe
+        [
+            position = 7368, 7364
+        ]
+
+        junction Junction53 pe
+        [
+            position = 7572, 7172
+        ]
+
+        junction Junction54 pe
+        [
+            position = 7572, 7364
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -3487,11 +3525,11 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8068, 7420
+            breakpoints = 8152, 7420
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 7984, 7420
+            breakpoints = 8068, 7420
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
@@ -3515,10 +3553,6 @@ P = I_out * V_out;
         connect S4.b_out Junction49 as Connection529
         connect Junction49 DAB.V_in_dab- as Connection530
         connect R5.n_node Junction49 as Connection531
-        connect Inverter.V_in_inv+ S5.a_out as Connection532
-        connect S5.a_in DAB.V_out_dab+ as Connection533
-        connect DAB.V_out_dab- S5.b_in as Connection534
-        connect S5.b_out Inverter.V_in_inv- as Connection535
         connect sw_dab_inv.out Junction50 as Connection537
         connect Junction50 Goto30 as Connection538
         connect S5.ctrl_in Junction50 as Connection539
@@ -3526,6 +3560,18 @@ P = I_out * V_out;
         connect Inverter.B S1.b_in as Connection541
         connect S1.c_in Inverter.C as Connection542
         connect sw_grid.out S1.ctrl_in as Connection543
+        connect S5.a_in Junction51 as Connection544
+        connect Junction51 DAB.V_out_dab+ as Connection545
+        connect R6.p_node Junction51 as Connection546
+        connect DAB.V_out_dab- Junction52 as Connection547
+        connect Junction52 S5.b_in as Connection548
+        connect R6.n_node Junction52 as Connection549
+        connect Inverter.V_in_inv+ Junction53 as Connection550
+        connect Junction53 S5.a_out as Connection551
+        connect R7.p_node Junction53 as Connection552
+        connect S5.b_out Junction54 as Connection553
+        connect Junction54 Inverter.V_in_inv- as Connection554
+        connect R7.n_node Junction54 as Connection555
     }
 
     logically_deleted {
