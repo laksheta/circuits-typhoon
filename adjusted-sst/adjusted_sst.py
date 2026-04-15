@@ -120,7 +120,7 @@ C_out_rect       = 10e-6
 
 V_dc_target_rect = 780
 
-P_load_rect = (V_dc_target_rect**2) / R_load_rect
+P_load_rect = 10e3#(V_dc_target_rect**2) / R_load_rect
 
 i_d_req_rect = -(2 * P_load_rect) / (3 * V_grid_peak_rect)
 i_q_req_rect = 0
