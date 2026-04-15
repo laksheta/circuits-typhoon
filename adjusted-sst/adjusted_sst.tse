@@ -93,7 +93,7 @@ model "adjusted_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6408, 7268
+            position = 6296, 7268
             hide_name = True
             size = 62, 256
         ]
@@ -101,7 +101,7 @@ model "adjusted_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6328, 7332
+            position = 6216, 7332
             hide_name = True
             scale = -1, 1
         ]
@@ -3427,6 +3427,25 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Triple Pole Single Throw Contactor" S6 {
+            ctrl_src = "Model"
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6440, 7268
+            size = 64, 256
+        ]
+
+        component "core/SCADA Input" sw_source {
+            execution_rate = "T_math_dab"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 6396, 7088
+        ]
+
         tag Goto28 {
             value = "reset_dab"
             scope = global
@@ -3535,9 +3554,6 @@ P = I_out * V_out;
         connect S1.a_out "Grid Measurement.A+" as Connection496
         connect S1.b_out "Grid Measurement.B+" as Connection497
         connect S1.c_out "Grid Measurement.C+" as Connection498
-        connect Vs1.a_node Rectifier.A as Connection505
-        connect Vs1.b_node Rectifier.B as Connection506
-        connect Vs1.c_node Rectifier.C as Connection507
         connect sw_Rect_DAB.out Junction45 as Connection517
         connect Junction45 Goto28 as Connection518
         connect S4.ctrl_in Junction45 as Connection519
@@ -3572,6 +3588,13 @@ P = I_out * V_out;
         connect S5.b_out Junction54 as Connection553
         connect Junction54 Inverter.V_in_inv- as Connection554
         connect R7.n_node Junction54 as Connection555
+        connect Vs1.c_node S6.c_in as Connection556
+        connect S6.c_out Rectifier.C as Connection557
+        connect Vs1.b_node S6.b_in as Connection558
+        connect S6.b_out Rectifier.B as Connection559
+        connect Vs1.a_node S6.a_in as Connection560
+        connect S6.a_out Rectifier.A as Connection561
+        connect sw_source.out S6.ctrl_in as Connection562
     }
 
     logically_deleted {
