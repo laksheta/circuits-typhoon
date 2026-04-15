@@ -1631,7 +1631,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component Subsystem DAB {
             layout = dynamic
             component "core/Voltage Measurement" V_out_rect {
-                execution_rate = "T_meas_rect"
+                execution_rate = "T_math_dab"
                 sig_output = "True"
             }
             [
