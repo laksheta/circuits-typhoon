@@ -3434,14 +3434,13 @@ P = I_out * V_out;
             size = 32, 32
         ]
 
-        component "core/Single Pole Single Throw Contactor" S3 {
+        component "core/Double Pole Single Throw Contactor" S4 {
             ctrl_src = "Model"
             execution_rate = "T_math_dab"
         }
         [
-            position = 7132, 7164
-            hide_name = True
-            size = 64, 32
+            position = 7128, 7260
+            size = 64, 256
         ]
 
         tag From31 {
@@ -3540,11 +3539,6 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
-        junction Junction36 sp
-        [
-            position = 7132, 7080
-        ]
-
         junction Junction43 sp
         [
             position = 9072, 7332
@@ -3553,6 +3547,11 @@ P = I_out * V_out;
         junction Junction44 pe
         [
             position = 8000, 7768
+        ]
+
+        junction Junction45 sp
+        [
+            position = 7128, 7080
         ]
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
@@ -3599,8 +3598,6 @@ P = I_out * V_out;
         connect "Rate Transition10.out" "Signal switch1.in" as Connection344
         connect Vs1.n_node gnd1.node as Connection4
         connect "Signal switch1.out" Goto22 as Connection392
-        connect sw_Rect_DAB.out Junction36 as Connection412
-        connect Goto28 Junction36 as Connection414
         connect Constant17.out "Signal switch2.in1" as Connection419
         [
             hide_name = True
@@ -3632,10 +3629,13 @@ P = I_out * V_out;
         connect Vs1.a_node Rectifier.A as Connection505
         connect Vs1.b_node Rectifier.B as Connection506
         connect Vs1.c_node Rectifier.C as Connection507
-        connect S3.a_in Rectifier.V_out_rect+ as Connection508
-        connect S3.a_out DAB.V_in_dab+ as Connection509
-        connect Rectifier.V_out_rect- DAB.V_in_dab- as Connection510
-        connect S3.ctrl_in Junction36 as Connection511
+        connect DAB.V_in_dab+ S4.a_out as Connection513
+        connect S4.a_in Rectifier.V_out_rect+ as Connection514
+        connect Rectifier.V_out_rect- S4.b_in as Connection515
+        connect S4.b_out DAB.V_in_dab- as Connection516
+        connect sw_Rect_DAB.out Junction45 as Connection517
+        connect Junction45 Goto28 as Connection518
+        connect S4.ctrl_in Junction45 as Connection519
     }
 
     logically_deleted {
@@ -3842,6 +3842,19 @@ P = I_out * V_out;
             execution_rate = "inherit"
         }
 
+        "core/Double Pole Single Throw Contactor" {
+            signal_access = "inherit"
+            ctrl_src = "Digital input"
+            Sa = "1"
+            Sa_logic = "active high"
+            enable_fb_out = "False"
+            fb_out_type = "real"
+            execution_rate = "inherit"
+            initial_state = "off"
+            on_delay = "0"
+            off_delay = "0"
+        }
+
         "core/Meter Split" {
             van = "True"
             vbn = "True"
@@ -3900,29 +3913,6 @@ P = I_out * V_out;
 
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
-        }
-
-        "core/Single Pole Single Throw Contactor" {
-            signal_access = "inherit"
-            switches_option = "False"
-            resistance = "1.0"
-            ctrl_src = "Digital input"
-            ctrl_mode = "switch"
-            Sa = "1"
-            Sa_logic = "active high"
-            pwm_enabling = "False"
-            pwm_enable_di = "13"
-            pwm_enable_inv = "active high"
-            enable_fb_out = "False"
-            fb_out_type = "real"
-            execution_rate = "inherit"
-            dtsm_switch_name = ""
-            dtsm_switch_ctrl = ""
-            initial_state = "off"
-            on_delay = "0"
-            off_delay = "0"
-            switching = "any current"
-            hide_int_meas = "False"
         }
 
         "core/Three Phase Voltage Source" {
