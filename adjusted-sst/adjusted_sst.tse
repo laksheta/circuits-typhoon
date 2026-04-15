@@ -3443,7 +3443,7 @@ P = I_out * V_out;
 
         component "core/SCADA Input" sw_source {
             def_value = "1"
-            execution_rate = "T_math_dab"
+            execution_rate = "T_meas_rect"
             max = "1"
             min = "0"
             unit = ""
@@ -3489,7 +3489,7 @@ P = I_out * V_out;
 
         component "core/SCADA Input" sw_pre_charge {
             def_value = "1"
-            execution_rate = "T_math_dab"
+            execution_rate = "T_meas_rect"
             max = "1"
             min = "0"
             unit = ""
