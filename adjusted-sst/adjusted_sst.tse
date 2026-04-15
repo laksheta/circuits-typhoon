@@ -3120,7 +3120,7 @@ P = I_out * V_out;
 
             tag From52 {
                 value = "reset_signal"
-                scope = local
+                scope = global
                 kind = sp
                 direction = out
             }
@@ -3520,7 +3520,7 @@ P = I_out * V_out;
 
         tag Goto30 {
             value = "reset_signal"
-            scope = local
+            scope = global
             kind = sp
             direction = in
         }
