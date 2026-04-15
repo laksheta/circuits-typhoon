@@ -1775,6 +1775,24 @@ out[0] = fmax(0.0, i_dc_raw);
                 rotation = down
             ]
 
+            port V_out_rect+ {
+                position = right:auto
+                kind = pe
+            }
+            [
+                position = 7812, 8088
+                rotation = down
+            ]
+
+            port V_out_rect- {
+                position = right:auto
+                kind = pe
+            }
+            [
+                position = 7812, 8216
+                rotation = down
+            ]
+
             tag From5 {
                 value = "theta_rect"
                 scope = local
@@ -2250,6 +2268,16 @@ out[0] = fmax(0.0, i_dc_raw);
                 position = 7748, 8728
             ]
 
+            junction Junction31 pe
+            [
+                position = 7684, 8088
+            ]
+
+            junction Junction32 pe
+            [
+                position = 7684, 8216
+            ]
+
             comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
             [
                 position = 8260, 7584
@@ -2259,8 +2287,8 @@ out[0] = fmax(0.0, i_dc_raw);
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
             }
             [
-                position = 7524, 8144
-                size = 572, 248
+                position = 7588, 8144
+                size = 700, 248
                 box_outline = True
             ]
 
@@ -2309,18 +2337,30 @@ out[0] = fmax(0.0, i_dc_raw);
             connect L1.n_node "Grid Meter.A-" as Connection21
             connect L2.n_node "Grid Meter.B-" as Connection23
             connect L3.n_node "Grid Meter.C-" as Connection25
+            connect Junction6 Junction31 as Connection406
+            connect Junction31 V_out_rect.p_node as Connection407
+            [
+                breakpoints = 7684, 8088
+            ]
             connect gnd3.node "Grid Meter.GND" as Connection27
             [
                 hide_name = True
             ]
+            connect V_out_rect+ Junction31 as Connection408
             connect R1.p_node "Rectifier Meter.A-" as Connection51
             connect "Rectifier Meter.B-" R2.p_node as Connection54
             connect "Rectifier Meter.C-" R3.p_node as Connection56
+            connect Junction5 Junction32 as Connection409
             connect Vsp3.n_node Junction1 as Connection60
             [
                 breakpoints = 8508, 8768
             ]
+            connect Junction32 V_out_rect.n_node as Connection410
+            [
+                breakpoints = 7684, 8216
+            ]
             connect gnd5.node "Rectifier Meter.GND" as Connection61
+            connect V_out_rect- Junction32 as Connection411
             connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
             connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
             connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
@@ -2347,15 +2387,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 breakpoints = 7384, 8216
             ]
             connect C1.n_node Junction4 as Connection96
-            connect Junction5 V_out_rect.n_node as Connection98
-            [
-                breakpoints = 7684, 8216
-            ]
             connect R4.n_node Junction5 as Connection99
-            connect Junction6 V_out_rect.p_node as Connection101
-            [
-                breakpoints = 7684, 8088
-            ]
             connect R4.p_node Junction6 as Connection102
             connect Isp1.p_node Junction7 as Connection103
             [
@@ -3148,7 +3180,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Simple Plant</p></body></html>
         }
         [
-            position = 9788, 7232
+            position = 9764, 7228
             size = 572, 248
             background_color = #0effff7f
             box_outline = True
@@ -3158,7 +3190,7 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
         }
         [
-            position = 10468, 7204
+            position = 10460, 7208
             size = 484, 284
             background_color = #0eff00ff
             box_outline = True
