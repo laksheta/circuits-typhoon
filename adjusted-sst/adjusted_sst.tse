@@ -136,7 +136,7 @@ model "adjusted_sst" {
             execution_rate = "T_math_inv"
         }
         [
-            position = 10500, 7264
+            position = 9072, 7400
             hide_name = True
         ]
 
@@ -147,7 +147,7 @@ model "adjusted_sst" {
             unit = ""
         }
         [
-            position = 10452, 7140
+            position = 9024, 7276
         ]
 
         component "core/Constant" Constant17 {
@@ -155,7 +155,7 @@ model "adjusted_sst" {
             value = "0"
         }
         [
-            position = 10420, 7288
+            position = 8992, 7424
             hide_name = True
         ]
 
@@ -163,7 +163,7 @@ model "adjusted_sst" {
             execution_rate = "T_math_inv"
         }
         [
-            position = 10432, 7248
+            position = 9004, 7384
             hide_name = True
             size = 32, 32
         ]
@@ -3486,7 +3486,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 10356, 7248
+            position = 8928, 7384
             hide_name = True
             size = 60, 20
         ]
@@ -3498,7 +3498,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 10604, 7264
+            position = 9176, 7400
             hide_name = True
             size = 60, 20
         ]
@@ -3510,7 +3510,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 10580, 7196
+            position = 9152, 7332
             hide_name = True
             size = 60, 20
         ]
@@ -3546,7 +3546,7 @@ P = I_out * V_out;
 
         junction Junction43 sp
         [
-            position = 10500, 7196
+            position = 9072, 7332
         ]
 
         junction Junction44 pe
@@ -3556,7 +3556,7 @@ P = I_out * V_out;
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
-            position = 9184, 6744
+            position = 8208, 6840
         ]
 
         comment Comment6 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:28pt; font-weight:900;">Rectifier-DAB Switching Interface</span></p></body></html> ENDCOMMENT 
@@ -3566,7 +3566,7 @@ P = I_out * V_out;
 
         comment Comment7 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Inverter</span> </p></body></html> ENDCOMMENT 
         [
-            position = 11892, 6556
+            position = 8472, 6848
             hide_name = True
         ]
 
@@ -3584,7 +3584,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
         }
         [
-            position = 10460, 7208
+            position = 9032, 7344
             size = 484, 284
             background_color = #0eff00ff
             box_outline = True
@@ -3638,8 +3638,52 @@ P = I_out * V_out;
     }
 
     logically_deleted {
+        "Signal switch1"
+        "Constant13"
+        "Rate Transition10"
+        "Signal switch2"
+        "sw_dab_inv"
+        "Constant17"
+        "Rate Transition25"
+        "From31"
+        "Goto22"
+        "From38"
+        "Goto29"
+        "Goto30"
+        "Junction43"
         "Comment4"
-        "Inverter.dc_input_inv"
+        "Connection341"
+        "Connection343"
+        "Connection344"
+        "Connection392"
+        "Connection419"
+        "Connection420"
+        "Connection421"
+        "Connection422"
+        "Connection423"
+        "Connection424"
+        "Connection504"
+        "Inverter"
+        "Grid Measurement"
+        "U_grid"
+        "gnd9"
+        "S1"
+        "Rate Transition33"
+        "Goto41"
+        "From53"
+        "Junction44"
+        "Connection427"
+        "Connection428"
+        "Connection57"
+        "Connection58"
+        "Connection59"
+        "Connection92"
+        "Connection472"
+        "Connection496"
+        "Connection497"
+        "Connection498"
+        "Connection502"
+        "Connection503"
     }
 
     default {
