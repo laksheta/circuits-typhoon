@@ -94,7 +94,7 @@ model "adjusted_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6296, 7268
+            position = 6068, 7268
             hide_name = True
             size = 62, 256
         ]
@@ -102,7 +102,7 @@ model "adjusted_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6216, 7332
+            position = 5988, 7332
             hide_name = True
             scale = -1, 1
         ]
@@ -3437,7 +3437,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6440, 7268
+            position = 6212, 7268
             size = 64, 256
         ]
 
@@ -3449,7 +3449,16 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 6396, 7088
+            position = 6168, 7088
+        ]
+
+        component "core/Triple Pole Double Throw Contactor" S7 {
+        }
+        [
+            position = 6360, 7268
+            rotation = down
+            scale = 1, -1
+            size = 65, 320
         ]
 
         tag Goto28 {
@@ -3595,12 +3604,12 @@ P = I_out * V_out;
         connect Junction54 Inverter.V_in_inv- as Connection554
         connect R7.n_node Junction54 as Connection555
         connect Vs1.c_node S6.c_in as Connection556
-        connect S6.c_out Rectifier.C as Connection557
         connect Vs1.b_node S6.b_in as Connection558
-        connect S6.b_out Rectifier.B as Connection559
         connect Vs1.a_node S6.a_in as Connection560
-        connect S6.a_out Rectifier.A as Connection561
         connect sw_source.out S6.ctrl_in as Connection562
+        connect S6.a_out S7.sa0 as Connection563
+        connect S6.b_out S7.sb0 as Connection564
+        connect S6.c_out S7.sc0 as Connection565
     }
 
     logically_deleted {
@@ -3892,6 +3901,19 @@ P = I_out * V_out;
             P_method = "alpha-beta"
             enable_extra_out = "False"
             P_meas = "False"
+        }
+
+        "core/Triple Pole Double Throw Contactor" {
+            signal_access = "inherit"
+            ctrl_src = "Digital input"
+            Sabc = "1"
+            Sa_logic = "active high"
+            enable_fb_out = "False"
+            fb_out_type = "real"
+            execution_rate = "inherit"
+            initial_state = "S1"
+            S1_to_S2_delay = "0"
+            S2_to_S1_delay = "0"
         }
 
         "core/Triple Pole Single Throw Contactor" {
