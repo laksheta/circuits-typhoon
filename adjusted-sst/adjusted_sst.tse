@@ -3451,7 +3451,7 @@ P = I_out * V_out;
 
         component "core/Double Pole Single Throw Contactor" S5 {
             ctrl_src = "Model"
-            execution_rate = "T_math_dab"
+            execution_rate = "T_math_inv"
         }
         [
             position = 7440, 7268
@@ -3544,7 +3544,7 @@ P = I_out * V_out;
 
         tag From53 {
             value = "reset_signal"
-            scope = local
+            scope = global
             kind = sp
             direction = out
         }
