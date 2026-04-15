@@ -1630,7 +1630,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component Subsystem DAB {
             layout = dynamic
-            component "core/Voltage Measurement" V_out_rect {
+            component "core/Voltage Measurement" V_in_dab {
                 execution_rate = "T_math_dab"
                 sig_output = "True"
             }
@@ -2046,9 +2046,9 @@ P = I_out * V_out;
                 box_outline = True
             ]
 
-            connect V_in_dab+ V_out_rect.p_node as Connection419
-            connect V_in_dab- V_out_rect.n_node as Connection420
-            connect V_out_rect.out Goto28 as Connection421
+            connect V_in_dab+ V_in_dab.p_node as Connection419
+            connect V_in_dab- V_in_dab.n_node as Connection420
+            connect V_in_dab.out Goto28 as Connection421
             connect Junction33 Junction38 as Connection422
             connect Junction38 V_out_dab.p_node as Connection423
             [
@@ -3440,6 +3440,7 @@ P = I_out * V_out;
         }
         [
             position = 7132, 7164
+            hide_name = True
             size = 64, 32
         ]
 
