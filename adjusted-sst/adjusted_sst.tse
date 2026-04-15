@@ -147,7 +147,7 @@ model "adjusted_sst" {
             unit = ""
         }
         [
-            position = 9024, 7276
+            position = 7380, 7088
         ]
 
         component "core/Constant" Constant17 {
@@ -3515,9 +3515,9 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9152, 7332
+            position = 7524, 7088
             hide_name = True
-            size = 60, 20
+            size = 108, 20
         ]
 
         tag Goto41 {
@@ -3542,11 +3542,6 @@ P = I_out * V_out;
             position = 7712, 7440
             hide_name = True
             size = 60, 20
-        ]
-
-        junction Junction43 sp
-        [
-            position = 9072, 7332
         ]
 
         junction Junction44 pe
@@ -3577,6 +3572,11 @@ P = I_out * V_out;
         junction Junction49 pe
         [
             position = 6996, 7364
+        ]
+
+        junction Junction50 sp
+        [
+            position = 7440, 7088
         ]
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
@@ -3629,9 +3629,6 @@ P = I_out * V_out;
         ]
         connect From38 "Rate Transition25.in" as Connection420
         connect "Rate Transition25.out" "Signal switch2.in" as Connection421
-        connect sw_dab_inv.out Junction43 as Connection422
-        connect Junction43 "Signal switch2.in2" as Connection423
-        connect Goto30 Junction43 as Connection424
         connect Goto29 "Signal switch2.out" as Connection504
         connect "Grid Measurement.A-" U_grid.a_node as Connection427
         connect "Grid Measurement.B-" U_grid.b_node as Connection428
@@ -3673,6 +3670,9 @@ P = I_out * V_out;
         connect S5.a_in DAB.V_out_dab+ as Connection533
         connect DAB.V_out_dab- S5.b_in as Connection534
         connect S5.b_out Inverter.V_in_inv- as Connection535
+        connect sw_dab_inv.out Junction50 as Connection537
+        connect Junction50 Goto30 as Connection538
+        connect S5.ctrl_in Junction50 as Connection539
     }
 
     logically_deleted {
@@ -3680,15 +3680,12 @@ P = I_out * V_out;
         "Constant13"
         "Rate Transition10"
         "Signal switch2"
-        "sw_dab_inv"
         "Constant17"
         "Rate Transition25"
         "From31"
         "Goto22"
         "From38"
         "Goto29"
-        "Goto30"
-        "Junction43"
         "Comment4"
         "Connection341"
         "Connection343"
@@ -3697,9 +3694,6 @@ P = I_out * V_out;
         "Connection419"
         "Connection420"
         "Connection421"
-        "Connection422"
-        "Connection423"
-        "Connection424"
         "Connection504"
         "Inverter.dc_input_inv"
         "Grid Measurement"
