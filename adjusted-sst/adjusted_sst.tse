@@ -1816,6 +1816,24 @@ P = I_out * V_out;
                 position = 7280, 8088
             ]
 
+            port V_out_dab+ {
+                position = right:auto
+                kind = pe
+            }
+            [
+                position = 8668, 8140
+                rotation = down
+            ]
+
+            port V_out_dab- {
+                position = right:auto
+                kind = pe
+            }
+            [
+                position = 8668, 8268
+                rotation = down
+            ]
+
             tag Goto28 {
                 value = "V_in_dab"
                 scope = local
@@ -1948,6 +1966,16 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            junction Junction38 pe
+            [
+                position = 8608, 8140
+            ]
+
+            junction Junction39 pe
+            [
+                position = 8608, 8268
+            ]
+
             junction Junction31 pe
             [
                 position = 8408, 8268
@@ -2011,20 +2039,24 @@ P = I_out * V_out;
             connect V_in_dab+ V_out_rect.p_node as Connection419
             connect V_in_dab- V_out_rect.n_node as Connection420
             connect V_out_rect.out Goto28 as Connection421
+            connect Junction33 Junction38 as Connection422
+            connect Junction38 V_out_dab.p_node as Connection423
+            [
+                breakpoints = 8608, 8140
+            ]
+            connect V_out_dab+ Junction38 as Connection424
+            connect Junction32 Junction39 as Connection425
+            connect Junction39 V_out_dab.n_node as Connection426
+            [
+                breakpoints = 8608, 8268
+            ]
+            connect V_out_dab- Junction39 as Connection427
             connect Isp2.n_node Junction31 as Connection394
             [
                 breakpoints = 8312, 8268
             ]
             connect C2.n_node Junction31 as Connection395
-            connect Junction32 V_out_dab.n_node as Connection396
-            [
-                breakpoints = 8608, 8268
-            ]
             connect R5.n_node Junction32 as Connection397
-            connect Junction33 V_out_dab.p_node as Connection111
-            [
-                breakpoints = 8608, 8140
-            ]
             connect R5.p_node Junction33 as Connection112
             connect Isp2.p_node Junction34 as Connection398
             [
