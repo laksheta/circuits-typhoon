@@ -79,6 +79,7 @@ model "adjusted_sst" {
 
     component Subsystem Root {
         component "core/SCADA Input" sw_Rect_DAB {
+            def_value = "1"
             execution_rate = "T_math_dab"
             max = "1"
             min = "0"
@@ -107,6 +108,7 @@ model "adjusted_sst" {
         ]
 
         component "core/SCADA Input" sw_dab_inv {
+            def_value = "1"
             execution_rate = "T_math_inv"
             max = "1"
             min = "0"
@@ -3365,6 +3367,7 @@ P = I_out * V_out;
         component "core/Double Pole Single Throw Contactor" S4 {
             ctrl_src = "Model"
             execution_rate = "T_math_dab"
+            initial_state = "on"
         }
         [
             position = 6920, 7268
@@ -3392,6 +3395,7 @@ P = I_out * V_out;
         component "core/Double Pole Single Throw Contactor" S5 {
             ctrl_src = "Model"
             execution_rate = "T_math_inv"
+            initial_state = "on"
         }
         [
             position = 7480, 7268
@@ -3430,6 +3434,7 @@ P = I_out * V_out;
         component "core/Triple Pole Single Throw Contactor" S6 {
             ctrl_src = "Model"
             execution_rate = "T_meas_rect"
+            initial_state = "on"
         }
         [
             position = 6440, 7268
@@ -3437,6 +3442,7 @@ P = I_out * V_out;
         ]
 
         component "core/SCADA Input" sw_source {
+            def_value = "1"
             execution_rate = "T_math_dab"
             max = "1"
             min = "0"
