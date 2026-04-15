@@ -1630,6 +1630,16 @@ out[0] = fmax(0.0, i_dc_raw);
 
         component Subsystem DAB {
             layout = dynamic
+            component "core/Voltage Measurement" V_out_rect {
+                execution_rate = "T_meas_rect"
+                sig_output = "True"
+            }
+            [
+                position = 7332, 8020
+                rotation = right
+                size = 64, 32
+            ]
+
             component "core/Probe" P_dab {
                 execution_rate = "T_meas_dab"
             }
@@ -1788,6 +1798,34 @@ P = I_out * V_out;
             }
             [
                 position = 8068, 8372
+            ]
+
+            port V_in_dab+ {
+                position = auto:auto
+                kind = pe
+            }
+            [
+                position = 7280, 7940
+            ]
+
+            port V_in_dab- {
+                position = auto:auto
+                kind = pe
+            }
+            [
+                position = 7280, 8088
+            ]
+
+            tag Goto28 {
+                value = "V_in_dab"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7416, 8020
+                hide_name = True
+                size = 60, 20
             ]
 
             tag Goto23 {
@@ -1970,6 +2008,9 @@ P = I_out * V_out;
                 box_outline = True
             ]
 
+            connect V_in_dab+ V_out_rect.p_node as Connection419
+            connect V_in_dab- V_out_rect.n_node as Connection420
+            connect V_out_rect.out Goto28 as Connection421
             connect Isp2.n_node Junction31 as Connection394
             [
                 breakpoints = 8312, 8268
@@ -2038,7 +2079,7 @@ P = I_out * V_out;
             connect out_PI.in Junction37 as Connection418
         }
         [
-            position = 7844, 7284
+            position = 7716, 7236
             size = 168, 232
         ]
 
@@ -3396,7 +3437,7 @@ P = I_out * V_out;
             connect From53 "Rate Transition33.in" as Connection503
         }
         [
-            position = 8044, 7300
+            position = 7980, 7240
             size = 168, 232
         ]
 
