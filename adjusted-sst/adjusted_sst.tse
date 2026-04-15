@@ -119,7 +119,7 @@ model "adjusted_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6672, 7260
+            position = 6616, 7260
             hide_name = True
             size = 62, 256
         ]
@@ -127,7 +127,7 @@ model "adjusted_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6592, 7324
+            position = 6536, 7324
             hide_name = True
             scale = -1, 1
         ]
@@ -578,15 +578,6 @@ out[0] = fmax(0.0, i_dc_raw);
             }
             [
                 position = 7480, 8152
-                rotation = right
-                hide_name = True
-            ]
-
-            component "core/Resistor" R4 {
-                resistance = "R_load_rect"
-            }
-            [
-                position = 7576, 8152
                 rotation = right
                 hide_name = True
             ]
@@ -1345,16 +1336,6 @@ out[0] = fmax(0.0, i_dc_raw);
                 position = 7480, 8216
             ]
 
-            junction Junction5 pe
-            [
-                position = 7576, 8216
-            ]
-
-            junction Junction6 pe
-            [
-                position = 7576, 8088
-            ]
-
             junction Junction7 pe
             [
                 position = 7480, 8088
@@ -1459,7 +1440,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect L1.n_node "Grid Meter.A-" as Connection21
             connect L2.n_node "Grid Meter.B-" as Connection23
             connect L3.n_node "Grid Meter.C-" as Connection25
-            connect Junction6 Junction31 as Connection406
             connect Junction31 V_out_rect.p_node as Connection407
             [
                 breakpoints = 7684, 8088
@@ -1472,7 +1452,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect R1.p_node "Rectifier Meter.A-" as Connection51
             connect "Rectifier Meter.B-" R2.p_node as Connection54
             connect "Rectifier Meter.C-" R3.p_node as Connection56
-            connect Junction5 Junction32 as Connection409
             connect Vsp3.n_node Junction1 as Connection60
             [
                 breakpoints = 8508, 8768
@@ -1484,7 +1463,9 @@ out[0] = fmax(0.0, i_dc_raw);
             connect gnd5.node "Rectifier Meter.GND" as Connection61
             connect V_out_rect- Junction32 as Connection411
             connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
+            connect Junction11 Junction32 as Connection412
             connect Vsp2.p_node "Rectifier Meter.B+" as Connection64
+            connect Junction7 Junction31 as Connection413
             connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
             connect From5 "dq to abc1.wt" as Connection122
             connect Constant1.out "dq to abc1.zero_input" as Connection123
@@ -1509,13 +1490,10 @@ out[0] = fmax(0.0, i_dc_raw);
                 breakpoints = 7384, 8216
             ]
             connect C1.n_node Junction4 as Connection96
-            connect R4.n_node Junction5 as Connection99
-            connect R4.p_node Junction6 as Connection102
             connect Isp1.p_node Junction7 as Connection103
             [
                 breakpoints = 7384, 8088
             ]
-            connect Junction7 Junction6 as Connection104
             connect C1.p_node Junction7 as Connection105
             connect "C function1.out" "Bus Split2.in" as Connection106
             connect i_dc_rect.in Junction8 as Connection108
@@ -1559,7 +1537,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect V_d_rect.in "abc to dq1.d_axis" as Connection246
             connect V_out_rect.out Goto10 as Connection247
             connect Junction4 Junction11 as Connection249
-            connect Junction11 Junction5 as Connection250
             connect gnd6.node Junction11 as Connection251
             connect "Meter Split1.VBn" "Bus Join1.in1" as Connection254
             connect From15 "Bus Join3.in2" as Connection255
@@ -1624,7 +1601,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition24.in" From3 as Connection391
         }
         [
-            position = 6916, 7260
+            position = 6860, 7260
             size = 168, 232
         ]
 
@@ -3443,6 +3420,15 @@ P = I_out * V_out;
             size = 64, 256
         ]
 
+        component "core/Resistor" R4 {
+            resistance = "R_load_rect"
+        }
+        [
+            position = 7036, 7248
+            rotation = right
+            hide_name = True
+        ]
+
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -3554,6 +3540,16 @@ P = I_out * V_out;
             position = 7128, 7080
         ]
 
+        junction Junction46 pe
+        [
+            position = 7036, 7164
+        ]
+
+        junction Junction47 pe
+        [
+            position = 7036, 7356
+        ]
+
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
         [
             position = 8208, 6840
@@ -3630,12 +3626,16 @@ P = I_out * V_out;
         connect Vs1.b_node Rectifier.B as Connection506
         connect Vs1.c_node Rectifier.C as Connection507
         connect DAB.V_in_dab+ S4.a_out as Connection513
-        connect S4.a_in Rectifier.V_out_rect+ as Connection514
-        connect Rectifier.V_out_rect- S4.b_in as Connection515
         connect S4.b_out DAB.V_in_dab- as Connection516
         connect sw_Rect_DAB.out Junction45 as Connection517
         connect Junction45 Goto28 as Connection518
         connect S4.ctrl_in Junction45 as Connection519
+        connect S4.a_in Junction46 as Connection520
+        connect Junction46 Rectifier.V_out_rect+ as Connection521
+        connect R4.p_node Junction46 as Connection522
+        connect Rectifier.V_out_rect- Junction47 as Connection523
+        connect Junction47 S4.b_in as Connection524
+        connect R4.n_node Junction47 as Connection525
     }
 
     logically_deleted {
