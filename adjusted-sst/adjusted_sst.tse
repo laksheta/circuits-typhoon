@@ -2803,71 +2803,6 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
-            port Out1 {
-                position = right:1
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8448, 7844
-            ]
-
-            port Out3 {
-                position = right:3
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8448, 7892
-            ]
-
-            port Out2 {
-                position = right:2
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8448, 7860
-            ]
-
-            port Out5 {
-                position = right:5
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 7048, 8164
-            ]
-
-            port Out4 {
-                position = right:4
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8824, 7940
-            ]
-
             tag From39 {
                 value = "V_abc_n_inv"
                 scope = local
@@ -3290,11 +3225,6 @@ P = I_out * V_out;
                 box_outline = True
             ]
 
-            connect "Three phase PLL1.q_axis" Out2 as Connection506
-            connect "Three phase PLL1.freq" Out3 as Connection505
-            connect "abc to dq2.zero_axis" Out4 as Connection508
-            connect "Three phase PLL1.d_axis" Out1 as Connection504
-            connect dc_input_inv.out Out5 as Connection507
             connect R6.p_node L4.n_node as Connection425
             connect R7.p_node L5.n_node as Connection14
             connect R8.p_node L6.n_node as Connection426
@@ -3437,7 +3367,7 @@ P = I_out * V_out;
             connect From53 "Rate Transition33.in" as Connection503
         }
         [
-            position = 7980, 7240
+            position = 7980, 7244
             size = 168, 232
         ]
 
@@ -3585,7 +3515,6 @@ P = I_out * V_out;
     logically_deleted {
         "Comment4"
         "Inverter.dc_input_inv"
-        "Inverter.Connection507"
     }
 
     default {
