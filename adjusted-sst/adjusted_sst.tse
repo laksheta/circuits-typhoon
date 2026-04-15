@@ -2111,7 +2111,7 @@ P = I_out * V_out;
             connect out_PI.in Junction37 as Connection418
         }
         [
-            position = 7716, 7236
+            position = 7724, 7268
             size = 168, 232
         ]
 
@@ -2835,6 +2835,32 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
+            component "core/Voltage Measurement" V_in_inv {
+                execution_rate = "T_meas_rect"
+                sig_output = "True"
+            }
+            [
+                position = 6984, 7828
+                rotation = right
+                size = 64, 32
+            ]
+
+            port V_in_inv+ {
+                position = auto:auto
+                kind = pe
+            }
+            [
+                position = 6932, 7748
+            ]
+
+            port V_in_inv- {
+                position = auto:auto
+                kind = pe
+            }
+            [
+                position = 6932, 7896
+            ]
+
             tag From39 {
                 value = "V_abc_n_inv"
                 scope = local
@@ -3036,6 +3062,18 @@ P = I_out * V_out;
             [
                 position = 8116, 8116
                 rotation = right
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto28 {
+                value = "V_in_inv"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7068, 7828
                 hide_name = True
                 size = 60, 20
             ]
@@ -3257,6 +3295,9 @@ P = I_out * V_out;
                 box_outline = True
             ]
 
+            connect V_in_inv+ V_in_inv.p_node as Connection419
+            connect V_in_inv- V_in_inv.n_node as Connection420
+            connect V_in_inv.out Goto28 as Connection421
             connect R6.p_node L4.n_node as Connection425
             connect R7.p_node L5.n_node as Connection14
             connect R8.p_node L6.n_node as Connection426
@@ -3399,7 +3440,7 @@ P = I_out * V_out;
             connect From53 "Rate Transition33.in" as Connection503
         }
         [
-            position = 7980, 7244
+            position = 7992, 7268
             size = 168, 232
         ]
 
