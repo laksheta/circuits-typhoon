@@ -2121,7 +2121,7 @@ P = I_out * V_out;
                 inductance = "L_inv"
             }
             [
-                position = 8976, 8204
+                position = 8920, 8204
                 hide_name = True
             ]
 
@@ -2129,7 +2129,7 @@ P = I_out * V_out;
                 inductance = "L_inv"
             }
             [
-                position = 8976, 8300
+                position = 8920, 8300
                 hide_name = True
             ]
 
@@ -2137,7 +2137,7 @@ P = I_out * V_out;
                 inductance = "L_inv"
             }
             [
-                position = 8976, 8396
+                position = 8920, 8396
                 hide_name = True
             ]
 
@@ -2152,7 +2152,7 @@ P = I_out * V_out;
                 resistance = "R_inv"
             }
             [
-                position = 9104, 8204
+                position = 9048, 8204
                 hide_name = True
             ]
 
@@ -2160,7 +2160,7 @@ P = I_out * V_out;
                 resistance = "R_inv"
             }
             [
-                position = 9104, 8300
+                position = 9048, 8300
                 hide_name = True
             ]
 
@@ -2168,36 +2168,7 @@ P = I_out * V_out;
                 resistance = "R_inv"
             }
             [
-                position = 9104, 8396
-                hide_name = True
-            ]
-
-            component "core/Three-phase Meter" "Grid Measurement" {
-                R = "100000.0"
-                Ts = "T_meas_inv"
-                VAB = "True"
-                VBC = "True"
-                VCA = "True"
-            }
-            [
-                position = 9276, 8300
-                size = 56, 240
-            ]
-
-            component "core/Three Phase Voltage Source" U_grid {
-                init_frequency = "F_inv"
-                init_rms_value = "V_rms_inv"
-            }
-            [
-                position = 9420, 8300
-                scale = -1, 1
-                size = 62, 256
-            ]
-
-            component "core/Ground" gnd9 {
-            }
-            [
-                position = 9360, 8496
+                position = 9048, 8396
                 hide_name = True
             ]
 
@@ -2816,25 +2787,6 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
-            component "core/Triple Pole Single Throw Contactor" S1 {
-                ctrl_src = "Model"
-                execution_rate = "T_plant_inv"
-            }
-            [
-                position = 9184, 8300
-                hide_name = True
-                size = 64, 256
-            ]
-
-            component "core/Rate Transition" "Rate Transition33" {
-                execution_rate = "T_plant_inv"
-            }
-            [
-                position = 9136, 8124
-                hide_name = True
-                size = 32, 32
-            ]
-
             component "core/Voltage Measurement" V_in_inv {
                 execution_rate = "T_meas_rect"
                 sig_output = "True"
@@ -2843,6 +2795,136 @@ P = I_out * V_out;
                 position = 6984, 7828
                 rotation = right
                 size = 64, 32
+            ]
+
+            component Subsystem Subsystem1 {
+                layout = dynamic
+                component "core/Three-phase Meter" "Grid Measurement" {
+                    R = "100000.0"
+                    Ts = "T_meas_inv"
+                    VAB = "True"
+                    VBC = "True"
+                    VCA = "True"
+                }
+                [
+                    position = 8224, 8184
+                    size = 56, 240
+                ]
+
+                component "core/Three Phase Voltage Source" U_grid {
+                    init_frequency = "F_inv"
+                    init_rms_value = "V_rms_inv"
+                }
+                [
+                    position = 8368, 8184
+                    scale = -1, 1
+                    size = 62, 256
+                ]
+
+                component "core/Ground" gnd9 {
+                }
+                [
+                    position = 8308, 8376
+                    hide_name = True
+                ]
+
+                component "core/Triple Pole Single Throw Contactor" S1 {
+                    ctrl_src = "Model"
+                    execution_rate = "T_plant_inv"
+                }
+                [
+                    position = 8132, 8184
+                    hide_name = True
+                    size = 64, 256
+                ]
+
+                component "core/Rate Transition" "Rate Transition33" {
+                    execution_rate = "T_plant_inv"
+                }
+                [
+                    position = 8084, 8008
+                    hide_name = True
+                    size = 32, 32
+                ]
+
+                port P1 {
+                    position = left:1
+                    kind = pe
+                }
+                [
+                    position = 8048, 8088
+                ]
+
+                port P3 {
+                    position = left:3
+                    kind = pe
+                }
+                [
+                    position = 8048, 8280
+                ]
+
+                port P2 {
+                    position = left:2
+                    kind = pe
+                }
+                [
+                    position = 8048, 8184
+                ]
+
+                tag Goto41 {
+                    value = "Grid_out_inv"
+                    scope = local
+                    kind = sp
+                    direction = in
+                }
+                [
+                    position = 8304, 8016
+                    hide_name = True
+                    size = 60, 20
+                ]
+
+                tag From53 {
+                    value = "reset_signal"
+                    scope = local
+                    kind = sp
+                    direction = out
+                }
+                [
+                    position = 8016, 8008
+                    hide_name = True
+                    size = 60, 20
+                ]
+
+                junction Junction44 pe
+                [
+                    position = 8304, 8336
+                ]
+
+                connect S1.a_in P1 as Connection504
+                connect S1.b_in P2 as Connection506
+                connect S1.c_in P3 as Connection505
+                connect "Grid Measurement.A-" U_grid.a_node as Connection427
+                connect "Grid Measurement.B-" U_grid.b_node as Connection428
+                connect U_grid.c_node "Grid Measurement.C-" as Connection57
+                connect U_grid.n_node Junction44 as Connection58
+                connect Junction44 gnd9.node as Connection59
+                [
+                    breakpoints = 8308, 8336
+                ]
+                connect "Grid Measurement.GND" Junction44 as Connection92
+                [
+                    breakpoints = 8224, 8336
+                ]
+                connect Goto41 "Grid Measurement.Out" as Connection472
+                connect S1.a_out "Grid Measurement.A+" as Connection496
+                connect S1.b_out "Grid Measurement.B+" as Connection497
+                connect S1.c_out "Grid Measurement.C+" as Connection498
+                connect "Rate Transition33.out" S1.ctrl_in as Connection502
+                connect From53 "Rate Transition33.in" as Connection503
+            }
+            [
+                position = 9600, 8440
+                size = 48, 64
             ]
 
             port V_in_inv+ {
@@ -2859,6 +2941,33 @@ P = I_out * V_out;
             }
             [
                 position = 6932, 7896
+            ]
+
+            port A {
+                position = right:1
+                kind = pe
+            }
+            [
+                position = 9144, 8204
+                rotation = down
+            ]
+
+            port C {
+                position = right:3
+                kind = pe
+            }
+            [
+                position = 9144, 8396
+                rotation = down
+            ]
+
+            port B {
+                position = right:2
+                kind = pe
+            }
+            [
+                position = 9144, 8300
+                rotation = down
             ]
 
             tag From39 {
@@ -3127,18 +3236,6 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
-            tag Goto41 {
-                value = "Grid_out_inv"
-                scope = local
-                kind = sp
-                direction = in
-            }
-            [
-                position = 9356, 8132
-                hide_name = True
-                size = 60, 20
-            ]
-
             tag From50 {
                 value = "Grid_out_inv"
                 scope = local
@@ -3186,23 +3283,6 @@ P = I_out * V_out;
                 rotation = down
                 hide_name = True
                 size = 60, 20
-            ]
-
-            tag From53 {
-                value = "reset_signal"
-                scope = local
-                kind = sp
-                direction = out
-            }
-            [
-                position = 9068, 8124
-                hide_name = True
-                size = 60, 20
-            ]
-
-            junction Junction44 pe
-            [
-                position = 9356, 8456
             ]
 
             junction Junction3 pe
@@ -3298,6 +3378,9 @@ P = I_out * V_out;
             connect V_in_inv+ V_in_inv.p_node as Connection419
             connect V_in_inv- V_in_inv.n_node as Connection420
             connect V_in_inv.out Goto28 as Connection421
+            connect A R6.n_node as Connection496
+            connect B R7.n_node as Connection497
+            connect C R8.n_node as Connection498
             connect R6.p_node L4.n_node as Connection425
             connect R7.p_node L5.n_node as Connection14
             connect R8.p_node L6.n_node as Connection426
@@ -3308,23 +3391,11 @@ P = I_out * V_out;
             connect From40 "abc to dq2.wt" as Connection46
             connect "Bus Split7.in" From41 as Connection47
             connect "Bus Split7.out" "abc to dq2.va" as Connection48
-            connect "Grid Measurement.A-" U_grid.a_node as Connection427
-            connect "Grid Measurement.B-" U_grid.b_node as Connection428
-            connect U_grid.c_node "Grid Measurement.C-" as Connection57
-            connect U_grid.n_node Junction44 as Connection58
-            connect Junction44 gnd9.node as Connection59
-            [
-                breakpoints = 9360, 8456
-            ]
             connect "Bus Split7.out1" "abc to dq2.vb" as Connection429
             connect "abc to dq2.vc" "Bus Split7.out2" as Connection430
             connect "Inverter Measurement.C-" L6.p_node as Connection431
             connect "Inverter Measurement.B-" L5.p_node as Connection77
             connect "Inverter Measurement.A-" L4.p_node as Connection432
-            connect "Grid Measurement.GND" Junction44 as Connection92
-            [
-                breakpoints = 9276, 8452
-            ]
             connect Goto31 "Three phase PLL1.theta" as Connection97
             [
                 breakpoints = 8420, 7908
@@ -3400,7 +3471,6 @@ P = I_out * V_out;
             connect Adap_Limiter_2.up_lim Junction18 as Connection470
             connect Junction18 Junction49 as Connection235
             connect Adap_Limiter_1.up_lim Junction18 as Connection471
-            connect Goto41 "Grid Measurement.Out" as Connection472
             connect From50 "Meter Split.Input" as Connection473
             connect Adap_Limiter.Out "Rate Transition26.in" as Connection474
             connect "Rate Transition26.out" Vsp4.in as Connection475
@@ -3430,14 +3500,6 @@ P = I_out * V_out;
             connect Junction52 PI_i_q_inv.reset as Connection493
             connect PI_i_d_inv.reset Junction52 as Connection494
             connect Goto24 "Inverter Measurement.Out" as Connection495
-            connect S1.a_out "Grid Measurement.A+" as Connection496
-            connect S1.b_out "Grid Measurement.B+" as Connection497
-            connect S1.c_out "Grid Measurement.C+" as Connection498
-            connect R6.n_node S1.a_in as Connection499
-            connect R7.n_node S1.b_in as Connection500
-            connect R8.n_node S1.c_in as Connection501
-            connect "Rate Transition33.out" S1.ctrl_in as Connection502
-            connect From53 "Rate Transition33.in" as Connection503
         }
         [
             position = 7992, 7268
