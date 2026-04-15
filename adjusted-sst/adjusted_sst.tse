@@ -132,166 +132,6 @@ model "adjusted_sst" {
             scale = -1, 1
         ]
 
-        component "core/Probe" P_dab {
-            execution_rate = "T_meas_dab"
-        }
-        [
-            position = 9336, 7040
-        ]
-
-        component "core/Constant" Constant14 {
-            execution_rate = "T_math_dab"
-            value = "n_dab"
-        }
-        [
-            position = 9064, 7036
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant15 {
-            execution_rate = "T_math_dab"
-            value = "fsw_dab"
-        }
-        [
-            position = 9064, 7180
-            hide_name = True
-        ]
-
-        component "core/C function" "Power Calculation" {
-            arb_defs = "/*Begin code section*/
-
-/*End code section*/"
-            execution_rate = "T_math_dab"
-            init_fnc = "/*Begin code section*/
-
-/*End code section*/"
-            input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;"
-            input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit"
-            input_terminals_feedthrough = "True;True;True;True;True;True"
-            input_terminals_show_labels = "False;False;False;False;False;False"
-            output_fnc = "/*Begin code section*/
-I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
-    
-P = I_out * V_out;
-/*End code section*/"
-            output_terminals = "real P;real I_out;"
-            output_terminals_dimensions = "inherit;inherit"
-            output_terminals_feedthrough = "True;True"
-            output_terminals_show_labels = "False;False"
-            update_fnc = "/*Begin code section*/
-
-/*End code section*/"
-        }
-        [
-            position = 9200, 7132
-            size = 48, 128
-        ]
-
-        component "core/Constant" Constant16 {
-            execution_rate = "T_math_dab"
-            value = "L_dab"
-        }
-        [
-            position = 9064, 7224
-            hide_name = True
-        ]
-
-        component "core/Signal Controlled Current Source" Isp2 {
-            execution_rate = "T_plant_dab"
-        }
-        [
-            position = 9636, 7224
-            rotation = right
-            hide_name = True
-            scale = -1, 1
-            size = 64, 32
-        ]
-
-        component "core/Capacitor" C2 {
-            capacitance = "C_dab"
-        }
-        [
-            position = 9732, 7228
-            rotation = right
-            hide_name = True
-        ]
-
-        component "core/Resistor" R5 {
-            resistance = "R_load_dab"
-        }
-        [
-            position = 9828, 7228
-            rotation = right
-            hide_name = True
-        ]
-
-        component "core/Voltage Measurement" V_out_dab {
-            execution_rate = "T_meas_dab"
-            sig_output = "True"
-        }
-        [
-            position = 9932, 7228
-            rotation = right
-            size = 64, 32
-        ]
-
-        component "core/Ground" gnd7 {
-        }
-        [
-            position = 9788, 7324
-            hide_name = True
-        ]
-
-        component "core/Probe" I_out_dab {
-            execution_rate = "T_meas_dab"
-        }
-        [
-            position = 9328, 7224
-        ]
-
-        component "core/PID controller" "PID controller4" {
-            controller_type = "PI"
-            enb_anti_windup_out = "True"
-            enb_output_limit_out = "True"
-            execution_rate = "T_math_dab"
-            ki = "K_i_dab"
-            kp = "K_p_dab"
-            lower_sat_lim = "0"
-            show_reset = "rising"
-            upper_sat_lim = "0.5"
-        }
-        [
-            position = 9276, 7324
-            hide_name = True
-        ]
-
-        component "core/Sum" Sum4 {
-            execution_rate = "T_math_dab"
-            signs = "+-"
-        }
-        [
-            position = 9188, 7316
-            hide_name = True
-        ]
-
-        component "core/SCADA Input" V_out_ref_dab {
-            def_value = "780"
-            execution_rate = "T_math_dab"
-            max = "1000"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 9020, 7308
-        ]
-
-        component "core/Probe" out_PI {
-            execution_rate = "T_meas_dab"
-        }
-        [
-            position = 9392, 7396
-        ]
-
         component "core/Signal switch" "Signal switch2" {
             execution_rate = "T_math_inv"
         }
@@ -2506,6 +2346,420 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 168, 232
         ]
 
+        component Subsystem DAB {
+            layout = dynamic
+            component "core/Probe" P_dab {
+                execution_rate = "T_meas_dab"
+            }
+            [
+                position = 8012, 8016
+            ]
+
+            component "core/Constant" Constant14 {
+                execution_rate = "T_math_dab"
+                value = "n_dab"
+            }
+            [
+                position = 7740, 8012
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant15 {
+                execution_rate = "T_math_dab"
+                value = "fsw_dab"
+            }
+            [
+                position = 7740, 8156
+                hide_name = True
+            ]
+
+            component "core/C function" "Power Calculation" {
+                arb_defs = "/*Begin code section*/
+
+/*End code section*/"
+                execution_rate = "T_math_dab"
+                init_fnc = "/*Begin code section*/
+
+/*End code section*/"
+                input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;"
+                input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit"
+                input_terminals_feedthrough = "True;True;True;True;True;True"
+                input_terminals_show_labels = "False;False;False;False;False;False"
+                output_fnc = "/*Begin code section*/
+I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+    
+P = I_out * V_out;
+/*End code section*/"
+                output_terminals = "real P;real I_out;"
+                output_terminals_dimensions = "inherit;inherit"
+                output_terminals_feedthrough = "True;True"
+                output_terminals_show_labels = "False;False"
+                update_fnc = "/*Begin code section*/
+
+/*End code section*/"
+            }
+            [
+                position = 7876, 8108
+                size = 48, 128
+            ]
+
+            component "core/Constant" Constant16 {
+                execution_rate = "T_math_dab"
+                value = "L_dab"
+            }
+            [
+                position = 7740, 8200
+                hide_name = True
+            ]
+
+            component "core/Signal Controlled Current Source" Isp2 {
+                execution_rate = "T_plant_dab"
+            }
+            [
+                position = 8312, 8200
+                rotation = right
+                hide_name = True
+                scale = -1, 1
+                size = 64, 32
+            ]
+
+            component "core/Capacitor" C2 {
+                capacitance = "C_dab"
+            }
+            [
+                position = 8408, 8204
+                rotation = right
+                hide_name = True
+            ]
+
+            component "core/Resistor" R5 {
+                resistance = "R_load_dab"
+            }
+            [
+                position = 8504, 8204
+                rotation = right
+                hide_name = True
+            ]
+
+            component "core/Voltage Measurement" V_out_dab {
+                execution_rate = "T_meas_dab"
+                sig_output = "True"
+            }
+            [
+                position = 8608, 8204
+                rotation = right
+                size = 64, 32
+            ]
+
+            component "core/Ground" gnd7 {
+            }
+            [
+                position = 8464, 8300
+                hide_name = True
+            ]
+
+            component "core/Probe" I_out_dab {
+                execution_rate = "T_meas_dab"
+            }
+            [
+                position = 8004, 8200
+            ]
+
+            component "core/PID controller" "PID controller4" {
+                controller_type = "PI"
+                enb_anti_windup_out = "True"
+                enb_output_limit_out = "True"
+                execution_rate = "T_math_dab"
+                ki = "K_i_dab"
+                kp = "K_p_dab"
+                lower_sat_lim = "0"
+                show_reset = "rising"
+                upper_sat_lim = "0.5"
+            }
+            [
+                position = 7952, 8300
+                hide_name = True
+            ]
+
+            component "core/Sum" Sum4 {
+                execution_rate = "T_math_dab"
+                signs = "+-"
+            }
+            [
+                position = 7864, 8292
+                hide_name = True
+            ]
+
+            component "core/SCADA Input" V_out_ref_dab {
+                def_value = "780"
+                execution_rate = "T_math_dab"
+                max = "1000"
+                min = "0"
+                unit = ""
+            }
+            [
+                position = 7696, 8284
+            ]
+
+            component "core/Probe" out_PI {
+                execution_rate = "T_meas_dab"
+            }
+            [
+                position = 8068, 8372
+            ]
+
+            tag Goto23 {
+                value = "P_dab"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7980, 8064
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From32 {
+                value = "V_in_dab"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7740, 8052
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From33 {
+                value = "V_out_dab"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7740, 8088
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto25 {
+                value = "D_dab"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8072, 8300
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From34 {
+                value = "D_dab"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7740, 8116
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto26 {
+                value = "V_out_dab"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8688, 8204
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From35 {
+                value = "I_out_dab"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8216, 8200
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto27 {
+                value = "I_out_dab"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7980, 8152
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From36 {
+                value = "V_out_dab"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7760, 8340
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag From37 {
+                value = "reset_dab"
+                scope = local
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7796, 8372
+                hide_name = True
+                size = 60, 20
+            ]
+
+            junction Junction31 pe
+            [
+                position = 8408, 8268
+            ]
+
+            junction Junction32 pe
+            [
+                position = 8504, 8268
+            ]
+
+            junction Junction33 pe
+            [
+                position = 8504, 8140
+            ]
+
+            junction Junction34 pe
+            [
+                position = 8408, 8140
+            ]
+
+            junction Junction35 pe
+            [
+                position = 8464, 8268
+            ]
+
+            junction Junction14 sp
+            [
+                position = 7932, 8064
+            ]
+
+            junction Junction22 sp
+            [
+                position = 7940, 8152
+            ]
+
+            junction Junction37 sp
+            [
+                position = 8008, 8300
+            ]
+
+            scheme_area Area10 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller and Calculation</p></body></html>
+            }
+            [
+                position = 7872, 8176
+                size = 476, 500
+                background_color = #0eaaffff
+                box_outline = True
+            ]
+
+            scheme_area Area11 {
+                title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Simple Plant</p></body></html>
+            }
+            [
+                position = 8440, 8204
+                size = 572, 248
+                background_color = #0effff7f
+                box_outline = True
+            ]
+
+            connect Isp2.n_node Junction31 as Connection394
+            [
+                breakpoints = 8312, 8268
+            ]
+            connect C2.n_node Junction31 as Connection395
+            connect Junction32 V_out_dab.n_node as Connection396
+            [
+                breakpoints = 8608, 8268
+            ]
+            connect R5.n_node Junction32 as Connection397
+            connect Junction33 V_out_dab.p_node as Connection111
+            [
+                breakpoints = 8608, 8140
+            ]
+            connect R5.p_node Junction33 as Connection112
+            connect Isp2.p_node Junction34 as Connection398
+            [
+                breakpoints = 8312, 8140
+            ]
+            connect Junction34 Junction33 as Connection399
+            connect C2.p_node Junction34 as Connection400
+            connect Junction31 Junction35 as Connection401
+            connect Junction35 Junction32 as Connection402
+            connect gnd7.node Junction35 as Connection403
+            connect Goto23 Junction14 as Connection404
+            connect Junction14 "Power Calculation.P" as Connection258
+            connect P_dab.in Junction14 as Connection259
+            connect From35 Isp2.in as Connection405
+            connect Goto26 V_out_dab.out as Connection406
+            connect Goto27 Junction22 as Connection293
+            connect Junction22 "Power Calculation.I_out" as Connection407
+            [
+                breakpoints = 7940, 8152; 7916, 8152
+            ]
+            connect I_out_dab.in Junction22 as Connection295
+            connect From32 "Power Calculation.V_in" as Connection408
+            [
+                breakpoints = 7828, 8052; 7828, 8084
+            ]
+            connect "Power Calculation.n" Constant14.out as Connection409
+            [
+                breakpoints = 7836, 8012
+            ]
+            connect Constant15.out "Power Calculation.fsw" as Connection296
+            [
+                breakpoints = 7796, 8156; 7796, 8132; 7828, 8132
+            ]
+            connect "Power Calculation.V_out" From33 as Connection299
+            [
+                breakpoints = 7836, 8088; 7788, 8088
+            ]
+            connect "Power Calculation.D" From34 as Connection410
+            [
+                breakpoints = 7820, 8116; 7812, 8116
+            ]
+            connect "Power Calculation.L" Constant16.out as Connection411
+            [
+                breakpoints = 7836, 8148; 7812, 8148; 7812, 8200
+            ]
+            connect From36 Sum4.in1 as Connection230
+            connect Sum4.out "PID controller4.in" as Connection231
+            connect V_out_ref_dab.out Sum4.in as Connection237
+            connect From37 "PID controller4.reset" as Connection415
+            connect "PID controller4.out" Junction37 as Connection416
+            connect Junction37 Goto25 as Connection417
+            connect out_PI.in Junction37 as Connection418
+        }
+        [
+            position = 7720, 7244
+            size = 168, 232
+        ]
+
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -2530,114 +2784,6 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
-        tag Goto23 {
-            value = "P_dab"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 9304, 7088
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From32 {
-            value = "V_in_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9064, 7076
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From33 {
-            value = "V_out_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9064, 7112
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto25 {
-            value = "D_dab"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 9396, 7324
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From34 {
-            value = "D_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9064, 7140
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto26 {
-            value = "V_out_dab"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 10012, 7228
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From35 {
-            value = "I_out_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9540, 7224
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto27 {
-            value = "I_out_dab"
-            scope = local
-            kind = sp
-            direction = in
-        }
-        [
-            position = 9304, 7176
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From36 {
-            value = "V_out_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9084, 7364
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag Goto28 {
             value = "reset_dab"
             scope = local
@@ -2646,18 +2792,6 @@ out[0] = fmax(0.0, i_dc_raw);
         }
         [
             position = 8516, 7256
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From37 {
-            value = "reset_dab"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 9120, 7396
             hide_name = True
             size = 60, 20
         ]
@@ -3025,49 +3159,9 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
-        junction Junction31 pe
-        [
-            position = 9732, 7292
-        ]
-
-        junction Junction32 pe
-        [
-            position = 9828, 7292
-        ]
-
-        junction Junction33 pe
-        [
-            position = 9828, 7164
-        ]
-
-        junction Junction34 pe
-        [
-            position = 9732, 7164
-        ]
-
-        junction Junction35 pe
-        [
-            position = 9788, 7292
-        ]
-
-        junction Junction14 sp
-        [
-            position = 9256, 7088
-        ]
-
-        junction Junction22 sp
-        [
-            position = 9264, 7176
-        ]
-
         junction Junction36 sp
         [
             position = 8452, 7256
-        ]
-
-        junction Junction37 sp
-        [
-            position = 9332, 7324
         ]
 
         junction Junction43 sp
@@ -3166,26 +3260,6 @@ out[0] = fmax(0.0, i_dc_raw);
             box_outline = True
         ]
 
-        scheme_area Area10 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller and Calculation</p></body></html>
-        }
-        [
-            position = 9196, 7200
-            size = 476, 500
-            background_color = #0eaaffff
-            box_outline = True
-        ]
-
-        scheme_area Area11 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Simple Plant</p></body></html>
-        }
-        [
-            position = 9764, 7228
-            size = 572, 248
-            background_color = #0effff7f
-            box_outline = True
-        ]
-
         scheme_area Area12 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Switching Interface</p></body></html>
         }
@@ -3234,75 +3308,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition10.out" "Signal switch1.in" as Connection344
         connect Vs1.n_node gnd1.node as Connection4
         connect "Signal switch1.out" Goto22 as Connection392
-        connect Isp2.n_node Junction31 as Connection394
-        [
-            breakpoints = 9636, 7292
-        ]
-        connect C2.n_node Junction31 as Connection395
-        connect Junction32 V_out_dab.n_node as Connection396
-        [
-            breakpoints = 9932, 7292
-        ]
-        connect R5.n_node Junction32 as Connection397
-        connect Junction33 V_out_dab.p_node as Connection111
-        [
-            breakpoints = 9932, 7164
-        ]
-        connect R5.p_node Junction33 as Connection112
-        connect Isp2.p_node Junction34 as Connection398
-        [
-            breakpoints = 9636, 7164
-        ]
-        connect Junction34 Junction33 as Connection399
-        connect C2.p_node Junction34 as Connection400
-        connect Junction31 Junction35 as Connection401
-        connect Junction35 Junction32 as Connection402
-        connect gnd7.node Junction35 as Connection403
-        connect Goto23 Junction14 as Connection404
-        connect Junction14 "Power Calculation.P" as Connection258
-        connect P_dab.in Junction14 as Connection259
-        connect From35 Isp2.in as Connection405
-        connect Goto26 V_out_dab.out as Connection406
-        connect Goto27 Junction22 as Connection293
-        connect Junction22 "Power Calculation.I_out" as Connection407
-        [
-            breakpoints = 9264, 7176; 9240, 7176
-        ]
-        connect I_out_dab.in Junction22 as Connection295
-        connect From32 "Power Calculation.V_in" as Connection408
-        [
-            breakpoints = 9152, 7076; 9152, 7108
-        ]
-        connect "Power Calculation.n" Constant14.out as Connection409
-        [
-            breakpoints = 9160, 7036
-        ]
-        connect Constant15.out "Power Calculation.fsw" as Connection296
-        [
-            breakpoints = 9120, 7180; 9120, 7156; 9152, 7156
-        ]
-        connect "Power Calculation.V_out" From33 as Connection299
-        [
-            breakpoints = 9160, 7112; 9112, 7112
-        ]
-        connect "Power Calculation.D" From34 as Connection410
-        [
-            breakpoints = 9144, 7140; 9136, 7140
-        ]
-        connect "Power Calculation.L" Constant16.out as Connection411
-        [
-            breakpoints = 9160, 7172; 9136, 7172; 9136, 7224
-        ]
-        connect From36 Sum4.in1 as Connection230
-        connect Sum4.out "PID controller4.in" as Connection231
-        connect V_out_ref_dab.out Sum4.in as Connection237
         connect sw_Rect_DAB.out Junction36 as Connection412
         connect Junction36 "Signal switch1.in2" as Connection413
         connect Goto28 Junction36 as Connection414
-        connect From37 "PID controller4.reset" as Connection415
-        connect "PID controller4.out" Junction37 as Connection416
-        connect Junction37 Goto25 as Connection417
-        connect out_PI.in Junction37 as Connection418
         connect Constant17.out "Signal switch2.in1" as Connection419
         [
             hide_name = True
