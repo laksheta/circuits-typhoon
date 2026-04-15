@@ -93,7 +93,7 @@ model "adjusted_sst" {
             unit = ""
         }
         [
-            position = 8400, 7256
+            position = 7080, 7080
         ]
 
         component "core/Constant" Constant13 {
@@ -2121,7 +2121,7 @@ P = I_out * V_out;
             connect out_PI.in Junction37 as Connection418
         }
         [
-            position = 7268, 7264
+            position = 7324, 7260
             size = 168, 232
         ]
 
@@ -3434,6 +3434,15 @@ P = I_out * V_out;
             size = 32, 32
         ]
 
+        component "core/Single Pole Single Throw Contactor" S3 {
+            ctrl_src = "Model"
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 7132, 7164
+            size = 64, 32
+        ]
+
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -3465,7 +3474,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8516, 7256
+            position = 7196, 7080
             hide_name = True
             size = 60, 20
         ]
@@ -3532,7 +3541,7 @@ P = I_out * V_out;
 
         junction Junction36 sp
         [
-            position = 8452, 7256
+            position = 7132, 7080
         ]
 
         junction Junction43 sp
@@ -3590,7 +3599,6 @@ P = I_out * V_out;
         connect Vs1.n_node gnd1.node as Connection4
         connect "Signal switch1.out" Goto22 as Connection392
         connect sw_Rect_DAB.out Junction36 as Connection412
-        connect Junction36 "Signal switch1.in2" as Connection413
         connect Goto28 Junction36 as Connection414
         connect Constant17.out "Signal switch2.in1" as Connection419
         [
@@ -3623,6 +3631,10 @@ P = I_out * V_out;
         connect Vs1.a_node Rectifier.A as Connection505
         connect Vs1.b_node Rectifier.B as Connection506
         connect Vs1.c_node Rectifier.C as Connection507
+        connect S3.a_in Rectifier.V_out_rect+ as Connection508
+        connect S3.a_out DAB.V_in_dab+ as Connection509
+        connect Rectifier.V_out_rect- DAB.V_in_dab- as Connection510
+        connect S3.ctrl_in Junction36 as Connection511
     }
 
     logically_deleted {
@@ -3843,6 +3855,29 @@ P = I_out * V_out;
 
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
+        }
+
+        "core/Single Pole Single Throw Contactor" {
+            signal_access = "inherit"
+            switches_option = "False"
+            resistance = "1.0"
+            ctrl_src = "Digital input"
+            ctrl_mode = "switch"
+            Sa = "1"
+            Sa_logic = "active high"
+            pwm_enabling = "False"
+            pwm_enable_di = "13"
+            pwm_enable_inv = "active high"
+            enable_fb_out = "False"
+            fb_out_type = "real"
+            execution_rate = "inherit"
+            dtsm_switch_name = ""
+            dtsm_switch_ctrl = ""
+            initial_state = "off"
+            on_delay = "0"
+            off_delay = "0"
+            switching = "any current"
+            hide_int_meas = "False"
         }
 
         "core/Three Phase Voltage Source" {
