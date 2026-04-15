@@ -3413,15 +3413,6 @@ P = I_out * V_out;
             size = 64, 256
         ]
 
-        component "core/Rate Transition" "Rate Transition33" {
-            execution_rate = "T_plant_inv"
-        }
-        [
-            position = 7844, 7092
-            hide_name = True
-            size = 32, 32
-        ]
-
         component "core/Double Pole Single Throw Contactor" S4 {
             ctrl_src = "Model"
             execution_rate = "T_math_dab"
@@ -3456,6 +3447,16 @@ P = I_out * V_out;
         [
             position = 7440, 7268
             size = 64, 256
+        ]
+
+        component "core/SCADA Input" sw_grid {
+            execution_rate = "T_math_inv"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7832, 7080
         ]
 
         tag From31 {
@@ -3538,18 +3539,6 @@ P = I_out * V_out;
         }
         [
             position = 8064, 7100
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From53 {
-            value = "reset_signal"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7776, 7092
             hide_name = True
             size = 60, 20
         ]
@@ -3656,8 +3645,6 @@ P = I_out * V_out;
         connect S1.a_out "Grid Measurement.A+" as Connection496
         connect S1.b_out "Grid Measurement.B+" as Connection497
         connect S1.c_out "Grid Measurement.C+" as Connection498
-        connect "Rate Transition33.out" S1.ctrl_in as Connection502
-        connect From53 "Rate Transition33.in" as Connection503
         connect Vs1.a_node Rectifier.A as Connection505
         connect Vs1.b_node Rectifier.B as Connection506
         connect Vs1.c_node Rectifier.C as Connection507
@@ -3686,6 +3673,7 @@ P = I_out * V_out;
         connect S1.a_in Inverter.A as Connection540
         connect Inverter.B S1.b_in as Connection541
         connect S1.c_in Inverter.C as Connection542
+        connect sw_grid.out S1.ctrl_in as Connection543
     }
 
     logically_deleted {
