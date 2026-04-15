@@ -575,6 +575,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             component "core/Capacitor" C1 {
                 capacitance = "C_out_rect"
+                initial_voltage = "780"
             }
             [
                 position = 7480, 8152
