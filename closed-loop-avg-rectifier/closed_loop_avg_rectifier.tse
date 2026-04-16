@@ -433,7 +433,7 @@ out[0] = fmax(0.0, i_dc_raw);
         component "core/Meter Split" "Meter Split1" {
         }
         [
-            position = 9304, 7616
+            position = 9000, 7744
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -445,7 +445,7 @@ out[0] = fmax(0.0, i_dc_raw);
             inputs = "3"
         }
         [
-            position = 9428, 7616
+            position = 9124, 7744
             hide_name = True
         ]
 
@@ -646,7 +646,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 9216, 7616
+            position = 8912, 7744
             hide_name = True
             size = 32, 32
         ]
@@ -889,7 +889,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9512, 7616
+            position = 9208, 7744
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -1184,11 +1184,39 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 9128, 7616
+            position = 8824, 7744
             rotation = down
             hide_name = True
             scale = -1, 1
             size = 116, 20
+        ]
+
+        tag Goto14 {
+            value = "d"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9040, 7564
+            rotation = down
+            hide_name = True
+            scale = -1, 1
+            size = 60, 20
+        ]
+
+        tag Goto15 {
+            value = "q"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9040, 7588
+            rotation = down
+            hide_name = True
+            scale = -1, 1
+            size = 60, 20
         ]
 
         junction Junction1 pe
@@ -1419,11 +1447,11 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From15 "Bus Join3.in2" as Connection255
         connect "Bus Join1.in" "Meter Split1.VAn" as Connection256
         [
-            breakpoints = 9368, 7608
+            breakpoints = 9064, 7736
         ]
         connect "Bus Join1.in2" "Meter Split1.VCn" as Connection257
         [
-            breakpoints = 9380, 7632
+            breakpoints = 9076, 7760
         ]
         connect Goto7 Junction28 as Connection290
         connect Junction28 "abc to dq.d_axis" as Connection291
@@ -1474,6 +1502,8 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition15.out" Sum1.in1 as Connection343
         connect From12 "Rate Transition16.in" as Connection344
         connect "Rate Transition16.out" Sum3.in1 as Connection345
+        connect Goto14 "Three phase PLL.d_axis" as Connection346
+        connect Goto15 "Three phase PLL.q_axis" as Connection347
     }
 
     default {
