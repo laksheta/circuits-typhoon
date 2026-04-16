@@ -829,6 +829,27 @@ out[0] = fmax(0.0, i_dc_raw);
             hide_name = True
         ]
 
+        component "core/Constant" Constant8 {
+            execution_rate = "T_meas"
+            value = "0"
+        }
+        [
+            position = 8356, 8460
+            hide_name = True
+        ]
+
+        component "core/Probe" cek_d {
+        }
+        [
+            position = 8608, 8320
+        ]
+
+        component "core/Probe" cek_q {
+        }
+        [
+            position = 8608, 8296
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -1405,6 +1426,21 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8504, 8220
         ]
 
+        junction Junction37 sp
+        [
+            position = 8408, 8416
+        ]
+
+        junction Junction38 sp
+        [
+            position = 8572, 8356
+        ]
+
+        junction Junction39 sp
+        [
+            position = 8560, 8400
+        ]
+
         scheme_area Area1 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
         }
@@ -1602,8 +1638,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Constant4.out "Rate Transition10.in" as Connection333
         connect V_out_error.in "Rate Transition11.out" as Connection334
         connect "Rate Transition11.in" Junction24 as Connection335
-        connect "Rate Transition12.out" "dq to abc1.d_input" as Connection337
-        connect "dq to abc1.q_input" "Rate Transition13.out" as Connection338
         connect From10 "Rate Transition14.in" as Connection340
         connect "Rate Transition14.out" Sum2.in1 as Connection341
         connect From9 "Rate Transition15.in" as Connection342
@@ -1613,8 +1647,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Signal switch1.in" From6 as Connection348
         connect "Signal switch2.out" "Rate Transition13.in" as Connection350
         connect "Signal switch1.out" "Rate Transition12.in" as Connection352
-        connect From22 "Signal switch2.in1" as Connection354
-        connect From21 "Signal switch1.in1" as Connection355
         connect From11 "Signal switch2.in" as Connection356
         connect Rect_on_off.out Junction31 as Connection358
         connect Junction31 "Signal switch1.in2" as Connection359
@@ -1653,6 +1685,21 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Goto16 Junction36 as Connection377
         connect Junction36 Junction32 as Connection378
         connect Goto11 Junction36 as Connection379
+        connect "Signal switch1.in1" Junction37 as Connection381
+        [
+            breakpoints = 8408, 8320
+        ]
+        connect Junction37 Constant8.out as Connection382
+        [
+            breakpoints = 8408, 8460
+        ]
+        connect "Signal switch2.in1" Junction37 as Connection383
+        connect "Rate Transition12.out" Junction38 as Connection384
+        connect Junction38 "dq to abc1.d_input" as Connection385
+        connect cek_d.in Junction38 as Connection386
+        connect "dq to abc1.q_input" Junction39 as Connection387
+        connect Junction39 "Rate Transition13.out" as Connection388
+        connect cek_q.in Junction39 as Connection389
     }
 
     logically_deleted {
