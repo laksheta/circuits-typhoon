@@ -788,22 +788,6 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
-        component "core/Signal switch" "Signal switch1" {
-            execution_rate = "T_controller"
-        }
-        [
-            position = 8452, 8304
-            hide_name = True
-        ]
-
-        component "core/Signal switch" "Signal switch2" {
-            execution_rate = "T_controller"
-        }
-        [
-            position = 8452, 8400
-            hide_name = True
-        ]
-
         component "core/SCADA Input" Rect_on_off {
             execution_rate = "T_controller"
             max = "1"
@@ -1421,16 +1405,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8004, 8516
         ]
 
-        junction Junction31 sp
-        [
-            position = 8452, 8220
-        ]
-
-        junction Junction32 sp
-        [
-            position = 8484, 8220
-        ]
-
         junction Junction33 sp
         [
             position = 8820, 7828
@@ -1663,20 +1637,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition15.out" Sum1.in1 as Connection343
         connect From12 "Rate Transition16.in" as Connection344
         connect "Rate Transition16.out" Sum3.in1 as Connection345
-        connect "Signal switch1.in" From6 as Connection348
-        connect "Signal switch2.out" "Rate Transition13.in" as Connection350
-        connect "Signal switch1.out" "Rate Transition12.in" as Connection352
-        connect From11 "Signal switch2.in" as Connection356
-        connect Rect_on_off.out Junction31 as Connection358
-        connect Junction31 "Signal switch1.in2" as Connection359
-        connect "Signal switch2.in2" Junction32 as Connection361
-        [
-            breakpoints = 8452, 8348; 8484, 8348; 8484, 8284; 8484, 8284
-        ]
-        connect Junction32 Junction31 as Connection362
-        [
-            breakpoints = 8484, 8220
-        ]
         connect "Signal switch3.out" Junction33 as Connection365
         connect Junction33 Goto3 as Connection366
         connect i_dc.in Junction33 as Connection367
@@ -1702,7 +1662,6 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 8720, 8060; 8600, 8060
         ]
         connect Goto16 Junction36 as Connection377
-        connect Junction36 Junction32 as Connection378
         connect Goto11 Junction36 as Connection379
         connect "Rate Transition12.out" Junction38 as Connection384
         connect Junction38 "dq to abc1.d_input" as Connection385
@@ -1712,9 +1671,10 @@ out[0] = fmax(0.0, i_dc_raw);
         connect cek_q.in Junction39 as Connection389
         connect Q.in "Meter Split1.POWER_Q" as Connection390
         connect "Meter Split1.POWER_P" P.in as Connection391
-        connect From22 "Signal switch2.in1" as Connection392
-        connect "Signal switch1.in1" From21 as Connection393
         connect Vdc_set.out Sum3.in as Connection394
+        connect Junction36 Rect_on_off.out as Connection396
+        connect From6 "Rate Transition12.in" as Connection397
+        connect "Rate Transition13.in" From11 as Connection398
     }
 
     logically_deleted {
