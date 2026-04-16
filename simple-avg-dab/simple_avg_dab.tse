@@ -1,7 +1,7 @@
 version = 4.2
 
 //
-// Saved by sw version: 2025.4
+// Saved by sw version: 2026.1 SP1
 //
 
 model "simple_avg_dab" {
@@ -9,7 +9,7 @@ model "simple_avg_dab" {
         hil_device = "VHIL+"
         hil_configuration_id = 1
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -374,7 +374,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8612, 7984
+            position = 8584, 7988
             hide_name = True
             size = 60, 20
         ]
@@ -386,7 +386,7 @@ model "simple_avg_dab" {
             direction = out
         }
         [
-            position = 8612, 8056
+            position = 8584, 8060
             hide_name = True
             size = 60, 20
         ]
@@ -577,10 +577,8 @@ model "simple_avg_dab" {
         connect Goto2 i_L.out as Connection23
         connect "V_2\'.in" Junction6 as Connection24
         connect Goto3 Junction6 as Connection26
-        connect From2 Product1.in1 as Connection34
         connect Junction6 "Rate Transition1.out" as Connection36
         connect Junction5 "Rate Transition2.out" as Connection38
-        connect From1 Product1.in as Connection40
         connect R_load.out Product3.in1 as Connection53
         connect Sum1.out Gain1.in as Connection55
         connect Sum1.in Junction8 as Connection57
@@ -630,6 +628,8 @@ model "simple_avg_dab" {
         connect "Square Wave Source2.out" Product5.in1 as Connection93
         connect From8 "Rate Transition5.in" as Connection94
         connect "Rate Transition5.out" Product5.in as Connection95
+        connect From2 Product1.in1 as Connection96
+        connect Product1.in From1 as Connection97
     }
 
     default {
@@ -643,7 +643,7 @@ model "simple_avg_dab" {
         "core/Gain" {
             gain = "1"
             multiplication = "Element-wise(K.*u)"
-            tml_file = "gen_gain"
+            force_tml = "True"
             _tunable = "False"
             execution_rate = "inherit"
         }
@@ -666,6 +666,8 @@ model "simple_avg_dab" {
             limit_lower = "-inf"
             show_state = "False"
             state_port_type = "inherit"
+            tml_file = "gen_accumulator_integrator"
+            mode = "integrator"
             execution_rate = "inherit"
         }
 
