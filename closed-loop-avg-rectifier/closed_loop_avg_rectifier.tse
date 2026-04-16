@@ -238,7 +238,7 @@ model "closed_loop_avg_rectifier" {
             value = "u_d"
         }
         [
-            position = 8528, 8208
+            position = 8636, 8228
             hide_name = True
         ]
 
@@ -247,7 +247,7 @@ model "closed_loop_avg_rectifier" {
             value = "u_q"
         }
         [
-            position = 8528, 8240
+            position = 8636, 8260
             hide_name = True
         ]
 
@@ -484,7 +484,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 8716, 7764
+            position = 8820, 7784
             rotation = left
         ]
 
@@ -812,6 +812,23 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8404, 8220
         ]
 
+        component "core/Signal switch" "Signal switch3" {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8772, 7828
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant7 {
+            execution_rate = "T_meas"
+            value = "0"
+        }
+        [
+            position = 8712, 7844
+            hide_name = True
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -967,7 +984,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8780, 7800
+            position = 8876, 7828
             hide_name = True
             size = 60, 20
         ]
@@ -1269,6 +1286,30 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
+        tag Goto16 {
+            value = "sig_on_off"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8556, 8220
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From23 {
+            value = "sig_on_off"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8720, 7768
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8804, 8564
@@ -1309,11 +1350,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 7736, 7876
         ]
 
-        junction Junction8 sp
-        [
-            position = 8716, 7800
-        ]
-
         junction Junction10 sp
         [
             position = 8588, 7644
@@ -1342,6 +1378,16 @@ out[0] = fmax(0.0, i_dc_raw);
         junction Junction31 sp
         [
             position = 8452, 8220
+        ]
+
+        junction Junction32 sp
+        [
+            position = 8484, 8220
+        ]
+
+        junction Junction33 sp
+        [
+            position = 8820, 7828
         ]
 
         scheme_area Area1 {
@@ -1458,9 +1504,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction7 Junction6 as Connection104
         connect C1.p_node Junction7 as Connection105
         connect "C function1.out" "Bus Split2.in" as Connection106
-        connect i_dc.in Junction8 as Connection108
-        connect Junction8 "Bus Split2.out" as Connection109
-        connect Goto3 Junction8 as Connection110
         connect "Bus Join4.out" Goto4 as Connection113
         connect "Meter Split2.VAn" "Bus Join4.in" as Connection114
         connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
@@ -1568,10 +1611,24 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From11 "Signal switch2.in" as Connection356
         connect Rect_on_off.out Junction31 as Connection358
         connect Junction31 "Signal switch1.in2" as Connection359
-        connect "Signal switch2.in2" Junction31 as Connection360
+        connect "Signal switch2.in2" Junction32 as Connection361
         [
-            breakpoints = 8452, 8348; 8484, 8348; 8484, 8284; 8484, 8284; 8484, 8220
+            breakpoints = 8452, 8348; 8484, 8348; 8484, 8284; 8484, 8284
         ]
+        connect Junction32 Junction31 as Connection362
+        [
+            breakpoints = 8484, 8220
+        ]
+        connect Goto16 Junction32 as Connection363
+        connect "Signal switch3.out" Junction33 as Connection365
+        connect Junction33 Goto3 as Connection366
+        connect i_dc.in Junction33 as Connection367
+        connect "Signal switch3.in" "Bus Split2.out" as Connection368
+        [
+            breakpoints = 8740, 7800; 8692, 7800
+        ]
+        connect Constant7.out "Signal switch3.in1" as Connection369
+        connect From23 "Signal switch3.in2" as Connection370
     }
 
     default {
