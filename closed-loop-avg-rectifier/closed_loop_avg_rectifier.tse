@@ -290,7 +290,7 @@ model "closed_loop_avg_rectifier" {
             unit = ""
         }
         [
-            position = 7428, 8492
+            position = 7420, 8228
         ]
 
         component "core/Sum" Sum1 {
@@ -379,7 +379,7 @@ model "closed_loop_avg_rectifier" {
             value = "V_dc_target"
         }
         [
-            position = 7412, 8340
+            position = 7560, 8220
             hide_name = True
         ]
 
@@ -794,7 +794,14 @@ out[0] = fmax(0.0, i_dc_raw);
             unit = ""
         }
         [
-            position = 7412, 8284
+            position = 7364, 8276
+        ]
+
+        component "core/Signal switch" "Signal switch1" {
+        }
+        [
+            position = 7464, 8320
+            hide_name = True
         ]
 
         tag From5 {
@@ -1515,7 +1522,6 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             breakpoints = 8720, 8060; 8600, 8060
         ]
-        connect Vdc_set.out Sum3.in as Connection394
         connect "Rate Transition12.out" "dq to abc1.d_input" as Connection399
         [
             breakpoints = 8484, 8352
@@ -1532,6 +1538,8 @@ out[0] = fmax(0.0, i_dc_raw);
             breakpoints = 8712, 7800
         ]
         connect "Bus Split2.out" Junction36 as Connection406
+        connect "Signal switch1.out" Sum3.in as Connection407
+        connect Vdc_set.out "Signal switch1.in" as Connection408
     }
 
     logically_deleted {
@@ -1661,6 +1669,12 @@ out[0] = fmax(0.0, i_dc_raw);
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
+        }
+
+        "core/Signal switch" {
+            criterion = "ctrl > threshold"
+            threshold = "0.5"
+            execution_rate = "inherit"
         }
 
         "core/Sum" {
