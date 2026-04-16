@@ -283,7 +283,7 @@ model "closed_loop_avg_rectifier" {
             position = 8204, 8356
         ]
 
-        component "core/SCADA Input" reset_sig {
+        component "core/SCADA Input" Rect_on_off {
             execution_rate = "T_controller"
             max = "1"
             min = "0"
@@ -798,9 +798,19 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Signal switch" "Signal switch1" {
+            execution_rate = "T_controller"
         }
         [
             position = 7464, 8320
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant7 {
+            execution_rate = "T_meas"
+            value = "0"
+        }
+        [
+            position = 7364, 8344
             hide_name = True
         ]
 
@@ -1540,10 +1550,8 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Bus Split2.out" Junction36 as Connection406
         connect "Signal switch1.out" Sum3.in as Connection407
         connect Vdc_set.out "Signal switch1.in" as Connection408
-    }
-
-    logically_deleted {
-        "reset_sig"
+        connect Rect_on_off.out "Signal switch1.in2" as Connection409
+        connect Constant7.out "Signal switch1.in1" as Connection410
     }
 
     default {
