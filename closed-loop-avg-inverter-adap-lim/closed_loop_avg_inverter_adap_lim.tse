@@ -789,7 +789,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
 
         component "core/SCADA Input" Inv_on_off {
-            execution_rate = "T_controller"
+            execution_rate = "T_math"
             max = "1"
             min = "0"
             unit = ""
