@@ -59,16 +59,15 @@ K_i_dab      = K_p_dab/tau_dab
 #################
 #################
 
-exec_meas_rect   = 1e-6
-exec_sine_rect   = 1e-6
-exec_controller_rect = 1e-6
+
+T_plant_rect = 50e-6
+T_meas_rect   = 100e-6
+T_controller_rect = 100e-6
 
 V_grid_peak_rect = 220*np.sqrt(2)
 V_grid_rms_rect  = 220
 F_rect           = 50
 omega_rect       = 2*np.pi*F_rect
-
-f_sw_rect        = 50e3
 
 R_rect           = 1e-1
 L_rect           = 1e-3
@@ -96,10 +95,10 @@ m_rect = U_rect_amp_rect / V_dc_target_rect
 phase_rect = [0+delta_rect, -120+delta_rect, 120+delta_rect]
 phase_3ph_rect    = delta_rect
 
-V_rect_rect = m_rect*V_dc_target_rect
+V_rect = m_rect*V_dc_target_rect
 
 # Controller
-f_bw_i_rect      = f_sw_rect*0.1
+f_bw_i_rect      = 1e3
 omega_ci_rect    = 2*np.pi*f_bw_i_rect
 Kp_i_rect        = omega_ci_rect * L_rect
 Ki_i_rect        = omega_ci_rect * R_rect
