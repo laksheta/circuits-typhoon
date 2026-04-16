@@ -1241,7 +1241,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9040, 7564
+            position = 8768, 7960
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -1255,7 +1255,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9040, 7588
+            position = 8768, 7984
             rotation = down
             hide_name = True
             scale = -1, 1
@@ -1388,6 +1388,16 @@ out[0] = fmax(0.0, i_dc_raw);
         junction Junction33 sp
         [
             position = 8820, 7828
+        ]
+
+        junction Junction34 sp
+        [
+            position = 8600, 7956
+        ]
+
+        junction Junction35 sp
+        [
+            position = 8600, 8012
         ]
 
         scheme_area Area1 {
@@ -1532,14 +1542,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Bus Split5.out2" "abc to dq1.vc" as Connection266
         connect "abc to dq1.wt" From13 as Connection267
         connect From14 "Bus Split5.in" as Connection239
-        connect "abc to dq1.q_axis" V_q.in as Connection241
-        [
-            breakpoints = 8600, 7980
-        ]
         connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
         connect "Bus Join2.in" "Meter Split2.IA" as Connection244
         connect "Meter Split2.IB" "Bus Join2.in1" as Connection245
-        connect V_d.in "abc to dq1.d_axis" as Connection246
         connect V_out.out Goto10 as Connection247
         connect Junction4 Junction11 as Connection249
         connect Junction11 Junction5 as Connection250
@@ -1601,8 +1606,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition15.out" Sum1.in1 as Connection343
         connect From12 "Rate Transition16.in" as Connection344
         connect "Rate Transition16.out" Sum3.in1 as Connection345
-        connect Goto14 "Three phase PLL.d_axis" as Connection346
-        connect Goto15 "Three phase PLL.q_axis" as Connection347
         connect "Signal switch1.in" From6 as Connection348
         connect "Signal switch2.out" "Rate Transition13.in" as Connection350
         connect "Signal switch1.out" "Rate Transition12.in" as Connection352
@@ -1629,6 +1632,21 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
         connect Constant7.out "Signal switch3.in1" as Connection369
         connect From23 "Signal switch3.in2" as Connection370
+        connect V_d.in Junction34 as Connection371
+        connect Junction34 "abc to dq1.d_axis" as Connection372
+        connect Goto14 Junction34 as Connection373
+        [
+            breakpoints = 8672, 7936; 8600, 7936
+        ]
+        connect "abc to dq1.q_axis" Junction35 as Connection374
+        [
+            breakpoints = 8600, 7980
+        ]
+        connect Junction35 V_q.in as Connection375
+        connect Goto15 Junction35 as Connection376
+        [
+            breakpoints = 8720, 8060; 8600, 8060
+        ]
     }
 
     default {
