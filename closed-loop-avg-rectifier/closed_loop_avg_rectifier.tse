@@ -1235,6 +1235,18 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
+        tag Goto16 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 7520, 8272
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
             position = 8716, 8560
@@ -1313,6 +1325,11 @@ out[0] = fmax(0.0, i_dc_raw);
         junction Junction36 sp
         [
             position = 8712, 7800
+        ]
+
+        junction Junction37 sp
+        [
+            position = 7464, 8272
         ]
 
         scheme_area Area1 {
@@ -1550,8 +1567,10 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Bus Split2.out" Junction36 as Connection406
         connect "Signal switch1.out" Sum3.in as Connection407
         connect Vdc_set.out "Signal switch1.in" as Connection408
-        connect Rect_on_off.out "Signal switch1.in2" as Connection409
         connect Constant7.out "Signal switch1.in1" as Connection410
+        connect Rect_on_off.out Junction37 as Connection411
+        connect Junction37 "Signal switch1.in2" as Connection412
+        connect Goto16 Junction37 as Connection413
     }
 
     default {
