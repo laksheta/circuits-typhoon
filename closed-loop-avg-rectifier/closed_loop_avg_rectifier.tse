@@ -238,7 +238,7 @@ model "closed_loop_avg_rectifier" {
             value = "u_d"
         }
         [
-            position = 8352, 8208
+            position = 8528, 8208
             hide_name = True
         ]
 
@@ -247,7 +247,7 @@ model "closed_loop_avg_rectifier" {
             value = "u_q"
         }
         [
-            position = 8352, 8240
+            position = 8528, 8240
             hide_name = True
         ]
 
@@ -800,6 +800,16 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             position = 8452, 8400
             hide_name = True
+        ]
+
+        component "core/SCADA Input" Rect_on_off {
+            execution_rate = "T_controller"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8404, 8220
         ]
 
         tag From5 {
@@ -1551,6 +1561,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From22 "Signal switch2.in1" as Connection354
         connect From21 "Signal switch1.in1" as Connection355
         connect From11 "Signal switch2.in" as Connection356
+        connect Rect_on_off.out "Signal switch1.in2" as Connection357
     }
 
     default {
