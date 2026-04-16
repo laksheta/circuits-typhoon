@@ -486,7 +486,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 8820, 7784
+            position = 8712, 7756
             rotation = left
         ]
 
@@ -788,23 +788,6 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
-        component "core/Signal switch" "Signal switch3" {
-            execution_rate = "T_meas"
-        }
-        [
-            position = 8772, 7828
-            hide_name = True
-        ]
-
-        component "core/Constant" Constant7 {
-            execution_rate = "T_meas"
-            value = "0"
-        }
-        [
-            position = 8712, 7844
-            hide_name = True
-        ]
-
         component "core/Probe" Q {
         }
         [
@@ -983,7 +966,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8876, 7828
+            position = 8768, 7800
             hide_name = True
             size = 60, 20
         ]
@@ -1249,18 +1232,6 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
-        tag From23 {
-            value = "sig_on_off"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 8720, 7768
-            hide_name = True
-            size = 60, 20
-        ]
-
         junction Junction1 pe
         [
             position = 8716, 8560
@@ -1326,11 +1297,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8004, 8516
         ]
 
-        junction Junction33 sp
-        [
-            position = 8820, 7828
-        ]
-
         junction Junction34 sp
         [
             position = 8600, 7956
@@ -1339,6 +1305,11 @@ out[0] = fmax(0.0, i_dc_raw);
         junction Junction35 sp
         [
             position = 8600, 8012
+        ]
+
+        junction Junction36 sp
+        [
+            position = 8712, 7800
         ]
 
         scheme_area Area1 {
@@ -1543,15 +1514,6 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition15.out" Sum1.in1 as Connection343
         connect From12 "Rate Transition16.in" as Connection344
         connect "Rate Transition16.out" Sum3.in1 as Connection345
-        connect "Signal switch3.out" Junction33 as Connection365
-        connect Junction33 Goto3 as Connection366
-        connect i_dc.in Junction33 as Connection367
-        connect "Signal switch3.in" "Bus Split2.out" as Connection368
-        [
-            breakpoints = 8740, 7800; 8692, 7800
-        ]
-        connect Constant7.out "Signal switch3.in1" as Connection369
-        connect From23 "Signal switch3.in2" as Connection370
         connect V_d.in Junction34 as Connection371
         connect Junction34 "abc to dq1.d_axis" as Connection372
         connect Goto14 Junction34 as Connection373
@@ -1580,6 +1542,12 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
         connect From6 "Rate Transition12.in" as Connection401
         connect From11 "Rate Transition13.in" as Connection402
+        connect Goto3 Junction36 as Connection404
+        connect Junction36 i_dc.in as Connection405
+        [
+            breakpoints = 8712, 7800
+        ]
+        connect "Bus Split2.out" Junction36 as Connection406
     }
 
     logically_deleted {
@@ -1709,12 +1677,6 @@ out[0] = fmax(0.0, i_dc_raw);
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
-        }
-
-        "core/Signal switch" {
-            criterion = "ctrl > threshold"
-            threshold = "0.5"
-            execution_rate = "inherit"
         }
 
         "core/Sum" {
