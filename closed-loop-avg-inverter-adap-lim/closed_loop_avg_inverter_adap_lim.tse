@@ -1050,6 +1050,30 @@ model "closed_loop_avg_inverter_adap_lim" {
             size = 60, 20
         ]
 
+        tag Goto13 {
+            value = "d"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8248, 7660
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto14 {
+            value = "q"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8248, 7700
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9132, 8288
@@ -1271,6 +1295,8 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect "Rate Transition6.in" Junction20 as Connection262
         connect Goto6 "Rate Transition7.out" as Connection263
         connect "Rate Transition7.in" Junction21 as Connection264
+        connect Goto13 "Three phase PLL.d_axis" as Connection265
+        connect Goto14 "Three phase PLL.q_axis" as Connection266
     }
 
     default {
