@@ -83,7 +83,7 @@ model "closed_loop_avg_rectifier" {
             init_rms_value = "V_grid_rms"
         }
         [
-            position = 9440, 8356
+            position = 9528, 8368
             hide_name = True
             scale = -1, 1
             size = 62, 256
@@ -93,7 +93,7 @@ model "closed_loop_avg_rectifier" {
             inductance = "L"
         }
         [
-            position = 9176, 8260
+            position = 9264, 8272
             hide_name = True
         ]
 
@@ -101,7 +101,7 @@ model "closed_loop_avg_rectifier" {
             inductance = "L"
         }
         [
-            position = 9176, 8356
+            position = 9264, 8368
             hide_name = True
         ]
 
@@ -109,14 +109,14 @@ model "closed_loop_avg_rectifier" {
             inductance = "L"
         }
         [
-            position = 9176, 8452
+            position = 9264, 8464
             hide_name = True
         ]
 
         component "core/Ground" gnd1 {
         }
         [
-            position = 9520, 8420
+            position = 9608, 8432
             hide_name = True
         ]
 
@@ -124,7 +124,7 @@ model "closed_loop_avg_rectifier" {
             resistance = "R"
         }
         [
-            position = 9064, 8260
+            position = 9152, 8272
             hide_name = True
         ]
 
@@ -132,7 +132,7 @@ model "closed_loop_avg_rectifier" {
             resistance = "R"
         }
         [
-            position = 9064, 8356
+            position = 9152, 8368
             hide_name = True
         ]
 
@@ -140,7 +140,7 @@ model "closed_loop_avg_rectifier" {
             resistance = "R"
         }
         [
-            position = 9064, 8452
+            position = 9152, 8464
             hide_name = True
         ]
 
@@ -148,7 +148,7 @@ model "closed_loop_avg_rectifier" {
             execution_rate = "T_plant"
         }
         [
-            position = 8664, 8300
+            position = 8752, 8312
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -159,7 +159,7 @@ model "closed_loop_avg_rectifier" {
             execution_rate = "T_plant"
         }
         [
-            position = 8716, 8396
+            position = 8804, 8408
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -170,7 +170,7 @@ model "closed_loop_avg_rectifier" {
             execution_rate = "T_plant"
         }
         [
-            position = 8768, 8508
+            position = 8856, 8520
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -180,7 +180,7 @@ model "closed_loop_avg_rectifier" {
         component "core/Ground" gnd2 {
         }
         [
-            position = 8716, 8584
+            position = 8804, 8596
             hide_name = True
         ]
 
@@ -188,7 +188,7 @@ model "closed_loop_avg_rectifier" {
             Ts = "T_meas"
         }
         [
-            position = 9288, 8356
+            position = 9376, 8368
             scale = -1, 1
             size = 56, 240
         ]
@@ -196,7 +196,7 @@ model "closed_loop_avg_rectifier" {
         component "core/Ground" gnd3 {
         }
         [
-            position = 9288, 8528
+            position = 9376, 8540
             hide_name = True
         ]
 
@@ -204,14 +204,14 @@ model "closed_loop_avg_rectifier" {
             Ts = "T_meas"
         }
         [
-            position = 8940, 8356
+            position = 9028, 8368
             size = 56, 240
         ]
 
         component "core/Ground" gnd5 {
         }
         [
-            position = 8940, 8528
+            position = 9028, 8540
             hide_name = True
         ]
 
@@ -219,7 +219,7 @@ model "closed_loop_avg_rectifier" {
             execution_rate = "T_meas"
         }
         [
-            position = 8524, 8396
+            position = 8612, 8408
             hide_name = True
             size = 48, 80
         ]
@@ -229,7 +229,7 @@ model "closed_loop_avg_rectifier" {
             value = "0"
         }
         [
-            position = 8368, 8404
+            position = 8512, 8460
             hide_name = True
         ]
 
@@ -238,7 +238,7 @@ model "closed_loop_avg_rectifier" {
             value = "u_d"
         }
         [
-            position = 8364, 8252
+            position = 8352, 8208
             hide_name = True
         ]
 
@@ -247,7 +247,7 @@ model "closed_loop_avg_rectifier" {
             value = "u_q"
         }
         [
-            position = 8364, 8284
+            position = 8352, 8240
             hide_name = True
         ]
 
@@ -664,7 +664,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant"
         }
         [
-            position = 8596, 8344
+            position = 8684, 8356
             hide_name = True
             size = 32, 32
         ]
@@ -673,7 +673,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant"
         }
         [
-            position = 8596, 8396
+            position = 8684, 8408
             hide_name = True
             size = 32, 32
         ]
@@ -682,7 +682,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_plant"
         }
         [
-            position = 8596, 8456
+            position = 8684, 8468
             hide_name = True
             size = 32, 32
         ]
@@ -745,7 +745,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 8448, 8340
+            position = 8532, 8356
             hide_name = True
             size = 32, 32
         ]
@@ -754,7 +754,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 8448, 8384
+            position = 8532, 8400
             hide_name = True
             size = 32, 32
         ]
@@ -786,6 +786,22 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 32, 32
         ]
 
+        component "core/Signal switch" "Signal switch1" {
+            execution_rate = "T_controller"
+        }
+        [
+            position = 8452, 8304
+            hide_name = True
+        ]
+
+        component "core/Signal switch" "Signal switch2" {
+            execution_rate = "T_controller"
+        }
+        [
+            position = 8452, 8400
+            hide_name = True
+        ]
+
         tag From5 {
             value = "theta"
             scope = local
@@ -793,7 +809,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8364, 8440
+            position = 8508, 8496
             hide_name = True
             size = 60, 20
         ]
@@ -817,7 +833,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8364, 8340
+            position = 8356, 8288
             hide_name = True
             size = 60, 20
         ]
@@ -865,7 +881,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8364, 8364
+            position = 8356, 8384
             hide_name = True
             size = 60, 20
         ]
@@ -1147,7 +1163,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9364, 8204
+            position = 9452, 8216
             hide_name = True
             size = 108, 20
         ]
@@ -1171,7 +1187,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 8844, 8204
+            position = 8932, 8216
             rotation = down
             hide_name = True
             size = 116, 20
@@ -1219,9 +1235,33 @@ out[0] = fmax(0.0, i_dc_raw);
             size = 60, 20
         ]
 
+        tag From21 {
+            value = "d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8356, 8320
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From22 {
+            value = "q"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8356, 8416
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction1 pe
         [
-            position = 8716, 8552
+            position = 8804, 8564
         ]
 
         junction Junction12 sp
@@ -1312,8 +1352,8 @@ out[0] = fmax(0.0, i_dc_raw);
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">AC Side</p></body></html>
         }
         [
-            position = 8940, 8384
-            size = 1268, 492
+            position = 8992, 8380
+            size = 1372, 484
             background_color = #0effaa00
             box_outline = True
         ]
@@ -1336,7 +1376,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Junction1 gnd2.node as Connection13
         connect Vsp1.n_node Junction1 as Connection15
         [
-            breakpoints = 8664, 8552; 8716, 8552
+            breakpoints = 8752, 8564; 8804, 8564
         ]
         connect L1.n_node "Grid Meter.A-" as Connection21
         connect "Grid Meter.A+" Vs1.a_node as Connection22
@@ -1353,7 +1393,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rectifier Meter.C-" R3.p_node as Connection56
         connect Vsp3.n_node Junction1 as Connection60
         [
-            breakpoints = 8764, 8552
+            breakpoints = 8852, 8564
         ]
         connect gnd5.node "Rectifier Meter.GND" as Connection61
         connect "Rectifier Meter.C+" Vsp3.p_node as Connection63
@@ -1361,6 +1401,9 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Vsp1.p_node "Rectifier Meter.A+" as Connection65
         connect From5 "dq to abc1.wt" as Connection122
         connect Constant1.out "dq to abc1.zero_input" as Connection123
+        [
+            breakpoints = 8564, 8460; 8564, 8416
+        ]
         connect Constant5.out Sum2.in as Connection152
         connect Sum1.out Junction12 as Connection158
         connect Junction12 "PID controller1.in" as Connection159
@@ -1492,10 +1535,8 @@ out[0] = fmax(0.0, i_dc_raw);
         connect Constant4.out "Rate Transition10.in" as Connection333
         connect V_out_error.in "Rate Transition11.out" as Connection334
         connect "Rate Transition11.in" Junction24 as Connection335
-        connect From6 "Rate Transition12.in" as Connection336
         connect "Rate Transition12.out" "dq to abc1.d_input" as Connection337
         connect "dq to abc1.q_input" "Rate Transition13.out" as Connection338
-        connect "Rate Transition13.in" From11 as Connection339
         connect From10 "Rate Transition14.in" as Connection340
         connect "Rate Transition14.out" Sum2.in1 as Connection341
         connect From9 "Rate Transition15.in" as Connection342
@@ -1504,6 +1545,12 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "Rate Transition16.out" Sum3.in1 as Connection345
         connect Goto14 "Three phase PLL.d_axis" as Connection346
         connect Goto15 "Three phase PLL.q_axis" as Connection347
+        connect "Signal switch1.in" From6 as Connection348
+        connect "Signal switch2.out" "Rate Transition13.in" as Connection350
+        connect "Signal switch1.out" "Rate Transition12.in" as Connection352
+        connect From22 "Signal switch2.in1" as Connection354
+        connect From21 "Signal switch1.in1" as Connection355
+        connect From11 "Signal switch2.in" as Connection356
     }
 
     default {
@@ -1629,6 +1676,12 @@ out[0] = fmax(0.0, i_dc_raw);
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
+        }
+
+        "core/Signal switch" {
+            criterion = "ctrl > threshold"
+            threshold = "0.5"
+            execution_rate = "inherit"
         }
 
         "core/Sum" {
