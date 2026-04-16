@@ -294,7 +294,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
         }
         [
-            position = 7532, 8184
+            position = 7496, 8200
             size = 48, 80
         ]
 
@@ -303,7 +303,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "u_d"
         }
         [
-            position = 7168, 8084
+            position = 6896, 8088
             hide_name = True
         ]
 
@@ -312,7 +312,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "u_q"
         }
         [
-            position = 7168, 8152
+            position = 6896, 8156
             hide_name = True
         ]
 
@@ -321,7 +321,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "0"
         }
         [
-            position = 7356, 8232
+            position = 7412, 8208
             hide_name = True
         ]
 
@@ -332,7 +332,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             kp = "Kp_i"
         }
         [
-            position = 7100, 8116
+            position = 6828, 8120
         ]
 
         component "core/PID controller" PI_i_q {
@@ -342,14 +342,14 @@ model "closed_loop_avg_inverter_adap_lim" {
             kp = "Kp_i"
         }
         [
-            position = 7100, 8184
+            position = 6828, 8188
         ]
 
         component "core/Bus Join" "Bus Join3" {
             execution_rate = "T_math"
         }
         [
-            position = 7252, 8104
+            position = 6980, 8108
             hide_name = True
         ]
 
@@ -357,7 +357,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
         }
         [
-            position = 7252, 8176
+            position = 6980, 8180
             hide_name = True
         ]
 
@@ -366,7 +366,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             signs = "+-"
         }
         [
-            position = 6984, 8116
+            position = 6712, 8120
             hide_name = True
         ]
 
@@ -375,7 +375,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             signs = "+-"
         }
         [
-            position = 6984, 8184
+            position = 6712, 8188
             hide_name = True
         ]
 
@@ -384,21 +384,21 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "0"
         }
         [
-            position = 6800, 8176
+            position = 6528, 8180
             hide_name = True
         ]
 
         component "core/Probe" u_d {
         }
         [
-            position = 7420, 8032
+            position = 7428, 7996
             rotation = left
         ]
 
         component "core/Probe" u_q {
         }
         [
-            position = 7460, 8072
+            position = 7496, 7996
             rotation = left
         ]
 
@@ -412,7 +412,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 6796, 8088
+            position = 6524, 8092
         ]
 
         component "core/Gain" Gain1 {
@@ -420,7 +420,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             gain = "0.5"
         }
         [
-            position = 7228, 7944
+            position = 6956, 7948
             hide_name = True
         ]
 
@@ -429,7 +429,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             gain = "-0.5"
         }
         [
-            position = 7228, 7984
+            position = 6956, 7988
             hide_name = True
         ]
 
@@ -438,7 +438,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             signal_indexes = "[1]"
         }
         [
-            position = 7348, 8104
+            position = 7076, 8108
             hide_name = True
         ]
 
@@ -447,7 +447,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             signal_indexes = "[1]"
         }
         [
-            position = 7348, 8176
+            position = 7076, 8180
             hide_name = True
         ]
 
@@ -704,7 +704,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 7136, 7964
+            position = 6864, 7968
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
@@ -738,7 +738,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_meas"
         }
         [
-            position = 7420, 8076
+            position = 7428, 8040
             rotation = left
             hide_name = True
             size = 32, 32
@@ -748,7 +748,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_meas"
         }
         [
-            position = 7460, 8120
+            position = 7496, 8044
             rotation = left
             hide_name = True
             size = 32, 32
@@ -770,6 +770,32 @@ model "closed_loop_avg_inverter_adap_lim" {
             position = 8640, 7760
             hide_name = True
             size = 32, 32
+        ]
+
+        component "core/Signal switch" "Signal switch1" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7360, 8080
+            hide_name = True
+        ]
+
+        component "core/Signal switch" "Signal switch2" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7360, 8176
+            hide_name = True
+        ]
+
+        component "core/SCADA Input" Inv_on_off {
+            execution_rate = "T_controller"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7312, 7996
         ]
 
         tag From1 {
@@ -851,7 +877,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7436, 8224
+            position = 7412, 8252
             hide_name = True
             size = 60, 20
         ]
@@ -887,7 +913,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 6868, 8144
+            position = 6596, 8148
             hide_name = True
             size = 60, 20
         ]
@@ -899,7 +925,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 6868, 8212
+            position = 6596, 8216
             hide_name = True
             size = 60, 20
         ]
@@ -911,7 +937,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7324, 7944
+            position = 7052, 7948
             hide_name = True
             size = 60, 20
         ]
@@ -923,7 +949,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7324, 7984
+            position = 7052, 7988
             hide_name = True
             size = 60, 20
         ]
@@ -935,7 +961,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7620, 8160
+            position = 7584, 8176
             hide_name = True
             size = 60, 20
         ]
@@ -947,7 +973,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7620, 8184
+            position = 7584, 8200
             hide_name = True
             size = 60, 20
         ]
@@ -959,7 +985,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7620, 8208
+            position = 7584, 8224
             hide_name = True
             size = 60, 20
         ]
@@ -1074,6 +1100,30 @@ model "closed_loop_avg_inverter_adap_lim" {
             size = 60, 20
         ]
 
+        tag From21 {
+            value = "d"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7264, 8096
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From22 {
+            value = "q"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7264, 8192
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9132, 8288
@@ -1087,16 +1137,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         junction Junction4 pe
         [
             position = 8264, 8352
-        ]
-
-        junction Junction13 sp
-        [
-            position = 7460, 8176
-        ]
-
-        junction Junction14 sp
-        [
-            position = 7420, 8104
         ]
 
         junction Junction15 sp
@@ -1121,7 +1161,7 @@ model "closed_loop_avg_inverter_adap_lim" {
 
         junction Junction19 sp
         [
-            position = 7192, 7964
+            position = 6920, 7968
         ]
 
         junction Junction20 sp
@@ -1132,6 +1172,21 @@ model "closed_loop_avg_inverter_adap_lim" {
         junction Junction21 sp
         [
             position = 8600, 7748
+        ]
+
+        junction Junction31 sp
+        [
+            position = 7360, 7996
+        ]
+
+        junction Junction32 sp
+        [
+            position = 7428, 8080
+        ]
+
+        junction Junction33 sp
+        [
+            position = 7456, 8192
         ]
 
         scheme_area Area1 {
@@ -1158,8 +1213,8 @@ model "closed_loop_avg_inverter_adap_lim" {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
         }
         [
-            position = 7204, 8068
-            size = 944, 428
+            position = 7068, 8140
+            size = 1216, 572
             background_color = #0e55ff00
             box_outline = True
         ]
@@ -1219,10 +1274,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
         connect From5 "dq to abc.wt" as Connection124
-        connect Constant3.out "dq to abc.zero_input" as Connection131
-        [
-            breakpoints = 7388, 8216; 7388, 8192
-        ]
         connect Constant1.out "Bus Join3.in" as Connection136
         connect PI_i_d.out "Bus Join3.in1" as Connection137
         connect Constant2.out "Bus Join4.in" as Connection138
@@ -1234,22 +1285,12 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Constant4.out Sum2.in as Connection151
         connect scada_i_d.out Sum1.in as Connection168
         [
-            breakpoints = 6932, 8088; 6932, 8108
+            breakpoints = 6660, 8092; 6660, 8112
         ]
         connect Gain1.out Goto7 as Connection179
         connect Goto8 Gain2.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
         connect "Bus Selector2.in" "Bus Join4.out" as Connection207
-        connect Junction13 "dq to abc.q_input" as Connection209
-        [
-            breakpoints = 7460, 8176
-        ]
-        connect "Bus Selector2.out" Junction13 as Connection210
-        connect Junction14 "dq to abc.d_input" as Connection212
-        [
-            breakpoints = 7420, 8104
-        ]
-        connect "Bus Selector1.out" Junction14 as Connection213
         connect "dq to abc.phase_a" Goto9 as Connection214
         connect "dq to abc.phase_b" Goto10 as Connection215
         connect "dq to abc.phase_c" Goto11 as Connection216
@@ -1281,9 +1322,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Adap_Limiter_2.Out "Rate Transition3.in" as Connection247
         connect "Rate Transition3.out" Vsp3.in as Connection248
         connect u_d.in "Rate Transition4.out" as Connection249
-        connect "Rate Transition4.in" Junction14 as Connection250
         connect u_q.in "Rate Transition5.out" as Connection251
-        connect "Rate Transition5.in" Junction13 as Connection252
         connect Junction20 "abc to dq.d_axis" as Connection255
         connect i_d.in Junction20 as Connection256
         [
@@ -1297,6 +1336,35 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect "Rate Transition7.in" Junction21 as Connection264
         connect Goto13 "Three phase PLL.d_axis" as Connection265
         connect Goto14 "Three phase PLL.q_axis" as Connection266
+        connect From22 "Signal switch2.in1" as Connection354
+        connect From21 "Signal switch1.in1" as Connection355
+        connect Inv_on_off.out Junction31 as Connection358
+        connect Junction31 "Signal switch1.in2" as Connection359
+        connect "Signal switch2.in2" Junction31 as Connection360
+        [
+            breakpoints = 7360, 8124; 7392, 8124; 7392, 8060; 7392, 8060; 7392, 7996
+        ]
+        connect Constant3.out "dq to abc.zero_input" as Connection363
+        connect "Signal switch1.out" Junction32 as Connection366
+        connect Junction32 "dq to abc.d_input" as Connection367
+        [
+            breakpoints = 7444, 8080; 7444, 8176
+        ]
+        connect "Rate Transition4.in" Junction32 as Connection368
+        connect "Signal switch2.out" Junction33 as Connection369
+        [
+            breakpoints = 7436, 8176; 7436, 8192
+        ]
+        connect Junction33 "dq to abc.q_input" as Connection370
+        connect "Rate Transition5.in" Junction33 as Connection371
+        connect "Bus Selector1.out" "Signal switch1.in" as Connection372
+        [
+            breakpoints = 7132, 8108; 7132, 8064
+        ]
+        connect "Bus Selector2.out" "Signal switch2.in" as Connection373
+        [
+            breakpoints = 7132, 8180; 7132, 8160
+        ]
     }
 
     default {
@@ -1396,6 +1464,12 @@ model "closed_loop_avg_inverter_adap_lim" {
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
+        }
+
+        "core/Signal switch" {
+            criterion = "ctrl > threshold"
+            threshold = "0.5"
+            execution_rate = "inherit"
         }
 
         "core/Sum" {
