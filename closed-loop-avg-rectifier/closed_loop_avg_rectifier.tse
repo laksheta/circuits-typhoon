@@ -1339,6 +1339,11 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 8004, 8516
         ]
 
+        junction Junction31 sp
+        [
+            position = 8452, 8220
+        ]
+
         scheme_area Area1 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
         }
@@ -1561,7 +1566,12 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From22 "Signal switch2.in1" as Connection354
         connect From21 "Signal switch1.in1" as Connection355
         connect From11 "Signal switch2.in" as Connection356
-        connect Rect_on_off.out "Signal switch1.in2" as Connection357
+        connect Rect_on_off.out Junction31 as Connection358
+        connect Junction31 "Signal switch1.in2" as Connection359
+        connect "Signal switch2.in2" Junction31 as Connection360
+        [
+            breakpoints = 8452, 8348; 8484, 8348; 8484, 8284; 8484, 8284; 8484, 8220
+        ]
     }
 
     default {
