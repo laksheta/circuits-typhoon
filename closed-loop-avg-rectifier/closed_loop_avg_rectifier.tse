@@ -431,8 +431,6 @@ out[0] = fmax(0.0, i_dc_raw);
         ]
 
         component "core/Meter Split" "Meter Split1" {
-            power_p = "True"
-            power_q = "True"
         }
         [
             position = 9000, 7744
@@ -786,18 +784,6 @@ out[0] = fmax(0.0, i_dc_raw);
             position = 7444, 8392
             hide_name = True
             size = 32, 32
-        ]
-
-        component "core/Probe" Q {
-        }
-        [
-            position = 9112, 7640
-        ]
-
-        component "core/Probe" P {
-        }
-        [
-            position = 9152, 7660
         ]
 
         component "core/SCADA Input" Vdc_set {
@@ -1529,8 +1515,6 @@ out[0] = fmax(0.0, i_dc_raw);
         [
             breakpoints = 8720, 8060; 8600, 8060
         ]
-        connect Q.in "Meter Split1.POWER_Q" as Connection390
-        connect "Meter Split1.POWER_P" P.in as Connection391
         connect Vdc_set.out Sum3.in as Connection394
         connect "Rate Transition12.out" "dq to abc1.d_input" as Connection399
         [
