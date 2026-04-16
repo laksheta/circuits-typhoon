@@ -558,7 +558,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "3"
         }
         [
-            position = 8824, 7696
+            position = 8440, 7636
             hide_name = True
         ]
 
@@ -566,7 +566,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 9008, 7628
+            position = 8624, 7568
         ]
 
         component "core/Three phase PLL" "Three phase PLL" {
@@ -584,7 +584,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 8908, 7704
+            position = 8524, 7644
             hide_name = True
             size = 48, 80
         ]
@@ -593,7 +593,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 9008, 7752
+            position = 8624, 7692
         ]
 
         component "core/Bus Split" "Bus Split5" {
@@ -601,7 +601,7 @@ out[0] = fmax(0.0, i_dc_raw);
             outputs = "3"
         }
         [
-            position = 8824, 7912
+            position = 8452, 7972
             hide_name = True
         ]
 
@@ -609,14 +609,14 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 9012, 7896
+            position = 8640, 7956
         ]
 
         component "core/abc to dq" "abc to dq1" {
             execution_rate = "T_meas"
         }
         [
-            position = 8908, 7920
+            position = 8536, 7980
             hide_name = True
             size = 48, 80
         ]
@@ -625,7 +625,7 @@ out[0] = fmax(0.0, i_dc_raw);
             execution_rate = "T_meas"
         }
         [
-            position = 9012, 7952
+            position = 8640, 8012
         ]
 
         component "core/Ground" gnd6 {
@@ -1003,7 +1003,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8820, 7752
+            position = 8436, 7692
             hide_name = True
             size = 60, 20
         ]
@@ -1015,7 +1015,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8736, 7696
+            position = 8352, 7636
             hide_name = True
             size = 60, 20
         ]
@@ -1027,7 +1027,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9028, 7680
+            position = 8644, 7620
             hide_name = True
             size = 60, 20
         ]
@@ -1039,7 +1039,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = in
         }
         [
-            position = 9028, 7704
+            position = 8644, 7644
             hide_name = True
             size = 60, 20
         ]
@@ -1051,7 +1051,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8820, 7968
+            position = 8448, 8028
             hide_name = True
             size = 60, 20
         ]
@@ -1063,7 +1063,7 @@ out[0] = fmax(0.0, i_dc_raw);
             direction = out
         }
         [
-            position = 8736, 7912
+            position = 8364, 7972
             hide_name = True
             size = 60, 20
         ]
@@ -1238,7 +1238,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction10 sp
         [
-            position = 8972, 7704
+            position = 8588, 7644
         ]
 
         junction Junction11 pe
@@ -1248,7 +1248,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
         junction Junction28 sp
         [
-            position = 8972, 7680
+            position = 8588, 7620
         ]
 
         junction Junction29 sp
@@ -1394,7 +1394,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect "abc to dq.q_axis" Junction10 as Connection225
         connect Junction10 Goto8 as Connection262
         [
-            breakpoints = 8988, 7704
+            breakpoints = 8604, 7644
         ]
         connect i_q.in Junction10 as Connection263
         connect From8 "Bus Split4.in" as Connection264
@@ -1405,7 +1405,7 @@ out[0] = fmax(0.0, i_dc_raw);
         connect From14 "Bus Split5.in" as Connection239
         connect "abc to dq1.q_axis" V_q.in as Connection241
         [
-            breakpoints = 8972, 7920
+            breakpoints = 8600, 7980
         ]
         connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
         connect "Bus Join2.in" "Meter Split2.IA" as Connection244
