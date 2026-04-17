@@ -82,7 +82,7 @@ model "new_closed_loop_avg_dab" {
             execution_rate = "T_meas"
         }
         [
-            position = 8776, 8028
+            position = 8864, 8060
         ]
 
         component "core/Constant" Constant2 {
@@ -90,7 +90,7 @@ model "new_closed_loop_avg_dab" {
             value = "n"
         }
         [
-            position = 8504, 8024
+            position = 8592, 8060
             hide_name = True
         ]
 
@@ -99,7 +99,7 @@ model "new_closed_loop_avg_dab" {
             value = "fsw"
         }
         [
-            position = 8504, 8168
+            position = 8592, 8204
             hide_name = True
         ]
 
@@ -111,7 +111,7 @@ model "new_closed_loop_avg_dab" {
             unit = ""
         }
         [
-            position = 8276, 8088
+            position = 8668, 8408
         ]
 
         component "core/C function" "Power Calculation" {
@@ -140,7 +140,7 @@ P = I_out * V_out;
 /*End code section*/"
         }
         [
-            position = 8640, 8120
+            position = 8728, 8156
             size = 48, 128
         ]
 
@@ -149,7 +149,7 @@ P = I_out * V_out;
             value = "L"
         }
         [
-            position = 8504, 8212
+            position = 8592, 8244
             hide_name = True
         ]
 
@@ -157,7 +157,7 @@ P = I_out * V_out;
             execution_rate = "T_plant"
         }
         [
-            position = 8944, 8120
+            position = 9096, 8088
             rotation = right
             hide_name = True
             scale = -1, 1
@@ -168,7 +168,7 @@ P = I_out * V_out;
             capacitance = "C"
         }
         [
-            position = 9040, 8124
+            position = 9192, 8096
             rotation = right
             hide_name = True
         ]
@@ -177,7 +177,7 @@ P = I_out * V_out;
             resistance = "R_load"
         }
         [
-            position = 9136, 8124
+            position = 9288, 8096
             rotation = right
             hide_name = True
         ]
@@ -187,7 +187,7 @@ P = I_out * V_out;
             sig_output = "True"
         }
         [
-            position = 9240, 8124
+            position = 9392, 8096
             rotation = right
             size = 64, 32
         ]
@@ -195,7 +195,7 @@ P = I_out * V_out;
         component "core/Ground" gnd6 {
         }
         [
-            position = 9096, 8220
+            position = 9248, 8192
             hide_name = True
         ]
 
@@ -203,7 +203,7 @@ P = I_out * V_out;
             execution_rate = "T_meas"
         }
         [
-            position = 8768, 8212
+            position = 8856, 8244
         ]
 
         component "core/PID controller" "PID controller1" {
@@ -217,7 +217,7 @@ P = I_out * V_out;
             show_reset = "rising"
         }
         [
-            position = 8896, 8336
+            position = 9256, 8356
             hide_name = True
         ]
 
@@ -226,7 +226,7 @@ P = I_out * V_out;
             signs = "+-"
         }
         [
-            position = 8808, 8328
+            position = 9168, 8348
             hide_name = True
         ]
 
@@ -237,7 +237,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8640, 8320
+            position = 9000, 8340
         ]
 
         component "core/SCADA Input" reset_PI {
@@ -247,7 +247,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8808, 8400
+            position = 9168, 8420
         ]
 
         tag Goto4 {
@@ -257,7 +257,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8744, 8076
+            position = 8832, 8108
             hide_name = True
             size = 60, 20
         ]
@@ -269,7 +269,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8368, 8088
+            position = 8760, 8408
             hide_name = True
             size = 60, 20
         ]
@@ -281,7 +281,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8504, 8064
+            position = 8592, 8100
             hide_name = True
             size = 60, 20
         ]
@@ -293,7 +293,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8504, 8100
+            position = 8592, 8132
             hide_name = True
             size = 60, 20
         ]
@@ -305,7 +305,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9016, 8336
+            position = 9376, 8356
             hide_name = True
             size = 60, 20
         ]
@@ -317,7 +317,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8504, 8128
+            position = 8592, 8164
             hide_name = True
             size = 60, 20
         ]
@@ -329,7 +329,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9320, 8124
+            position = 9472, 8096
             hide_name = True
             size = 60, 20
         ]
@@ -341,7 +341,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8848, 8120
+            position = 9000, 8088
             hide_name = True
             size = 60, 20
         ]
@@ -353,7 +353,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8744, 8164
+            position = 8832, 8196
             hide_name = True
             size = 60, 20
         ]
@@ -365,65 +365,105 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8704, 8376
+            position = 9064, 8396
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction4 pe
         [
-            position = 9040, 8188
+            position = 9192, 8160
         ]
 
         junction Junction5 pe
         [
-            position = 9136, 8188
+            position = 9288, 8160
         ]
 
         junction Junction6 pe
         [
-            position = 9136, 8060
+            position = 9288, 8032
         ]
 
         junction Junction7 pe
         [
-            position = 9040, 8060
+            position = 9192, 8032
         ]
 
         junction Junction12 pe
         [
-            position = 9096, 8188
+            position = 9248, 8160
         ]
 
         junction Junction14 sp
         [
-            position = 8696, 8076
+            position = 8784, 8108
         ]
 
         junction Junction22 sp
         [
-            position = 8704, 8164
+            position = 8792, 8196
+        ]
+
+        scheme_area Area4 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
+        }
+        [
+            position = 9240, 8096
+            size = 568, 256
+            background_color = #0eff5500
+            box_outline = True
+        ]
+
+        scheme_area Area3 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Input</p></body></html>
+        }
+        [
+            position = 8716, 8392
+            size = 188, 144
+            background_color = #0eff0000
+            box_outline = True
+        ]
+
+        scheme_area Area2 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Power Calculation</p></body></html>
+        }
+        [
+            position = 8720, 8132
+            size = 372, 332
+            background_color = #0eaa00ff
+            box_outline = True
+        ]
+
+        scheme_area Area1 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
+        }
+        [
+            position = 9192, 8364
+            size = 468, 216
+            background_color = #0e0000ff
+            box_outline = True
         ]
 
         connect V_in.out Goto6 as Connection99
         connect Isp1.n_node Junction4 as Connection94
         [
-            breakpoints = 8944, 8188
+            breakpoints = 9096, 8160
         ]
         connect C1.n_node Junction4 as Connection96
         connect Junction5 V_out.n_node as Connection98
         [
-            breakpoints = 9240, 8188
+            breakpoints = 9392, 8160
         ]
         connect R4.n_node Junction5 as Connection110
         connect Junction6 V_out.p_node as Connection111
         [
-            breakpoints = 9240, 8060
+            breakpoints = 9392, 8032
         ]
         connect R4.p_node Junction6 as Connection112
         connect Isp1.p_node Junction7 as Connection113
         [
-            breakpoints = 8944, 8060
+            breakpoints = 9096, 8032
         ]
         connect Junction7 Junction6 as Connection114
         connect C1.p_node Junction7 as Connection115
@@ -438,32 +478,32 @@ P = I_out * V_out;
         connect Goto11 Junction22 as Connection293
         connect Junction22 "Power Calculation.I_out" as Connection294
         [
-            breakpoints = 8704, 8164; 8680, 8164
+            breakpoints = 8792, 8196; 8768, 8196
         ]
         connect I_out.in Junction22 as Connection295
         connect From8 "Power Calculation.V_in" as Connection298
         [
-            breakpoints = 8592, 8064; 8592, 8096
+            breakpoints = 8680, 8100; 8680, 8132
         ]
         connect "Power Calculation.n" Constant2.out as Connection301
         [
-            breakpoints = 8600, 8024
+            breakpoints = 8688, 8060
         ]
         connect Constant3.out "Power Calculation.fsw" as Connection296
         [
-            breakpoints = 8560, 8168; 8560, 8144; 8592, 8144
+            breakpoints = 8648, 8204; 8648, 8180; 8680, 8180
         ]
         connect "Power Calculation.V_out" From9 as Connection299
         [
-            breakpoints = 8600, 8100; 8552, 8100
+            breakpoints = 8688, 8132; 8640, 8132
         ]
         connect "Power Calculation.D" From10 as Connection297
         [
-            breakpoints = 8584, 8128; 8576, 8128
+            breakpoints = 8672, 8164; 8664, 8164
         ]
         connect "Power Calculation.L" Constant4.out as Connection300
         [
-            breakpoints = 8600, 8160; 8576, 8160; 8576, 8212
+            breakpoints = 8688, 8196; 8664, 8196; 8664, 8244
         ]
         connect From13 Sum2.in1 as Connection230
         connect Sum2.out "PID controller1.in" as Connection231
