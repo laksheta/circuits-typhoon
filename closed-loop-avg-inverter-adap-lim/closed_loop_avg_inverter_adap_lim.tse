@@ -406,7 +406,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 6524, 8092
+            position = 6532, 8064
         ]
 
         component "core/Gain" Gain1 {
@@ -770,7 +770,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
         }
         [
-            position = 6628, 8016
+            position = 6628, 8088
             hide_name = True
         ]
 
@@ -781,7 +781,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 6564, 8004
+            position = 6568, 8000
         ]
 
         component "core/Meter Split" "Meter Split1" {
@@ -1223,6 +1223,11 @@ model "closed_loop_avg_inverter_adap_lim" {
             position = 7236, 8136
         ]
 
+        junction Junction24 sp
+        [
+            position = 6556, 8180
+        ]
+
         scheme_area Area1 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
@@ -1315,11 +1320,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect Sum2.out PI_i_q.in as Connection141
         connect From6 Sum1.in1 as Connection148
         connect From7 Sum2.in1 as Connection149
-        connect Constant4.out Sum2.in as Connection151
-        connect scada_i_d.out Sum1.in as Connection168
-        [
-            breakpoints = 6660, 8092; 6660, 8112
-        ]
         connect Gain1.out Goto7 as Connection179
         connect Goto8 Gain2.out as Connection180
         connect "Bus Join3.out" "Bus Selector1.in" as Connection203
@@ -1408,6 +1408,15 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
         connect Junction23 "dq to abc.q_input" as Connection391
         connect "Rate Transition5.in" Junction23 as Connection392
+        connect "Signal switch1.out" Sum1.in as Connection393
+        connect scada_i_d.out "Signal switch1.in" as Connection394
+        connect Constant4.out Junction24 as Connection395
+        connect Junction24 Sum2.in as Connection396
+        connect "Signal switch1.in1" Junction24 as Connection397
+        [
+            breakpoints = 6556, 8104; 6556, 8180
+        ]
+        connect Inv_on_off.out "Signal switch1.in2" as Connection398
     }
 
     default {
