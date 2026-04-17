@@ -231,6 +231,7 @@ P = I_out * V_out;
         ]
 
         component "core/SCADA Input" V_out_ref {
+            def_value = "780"
             execution_rate = "T_math"
             max = "1000"
             min = "0"
@@ -382,7 +383,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9052, 8532
+            position = 9044, 8508
             hide_name = True
             size = 60, 20
         ]
@@ -395,6 +396,18 @@ P = I_out * V_out;
         }
         [
             position = 9148, 8348
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From14 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 9156, 8536
             hide_name = True
             size = 60, 20
         ]
@@ -548,6 +561,7 @@ P = I_out * V_out;
         connect V_out_ref.out "Signal switch1.in" as Connection402
         connect Constant5.out "Signal switch1.in1" as Connection403
         connect "Signal switch1.out" Sum2.in as Connection404
+        connect From14 "PID controller1.reset" as Connection405
     }
 
     default {
