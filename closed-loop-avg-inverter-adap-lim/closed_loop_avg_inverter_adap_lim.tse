@@ -324,6 +324,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
             ki = "Ki_i"
             kp = "Kp_i"
+            show_reset = "rising"
         }
         [
             position = 6828, 8120
@@ -334,6 +335,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
             ki = "Ki_i"
             kp = "Kp_i"
+            show_reset = "rising"
         }
         [
             position = 6828, 8188
@@ -1163,6 +1165,30 @@ model "closed_loop_avg_inverter_adap_lim" {
             size = 68, 20
         ]
 
+        tag Goto18 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 6700, 8000
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From24 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 6732, 8064
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9132, 8288
@@ -1226,6 +1252,16 @@ model "closed_loop_avg_inverter_adap_lim" {
         junction Junction24 sp
         [
             position = 6556, 8180
+        ]
+
+        junction Junction25 sp
+        [
+            position = 6628, 8000
+        ]
+
+        junction Junction26 sp
+        [
+            position = 6776, 8128
         ]
 
         scheme_area Area1 {
@@ -1416,7 +1452,12 @@ model "closed_loop_avg_inverter_adap_lim" {
         [
             breakpoints = 6556, 8104; 6556, 8180
         ]
-        connect Inv_on_off.out "Signal switch1.in2" as Connection398
+        connect Inv_on_off.out Junction25 as Connection399
+        connect Junction25 "Signal switch1.in2" as Connection400
+        connect Goto18 Junction25 as Connection401
+        connect PI_i_d.reset Junction26 as Connection403
+        connect Junction26 From24 as Connection404
+        connect PI_i_q.reset Junction26 as Connection405
     }
 
     default {
