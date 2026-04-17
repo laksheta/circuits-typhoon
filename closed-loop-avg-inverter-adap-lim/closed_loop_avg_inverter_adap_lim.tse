@@ -288,7 +288,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
         }
         [
-            position = 7404, 8220
+            position = 7304, 8216
             size = 48, 80
         ]
 
@@ -315,7 +315,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "0"
         }
         [
-            position = 7320, 8228
+            position = 7220, 8224
             hide_name = True
         ]
 
@@ -385,14 +385,14 @@ model "closed_loop_avg_inverter_adap_lim" {
         component "core/Probe" u_d {
         }
         [
-            position = 7336, 8016
+            position = 7236, 7988
             rotation = left
         ]
 
         component "core/Probe" u_q {
         }
         [
-            position = 7404, 8016
+            position = 7304, 7988
             rotation = left
         ]
 
@@ -732,7 +732,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_meas"
         }
         [
-            position = 7336, 8060
+            position = 7236, 8032
             rotation = left
             hide_name = True
             size = 32, 32
@@ -742,7 +742,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_meas"
         }
         [
-            position = 7404, 8064
+            position = 7304, 8036
             rotation = left
             hide_name = True
             size = 32, 32
@@ -770,15 +770,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
         }
         [
-            position = 7268, 8100
-            hide_name = True
-        ]
-
-        component "core/Signal switch" "Signal switch2" {
-            execution_rate = "T_math"
-        }
-        [
-            position = 7268, 8196
+            position = 6628, 8016
             hide_name = True
         ]
 
@@ -789,7 +781,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             unit = ""
         }
         [
-            position = 7220, 8016
+            position = 6564, 8004
         ]
 
         component "core/Meter Split" "Meter Split1" {
@@ -899,7 +891,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7320, 8272
+            position = 7220, 8268
             hide_name = True
             size = 60, 20
         ]
@@ -983,7 +975,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7492, 8196
+            position = 7392, 8192
             hide_name = True
             size = 60, 20
         ]
@@ -995,7 +987,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7492, 8220
+            position = 7392, 8216
             hide_name = True
             size = 60, 20
         ]
@@ -1007,7 +999,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7492, 8244
+            position = 7392, 8240
             hide_name = True
             size = 60, 20
         ]
@@ -1122,30 +1114,6 @@ model "closed_loop_avg_inverter_adap_lim" {
             size = 60, 20
         ]
 
-        tag From21 {
-            value = "d"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7172, 8116
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag From22 {
-            value = "q"
-            scope = local
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7172, 8212
-            hide_name = True
-            size = 60, 20
-        ]
-
         tag Goto15 {
             value = "out_Inv_meter"
             scope = local
@@ -1243,21 +1211,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         junction Junction21 sp
         [
             position = 8420, 7756
-        ]
-
-        junction Junction31 sp
-        [
-            position = 7268, 8016
-        ]
-
-        junction Junction32 sp
-        [
-            position = 7336, 8100
-        ]
-
-        junction Junction33 sp
-        [
-            position = 7364, 8212
         ]
 
         scheme_area Area1 {
@@ -1407,35 +1360,7 @@ model "closed_loop_avg_inverter_adap_lim" {
         connect "Rate Transition7.in" Junction21 as Connection264
         connect Goto13 "Three phase PLL.d_axis" as Connection265
         connect Goto14 "Three phase PLL.q_axis" as Connection266
-        connect From22 "Signal switch2.in1" as Connection354
-        connect From21 "Signal switch1.in1" as Connection355
-        connect Inv_on_off.out Junction31 as Connection358
-        connect Junction31 "Signal switch1.in2" as Connection359
-        connect "Signal switch2.in2" Junction31 as Connection360
-        [
-            breakpoints = 7268, 8144; 7300, 8144; 7300, 8080; 7300, 8080; 7300, 8016
-        ]
         connect Constant3.out "dq to abc.zero_input" as Connection363
-        connect "Signal switch1.out" Junction32 as Connection366
-        connect Junction32 "dq to abc.d_input" as Connection367
-        [
-            breakpoints = 7352, 8100; 7352, 8196
-        ]
-        connect "Rate Transition4.in" Junction32 as Connection368
-        connect "Signal switch2.out" Junction33 as Connection369
-        [
-            breakpoints = 7344, 8196; 7344, 8212
-        ]
-        connect Junction33 "dq to abc.q_input" as Connection370
-        connect "Rate Transition5.in" Junction33 as Connection371
-        [
-            breakpoints = 7364, 8088; 7364, 8212
-        ]
-        connect "Bus Selector1.out" "Signal switch1.in" as Connection372
-        [
-            breakpoints = 7124, 8108; 7124, 8084
-        ]
-        connect "Bus Selector2.out" "Signal switch2.in" as Connection373
         connect Goto15 "Inverter Measurement.Out" as Connection374
         connect From23 "Meter Split1.Input" as Connection375
         connect "Bus Join5.in" "Meter Split1.VAn" as Connection376
