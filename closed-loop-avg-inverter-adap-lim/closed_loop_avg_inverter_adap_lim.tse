@@ -1124,6 +1124,19 @@ model "closed_loop_avg_inverter_adap_lim" {
             size = 60, 20
         ]
 
+        tag Goto15 {
+            value = "out_Inv_meter"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8504, 7964
+            rotation = down
+            hide_name = True
+            size = 92, 20
+        ]
+
         junction Junction2 pe
         [
             position = 9132, 8288
@@ -1365,6 +1378,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             breakpoints = 7124, 8108; 7124, 8084
         ]
         connect "Bus Selector2.out" "Signal switch2.in" as Connection373
+        connect Goto15 "Inverter Measurement.Out" as Connection374
     }
 
     default {
