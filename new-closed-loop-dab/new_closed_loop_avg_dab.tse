@@ -217,7 +217,7 @@ P = I_out * V_out;
             show_reset = "rising"
         }
         [
-            position = 9256, 8356
+            position = 9244, 8492
             hide_name = True
         ]
 
@@ -226,7 +226,7 @@ P = I_out * V_out;
             signs = "+-"
         }
         [
-            position = 9168, 8348
+            position = 9156, 8484
             hide_name = True
         ]
 
@@ -237,17 +237,34 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 9000, 8340
+            position = 8996, 8420
         ]
 
-        component "core/SCADA Input" reset_PI {
+        component "core/Signal switch" "Signal switch1" {
+            execution_rate = "T_math"
+        }
+        [
+            position = 9076, 8436
+            hide_name = True
+        ]
+
+        component "core/SCADA Input" DAB_on_off {
             execution_rate = "T_math"
             max = "1"
             min = "0"
             unit = ""
         }
         [
-            position = 9168, 8420
+            position = 9016, 8348
+        ]
+
+        component "core/Constant" Constant5 {
+            execution_rate = "T_math"
+            value = "0"
+        }
+        [
+            position = 8996, 8476
+            hide_name = True
         ]
 
         tag Goto4 {
@@ -305,7 +322,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 9376, 8356
+            position = 9364, 8492
             hide_name = True
             size = 60, 20
         ]
@@ -365,7 +382,19 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 9064, 8396
+            position = 9052, 8532
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto18 {
+            value = "reset"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 9148, 8348
             hide_name = True
             size = 60, 20
         ]
@@ -405,6 +434,11 @@ P = I_out * V_out;
             position = 8792, 8196
         ]
 
+        junction Junction25 sp
+        [
+            position = 9076, 8348
+        ]
+
         scheme_area Area4 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
         }
@@ -439,7 +473,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Controller</p></body></html>
         }
         [
-            position = 9192, 8364
+            position = 9672, 8416
             size = 468, 216
             background_color = #0e0000ff
             box_outline = True
@@ -507,9 +541,13 @@ P = I_out * V_out;
         ]
         connect From13 Sum2.in1 as Connection230
         connect Sum2.out "PID controller1.in" as Connection231
-        connect V_out_ref.out Sum2.in as Connection237
-        connect reset_PI.out "PID controller1.reset" as Connection238
         connect "PID controller1.out" Goto7 as Connection302
+        connect DAB_on_off.out Junction25 as Connection399
+        connect Junction25 "Signal switch1.in2" as Connection400
+        connect Goto18 Junction25 as Connection401
+        connect V_out_ref.out "Signal switch1.in" as Connection402
+        connect Constant5.out "Signal switch1.in1" as Connection403
+        connect "Signal switch1.out" Sum2.in as Connection404
     }
 
     default {
@@ -616,6 +654,12 @@ P = I_out * V_out;
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
+        }
+
+        "core/Signal switch" {
+            criterion = "ctrl > threshold"
+            threshold = "0.5"
+            execution_rate = "inherit"
         }
 
         "core/Sum" {
