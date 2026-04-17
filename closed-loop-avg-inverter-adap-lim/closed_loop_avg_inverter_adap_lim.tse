@@ -288,7 +288,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_math"
         }
         [
-            position = 7304, 8216
+            position = 7276, 8144
             size = 48, 80
         ]
 
@@ -315,7 +315,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             value = "0"
         }
         [
-            position = 7220, 8224
+            position = 7192, 8152
             hide_name = True
         ]
 
@@ -385,14 +385,14 @@ model "closed_loop_avg_inverter_adap_lim" {
         component "core/Probe" u_d {
         }
         [
-            position = 7236, 7988
+            position = 7196, 7980
             rotation = left
         ]
 
         component "core/Probe" u_q {
         }
         [
-            position = 7304, 7988
+            position = 7264, 7976
             rotation = left
         ]
 
@@ -732,7 +732,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_meas"
         }
         [
-            position = 7236, 8032
+            position = 7196, 8024
             rotation = left
             hide_name = True
             size = 32, 32
@@ -742,7 +742,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             execution_rate = "T_meas"
         }
         [
-            position = 7304, 8036
+            position = 7264, 8024
             rotation = left
             hide_name = True
             size = 32, 32
@@ -891,7 +891,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = out
         }
         [
-            position = 7220, 8268
+            position = 7168, 8200
             hide_name = True
             size = 60, 20
         ]
@@ -975,7 +975,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7392, 8192
+            position = 7364, 8120
             hide_name = True
             size = 60, 20
         ]
@@ -987,7 +987,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7392, 8216
+            position = 7364, 8144
             hide_name = True
             size = 60, 20
         ]
@@ -999,7 +999,7 @@ model "closed_loop_avg_inverter_adap_lim" {
             direction = in
         }
         [
-            position = 7392, 8240
+            position = 7364, 8168
             hide_name = True
             size = 60, 20
         ]
@@ -1213,6 +1213,16 @@ model "closed_loop_avg_inverter_adap_lim" {
             position = 8420, 7756
         ]
 
+        junction Junction22 sp
+        [
+            position = 7196, 8108
+        ]
+
+        junction Junction23 sp
+        [
+            position = 7236, 8136
+        ]
+
         scheme_area Area1 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
@@ -1297,7 +1307,6 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
         connect Vsp3.n_node Junction4 as Connection115
         connect Vsp1.n_node Junction3 as Connection116
-        connect From5 "dq to abc.wt" as Connection124
         connect Constant1.out "Bus Join3.in" as Connection136
         connect PI_i_d.out "Bus Join3.in1" as Connection137
         connect Constant2.out "Bus Join4.in" as Connection138
@@ -1386,6 +1395,19 @@ model "closed_loop_avg_inverter_adap_lim" {
         ]
         connect "Bus Join6.out" Goto17 as Connection382
         connect "Bus Join5.out" Goto16 as Connection383
+        connect From5 "dq to abc.wt" as Connection385
+        connect "Bus Selector1.out" Junction22 as Connection387
+        connect Junction22 "dq to abc.d_input" as Connection388
+        [
+            breakpoints = 7216, 8108; 7216, 8120
+        ]
+        connect "Rate Transition4.in" Junction22 as Connection389
+        connect "Bus Selector2.out" Junction23 as Connection390
+        [
+            breakpoints = 7216, 8180; 7216, 8136
+        ]
+        connect Junction23 "dq to abc.q_input" as Connection391
+        connect "Rate Transition5.in" Junction23 as Connection392
     }
 
     default {
