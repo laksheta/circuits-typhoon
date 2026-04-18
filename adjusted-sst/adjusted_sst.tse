@@ -3176,15 +3176,15 @@ P = I_out * V_out;
             ]
 
             tag From52 {
-                value = "reset_signal"
-                scope = global
+                value = "reset_signal_inv"
+                scope = local
                 kind = sp
                 direction = out
             }
             [
-                position = 7176, 8436
+                position = 7156, 8436
                 hide_name = True
-                size = 60, 20
+                size = 100, 20
             ]
 
             tag Goto24 {
@@ -3201,15 +3201,15 @@ P = I_out * V_out;
             ]
 
             tag Goto18 {
-                value = "reset"
+                value = "reset_signal_inv"
                 scope = local
                 kind = sp
                 direction = in
             }
             [
-                position = 7124, 8172
+                position = 7140, 8172
                 hide_name = True
-                size = 60, 20
+                size = 92, 20
             ]
 
             junction Junction3 pe
