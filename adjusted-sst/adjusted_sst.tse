@@ -1750,7 +1750,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" V_out_ref {
                 def_value = "780"
-                execution_rate = "T_math"
+                execution_rate = "T_math_dab"
                 max = "1000"
                 min = "0"
                 unit = ""
@@ -1760,7 +1760,7 @@ P = I_out * V_out;
             ]
 
             component "core/Signal switch" "Signal switch1" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_dab"
             }
             [
                 position = 7748, 8340
@@ -1768,7 +1768,7 @@ P = I_out * V_out;
             ]
 
             component "core/SCADA Input" DAB_on_off {
-                execution_rate = "T_math"
+                execution_rate = "T_math_dab"
                 max = "1"
                 min = "0"
                 unit = ""
@@ -1778,7 +1778,7 @@ P = I_out * V_out;
             ]
 
             component "core/Constant" Constant5 {
-                execution_rate = "T_math"
+                execution_rate = "T_math_dab"
                 value = "0"
             }
             [
@@ -1953,7 +1953,7 @@ P = I_out * V_out;
             ]
 
             tag Goto18 {
-                value = "reset"
+                value = "reset_dab"
                 scope = local
                 kind = sp
                 direction = in
