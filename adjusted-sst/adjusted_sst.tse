@@ -1942,7 +1942,7 @@ P = I_out * V_out;
 
             tag From37 {
                 value = "reset_dab"
-                scope = global
+                scope = local
                 kind = sp
                 direction = out
             }
