@@ -388,15 +388,6 @@ model "adjusted_sst" {
                 hide_name = True
             ]
 
-            component "core/Constant" Constant6 {
-                execution_rate = "T_controller_rect"
-                value = "V_dc_target_rect"
-            }
-            [
-                position = 7156, 8552
-                hide_name = True
-            ]
-
             component "core/Probe" u_q_error_rect {
                 execution_rate = "T_meas_rect"
             }
@@ -809,7 +800,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 unit = ""
             }
             [
-                position = 6620, 8436
+                position = 7144, 8448
             ]
 
             component "core/SCADA Input" Vdc_set {
@@ -820,14 +811,14 @@ out[0] = fmax(0.0, i_dc_raw);
                 unit = ""
             }
             [
-                position = 6564, 8484
+                position = 7088, 8496
             ]
 
             component "core/Signal switch" "Signal switch1" {
                 execution_rate = "T_controller"
             }
             [
-                position = 6664, 8528
+                position = 7188, 8540
                 hide_name = True
             ]
 
@@ -836,7 +827,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 value = "0"
             }
             [
-                position = 6564, 8552
+                position = 7088, 8564
                 hide_name = True
             ]
 
@@ -1198,7 +1189,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 7276, 8704
+                position = 7244, 8488
                 hide_name = True
                 size = 60, 20
             ]
@@ -1290,18 +1281,6 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 116, 20
             ]
 
-            tag Goto16 {
-                value = "reset"
-                scope = local
-                kind = sp
-                direction = in
-            }
-            [
-                position = 6720, 8480
-                hide_name = True
-                size = 60, 20
-            ]
-
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1372,9 +1351,9 @@ out[0] = fmax(0.0, i_dc_raw);
                 position = 7684, 8216
             ]
 
-            junction Junction37 sp
+            junction Junction33 sp
             [
-                position = 6664, 8480
+                position = 7188, 8488
             ]
 
             comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
@@ -1468,7 +1447,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect Constant5.out Sum2.in as Connection152
             connect Sum1.out Junction12 as Connection158
             connect Junction12 "PID controller1.in" as Connection159
-            connect Constant6.out Sum3.in as Connection181
             connect Sum2.out Junction20 as Connection218
             connect Junction20 "PID controller2.in" as Connection219
             connect Sum3.out Junction24 as Connection233
@@ -1596,9 +1574,13 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition24.in" From3 as Connection391
             connect Vdc_set.out "Signal switch1.in" as Connection414
             connect Constant7.out "Signal switch1.in1" as Connection415
-            connect Rect_on_off.out Junction37 as Connection416
-            connect Junction37 "Signal switch1.in2" as Connection417
-            connect Goto16 Junction37 as Connection418
+            connect Rect_on_off.out Junction33 as Connection420
+            connect Junction33 "Signal switch1.in2" as Connection421
+            [
+                breakpoints = 7188, 8492
+            ]
+            connect Goto11 Junction33 as Connection422
+            connect "Signal switch1.out" Sum3.in as Connection423
         }
         [
             position = 6652, 7268
