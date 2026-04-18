@@ -2815,6 +2815,46 @@ P = I_out * V_out;
                 size = 64, 32
             ]
 
+            component "core/SCADA Input" scada_i_d {
+                def_value = "10"
+                execution_rate = "T_math"
+                format = "int"
+                max = "100"
+                min = "-100"
+                signal_type = "int"
+                unit = ""
+            }
+            [
+                position = 6492, 8136
+            ]
+
+            component "core/Signal switch" "Signal switch1" {
+                execution_rate = "T_math"
+            }
+            [
+                position = 6588, 8160
+                hide_name = True
+            ]
+
+            component "core/SCADA Input" Inv_on_off {
+                execution_rate = "T_math"
+                max = "1"
+                min = "0"
+                unit = ""
+            }
+            [
+                position = 6528, 8072
+            ]
+
+            component "core/Constant" Constant5 {
+                execution_rate = "T_math_dab"
+                value = "0"
+            }
+            [
+                position = 6492, 8216
+                hide_name = True
+            ]
+
             port V_in_inv+ {
                 position = auto:auto
                 kind = pe
@@ -3173,6 +3213,18 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            tag Goto18 {
+                value = "reset"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 6660, 8072
+                hide_name = True
+                size = 60, 20
+            ]
+
             junction Junction3 pe
             [
                 position = 8428, 8520
@@ -3231,6 +3283,11 @@ P = I_out * V_out;
             junction Junction52 sp
             [
                 position = 7232, 8388
+            ]
+
+            junction Junction25 sp
+            [
+                position = 6588, 8072
             ]
 
             scheme_area Area12 {
@@ -3398,9 +3455,14 @@ P = I_out * V_out;
             connect Junction52 PI_i_q_inv.reset as Connection493
             connect PI_i_d_inv.reset Junction52 as Connection494
             connect Goto24 "Inverter Measurement.Out" as Connection495
+            connect scada_i_d.out "Signal switch1.in" as Connection394
+            connect Inv_on_off.out Junction25 as Connection399
+            connect Junction25 "Signal switch1.in2" as Connection400
+            connect Goto18 Junction25 as Connection401
+            connect Constant5.out "Signal switch1.in1" as Connection499
         }
         [
-            position = 7756, 7268
+            position = 7756, 7272
             size = 168, 232
         ]
 
