@@ -1728,7 +1728,7 @@ P = I_out * V_out;
                 upper_sat_lim = "0.5"
             }
             [
-                position = 7952, 8300
+                position = 7928, 8360
                 hide_name = True
             ]
 
@@ -1737,26 +1737,15 @@ P = I_out * V_out;
                 signs = "+-"
             }
             [
-                position = 7864, 8292
+                position = 7840, 8352
                 hide_name = True
-            ]
-
-            component "core/SCADA Input" V_out_ref_dab {
-                def_value = "780"
-                execution_rate = "T_math_dab"
-                max = "1000"
-                min = "0"
-                unit = ""
-            }
-            [
-                position = 7696, 8284
             ]
 
             component "core/Probe" out_PI {
                 execution_rate = "T_meas_dab"
             }
             [
-                position = 8068, 8372
+                position = 8044, 8432
             ]
 
             component "core/SCADA Input" V_out_ref {
@@ -1767,14 +1756,14 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 7364, 8480
+                position = 7668, 8324
             ]
 
             component "core/Signal switch" "Signal switch1" {
                 execution_rate = "T_math"
             }
             [
-                position = 7444, 8496
+                position = 7748, 8340
                 hide_name = True
             ]
 
@@ -1785,7 +1774,7 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 7384, 8408
+                position = 7688, 8252
             ]
 
             component "core/Constant" Constant5 {
@@ -1793,7 +1782,7 @@ P = I_out * V_out;
                 value = "0"
             }
             [
-                position = 7364, 8536
+                position = 7668, 8380
                 hide_name = True
             ]
 
@@ -1886,7 +1875,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 8072, 8300
+                position = 8048, 8360
                 hide_name = True
                 size = 60, 20
             ]
@@ -1946,7 +1935,7 @@ P = I_out * V_out;
                 direction = out
             }
             [
-                position = 7760, 8340
+                position = 7736, 8400
                 hide_name = True
                 size = 60, 20
             ]
@@ -1958,7 +1947,7 @@ P = I_out * V_out;
                 direction = out
             }
             [
-                position = 7796, 8372
+                position = 7772, 8432
                 hide_name = True
                 size = 60, 20
             ]
@@ -1970,7 +1959,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 7516, 8408
+                position = 7820, 8252
                 hide_name = True
                 size = 60, 20
             ]
@@ -2022,12 +2011,12 @@ P = I_out * V_out;
 
             junction Junction37 sp
             [
-                position = 8008, 8300
+                position = 7984, 8360
             ]
 
             junction Junction25 sp
             [
-                position = 7444, 8408
+                position = 7748, 8252
             ]
 
             scheme_area Area12 {
@@ -2128,7 +2117,6 @@ P = I_out * V_out;
             ]
             connect From36 Sum4.in1 as Connection230
             connect Sum4.out "PID controller4.in" as Connection231
-            connect V_out_ref_dab.out Sum4.in as Connection237
             connect From37 "PID controller4.reset" as Connection415
             connect "PID controller4.out" Junction37 as Connection416
             connect Junction37 Goto25 as Connection417
@@ -2138,6 +2126,7 @@ P = I_out * V_out;
             connect Goto18 Junction25 as Connection430
             connect V_out_ref.out "Signal switch1.in" as Connection431
             connect Constant5.out "Signal switch1.in1" as Connection432
+            connect "Signal switch1.out" Sum4.in as Connection433
         }
         [
             position = 7180, 7268
