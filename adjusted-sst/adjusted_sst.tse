@@ -307,16 +307,6 @@ model "adjusted_sst" {
                 position = 7948, 8568
             ]
 
-            component "core/SCADA Input" reset_sig_rect {
-                execution_rate = "T_controller_rect"
-                max = "1"
-                min = "0"
-                unit = ""
-            }
-            [
-                position = 7172, 8704
-            ]
-
             component "core/Sum" Sum1 {
                 execution_rate = "T_controller_rect"
                 signs = "++"
@@ -812,6 +802,44 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 32, 32
             ]
 
+            component "core/SCADA Input" Rect_on_off {
+                execution_rate = "T_controller"
+                max = "1"
+                min = "0"
+                unit = ""
+            }
+            [
+                position = 6620, 8436
+            ]
+
+            component "core/SCADA Input" Vdc_set {
+                def_value = "780"
+                execution_rate = "T_controller"
+                max = "1000"
+                min = "0"
+                unit = ""
+            }
+            [
+                position = 6564, 8484
+            ]
+
+            component "core/Signal switch" "Signal switch1" {
+                execution_rate = "T_controller"
+            }
+            [
+                position = 6664, 8528
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant7 {
+                execution_rate = "T_meas"
+                value = "0"
+            }
+            [
+                position = 6564, 8552
+                hide_name = True
+            ]
+
             port C {
                 position = left:3
                 kind = pe
@@ -1262,6 +1290,18 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 116, 20
             ]
 
+            tag Goto16 {
+                value = "reset"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 6720, 8480
+                hide_name = True
+                size = 60, 20
+            ]
+
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1330,6 +1370,11 @@ out[0] = fmax(0.0, i_dc_raw);
             junction Junction32 pe
             [
                 position = 7684, 8216
+            ]
+
+            junction Junction37 sp
+            [
+                position = 6664, 8480
             ]
 
             comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
@@ -1507,7 +1552,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect Junction29 Goto6 as Connection298
             connect "PID controller2.out" Junction30 as Connection300
             connect Junction30 Goto9 as Connection301
-            connect reset_sig_rect.out Goto11 as Connection304
             connect "PID controller3.reset" From16 as Connection305
             connect "PID controller1.reset" From17 as Connection306
             connect "PID controller2.reset" From18 as Connection307
@@ -1550,6 +1594,11 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition23.out" Sum3.in1 as Connection388
             connect Isp1.in "Rate Transition24.out" as Connection390
             connect "Rate Transition24.in" From3 as Connection391
+            connect Vdc_set.out "Signal switch1.in" as Connection414
+            connect Constant7.out "Signal switch1.in1" as Connection415
+            connect Rect_on_off.out Junction37 as Connection416
+            connect Junction37 "Signal switch1.in2" as Connection417
+            connect Goto16 Junction37 as Connection418
         }
         [
             position = 6652, 7268
@@ -3823,6 +3872,12 @@ P = I_out * V_out;
             def_value = "0"
             unit = " "
             execution_rate = "100e-6"
+        }
+
+        "core/Signal switch" {
+            criterion = "ctrl > threshold"
+            threshold = "0.5"
+            execution_rate = "inherit"
         }
 
         "core/Sum" {
