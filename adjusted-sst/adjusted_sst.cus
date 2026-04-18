@@ -360,8 +360,8 @@ displayValue = data
                 <advance_widget_settings>
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100</y_range_min>
-                    <y_range_max>100</y_range_max>
+                    <y_range_min>-100.0</y_range_min>
+                    <y_range_max>100.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>True</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -524,8 +524,8 @@ displayValue = data
                 <advance_widget_settings>
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100</y_range_min>
-                    <y_range_max>100</y_range_max>
+                    <y_range_min>-100.0</y_range_min>
+                    <y_range_max>100.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>True</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -620,8 +620,8 @@ displayValue = data
                 <advance_widget_settings>
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100</y_range_min>
-                    <y_range_max>100</y_range_max>
+                    <y_range_min>-100.0</y_range_min>
+                    <y_range_max>100.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>True</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -1082,13 +1082,13 @@ widgetValue = None
 widgetValue = hil.model_read('sw_source')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>216</x>
-                    <y>584</y>
+                    <x>504</x>
+                    <y>560</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1155,8 +1155,8 @@ widgetValue = hil.model_read('sw_pre_charge')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>344</x>
-                    <y>584</y>
+                    <x>576</x>
+                    <y>552</y>
                     <width>128</width>
                     <height>128</height>
                     <appearance><![CDATA[Flat]]></appearance>
