@@ -3624,30 +3624,6 @@ P = I_out * V_out;
             position = 6304, 7052
         ]
 
-        tag Goto28 {
-            value = "reset_dab"
-            scope = global
-            kind = sp
-            direction = in
-        }
-        [
-            position = 6988, 7088
-            hide_name = True
-            size = 60, 20
-        ]
-
-        tag Goto30 {
-            value = "reset_signal"
-            scope = global
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7564, 7088
-            hide_name = True
-            size = 108, 20
-        ]
-
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -3663,11 +3639,6 @@ P = I_out * V_out;
         junction Junction44 pe
         [
             position = 8148, 7420
-        ]
-
-        junction Junction45 sp
-        [
-            position = 6920, 7088
         ]
 
         junction Junction46 pe
@@ -3688,11 +3659,6 @@ P = I_out * V_out;
         junction Junction49 pe
         [
             position = 6996, 7364
-        ]
-
-        junction Junction50 sp
-        [
-            position = 7480, 7088
         ]
 
         junction Junction51 pe
@@ -3747,9 +3713,6 @@ P = I_out * V_out;
         connect S1.a_out "Grid Measurement.A+" as Connection496
         connect S1.b_out "Grid Measurement.B+" as Connection497
         connect S1.c_out "Grid Measurement.C+" as Connection498
-        connect sw_Rect_DAB.out Junction45 as Connection517
-        connect Junction45 Goto28 as Connection518
-        connect S4.ctrl_in Junction45 as Connection519
         connect S4.a_in Junction46 as Connection520
         connect Junction46 Rectifier.V_out_rect+ as Connection521
         connect R4.p_node Junction46 as Connection522
@@ -3762,9 +3725,6 @@ P = I_out * V_out;
         connect S4.b_out Junction49 as Connection529
         connect Junction49 DAB.V_in_dab- as Connection530
         connect R5.n_node Junction49 as Connection531
-        connect sw_dab_inv.out Junction50 as Connection537
-        connect Junction50 Goto30 as Connection538
-        connect S5.ctrl_in Junction50 as Connection539
         connect S1.a_in Inverter.A as Connection540
         connect Inverter.B S1.b_in as Connection541
         connect S1.c_in Inverter.C as Connection542
@@ -3801,6 +3761,14 @@ P = I_out * V_out;
         connect Junction57 Rectifier.C as Connection579
         connect S7.sc2 Junction57 as Connection580
         connect sw_pre_charge.out S7.ctrl_in as Connection581
+        connect sw_Rect_DAB.out S4.ctrl_in as Connection582
+        [
+            breakpoints = 6920, 7088
+        ]
+        connect sw_dab_inv.out S5.ctrl_in as Connection583
+        [
+            breakpoints = 7480, 7088
+        ]
     }
 
     logically_deleted {
