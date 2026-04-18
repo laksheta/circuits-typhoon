@@ -2804,7 +2804,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" scada_i_d_inv {
                 def_value = "10"
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
                 format = "int"
                 max = "100"
                 min = "-100"
@@ -2816,7 +2816,7 @@ P = I_out * V_out;
             ]
 
             component "core/Signal switch" "Signal switch1" {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
             }
             [
                 position = 7052, 8260
@@ -2824,7 +2824,7 @@ P = I_out * V_out;
             ]
 
             component "core/SCADA Input" Inv_on_off {
-                execution_rate = "T_math"
+                execution_rate = "T_math_inv"
                 max = "1"
                 min = "0"
                 unit = ""
@@ -2834,7 +2834,7 @@ P = I_out * V_out;
             ]
 
             component "core/Constant" Constant5 {
-                execution_rate = "T_math_dab"
+                execution_rate = "T_math_inv"
                 value = "0"
             }
             [
