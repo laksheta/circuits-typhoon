@@ -2434,19 +2434,6 @@ P = I_out * V_out;
                 rotation = left
             ]
 
-            component "core/SCADA Input" scada_i_d_inv {
-                def_value = "10"
-                execution_rate = "T_math_inv"
-                format = "int"
-                max = "100"
-                min = "-100"
-                signal_type = "int"
-                unit = ""
-            }
-            [
-                position = 6964, 8276
-            ]
-
             component "core/Gain" Gain5 {
                 execution_rate = "T_math_inv"
                 gain = "0.5"
@@ -2737,7 +2724,7 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 6980, 8164
+                position = 6944, 8108
             ]
 
             component "core/Rate Transition" "Rate Transition26" {
@@ -2815,7 +2802,7 @@ P = I_out * V_out;
                 size = 64, 32
             ]
 
-            component "core/SCADA Input" scada_i_d {
+            component "core/SCADA Input" scada_i_d_inv {
                 def_value = "10"
                 execution_rate = "T_math"
                 format = "int"
@@ -2825,14 +2812,14 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 6492, 8136
+                position = 6956, 8236
             ]
 
             component "core/Signal switch" "Signal switch1" {
                 execution_rate = "T_math"
             }
             [
-                position = 6588, 8160
+                position = 7052, 8260
                 hide_name = True
             ]
 
@@ -2843,7 +2830,7 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 6528, 8072
+                position = 6992, 8172
             ]
 
             component "core/Constant" Constant5 {
@@ -2851,7 +2838,7 @@ P = I_out * V_out;
                 value = "0"
             }
             [
-                position = 6492, 8216
+                position = 6956, 8316
                 hide_name = True
             ]
 
@@ -3220,7 +3207,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 6660, 8072
+                position = 7124, 8172
                 hide_name = True
                 size = 60, 20
             ]
@@ -3287,7 +3274,7 @@ P = I_out * V_out;
 
             junction Junction25 sp
             [
-                position = 6588, 8072
+                position = 7052, 8172
             ]
 
             scheme_area Area12 {
@@ -3389,10 +3376,6 @@ P = I_out * V_out;
             connect From43 Sum5.in1 as Connection454
             connect From44 Sum6.in1 as Connection455
             connect Constant21.out Sum6.in as Connection456
-            connect scada_i_d_inv.out Sum5.in as Connection168
-            [
-                breakpoints = 7100, 8276; 7100, 8296
-            ]
             connect Gain5.out Goto36 as Connection179
             connect Goto37 Gain6.out as Connection180
             connect "Bus Join7.out" "Bus Selector1.in" as Connection203
@@ -3455,11 +3438,12 @@ P = I_out * V_out;
             connect Junction52 PI_i_q_inv.reset as Connection493
             connect PI_i_d_inv.reset Junction52 as Connection494
             connect Goto24 "Inverter Measurement.Out" as Connection495
-            connect scada_i_d.out "Signal switch1.in" as Connection394
+            connect scada_i_d_inv.out "Signal switch1.in" as Connection394
             connect Inv_on_off.out Junction25 as Connection399
             connect Junction25 "Signal switch1.in2" as Connection400
             connect Goto18 Junction25 as Connection401
             connect Constant5.out "Signal switch1.in1" as Connection499
+            connect "Signal switch1.out" Sum5.in as Connection500
         }
         [
             position = 7756, 7272
