@@ -3502,7 +3502,6 @@ P = I_out * V_out;
         [
             position = 6828, 7256
             rotation = right
-            hide_name = True
         ]
 
         component "core/Resistor" R5 {
@@ -3511,7 +3510,6 @@ P = I_out * V_out;
         [
             position = 6996, 7260
             rotation = right
-            hide_name = True
         ]
 
         component "core/Double Pole Single Throw Contactor" S5 {
