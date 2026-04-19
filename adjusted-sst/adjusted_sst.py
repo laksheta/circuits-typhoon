@@ -116,8 +116,8 @@ R_rect           = 1e-1
 L_rect           = 1e-3
 R_pre_charge     = 10
 
-R_load_rect      = 10e3
-C_out_rect       = 100e-6
+R_load_rect      = 500#10e3
+C_out_rect       = 470e-6#100e-6
 
 V_dc_target_rect = 780
 
