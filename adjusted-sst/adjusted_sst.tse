@@ -2243,9 +2243,6 @@ P = I_out * V_out;
             ]
 
             component "core/Three-phase Meter" "Inverter Measurement" {
-                IA = "False"
-                IB = "False"
-                IC = "False"
                 Ts = "T_meas_inv"
                 VAB = "True"
                 VBn = "False"
