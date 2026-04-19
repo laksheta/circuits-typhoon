@@ -32,8 +32,8 @@ SETTINGS_DIR = get_settings_dir_path()
                 <description><![CDATA[]]></description>
                 <working_mode>windowed</working_mode>
                 <widget_settings>
-                    <x>1000</x>
-                    <y>24</y>
+                    <x>1208</x>
+                    <y>88</y>
                     <width>120</width>
                     <height>120</height>
                     <hierarchy_position>1</hierarchy_position>
@@ -223,8 +223,8 @@ widgetValue = hil.model_read('sw_dab_inv')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1296</x>
-                    <y>72</y>
+                    <x>848</x>
+                    <y>48</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -275,8 +275,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>1408</x>
-                    <y>448</y>
+                    <x>1304</x>
+                    <y>512</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -371,7 +371,7 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>400</x>
+                    <x>360</x>
                     <y>352</y>
                     <width>400</width>
                     <height>200</height>
@@ -483,8 +483,8 @@ widgetValue = hil.model_read('sw_Rect_DAB')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>544</x>
-                    <y>80</y>
+                    <x>752</x>
+                    <y>48</y>
                     <width>96</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -535,8 +535,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>864</x>
-                    <y>256</y>
+                    <x>856</x>
+                    <y>304</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -631,8 +631,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>864</x>
-                    <y>472</y>
+                    <x>848</x>
+                    <y>528</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -743,8 +743,8 @@ widgetValue = hil.model_read('DAB.V_out_ref_dab')
                 <max>1000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>928</x>
-                    <y>184</y>
+                    <x>920</x>
+                    <y>256</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -811,8 +811,8 @@ widgetValue = hil.model_read('Inverter.scada_i_d_inv')
                 <max>100.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1464</x>
-                    <y>120</y>
+                    <x>1368</x>
+                    <y>256</y>
                     <width>288</width>
                     <height>48</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -863,8 +863,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>1416</x>
-                    <y>232</y>
+                    <x>1304</x>
+                    <y>304</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -975,8 +975,8 @@ widgetValue = hil.model_read('sw_grid')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1304</x>
-                    <y>232</y>
+                    <x>672</x>
+                    <y>48</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1043,8 +1043,8 @@ widgetValue = hil.model_read('sw_source')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>256</x>
-                    <y>80</y>
+                    <x>464</x>
+                    <y>40</y>
                     <width>80</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1111,8 +1111,8 @@ widgetValue = hil.model_read('sw_pre_charge')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>328</x>
-                    <y>72</y>
+                    <x>544</x>
+                    <y>40</y>
                     <width>128</width>
                     <height>128</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -1179,7 +1179,7 @@ widgetValue = hil.model_read('Rectifier.Rect_on_off')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>536</x>
+                    <x>512</x>
                     <y>224</y>
                     <width>128</width>
                     <height>120</height>
@@ -1247,8 +1247,8 @@ widgetValue = hil.model_read('DAB.DAB_on_off')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>808</x>
-                    <y>56</y>
+                    <x>1000</x>
+                    <y>128</y>
                     <width>112</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
