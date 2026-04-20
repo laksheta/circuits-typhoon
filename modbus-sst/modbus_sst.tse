@@ -1979,7 +1979,7 @@ P = I_out * V_out;
 
             tag From33 {
                 value = "V_out_dab"
-                scope = local
+                scope = global
                 kind = sp
                 direction = out
             }
@@ -2015,7 +2015,7 @@ P = I_out * V_out;
 
             tag Goto26 {
                 value = "V_out_dab"
-                scope = local
+                scope = global
                 kind = sp
                 direction = in
             }
@@ -2051,7 +2051,7 @@ P = I_out * V_out;
 
             tag From36 {
                 value = "V_out_dab"
-                scope = local
+                scope = global
                 kind = sp
                 direction = out
             }
