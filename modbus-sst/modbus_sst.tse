@@ -4255,33 +4255,6 @@ P = I_out * V_out;
             position = 6144, 7268
         ]
 
-        component "core/SCADA Input" ACT_IRMS_R {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6148, 7548
-        ]
-
-        component "core/SCADA Input" ACT_IRMS_S {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6148, 7604
-        ]
-
-        component "core/SCADA Input" ACT_IRMS_T {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6148, 7660
-        ]
-
         component "core/SCADA Input" ACT_FREQUENCY_MMC {
             addr = "1426063396"
             execution_rate = "Ts"
@@ -4362,6 +4335,39 @@ P = I_out * V_out;
         }
         [
             position = 6144, 7344
+            size = 60, 20
+        ]
+
+        tag ACT_IRMS_T {
+            value = "IC_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 6144, 7624
+            size = 60, 20
+        ]
+
+        tag ACT_IRMS_S {
+            value = "IB_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 6144, 7576
+            size = 60, 20
+        ]
+
+        tag ACT_IRMS_R {
+            value = "IA_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 6144, 7532
             size = 60, 20
         ]
 
@@ -4649,18 +4655,6 @@ P = I_out * V_out;
         [
             breakpoints = 6288, 7268; 6288, 7452
         ]
-        connect ACT_IRMS_R.out "Bus Join1.in6" as Connection595
-        [
-            breakpoints = 6180, 7532; 6296, 7532
-        ]
-        connect "Bus Join1.in7" ACT_IRMS_S.out as Connection10
-        [
-            breakpoints = 6244, 7548; 6244, 7604
-        ]
-        connect "Bus Join1.in8" ACT_IRMS_T.out as Connection596
-        [
-            breakpoints = 6252, 7564; 6252, 7660
-        ]
         connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection597
         [
             breakpoints = 6264, 7716; 6264, 7580
@@ -4694,6 +4688,15 @@ P = I_out * V_out;
         connect ACT_VDC_OUTPUT "Bus Join1.in2" as Connection607
         [
             breakpoints = 6276, 7344; 6276, 7468
+        ]
+        connect ACT_IRMS_R "Bus Join1.in6" as Connection608
+        connect ACT_IRMS_S "Bus Join1.in7" as Connection609
+        [
+            breakpoints = 6196, 7572; 6196, 7548
+        ]
+        connect ACT_IRMS_T "Bus Join1.in8" as Connection610
+        [
+            breakpoints = 6208, 7620; 6208, 7564
         ]
     }
 
