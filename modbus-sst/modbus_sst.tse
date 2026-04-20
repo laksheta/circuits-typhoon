@@ -970,7 +970,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             tag From12 {
-                value = "V_out_rect"
+                value = "Rect_V_out"
                 scope = global
                 kind = sp
                 direction = out
@@ -1168,7 +1168,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             tag Goto10 {
-                value = "V_out_rect"
+                value = "Rect_V_out"
                 scope = global
                 kind = sp
                 direction = in
@@ -1180,7 +1180,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             tag From15 {
-                value = "V_out_rect"
+                value = "Rect_V_out"
                 scope = global
                 kind = sp
                 direction = out
@@ -3940,6 +3940,7 @@ P = I_out * V_out;
             enable_pipeline = "False"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+            execution_rate = "Ts"
         }
         [
             position = 6760, 7428
@@ -4248,6 +4249,7 @@ P = I_out * V_out;
         ]
 
         component "core/Bus Join" "Bus Join1" {
+            execution_rate = "Ts"
             inputs = "12"
         }
         [
@@ -4336,7 +4338,7 @@ P = I_out * V_out;
         ]
 
         tag ACT_VDC_OUTPUT {
-            value = "Rect_V_out_rect"
+            value = "Rect_V_out"
             scope = global
             kind = sp
             direction = out
