@@ -3874,28 +3874,6 @@ P = I_out * V_out;
             size = 184, 184
         ]
 
-        component Subsystem reg1 {
-            layout = dynamic
-
-            port Out1 {
-                label = "Out1"
-                position = auto:auto
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8164, 8176
-            ]
-        }
-        [
-            position = 6508, 7500
-            size = 56, 48
-        ]
-
         component "core/Constant" Constant2 {
             execution_rate = "Ts"
             value = "0"
@@ -4201,7 +4179,7 @@ P = I_out * V_out;
             inputs = "12"
         }
         [
-            position = 5940, 7584
+            position = 6336, 7524
         ]
 
         component "core/SCADA Input" MAIN_INDICATOR {
@@ -4210,7 +4188,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5748, 7272
+            position = 6144, 7212
         ]
 
         component "core/SCADA Input" INDICATOR_MMC {
@@ -4219,7 +4197,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5748, 7328
+            position = 6144, 7268
         ]
 
         component "core/SCADA Input" ACT_VDC_OUTPUT {
@@ -4228,7 +4206,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5748, 7384
+            position = 6144, 7324
         ]
 
         component "core/SCADA Input" ACT_VRMS_R {
@@ -4237,7 +4215,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5748, 7440
+            position = 6144, 7380
         ]
 
         component "core/SCADA Input" ACT_VRMS_S {
@@ -4246,7 +4224,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5748, 7496
+            position = 6144, 7436
         ]
 
         component "core/SCADA Input" ACT_VRMS_T {
@@ -4255,7 +4233,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5748, 7552
+            position = 6144, 7492
         ]
 
         component "core/SCADA Input" ACT_IRMS_R {
@@ -4264,7 +4242,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5752, 7608
+            position = 6148, 7548
         ]
 
         component "core/SCADA Input" ACT_IRMS_S {
@@ -4273,7 +4251,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5752, 7664
+            position = 6148, 7604
         ]
 
         component "core/SCADA Input" ACT_IRMS_T {
@@ -4282,7 +4260,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5752, 7720
+            position = 6148, 7660
         ]
 
         component "core/SCADA Input" ACT_FREQUENCY_MMC {
@@ -4291,7 +4269,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5752, 7776
+            position = 6148, 7716
         ]
 
         component "core/SCADA Input" CHARGING_COMPLETE {
@@ -4300,7 +4278,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5752, 7832
+            position = 6148, 7772
         ]
 
         component "core/SCADA Input" STEP_REFERENCE {
@@ -4309,7 +4287,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 5752, 7888
+            position = 6148, 7828
         ]
 
         tag Goto41 {
@@ -4419,11 +4397,6 @@ P = I_out * V_out;
             position = 6616, 7404
         ]
 
-        junction Junction9 sp
-        [
-            position = 6616, 7500
-        ]
-
         junction Junction10 sp
         [
             position = 7600, 7368
@@ -4442,6 +4415,11 @@ P = I_out * V_out;
         junction Junction13 sp
         [
             position = 7600, 7512
+        ]
+
+        junction Junction58 sp
+        [
+            position = 6616, 7520
         ]
 
         scheme_area Area1 {
@@ -4580,9 +4558,6 @@ P = I_out * V_out;
             breakpoints = 6616, 7404
         ]
         connect "ModBus Device2.holding_in" Junction8 as Connection36
-        connect "ModBus Device2.reg_in" Junction9 as Connection37
-        connect Junction9 reg1.Out1 as Connection38
-        connect reg_in1.in Junction9 as Connection39
         connect Constant3.out Junction10 as Connection40
         connect Junction10 "ModBus Device3.coil_in" as Connection41
         connect coil_out2.in "ModBus Device3.coil_out" as Connection42
@@ -4609,48 +4584,54 @@ P = I_out * V_out;
         connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
         connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
         [
-            breakpoints = 5892, 7328; 5892, 7512
+            breakpoints = 6288, 7268; 6288, 7452
         ]
         connect "Bus Join1.in2" ACT_VDC_OUTPUT.out as Connection5
         [
-            breakpoints = 5880, 7528; 5880, 7384
+            breakpoints = 6276, 7468; 6276, 7324
         ]
         connect "Bus Join1.in3" ACT_VRMS_R.out as Connection6
         [
-            breakpoints = 5868, 7544; 5868, 7440
+            breakpoints = 6264, 7484; 6264, 7380
         ]
         connect "Bus Join1.in4" ACT_VRMS_S.out as Connection7
         [
-            breakpoints = 5856, 7560; 5856, 7496
+            breakpoints = 6252, 7500; 6252, 7436
         ]
         connect "Bus Join1.in5" ACT_VRMS_T.out as Connection8
         [
-            breakpoints = 5900, 7576; 5848, 7576; 5848, 7552
+            breakpoints = 6296, 7516; 6244, 7516; 6244, 7492
         ]
         connect ACT_IRMS_R.out "Bus Join1.in6" as Connection595
         [
-            breakpoints = 5784, 7592; 5900, 7592
+            breakpoints = 6180, 7532; 6296, 7532
         ]
         connect "Bus Join1.in7" ACT_IRMS_S.out as Connection10
         [
-            breakpoints = 5848, 7608; 5848, 7664
+            breakpoints = 6244, 7548; 6244, 7604
         ]
         connect "Bus Join1.in8" ACT_IRMS_T.out as Connection596
         [
-            breakpoints = 5856, 7624; 5856, 7720
+            breakpoints = 6252, 7564; 6252, 7660
         ]
         connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection597
         [
-            breakpoints = 5868, 7776; 5868, 7640
+            breakpoints = 6264, 7716; 6264, 7580
         ]
         connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
         [
-            breakpoints = 5880, 7656; 5880, 7832
+            breakpoints = 6276, 7596; 6276, 7772
         ]
         connect "Bus Join1.in11" STEP_REFERENCE.out as Connection599
         [
-            breakpoints = 5896, 7672; 5896, 7888
+            breakpoints = 6292, 7612; 6292, 7828
         ]
+        connect reg_in1.in Junction58 as Connection601
+        connect Junction58 "ModBus Device2.reg_in" as Connection602
+        [
+            breakpoints = 6616, 7500
+        ]
+        connect "Bus Join1.out" Junction58 as Connection603
     }
 
     logically_deleted {
