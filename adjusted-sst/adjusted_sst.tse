@@ -3534,7 +3534,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R6 {
-            resistance = "R_load_rect"
+            resistance = "R_load_dab"
         }
         [
             position = 7368, 7260
@@ -3766,6 +3766,9 @@ P = I_out * V_out;
     }
 
     logically_deleted {
+        "DAB.R5"
+        "DAB.Connection397"
+        "DAB.Connection112"
         "Inverter.dc_input_inv"
     }
 
