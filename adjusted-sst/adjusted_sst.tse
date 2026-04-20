@@ -3505,7 +3505,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R5 {
-            resistance = "R_load_rect"
+            resistance = "10e3"
         }
         [
             position = 6996, 7260
@@ -3767,9 +3767,6 @@ P = I_out * V_out;
 
     logically_deleted {
         "Inverter.dc_input_inv"
-        "R5"
-        "Connection528"
-        "Connection531"
     }
 
     default {
