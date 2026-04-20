@@ -966,7 +966,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             tag From12 {
                 value = "V_out_rect"
-                scope = local
+                scope = global
                 kind = sp
                 direction = out
             }
@@ -1164,7 +1164,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             tag Goto10 {
                 value = "V_out_rect"
-                scope = local
+                scope = global
                 kind = sp
                 direction = in
             }
@@ -1176,7 +1176,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             tag From15 {
                 value = "V_out_rect"
-                scope = local
+                scope = global
                 kind = sp
                 direction = out
             }
@@ -1623,7 +1623,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect Goto16 "Meter Split1.VAn_RMS" as Connection429
         }
         [
-            position = 7272, 8060
+            position = 7268, 8060
             size = 168, 232
         ]
 
