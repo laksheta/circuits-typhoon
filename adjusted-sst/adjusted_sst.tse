@@ -1785,6 +1785,15 @@ P = I_out * V_out;
                 hide_name = True
             ]
 
+            component "core/Rate Transition" "Rate Transition1" {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7880, 8276
+                hide_name = True
+                size = 32, 32
+            ]
+
             port V_in_dab+ {
                 position = auto:auto
                 kind = pe
@@ -1970,7 +1979,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 7820, 8276
+                position = 7956, 8276
                 hide_name = True
                 size = 60, 20
             ]
@@ -2144,7 +2153,8 @@ P = I_out * V_out;
             connect "Signal switch1.out" Sum4.in as Connection433
             connect Junction25 Junction40 as Connection434
             connect Junction40 "Signal switch1.in2" as Connection435
-            connect Goto42 Junction40 as Connection436
+            connect Goto42 "Rate Transition1.out" as Connection436
+            connect "Rate Transition1.in" Junction40 as Connection437
         }
         [
             position = 7180, 7268
