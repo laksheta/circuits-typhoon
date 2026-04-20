@@ -4364,15 +4364,6 @@ P = I_out * V_out;
             position = 7060, 7204
         ]
 
-        component "core/SCADA Input" ACT_FREQUENCY {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7060, 7260
-        ]
-
         component "core/SCADA Input" ACT_Vrms_R {
             addr = "1426063396"
             execution_rate = "Ts"
@@ -4465,6 +4456,17 @@ P = I_out * V_out;
         }
         [
             position = 7060, 7316
+            size = 60, 20
+        ]
+
+        tag ACT_FREQUENCY {
+            value = "Inv_Freq"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7264
             size = 60, 20
         ]
 
@@ -4754,10 +4756,6 @@ P = I_out * V_out;
         ]
         connect Junction58 Subsystem1.Out1 as Connection603
         connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection604
-        connect ACT_FREQUENCY.out "Bus Join1.in1" as Connection605
-        [
-            breakpoints = 7204, 7260; 7204, 7444
-        ]
         connect "Bus Join1.in3" ACT_Vrms_R.out as Connection6
         [
             breakpoints = 7180, 7476; 7180, 7372
@@ -4799,6 +4797,10 @@ P = I_out * V_out;
         connect ACT_DCLINK "Bus Join1.in2" as Connection614
         [
             breakpoints = 7192, 7316; 7192, 7468
+        ]
+        connect ACT_FREQUENCY "Bus Join1.in1" as Connection615
+        [
+            breakpoints = 7204, 7264; 7204, 7452
         ]
     }
 
