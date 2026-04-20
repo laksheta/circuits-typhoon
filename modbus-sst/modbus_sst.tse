@@ -2385,9 +2385,7 @@ P = I_out * V_out;
             ]
 
             component "core/Three-phase Meter" "Inverter Measurement" {
-                IA = "False"
-                IB = "False"
-                IC = "False"
+                I_rms = "True"
                 Ts = "T_meas_inv"
                 VLn_rms = "True"
                 freq = "True"
@@ -3012,13 +3010,16 @@ P = I_out * V_out;
 
             component "core/Meter Split" "Meter Split1" {
                 freq = "True"
+                ia_rms = "True"
+                ib_rms = "True"
+                ic_rms = "True"
                 van_rms = "True"
                 vbn_rms = "True"
                 vcn_rms = "True"
             }
             [
-                position = 8184, 7856
-                size = 96, 128
+                position = 8180, 7832
+                size = 96, 176
             ]
 
             port V_in_inv+ {
@@ -3423,7 +3424,7 @@ P = I_out * V_out;
                 direction = out
             }
             [
-                position = 8040, 7856
+                position = 8036, 7832
                 hide_name = True
                 size = 108, 20
             ]
@@ -3435,7 +3436,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 8300, 7856
+                position = 8308, 7800
                 hide_name = True
                 size = 60, 20
             ]
@@ -3447,7 +3448,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 8312, 7928
+                position = 8320, 7872
                 hide_name = True
                 size = 84, 20
             ]
@@ -3459,7 +3460,7 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 8312, 7904
+                position = 8320, 7848
                 hide_name = True
                 size = 84, 20
             ]
@@ -3471,7 +3472,43 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 8312, 7880
+                position = 8320, 7824
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag Goto17 {
+                value = "Inv_IC_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8320, 7944
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag Goto43 {
+                value = "Inv_IB_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8320, 7920
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag Goto19 {
+                value = "Inv_IA_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8320, 7896
                 hide_name = True
                 size = 84, 20
             ]
@@ -3734,11 +3771,20 @@ P = I_out * V_out;
             connect From54 "Meter Split1.Input" as Connection521
             connect "Meter Split1.Freq" Goto42 as Connection522
             connect "Meter Split1.VAn_RMS" Goto16 as Connection523
-            connect Goto15 "Meter Split1.VBn_RMS" as Connection524
-            [
-                breakpoints = 8256, 7904; 8256, 7888
-            ]
             connect Goto14 "Meter Split1.VCn_RMS" as Connection525
+            [
+                breakpoints = 8260, 7872; 8260, 7856
+            ]
+            connect "Meter Split1.VBn_RMS" Goto15 as Connection526
+            connect "Meter Split1.IA_RMS" Goto19 as Connection527
+            [
+                breakpoints = 8256, 7872; 8256, 7896
+            ]
+            connect "Meter Split1.IB_RMS" Goto43 as Connection528
+            [
+                breakpoints = 8252, 7888; 8252, 7920
+            ]
+            connect Goto17 "Meter Split1.IC_RMS" as Connection529
         }
         [
             position = 8376, 8064
@@ -4410,40 +4456,13 @@ P = I_out * V_out;
             position = 7060, 7204
         ]
 
-        component "core/SCADA Input" ACT_Irms_R {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7064, 7540
-        ]
-
-        component "core/SCADA Input" ACT_Irms_S {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7064, 7600
-        ]
-
-        component "core/SCADA Input" ACT_Irms_T {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7064, 7656
-        ]
-
         component "core/SCADA Input" STEP_REFERENCE_FREQUENCY {
             addr = "1426063396"
             execution_rate = "Ts"
             unit = ""
         }
         [
-            position = 7064, 7712
+            position = 7060, 7700
         ]
 
         component "core/SCADA Input" STEP_REFERENCE_VRMS {
@@ -4452,7 +4471,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7064, 7768
+            position = 7060, 7756
         ]
 
         tag Goto41 {
@@ -4519,6 +4538,39 @@ P = I_out * V_out;
         }
         [
             position = 7060, 7372
+            size = 92, 20
+        ]
+
+        tag ACT_Irms_T {
+            value = "Inv_IC_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7628
+            size = 92, 20
+        ]
+
+        tag ACT_Irms_S {
+            value = "Inv_IB_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7580
+            size = 92, 20
+        ]
+
+        tag ACT_Irms_R {
+            value = "Inv_IA_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7532
             size = 92, 20
         ]
 
@@ -4808,26 +4860,6 @@ P = I_out * V_out;
         ]
         connect Junction58 Subsystem1.Out1 as Connection603
         connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection604
-        connect ACT_Irms_R.out "Bus Join1.in6" as Connection606
-        [
-            breakpoints = 7096, 7524; 7212, 7524
-        ]
-        connect "Bus Join1.in7" ACT_Irms_S.out as Connection10
-        [
-            breakpoints = 7212, 7540; 7160, 7540; 7160, 7540; 7160, 7596
-        ]
-        connect "Bus Join1.in8" ACT_Irms_T.out as Connection607
-        [
-            breakpoints = 7212, 7556; 7168, 7556; 7168, 7556; 7168, 7652
-        ]
-        connect STEP_REFERENCE_FREQUENCY.out "Bus Join1.in9" as Connection608
-        [
-            breakpoints = 7180, 7708; 7180, 7572
-        ]
-        connect "Bus Join1.in10" STEP_REFERENCE_VRMS.out as Connection609
-        [
-            breakpoints = 7192, 7588; 7192, 7764
-        ]
         connect reg_in2.in Junction59 as Connection611
         connect Junction59 "ModBus Device3.reg_in" as Connection612
         [
@@ -4854,6 +4886,20 @@ P = I_out * V_out;
         [
             breakpoints = 7164, 7516; 7164, 7460
         ]
+        connect ACT_Irms_R "Bus Join1.in6" as Connection619
+        connect ACT_Irms_S "Bus Join1.in7" as Connection620
+        [
+            breakpoints = 7160, 7580; 7160, 7548
+        ]
+        connect ACT_Irms_T "Bus Join1.in8" as Connection621
+        [
+            breakpoints = 7168, 7628; 7168, 7564
+        ]
+        connect STEP_REFERENCE_FREQUENCY.out "Bus Join1.in9" as Connection622
+        [
+            breakpoints = 7184, 7700; 7184, 7580
+        ]
+        connect STEP_REFERENCE_VRMS.out "Bus Join1.in10" as Connection623
     }
 
     logically_deleted {
