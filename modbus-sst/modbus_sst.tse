@@ -225,6 +225,7 @@ model "modbus_sst" {
             ]
 
             component "core/Three-phase Meter" "Rectifier Meter" {
+                I_rms = "True"
                 Ts = "T_meas_rect"
                 VLn_rms = "True"
                 freq = "True"
@@ -438,6 +439,9 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             component "core/Meter Split" "Meter Split1" {
+                ia_rms = "True"
+                ib_rms = "True"
+                ic_rms = "True"
                 van_rms = "True"
                 vbn_rms = "True"
                 vcn_rms = "True"
@@ -447,7 +451,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 rotation = down
                 hide_name = True
                 scale = -1, 1
-                size = 96, 112
+                size = 96, 160
             ]
 
             component "core/Bus Join" "Bus Join1" {
@@ -1292,7 +1296,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9684, 7928
+                position = 9680, 7968
                 hide_name = True
                 size = 60, 20
             ]
@@ -1304,7 +1308,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9684, 7964
+                position = 9680, 7996
                 hide_name = True
                 size = 60, 20
             ]
@@ -1316,7 +1320,43 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9684, 8000
+                position = 9680, 8024
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto17 {
+                value = "IC_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9680, 7884
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto18 {
+                value = "IB_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9680, 7912
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto19 {
+                value = "IA_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9680, 7940
                 hide_name = True
                 size = 60, 20
             ]
@@ -1615,12 +1655,27 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Meter Split1.VAn" "Bus Join1.in" as Connection424
             connect "Bus Join1.in1" "Meter Split1.VBn" as Connection425
             connect "Meter Split1.VCn" "Bus Join1.in2" as Connection426
-            connect Goto14 "Meter Split1.VCn_RMS" as Connection427
+            connect "Meter Split1.VAn_RMS" Goto16 as Connection427
             connect Goto15 "Meter Split1.VBn_RMS" as Connection428
             [
-                breakpoints = 9600, 7964; 9600, 7992
+                breakpoints = 9632, 7996; 9632, 8016
             ]
-            connect Goto16 "Meter Split1.VAn_RMS" as Connection429
+            connect "Meter Split1.VCn_RMS" Goto14 as Connection429
+            [
+                breakpoints = 9624, 8000; 9624, 7968
+            ]
+            connect "Meter Split1.IA_RMS" Goto19 as Connection430
+            [
+                breakpoints = 9616, 7984; 9616, 7940
+            ]
+            connect "Meter Split1.IB_RMS" Goto18 as Connection431
+            [
+                breakpoints = 9604, 7968; 9604, 7912
+            ]
+            connect "Meter Split1.IC_RMS" Goto17 as Connection432
+            [
+                breakpoints = 9592, 7952; 9592, 7884
+            ]
         }
         [
             position = 7268, 8060
