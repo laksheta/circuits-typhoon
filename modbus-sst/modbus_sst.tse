@@ -1291,75 +1291,75 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             tag Goto14 {
-                value = "VCn_RMS"
+                value = "Rect_VCn_RMS"
                 scope = global
                 kind = sp
                 direction = in
             }
             [
-                position = 9700, 7968
+                position = 9712, 7968
                 hide_name = True
-                size = 60, 20
+                size = 84, 20
             ]
 
             tag Goto15 {
-                value = "VBn_RMS"
+                value = "Rect_VBn_RMS"
                 scope = global
                 kind = sp
                 direction = in
             }
             [
-                position = 9700, 7996
+                position = 9712, 7996
                 hide_name = True
-                size = 60, 20
+                size = 84, 20
             ]
 
             tag Goto16 {
-                value = "VAn_RMS"
+                value = "Rect_VAn_RMS"
                 scope = global
                 kind = sp
                 direction = in
             }
             [
-                position = 9700, 8024
+                position = 9712, 8024
                 hide_name = True
-                size = 60, 20
+                size = 84, 20
             ]
 
             tag Goto17 {
-                value = "IC_RMS"
+                value = "Rect_IC_RMS"
                 scope = global
                 kind = sp
                 direction = in
             }
             [
-                position = 9700, 7884
+                position = 9712, 7884
                 hide_name = True
-                size = 60, 20
+                size = 84, 20
             ]
 
             tag Goto18 {
-                value = "IB_RMS"
+                value = "Rect_IB_RMS"
                 scope = global
                 kind = sp
                 direction = in
             }
             [
-                position = 9700, 7912
+                position = 9712, 7912
                 hide_name = True
-                size = 60, 20
+                size = 84, 20
             ]
 
             tag Goto19 {
-                value = "IA_RMS"
+                value = "Rect_IA_RMS"
                 scope = global
                 kind = sp
                 direction = in
             }
             [
-                position = 9700, 7940
+                position = 9712, 7940
                 hide_name = True
-                size = 60, 20
+                size = 84, 20
             ]
 
             tag Goto20 {
@@ -4303,80 +4303,80 @@ P = I_out * V_out;
         ]
 
         tag ACT_VRMS_T {
-            value = "VCn_RMS"
+            value = "Rect_VCn_RMS"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7484
-            size = 60, 20
+            position = 6128, 7484
+            size = 92, 20
         ]
 
         tag ACT_VRMS_S {
-            value = "VBn_RMS"
+            value = "Rect_VBn_RMS"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7436
-            size = 60, 20
+            position = 6128, 7436
+            size = 92, 20
         ]
 
         tag ACT_VRMS_R {
-            value = "VAn_RMS"
+            value = "Rect_VAn_RMS"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7392
-            size = 60, 20
+            position = 6128, 7392
+            size = 92, 20
         ]
 
         tag ACT_VDC_OUTPUT {
-            value = "V_out_rect"
+            value = "Rect_V_out_rect"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7344
-            size = 60, 20
+            position = 6128, 7344
+            size = 92, 20
         ]
 
         tag ACT_IRMS_T {
-            value = "IC_RMS"
+            value = "Rect_IC_RMS"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7624
-            size = 60, 20
+            position = 6128, 7624
+            size = 92, 20
         ]
 
         tag ACT_IRMS_S {
-            value = "IB_RMS"
+            value = "Rect_IB_RMS"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7576
-            size = 60, 20
+            position = 6128, 7576
+            size = 92, 20
         ]
 
         tag ACT_IRMS_R {
-            value = "IA_RMS"
+            value = "Rect_IA_RMS"
             scope = global
             kind = sp
             direction = out
         }
         [
-            position = 6144, 7532
-            size = 60, 20
+            position = 6128, 7532
+            size = 92, 20
         ]
 
         tag ACT_FREQUENCY_MMC {
@@ -4386,8 +4386,8 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 6144, 7668
-            size = 60, 20
+            position = 6128, 7668
+            size = 92, 20
         ]
 
         junction Junction44 pe
