@@ -3225,6 +3225,18 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            tag From53 {
+                value = "Inv_source"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7412, 7684
+                hide_name = True
+                size = 60, 20
+            ]
+
             junction Junction3 pe
             [
                 position = 8428, 8520
@@ -3294,8 +3306,8 @@ P = I_out * V_out;
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Input</p></body></html>
             }
             [
-                position = 7476, 7836
-                size = 516, 340
+                position = 7504, 7808
+                size = 572, 396
                 background_color = #0effaa00
                 box_outline = True
             ]
@@ -3464,6 +3476,7 @@ P = I_out * V_out;
             [
                 breakpoints = 7472, 7876; 7472, 7884
             ]
+            connect From53 S1.ctrl_in as Connection507
         }
         [
             position = 7756, 7272
@@ -3654,6 +3667,18 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
+        tag Goto42 {
+            value = "Inv_source"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 7540, 7088
+            hide_name = True
+            size = 60, 20
+        ]
+
         junction Junction44 pe
         [
             position = 8148, 7420
@@ -3714,6 +3739,11 @@ P = I_out * V_out;
             position = 6552, 7364
         ]
 
+        junction Junction58 sp
+        [
+            position = 7480, 7088
+        ]
+
         connect Vs1.n_node gnd1.node as Connection4
         connect "Grid Measurement.A-" U_grid.a_node as Connection427
         connect "Grid Measurement.B-" U_grid.b_node as Connection428
@@ -3746,7 +3776,6 @@ P = I_out * V_out;
         connect S1.a_in Inverter.A as Connection540
         connect Inverter.B S1.b_in as Connection541
         connect S1.c_in Inverter.C as Connection542
-        connect sw_grid.out S1.ctrl_in as Connection543
         connect S5.a_in Junction51 as Connection544
         connect Junction51 DAB.V_out_dab+ as Connection545
         connect R6.p_node Junction51 as Connection546
@@ -3783,10 +3812,16 @@ P = I_out * V_out;
         [
             breakpoints = 6920, 7088
         ]
-        connect sw_dab_inv.out S5.ctrl_in as Connection583
+        connect sw_grid.out S1.ctrl_in as Connection587
+        [
+            breakpoints = 7976, 7080
+        ]
+        connect sw_dab_inv.out Junction58 as Connection588
+        connect Junction58 S5.ctrl_in as Connection589
         [
             breakpoints = 7480, 7088
         ]
+        connect Goto42 Junction58 as Connection590
     }
 
     logically_deleted {
