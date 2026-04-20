@@ -439,6 +439,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             component "core/Meter Split" "Meter Split1" {
+                freq = "True"
                 ia_rms = "True"
                 ib_rms = "True"
                 ic_rms = "True"
@@ -451,7 +452,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 rotation = down
                 hide_name = True
                 scale = -1, 1
-                size = 96, 160
+                size = 96, 176
             ]
 
             component "core/Bus Join" "Bus Join1" {
@@ -459,7 +460,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 inputs = "3"
             }
             [
-                position = 9680, 8072
+                position = 9672, 8128
                 hide_name = True
             ]
 
@@ -987,7 +988,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9764, 8072
+                position = 9756, 8128
                 rotation = down
                 hide_name = True
                 scale = -1, 1
@@ -1296,7 +1297,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9680, 7968
+                position = 9700, 7968
                 hide_name = True
                 size = 60, 20
             ]
@@ -1308,7 +1309,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9680, 7996
+                position = 9700, 7996
                 hide_name = True
                 size = 60, 20
             ]
@@ -1320,7 +1321,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9680, 8024
+                position = 9700, 8024
                 hide_name = True
                 size = 60, 20
             ]
@@ -1332,7 +1333,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9680, 7884
+                position = 9700, 7884
                 hide_name = True
                 size = 60, 20
             ]
@@ -1344,7 +1345,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9680, 7912
+                position = 9700, 7912
                 hide_name = True
                 size = 60, 20
             ]
@@ -1356,7 +1357,19 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9680, 7940
+                position = 9700, 7940
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto20 {
+                value = "Rect_Freq"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9700, 8052
                 hide_name = True
                 size = 60, 20
             ]
@@ -1655,27 +1668,31 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Meter Split1.VAn" "Bus Join1.in" as Connection424
             connect "Bus Join1.in1" "Meter Split1.VBn" as Connection425
             connect "Meter Split1.VCn" "Bus Join1.in2" as Connection426
+            [
+                breakpoints = 9620, 8056; 9620, 8144
+            ]
             connect "Meter Split1.VAn_RMS" Goto16 as Connection427
-            connect Goto15 "Meter Split1.VBn_RMS" as Connection428
+            connect "Meter Split1.IC_RMS" Goto17 as Connection428
             [
-                breakpoints = 9632, 7996; 9632, 8016
+                breakpoints = 9592, 7944; 9652, 7944; 9652, 7884
             ]
-            connect "Meter Split1.VCn_RMS" Goto14 as Connection429
+            connect Goto18 "Meter Split1.IB_RMS" as Connection429
             [
-                breakpoints = 9624, 8000; 9624, 7968
+                breakpoints = 9644, 7912; 9644, 7960
             ]
-            connect "Meter Split1.IA_RMS" Goto19 as Connection430
+            connect Goto19 "Meter Split1.IA_RMS" as Connection430
             [
-                breakpoints = 9616, 7984; 9616, 7940
+                breakpoints = 9656, 7940; 9656, 7976
             ]
-            connect "Meter Split1.IB_RMS" Goto18 as Connection431
+            connect Goto14 "Meter Split1.VCn_RMS" as Connection431
             [
-                breakpoints = 9604, 7968; 9604, 7912
+                breakpoints = 9644, 7968; 9644, 7992
             ]
-            connect "Meter Split1.IC_RMS" Goto17 as Connection432
+            connect Goto15 "Meter Split1.VBn_RMS" as Connection432
             [
-                breakpoints = 9592, 7952; 9592, 7884
+                breakpoints = 9644, 7996; 9644, 8008
             ]
+            connect "Meter Split1.Freq" Goto20 as Connection433
         }
         [
             position = 7268, 8060
