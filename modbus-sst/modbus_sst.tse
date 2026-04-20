@@ -226,6 +226,8 @@ model "modbus_sst" {
 
             component "core/Three-phase Meter" "Rectifier Meter" {
                 Ts = "T_meas_rect"
+                VLn_rms = "True"
+                freq = "True"
             }
             [
                 position = 8684, 8568
@@ -436,13 +438,16 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             component "core/Meter Split" "Meter Split1" {
+                van_rms = "True"
+                vbn_rms = "True"
+                vcn_rms = "True"
             }
             [
-                position = 9048, 8000
+                position = 9528, 8016
                 rotation = down
                 hide_name = True
                 scale = -1, 1
-                size = 96, 72
+                size = 96, 112
             ]
 
             component "core/Bus Join" "Bus Join1" {
@@ -450,7 +455,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 inputs = "3"
             }
             [
-                position = 9172, 8000
+                position = 9680, 8072
                 hide_name = True
             ]
 
@@ -460,7 +465,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 ic = "True"
             }
             [
-                position = 9052, 8152
+                position = 9024, 8120
                 rotation = down
                 hide_name = True
                 scale = -1, 1
@@ -472,7 +477,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 inputs = "3"
             }
             [
-                position = 9172, 8096
+                position = 9144, 8064
                 hide_name = True
             ]
 
@@ -537,7 +542,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 inputs = "3"
             }
             [
-                position = 9172, 8208
+                position = 9144, 8176
                 hide_name = True
             ]
 
@@ -598,7 +603,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 outputs = "3"
             }
             [
-                position = 8568, 8128
+                position = 8568, 8148
                 hide_name = True
             ]
 
@@ -606,14 +611,14 @@ out[0] = fmax(0.0, i_dc_raw);
                 execution_rate = "T_meas_rect"
             }
             [
-                position = 8756, 8112
+                position = 8756, 8132
             ]
 
             component "core/abc to dq" "abc to dq1" {
                 execution_rate = "T_meas_rect"
             }
             [
-                position = 8652, 8136
+                position = 8652, 8156
                 hide_name = True
                 size = 48, 80
             ]
@@ -622,7 +627,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 execution_rate = "T_meas_rect"
             }
             [
-                position = 8756, 8168
+                position = 8756, 8188
             ]
 
             component "core/Ground" gnd6 {
@@ -643,7 +648,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 execution_rate = "T_meas_rect"
             }
             [
-                position = 8960, 8000
+                position = 9440, 8016
                 hide_name = True
                 size = 32, 32
             ]
@@ -652,7 +657,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 execution_rate = "T_meas_rect"
             }
             [
-                position = 8960, 8152
+                position = 8932, 8120
                 hide_name = True
                 size = 32, 32
             ]
@@ -978,7 +983,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9256, 8000
+                position = 9764, 8072
                 rotation = down
                 hide_name = True
                 scale = -1, 1
@@ -992,7 +997,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9256, 8096
+                position = 9228, 8064
                 rotation = down
                 hide_name = True
                 scale = -1, 1
@@ -1054,7 +1059,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 9256, 8208
+                position = 9228, 8176
                 rotation = down
                 hide_name = True
                 scale = -1, 1
@@ -1140,7 +1145,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = out
             }
             [
-                position = 8564, 8184
+                position = 8564, 8204
                 hide_name = True
                 size = 60, 20
             ]
@@ -1152,7 +1157,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = out
             }
             [
-                position = 8480, 8128
+                position = 8480, 8148
                 hide_name = True
                 size = 60, 20
             ]
@@ -1248,7 +1253,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = out
             }
             [
-                position = 8876, 8152
+                position = 8848, 8120
                 hide_name = True
                 size = 108, 20
             ]
@@ -1273,11 +1278,47 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = out
             }
             [
-                position = 8872, 8000
+                position = 9352, 8016
                 rotation = down
                 hide_name = True
                 scale = -1, 1
                 size = 116, 20
+            ]
+
+            tag Goto14 {
+                value = "VCn_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9684, 7928
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto15 {
+                value = "VBn_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9684, 7964
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto16 {
+                value = "VAn_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 9684, 8000
+                hide_name = True
+                size = 60, 20
             ]
 
             junction Junction1 pe
@@ -1393,8 +1434,8 @@ out[0] = fmax(0.0, i_dc_raw);
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Measurements</p></body></html>
             }
             [
-                position = 8676, 8012
-                size = 1296, 572
+                position = 8984, 8008
+                size = 1912, 580
                 background_color = #0eff0000
                 box_outline = True
             ]
@@ -1477,7 +1518,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Meter Split2.VBn" "Bus Join4.in1" as Connection115
             connect "Meter Split2.VCn" "Bus Join4.in2" as Connection116
             [
-                breakpoints = 9116, 8160; 9116, 8224
+                breakpoints = 9088, 8128; 9088, 8192
             ]
             connect "Bus Split3.in" From4 as Connection117
             connect "Bus Split3.out1" "Three phase PLL.vb" as Connection204
@@ -1502,7 +1543,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect From14 "Bus Split5.in" as Connection239
             connect "abc to dq1.q_axis" V_q_rect.in as Connection241
             [
-                breakpoints = 8716, 8136
+                breakpoints = 8716, 8156
             ]
             connect "Meter Split2.IC" "Bus Join2.in2" as Connection242
             connect "Bus Join2.in" "Meter Split2.IA" as Connection244
@@ -1511,16 +1552,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect V_out_rect.out Goto10 as Connection247
             connect Junction4 Junction11 as Connection249
             connect gnd6.node Junction11 as Connection251
-            connect "Meter Split1.VBn" "Bus Join1.in1" as Connection254
             connect From15 "Bus Join3.in2" as Connection255
-            connect "Bus Join1.in" "Meter Split1.VAn" as Connection256
-            [
-                breakpoints = 9112, 7992
-            ]
-            connect "Bus Join1.in2" "Meter Split1.VCn" as Connection257
-            [
-                breakpoints = 9124, 8016
-            ]
             connect Goto7 Junction28 as Connection290
             connect Junction28 "abc to dq.d_axis" as Connection291
             connect i_d_rect.in Junction28 as Connection292
@@ -1580,6 +1612,15 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
             connect Goto11 Junction33 as Connection422
             connect "Signal switch1.out" Sum3.in as Connection423
+            connect "Meter Split1.VAn" "Bus Join1.in" as Connection424
+            connect "Bus Join1.in1" "Meter Split1.VBn" as Connection425
+            connect "Meter Split1.VCn" "Bus Join1.in2" as Connection426
+            connect Goto14 "Meter Split1.VCn_RMS" as Connection427
+            connect Goto15 "Meter Split1.VBn_RMS" as Connection428
+            [
+                breakpoints = 9600, 7964; 9600, 7992
+            ]
+            connect Goto16 "Meter Split1.VAn_RMS" as Connection429
         }
         [
             position = 7272, 8060
@@ -3835,120 +3876,6 @@ P = I_out * V_out;
 
         component Subsystem reg1 {
             layout = dynamic
-            component "core/Bus Join" "Bus Join1" {
-                inputs = "12"
-            }
-            [
-                position = 8036, 8176
-            ]
-
-            component "core/SCADA Input" MAIN_INDICATOR {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7844, 7864
-            ]
-
-            component "core/SCADA Input" INDICATOR_MMC {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7844, 7920
-            ]
-
-            component "core/SCADA Input" ACT_VDC_OUTPUT {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7844, 7976
-            ]
-
-            component "core/SCADA Input" ACT_VRMS_R {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7844, 8032
-            ]
-
-            component "core/SCADA Input" ACT_VRMS_S {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7844, 8088
-            ]
-
-            component "core/SCADA Input" ACT_VRMS_T {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7844, 8144
-            ]
-
-            component "core/SCADA Input" ACT_IRMS_R {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7848, 8200
-            ]
-
-            component "core/SCADA Input" ACT_IRMS_S {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7848, 8256
-            ]
-
-            component "core/SCADA Input" ACT_IRMS_T {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7848, 8312
-            ]
-
-            component "core/SCADA Input" ACT_FREQUENCY_MMC {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7848, 8368
-            ]
-
-            component "core/SCADA Input" CHARGING_COMPLETE {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7848, 8424
-            ]
-
-            component "core/SCADA Input" STEP_REFERENCE {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7848, 8480
-            ]
 
             port Out1 {
                 label = "Out1"
@@ -3962,53 +3889,6 @@ P = I_out * V_out;
             }
             [
                 position = 8164, 8176
-            ]
-
-            connect "Bus Join1.out" Out1 as Connection2
-            connect MAIN_INDICATOR.out "Bus Join1.in" as Connection3
-            connect INDICATOR_MMC.out "Bus Join1.in1" as Connection4
-            [
-                breakpoints = 7988, 7920; 7988, 8104
-            ]
-            connect "Bus Join1.in2" ACT_VDC_OUTPUT.out as Connection5
-            [
-                breakpoints = 7976, 8120; 7976, 7976
-            ]
-            connect "Bus Join1.in3" ACT_VRMS_R.out as Connection6
-            [
-                breakpoints = 7964, 8136; 7964, 8032
-            ]
-            connect "Bus Join1.in4" ACT_VRMS_S.out as Connection7
-            [
-                breakpoints = 7952, 8152; 7952, 8088
-            ]
-            connect "Bus Join1.in5" ACT_VRMS_T.out as Connection8
-            [
-                breakpoints = 7996, 8168; 7944, 8168; 7944, 8144
-            ]
-            connect ACT_IRMS_R.out "Bus Join1.in6" as Connection9
-            [
-                breakpoints = 7880, 8184; 7996, 8184
-            ]
-            connect "Bus Join1.in7" ACT_IRMS_S.out as Connection10
-            [
-                breakpoints = 7944, 8200; 7944, 8256
-            ]
-            connect "Bus Join1.in8" ACT_IRMS_T.out as Connection11
-            [
-                breakpoints = 7952, 8216; 7952, 8312
-            ]
-            connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection12
-            [
-                breakpoints = 7964, 8368; 7964, 8232
-            ]
-            connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection13
-            [
-                breakpoints = 7976, 8248; 7976, 8424
-            ]
-            connect "Bus Join1.in11" STEP_REFERENCE.out as Connection14
-            [
-                breakpoints = 7992, 8264; 7992, 8480
             ]
         }
         [
@@ -4317,6 +4197,121 @@ P = I_out * V_out;
             position = 8180, 7616
         ]
 
+        component "core/Bus Join" "Bus Join1" {
+            inputs = "12"
+        }
+        [
+            position = 5940, 7584
+        ]
+
+        component "core/SCADA Input" MAIN_INDICATOR {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5748, 7272
+        ]
+
+        component "core/SCADA Input" INDICATOR_MMC {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5748, 7328
+        ]
+
+        component "core/SCADA Input" ACT_VDC_OUTPUT {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5748, 7384
+        ]
+
+        component "core/SCADA Input" ACT_VRMS_R {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5748, 7440
+        ]
+
+        component "core/SCADA Input" ACT_VRMS_S {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5748, 7496
+        ]
+
+        component "core/SCADA Input" ACT_VRMS_T {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5748, 7552
+        ]
+
+        component "core/SCADA Input" ACT_IRMS_R {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5752, 7608
+        ]
+
+        component "core/SCADA Input" ACT_IRMS_S {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5752, 7664
+        ]
+
+        component "core/SCADA Input" ACT_IRMS_T {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5752, 7720
+        ]
+
+        component "core/SCADA Input" ACT_FREQUENCY_MMC {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5752, 7776
+        ]
+
+        component "core/SCADA Input" CHARGING_COMPLETE {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5752, 7832
+        ]
+
+        component "core/SCADA Input" STEP_REFERENCE {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 5752, 7888
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4611,6 +4606,51 @@ P = I_out * V_out;
         connect reg_in2.in Junction13 as Connection54
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
         connect INVERTER_ON.in "Bus Split3.out4" as Connection56
+        connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
+        connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
+        [
+            breakpoints = 5892, 7328; 5892, 7512
+        ]
+        connect "Bus Join1.in2" ACT_VDC_OUTPUT.out as Connection5
+        [
+            breakpoints = 5880, 7528; 5880, 7384
+        ]
+        connect "Bus Join1.in3" ACT_VRMS_R.out as Connection6
+        [
+            breakpoints = 5868, 7544; 5868, 7440
+        ]
+        connect "Bus Join1.in4" ACT_VRMS_S.out as Connection7
+        [
+            breakpoints = 5856, 7560; 5856, 7496
+        ]
+        connect "Bus Join1.in5" ACT_VRMS_T.out as Connection8
+        [
+            breakpoints = 5900, 7576; 5848, 7576; 5848, 7552
+        ]
+        connect ACT_IRMS_R.out "Bus Join1.in6" as Connection595
+        [
+            breakpoints = 5784, 7592; 5900, 7592
+        ]
+        connect "Bus Join1.in7" ACT_IRMS_S.out as Connection10
+        [
+            breakpoints = 5848, 7608; 5848, 7664
+        ]
+        connect "Bus Join1.in8" ACT_IRMS_T.out as Connection596
+        [
+            breakpoints = 5856, 7624; 5856, 7720
+        ]
+        connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection597
+        [
+            breakpoints = 5868, 7776; 5868, 7640
+        ]
+        connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
+        [
+            breakpoints = 5880, 7656; 5880, 7832
+        ]
+        connect "Bus Join1.in11" STEP_REFERENCE.out as Connection599
+        [
+            breakpoints = 5896, 7672; 5896, 7888
+        ]
     }
 
     logically_deleted {
