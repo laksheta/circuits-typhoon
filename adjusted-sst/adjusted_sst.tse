@@ -3543,7 +3543,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R7 {
-            resistance = "R_load_rect"
+            resistance = "10e3"
         }
         [
             position = 7572, 7260
