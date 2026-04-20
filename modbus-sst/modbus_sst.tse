@@ -4410,33 +4410,6 @@ P = I_out * V_out;
             position = 7060, 7204
         ]
 
-        component "core/SCADA Input" ACT_Vrms_R {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7060, 7372
-        ]
-
-        component "core/SCADA Input" ACT_Vrms_S {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7060, 7428
-        ]
-
-        component "core/SCADA Input" ACT_Vrms_T {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7060, 7484
-        ]
-
         component "core/SCADA Input" ACT_Irms_R {
             addr = "1426063396"
             execution_rate = "Ts"
@@ -4514,6 +4487,39 @@ P = I_out * V_out;
         [
             position = 7060, 7264
             size = 60, 20
+        ]
+
+        tag ACT_Vrms_T {
+            value = "Inv_VCn_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7460
+            size = 92, 20
+        ]
+
+        tag ACT_Vrms_S {
+            value = "Inv_VBn_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7412
+            size = 92, 20
+        ]
+
+        tag ACT_Vrms_R {
+            value = "Inv_VAn_RMS"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7372
+            size = 92, 20
         ]
 
         junction Junction44 pe
@@ -4802,18 +4808,6 @@ P = I_out * V_out;
         ]
         connect Junction58 Subsystem1.Out1 as Connection603
         connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection604
-        connect "Bus Join1.in3" ACT_Vrms_R.out as Connection6
-        [
-            breakpoints = 7180, 7476; 7180, 7372
-        ]
-        connect "Bus Join1.in4" ACT_Vrms_S.out as Connection7
-        [
-            breakpoints = 7168, 7492; 7168, 7428
-        ]
-        connect "Bus Join1.in5" ACT_Vrms_T.out as Connection8
-        [
-            breakpoints = 7212, 7508; 7160, 7508; 7160, 7484
-        ]
         connect ACT_Irms_R.out "Bus Join1.in6" as Connection606
         [
             breakpoints = 7096, 7524; 7212, 7524
@@ -4847,6 +4841,18 @@ P = I_out * V_out;
         connect ACT_FREQUENCY "Bus Join1.in1" as Connection615
         [
             breakpoints = 7204, 7264; 7204, 7452
+        ]
+        connect ACT_Vrms_R "Bus Join1.in3" as Connection616
+        [
+            breakpoints = 7184, 7372; 7184, 7416; 7184, 7416; 7184, 7484
+        ]
+        connect ACT_Vrms_S "Bus Join1.in4" as Connection617
+        [
+            breakpoints = 7176, 7412; 7176, 7500
+        ]
+        connect "Bus Join1.in5" ACT_Vrms_T as Connection618
+        [
+            breakpoints = 7164, 7516; 7164, 7460
         ]
     }
 
