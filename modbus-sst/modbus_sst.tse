@@ -3968,6 +3968,7 @@ P = I_out * V_out;
             enable_pipeline = "False"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+            execution_rate = "T_math_dab"
         }
         [
             position = 8640, 7428
@@ -3975,7 +3976,7 @@ P = I_out * V_out;
         ]
 
         component "core/Constant" Constant1 {
-            execution_rate = "Ts"
+            execution_rate = "T_math_dab"
             value = "0"
         }
         [
@@ -3984,12 +3985,14 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" coil_out {
+            execution_rate = "T_math_dab"
         }
         [
             position = 8848, 7356
         ]
 
         component "core/Probe" holding_out {
+            execution_rate = "T_math_dab"
         }
         [
             position = 8844, 7532
@@ -3997,6 +4000,7 @@ P = I_out * V_out;
         ]
 
         component "core/Bus Split" "Bus Split1" {
+            execution_rate = "T_math_dab"
             outputs = "3"
         }
         [
@@ -4005,24 +4009,28 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" RESET_FAILSAFE_DAB {
+            execution_rate = "T_math_dab"
         }
         [
             position = 9076, 7440
         ]
 
         component "core/Probe" REF_VDC_OUT {
+            execution_rate = "T_math_dab"
         }
         [
             position = 9076, 7500
         ]
 
         component "core/Probe" DAB_ON {
+            execution_rate = "T_math_dab"
         }
         [
             position = 9076, 7556
         ]
 
         component "core/Probe" reg_in {
+            execution_rate = "T_math_dab"
         }
         [
             position = 8548, 7580
@@ -4101,7 +4109,7 @@ P = I_out * V_out;
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
         }
         [
-            position = 6992, 7444
+            position = 6992, 7448
             size = 184, 184
         ]
 
@@ -4547,6 +4555,7 @@ P = I_out * V_out;
         ]
 
         component "core/Bus Join" "Bus Join1" {
+            execution_rate = "T_math_dab"
             inputs = "4"
         }
         [
@@ -4555,7 +4564,7 @@ P = I_out * V_out;
 
         component "core/SCADA Input" Indicator_DAB {
             addr = "1426063396"
-            execution_rate = "Ts"
+            execution_rate = "T_math_dab"
             unit = ""
         }
         [
@@ -4564,7 +4573,7 @@ P = I_out * V_out;
 
         component "core/SCADA Input" ACT_VDC_OUT {
             addr = "1426063396"
-            execution_rate = "Ts"
+            execution_rate = "T_math_dab"
             unit = ""
         }
         [
@@ -4573,11 +4582,20 @@ P = I_out * V_out;
 
         component "core/SCADA Input" Step_Ref_VDC_OUT {
             addr = "1426063412"
-            execution_rate = "Ts"
+            execution_rate = "T_math_dab"
             unit = ""
         }
         [
             position = 8064, 7596
+        ]
+
+        component "core/SCADA Input" ACT_VDC_IN1 {
+            addr = "1426063412"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 7912, 7532
         ]
 
         tag Goto41 {
@@ -4911,44 +4929,7 @@ P = I_out * V_out;
         "DAB.Connection397"
         "DAB.Connection112"
         "Inverter.dc_input_inv"
-        "ModBus Device1"
-        "Constant1"
-        "coil_out"
-        "holding_out"
-        "Bus Split1"
-        "RESET_FAILSAFE_DAB"
-        "REF_VDC_OUT"
-        "DAB_ON"
-        "reg_in"
-        "Junction1"
-        "Junction3"
-        "Junction4"
-        "Area1"
-        "Connection3"
-        "Connection592"
-        "Connection9"
-        "Connection11"
-        "Connection12"
-        "Connection13"
-        "Connection14"
-        "Connection15"
-        "Connection16"
-        "Connection19"
-        "Connection20"
-        "Connection21"
-        "Bus Join1"
-        "Indicator_DAB"
-        "ACT_VDC_OUT"
-        "Step_Ref_VDC_OUT"
-        "Connection614"
-        "Connection5"
-        "Connection6"
-        "Junction60"
-        "Connection617"
-        "Connection618"
-        "Connection619"
-        "ACT_VDC_IN"
-        "Connection620"
+        "ACT_VDC_IN1"
     }
 
     default {
