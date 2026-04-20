@@ -4248,48 +4248,200 @@ P = I_out * V_out;
             position = 8180, 7616
         ]
 
-        component "core/Bus Join" "Bus Join1" {
-            execution_rate = "Ts"
-            inputs = "12"
-        }
-        [
-            position = 6336, 7524
-        ]
+        component Subsystem Subsystem1 {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                execution_rate = "Ts"
+                inputs = "12"
+            }
+            [
+                position = 8296, 8196
+            ]
 
-        component "core/SCADA Input" MAIN_INDICATOR {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6144, 7212
-        ]
+            component "core/SCADA Input" MAIN_INDICATOR {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 8104, 7884
+            ]
 
-        component "core/SCADA Input" INDICATOR_MMC {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6144, 7268
-        ]
+            component "core/SCADA Input" INDICATOR_MMC {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 8104, 7940
+            ]
 
-        component "core/SCADA Input" CHARGING_COMPLETE {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6148, 7772
-        ]
+            component "core/SCADA Input" CHARGING_COMPLETE {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 8108, 8444
+            ]
 
-        component "core/SCADA Input" STEP_REFERENCE {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
+            component "core/SCADA Input" STEP_REFERENCE {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 8108, 8500
+            ]
+
+            port Out1 {
+                position = right:1
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8368, 8196
+            ]
+
+            tag ACT_VRMS_T {
+                value = "Rect_VCn_RMS"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8156
+                size = 92, 20
+            ]
+
+            tag ACT_VRMS_S {
+                value = "Rect_VBn_RMS"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8108
+                size = 92, 20
+            ]
+
+            tag ACT_VRMS_R {
+                value = "Rect_VAn_RMS"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8064
+                size = 92, 20
+            ]
+
+            tag ACT_VDC_OUTPUT {
+                value = "Rect_V_out"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8016
+                size = 92, 20
+            ]
+
+            tag ACT_IRMS_T {
+                value = "Rect_IC_RMS"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8296
+                size = 92, 20
+            ]
+
+            tag ACT_IRMS_S {
+                value = "Rect_IB_RMS"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8248
+                size = 92, 20
+            ]
+
+            tag ACT_IRMS_R {
+                value = "Rect_IA_RMS"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8204
+                size = 92, 20
+            ]
+
+            tag ACT_FREQUENCY_MMC {
+                value = "Rect_Freq"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8088, 8340
+                size = 92, 20
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection612
+            connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
+            connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
+            [
+                breakpoints = 8248, 7940; 8248, 8124
+            ]
+            connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
+            [
+                breakpoints = 8236, 8268; 8236, 8444
+            ]
+            connect "Bus Join1.in11" STEP_REFERENCE.out as Connection599
+            [
+                breakpoints = 8252, 8284; 8252, 8500
+            ]
+            connect ACT_VRMS_R "Bus Join1.in3" as Connection604
+            [
+                breakpoints = 8224, 8064; 8224, 8156
+            ]
+            connect ACT_VRMS_S "Bus Join1.in4" as Connection605
+            [
+                breakpoints = 8212, 8108; 8212, 8172
+            ]
+            connect ACT_VRMS_T "Bus Join1.in5" as Connection606
+            [
+                breakpoints = 8196, 8156; 8196, 8188
+            ]
+            connect ACT_VDC_OUTPUT "Bus Join1.in2" as Connection607
+            [
+                breakpoints = 8236, 8016; 8236, 8140
+            ]
+            connect ACT_IRMS_R "Bus Join1.in6" as Connection608
+            connect ACT_IRMS_S "Bus Join1.in7" as Connection609
+            [
+                breakpoints = 8156, 8244; 8156, 8220
+            ]
+            connect ACT_IRMS_T "Bus Join1.in8" as Connection610
+            [
+                breakpoints = 8168, 8292; 8168, 8236
+            ]
+            connect ACT_FREQUENCY_MMC "Bus Join1.in9" as Connection611
+            [
+                breakpoints = 8220, 8340; 8220, 8252
+            ]
         }
         [
-            position = 6148, 7828
+            position = 6528, 7520
+            size = 48, 48
         ]
 
         tag Goto41 {
@@ -4302,94 +4454,6 @@ P = I_out * V_out;
             position = 8768, 7892
             hide_name = True
             size = 60, 20
-        ]
-
-        tag ACT_VRMS_T {
-            value = "Rect_VCn_RMS"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7484
-            size = 92, 20
-        ]
-
-        tag ACT_VRMS_S {
-            value = "Rect_VBn_RMS"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7436
-            size = 92, 20
-        ]
-
-        tag ACT_VRMS_R {
-            value = "Rect_VAn_RMS"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7392
-            size = 92, 20
-        ]
-
-        tag ACT_VDC_OUTPUT {
-            value = "Rect_V_out"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7344
-            size = 92, 20
-        ]
-
-        tag ACT_IRMS_T {
-            value = "Rect_IC_RMS"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7624
-            size = 92, 20
-        ]
-
-        tag ACT_IRMS_S {
-            value = "Rect_IB_RMS"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7576
-            size = 92, 20
-        ]
-
-        tag ACT_IRMS_R {
-            value = "Rect_IA_RMS"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7532
-            size = 92, 20
-        ]
-
-        tag ACT_FREQUENCY_MMC {
-            value = "Rect_Freq"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 6128, 7668
-            size = 92, 20
         ]
 
         junction Junction44 pe
@@ -4671,54 +4735,12 @@ P = I_out * V_out;
         connect reg_in2.in Junction13 as Connection54
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
         connect INVERTER_ON.in "Bus Split3.out4" as Connection56
-        connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
-        connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
-        [
-            breakpoints = 6288, 7268; 6288, 7452
-        ]
-        connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
-        [
-            breakpoints = 6276, 7596; 6276, 7772
-        ]
-        connect "Bus Join1.in11" STEP_REFERENCE.out as Connection599
-        [
-            breakpoints = 6292, 7612; 6292, 7828
-        ]
         connect reg_in1.in Junction58 as Connection601
         connect Junction58 "ModBus Device2.reg_in" as Connection602
         [
             breakpoints = 6616, 7500
         ]
-        connect "Bus Join1.out" Junction58 as Connection603
-        connect ACT_VRMS_R "Bus Join1.in3" as Connection604
-        [
-            breakpoints = 6264, 7392; 6264, 7484
-        ]
-        connect ACT_VRMS_S "Bus Join1.in4" as Connection605
-        [
-            breakpoints = 6252, 7436; 6252, 7500
-        ]
-        connect ACT_VRMS_T "Bus Join1.in5" as Connection606
-        [
-            breakpoints = 6236, 7484; 6236, 7516
-        ]
-        connect ACT_VDC_OUTPUT "Bus Join1.in2" as Connection607
-        [
-            breakpoints = 6276, 7344; 6276, 7468
-        ]
-        connect ACT_IRMS_R "Bus Join1.in6" as Connection608
-        connect ACT_IRMS_S "Bus Join1.in7" as Connection609
-        [
-            breakpoints = 6196, 7572; 6196, 7548
-        ]
-        connect ACT_IRMS_T "Bus Join1.in8" as Connection610
-        [
-            breakpoints = 6208, 7620; 6208, 7564
-        ]
-        connect ACT_FREQUENCY_MMC "Bus Join1.in9" as Connection611
-        [
-            breakpoints = 6260, 7668; 6260, 7580
-        ]
+        connect Junction58 Subsystem1.Out1 as Connection603
     }
 
     logically_deleted {
