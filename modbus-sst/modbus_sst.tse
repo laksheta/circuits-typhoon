@@ -3974,79 +3974,6 @@ P = I_out * V_out;
             size = 184, 184
         ]
 
-        component Subsystem reg {
-            layout = dynamic
-            component "core/Bus Join" "Bus Join1" {
-                inputs = "4"
-            }
-            [
-                position = 8008, 8072
-            ]
-
-            component "core/SCADA Input" Indicator_DAB {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7852, 8016
-            ]
-
-            component "core/SCADA Input" ACT_VDC_IN {
-                addr = "1426063412"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7852, 8064
-            ]
-
-            component "core/SCADA Input" ACT_VDC_OUT {
-                addr = "1426063396"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7852, 8120
-            ]
-
-            component "core/SCADA Input" Step_Ref_VDC_OUT {
-                addr = "1426063412"
-                execution_rate = "Ts"
-                unit = ""
-            }
-            [
-                position = 7852, 8168
-            ]
-
-            port Out1 {
-                label = "Out1"
-                position = auto:auto
-                kind = sp
-                direction =  in
-                sp_type {
-                    default = inherit
-                    readonly = True
-                }
-            }
-            [
-                position = 8136, 8072
-            ]
-
-            connect "Bus Join1.out" Out1 as Connection2
-            connect Indicator_DAB.out "Bus Join1.in" as Connection3
-            connect ACT_VDC_IN.out "Bus Join1.in1" as Connection4
-            connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
-            connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
-            [
-                breakpoints = 7952, 8168; 7952, 8096
-            ]
-        }
-        [
-            position = 8388, 7500
-            size = 56, 48
-        ]
-
         component "core/Constant" Constant1 {
             execution_rate = "Ts"
             value = "0"
@@ -4174,7 +4101,7 @@ P = I_out * V_out;
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
         }
         [
-            position = 7744, 7440
+            position = 6992, 7444
             size = 184, 184
         ]
 
@@ -4183,20 +4110,20 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 7480, 7368
+            position = 6728, 7372
             hide_name = True
         ]
 
         component "core/Probe" coil_out2 {
         }
         [
-            position = 7952, 7368
+            position = 7200, 7372
         ]
 
         component "core/Probe" holding_out2 {
         }
         [
-            position = 7948, 7544
+            position = 7196, 7548
             rotation = right
         ]
 
@@ -4204,44 +4131,44 @@ P = I_out * V_out;
             outputs = "5"
         }
         [
-            position = 8060, 7512
+            position = 7308, 7516
             hide_name = True
         ]
 
         component "core/Probe" MMC_ON {
         }
         [
-            position = 8184, 7400
+            position = 7432, 7404
         ]
 
         component "core/Probe" REF_FREQUENCY {
         }
         [
-            position = 8180, 7456
+            position = 7428, 7460
         ]
 
         component "core/Probe" REF_VPEAK {
         }
         [
-            position = 8180, 7512
+            position = 7428, 7516
         ]
 
         component "core/Probe" reg_in2 {
         }
         [
-            position = 7652, 7592
+            position = 6900, 7596
         ]
 
         component "core/Probe" RESET_FAILSAFE_INVERTER {
         }
         [
-            position = 8180, 7564
+            position = 7428, 7568
         ]
 
         component "core/Probe" INVERTER_ON {
         }
         [
-            position = 8180, 7616
+            position = 7428, 7620
         ]
 
         component Subsystem Subsystem1 {
@@ -4615,8 +4542,51 @@ P = I_out * V_out;
             connect STEP_REFERENCE_VRMS.out "Bus Join1.in10" as Connection623
         }
         [
-            position = 7484, 7516
+            position = 6732, 7520
             size = 48, 48
+        ]
+
+        component "core/Bus Join" "Bus Join1" {
+            inputs = "4"
+        }
+        [
+            position = 8220, 7500
+        ]
+
+        component "core/SCADA Input" Indicator_DAB {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 8064, 7444
+        ]
+
+        component "core/SCADA Input" ACT_VDC_IN {
+            addr = "1426063412"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 8064, 7492
+        ]
+
+        component "core/SCADA Input" ACT_VDC_OUT {
+            addr = "1426063396"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 8064, 7548
+        ]
+
+        component "core/SCADA Input" Step_Ref_VDC_OUT {
+            addr = "1426063412"
+            execution_rate = "Ts"
+            unit = ""
+        }
+        [
+            position = 8064, 7596
         ]
 
         tag Goto41 {
@@ -4706,11 +4676,6 @@ P = I_out * V_out;
             position = 8496, 7404
         ]
 
-        junction Junction5 sp
-        [
-            position = 8496, 7500
-        ]
-
         junction Junction6 sp
         [
             position = 5872, 7356
@@ -4728,17 +4693,17 @@ P = I_out * V_out;
 
         junction Junction10 sp
         [
-            position = 7600, 7368
+            position = 6848, 7372
         ]
 
         junction Junction11 sp
         [
-            position = 7948, 7512
+            position = 7196, 7516
         ]
 
         junction Junction12 sp
         [
-            position = 7600, 7416
+            position = 6848, 7420
         ]
 
         junction Junction58 sp
@@ -4748,7 +4713,12 @@ P = I_out * V_out;
 
         junction Junction59 sp
         [
-            position = 7600, 7516
+            position = 6848, 7520
+        ]
+
+        junction Junction60 sp
+        [
+            position = 8496, 7500
         ]
 
         scheme_area Area1 {
@@ -4771,7 +4741,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
         [
-            position = 7832, 7484
+            position = 7080, 7488
             size = 836, 408
         ]
 
@@ -4869,9 +4839,6 @@ P = I_out * V_out;
             breakpoints = 8496, 7404
         ]
         connect "ModBus Device1.holding_in" Junction4 as Connection21
-        connect "ModBus Device1.reg_in" Junction5 as Connection22
-        connect Junction5 reg.Out1 as Connection23
-        connect reg_in.in Junction5 as Connection24
         connect Constant2.out Junction6 as Connection25
         connect Junction6 "ModBus Device2.coil_in" as Connection26
         connect coil_out1.in "ModBus Device2.coil_out" as Connection27
@@ -4898,14 +4865,14 @@ P = I_out * V_out;
         connect "Bus Split3.in" Junction11 as Connection45
         connect MMC_ON.in "Bus Split3.out" as Connection46
         [
-            breakpoints = 8148, 7452; 8148, 7496
+            breakpoints = 7396, 7456; 7396, 7500
         ]
         connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
         connect "Bus Split3.out2" REF_VPEAK.in as Connection48
         connect "ModBus Device3.discrete_in" Junction12 as Connection49
         connect Junction12 Junction10 as Connection50
         [
-            breakpoints = 7600, 7416
+            breakpoints = 6848, 7420
         ]
         connect "ModBus Device3.holding_in" Junction12 as Connection51
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
@@ -4919,9 +4886,22 @@ P = I_out * V_out;
         connect reg_in2.in Junction59 as Connection611
         connect Junction59 "ModBus Device3.reg_in" as Connection612
         [
-            breakpoints = 7600, 7512
+            breakpoints = 6848, 7516
         ]
         connect Junction59 Subsystem2.Out1 as Connection613
+        connect Indicator_DAB.out "Bus Join1.in" as Connection614
+        connect ACT_VDC_IN.out "Bus Join1.in1" as Connection615
+        connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
+        connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
+        [
+            breakpoints = 8164, 7596; 8164, 7524
+        ]
+        connect reg_in.in Junction60 as Connection617
+        connect Junction60 "ModBus Device1.reg_in" as Connection618
+        [
+            breakpoints = 8496, 7500
+        ]
+        connect "Bus Join1.out" Junction60 as Connection619
     }
 
     logically_deleted {
