@@ -1963,6 +1963,18 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            tag Goto42 {
+                value = "Inv_source"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7820, 8276
+                hide_name = True
+                size = 60, 20
+            ]
+
             junction Junction38 pe
             [
                 position = 8608, 8140
@@ -2016,6 +2028,11 @@ P = I_out * V_out;
             junction Junction25 sp
             [
                 position = 7748, 8252
+            ]
+
+            junction Junction40 sp
+            [
+                position = 7748, 8276
             ]
 
             scheme_area Area12 {
@@ -2121,11 +2138,13 @@ P = I_out * V_out;
             connect Junction37 Goto25 as Connection417
             connect out_PI.in Junction37 as Connection418
             connect DAB_on_off.out Junction25 as Connection428
-            connect Junction25 "Signal switch1.in2" as Connection429
             connect Goto18 Junction25 as Connection430
             connect V_out_ref_dab.out "Signal switch1.in" as Connection431
             connect Constant5.out "Signal switch1.in1" as Connection432
             connect "Signal switch1.out" Sum4.in as Connection433
+            connect Junction25 Junction40 as Connection434
+            connect Junction40 "Signal switch1.in2" as Connection435
+            connect Goto42 Junction40 as Connection436
         }
         [
             position = 7180, 7268
@@ -3667,18 +3686,6 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
-        tag Goto42 {
-            value = "Inv_source"
-            scope = global
-            kind = sp
-            direction = in
-        }
-        [
-            position = 7540, 7088
-            hide_name = True
-            size = 60, 20
-        ]
-
         junction Junction44 pe
         [
             position = 8148, 7420
@@ -3737,11 +3744,6 @@ P = I_out * V_out;
         junction Junction57 pe
         [
             position = 6552, 7364
-        ]
-
-        junction Junction58 sp
-        [
-            position = 7480, 7088
         ]
 
         connect Vs1.n_node gnd1.node as Connection4
@@ -3816,12 +3818,7 @@ P = I_out * V_out;
         [
             breakpoints = 7976, 7080
         ]
-        connect sw_dab_inv.out Junction58 as Connection588
-        connect Junction58 S5.ctrl_in as Connection589
-        [
-            breakpoints = 7480, 7088
-        ]
-        connect Goto42 Junction58 as Connection590
+        connect S5.ctrl_in sw_dab_inv.out as Connection591
     }
 
     logically_deleted {
