@@ -2389,6 +2389,7 @@ P = I_out * V_out;
                 IB = "False"
                 IC = "False"
                 Ts = "T_meas_inv"
+                VLn_rms = "True"
                 freq = "True"
             }
             [
@@ -3011,10 +3012,13 @@ P = I_out * V_out;
 
             component "core/Meter Split" "Meter Split1" {
                 freq = "True"
+                van_rms = "True"
+                vbn_rms = "True"
+                vcn_rms = "True"
             }
             [
                 position = 8184, 7856
-                size = 96, 112
+                size = 96, 128
             ]
 
             port V_in_inv+ {
@@ -3431,9 +3435,45 @@ P = I_out * V_out;
                 direction = in
             }
             [
-                position = 8312, 7916
+                position = 8300, 7856
                 hide_name = True
                 size = 60, 20
+            ]
+
+            tag Goto14 {
+                value = "Inv_VCn_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8312, 7928
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag Goto15 {
+                value = "Inv_VBn_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8312, 7904
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag Goto16 {
+                value = "Inv_VAn_RMS"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 8312, 7880
+                hide_name = True
+                size = 84, 20
             ]
 
             junction Junction3 pe
@@ -3693,6 +3733,12 @@ P = I_out * V_out;
             connect V_dc_inv.out Goto41 as Connection514
             connect From54 "Meter Split1.Input" as Connection521
             connect "Meter Split1.Freq" Goto42 as Connection522
+            connect "Meter Split1.VAn_RMS" Goto16 as Connection523
+            connect Goto15 "Meter Split1.VBn_RMS" as Connection524
+            [
+                breakpoints = 8256, 7904; 8256, 7888
+            ]
+            connect Goto14 "Meter Split1.VCn_RMS" as Connection525
         }
         [
             position = 8376, 8064
