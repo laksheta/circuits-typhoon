@@ -2788,16 +2788,6 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
-            component "core/Voltage Measurement" V_in_inv {
-                execution_rate = "T_meas_rect"
-                sig_output = "True"
-            }
-            [
-                position = 7396, 7836
-                rotation = right
-                size = 64, 32
-            ]
-
             component "core/SCADA Input" scada_i_d_inv {
                 def_value = "10"
                 execution_rate = "T_math_inv"
@@ -2838,12 +2828,37 @@ P = I_out * V_out;
                 hide_name = True
             ]
 
+            component "core/Double Pole Double Throw Contactor" S1 {
+            }
+            [
+                position = 7520, 7844
+                size = 64, 256
+            ]
+
+            component "core/Voltage Measurement" V_in_inv {
+                execution_rate = "T_meas_rect"
+                sig_output = "True"
+            }
+            [
+                position = 7660, 7832
+                rotation = right
+                size = 64, 32
+            ]
+
+            component "core/Voltage Source" Vs1 {
+                init_const_value = "780"
+            }
+            [
+                position = 7392, 7844
+                rotation = right
+            ]
+
             port V_in_inv+ {
                 position = auto:auto
                 kind = pe
             }
             [
-                position = 7344, 7756
+                position = 7352, 7748
             ]
 
             port V_in_inv- {
@@ -2851,7 +2866,7 @@ P = I_out * V_out;
                 kind = pe
             }
             [
-                position = 7344, 7904
+                position = 7352, 7940
             ]
 
             port A {
@@ -3086,18 +3101,6 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
-            tag Goto28 {
-                value = "V_in_inv"
-                scope = local
-                kind = sp
-                direction = in
-            }
-            [
-                position = 7480, 7836
-                hide_name = True
-                size = 60, 20
-            ]
-
             tag From46 {
                 value = "lower_lim_inv"
                 scope = local
@@ -3208,6 +3211,18 @@ P = I_out * V_out;
                 size = 92, 20
             ]
 
+            tag Goto28 {
+                value = "V_in_inv"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7744, 7832
+                hide_name = True
+                size = 60, 20
+            ]
+
             junction Junction3 pe
             [
                 position = 8428, 8520
@@ -3277,8 +3292,8 @@ P = I_out * V_out;
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Input</p></body></html>
             }
             [
-                position = 7372, 7816
-                size = 308, 300
+                position = 7476, 7836
+                size = 516, 340
                 background_color = #0effaa00
                 box_outline = True
             ]
@@ -3313,9 +3328,6 @@ P = I_out * V_out;
                 box_outline = True
             ]
 
-            connect V_in_inv+ V_in_inv.p_node as Connection419
-            connect V_in_inv- V_in_inv.n_node as Connection420
-            connect V_in_inv.out Goto28 as Connection421
             connect A R6.n_node as Connection496
             connect B R7.n_node as Connection497
             connect C R8.n_node as Connection498
@@ -3440,6 +3452,16 @@ P = I_out * V_out;
             connect Goto18 Junction25 as Connection401
             connect Constant5.out "Signal switch1.in1" as Connection499
             connect "Signal switch1.out" Sum5.in as Connection500
+            connect V_in_inv.out Goto28 as Connection421
+            connect V_in_inv.p_node S1.sa0 as Connection501
+            connect V_in_inv.n_node S1.sb0 as Connection502
+            connect V_in_inv+ S1.sa1 as Connection503
+            connect V_in_inv- S1.sb2 as Connection504
+            connect Vs1.p_node S1.sa2 as Connection505
+            connect S1.sb1 Vs1.n_node as Connection506
+            [
+                breakpoints = 7472, 7876; 7472, 7884
+            ]
         }
         [
             position = 7756, 7272
@@ -3928,6 +3950,42 @@ P = I_out * V_out;
         "core/Sum" {
             signs = "2"
             execution_rate = "inherit"
+        }
+
+        "core/Voltage Source" {
+            sig_input = "False"
+            type = "signal generator"
+            param_set = "1phase"
+            parent_label = ""
+            dtsm_switch_name = ""
+            addr = "0"
+            spc_nb = "0"
+            execution_rate = "100e-6"
+            cpd_visible = "True"
+            enable_snb = "False"
+            snb_type = "R2"
+            R2 = "0.0"
+            L1 = "0.1"
+            override_signal_name = "False"
+            signal_name = ""
+            init_source_nature = "Constant"
+            init_const_value = "0.0"
+            init_rms_value = "0.0"
+            init_frequency = "50.0"
+            init_phase = "0.0"
+        }
+
+        "core/Double Pole Double Throw Contactor" {
+            signal_access = "inherit"
+            ctrl_src = "Digital input"
+            Sab = "1"
+            Sa_logic = "active high"
+            enable_fb_out = "False"
+            fb_out_type = "real"
+            execution_rate = "inherit"
+            initial_state = "S1"
+            S1_to_S2_delay = "0"
+            S2_to_S1_delay = "0"
         }
 
         "core/Double Pole Single Throw Contactor" {
