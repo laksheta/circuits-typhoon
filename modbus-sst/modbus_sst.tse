@@ -2997,12 +2997,23 @@ P = I_out * V_out;
                 rotation = right
             ]
 
+            component "core/Voltage Measurement" V_dc_inv {
+                execution_rate = "T_meas_rect"
+                sig_output = "True"
+            }
+            [
+                position = 7308, 7856
+                rotation = right
+                scale = -1, 1
+                size = 64, 32
+            ]
+
             port V_in_inv+ {
                 position = auto:auto
                 kind = pe
             }
             [
-                position = 7352, 7748
+                position = 7252, 7752
             ]
 
             port V_in_inv- {
@@ -3010,7 +3021,7 @@ P = I_out * V_out;
                 kind = pe
             }
             [
-                position = 7352, 7940
+                position = 7252, 7944
             ]
 
             port A {
@@ -3379,6 +3390,19 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            tag Goto41 {
+                value = "V_dc_inv"
+                scope = local
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7172, 7856
+                rotation = down
+                hide_name = True
+                size = 60, 20
+            ]
+
             junction Junction3 pe
             [
                 position = 8428, 8520
@@ -3442,6 +3466,16 @@ P = I_out * V_out;
             junction Junction25 sp
             [
                 position = 7052, 8172
+            ]
+
+            junction Junction53 pe
+            [
+                position = 7308, 7752
+            ]
+
+            junction Junction54 pe
+            [
+                position = 7308, 7944
             ]
 
             scheme_area Area12 {
@@ -3611,14 +3645,19 @@ P = I_out * V_out;
             connect V_in_inv.out Goto28 as Connection421
             connect V_in_inv.p_node S1.sa0 as Connection501
             connect V_in_inv.n_node S1.sb0 as Connection502
-            connect V_in_inv+ S1.sa1 as Connection503
-            connect V_in_inv- S1.sb2 as Connection504
             connect Vs1.p_node S1.sa2 as Connection505
             connect S1.sb1 Vs1.n_node as Connection506
             [
                 breakpoints = 7472, 7876; 7472, 7884
             ]
             connect From53 S1.ctrl_in as Connection507
+            connect V_in_inv+ Junction53 as Connection508
+            connect Junction53 S1.sa1 as Connection509
+            connect V_dc_inv.p_node Junction53 as Connection510
+            connect V_in_inv- Junction54 as Connection511
+            connect Junction54 S1.sb2 as Connection512
+            connect V_dc_inv.n_node Junction54 as Connection513
+            connect V_dc_inv.out Goto41 as Connection514
         }
         [
             position = 8376, 8064
