@@ -33,7 +33,7 @@ SETTINGS_DIR = get_settings_dir_path()
                 <working_mode>windowed</working_mode>
                 <widget_settings>
                     <x>1208</x>
-                    <y>88</y>
+                    <y>96</y>
                     <width>120</width>
                     <height>120</height>
                     <hierarchy_position>1</hierarchy_position>
@@ -54,16 +54,52 @@ SETTINGS_DIR = get_settings_dir_path()
                             <layout>Vertical</layout>
                             <legend>True</legend>
                             <analog_signals>
+                                <analog>
+                                    <channel>0</channel>
+                                    <name><![CDATA[Rectifier.V_out_rect]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>0</row>
+                                    <viewports>
+                                        <num_viewport>1</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>1</channel>
+                                    <name><![CDATA[DAB.V_out_dab]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>1</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                                <analog>
+                                    <channel>2</channel>
+                                    <name><![CDATA[Inverter.Inverter Measurement.IA]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>2</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
                             </analog_signals>
                             <digital_signals>
                             </digital_signals>
                             <virtual_signals>
                             </virtual_signals>
                             <trigger>
-                                <device>-1</device>
-                                <is_force>False</is_force>
+                                <device>0</device>
+                                <is_force>True</is_force>
                                 <type>Analog</type>
-                                <source><![CDATA[None]]></source>
+                                <source><![CDATA[Rectifier.V_out_rect]]></source>
                                 <edge>Rising edge</edge>
                                 <treshold>0.0</treshold>
                                 <offset>0.0</offset>
@@ -105,13 +141,49 @@ SETTINGS_DIR = get_settings_dir_path()
                         <legend>True</legend>
                         <trigger>
                             <type>Analog</type>
-                            <source>None</source>
+                            <source>Rectifier.V_out_rect</source>
                             <edge>Rising edge</edge>
                             <treshold>0.0</treshold>
                             <offset>0.0</offset>
                             <useFirstTrigger>False</useFirstTrigger>
                         </trigger>
                         <analog_signals>
+                            <analog>
+                                    <channel>0</channel>
+                                    <name><![CDATA[Rectifier.V_out_rect]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>0</row>
+                                    <viewports>
+                                        <num_viewport>1</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>1</channel>
+                                    <name><![CDATA[DAB.V_out_dab]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>1</row>
+                                    <viewports>
+                                        <num_viewport>2</num_viewport>
+                                   </viewports>
+                               </analog>
+                            <analog>
+                                    <channel>2</channel>
+                                    <name><![CDATA[Inverter.Inverter Measurement.IA]]></name>
+                                    <is_locked>False</is_locked>
+                                    <vertical_scale>Auto</vertical_scale>
+                                    <vertical_offset>0</vertical_offset>
+                                    <coupling>False</coupling>
+                                    <row>2</row>
+                                    <viewports>
+                                        <num_viewport>3</num_viewport>
+                                   </viewports>
+                               </analog>
                         </analog_signals>
                          <digital_signals>
                          </digital_signals>
@@ -850,7 +922,7 @@ widgetValue = None
 widgetValue = hil.model_read('sw_grid')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -1054,7 +1126,7 @@ widgetValue = None
 widgetValue = hil.model_read('Rectifier.Rect_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -1122,7 +1194,7 @@ widgetValue = None
 widgetValue = hil.model_read('DAB.DAB_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -1190,7 +1262,7 @@ widgetValue = None
 widgetValue = hil.model_read('Inverter.Inv_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
