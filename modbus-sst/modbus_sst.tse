@@ -4562,15 +4562,6 @@ P = I_out * V_out;
             position = 8064, 7444
         ]
 
-        component "core/SCADA Input" ACT_VDC_IN {
-            addr = "1426063412"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 8064, 7492
-        ]
-
         component "core/SCADA Input" ACT_VDC_OUT {
             addr = "1426063396"
             execution_rate = "Ts"
@@ -4598,6 +4589,17 @@ P = I_out * V_out;
         [
             position = 8768, 7892
             hide_name = True
+            size = 60, 20
+        ]
+
+        tag ACT_VDC_IN {
+            value = "V_in_dab"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 8064, 7500
             size = 60, 20
         ]
 
@@ -4890,7 +4892,6 @@ P = I_out * V_out;
         ]
         connect Junction59 Subsystem2.Out1 as Connection613
         connect Indicator_DAB.out "Bus Join1.in" as Connection614
-        connect ACT_VDC_IN.out "Bus Join1.in1" as Connection615
         connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
         connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
         [
@@ -4902,6 +4903,7 @@ P = I_out * V_out;
             breakpoints = 8496, 7500
         ]
         connect "Bus Join1.out" Junction60 as Connection619
+        connect ACT_VDC_IN "Bus Join1.in1" as Connection620
     }
 
     logically_deleted {
