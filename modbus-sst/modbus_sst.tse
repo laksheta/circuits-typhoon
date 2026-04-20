@@ -4272,15 +4272,6 @@ P = I_out * V_out;
             position = 6144, 7268
         ]
 
-        component "core/SCADA Input" ACT_FREQUENCY_MMC {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 6148, 7716
-        ]
-
         component "core/SCADA Input" CHARGING_COMPLETE {
             addr = "1426063396"
             execution_rate = "Ts"
@@ -4385,6 +4376,17 @@ P = I_out * V_out;
         }
         [
             position = 6144, 7532
+            size = 60, 20
+        ]
+
+        tag ACT_FREQUENCY_MMC {
+            value = "Rect_Freq"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 6144, 7668
             size = 60, 20
         ]
 
@@ -4672,10 +4674,6 @@ P = I_out * V_out;
         [
             breakpoints = 6288, 7268; 6288, 7452
         ]
-        connect ACT_FREQUENCY_MMC.out "Bus Join1.in9" as Connection597
-        [
-            breakpoints = 6264, 7716; 6264, 7580
-        ]
         connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
         [
             breakpoints = 6276, 7596; 6276, 7772
@@ -4714,6 +4712,10 @@ P = I_out * V_out;
         connect ACT_IRMS_T "Bus Join1.in8" as Connection610
         [
             breakpoints = 6208, 7620; 6208, 7564
+        ]
+        connect ACT_FREQUENCY_MMC "Bus Join1.in9" as Connection611
+        [
+            breakpoints = 6260, 7668; 6260, 7580
         ]
     }
 
