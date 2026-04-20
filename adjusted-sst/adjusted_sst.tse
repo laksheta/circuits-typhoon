@@ -3770,6 +3770,9 @@ P = I_out * V_out;
         "DAB.Connection397"
         "DAB.Connection112"
         "Inverter.dc_input_inv"
+        "R7"
+        "Connection552"
+        "Connection555"
     }
 
     default {
