@@ -3600,7 +3600,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R6 {
-            resistance = "R_load_dab"
+            resistance = "2*R_load_dab"
         }
         [
             position = 7368, 7260
@@ -3609,7 +3609,7 @@ P = I_out * V_out;
         ]
 
         component "core/Resistor" R7 {
-            resistance = "10e3"
+            resistance = "2*R_load_dab"
         }
         [
             position = 7572, 7260
@@ -3836,9 +3836,6 @@ P = I_out * V_out;
         "DAB.Connection397"
         "DAB.Connection112"
         "Inverter.dc_input_inv"
-        "R7"
-        "Connection552"
-        "Connection555"
     }
 
     default {
