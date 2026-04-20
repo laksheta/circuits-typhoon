@@ -3392,7 +3392,7 @@ P = I_out * V_out;
 
             tag Goto41 {
                 value = "V_dc_inv"
-                scope = local
+                scope = global
                 kind = sp
                 direction = in
             }
@@ -3482,8 +3482,8 @@ P = I_out * V_out;
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Input</p></body></html>
             }
             [
-                position = 7504, 7808
-                size = 572, 396
+                position = 7448, 7812
+                size = 684, 404
                 background_color = #0effaa00
                 box_outline = True
             ]
@@ -4338,15 +4338,6 @@ P = I_out * V_out;
             position = 7060, 7260
         ]
 
-        component "core/SCADA Input" ACT_DCLINK {
-            addr = "1426063396"
-            execution_rate = "Ts"
-            unit = ""
-        }
-        [
-            position = 7060, 7316
-        ]
-
         component "core/SCADA Input" ACT_Vrms_R {
             addr = "1426063396"
             execution_rate = "Ts"
@@ -4428,6 +4419,17 @@ P = I_out * V_out;
         [
             position = 8768, 7892
             hide_name = True
+            size = 60, 20
+        ]
+
+        tag ACT_DCLINK {
+            value = "V_dc_inv"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7060, 7316
             size = 60, 20
         ]
 
@@ -4718,10 +4720,6 @@ P = I_out * V_out;
         [
             breakpoints = 7204, 7260; 7204, 7444
         ]
-        connect "Bus Join1.in2" ACT_DCLINK.out as Connection5
-        [
-            breakpoints = 7192, 7460; 7192, 7316
-        ]
         connect "Bus Join1.in3" ACT_Vrms_R.out as Connection6
         [
             breakpoints = 7180, 7476; 7180, 7372
@@ -4760,6 +4758,10 @@ P = I_out * V_out;
             breakpoints = 7600, 7512
         ]
         connect "Bus Join1.out" Junction59 as Connection613
+        connect ACT_DCLINK "Bus Join1.in2" as Connection614
+        [
+            breakpoints = 7192, 7316; 7192, 7468
+        ]
     }
 
     logically_deleted {
