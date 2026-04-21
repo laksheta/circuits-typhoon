@@ -4598,6 +4598,15 @@ P = I_out * V_out;
             position = 7736, 7724
         ]
 
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_modbus"
+        }
+        [
+            position = 7812, 7676
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4941,7 +4950,8 @@ P = I_out * V_out;
             breakpoints = 8136, 7620
         ]
         connect "Bus Join1.out" Junction60 as Connection628
-        connect From36 "Bus Join1.in2" as Connection629
+        connect From36 "Rate Transition1.in" as Connection629
+        connect "Rate Transition1.out" "Bus Join1.in2" as Connection630
     }
 
     logically_deleted {
