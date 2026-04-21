@@ -4554,48 +4554,101 @@ P = I_out * V_out;
             position = 8188, 7700
         ]
 
-        component "core/Bus Join" "Bus Join1" {
-            execution_rate = "T_modbus"
-            inputs = "4"
-        }
-        [
-            position = 7896, 7628
-        ]
+        component Subsystem Subsystem3 {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                execution_rate = "T_modbus"
+                inputs = "4"
+            }
+            [
+                position = 8272, 8172
+            ]
 
-        component "core/SCADA Input" Indicator_DAB {
-            addr = "1426063396"
-            execution_rate = "T_modbus"
-            unit = ""
-        }
-        [
-            position = 7736, 7572
-        ]
+            component "core/SCADA Input" Indicator_DAB {
+                addr = "1426063396"
+                execution_rate = "T_modbus"
+                unit = ""
+            }
+            [
+                position = 8112, 8116
+            ]
 
-        component "core/SCADA Input" Step_Ref_VDC_OUT {
-            addr = "1426063412"
-            execution_rate = "T_modbus"
-            unit = ""
-        }
-        [
-            position = 7736, 7724
-        ]
+            component "core/SCADA Input" Step_Ref_VDC_OUT {
+                addr = "1426063412"
+                execution_rate = "T_modbus"
+                unit = ""
+            }
+            [
+                position = 8112, 8268
+            ]
 
-        component "core/Rate Transition" "Rate Transition1" {
-            execution_rate = "T_modbus"
-        }
-        [
-            position = 7812, 7676
-            hide_name = True
-            size = 32, 32
-        ]
+            component "core/Rate Transition" "Rate Transition1" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8188, 8220
+                hide_name = True
+                size = 32, 32
+            ]
 
-        component "core/Rate Transition" "Rate Transition2" {
-            execution_rate = "T_modbus"
+            component "core/Rate Transition" "Rate Transition2" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8192, 8164
+                hide_name = True
+                size = 32, 32
+            ]
+
+            port Out1 {
+                position = right:1
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8344, 8172
+            ]
+
+            tag ACT_VDC_OUT {
+                value = "V_out_dab"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8116, 8220
+                size = 60, 20
+            ]
+
+            tag ACT_VDC_IN {
+                value = "V_in_dab"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8116, 8164
+                size = 60, 20
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection633
+            connect Indicator_DAB.out "Bus Join1.in" as Connection623
+            connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
+            [
+                breakpoints = 8216, 8268; 8216, 8196
+            ]
+            connect ACT_VDC_OUT "Rate Transition1.in" as Connection629
+            connect "Rate Transition1.out" "Bus Join1.in2" as Connection630
+            connect "Bus Join1.in1" "Rate Transition2.out" as Connection631
+            connect ACT_VDC_IN "Rate Transition2.in" as Connection632
         }
         [
-            position = 7816, 7620
-            hide_name = True
-            size = 32, 32
+            position = 8028, 7628
+            size = 48, 48
         ]
 
         tag Goto41 {
@@ -4607,28 +4660,6 @@ P = I_out * V_out;
         [
             position = 8768, 7892
             hide_name = True
-            size = 60, 20
-        ]
-
-        tag ACT_VDC_OUT {
-            value = "V_out_dab"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7740, 7676
-            size = 60, 20
-        ]
-
-        tag ACT_VDC_IN {
-            value = "V_in_dab"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7740, 7620
             size = 60, 20
         ]
 
@@ -4917,21 +4948,12 @@ P = I_out * V_out;
             breakpoints = 8136, 7524
         ]
         connect "ModBus Device1.holding_in" Junction4 as Connection21
-        connect Indicator_DAB.out "Bus Join1.in" as Connection623
-        connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
-        [
-            breakpoints = 7840, 7724; 7840, 7652
-        ]
         connect reg_in.in Junction60 as Connection626
         connect Junction60 "ModBus Device1.reg_in" as Connection627
         [
             breakpoints = 8136, 7620
         ]
-        connect "Bus Join1.out" Junction60 as Connection628
-        connect ACT_VDC_OUT "Rate Transition1.in" as Connection629
-        connect "Rate Transition1.out" "Bus Join1.in2" as Connection630
-        connect "Bus Join1.in1" "Rate Transition2.out" as Connection631
-        connect ACT_VDC_IN "Rate Transition2.in" as Connection632
+        connect Junction60 Subsystem3.Out1 as Connection628
     }
 
     logically_deleted {
