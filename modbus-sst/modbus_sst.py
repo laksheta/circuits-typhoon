@@ -152,3 +152,74 @@ omega_cv_rect    = 2*np.pi*f_bw_v_rect
 zeta_rect        = 0.707
 Kp_v_rect        = 2*zeta_rect*omega_cv_rect*C_out_rect
 Ki_v_rect        = (omega_cv_rect**2)*C_out_rect
+
+T_modbus = 100e-6
+
+config_dab = {
+    "port": 502,
+    "ip_addr": '192.168.0.202',
+    "netmask": '255.255.255.0',
+    "slave_id": 2,
+    
+    # Unused fields (Set to empty string so no memory is allocated)
+    "coil_input_addresses": '',
+    "coil_output_addresses": '',
+    "discrete_input_addresses": '',
+    "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+    
+    # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+    # Mapping %IW23, %IW24, %IW25, %IW29
+    # "input_register_addresses": '22, 23, 24, 28',
+    "input_register_addresses": '0u, 1u, 2u, 3u',
+    
+    # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+    # Mapping %QW11, %QW12, %QW13
+    # "holding_register_output_addresses": '10, 11, 12'
+    "holding_register_output_addresses": '1u, 2u, 3u'
+}
+
+config_mmc = {
+    "port": 502,
+    "ip_addr": '192.168.0.202',
+    "netmask": '255.255.255.0',
+    "slave_id": 1,
+    
+    # Unused fields (Set to empty string so no memory is allocated)
+    "coil_input_addresses": '',
+    "coil_output_addresses": '',
+    "discrete_input_addresses": '',
+    "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+    
+    # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+    # Mapping %IW23, %IW24, %IW25, %IW29
+    # "input_register_addresses": '22, 23, 24, 28',
+    "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u,11u',
+    
+    # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+    # Mapping %QW11, %QW12, %QW13
+    # "holding_register_output_addresses": '10, 11, 12'
+    "holding_register_output_addresses": '1u, 2u, 3u'
+}
+
+config_inv = {
+    "port": 502,
+    "ip_addr": '192.168.0.202',
+    "netmask": '255.255.255.0',
+    "slave_id": 3,
+    
+    # Unused fields (Set to empty string so no memory is allocated)
+    "coil_input_addresses": '',
+    "coil_output_addresses": '',
+    "discrete_input_addresses": '',
+    "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
+    
+    # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
+    # Mapping %IW23, %IW24, %IW25, %IW29
+    # "input_register_addresses": '22, 23, 24, 28',
+    "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u',
+    
+    # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
+    # Mapping %QW11, %QW12, %QW13
+    # "holding_register_output_addresses": '10, 11, 12'
+    "holding_register_output_addresses": '1u, 2u, 3u, 4u,5u'
+}
