@@ -4034,6 +4034,7 @@ P = I_out * V_out;
             enable_pipeline = "False"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+            execution_rate = "T_modbus"
         }
         [
             position = 6992, 7448
@@ -4041,7 +4042,7 @@ P = I_out * V_out;
         ]
 
         component "core/Constant" Constant3 {
-            execution_rate = "Ts"
+            execution_rate = "T_modbus"
             value = "0"
         }
         [
@@ -4050,12 +4051,14 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" coil_out2 {
+            execution_rate = "T_modbus"
         }
         [
             position = 7200, 7372
         ]
 
         component "core/Probe" holding_out2 {
+            execution_rate = "T_modbus"
         }
         [
             position = 7196, 7548
@@ -4063,6 +4066,7 @@ P = I_out * V_out;
         ]
 
         component "core/Bus Split" "Bus Split3" {
+            execution_rate = "T_modbus"
             outputs = "5"
         }
         [
@@ -4071,36 +4075,42 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" MMC_ON {
+            execution_rate = "T_modbus"
         }
         [
             position = 7432, 7404
         ]
 
         component "core/Probe" REF_FREQUENCY {
+            execution_rate = "T_modbus"
         }
         [
             position = 7428, 7460
         ]
 
         component "core/Probe" REF_VPEAK {
+            execution_rate = "T_modbus"
         }
         [
             position = 7428, 7516
         ]
 
         component "core/Probe" reg_in2 {
+            execution_rate = "T_modbus"
         }
         [
             position = 6900, 7596
         ]
 
         component "core/Probe" RESET_FAILSAFE_INVERTER {
+            execution_rate = "T_modbus"
         }
         [
             position = 7428, 7568
         ]
 
         component "core/Probe" INVERTER_ON {
+            execution_rate = "T_modbus"
         }
         [
             position = 7428, 7620
@@ -4305,6 +4315,7 @@ P = I_out * V_out;
         component Subsystem Subsystem2 {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
+                execution_rate = "T_modbus"
                 inputs = "11"
             }
             [
@@ -4313,7 +4324,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" INDICATOR_INVERTER {
                 addr = "1426063396"
-                execution_rate = "Ts"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4322,7 +4333,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" STEP_REFERENCE_FREQUENCY {
                 addr = "1426063396"
-                execution_rate = "Ts"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4331,7 +4342,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" STEP_REFERENCE_VRMS {
                 addr = "1426063396"
-                execution_rate = "Ts"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4916,6 +4927,9 @@ P = I_out * V_out;
         ]
         connect "ModBus Device3.holding_in" Junction12 as Connection51
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
+        [
+            breakpoints = 7412, 7568; 7396, 7568
+        ]
         connect INVERTER_ON.in "Bus Split3.out4" as Connection56
         connect reg_in1.in Junction58 as Connection601
         connect Junction58 "ModBus Device2.reg_in" as Connection602
@@ -4970,25 +4984,10 @@ P = I_out * V_out;
         "DC_LINK_CONTACTOR"
         "STATUS"
         "reg_in1"
-        "ModBus Device3"
-        "Constant3"
-        "coil_out2"
-        "holding_out2"
-        "Bus Split3"
-        "MMC_ON"
-        "REF_FREQUENCY"
-        "REF_VPEAK"
-        "reg_in2"
-        "RESET_FAILSAFE_INVERTER"
-        "INVERTER_ON"
         "Junction6"
         "Junction7"
         "Junction8"
-        "Junction10"
-        "Junction11"
-        "Junction12"
         "Area2"
-        "Area3"
         "Connection25"
         "Connection26"
         "Connection27"
@@ -5001,30 +5000,11 @@ P = I_out * V_out;
         "Connection34"
         "Connection35"
         "Connection36"
-        "Connection40"
-        "Connection41"
-        "Connection42"
-        "Connection43"
-        "Connection44"
-        "Connection45"
-        "Connection46"
-        "Connection47"
-        "Connection48"
-        "Connection49"
-        "Connection50"
-        "Connection51"
-        "Connection55"
-        "Connection56"
         "Junction58"
         "Connection601"
         "Connection602"
         "Subsystem1"
         "Connection603"
-        "Junction59"
-        "Connection611"
-        "Connection612"
-        "Subsystem2"
-        "Connection613"
     }
 
     default {
