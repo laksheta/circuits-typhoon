@@ -4595,7 +4595,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7912, 7532
+            position = 8064, 7500
         ]
 
         tag Goto41 {
@@ -4617,7 +4617,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 8064, 7500
+            position = 7912, 7412
             size = 60, 20
         ]
 
@@ -4932,7 +4932,7 @@ P = I_out * V_out;
             breakpoints = 8496, 7500
         ]
         connect "Bus Join1.out" Junction60 as Connection619
-        connect ACT_VDC_IN "Bus Join1.in1" as Connection620
+        connect ACT_VDC_IN1.out "Bus Join1.in1" as Connection620
     }
 
     logically_deleted {
@@ -4940,7 +4940,8 @@ P = I_out * V_out;
         "DAB.Connection397"
         "DAB.Connection112"
         "Inverter.dc_input_inv"
-        "ACT_VDC_IN1"
+        "ACT_VDC_OUT"
+        "ACT_VDC_IN"
     }
 
     default {
