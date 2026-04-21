@@ -4481,6 +4481,144 @@ P = I_out * V_out;
             size = 48, 48
         ]
 
+        component "core/ModBus Device" "ModBus Device1" {
+            configuration = "config_dab"
+            enable_pipeline = "False"
+            eth_port = "1"
+            ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+        }
+        [
+            position = 8280, 7548
+            size = 184, 184
+        ]
+
+        component Subsystem reg {
+            layout = dynamic
+            component "core/Bus Join" "Bus Join1" {
+                inputs = "4"
+            }
+            [
+                position = 8008, 8072
+            ]
+
+            component "core/SCADA Input" Indicator_DAB {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8016
+            ]
+
+            component "core/SCADA Input" ACT_VDC_IN {
+                addr = "1426063412"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8064
+            ]
+
+            component "core/SCADA Input" ACT_VDC_OUT {
+                addr = "1426063396"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8120
+            ]
+
+            component "core/SCADA Input" Step_Ref_VDC_OUT {
+                addr = "1426063412"
+                execution_rate = "Ts"
+                unit = ""
+            }
+            [
+                position = 7852, 8168
+            ]
+
+            port Out1 {
+                label = "Out1"
+                position = auto:auto
+                kind = sp
+                direction =  in
+                sp_type {
+                    default = inherit
+                    readonly = True
+                }
+            }
+            [
+                position = 8136, 8072
+            ]
+
+            connect "Bus Join1.out" Out1 as Connection2
+            connect Indicator_DAB.out "Bus Join1.in" as Connection3
+            connect ACT_VDC_IN.out "Bus Join1.in1" as Connection4
+            connect ACT_VDC_OUT.out "Bus Join1.in2" as Connection5
+            connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
+            [
+                breakpoints = 7952, 8168; 7952, 8096
+            ]
+        }
+        [
+            position = 8028, 7620
+            size = 56, 48
+        ]
+
+        component "core/Constant" Constant1 {
+            execution_rate = "Ts"
+            value = "0"
+        }
+        [
+            position = 8016, 7476
+            hide_name = True
+        ]
+
+        component "core/Probe" coil_out {
+        }
+        [
+            position = 8488, 7476
+        ]
+
+        component "core/Probe" holding_out {
+        }
+        [
+            position = 8484, 7652
+            rotation = right
+        ]
+
+        component "core/Bus Split" "Bus Split1" {
+            outputs = "3"
+        }
+        [
+            position = 8596, 7620
+            hide_name = True
+        ]
+
+        component "core/Probe" RESET_FAILSAFE_DAB {
+        }
+        [
+            position = 8716, 7560
+        ]
+
+        component "core/Probe" REF_VDC_OUT {
+        }
+        [
+            position = 8716, 7620
+        ]
+
+        component "core/Probe" DAB_ON {
+        }
+        [
+            position = 8716, 7676
+        ]
+
+        component "core/Probe" reg_in {
+        }
+        [
+            position = 8188, 7700
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4500,7 +4638,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7912, 7412
+            position = 7788, 7568
             size = 60, 20
         ]
 
@@ -4511,7 +4649,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7844, 7664
+            position = 7784, 7620
             size = 60, 20
         ]
 
@@ -4615,6 +4753,26 @@ P = I_out * V_out;
             position = 6848, 7520
         ]
 
+        junction Junction1 sp
+        [
+            position = 8136, 7476
+        ]
+
+        junction Junction3 sp
+        [
+            position = 8484, 7620
+        ]
+
+        junction Junction4 sp
+        [
+            position = 8136, 7524
+        ]
+
+        junction Junction5 sp
+        [
+            position = 8136, 7620
+        ]
+
         scheme_area Area2 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">MMC</p></body></html>
         }
@@ -4628,6 +4786,14 @@ P = I_out * V_out;
         }
         [
             position = 7080, 7488
+            size = 836, 408
+        ]
+
+        scheme_area Area1 {
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DAB</p></body></html>
+        }
+        [
+            position = 8372, 7576
             size = 836, 408
         ]
 
@@ -4754,6 +4920,27 @@ P = I_out * V_out;
         ]
         connect Junction59 Subsystem2.Out1 as Connection613
         connect Inverter.B S1.b_in as Connection621
+        connect Constant1.out Junction1 as Connection3
+        connect Junction1 "ModBus Device1.coil_in" as Connection622
+        connect coil_out.in "ModBus Device1.coil_out" as Connection9
+        connect holding_out.in Junction3 as Connection11
+        connect Junction3 "ModBus Device1.holding_out" as Connection12
+        connect "Bus Split1.in" Junction3 as Connection13
+        connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
+        [
+            breakpoints = 8684, 7560; 8684, 7604
+        ]
+        connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
+        connect "Bus Split1.out2" DAB_ON.in as Connection16
+        connect "ModBus Device1.discrete_in" Junction4 as Connection19
+        connect Junction4 Junction1 as Connection20
+        [
+            breakpoints = 8136, 7524
+        ]
+        connect "ModBus Device1.holding_in" Junction4 as Connection21
+        connect "ModBus Device1.reg_in" Junction5 as Connection22
+        connect Junction5 reg.Out1 as Connection23
+        connect reg_in.in Junction5 as Connection24
     }
 
     logically_deleted {
