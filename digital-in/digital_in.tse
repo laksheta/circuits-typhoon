@@ -139,6 +139,70 @@ model "digital_in" {
         [
             position = 8004, 8228
         ]
+
+        component "core/Digital Probe" Probe_1 {
+        }
+        [
+            position = 7904, 8048
+        ]
+
+        component "core/Digital Probe" Probe_2 {
+        }
+        [
+            position = 7904, 8104
+        ]
+
+        component "core/Digital Probe" Probe_3 {
+        }
+        [
+            position = 7904, 8168
+        ]
+
+        component "core/Digital Probe" Probe_4 {
+        }
+        [
+            position = 7900, 8228
+        ]
+
+        component "core/Digital Probe" Probe_5 {
+        }
+        [
+            position = 7900, 8292
+        ]
+
+        component "core/Digital Probe" Probe_6 {
+        }
+        [
+            position = 8092, 8048
+        ]
+
+        component "core/Digital Probe" Probe_7 {
+        }
+        [
+            position = 8092, 8104
+        ]
+
+        component "core/Digital Probe" Probe_8 {
+        }
+        [
+            position = 8092, 8168
+        ]
+
+        component "core/Digital Probe" Probe_9 {
+        }
+        [
+            position = 8092, 8228
+        ]
+
+        connect Probe_1.in DI1.out as Connection1
+        connect Probe_2.in DI2.out as Connection2
+        connect DI3.out Probe_3.in as Connection3
+        connect DI4.out Probe_4.in as Connection4
+        connect DI5.out Probe_5.in as Connection5
+        connect DI9.out Probe_9.in as Connection6
+        connect Probe_8.in DI8.out as Connection7
+        connect DI7.out Probe_7.in as Connection8
+        connect Probe_6.in DI6.out as Connection9
     }
 
     default {
@@ -147,6 +211,16 @@ model "digital_in" {
             invert = "false"
             signal_type = "uint"
             execution_rate = "100e-6"
+        }
+
+        "core/Digital Probe" {
+            signal_access = "inherit"
+            override_signal_name = "False"
+            signal_name = ""
+            streaming_en = "False"
+            addr = "0"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
         }
     }
 }
