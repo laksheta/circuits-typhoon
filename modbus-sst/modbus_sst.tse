@@ -4806,10 +4806,6 @@ P = I_out * V_out;
         connect Junction49 DAB.V_in_dab- as Connection530
         connect R5.n_node Junction49 as Connection531
         connect S1.a_in Inverter.A as Connection540
-        connect Inverter.B S1.b_in as Connection541
-        [
-            breakpoints = 8460, 8068; 8476, 8068
-        ]
         connect S1.c_in Inverter.C as Connection542
         connect S5.a_in Junction51 as Connection544
         connect Junction51 DAB.V_out_dab+ as Connection545
@@ -4933,6 +4929,7 @@ P = I_out * V_out;
         ]
         connect "Bus Join1.out" Junction60 as Connection619
         connect ACT_VDC_IN1.out "Bus Join1.in1" as Connection620
+        connect Inverter.B S1.b_in as Connection621
     }
 
     logically_deleted {
@@ -4940,6 +4937,15 @@ P = I_out * V_out;
         "DAB.Connection397"
         "DAB.Connection112"
         "Inverter.dc_input_inv"
+        "ModBus Device1"
+        "Constant1"
+        "coil_out"
+        "holding_out"
+        "Bus Split1"
+        "RESET_FAILSAFE_DAB"
+        "REF_VDC_OUT"
+        "DAB_ON"
+        "reg_in"
         "ModBus Device2"
         "Constant2"
         "coil_out1"
@@ -4960,14 +4966,30 @@ P = I_out * V_out;
         "reg_in2"
         "RESET_FAILSAFE_INVERTER"
         "INVERTER_ON"
+        "Junction1"
+        "Junction3"
+        "Junction4"
         "Junction6"
         "Junction7"
         "Junction8"
         "Junction10"
         "Junction11"
         "Junction12"
+        "Area1"
         "Area2"
         "Area3"
+        "Connection3"
+        "Connection592"
+        "Connection9"
+        "Connection11"
+        "Connection12"
+        "Connection13"
+        "Connection14"
+        "Connection15"
+        "Connection16"
+        "Connection19"
+        "Connection20"
+        "Connection21"
         "Connection25"
         "Connection26"
         "Connection27"
@@ -5004,8 +5026,21 @@ P = I_out * V_out;
         "Connection612"
         "Subsystem2"
         "Connection613"
+        "Bus Join1"
+        "Indicator_DAB"
+        "Step_Ref_VDC_OUT"
+        "Connection614"
+        "Connection6"
+        "Junction60"
+        "Connection617"
+        "Connection618"
+        "Connection619"
         "ACT_VDC_OUT"
+        "ACT_VDC_IN1"
+        "ACT_VDC_OUT_"
+        "Connection5"
         "ACT_VDC_IN"
+        "Connection620"
     }
 
     default {
@@ -5457,75 +5492,5 @@ P = I_out * V_out;
         with open(param_file_path, 'r') as f:
             exec(f.read(), globals(), locals())
             
-        T_modbus = 100e-6
-        
-        config_dab = {
-            "port": 502,
-            "ip_addr": '192.168.0.202',
-            "netmask": '255.255.255.0',
-            "slave_id": 2,
-            
-            # Unused fields (Set to empty string so no memory is allocated)
-            "coil_input_addresses": '',
-            "coil_output_addresses": '',
-            "discrete_input_addresses": '',
-            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
-            
-            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
-            # Mapping %IW23, %IW24, %IW25, %IW29
-            # "input_register_addresses": '22, 23, 24, 28',
-            "input_register_addresses": '0u, 1u, 2u, 3u',
-            
-            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
-            # Mapping %QW11, %QW12, %QW13
-            # "holding_register_output_addresses": '10, 11, 12'
-            "holding_register_output_addresses": '1u, 2u, 3u'
-        }
-        
-        config_mmc = {
-            "port": 502,
-            "ip_addr": '192.168.0.202',
-            "netmask": '255.255.255.0',
-            "slave_id": 1,
-            
-            # Unused fields (Set to empty string so no memory is allocated)
-            "coil_input_addresses": '',
-            "coil_output_addresses": '',
-            "discrete_input_addresses": '',
-            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
-            
-            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
-            # Mapping %IW23, %IW24, %IW25, %IW29
-            # "input_register_addresses": '22, 23, 24, 28',
-            "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u,11u',
-            
-            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
-            # Mapping %QW11, %QW12, %QW13
-            # "holding_register_output_addresses": '10, 11, 12'
-            "holding_register_output_addresses": '1u, 2u, 3u'
-        }
-        
-        config_inv = {
-            "port": 502,
-            "ip_addr": '192.168.0.202',
-            "netmask": '255.255.255.0',
-            "slave_id": 3,
-            
-            # Unused fields (Set to empty string so no memory is allocated)
-            "coil_input_addresses": '',
-            "coil_output_addresses": '',
-            "discrete_input_addresses": '',
-            "holding_register_input_addresses": '', # Moved to Input Registers for FC 04
-            
-            # Data sent FROM Simulation TO PLC (PLC Reads via FC 04)
-            # Mapping %IW23, %IW24, %IW25, %IW29
-            # "input_register_addresses": '22, 23, 24, 28',
-            "input_register_addresses": '0u, 1u, 2u, 3u, 4u,5u,6u,7u,8u,9u,10u',
-            
-            # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
-            # Mapping %QW11, %QW12, %QW13
-            # "holding_register_output_addresses": '10, 11, 12'
-            "holding_register_output_addresses": '1u, 2u, 3u, 4u,5u'
-        }
     ENDCODE
 }
