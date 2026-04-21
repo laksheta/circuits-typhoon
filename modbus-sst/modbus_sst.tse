@@ -4610,29 +4610,7 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
-        tag ACT_VDC_IN {
-            value = "V_in_dab"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7708, 7436
-            size = 60, 20
-        ]
-
         tag ACT_VDC_OUT {
-            value = "V_out_dab"
-            scope = global
-            kind = sp
-            direction = out
-        }
-        [
-            position = 7704, 7488
-            size = 60, 20
-        ]
-
-        tag ACT_VDC_OUT_DAB {
             value = "V_out_dab"
             scope = global
             kind = sp
@@ -4643,7 +4621,7 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
-        tag ACT_VDC_IN_DAB {
+        tag ACT_VDC_IN {
             value = "V_in_dab"
             scope = global
             kind = sp
@@ -4950,10 +4928,10 @@ P = I_out * V_out;
             breakpoints = 8136, 7620
         ]
         connect "Bus Join1.out" Junction60 as Connection628
-        connect ACT_VDC_OUT_DAB "Rate Transition1.in" as Connection629
+        connect ACT_VDC_OUT "Rate Transition1.in" as Connection629
         connect "Rate Transition1.out" "Bus Join1.in2" as Connection630
         connect "Bus Join1.in1" "Rate Transition2.out" as Connection631
-        connect ACT_VDC_IN_DAB "Rate Transition2.in" as Connection632
+        connect ACT_VDC_IN "Rate Transition2.in" as Connection632
     }
 
     logically_deleted {
@@ -5025,8 +5003,6 @@ P = I_out * V_out;
         "Connection612"
         "Subsystem2"
         "Connection613"
-        "ACT_VDC_OUT"
-        "ACT_VDC_IN"
     }
 
     default {
