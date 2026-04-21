@@ -4571,15 +4571,6 @@ P = I_out * V_out;
             position = 7736, 7572
         ]
 
-        component "core/SCADA Input" ACT_VDC_IN1 {
-            addr = "1426063412"
-            execution_rate = "T_modbus"
-            unit = ""
-        }
-        [
-            position = 7592, 7668
-        ]
-
         component "core/SCADA Input" Step_Ref_VDC_OUT {
             addr = "1426063412"
             execution_rate = "T_modbus"
@@ -4652,7 +4643,7 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
-        tag From32 {
+        tag ACT_VDC_IN_DAB {
             value = "V_in_dab"
             scope = global
             kind = sp
@@ -4660,7 +4651,6 @@ P = I_out * V_out;
         }
         [
             position = 7740, 7620
-            hide_name = True
             size = 60, 20
         ]
 
@@ -4963,7 +4953,7 @@ P = I_out * V_out;
         connect ACT_VDC_OUT_DAB "Rate Transition1.in" as Connection629
         connect "Rate Transition1.out" "Bus Join1.in2" as Connection630
         connect "Bus Join1.in1" "Rate Transition2.out" as Connection631
-        connect From32 "Rate Transition2.in" as Connection632
+        connect ACT_VDC_IN_DAB "Rate Transition2.in" as Connection632
     }
 
     logically_deleted {
@@ -5037,7 +5027,6 @@ P = I_out * V_out;
         "Connection613"
         "ACT_VDC_OUT"
         "ACT_VDC_IN"
-        "ACT_VDC_IN1"
     }
 
     default {
