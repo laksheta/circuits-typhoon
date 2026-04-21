@@ -3971,7 +3971,7 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 6016, 7428
+            position = 6720, 7508
             size = 184, 184
         ]
 
@@ -3980,7 +3980,7 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 5752, 7356
+            position = 6456, 7436
             hide_name = True
         ]
 
@@ -3988,14 +3988,14 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 6224, 7356
+            position = 6928, 7436
         ]
 
         component "core/Probe" holding_out1 {
             execution_rate = "T_modbus"
         }
         [
-            position = 6220, 7532
+            position = 6924, 7612
             rotation = right
         ]
 
@@ -4004,7 +4004,7 @@ P = I_out * V_out;
             outputs = "3"
         }
         [
-            position = 6332, 7500
+            position = 7036, 7580
             hide_name = True
         ]
 
@@ -4012,28 +4012,28 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 6452, 7440
+            position = 7156, 7520
         ]
 
         component "core/Probe" DC_LINK_CONTACTOR {
             execution_rate = "T_modbus"
         }
         [
-            position = 6452, 7500
+            position = 7156, 7580
         ]
 
         component "core/Probe" STATUS {
             execution_rate = "T_modbus"
         }
         [
-            position = 6452, 7556
+            position = 7156, 7636
         ]
 
         component "core/Probe" reg_in1 {
             execution_rate = "T_modbus"
         }
         [
-            position = 5924, 7580
+            position = 6628, 7660
         ]
 
         component "core/ModBus Device" "ModBus Device3" {
@@ -4044,7 +4044,7 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 6992, 7448
+            position = 8464, 7520
             size = 184, 184
         ]
 
@@ -4053,7 +4053,7 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 6728, 7372
+            position = 8200, 7444
             hide_name = True
         ]
 
@@ -4061,14 +4061,14 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 7200, 7372
+            position = 8672, 7444
         ]
 
         component "core/Probe" holding_out2 {
             execution_rate = "T_modbus"
         }
         [
-            position = 7196, 7548
+            position = 8668, 7620
             rotation = right
         ]
 
@@ -4077,7 +4077,7 @@ P = I_out * V_out;
             outputs = "5"
         }
         [
-            position = 7308, 7516
+            position = 8780, 7588
             hide_name = True
         ]
 
@@ -4085,42 +4085,42 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 7432, 7404
+            position = 8904, 7476
         ]
 
         component "core/Probe" REF_FREQUENCY {
             execution_rate = "T_modbus"
         }
         [
-            position = 7428, 7460
+            position = 8900, 7532
         ]
 
         component "core/Probe" REF_VPEAK {
             execution_rate = "T_modbus"
         }
         [
-            position = 7428, 7516
+            position = 8900, 7588
         ]
 
         component "core/Probe" reg_in2 {
             execution_rate = "T_modbus"
         }
         [
-            position = 6900, 7596
+            position = 8372, 7668
         ]
 
         component "core/Probe" RESET_FAILSAFE_INVERTER {
             execution_rate = "T_modbus"
         }
         [
-            position = 7428, 7568
+            position = 8900, 7640
         ]
 
         component "core/Probe" INVERTER_ON {
             execution_rate = "T_modbus"
         }
         [
-            position = 7428, 7620
+            position = 8900, 7692
         ]
 
         component Subsystem Subsystem1 {
@@ -4315,7 +4315,7 @@ P = I_out * V_out;
             ]
         }
         [
-            position = 5784, 7520
+            position = 6488, 7600
             size = 48, 48
         ]
 
@@ -4495,7 +4495,7 @@ P = I_out * V_out;
             connect STEP_REFERENCE_VRMS.out "Bus Join1.in10" as Connection623
         }
         [
-            position = 6732, 7520
+            position = 8204, 7592
             size = 48, 48
         ]
 
@@ -4507,7 +4507,7 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8280, 7548
+            position = 7596, 7528
             size = 184, 184
         ]
 
@@ -4516,7 +4516,7 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 8016, 7476
+            position = 7332, 7456
             hide_name = True
         ]
 
@@ -4524,14 +4524,14 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8488, 7476
+            position = 7804, 7456
         ]
 
         component "core/Probe" holding_out {
             execution_rate = "T_modbus"
         }
         [
-            position = 8484, 7652
+            position = 7800, 7632
             rotation = right
         ]
 
@@ -4540,7 +4540,7 @@ P = I_out * V_out;
             outputs = "3"
         }
         [
-            position = 8596, 7620
+            position = 7912, 7600
             hide_name = True
         ]
 
@@ -4548,28 +4548,28 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8716, 7560
+            position = 8032, 7540
         ]
 
         component "core/Probe" REF_VDC_OUT {
             execution_rate = "T_modbus"
         }
         [
-            position = 8716, 7620
+            position = 8032, 7600
         ]
 
         component "core/Probe" DAB_ON {
             execution_rate = "T_modbus"
         }
         [
-            position = 8716, 7676
+            position = 8032, 7656
         ]
 
         component "core/Probe" reg_in {
             execution_rate = "T_modbus"
         }
         [
-            position = 8188, 7700
+            position = 7504, 7680
         ]
 
         component Subsystem Subsystem3 {
@@ -4665,7 +4665,7 @@ P = I_out * V_out;
             connect ACT_VDC_IN "Rate Transition2.in" as Connection632
         }
         [
-            position = 8028, 7628
+            position = 7344, 7608
             size = 48, 48
         ]
 
@@ -4743,69 +4743,69 @@ P = I_out * V_out;
 
         junction Junction6 sp
         [
-            position = 5872, 7356
+            position = 6576, 7436
         ]
 
         junction Junction7 sp
         [
-            position = 6220, 7500
+            position = 6924, 7580
         ]
 
         junction Junction8 sp
         [
-            position = 5872, 7404
+            position = 6576, 7484
         ]
 
         junction Junction10 sp
         [
-            position = 6848, 7372
+            position = 8320, 7444
         ]
 
         junction Junction11 sp
         [
-            position = 7196, 7516
+            position = 8668, 7588
         ]
 
         junction Junction12 sp
         [
-            position = 6848, 7420
+            position = 8320, 7492
         ]
 
         junction Junction58 sp
         [
-            position = 5872, 7520
+            position = 6576, 7600
         ]
 
         junction Junction59 sp
         [
-            position = 6848, 7520
+            position = 8320, 7592
         ]
 
         junction Junction1 sp
         [
-            position = 8136, 7476
+            position = 7452, 7456
         ]
 
         junction Junction3 sp
         [
-            position = 8484, 7620
+            position = 7800, 7600
         ]
 
         junction Junction4 sp
         [
-            position = 8136, 7524
+            position = 7452, 7504
         ]
 
         junction Junction60 sp
         [
-            position = 8136, 7628
+            position = 7452, 7608
         ]
 
         scheme_area Area2 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">MMC</p></body></html>
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Rectifier</p></body></html>
         }
         [
-            position = 6104, 7472
+            position = 6808, 7552
             size = 836, 408
         ]
 
@@ -4813,7 +4813,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
         [
-            position = 7092, 7484
+            position = 8564, 7556
             size = 860, 400
         ]
 
@@ -4821,7 +4821,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DAB</p></body></html>
         }
         [
-            position = 8372, 7576
+            position = 7688, 7556
             size = 836, 408
         ]
 
@@ -4905,14 +4905,14 @@ P = I_out * V_out;
         connect "Bus Split2.in" Junction7 as Connection30
         connect REF_VDC_OUTPUT.in "Bus Split2.out" as Connection31
         [
-            breakpoints = 6420, 7440; 6420, 7484
+            breakpoints = 7124, 7520; 7124, 7564
         ]
         connect "Bus Split2.out1" DC_LINK_CONTACTOR.in as Connection32
         connect "Bus Split2.out2" STATUS.in as Connection33
         connect "ModBus Device2.discrete_in" Junction8 as Connection34
         connect Junction8 Junction6 as Connection35
         [
-            breakpoints = 5872, 7404
+            breakpoints = 6576, 7484
         ]
         connect "ModBus Device2.holding_in" Junction8 as Connection36
         connect Constant3.out Junction10 as Connection40
@@ -4923,31 +4923,31 @@ P = I_out * V_out;
         connect "Bus Split3.in" Junction11 as Connection45
         connect MMC_ON.in "Bus Split3.out" as Connection46
         [
-            breakpoints = 7396, 7456; 7396, 7500
+            breakpoints = 8868, 7528; 8868, 7572
         ]
         connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
         connect "Bus Split3.out2" REF_VPEAK.in as Connection48
         connect "ModBus Device3.discrete_in" Junction12 as Connection49
         connect Junction12 Junction10 as Connection50
         [
-            breakpoints = 6848, 7420
+            breakpoints = 8320, 7492
         ]
         connect "ModBus Device3.holding_in" Junction12 as Connection51
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
         [
-            breakpoints = 7412, 7568; 7396, 7568
+            breakpoints = 8884, 7640; 8868, 7640
         ]
         connect INVERTER_ON.in "Bus Split3.out4" as Connection56
         connect reg_in1.in Junction58 as Connection601
         connect Junction58 "ModBus Device2.reg_in" as Connection602
         [
-            breakpoints = 5872, 7500
+            breakpoints = 6576, 7580
         ]
         connect Junction58 Subsystem1.Out1 as Connection603
         connect reg_in2.in Junction59 as Connection611
         connect Junction59 "ModBus Device3.reg_in" as Connection612
         [
-            breakpoints = 6848, 7516
+            breakpoints = 8320, 7588
         ]
         connect Junction59 Subsystem2.Out1 as Connection613
         connect Inverter.B S1.b_in as Connection621
@@ -4959,20 +4959,20 @@ P = I_out * V_out;
         connect "Bus Split1.in" Junction3 as Connection13
         connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
         [
-            breakpoints = 8684, 7560; 8684, 7604
+            breakpoints = 8000, 7540; 8000, 7584
         ]
         connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
         connect "Bus Split1.out2" DAB_ON.in as Connection16
         connect "ModBus Device1.discrete_in" Junction4 as Connection19
         connect Junction4 Junction1 as Connection20
         [
-            breakpoints = 8136, 7524
+            breakpoints = 7452, 7504
         ]
         connect "ModBus Device1.holding_in" Junction4 as Connection21
         connect reg_in.in Junction60 as Connection626
         connect Junction60 "ModBus Device1.reg_in" as Connection627
         [
-            breakpoints = 8136, 7620
+            breakpoints = 7452, 7600
         ]
         connect Junction60 Subsystem3.Out1 as Connection628
     }
