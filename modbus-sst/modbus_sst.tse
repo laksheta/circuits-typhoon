@@ -4486,6 +4486,7 @@ P = I_out * V_out;
             enable_pipeline = "False"
             eth_port = "1"
             ethernet_port_per_device = "{\'HIL101\': {}, \'HIL402\': {}, \'HIL404\': {}, \'HIL506\': {}, \'HIL602+\': {}, \'HIL603\': {}, \'HIL604\': {\'0\': \'1\', \'1\': \'1\', \'2\': \'1\', \'3\': \'1\', \'4\': \'1\', \'5\': \'1\', \'6\': \'1\', \'7\': \'1\', \'8\': \'1\', \'9\': \'1\', \'10\': \'1\', \'11\': \'1\', \'12\': \'1\', \'13\': \'1\', \'14\': \'1\', \'15\': \'1\'}, \'HIL606\': {}, \'VHIL+\': {}}"
+            execution_rate = "T_modbus"
         }
         [
             position = 8280, 7548
@@ -4495,7 +4496,7 @@ P = I_out * V_out;
         component Subsystem reg {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
-                execution_rate = "100e-6"
+                execution_rate = "T_modbus"
                 inputs = "4"
             }
             [
@@ -4504,6 +4505,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" Indicator_DAB {
                 addr = "1426063396"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4512,6 +4514,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" ACT_VDC_IN {
                 addr = "1426063412"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4520,6 +4523,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" ACT_VDC_OUT {
                 addr = "1426063396"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4528,6 +4532,7 @@ P = I_out * V_out;
 
             component "core/SCADA Input" Step_Ref_VDC_OUT {
                 addr = "1426063412"
+                execution_rate = "T_modbus"
                 unit = ""
             }
             [
@@ -4563,6 +4568,7 @@ P = I_out * V_out;
         ]
 
         component "core/Constant" Constant1 {
+            execution_rate = "T_modbus"
             value = "0"
         }
         [
@@ -4571,14 +4577,14 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" coil_out {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
         }
         [
             position = 8488, 7476
         ]
 
         component "core/Probe" holding_out {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
         }
         [
             position = 8484, 7652
@@ -4586,7 +4592,7 @@ P = I_out * V_out;
         ]
 
         component "core/Bus Split" "Bus Split1" {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
             outputs = "3"
         }
         [
@@ -4595,28 +4601,28 @@ P = I_out * V_out;
         ]
 
         component "core/Probe" RESET_FAILSAFE_DAB {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
         }
         [
             position = 8716, 7560
         ]
 
         component "core/Probe" REF_VDC_OUT {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
         }
         [
             position = 8716, 7620
         ]
 
         component "core/Probe" DAB_ON {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
         }
         [
             position = 8716, 7676
         ]
 
         component "core/Probe" reg_in {
-            execution_rate = "100e-6"
+            execution_rate = "T_modbus"
         }
         [
             position = 8188, 7700
