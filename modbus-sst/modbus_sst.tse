@@ -2270,7 +2270,7 @@ P = I_out * V_out;
             connect "Rate Transition1.in" Junction40 as Connection437
         }
         [
-            position = 7800, 8060
+            position = 7804, 8060
             size = 168, 232
         ]
 
@@ -4586,7 +4586,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7736, 7676
+            position = 7612, 7604
         ]
 
         component "core/SCADA Input" Step_Ref_VDC_OUT {
@@ -4629,6 +4629,18 @@ P = I_out * V_out;
         }
         [
             position = 7704, 7488
+            size = 60, 20
+        ]
+
+        tag From36 {
+            value = "V_out_dab"
+            scope = global
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7740, 7676
+            hide_name = True
             size = 60, 20
         ]
 
@@ -4919,7 +4931,6 @@ P = I_out * V_out;
         connect "ModBus Device1.holding_in" Junction4 as Connection21
         connect Indicator_DAB.out "Bus Join1.in" as Connection623
         connect ACT_VDC_IN1.out "Bus Join1.in1" as Connection624
-        connect ACT_VDC_OUT1.out "Bus Join1.in2" as Connection5
         connect Step_Ref_VDC_OUT.out "Bus Join1.in3" as Connection6
         [
             breakpoints = 7840, 7724; 7840, 7652
@@ -4930,6 +4941,7 @@ P = I_out * V_out;
             breakpoints = 8136, 7620
         ]
         connect "Bus Join1.out" Junction60 as Connection628
+        connect From36 "Bus Join1.in2" as Connection629
     }
 
     logically_deleted {
@@ -5003,6 +5015,7 @@ P = I_out * V_out;
         "Connection613"
         "ACT_VDC_OUT"
         "ACT_VDC_IN"
+        "ACT_VDC_OUT1"
     }
 
     default {
