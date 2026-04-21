@@ -78,55 +78,63 @@ model "digital_in" {
     }
 
     component Subsystem Root {
-        component "core/Digital Input" "Digital Input1" {
+        component "core/Digital Input" DI1 {
         }
         [
             position = 7808, 8048
         ]
 
-        component "core/Digital Input" "Digital Input2" {
+        component "core/Digital Input" DI2 {
+            addr = "2"
         }
         [
             position = 7808, 8104
         ]
 
-        component "core/Digital Input" "Digital Input3" {
+        component "core/Digital Input" DI3 {
+            addr = "3"
         }
         [
             position = 7808, 8168
         ]
 
-        component "core/Digital Input" "Digital Input4" {
+        component "core/Digital Input" DI4 {
+            addr = "4"
         }
         [
             position = 7808, 8228
         ]
 
-        component "core/Digital Input" "Digital Input5" {
+        component "core/Digital Input" DI5 {
+            addr = "5"
         }
         [
             position = 7808, 8292
         ]
 
-        component "core/Digital Input" "Digital Input6" {
+        component "core/Digital Input" DI6 {
+            addr = "6"
         }
         [
             position = 8004, 8048
         ]
 
-        component "core/Digital Input" "Digital Input7" {
+        component "core/Digital Input" DI7 {
+            addr = "7"
         }
         [
             position = 8004, 8104
         ]
 
-        component "core/Digital Input" "Digital Input8" {
+        component "core/Digital Input" DI8 {
+            addr = "8"
         }
         [
             position = 8004, 8168
         ]
 
-        component "core/Digital Input" "Digital Input9" {
+        component "core/Digital Input" DI9 {
+            addr = "9"
         }
         [
             position = 8004, 8228
