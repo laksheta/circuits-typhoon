@@ -9,3 +9,8 @@
     <img src='./attachments/2.png' width='800'>
 </p>
 
+- `Schematic Editor`
+
+<p align='center'>
+    <img src='./attachments/1.png' width='800'>
+</p>
