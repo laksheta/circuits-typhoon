@@ -194,14 +194,16 @@ model "digital_in" {
             position = 8092, 8228
         ]
 
-        component "core/SCADA Input" "SCADA Input1" {
+        component "core/SCADA Input" "Analog Out" {
+            max = "10"
+            min = "0"
             unit = ""
         }
         [
-            position = 7492, 8064
+            position = 7484, 8064
         ]
 
-        component "core/Probe" Probe1 {
+        component "core/Probe" Analog_Out_Probe {
         }
         [
             position = 7584, 8064
@@ -216,7 +218,7 @@ model "digital_in" {
         connect Probe_8.in DI8.out as Connection7
         connect DI7.out Probe_7.in as Connection8
         connect Probe_6.in DI6.out as Connection9
-        connect Probe1.in "SCADA Input1.out" as Connection10
+        connect Analog_Out_Probe.in "Analog Out.out" as Connection10
         [
             breakpoints = 7516, 8064
         ]
