@@ -46,3 +46,6 @@
 # Pinouts
 
 `DI1` - `DI9` and `AO1` (for testing)
+
+>> [!NOTE]
+>> [Pinout documentation](https://www.typhoon-hil.com/documentation/typhoon-hil-hardware-manual/hil604_user_guide/References/hil604_pinout.html)
