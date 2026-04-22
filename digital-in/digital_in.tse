@@ -161,13 +161,13 @@ model "digital_in" {
         component "core/Digital Probe" Probe_4 {
         }
         [
-            position = 7900, 8228
+            position = 7904, 8228
         ]
 
         component "core/Digital Probe" Probe_5 {
         }
         [
-            position = 7900, 8292
+            position = 7904, 8292
         ]
 
         component "core/Digital Probe" Probe_6 {
