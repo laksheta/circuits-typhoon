@@ -42,3 +42,7 @@
 <p align='center'>
     <img src='./attachments/7.png' width='800'>
 </p>
+
+# Pinouts
+
+`DI1` - `DI9` and `AO1` (for testing)
