@@ -43,6 +43,15 @@
     <img src='./attachments/7.png' width='800'>
 </p>
 
+# Result
+
+- Probe 8 and 9
+
+<p align='center'>
+    <img src='./attachments/8.png' width='800'>
+</p>
+
+
 # Pinouts
 
 `DI1` - `DI9` and `AO1` (for testing)
