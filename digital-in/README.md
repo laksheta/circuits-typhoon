@@ -37,7 +37,7 @@
 </p>
 
 
-- Click `Load MOdel Settings` $\rightarrow$ Choose `digital_in.runx` $\rightarrow$ Run simulation
+- Click `Load Model Settings` $\rightarrow$ Choose `digital_in.runx` $\rightarrow$ Run simulation
 
 <p align='center'>
     <img src='./attachments/7.png' width='800'>
