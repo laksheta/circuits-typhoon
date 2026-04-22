@@ -35,3 +35,10 @@
 <p align='center'>
     <img src='./attachments/6.png' width='800'>
 </p>
+
+
+- Click `Load MOdel Settings` $\rightarrow$ Choose `digital_in.runx`
+
+<p align='center'>
+    <img src='./attachments/7.png' width='800'>
+</p>
