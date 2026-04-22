@@ -29,3 +29,9 @@
 <p align='center'>
     <img src='./attachments/5.png' width='800'>
 </p>
+
+- Open `digital_in.cus`
+
+<p align='center'>
+    <img src='./attachments/6.png' width='800'>
+</p>
