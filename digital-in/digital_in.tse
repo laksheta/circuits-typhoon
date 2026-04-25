@@ -7,7 +7,7 @@ version = 4.2
 model "digital_in" {
     configuration {
         hil_device = "HIL604"
-        hil_configuration_id = 1
+        hil_configuration_id = 2
         simulation_method = exact
         simulation_time_step = auto
         simulation_discret_scaling = 1.0
@@ -194,6 +194,21 @@ model "digital_in" {
             position = 8092, 8228
         ]
 
+        component "core/SCADA Input" "Analog Out" {
+            max = "10"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7484, 8064
+        ]
+
+        component "core/Probe" Analog_Out_Probe {
+        }
+        [
+            position = 7584, 8064
+        ]
+
         connect Probe_1.in DI1.out as Connection1
         connect Probe_2.in DI2.out as Connection2
         connect DI3.out Probe_3.in as Connection3
@@ -203,6 +218,10 @@ model "digital_in" {
         connect Probe_8.in DI8.out as Connection7
         connect DI7.out Probe_7.in as Connection8
         connect Probe_6.in DI6.out as Connection9
+        connect Analog_Out_Probe.in "Analog Out.out" as Connection10
+        [
+            breakpoints = 7516, 8064
+        ]
     }
 
     default {
@@ -221,6 +240,31 @@ model "digital_in" {
             addr = "0"
             streaming_er_idx = "0"
             execution_rate = "inherit"
+        }
+
+        "core/Probe" {
+            signal_access = "inherit"
+            addr = "0"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "generic"
+            streaming_en = "False"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/SCADA Input" {
+            signal_access = "inherit"
+            addr = "0"
+            format = "real"
+            override_signal_name = "False"
+            signal_name = ""
+            signal_type = "real"
+            min = "-1e6"
+            max = "1e6"
+            def_value = "0"
+            unit = " "
+            execution_rate = "100e-6"
         }
     }
 }
