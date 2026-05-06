@@ -957,7 +957,6 @@ P = I_out * V_out;
             ki = "K_i_dab"
             kp = "K_p_dab"
             lower_sat_lim = "0"
-            show_reset = "rising"
             upper_sat_lim = "0.5"
         }
         [
@@ -3239,7 +3238,6 @@ P = I_out * V_out;
         connect sw_Rect_DAB.out Junction36 as Connection412
         connect Junction36 "Signal switch1.in2" as Connection413
         connect Goto28 Junction36 as Connection414
-        connect From37 "PID controller4.reset" as Connection415
         connect "PID controller4.out" Junction37 as Connection416
         connect Junction37 Goto25 as Connection417
         connect out_PI.in Junction37 as Connection418
