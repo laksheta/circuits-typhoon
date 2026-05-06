@@ -3906,17 +3906,6 @@ P = I_out * V_out;
             size = 64, 256
         ]
 
-        component "core/SCADA Input" sw_source {
-            def_value = "1"
-            execution_rate = "T_meas_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 7204, 8036
-        ]
-
         component "core/Resistor" R8 {
             resistance = "R_pre_charge"
         }
@@ -3939,17 +3928,6 @@ P = I_out * V_out;
         [
             position = 6936, 8072
             hide_name = True
-        ]
-
-        component "core/SCADA Input" sw_pre_charge {
-            def_value = "1"
-            execution_rate = "T_meas_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 7340, 8000
         ]
 
         component "core/ModBus Device" "ModBus Device2" {
@@ -4676,10 +4654,26 @@ P = I_out * V_out;
         ]
 
         component "core/Digital Input" MAIN_CONTACTOR {
+            addr = "2"
             execution_rate = "T_digital_in"
         }
         [
             position = 6876, 8120
+        ]
+
+        component "core/Digital Input" GATE_DRIVER {
+            addr = "3"
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 7248, 7908
+        ]
+
+        component "core/Digital Probe" Probe_GATE_DRIVER {
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 7384, 7908
         ]
 
         tag Goto41 {
@@ -5014,6 +5008,7 @@ P = I_out * V_out;
             breakpoints = 6828, 7840
         ]
         connect MAIN_CONTACTOR.out S6.ctrl_in as Connection666
+        connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
     }
 
     logically_deleted {
@@ -5097,6 +5092,16 @@ P = I_out * V_out;
             invert = "false"
             signal_type = "uint"
             execution_rate = "100e-6"
+        }
+
+        "core/Digital Probe" {
+            signal_access = "inherit"
+            override_signal_name = "False"
+            signal_name = ""
+            streaming_en = "False"
+            addr = "0"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
         }
 
         "core/Gain" {
