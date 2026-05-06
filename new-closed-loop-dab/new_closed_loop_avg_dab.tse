@@ -307,6 +307,33 @@ P = I_out * V_out;
             position = 7632, 8164
         ]
 
+        component "core/Constant" Constant8 {
+            execution_rate = "T_math"
+            value = "fsw"
+        }
+        [
+            position = 7908, 8248
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant9 {
+            execution_rate = "T_math"
+            value = "L"
+        }
+        [
+            position = 7912, 8304
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant10 {
+            execution_rate = "T_math"
+            value = "12"
+        }
+        [
+            position = 7912, 8348
+            hide_name = True
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
