@@ -78,17 +78,6 @@ model "modbus_sst" {
     }
 
     component Subsystem Root {
-        component "core/SCADA Input" sw_Rect_DAB {
-            def_value = "1"
-            execution_rate = "T_math_dab"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 7484, 8088
-        ]
-
         component "core/Three Phase Voltage Source" Vs1 {
             init_frequency = "F_rect"
             init_rms_value = "V_grid_rms_rect"
@@ -4676,6 +4665,14 @@ P = I_out * V_out;
             position = 7384, 7908
         ]
 
+        component "core/Digital Input" CONTACTOR_MMC {
+            addr = "4"
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 7448, 8084
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4895,10 +4892,6 @@ P = I_out * V_out;
         connect S5.b_out Junction54 as Connection553
         connect Junction54 Inverter.V_in_inv- as Connection554
         connect R7.n_node Junction54 as Connection555
-        connect sw_Rect_DAB.out S4.ctrl_in as Connection582
-        [
-            breakpoints = 7532, 8088
-        ]
         connect sw_grid.out S1.ctrl_in as Connection587
         [
             breakpoints = 8588, 8080
@@ -5009,6 +5002,7 @@ P = I_out * V_out;
         ]
         connect MAIN_CONTACTOR.out S6.ctrl_in as Connection666
         connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
+        connect CONTACTOR_MMC.out S4.ctrl_in as Connection668
     }
 
     logically_deleted {
