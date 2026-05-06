@@ -56,18 +56,18 @@ data = {
     }
 displayValue = data
 ]]></code>
-                <analog_signals><![CDATA[['HIL0 analog input 1']]]></analog_signals>
+                <analog_signals><![CDATA[[]]]></analog_signals>
                 <digital_signals><![CDATA[['Probe_1']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'HIL0 analog input 1': 1.0}]]></analog_signals_scaling_factors>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
                 <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
                 <update_rate>250</update_rate>
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
                     <x>64</x>
-                    <y>8</y>
+                    <y>24</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -80,7 +80,7 @@ displayValue = data
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
                     <y_range_min>0.0</y_range_min>
-                    <y_range_max>3.3</y_range_max>
+                    <y_range_max>1.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>False</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -152,17 +152,17 @@ data = {
     }
 displayValue = data
 ]]></code>
-                <analog_signals><![CDATA[['HIL0 analog input 2']]]></analog_signals>
+                <analog_signals><![CDATA[[]]]></analog_signals>
                 <digital_signals><![CDATA[['Probe_2']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'HIL0 analog input 2': 1.0}]]></analog_signals_scaling_factors>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
                 <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
                 <update_rate>250</update_rate>
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>56</x>
+                    <x>64</x>
                     <y>232</y>
                     <width>400</width>
                     <height>200</height>
@@ -176,7 +176,7 @@ displayValue = data
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
                     <y_range_min>0.0</y_range_min>
-                    <y_range_max>3.3</y_range_max>
+                    <y_range_max>1.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>False</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -248,11 +248,11 @@ data = {
     }
 displayValue = data
 ]]></code>
-                <analog_signals><![CDATA[['HIL0 analog input 3']]]></analog_signals>
+                <analog_signals><![CDATA[[]]]></analog_signals>
                 <digital_signals><![CDATA[['Probe_3']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'HIL0 analog input 3': 1.0}]]></analog_signals_scaling_factors>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
                 <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
                 <update_rate>250</update_rate>
                 <execution_rate>None</execution_rate>
@@ -272,7 +272,7 @@ displayValue = data
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
                     <y_range_min>0.0</y_range_min>
-                    <y_range_max>3.3</y_range_max>
+                    <y_range_max>1.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>False</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -344,11 +344,11 @@ data = {
     }
 displayValue = data
 ]]></code>
-                <analog_signals><![CDATA[['HIL0 analog input 4']]]></analog_signals>
+                <analog_signals><![CDATA[[]]]></analog_signals>
                 <digital_signals><![CDATA[['Probe_4']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'HIL0 analog input 4': 1.0}]]></analog_signals_scaling_factors>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
                 <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
                 <update_rate>250</update_rate>
                 <execution_rate>None</execution_rate>
@@ -368,7 +368,7 @@ displayValue = data
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
                     <y_range_min>0.0</y_range_min>
-                    <y_range_max>3.3</y_range_max>
+                    <y_range_max>1.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>False</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -440,11 +440,11 @@ data = {
     }
 displayValue = data
 ]]></code>
-                <analog_signals><![CDATA[['HIL0 analog input 5']]]></analog_signals>
+                <analog_signals><![CDATA[[]]]></analog_signals>
                 <digital_signals><![CDATA[['Probe_5']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'HIL0 analog input 5': 1.0}]]></analog_signals_scaling_factors>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
                 <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
                 <update_rate>250</update_rate>
                 <execution_rate>None</execution_rate>
@@ -464,7 +464,7 @@ displayValue = data
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
                     <y_range_min>0.0</y_range_min>
-                    <y_range_max>3.3</y_range_max>
+                    <y_range_max>1.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>False</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -536,11 +536,11 @@ data = {
     }
 displayValue = data
 ]]></code>
-                <analog_signals><![CDATA[['HIL0 analog input 6']]]></analog_signals>
+                <analog_signals><![CDATA[[]]]></analog_signals>
                 <digital_signals><![CDATA[['Probe_6']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
-                <analog_signals_scaling_factors><![CDATA[{'HIL0 analog input 6': 1.0}]]></analog_signals_scaling_factors>
+                <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
                 <streaming_analog_signals_scaling_factors><![CDATA[{}]]></streaming_analog_signals_scaling_factors>
                 <update_rate>250</update_rate>
                 <execution_rate>None</execution_rate>
@@ -560,7 +560,7 @@ displayValue = data
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
                     <y_range_min>0.0</y_range_min>
-                    <y_range_max>3.3</y_range_max>
+                    <y_range_max>1.0</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>False</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
