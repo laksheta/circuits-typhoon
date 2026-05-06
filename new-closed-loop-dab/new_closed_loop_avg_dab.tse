@@ -6,8 +6,8 @@ version = 4.2
 
 model "new_closed_loop_avg_dab" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
+        hil_device = "HIL604"
+        hil_configuration_id = 2
         simulation_method = exact
         simulation_time_step = auto
         simulation_discret_scaling = 1.0
@@ -127,9 +127,9 @@ model "new_closed_loop_avg_dab" {
             input_terminals_feedthrough = "True;True;True;True;True;True"
             input_terminals_show_labels = "False;False;False;False;False;False"
             output_fnc = "/*Begin code section*/
-I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+I_out = 1;//(n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
     
-P = I_out * V_out;
+P = 1;//I_out * V_out;
 /*End code section*/"
             output_terminals = "real P;real I_out;"
             output_terminals_dimensions = "inherit;inherit"
