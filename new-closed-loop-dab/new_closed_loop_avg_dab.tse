@@ -8,7 +8,7 @@ model "new_closed_loop_avg_dab" {
     configuration {
         hil_device = "HIL604"
         hil_configuration_id = 2
-        simulation_method = exact
+        simulation_method = trapezoidal
         simulation_time_step = auto
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
@@ -31,7 +31,7 @@ model "new_closed_loop_avg_dab" {
         sys_real_type_precision = "default"
         user_real_type_precision = "default"
         sys_cpu_optimization = "high"
-        user_cpu_optimization = "high"
+        user_cpu_optimization = "no optimization"
         user_cpu_part_option = "default"
         matrix_based_reduction = True
         cpl_dynamics_analysis = False
@@ -562,6 +562,84 @@ P = 1;//I_out * V_out;
         connect Constant5.out "Signal switch1.in1" as Connection403
         connect "Signal switch1.out" Sum2.in as Connection404
         connect From14 "PID controller1.reset" as Connection405
+    }
+
+    logically_deleted {
+        "P"
+        "Constant2"
+        "Constant3"
+        "Power Calculation"
+        "Constant4"
+        "Isp1"
+        "C1"
+        "R4"
+        "V_out"
+        "gnd6"
+        "I_out"
+        "PID controller1"
+        "Sum2"
+        "V_out_ref"
+        "Signal switch1"
+        "DAB_on_off"
+        "Constant5"
+        "Goto4"
+        "From8"
+        "From9"
+        "Goto7"
+        "From10"
+        "Goto10"
+        "From11"
+        "Goto11"
+        "From13"
+        "Goto18"
+        "From14"
+        "Junction4"
+        "Junction5"
+        "Junction6"
+        "Junction7"
+        "Junction12"
+        "Junction14"
+        "Junction22"
+        "Junction25"
+        "Area4"
+        "Area2"
+        "Area1"
+        "Connection94"
+        "Connection96"
+        "Connection98"
+        "Connection110"
+        "Connection111"
+        "Connection112"
+        "Connection113"
+        "Connection114"
+        "Connection115"
+        "Connection249"
+        "Connection250"
+        "Connection251"
+        "Connection257"
+        "Connection258"
+        "Connection259"
+        "Connection264"
+        "Connection265"
+        "Connection293"
+        "Connection294"
+        "Connection295"
+        "Connection298"
+        "Connection301"
+        "Connection296"
+        "Connection299"
+        "Connection297"
+        "Connection300"
+        "Connection230"
+        "Connection231"
+        "Connection302"
+        "Connection399"
+        "Connection400"
+        "Connection401"
+        "Connection402"
+        "Connection403"
+        "Connection404"
+        "Connection405"
     }
 
     default {
