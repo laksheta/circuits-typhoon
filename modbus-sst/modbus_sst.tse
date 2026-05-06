@@ -96,17 +96,6 @@ model "modbus_sst" {
             scale = -1, 1
         ]
 
-        component "core/SCADA Input" sw_dab_inv {
-            def_value = "1"
-            execution_rate = "T_math_inv"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8032, 8088
-        ]
-
         component Subsystem Rectifier {
             layout = dynamic
             component "core/Inductor" L1 {
@@ -3788,7 +3777,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 8680, 8268
+            position = 8680, 8272
             size = 56, 240
         ]
 
@@ -3797,7 +3786,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8824, 8268
+            position = 8824, 8272
             scale = -1, 1
             size = 62, 256
         ]
@@ -3805,7 +3794,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8764, 8460
+            position = 8764, 8464
             hide_name = True
         ]
 
@@ -3815,7 +3804,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8588, 8268
+            position = 8588, 8272
             hide_name = True
             size = 64, 256
         ]
@@ -3854,17 +3843,6 @@ P = I_out * V_out;
         [
             position = 8092, 8268
             size = 64, 256
-        ]
-
-        component "core/SCADA Input" sw_grid {
-            def_value = "1"
-            execution_rate = "T_math_inv"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8528, 8080
         ]
 
         component "core/Resistor" R6 {
@@ -4673,6 +4651,22 @@ P = I_out * V_out;
             position = 7448, 8084
         ]
 
+        component "core/Digital Input" CONTACTOR_DAB {
+            addr = "5"
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 8020, 8100
+        ]
+
+        component "core/Digital Input" CONTACTOR_INVERTER {
+            addr = "6"
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 8492, 8104
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4680,14 +4674,14 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8760, 8100
+            position = 8760, 8104
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction44 pe
         [
-            position = 8760, 8420
+            position = 8760, 8424
         ]
 
         junction Junction46 pe
@@ -4856,11 +4850,11 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8764, 8420
+            breakpoints = 8764, 8424
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 8680, 8420
+            breakpoints = 8680, 8424
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
@@ -4892,11 +4886,6 @@ P = I_out * V_out;
         connect S5.b_out Junction54 as Connection553
         connect Junction54 Inverter.V_in_inv- as Connection554
         connect R7.n_node Junction54 as Connection555
-        connect sw_grid.out S1.ctrl_in as Connection587
-        [
-            breakpoints = 8588, 8080
-        ]
-        connect S5.ctrl_in sw_dab_inv.out as Connection591
         connect Constant2.out Junction6 as Connection25
         connect Junction6 "ModBus Device2.coil_in" as Connection26
         connect coil_out1.in "ModBus Device2.coil_out" as Connection27
@@ -5003,6 +4992,8 @@ P = I_out * V_out;
         connect MAIN_CONTACTOR.out S6.ctrl_in as Connection666
         connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
         connect CONTACTOR_MMC.out S4.ctrl_in as Connection668
+        connect S5.ctrl_in CONTACTOR_DAB.out as Connection669
+        connect CONTACTOR_INVERTER.out S1.ctrl_in as Connection670
     }
 
     logically_deleted {
