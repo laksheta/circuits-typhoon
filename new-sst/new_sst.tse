@@ -957,6 +957,7 @@ P = I_out * V_out;
             ki = "K_i_dab"
             kp = "K_p_dab"
             lower_sat_lim = "0"
+            show_reset = "rising"
             upper_sat_lim = "0.5"
         }
         [
@@ -3395,6 +3396,7 @@ P = I_out * V_out;
         [
             breakpoints = 9024, 7092; 9148, 7092; 9148, 7108
         ]
+        connect From37 "PID controller4.reset" as Connection506
     }
 
     logically_deleted {
