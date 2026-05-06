@@ -268,6 +268,45 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Constant" Constant6 {
+            execution_rate = "T_math"
+            value = "n"
+        }
+        [
+            position = 7900, 7984
+            hide_name = True
+        ]
+
+        component "core/Product" Product1 {
+            execution_rate = "T_math"
+            signs = "5"
+        }
+        [
+            position = 8048, 8036
+        ]
+
+        component "core/Abs" Abs1 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7708, 8220
+        ]
+
+        component "core/Sum" Sum3 {
+            execution_rate = "T_math"
+            signs = "+-"
+        }
+        [
+            position = 7840, 8172
+        ]
+
+        component "core/Constant" Constant7 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7632, 8164
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -408,6 +447,54 @@ P = I_out * V_out;
         }
         [
             position = 9220, 8500
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From15 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7900, 8020
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From16 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7900, 8052
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From17 {
+            value = "D"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7900, 8084
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From18 {
+            value = "D"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7632, 8220
             hide_name = True
             size = 60, 20
         ]
@@ -562,9 +649,27 @@ P = I_out * V_out;
         connect Constant5.out "Signal switch1.in1" as Connection403
         connect "Signal switch1.out" Sum2.in as Connection404
         connect From14 "PID controller1.reset" as Connection405
+        connect Constant6.out Product1.in as Connection406
+        connect From15 Product1.in1 as Connection407
+        connect From16 Product1.in2 as Connection408
+        [
+            breakpoints = 7944, 8052; 7944, 8036
+        ]
+        connect Product1.in3 From17 as Connection409
+        [
+            breakpoints = 7952, 8052; 7952, 8084
+        ]
+        connect From18 Abs1.in as Connection410
+        connect Abs1.out Sum3.in1 as Connection411
+        connect Sum3.in Constant7.out as Connection412
+        connect Sum3.out Product1.in4 as Connection413
     }
 
     default {
+        "core/Abs" {
+            execution_rate = "inherit"
+        }
+
         "core/C function" {
             input_terminals = "real in;"
             input_terminals_show_labels = "False;"
@@ -648,6 +753,11 @@ P = I_out * V_out;
             signal_type = "generic"
             streaming_en = "False"
             streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/Product" {
+            signs = "2"
             execution_rate = "inherit"
         }
 
