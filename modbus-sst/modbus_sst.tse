@@ -4689,6 +4689,39 @@ P = I_out * V_out;
             position = 6724, 7788
         ]
 
+        component "core/SCADA Input" sw_Rect_DAB {
+            def_value = "1"
+            execution_rate = "T_math_dab"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7444, 8024
+        ]
+
+        component "core/SCADA Input" sw_dab_inv {
+            def_value = "1"
+            execution_rate = "T_math_inv"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8016, 8036
+        ]
+
+        component "core/SCADA Input" sw_grid {
+            def_value = "1"
+            execution_rate = "T_math_inv"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8492, 8048
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -5008,11 +5041,11 @@ P = I_out * V_out;
         connect Junction66 Rectifier.A as Connection663
         connect R8.n_node Junction66 as Connection664
         connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
-        connect CONTACTOR_MMC.out S4.ctrl_in as Connection668
-        connect S5.ctrl_in CONTACTOR_DAB.out as Connection669
-        connect CONTACTOR_INVERTER.out S1.ctrl_in as Connection670
         connect sw_pre_charge.out S7.ctrl_in as Connection671
         connect sw_source.out S6.ctrl_in as Connection672
+        connect sw_Rect_DAB.out S4.ctrl_in as Connection673
+        connect sw_dab_inv.out S5.ctrl_in as Connection674
+        connect sw_grid.out S1.ctrl_in as Connection675
     }
 
     logically_deleted {
