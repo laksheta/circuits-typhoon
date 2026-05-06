@@ -4614,7 +4614,7 @@ P = I_out * V_out;
         ]
 
         component "core/Digital Input" PRECHARGE_CONTACTOR {
-            execution_rate = "T_digital_in"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6760, 7784
@@ -4622,7 +4622,7 @@ P = I_out * V_out;
 
         component "core/Digital Input" MAIN_CONTACTOR {
             addr = "2"
-            execution_rate = "T_digital_in"
+            execution_rate = "T_meas_rect"
         }
         [
             position = 6876, 8120
@@ -4645,7 +4645,7 @@ P = I_out * V_out;
 
         component "core/Digital Input" CONTACTOR_MMC {
             addr = "4"
-            execution_rate = "T_digital_in"
+            execution_rate = "T_math_dab"
         }
         [
             position = 7448, 8084
@@ -4653,7 +4653,7 @@ P = I_out * V_out;
 
         component "core/Digital Input" CONTACTOR_DAB {
             addr = "5"
-            execution_rate = "T_digital_in"
+            execution_rate = "T_math_inv"
         }
         [
             position = 8020, 8100
@@ -4661,7 +4661,7 @@ P = I_out * V_out;
 
         component "core/Digital Input" CONTACTOR_INVERTER {
             addr = "6"
-            execution_rate = "T_digital_in"
+            execution_rate = "T_math_inv"
         }
         [
             position = 8492, 8104
