@@ -9,7 +9,7 @@ model "new_sst" {
         hil_device = "HIL604"
         hil_configuration_id = 2
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -30,7 +30,7 @@ model "new_sst" {
         sys_sp_rate_2 = 0.05
         sys_real_type_precision = "default"
         user_real_type_precision = "default"
-        sys_cpu_optimization = "high"
+        sys_cpu_optimization = "no optimization"
         user_cpu_optimization = "high"
         user_cpu_part_option = "default"
         matrix_based_reduction = True
@@ -1746,13 +1746,6 @@ P = I_out * V_out;
             size = 32, 32
         ]
 
-        component "core/Three Phase Core Coupling" "Core Coupling 1" {
-        }
-        [
-            position = 7460, 7516
-            size = 13, 256
-        ]
-
         tag From31 {
             value = "V_out_rect"
             scope = local
@@ -2999,6 +2992,9 @@ P = I_out * V_out;
         connect From31 "Rate Transition10.in" as Connection343
         connect "Rate Transition10.out" "Signal switch1.in" as Connection344
         connect Vs1.n_node gnd1.node as Connection4
+        connect R3.n_node L3.p_node as Connection5
+        connect L2.p_node R2.n_node as Connection6
+        connect R1.n_node L1.p_node as Connection7
         connect Vsp2.n_node Junction1 as Connection12
         connect Junction1 gnd2.node as Connection13
         connect Vsp1.n_node Junction1 as Connection15
@@ -3390,12 +3386,6 @@ P = I_out * V_out;
         connect "Rate Transition33.out" S1.ctrl_in as Connection502
         connect From53 "Rate Transition33.in" as Connection503
         connect Goto29 "Signal switch2.out" as Connection504
-        connect R1.n_node "Core Coupling 1.a_in" as Connection505
-        connect "Core Coupling 1.a_out" L1.p_node as Connection506
-        connect L2.p_node "Core Coupling 1.b_out" as Connection507
-        connect "Core Coupling 1.b_in" R2.n_node as Connection508
-        connect R3.n_node "Core Coupling 1.c_in" as Connection509
-        connect "Core Coupling 1.c_out" L3.p_node as Connection510
     }
 
     logically_deleted {
@@ -3616,20 +3606,6 @@ P = I_out * V_out;
 
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
-        }
-
-        "core/Three Phase Core Coupling" {
-            snb_type_i = "none"
-            R1 = "100e3"
-            C1 = "1e-06"
-            C2 = "1e-06"
-            fixed_snb_i = "false"
-            snb_type_u = "none"
-            R2 = "0.1"
-            L1 = "0.1"
-            L2 = "0.1"
-            fixed_snb_u = "false"
-            cpl_connection = "star"
         }
 
         "core/Three Phase Voltage Source" {
