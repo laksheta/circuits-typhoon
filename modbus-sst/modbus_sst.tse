@@ -3877,7 +3877,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6932, 7880
+            position = 6932, 7844
             hide_name = True
         ]
 
@@ -3885,7 +3885,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6932, 7976
+            position = 6932, 7940
             hide_name = True
         ]
 
@@ -3893,7 +3893,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6936, 8072
+            position = 6936, 8036
             hide_name = True
         ]
 
@@ -4609,7 +4609,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6828, 7976
+            position = 6828, 7940
             size = 64, 256
         ]
 
@@ -4617,7 +4617,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6760, 7784
+            position = 6720, 7728
         ]
 
         component "core/Digital Input" MAIN_CONTACTOR {
@@ -4625,7 +4625,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6876, 8120
+            position = 6848, 8120
         ]
 
         component "core/Digital Input" GATE_DRIVER {
@@ -4665,6 +4665,28 @@ P = I_out * V_out;
         }
         [
             position = 8492, 8104
+        ]
+
+        component "core/SCADA Input" sw_source {
+            def_value = "1"
+            execution_rate = "T_meas_rect"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 6892, 8072
+        ]
+
+        component "core/SCADA Input" sw_pre_charge {
+            def_value = "1"
+            execution_rate = "T_meas_rect"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 6724, 7788
         ]
 
         tag Goto41 {
@@ -4985,15 +5007,12 @@ P = I_out * V_out;
         connect S6.a_out Junction66 as Connection662
         connect Junction66 Rectifier.A as Connection663
         connect R8.n_node Junction66 as Connection664
-        connect PRECHARGE_CONTACTOR.out S7.ctrl_in as Connection665
-        [
-            breakpoints = 6828, 7840
-        ]
-        connect MAIN_CONTACTOR.out S6.ctrl_in as Connection666
         connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
         connect CONTACTOR_MMC.out S4.ctrl_in as Connection668
         connect S5.ctrl_in CONTACTOR_DAB.out as Connection669
         connect CONTACTOR_INVERTER.out S1.ctrl_in as Connection670
+        connect sw_pre_charge.out S7.ctrl_in as Connection671
+        connect sw_source.out S6.ctrl_in as Connection672
     }
 
     logically_deleted {
