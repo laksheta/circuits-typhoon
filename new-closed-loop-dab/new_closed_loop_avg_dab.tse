@@ -127,7 +127,7 @@ model "new_closed_loop_avg_dab" {
             input_terminals_feedthrough = "True;True;True;True;True;True"
             input_terminals_show_labels = "False;False;False;False;False;False"
             output_fnc = "/*Begin code section*/
-I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
+I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * 10e3 * 1e-6);
     
 P = I_out * V_out;
 /*End code section*/"
