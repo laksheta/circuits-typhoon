@@ -4,10 +4,10 @@ version = 4.2
 // Saved by sw version: 2026.1 SP1
 //
 
-model "new_rect_dab" {
+model "new_sst" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
+        hil_device = "HIL604"
+        hil_configuration_id = 2
         simulation_method = exact
         simulation_time_step = auto
         simulation_discret_scaling = 1.0
@@ -3389,8 +3389,8 @@ P = I_out * V_out;
     }
 
     logically_deleted {
-        "Comment4"
         "dc_input_inv"
+        "Comment4"
     }
 
     default {
