@@ -86,7 +86,7 @@ model "modbus_sst" {
             unit = ""
         }
         [
-            position = 7488, 7928
+            position = 7484, 8088
         ]
 
         component "core/Three Phase Voltage Source" Vs1 {
@@ -94,7 +94,7 @@ model "modbus_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6612, 8108
+            position = 6608, 8268
             hide_name = True
             size = 62, 256
         ]
@@ -102,7 +102,7 @@ model "modbus_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6532, 8172
+            position = 6528, 8332
             hide_name = True
             scale = -1, 1
         ]
@@ -115,7 +115,7 @@ model "modbus_sst" {
             unit = ""
         }
         [
-            position = 8036, 7928
+            position = 8032, 8088
         ]
 
         component Subsystem Rectifier {
@@ -1695,7 +1695,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Meter Split1.Freq" Goto20 as Connection433
         }
         [
-            position = 7264, 8108
+            position = 7260, 8268
             size = 168, 232
         ]
 
@@ -2270,7 +2270,7 @@ P = I_out * V_out;
             connect "Rate Transition1.in" Junction40 as Connection437
         }
         [
-            position = 7800, 8108
+            position = 7796, 8268
             size = 168, 232
         ]
 
@@ -3787,7 +3787,7 @@ P = I_out * V_out;
             connect Goto17 "Meter Split1.IC_RMS" as Connection529
         }
         [
-            position = 8372, 8112
+            position = 8368, 8272
             size = 168, 232
         ]
 
@@ -3799,7 +3799,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 8684, 8108
+            position = 8680, 8268
             size = 56, 240
         ]
 
@@ -3808,7 +3808,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8828, 8108
+            position = 8824, 8268
             scale = -1, 1
             size = 62, 256
         ]
@@ -3816,7 +3816,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8768, 8300
+            position = 8764, 8460
             hide_name = True
         ]
 
@@ -3826,7 +3826,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8592, 8108
+            position = 8588, 8268
             hide_name = True
             size = 64, 256
         ]
@@ -3837,7 +3837,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 7536, 8108
+            position = 7532, 8268
             size = 64, 256
         ]
 
@@ -3845,7 +3845,7 @@ P = I_out * V_out;
             resistance = "R_load_rect"
         }
         [
-            position = 7444, 8096
+            position = 7440, 8256
             rotation = right
         ]
 
@@ -3853,7 +3853,7 @@ P = I_out * V_out;
             resistance = "10e3"
         }
         [
-            position = 7612, 8100
+            position = 7608, 8260
             rotation = right
         ]
 
@@ -3863,7 +3863,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8096, 8108
+            position = 8092, 8268
             size = 64, 256
         ]
 
@@ -3875,14 +3875,14 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8532, 7920
+            position = 8528, 8080
         ]
 
         component "core/Resistor" R6 {
             resistance = "2*R_load_dab"
         }
         [
-            position = 7984, 8100
+            position = 7980, 8260
             rotation = right
             hide_name = True
         ]
@@ -3891,7 +3891,7 @@ P = I_out * V_out;
             resistance = "2*R_load_dab"
         }
         [
-            position = 8188, 8100
+            position = 8184, 8260
             rotation = right
             hide_name = True
         ]
@@ -3902,7 +3902,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6772, 8108
+            position = 6936, 8268
             size = 64, 256
         ]
 
@@ -3914,14 +3914,14 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7208, 7876
+            position = 7204, 8036
         ]
 
         component "core/Resistor" R8 {
             resistance = "R_pre_charge"
         }
         [
-            position = 6928, 7848
+            position = 6932, 7896
             hide_name = True
         ]
 
@@ -3929,7 +3929,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6928, 7888
+            position = 6932, 7992
             hide_name = True
         ]
 
@@ -3937,7 +3937,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6928, 7932
+            position = 6936, 8088
             hide_name = True
         ]
 
@@ -3949,7 +3949,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7344, 7840
+            position = 7340, 8000
         ]
 
         component "core/ModBus Device" "ModBus Device2" {
@@ -4658,6 +4658,16 @@ P = I_out * V_out;
             size = 48, 48
         ]
 
+        component "core/Triple Pole Single Throw Contactor" S7 {
+            ctrl_src = "Model"
+            execution_rate = "T_meas_rect"
+            initial_state = "on"
+        }
+        [
+            position = 6828, 7992
+            size = 64, 256
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4665,54 +4675,54 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8764, 7940
+            position = 8760, 8100
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction44 pe
         [
-            position = 8764, 8260
+            position = 8760, 8420
         ]
 
         junction Junction46 pe
         [
-            position = 7444, 8012
+            position = 7440, 8172
         ]
 
         junction Junction47 pe
         [
-            position = 7444, 8204
+            position = 7440, 8364
         ]
 
         junction Junction48 pe
         [
-            position = 7612, 8012
+            position = 7608, 8172
         ]
 
         junction Junction49 pe
         [
-            position = 7612, 8204
+            position = 7608, 8364
         ]
 
         junction Junction51 pe
         [
-            position = 7984, 8012
+            position = 7980, 8172
         ]
 
         junction Junction52 pe
         [
-            position = 7984, 8204
+            position = 7980, 8364
         ]
 
         junction Junction53 pe
         [
-            position = 8188, 8012
+            position = 8184, 8172
         ]
 
         junction Junction54 pe
         [
-            position = 8188, 8204
+            position = 8184, 8364
         ]
 
         junction Junction6 sp
@@ -4777,22 +4787,37 @@ P = I_out * V_out;
 
         junction Junction61 pe
         [
-            position = 6688, 8012
+            position = 6700, 8172
         ]
 
         junction Junction62 pe
         [
-            position = 6700, 8108
+            position = 6724, 8268
         ]
 
         junction Junction63 pe
         [
-            position = 6716, 8204
+            position = 6744, 8364
+        ]
+
+        junction Junction64 pe
+        [
+            position = 7120, 8364
+        ]
+
+        junction Junction65 pe
+        [
+            position = 7096, 8268
+        ]
+
+        junction Junction66 pe
+        [
+            position = 7060, 8172
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
         [
-            position = 6688, 8276
+            position = 7340, 8652
         ]
 
         scheme_area Area2 {
@@ -4826,11 +4851,11 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8768, 8260
+            breakpoints = 8764, 8420
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 8684, 8260
+            breakpoints = 8680, 8420
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
@@ -4864,11 +4889,11 @@ P = I_out * V_out;
         connect R7.n_node Junction54 as Connection555
         connect sw_Rect_DAB.out S4.ctrl_in as Connection582
         [
-            breakpoints = 7536, 7928
+            breakpoints = 7532, 8088
         ]
         connect sw_grid.out S1.ctrl_in as Connection587
         [
-            breakpoints = 8592, 7920
+            breakpoints = 8588, 8080
         ]
         connect S5.ctrl_in sw_dab_inv.out as Connection591
         connect Constant2.out Junction6 as Connection25
@@ -4949,17 +4974,27 @@ P = I_out * V_out;
             breakpoints = 7452, 7600
         ]
         connect Junction60 Subsystem3.Out1 as Connection628
-        connect Vs1.a_node Junction61 as Connection629
-        connect Junction61 S6.a_in as Connection630
-        connect R8.p_node Junction61 as Connection631
-        connect Vs1.b_node Junction62 as Connection632
-        connect Junction62 S6.b_in as Connection633
-        connect R9.p_node Junction62 as Connection634
-        connect Vs1.c_node Junction63 as Connection635
-        connect Junction63 S6.c_in as Connection636
-        connect R10.p_node Junction63 as Connection637
-        connect S6.a_out Rectifier.A as Connection638
-        connect S6.b_out Rectifier.B as Connection639
+        connect Vs1.a_node Junction61 as Connection643
+        connect Junction61 S6.a_in as Connection644
+        connect S7.a_in Junction61 as Connection645
+        connect Vs1.b_node Junction62 as Connection646
+        connect Junction62 S6.b_in as Connection647
+        connect S7.b_in Junction62 as Connection648
+        connect Vs1.c_node Junction63 as Connection649
+        connect Junction63 S6.c_in as Connection650
+        connect S7.c_in Junction63 as Connection651
+        connect S7.a_out R8.p_node as Connection652
+        connect S7.b_out R9.p_node as Connection653
+        connect S7.c_out R10.p_node as Connection654
+        connect S6.c_out Junction64 as Connection656
+        connect Junction64 Rectifier.C as Connection657
+        connect R10.n_node Junction64 as Connection658
+        connect S6.b_out Junction65 as Connection659
+        connect Junction65 Rectifier.B as Connection660
+        connect R9.n_node Junction65 as Connection661
+        connect S6.a_out Junction66 as Connection662
+        connect Junction66 Rectifier.A as Connection663
+        connect R8.n_node Junction66 as Connection664
     }
 
     logically_deleted {
