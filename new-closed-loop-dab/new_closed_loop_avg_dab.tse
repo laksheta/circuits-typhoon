@@ -338,7 +338,7 @@ P = I_out * V_out;
             execution_rate = "T_meas"
         }
         [
-            position = 8200, 7960
+            position = 8212, 7948
         ]
 
         component "core/Constant" Constant11 {
