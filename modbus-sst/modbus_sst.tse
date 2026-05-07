@@ -4767,14 +4767,16 @@ P = I_out * V_out;
 
         component "core/Digital Input" PRECHARGE_CONTACTOR {
             execution_rate = "T_meas_rect"
+            invert = "true"
         }
         [
-            position = 6720, 7728
+            position = 6584, 7732
         ]
 
         component "core/Digital Input" MAIN_CONTACTOR {
             addr = "2"
             execution_rate = "T_meas_rect"
+            invert = "true"
         }
         [
             position = 6708, 8120
@@ -4783,6 +4785,7 @@ P = I_out * V_out;
         component "core/Digital Input" GATE_DRIVER {
             addr = "3"
             execution_rate = "T_digital_in"
+            invert = "true"
         }
         [
             position = 7108, 7908
@@ -4798,6 +4801,7 @@ P = I_out * V_out;
         component "core/Digital Input" CONTACTOR_MMC {
             addr = "4"
             execution_rate = "T_math_dab"
+            invert = "true"
         }
         [
             position = 7488, 8084
@@ -4806,6 +4810,7 @@ P = I_out * V_out;
         component "core/Digital Input" CONTACTOR_DAB {
             addr = "5"
             execution_rate = "T_math_inv"
+            invert = "true"
         }
         [
             position = 8120, 8100
@@ -4814,9 +4819,10 @@ P = I_out * V_out;
         component "core/Digital Input" CONTACTOR_INVERTER {
             addr = "6"
             execution_rate = "T_math_inv"
+            invert = "true"
         }
         [
-            position = 8592, 8104
+            position = 8596, 8104
         ]
 
         component "core/SCADA Input" sw_source {
@@ -5228,11 +5234,6 @@ P = I_out * V_out;
         connect Junction66 Rectifier.A as Connection663
         connect R8.n_node Junction66 as Connection664
         connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
-        connect sw_pre_charge.out S7.ctrl_in as Connection671
-        connect sw_source.out S6.ctrl_in as Connection672
-        connect sw_Rect_DAB.out S4.ctrl_in as Connection673
-        connect sw_dab_inv.out S5.ctrl_in as Connection674
-        connect sw_grid.out S1.ctrl_in as Connection675
         connect R6.p_node Junction67 as Connection686
         connect Junction67 DAB.V_out_dab+ as Connection687
         [
@@ -5268,6 +5269,11 @@ P = I_out * V_out;
         connect "Rate Transition1.in" Junction71 as Connection707
         connect Goto43 "Rate Transition2.out" as Connection708
         connect "Rate Transition2.in" Junction72 as Connection709
+        connect MAIN_CONTACTOR.out S6.ctrl_in as Connection710
+        connect PRECHARGE_CONTACTOR.out S7.ctrl_in as Connection711
+        connect CONTACTOR_MMC.out S4.ctrl_in as Connection712
+        connect CONTACTOR_DAB.out S5.ctrl_in as Connection713
+        connect CONTACTOR_INVERTER.out S1.ctrl_in as Connection714
     }
 
     logically_deleted {
