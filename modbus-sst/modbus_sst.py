@@ -12,7 +12,7 @@ T_plant_dab = 1e-5
 T_meas_dab = 1e-5
 T_wave_dab  = 1e-5 
 T_math_dab  = 1e-5
-T_digital_in = 1e-6
+T_digital_in = 1e-5
 
 V_in_dab  = 780
 V_out_dab = 780
