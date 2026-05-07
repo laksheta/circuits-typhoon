@@ -4777,7 +4777,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6708, 8120
+            position = 6640, 8116
         ]
 
         component "core/Digital Input" GATE_DRIVER {
@@ -4800,7 +4800,7 @@ P = I_out * V_out;
             execution_rate = "T_math_dab"
         }
         [
-            position = 7488, 8084
+            position = 7420, 8088
         ]
 
         component "core/Digital Input" CONTACTOR_DAB {
@@ -4808,7 +4808,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8120, 8100
+            position = 8060, 8100
         ]
 
         component "core/Digital Input" CONTACTOR_INVERTER {
@@ -4890,6 +4890,51 @@ P = I_out * V_out;
             position = 7972, 7468
             hide_name = True
             size = 32, 32
+        ]
+
+        component "core/Logical operator" "Logical operator1" {
+            execution_rate = "T_meas_rect"
+            operator = "NOT"
+        }
+        [
+            position = 6708, 8116
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator2" {
+            execution_rate = "T_meas_rect"
+            operator = "NOT"
+        }
+        [
+            position = 6640, 7732
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator3" {
+            execution_rate = "T_math_dab"
+            operator = "NOT"
+        }
+        [
+            position = 7488, 8088
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator4" {
+            execution_rate = "T_math_inv"
+            operator = "NOT"
+        }
+        [
+            position = 8144, 8100
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator5" {
+            execution_rate = "T_math_inv"
+            operator = "NOT"
+        }
+        [
+            position = 8652, 8104
+            hide_name = True
         ]
 
         tag Goto41 {
@@ -5263,11 +5308,16 @@ P = I_out * V_out;
         connect "Rate Transition1.in" Junction71 as Connection707
         connect Goto43 "Rate Transition2.out" as Connection708
         connect "Rate Transition2.in" Junction72 as Connection709
-        connect MAIN_CONTACTOR.out S6.ctrl_in as Connection710
-        connect PRECHARGE_CONTACTOR.out S7.ctrl_in as Connection711
-        connect CONTACTOR_MMC.out S4.ctrl_in as Connection712
-        connect CONTACTOR_DAB.out S5.ctrl_in as Connection713
-        connect CONTACTOR_INVERTER.out S1.ctrl_in as Connection714
+        connect MAIN_CONTACTOR.out "Logical operator1.in" as Connection715
+        connect "Logical operator1.out" S6.ctrl_in as Connection716
+        connect PRECHARGE_CONTACTOR.out "Logical operator2.in" as Connection717
+        connect "Logical operator2.out" S7.ctrl_in as Connection718
+        connect CONTACTOR_MMC.out "Logical operator3.in" as Connection719
+        connect "Logical operator3.out" S4.ctrl_in as Connection720
+        connect CONTACTOR_DAB.out "Logical operator4.in" as Connection721
+        connect "Logical operator4.out" S5.ctrl_in as Connection722
+        connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
+        connect "Logical operator5.out" S1.ctrl_in as Connection724
     }
 
     logically_deleted {
@@ -5377,6 +5427,12 @@ P = I_out * V_out;
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Logical operator" {
+            operator = "AND"
+            inputs = "2"
+            execution_rate = "inherit"
         }
 
         "core/Min Max" {
