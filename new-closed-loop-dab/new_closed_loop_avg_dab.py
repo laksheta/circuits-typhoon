@@ -7,10 +7,10 @@ import numpy as np
 
 fsw = 10e3
 
-T_plant = 1e-6
-T_meas = 1e-6
-T_wave  = 1e-6 
-T_math  = 1e-6
+T_plant = 1e-5
+T_meas = 1e-5
+T_wave  = 1e-5 
+T_math  = 1e-5
 
 V_in  = 780
 V_out = 780
