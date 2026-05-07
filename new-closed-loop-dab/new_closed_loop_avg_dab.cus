@@ -618,7 +618,7 @@ widgetValue = None
 widgetValue = hil.model_read('DAB_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0.0]]></inputValue>
+                <inputValue><![CDATA[0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
