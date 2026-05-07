@@ -1352,6 +1352,18 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 60, 20
             ]
 
+            tag From21 {
+                value = "REF_V_out_Rect"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6984, 8532
+                hide_name = True
+                size = 84, 20
+            ]
+
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1634,7 +1646,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition23.out" Sum3.in1 as Connection388
             connect Isp1.in "Rate Transition24.out" as Connection390
             connect "Rate Transition24.in" From3 as Connection391
-            connect Vdc_set_rect.out "Signal switch1.in" as Connection414
             connect Constant7.out "Signal switch1.in1" as Connection415
             connect Rect_on_off.out Junction33 as Connection420
             connect Junction33 "Signal switch1.in2" as Connection421
@@ -1671,6 +1682,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 breakpoints = 9644, 7996; 9644, 8008
             ]
             connect "Meter Split1.Freq" Goto20 as Connection433
+            connect From21 "Signal switch1.in" as Connection434
         }
         [
             position = 7120, 8268
@@ -2084,6 +2096,18 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            tag From38 {
+                value = "REF_V_out_DAB"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7560, 8344
+                hide_name = True
+                size = 84, 20
+            ]
+
             junction Junction38 pe
             [
                 position = 8608, 8140
@@ -2248,7 +2272,6 @@ P = I_out * V_out;
             connect out_PI.in Junction37 as Connection418
             connect DAB_on_off.out Junction25 as Connection428
             connect Goto18 Junction25 as Connection430
-            connect V_out_ref_dab.out "Signal switch1.in" as Connection431
             connect Constant5.out "Signal switch1.in1" as Connection432
             connect "Signal switch1.out" Sum4.in as Connection433
             connect Junction25 Junction40 as Connection434
@@ -2256,6 +2279,7 @@ P = I_out * V_out;
             connect Goto42 "Rate Transition1.out" as Connection436
             connect "Rate Transition1.in" Junction40 as Connection437
             connect Constant17.out "Power Calculation.K" as Connection438
+            connect From38 "Signal switch1.in" as Connection439
         }
         [
             position = 7800, 8268
@@ -4855,6 +4879,24 @@ P = I_out * V_out;
             position = 8592, 8048
         ]
 
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_controller_rect"
+        }
+        [
+            position = 7096, 7468
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 7972, 7468
+            hide_name = True
+            size = 32, 32
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4865,6 +4907,30 @@ P = I_out * V_out;
             position = 8860, 8104
             hide_name = True
             size = 60, 20
+        ]
+
+        tag Goto42 {
+            value = "REF_V_out_Rect"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 7188, 7468
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto43 {
+            value = "REF_V_out_DAB"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8048, 7468
+            hide_name = True
+            size = 92, 20
         ]
 
         junction Junction44 pe
@@ -5002,6 +5068,16 @@ P = I_out * V_out;
             position = 7300, 8364
         ]
 
+        junction Junction71 sp
+        [
+            position = 7124, 7520
+        ]
+
+        junction Junction72 sp
+        [
+            position = 7976, 7600
+        ]
+
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
         [
             position = 7340, 8652
@@ -5068,10 +5144,6 @@ P = I_out * V_out;
         connect holding_out1.in Junction7 as Connection28
         connect Junction7 "ModBus Device2.holding_out" as Connection29
         connect "Bus Split2.in" Junction7 as Connection30
-        connect REF_VDC_OUTPUT.in "Bus Split2.out" as Connection31
-        [
-            breakpoints = 7124, 7520; 7124, 7564
-        ]
         connect "Bus Split2.out1" DC_LINK_CONTACTOR.in as Connection32
         connect "Bus Split2.out2" STATUS.in as Connection33
         connect "ModBus Device2.discrete_in" Junction8 as Connection34
@@ -5126,7 +5198,6 @@ P = I_out * V_out;
         [
             breakpoints = 8000, 7540; 8000, 7584
         ]
-        connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
         connect "Bus Split1.out2" DAB_ON.in as Connection16
         connect "ModBus Device1.discrete_in" Junction4 as Connection19
         connect Junction4 Junction1 as Connection20
@@ -5191,6 +5262,17 @@ P = I_out * V_out;
             breakpoints = 7300, 8364
         ]
         connect S4.b_in Junction70 as Connection699
+        connect REF_VDC_OUTPUT.in Junction71 as Connection700
+        connect Junction71 "Bus Split2.out" as Connection701
+        [
+            breakpoints = 7124, 7520; 7124, 7564
+        ]
+        connect "Bus Split1.out1" Junction72 as Connection703
+        connect Junction72 REF_VDC_OUT.in as Connection704
+        connect Goto42 "Rate Transition1.out" as Connection706
+        connect "Rate Transition1.in" Junction71 as Connection707
+        connect Goto43 "Rate Transition2.out" as Connection708
+        connect "Rate Transition2.in" Junction72 as Connection709
     }
 
     logically_deleted {
