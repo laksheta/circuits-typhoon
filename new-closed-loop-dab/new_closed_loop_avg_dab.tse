@@ -341,6 +341,15 @@ P = I_out * V_out;
             position = 8184, 7964
         ]
 
+        component "core/Constant" Constant11 {
+            execution_rate = "T_math"
+            value = "780"
+        }
+        [
+            position = 7788, 8084
+            hide_name = True
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -504,7 +513,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7880, 8052
+            position = 7680, 8036
             hide_name = True
             size = 60, 20
         ]
@@ -701,10 +710,6 @@ P = I_out * V_out;
         connect From14 "PID controller1.reset" as Connection405
         connect Constant6.out Product1.in as Connection406
         connect From15 Product1.in1 as Connection407
-        connect From16 Product1.in2 as Connection408
-        [
-            breakpoints = 7944, 8052; 7944, 8036
-        ]
         connect Product1.in3 From17 as Connection409
         [
             breakpoints = 7952, 8052; 7952, 8084
@@ -728,6 +733,10 @@ P = I_out * V_out;
         connect Goto19 Junction26 as Connection418
         connect Junction26 Product1.out as Connection419
         connect I_out_manual.in Junction26 as Connection420
+        connect Constant11.out Product1.in2 as Connection421
+        [
+            breakpoints = 7976, 8084; 7976, 8012
+        ]
     }
 
     logically_deleted {
