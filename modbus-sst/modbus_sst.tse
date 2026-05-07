@@ -9,7 +9,7 @@ model "modbus_sst" {
         hil_device = "HIL604"
         hil_configuration_id = 2
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -31,7 +31,7 @@ model "modbus_sst" {
         sys_real_type_precision = "default"
         user_real_type_precision = "default"
         sys_cpu_optimization = "high"
-        user_cpu_optimization = "high"
+        user_cpu_optimization = "no optimization"
         user_cpu_part_option = "default"
         matrix_based_reduction = True
         cpl_dynamics_analysis = False
@@ -5085,6 +5085,7 @@ P = I_out * V_out;
         "DAB_ON"
         "reg_in"
         "Subsystem3"
+        "PRECHARGE_CONTACTOR"
         "Junction6"
         "Junction7"
         "Junction8"
@@ -5147,7 +5148,6 @@ P = I_out * V_out;
         "Connection626"
         "Connection627"
         "Connection628"
-        "PRECHARGE_CONTACTOR"
     }
 
     default {
