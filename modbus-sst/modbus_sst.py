@@ -158,7 +158,7 @@ zeta_rect        = 0.707
 Kp_v_rect        = 2*zeta_rect*omega_cv_rect*C_out_rect
 Ki_v_rect        = (omega_cv_rect**2)*C_out_rect
 
-T_modbus = 100e-6
+T_modbus = 500e-3
 
 
 config_dab = {
