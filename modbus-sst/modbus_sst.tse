@@ -1749,7 +1749,7 @@ P = I_out * V_out;
                 value = "L_dab"
             }
             [
-                position = 7740, 8200
+                position = 7740, 8192
                 hide_name = True
             ]
 
@@ -1883,6 +1883,15 @@ P = I_out * V_out;
                 position = 7880, 8276
                 hide_name = True
                 size = 32, 32
+            ]
+
+            component "core/Constant" Constant17 {
+                execution_rate = "T_math_dab"
+                value = "K"
+            }
+            [
+                position = 7740, 8232
+                hide_name = True
             ]
 
             port V_in_dab+ {
@@ -2246,6 +2255,7 @@ P = I_out * V_out;
             connect Junction40 "Signal switch1.in2" as Connection435
             connect Goto42 "Rate Transition1.out" as Connection436
             connect "Rate Transition1.in" Junction40 as Connection437
+            connect Constant17.out "Power Calculation.K" as Connection438
         }
         [
             position = 7800, 8268
