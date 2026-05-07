@@ -5123,6 +5123,11 @@ P = I_out * V_out;
             position = 7340, 8652
         ]
 
+        comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Nambahin ON dari modbus</p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Precharge, nambahin logic buat Charging Complete</p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Terus rectifier ke set point di saat abis pre-charge</p></body></html> ENDCOMMENT 
+        [
+            position = 7400, 7852
+        ]
+
         scheme_area Area2 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Rectifier</p></body></html>
         }
@@ -5309,15 +5314,15 @@ P = I_out * V_out;
         connect Goto43 "Rate Transition2.out" as Connection708
         connect "Rate Transition2.in" Junction72 as Connection709
         connect MAIN_CONTACTOR.out "Logical operator1.in" as Connection715
-        connect "Logical operator1.out" S6.ctrl_in as Connection716
         connect PRECHARGE_CONTACTOR.out "Logical operator2.in" as Connection717
-        connect "Logical operator2.out" S7.ctrl_in as Connection718
         connect CONTACTOR_MMC.out "Logical operator3.in" as Connection719
         connect "Logical operator3.out" S4.ctrl_in as Connection720
         connect CONTACTOR_DAB.out "Logical operator4.in" as Connection721
         connect "Logical operator4.out" S5.ctrl_in as Connection722
         connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
         connect "Logical operator5.out" S1.ctrl_in as Connection724
+        connect sw_source.out S6.ctrl_in as Connection725
+        connect sw_pre_charge.out S7.ctrl_in as Connection726
     }
 
     logically_deleted {
