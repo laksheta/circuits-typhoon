@@ -3765,7 +3765,7 @@ P = I_out * V_out;
             connect Goto17 "Meter Split1.IC_RMS" as Connection529
         }
         [
-            position = 8368, 8272
+            position = 8468, 8272
             size = 168, 232
         ]
 
@@ -3777,7 +3777,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 8680, 8272
+            position = 8780, 8272
             size = 56, 240
         ]
 
@@ -3786,7 +3786,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8824, 8272
+            position = 8924, 8272
             scale = -1, 1
             size = 62, 256
         ]
@@ -3794,7 +3794,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8764, 8464
+            position = 8864, 8464
             hide_name = True
         ]
 
@@ -3804,7 +3804,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8588, 8272
+            position = 8688, 8272
             hide_name = True
             size = 64, 256
         ]
@@ -3841,7 +3841,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8092, 8268
+            position = 8192, 8268
             size = 64, 256
         ]
 
@@ -3858,7 +3858,7 @@ P = I_out * V_out;
             resistance = "2*R_load_dab"
         }
         [
-            position = 8184, 8260
+            position = 8284, 8260
             rotation = right
             hide_name = True
         ]
@@ -4656,7 +4656,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8020, 8100
+            position = 8120, 8100
         ]
 
         component "core/Digital Input" CONTACTOR_INVERTER {
@@ -4664,7 +4664,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8492, 8104
+            position = 8592, 8104
         ]
 
         component "core/SCADA Input" sw_source {
@@ -4708,7 +4708,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8016, 8036
+            position = 8116, 8036
         ]
 
         component "core/SCADA Input" sw_grid {
@@ -4719,14 +4719,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 8492, 8048
-        ]
-
-        component "core/Single Phase Core Coupling" "Core Coupling 1" {
-        }
-        [
-            position = 7400, 8268
-            size = 13, 256
+            position = 8592, 8048
         ]
 
         tag Goto41 {
@@ -4736,24 +4729,14 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8760, 8104
+            position = 8860, 8104
             hide_name = True
             size = 60, 20
         ]
 
         junction Junction44 pe
         [
-            position = 8760, 8424
-        ]
-
-        junction Junction46 pe
-        [
-            position = 7300, 8172
-        ]
-
-        junction Junction47 pe
-        [
-            position = 7300, 8364
+            position = 8860, 8424
         ]
 
         junction Junction48 pe
@@ -4766,24 +4749,14 @@ P = I_out * V_out;
             position = 7608, 8364
         ]
 
-        junction Junction51 pe
-        [
-            position = 7980, 8172
-        ]
-
-        junction Junction52 pe
-        [
-            position = 7980, 8364
-        ]
-
         junction Junction53 pe
         [
-            position = 8184, 8172
+            position = 8284, 8172
         ]
 
         junction Junction54 pe
         [
-            position = 8184, 8364
+            position = 8284, 8364
         ]
 
         junction Junction6 sp
@@ -4876,6 +4849,26 @@ P = I_out * V_out;
             position = 6920, 8172
         ]
 
+        junction Junction67 pe
+        [
+            position = 7980, 8172
+        ]
+
+        junction Junction68 pe
+        [
+            position = 7980, 8364
+        ]
+
+        junction Junction69 pe
+        [
+            position = 7300, 8172
+        ]
+
+        junction Junction70 pe
+        [
+            position = 7300, 8364
+        ]
+
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
         [
             position = 7340, 8652
@@ -4912,20 +4905,16 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8764, 8424
+            breakpoints = 8864, 8424
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 8680, 8424
+            breakpoints = 8780, 8424
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
         connect S1.b_out "Grid Measurement.B+" as Connection497
         connect S1.c_out "Grid Measurement.C+" as Connection498
-        connect Junction46 Rectifier.V_out_rect+ as Connection521
-        connect R4.p_node Junction46 as Connection522
-        connect Rectifier.V_out_rect- Junction47 as Connection523
-        connect R4.n_node Junction47 as Connection525
         connect DAB.V_in_dab+ Junction48 as Connection526
         connect Junction48 S4.a_out as Connection527
         connect R5.p_node Junction48 as Connection528
@@ -4934,12 +4923,6 @@ P = I_out * V_out;
         connect R5.n_node Junction49 as Connection531
         connect S1.a_in Inverter.A as Connection540
         connect S1.c_in Inverter.C as Connection542
-        connect S5.a_in Junction51 as Connection544
-        connect Junction51 DAB.V_out_dab+ as Connection545
-        connect R6.p_node Junction51 as Connection546
-        connect DAB.V_out_dab- Junction52 as Connection547
-        connect Junction52 S5.b_in as Connection548
-        connect R6.n_node Junction52 as Connection549
         connect Inverter.V_in_inv+ Junction53 as Connection550
         connect Junction53 S5.a_out as Connection551
         connect R7.p_node Junction53 as Connection552
@@ -5051,10 +5034,30 @@ P = I_out * V_out;
         connect sw_Rect_DAB.out S4.ctrl_in as Connection673
         connect sw_dab_inv.out S5.ctrl_in as Connection674
         connect sw_grid.out S1.ctrl_in as Connection675
-        connect S4.a_in "Core Coupling 1.a_out" as Connection676
-        connect "Core Coupling 1.a_in" Junction46 as Connection677
-        connect Junction47 "Core Coupling 1.b_in" as Connection678
-        connect "Core Coupling 1.b_out" S4.b_in as Connection679
+        connect R6.p_node Junction67 as Connection686
+        connect Junction67 DAB.V_out_dab+ as Connection687
+        [
+            breakpoints = 7980, 8172
+        ]
+        connect S5.a_in Junction67 as Connection688
+        connect DAB.V_out_dab- Junction68 as Connection689
+        connect Junction68 R6.n_node as Connection690
+        [
+            breakpoints = 7980, 8364
+        ]
+        connect S5.b_in Junction68 as Connection691
+        connect R4.p_node Junction69 as Connection694
+        connect Junction69 Rectifier.V_out_rect+ as Connection695
+        [
+            breakpoints = 7300, 8172
+        ]
+        connect S4.a_in Junction69 as Connection696
+        connect R4.n_node Junction70 as Connection697
+        connect Junction70 Rectifier.V_out_rect- as Connection698
+        [
+            breakpoints = 7300, 8364
+        ]
+        connect S4.b_in Junction70 as Connection699
     }
 
     logically_deleted {
@@ -5467,19 +5470,6 @@ P = I_out * V_out;
 
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
-        }
-
-        "core/Single Phase Core Coupling" {
-            snb_type_i = "none"
-            R1 = "100000.0"
-            C1 = "1e-06"
-            C2 = "1e-06"
-            fixed_snb_i = "false"
-            snb_type_u = "none"
-            R2 = "0.1"
-            L1 = "0.1"
-            L2 = "0.1"
-            fixed_snb_u = "false"
         }
 
         "core/Three Phase Voltage Source" {
