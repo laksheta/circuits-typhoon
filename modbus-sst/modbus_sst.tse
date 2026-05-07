@@ -83,7 +83,7 @@ model "modbus_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6608, 8268
+            position = 6468, 8268
             hide_name = True
             size = 62, 256
         ]
@@ -91,7 +91,7 @@ model "modbus_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6528, 8332
+            position = 6388, 8332
             hide_name = True
             scale = -1, 1
         ]
@@ -1673,7 +1673,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Meter Split1.Freq" Goto20 as Connection433
         }
         [
-            position = 7260, 8268
+            position = 7120, 8268
             size = 168, 232
         ]
 
@@ -3823,7 +3823,7 @@ P = I_out * V_out;
             resistance = "R_load_rect"
         }
         [
-            position = 7440, 8256
+            position = 7300, 8256
             rotation = right
         ]
 
@@ -3869,7 +3869,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6936, 8268
+            position = 6796, 8268
             size = 64, 256
         ]
 
@@ -3877,7 +3877,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6932, 7844
+            position = 6792, 7844
             hide_name = True
         ]
 
@@ -3885,7 +3885,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6932, 7940
+            position = 6792, 7940
             hide_name = True
         ]
 
@@ -3893,7 +3893,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6936, 8036
+            position = 6796, 8036
             hide_name = True
         ]
 
@@ -4609,7 +4609,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6828, 7940
+            position = 6688, 7940
             size = 64, 256
         ]
 
@@ -4625,7 +4625,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6848, 8120
+            position = 6708, 8120
         ]
 
         component "core/Digital Input" GATE_DRIVER {
@@ -4633,14 +4633,14 @@ P = I_out * V_out;
             execution_rate = "T_digital_in"
         }
         [
-            position = 7248, 7908
+            position = 7108, 7908
         ]
 
         component "core/Digital Probe" Probe_GATE_DRIVER {
             execution_rate = "T_digital_in"
         }
         [
-            position = 7384, 7908
+            position = 7244, 7908
         ]
 
         component "core/Digital Input" CONTACTOR_MMC {
@@ -4648,7 +4648,7 @@ P = I_out * V_out;
             execution_rate = "T_math_dab"
         }
         [
-            position = 7448, 8084
+            position = 7488, 8084
         ]
 
         component "core/Digital Input" CONTACTOR_DAB {
@@ -4675,7 +4675,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 6892, 8072
+            position = 6752, 8072
         ]
 
         component "core/SCADA Input" sw_pre_charge {
@@ -4686,7 +4686,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 6724, 7788
+            position = 6584, 7788
         ]
 
         component "core/SCADA Input" sw_Rect_DAB {
@@ -4697,7 +4697,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 7444, 8024
+            position = 7484, 8024
         ]
 
         component "core/SCADA Input" sw_dab_inv {
@@ -4722,6 +4722,13 @@ P = I_out * V_out;
             position = 8492, 8048
         ]
 
+        component "core/Single Phase Core Coupling" "Core Coupling 1" {
+        }
+        [
+            position = 7400, 8268
+            size = 13, 256
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4741,12 +4748,12 @@ P = I_out * V_out;
 
         junction Junction46 pe
         [
-            position = 7440, 8172
+            position = 7300, 8172
         ]
 
         junction Junction47 pe
         [
-            position = 7440, 8364
+            position = 7300, 8364
         ]
 
         junction Junction48 pe
@@ -4841,32 +4848,32 @@ P = I_out * V_out;
 
         junction Junction61 pe
         [
-            position = 6700, 8172
+            position = 6560, 8172
         ]
 
         junction Junction62 pe
         [
-            position = 6724, 8268
+            position = 6584, 8268
         ]
 
         junction Junction63 pe
         [
-            position = 6744, 8364
+            position = 6604, 8364
         ]
 
         junction Junction64 pe
         [
-            position = 7120, 8364
+            position = 6980, 8364
         ]
 
         junction Junction65 pe
         [
-            position = 7096, 8268
+            position = 6956, 8268
         ]
 
         junction Junction66 pe
         [
-            position = 7060, 8172
+            position = 6920, 8172
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
@@ -4915,11 +4922,9 @@ P = I_out * V_out;
         connect S1.a_out "Grid Measurement.A+" as Connection496
         connect S1.b_out "Grid Measurement.B+" as Connection497
         connect S1.c_out "Grid Measurement.C+" as Connection498
-        connect S4.a_in Junction46 as Connection520
         connect Junction46 Rectifier.V_out_rect+ as Connection521
         connect R4.p_node Junction46 as Connection522
         connect Rectifier.V_out_rect- Junction47 as Connection523
-        connect Junction47 S4.b_in as Connection524
         connect R4.n_node Junction47 as Connection525
         connect DAB.V_in_dab+ Junction48 as Connection526
         connect Junction48 S4.a_out as Connection527
@@ -5046,6 +5051,10 @@ P = I_out * V_out;
         connect sw_Rect_DAB.out S4.ctrl_in as Connection673
         connect sw_dab_inv.out S5.ctrl_in as Connection674
         connect sw_grid.out S1.ctrl_in as Connection675
+        connect S4.a_in "Core Coupling 1.a_out" as Connection676
+        connect "Core Coupling 1.a_in" Junction46 as Connection677
+        connect Junction47 "Core Coupling 1.b_in" as Connection678
+        connect "Core Coupling 1.b_out" S4.b_in as Connection679
     }
 
     logically_deleted {
@@ -5458,6 +5467,19 @@ P = I_out * V_out;
 
         "core/Signal Controlled Voltage Source" {
             execution_rate = "inherit"
+        }
+
+        "core/Single Phase Core Coupling" {
+            snb_type_i = "none"
+            R1 = "100000.0"
+            C1 = "1e-06"
+            C2 = "1e-06"
+            fixed_snb_i = "false"
+            snb_type_u = "none"
+            R2 = "0.1"
+            L1 = "0.1"
+            L2 = "0.1"
+            fixed_snb_u = "false"
         }
 
         "core/Three Phase Voltage Source" {
