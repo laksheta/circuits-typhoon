@@ -4113,6 +4113,78 @@ P = I_out * V_out;
                 position = 8108, 8500
             ]
 
+            component "core/Rate Transition" "Rate Transition1" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8016
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition2" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8064
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition3" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8108
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition4" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8156
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition5" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8204
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition6" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8232
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition7" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8272
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition8" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8340
+                hide_name = True
+                size = 32, 32
+            ]
+
             port Out1 {
                 position = right:1
                 kind = sp
@@ -4228,35 +4300,22 @@ P = I_out * V_out;
             [
                 breakpoints = 8252, 8284; 8252, 8500
             ]
-            connect ACT_VRMS_R "Bus Join1.in3" as Connection604
-            [
-                breakpoints = 8224, 8064; 8224, 8156
-            ]
-            connect ACT_VRMS_S "Bus Join1.in4" as Connection605
-            [
-                breakpoints = 8212, 8108; 8212, 8172
-            ]
-            connect ACT_VRMS_T "Bus Join1.in5" as Connection606
-            [
-                breakpoints = 8196, 8156; 8196, 8188
-            ]
-            connect ACT_VDC_OUTPUT "Bus Join1.in2" as Connection607
-            [
-                breakpoints = 8236, 8016; 8236, 8140
-            ]
-            connect ACT_IRMS_R "Bus Join1.in6" as Connection608
-            connect ACT_IRMS_S "Bus Join1.in7" as Connection609
-            [
-                breakpoints = 8156, 8244; 8156, 8220
-            ]
-            connect ACT_IRMS_T "Bus Join1.in8" as Connection610
-            [
-                breakpoints = 8168, 8292; 8168, 8236
-            ]
-            connect ACT_FREQUENCY_MMC "Bus Join1.in9" as Connection611
-            [
-                breakpoints = 8220, 8340; 8220, 8252
-            ]
+            connect ACT_VDC_OUTPUT "Rate Transition1.in" as Connection613
+            connect "Rate Transition1.out" "Bus Join1.in2" as Connection614
+            connect ACT_VRMS_R "Rate Transition2.in" as Connection615
+            connect "Rate Transition2.out" "Bus Join1.in3" as Connection616
+            connect ACT_VRMS_S "Rate Transition3.in" as Connection617
+            connect "Rate Transition3.out" "Bus Join1.in4" as Connection618
+            connect ACT_VRMS_T "Rate Transition4.in" as Connection619
+            connect "Rate Transition4.out" "Bus Join1.in5" as Connection620
+            connect ACT_IRMS_R "Rate Transition5.in" as Connection621
+            connect "Rate Transition5.out" "Bus Join1.in6" as Connection622
+            connect ACT_IRMS_S "Rate Transition6.in" as Connection623
+            connect "Rate Transition6.out" "Bus Join1.in7" as Connection624
+            connect ACT_IRMS_T "Rate Transition7.in" as Connection625
+            connect "Rate Transition7.out" "Bus Join1.in8" as Connection626
+            connect ACT_FREQUENCY_MMC "Rate Transition8.in" as Connection627
+            connect "Rate Transition8.out" "Bus Join1.in9" as Connection628
         }
         [
             position = 6488, 7600
@@ -4298,6 +4357,78 @@ P = I_out * V_out;
             }
             [
                 position = 8096, 8468
+            ]
+
+            component "core/Rate Transition" "Rate Transition1" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 7976
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition2" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8028
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition3" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8084
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition4" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8124
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition5" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8172
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition6" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8244
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition7" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8292
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition8" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8340
+                hide_name = True
+                size = 32, 32
             ]
 
             port Out1 {
@@ -4403,40 +4534,27 @@ P = I_out * V_out;
 
             connect "Bus Join1.out" Out1 as Connection624
             connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection604
-            connect ACT_DCLINK "Bus Join1.in2" as Connection614
-            [
-                breakpoints = 8228, 8028; 8228, 8180
-            ]
-            connect ACT_FREQUENCY "Bus Join1.in1" as Connection615
-            [
-                breakpoints = 8240, 7976; 8240, 8164
-            ]
-            connect ACT_Vrms_R "Bus Join1.in3" as Connection616
-            [
-                breakpoints = 8220, 8084; 8220, 8128; 8220, 8128; 8220, 8196
-            ]
-            connect ACT_Vrms_S "Bus Join1.in4" as Connection617
-            [
-                breakpoints = 8212, 8124; 8212, 8212
-            ]
-            connect "Bus Join1.in5" ACT_Vrms_T as Connection618
-            [
-                breakpoints = 8200, 8228; 8200, 8172
-            ]
-            connect ACT_Irms_R "Bus Join1.in6" as Connection619
-            connect ACT_Irms_S "Bus Join1.in7" as Connection620
-            [
-                breakpoints = 8196, 8292; 8196, 8260
-            ]
-            connect ACT_Irms_T "Bus Join1.in8" as Connection621
-            [
-                breakpoints = 8204, 8340; 8204, 8276
-            ]
             connect STEP_REFERENCE_FREQUENCY.out "Bus Join1.in9" as Connection622
             [
                 breakpoints = 8220, 8412; 8220, 8292
             ]
             connect STEP_REFERENCE_VRMS.out "Bus Join1.in10" as Connection623
+            connect ACT_FREQUENCY "Rate Transition1.in" as Connection625
+            connect "Rate Transition1.out" "Bus Join1.in1" as Connection626
+            connect ACT_DCLINK "Rate Transition2.in" as Connection627
+            connect "Rate Transition2.out" "Bus Join1.in2" as Connection628
+            connect ACT_Vrms_R "Rate Transition3.in" as Connection629
+            connect "Rate Transition3.out" "Bus Join1.in3" as Connection630
+            connect ACT_Vrms_S "Rate Transition4.in" as Connection631
+            connect "Rate Transition4.out" "Bus Join1.in4" as Connection632
+            connect "Bus Join1.in5" "Rate Transition5.out" as Connection633
+            connect "Rate Transition5.in" ACT_Vrms_T as Connection634
+            connect ACT_Irms_R "Rate Transition6.in" as Connection635
+            connect "Rate Transition6.out" "Bus Join1.in6" as Connection636
+            connect ACT_Irms_S "Rate Transition7.in" as Connection637
+            connect "Rate Transition7.out" "Bus Join1.in7" as Connection638
+            connect ACT_Irms_T "Rate Transition8.in" as Connection639
+            connect "Rate Transition8.out" "Bus Join1.in8" as Connection640
         }
         [
             position = 8204, 7592
@@ -5075,101 +5193,6 @@ P = I_out * V_out;
         "DAB.Connection397"
         "DAB.Connection112"
         "Inverter.dc_input_inv"
-        "ModBus Device2"
-        "Constant2"
-        "coil_out1"
-        "holding_out1"
-        "Bus Split2"
-        "REF_VDC_OUTPUT"
-        "DC_LINK_CONTACTOR"
-        "STATUS"
-        "reg_in1"
-        "ModBus Device3"
-        "Constant3"
-        "coil_out2"
-        "holding_out2"
-        "Bus Split3"
-        "MMC_ON"
-        "REF_FREQUENCY"
-        "REF_VPEAK"
-        "reg_in2"
-        "RESET_FAILSAFE_INVERTER"
-        "INVERTER_ON"
-        "Subsystem1"
-        "Subsystem2"
-        "ModBus Device1"
-        "Constant1"
-        "coil_out"
-        "holding_out"
-        "Bus Split1"
-        "RESET_FAILSAFE_DAB"
-        "REF_VDC_OUT"
-        "DAB_ON"
-        "reg_in"
-        "Subsystem3"
-        "PRECHARGE_CONTACTOR"
-        "Junction6"
-        "Junction7"
-        "Junction8"
-        "Junction10"
-        "Junction11"
-        "Junction12"
-        "Junction58"
-        "Junction59"
-        "Junction1"
-        "Junction3"
-        "Junction4"
-        "Junction60"
-        "Area2"
-        "Area3"
-        "Area1"
-        "Connection25"
-        "Connection26"
-        "Connection27"
-        "Connection28"
-        "Connection29"
-        "Connection30"
-        "Connection31"
-        "Connection32"
-        "Connection33"
-        "Connection34"
-        "Connection35"
-        "Connection36"
-        "Connection40"
-        "Connection41"
-        "Connection42"
-        "Connection43"
-        "Connection44"
-        "Connection45"
-        "Connection46"
-        "Connection47"
-        "Connection48"
-        "Connection49"
-        "Connection50"
-        "Connection51"
-        "Connection55"
-        "Connection56"
-        "Connection601"
-        "Connection602"
-        "Connection603"
-        "Connection611"
-        "Connection612"
-        "Connection613"
-        "Connection3"
-        "Connection622"
-        "Connection9"
-        "Connection11"
-        "Connection12"
-        "Connection13"
-        "Connection14"
-        "Connection15"
-        "Connection16"
-        "Connection19"
-        "Connection20"
-        "Connection21"
-        "Connection626"
-        "Connection627"
-        "Connection628"
     }
 
     default {
