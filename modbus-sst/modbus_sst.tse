@@ -4767,7 +4767,6 @@ P = I_out * V_out;
 
         component "core/Digital Input" PRECHARGE_CONTACTOR {
             execution_rate = "T_meas_rect"
-            invert = "true"
         }
         [
             position = 6584, 7732
@@ -4776,7 +4775,6 @@ P = I_out * V_out;
         component "core/Digital Input" MAIN_CONTACTOR {
             addr = "2"
             execution_rate = "T_meas_rect"
-            invert = "true"
         }
         [
             position = 6708, 8120
@@ -4785,7 +4783,6 @@ P = I_out * V_out;
         component "core/Digital Input" GATE_DRIVER {
             addr = "3"
             execution_rate = "T_digital_in"
-            invert = "true"
         }
         [
             position = 7108, 7908
@@ -4801,7 +4798,6 @@ P = I_out * V_out;
         component "core/Digital Input" CONTACTOR_MMC {
             addr = "4"
             execution_rate = "T_math_dab"
-            invert = "true"
         }
         [
             position = 7488, 8084
@@ -4810,7 +4806,6 @@ P = I_out * V_out;
         component "core/Digital Input" CONTACTOR_DAB {
             addr = "5"
             execution_rate = "T_math_inv"
-            invert = "true"
         }
         [
             position = 8120, 8100
@@ -4819,7 +4814,6 @@ P = I_out * V_out;
         component "core/Digital Input" CONTACTOR_INVERTER {
             addr = "6"
             execution_rate = "T_math_inv"
-            invert = "true"
         }
         [
             position = 8596, 8104
