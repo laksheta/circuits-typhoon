@@ -273,13 +273,13 @@ P = I_out * V_out;
             value = "n"
         }
         [
-            position = 7900, 7984
+            position = 7880, 7984
             hide_name = True
         ]
 
         component "core/Product" Product1 {
             execution_rate = "T_math"
-            signs = "5"
+            signs = "*****///"
         }
         [
             position = 8048, 8036
@@ -289,7 +289,7 @@ P = I_out * V_out;
             execution_rate = "T_math"
         }
         [
-            position = 7708, 8220
+            position = 7688, 8220
         ]
 
         component "core/Sum" Sum3 {
@@ -297,14 +297,14 @@ P = I_out * V_out;
             signs = "+-"
         }
         [
-            position = 7840, 8172
+            position = 7820, 8172
         ]
 
         component "core/Constant" Constant7 {
             execution_rate = "T_math"
         }
         [
-            position = 7632, 8164
+            position = 7612, 8164
         ]
 
         component "core/Constant" Constant8 {
@@ -312,7 +312,7 @@ P = I_out * V_out;
             value = "fsw"
         }
         [
-            position = 7908, 8248
+            position = 7912, 8216
             hide_name = True
         ]
 
@@ -321,16 +321,16 @@ P = I_out * V_out;
             value = "L"
         }
         [
-            position = 7912, 8304
+            position = 7912, 8264
             hide_name = True
         ]
 
         component "core/Constant" Constant10 {
             execution_rate = "T_math"
-            value = "12"
+            value = "2"
         }
         [
-            position = 7912, 8348
+            position = 7912, 8320
             hide_name = True
         ]
 
@@ -485,7 +485,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7900, 8020
+            position = 7880, 8020
             hide_name = True
             size = 60, 20
         ]
@@ -497,7 +497,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7900, 8052
+            position = 7880, 8052
             hide_name = True
             size = 60, 20
         ]
@@ -509,7 +509,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7900, 8084
+            position = 7880, 8084
             hide_name = True
             size = 60, 20
         ]
@@ -521,9 +521,20 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7632, 8220
+            position = 7612, 8220
             hide_name = True
             size = 60, 20
+        ]
+
+        tag Goto19 {
+            value = "I_out_manual"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8180, 8036
+            size = 100, 20
         ]
 
         junction Junction4 pe
@@ -690,6 +701,47 @@ P = I_out * V_out;
         connect Abs1.out Sum3.in1 as Connection411
         connect Sum3.in Constant7.out as Connection412
         connect Sum3.out Product1.in4 as Connection413
+        connect Constant8.out Product1.in5 as Connection414
+        [
+            breakpoints = 7944, 8216; 7944, 8060
+        ]
+        connect Constant9.out Product1.in6 as Connection415
+        [
+            breakpoints = 7960, 8264; 7960, 8076
+        ]
+        connect Constant10.out Product1.in7 as Connection416
+        [
+            breakpoints = 7984, 8320; 7984, 8092
+        ]
+        connect Goto19 Product1.out as Connection417
+    }
+
+    logically_deleted {
+        "P"
+        "Constant2"
+        "Constant3"
+        "Power Calculation"
+        "Constant4"
+        "I_out"
+        "Goto4"
+        "From8"
+        "From9"
+        "From10"
+        "Goto11"
+        "Junction14"
+        "Junction22"
+        "Connection257"
+        "Connection258"
+        "Connection259"
+        "Connection293"
+        "Connection294"
+        "Connection295"
+        "Connection298"
+        "Connection301"
+        "Connection296"
+        "Connection299"
+        "Connection297"
+        "Connection300"
     }
 
     default {
