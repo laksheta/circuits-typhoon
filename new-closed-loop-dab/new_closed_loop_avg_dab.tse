@@ -350,6 +350,15 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Constant" Constant12 {
+            execution_rate = "T_math"
+            value = "0.25"
+        }
+        [
+            position = 7616, 8220
+            hide_name = True
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -525,7 +534,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7880, 8084
+            position = 7680, 8076
             hide_name = True
             size = 60, 20
         ]
@@ -537,7 +546,7 @@ P = I_out * V_out;
             direction = out
         }
         [
-            position = 7612, 8220
+            position = 7528, 8224
             hide_name = True
             size = 60, 20
         ]
@@ -596,6 +605,11 @@ P = I_out * V_out;
         junction Junction26 sp
         [
             position = 8100, 8036
+        ]
+
+        junction Junction27 sp
+        [
+            position = 7652, 8220
         ]
 
         scheme_area Area4 {
@@ -710,11 +724,6 @@ P = I_out * V_out;
         connect From14 "PID controller1.reset" as Connection405
         connect Constant6.out Product1.in as Connection406
         connect From15 Product1.in1 as Connection407
-        connect Product1.in3 From17 as Connection409
-        [
-            breakpoints = 7952, 8052; 7952, 8084
-        ]
-        connect From18 Abs1.in as Connection410
         connect Abs1.out Sum3.in1 as Connection411
         connect Sum3.in Constant7.out as Connection412
         connect Sum3.out Product1.in4 as Connection413
@@ -737,6 +746,9 @@ P = I_out * V_out;
         [
             breakpoints = 7976, 8084; 7976, 8012
         ]
+        connect Constant12.out Junction27 as Connection423
+        connect Junction27 Abs1.in as Connection424
+        connect Product1.in3 Junction27 as Connection425
     }
 
     logically_deleted {
