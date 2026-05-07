@@ -1722,10 +1722,10 @@ out[0] = fmax(0.0, i_dc_raw);
                 init_fnc = "/*Begin code section*/
 
 /*End code section*/"
-                input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;"
-                input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit"
-                input_terminals_feedthrough = "True;True;True;True;True;True"
-                input_terminals_show_labels = "False;False;False;False;False;False"
+                input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;inherit K;"
+                input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit;inherit"
+                input_terminals_feedthrough = "True;True;True;True;True;True;True"
+                input_terminals_show_labels = "False;False;False;False;False;False;False"
                 output_fnc = "/*Begin code section*/
 I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
     
