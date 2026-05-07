@@ -334,6 +334,13 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Probe" I_out_manual {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8184, 7964
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -577,6 +584,11 @@ P = I_out * V_out;
             position = 9140, 8312
         ]
 
+        junction Junction26 sp
+        [
+            position = 8100, 8036
+        ]
+
         scheme_area Area4 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DC Side</p></body></html>
         }
@@ -713,7 +725,9 @@ P = I_out * V_out;
         [
             breakpoints = 7984, 8320; 7984, 8092
         ]
-        connect Goto19 Product1.out as Connection417
+        connect Goto19 Junction26 as Connection418
+        connect Junction26 Product1.out as Connection419
+        connect I_out_manual.in Junction26 as Connection420
     }
 
     logically_deleted {
@@ -722,26 +736,26 @@ P = I_out * V_out;
         "Constant3"
         "Power Calculation"
         "Constant4"
-        "I_out"
         "Goto4"
         "From8"
         "From9"
         "From10"
         "Goto11"
         "Junction14"
-        "Junction22"
         "Connection257"
         "Connection258"
         "Connection259"
-        "Connection293"
-        "Connection294"
-        "Connection295"
         "Connection298"
         "Connection301"
         "Connection296"
         "Connection299"
         "Connection297"
         "Connection300"
+        "I_out"
+        "Junction22"
+        "Connection295"
+        "Connection293"
+        "Connection294"
     }
 
     default {
