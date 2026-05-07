@@ -279,7 +279,7 @@ P = I_out * V_out;
 
         component "core/Product" Product1 {
             execution_rate = "T_math"
-            signs = "*****///"
+            signs = "********"
         }
         [
             position = 8048, 8036
