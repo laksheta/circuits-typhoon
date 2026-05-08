@@ -4859,7 +4859,7 @@ P = I_out * V_out;
             position = 7108, 7908
         ]
 
-        component "core/Digital Probe" Probe_GATE_DRIVER {
+        component "core/Digital Probe" Digital_In_GATE_DRIVER {
             execution_rate = "T_digital_in"
         }
         [
@@ -5512,7 +5512,7 @@ P = I_out * V_out;
         [
             breakpoints = 8000, 7660
         ]
-        connect Probe_GATE_DRIVER.in Junction81 as Connection758
+        connect Digital_In_GATE_DRIVER.in Junction81 as Connection758
         connect Junction81 GATE_DRIVER.out as Connection759
         connect INVERTER_ON.in "Bus Split3.out4" as Connection761
         [
