@@ -787,7 +787,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 unit = ""
             }
             [
-                position = 7144, 8448
+                position = 7104, 8444
             ]
 
             component "core/SCADA Input" Vdc_set_rect {
@@ -1364,6 +1364,18 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 84, 20
             ]
 
+            tag From22 {
+                value = "Rect_on_off"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7020, 8408
+                hide_name = True
+                size = 108, 20
+            ]
+
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1647,12 +1659,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect Isp1.in "Rate Transition24.out" as Connection390
             connect "Rate Transition24.in" From3 as Connection391
             connect Constant7.out "Signal switch1.in1" as Connection415
-            connect Rect_on_off.out Junction33 as Connection420
-            connect Junction33 "Signal switch1.in2" as Connection421
-            [
-                breakpoints = 7188, 8492
-            ]
-            connect Goto11 Junction33 as Connection422
             connect "Signal switch1.out" Sum3.in as Connection423
             connect "Meter Split1.VAn" "Bus Join1.in" as Connection424
             connect "Bus Join1.in1" "Meter Split1.VBn" as Connection425
@@ -1683,6 +1689,12 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
             connect "Meter Split1.Freq" Goto20 as Connection433
             connect From21 "Signal switch1.in" as Connection434
+            connect Goto11 Junction33 as Connection436
+            connect Junction33 "Signal switch1.in2" as Connection437
+            [
+                breakpoints = 7188, 8488; 7188, 8492
+            ]
+            connect From22 Junction33 as Connection438
         }
         [
             position = 7120, 8268
