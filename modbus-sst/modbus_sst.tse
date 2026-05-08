@@ -4298,6 +4298,8 @@ P = I_out * V_out;
             component "core/SCADA Input" STEP_REFERENCE {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
@@ -4570,6 +4572,8 @@ P = I_out * V_out;
             component "core/SCADA Input" STEP_REFERENCE_FREQUENCY {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
@@ -4579,6 +4583,8 @@ P = I_out * V_out;
             component "core/SCADA Input" STEP_REFERENCE_VRMS {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
@@ -4884,6 +4890,8 @@ P = I_out * V_out;
             component "core/SCADA Input" Step_Ref_VDC_OUT {
                 addr = "1426063412"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
