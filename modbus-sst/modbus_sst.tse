@@ -2120,6 +2120,18 @@ P = I_out * V_out;
                 size = 84, 20
             ]
 
+            tag From39 {
+                value = "DAB_on_off"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7584, 8292
+                hide_name = True
+                size = 84, 20
+            ]
+
             junction Junction38 pe
             [
                 position = 8608, 8140
@@ -2170,14 +2182,14 @@ P = I_out * V_out;
                 position = 7984, 8360
             ]
 
-            junction Junction25 sp
-            [
-                position = 7748, 8252
-            ]
-
             junction Junction40 sp
             [
                 position = 7748, 8276
+            ]
+
+            junction Junction41 sp
+            [
+                position = 7748, 8288
             ]
 
             scheme_area Area12 {
@@ -2282,16 +2294,19 @@ P = I_out * V_out;
             connect "PID controller4.out" Junction37 as Connection416
             connect Junction37 Goto25 as Connection417
             connect out_PI.in Junction37 as Connection418
-            connect DAB_on_off.out Junction25 as Connection428
-            connect Goto18 Junction25 as Connection430
             connect Constant5.out "Signal switch1.in1" as Connection432
             connect "Signal switch1.out" Sum4.in as Connection433
-            connect Junction25 Junction40 as Connection434
-            connect Junction40 "Signal switch1.in2" as Connection435
             connect Goto42 "Rate Transition1.out" as Connection436
             connect "Rate Transition1.in" Junction40 as Connection437
             connect Constant17.out "Power Calculation.K" as Connection438
             connect From38 "Signal switch1.in" as Connection439
+            connect Junction40 Goto18 as Connection440
+            [
+                breakpoints = 7748, 8252
+            ]
+            connect Junction40 Junction41 as Connection441
+            connect Junction41 "Signal switch1.in2" as Connection442
+            connect From39 Junction41 as Connection443
         }
         [
             position = 7800, 8268
