@@ -2886,7 +2886,7 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 6944, 8108
+                position = 7124, 8104
             ]
 
             component "core/Rate Transition" "Rate Transition26" {
@@ -3537,6 +3537,18 @@ P = I_out * V_out;
                 size = 84, 20
             ]
 
+            tag From55 {
+                value = "Inv_on_off"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6908, 8124
+                hide_name = True
+                size = 68, 20
+            ]
+
             junction Junction3 pe
             [
                 position = 8428, 8520
@@ -3597,11 +3609,6 @@ P = I_out * V_out;
                 position = 7232, 8388
             ]
 
-            junction Junction25 sp
-            [
-                position = 7052, 8172
-            ]
-
             junction Junction53 pe
             [
                 position = 7308, 7752
@@ -3610,6 +3617,11 @@ P = I_out * V_out;
             junction Junction54 pe
             [
                 position = 7308, 7944
+            ]
+
+            junction Junction55 sp
+            [
+                position = 7052, 8172
             ]
 
             scheme_area Area12 {
@@ -3771,9 +3783,6 @@ P = I_out * V_out;
             connect PI_i_d_inv.reset Junction52 as Connection494
             connect Goto24 "Inverter Measurement.Out" as Connection495
             connect scada_i_d_inv.out "Signal switch1.in" as Connection394
-            connect Inv_on_off.out Junction25 as Connection399
-            connect Junction25 "Signal switch1.in2" as Connection400
-            connect Goto18 Junction25 as Connection401
             connect Constant5.out "Signal switch1.in1" as Connection499
             connect "Signal switch1.out" Sum5.in as Connection500
             connect V_in_inv.out Goto28 as Connection421
@@ -3809,6 +3818,12 @@ P = I_out * V_out;
                 breakpoints = 8252, 7888; 8252, 7920
             ]
             connect Goto17 "Meter Split1.IC_RMS" as Connection529
+            connect Goto18 Junction55 as Connection531
+            connect Junction55 "Signal switch1.in2" as Connection532
+            [
+                breakpoints = 7052, 8172
+            ]
+            connect From55 Junction55 as Connection533
         }
         [
             position = 8468, 8272
