@@ -4968,7 +4968,7 @@ P = I_out * V_out;
             execution_rate = "T_digital_in"
         }
         [
-            position = 7108, 7908
+            position = 7056, 7908
         ]
 
         component "core/Digital Probe" Digital_In_GATE_DRIVER {
@@ -5155,6 +5155,15 @@ P = I_out * V_out;
             position = 8756, 8104
         ]
 
+        component "core/Logical operator" "Logical operator6" {
+            execution_rate = "T_digital_in"
+            operator = "NOT"
+        }
+        [
+            position = 7132, 7908
+            hide_name = True
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -5198,7 +5207,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7240, 7812
+            position = 7280, 7808
             hide_name = True
             size = 92, 20
         ]
@@ -5210,7 +5219,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7240, 7844
+            position = 7280, 7840
             hide_name = True
             size = 92, 20
         ]
@@ -5222,7 +5231,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7244, 7868
+            position = 7284, 7864
             hide_name = True
             size = 92, 20
         ]
@@ -5416,12 +5425,12 @@ P = I_out * V_out;
 
         junction Junction82 sp
         [
-            position = 7172, 7868
+            position = 7212, 7864
         ]
 
         junction Junction83 sp
         [
-            position = 7172, 7844
+            position = 7212, 7840
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
@@ -5637,7 +5646,6 @@ P = I_out * V_out;
             breakpoints = 8000, 7660
         ]
         connect Digital_In_GATE_DRIVER.in Junction81 as Connection758
-        connect Junction81 GATE_DRIVER.out as Connection759
         connect INVERTER_ON.in "Bus Split3.out4" as Connection761
         [
             breakpoints = 8820, 7692
@@ -5652,6 +5660,8 @@ P = I_out * V_out;
         connect Junction83 Junction82 as Connection767
         connect Goto44 Junction83 as Connection768
         connect Goto47 Junction76 as Connection769
+        connect Junction81 "Logical operator6.out" as Connection770
+        connect "Logical operator6.in" GATE_DRIVER.out as Connection771
     }
 
     logically_deleted {
