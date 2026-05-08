@@ -4985,6 +4985,18 @@ P = I_out * V_out;
             size = 92, 20
         ]
 
+        tag Goto44 {
+            value = "Rect_on_off"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8932, 7424
+            hide_name = True
+            size = 92, 20
+        ]
+
         junction Junction44 pe
         [
             position = 8860, 8424
@@ -5130,6 +5142,11 @@ P = I_out * V_out;
             position = 7976, 7600
         ]
 
+        junction Junction73 sp
+        [
+            position = 8868, 7476
+        ]
+
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
         [
             position = 7340, 8652
@@ -5215,10 +5232,6 @@ P = I_out * V_out;
         connect holding_out2.in Junction11 as Connection43
         connect Junction11 "ModBus Device3.holding_out" as Connection44
         connect "Bus Split3.in" Junction11 as Connection45
-        connect MMC_ON.in "Bus Split3.out" as Connection46
-        [
-            breakpoints = 8868, 7528; 8868, 7572
-        ]
         connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
         connect "Bus Split3.out2" REF_VPEAK.in as Connection48
         connect "ModBus Device3.discrete_in" Junction12 as Connection49
@@ -5335,6 +5348,15 @@ P = I_out * V_out;
         connect "Logical operator5.out" S1.ctrl_in as Connection724
         connect sw_source.out S6.ctrl_in as Connection725
         connect sw_pre_charge.out S7.ctrl_in as Connection726
+        connect MMC_ON.in Junction73 as Connection731
+        connect Junction73 Goto44 as Connection732
+        [
+            breakpoints = 8868, 7476
+        ]
+        connect "Bus Split3.out" Junction73 as Connection733
+        [
+            breakpoints = 8848, 7556; 8848, 7476
+        ]
     }
 
     logically_deleted {
