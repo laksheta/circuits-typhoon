@@ -4416,15 +4416,23 @@ P = I_out * V_out;
                 size = 92, 20
             ]
 
+            tag From1 {
+                value = "CHARGING_COMPLETE_"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8092, 8408
+                hide_name = True
+                size = 140, 20
+            ]
+
             connect "Bus Join1.out" Out1 as Connection612
             connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
             connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
             [
                 breakpoints = 8248, 7940; 8248, 8124
-            ]
-            connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
-            [
-                breakpoints = 8236, 8268; 8236, 8444
             ]
             connect "Bus Join1.in11" STEP_REFERENCE.out as Connection599
             [
@@ -4446,6 +4454,10 @@ P = I_out * V_out;
             connect "Rate Transition7.out" "Bus Join1.in8" as Connection626
             connect ACT_FREQUENCY_MMC "Rate Transition8.in" as Connection627
             connect "Rate Transition8.out" "Bus Join1.in9" as Connection628
+            connect From1 "Bus Join1.in10" as Connection629
+            [
+                breakpoints = 8236, 8408; 8236, 8268
+            ]
         }
         [
             position = 6488, 7600
