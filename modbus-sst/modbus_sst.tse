@@ -5008,6 +5008,41 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Digital Probe" Digital_In_Pre_Charge_Contactor {
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6784, 7732
+        ]
+
+        component "core/Digital Probe" Digital_In_Main_Contactor {
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6872, 8116
+        ]
+
+        component "core/Digital Probe" Digital_In_MMC_Contactor {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 7648, 8088
+        ]
+
+        component "core/Digital Probe" Digital_In_DAB_Contactor {
+            execution_rate = "T_math_inv"
+        }
+        [
+            position = 8260, 8100
+        ]
+
+        component "core/Digital Probe" Digital_In_Inv_Contactor {
+            execution_rate = "T_math_inv"
+        }
+        [
+            position = 8756, 8104
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -5051,7 +5086,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8932, 7424
+            position = 7240, 7812
             hide_name = True
             size = 92, 20
         ]
@@ -5063,7 +5098,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8904, 7748
+            position = 7240, 7844
             hide_name = True
             size = 92, 20
         ]
@@ -5075,7 +5110,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8060, 7724
+            position = 7244, 7868
             hide_name = True
             size = 92, 20
         ]
@@ -5225,19 +5260,44 @@ P = I_out * V_out;
             position = 7976, 7600
         ]
 
-        junction Junction73 sp
+        junction Junction76 sp
         [
-            position = 8868, 7476
+            position = 6692, 7732
         ]
 
-        junction Junction74 sp
+        junction Junction77 sp
         [
-            position = 8820, 7692
+            position = 6796, 8116
         ]
 
-        junction Junction75 sp
+        junction Junction78 sp
         [
-            position = 8000, 7660
+            position = 7532, 8088
+        ]
+
+        junction Junction79 sp
+        [
+            position = 8192, 8100
+        ]
+
+        junction Junction80 sp
+        [
+            position = 8688, 8104
+        ]
+
+        junction Junction81 sp
+        [
+            position = 7172, 7908
+        ]
+
+        junction Junction82 sp
+        [
+            position = 7172, 7868
+        ]
+
+        junction Junction83 sp
+        [
+            position = 7172, 7844
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
@@ -5393,7 +5453,6 @@ P = I_out * V_out;
         connect S6.a_out Junction66 as Connection662
         connect Junction66 Rectifier.A as Connection663
         connect R8.n_node Junction66 as Connection664
-        connect Probe_GATE_DRIVER.in GATE_DRIVER.out as Connection667
         connect R6.p_node Junction67 as Connection686
         connect Junction67 DAB.V_out_dab+ as Connection687
         [
@@ -5432,31 +5491,42 @@ P = I_out * V_out;
         connect MAIN_CONTACTOR.out "Logical operator1.in" as Connection715
         connect PRECHARGE_CONTACTOR.out "Logical operator2.in" as Connection717
         connect CONTACTOR_MMC.out "Logical operator3.in" as Connection719
-        connect "Logical operator3.out" S4.ctrl_in as Connection720
         connect CONTACTOR_DAB.out "Logical operator4.in" as Connection721
-        connect "Logical operator4.out" S5.ctrl_in as Connection722
         connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
-        connect "Logical operator5.out" S1.ctrl_in as Connection724
-        connect MMC_ON.in Junction73 as Connection731
-        connect Junction73 Goto44 as Connection732
+        connect "Logical operator2.out" Junction76 as Connection742
+        connect Junction76 S7.ctrl_in as Connection743
+        connect Digital_In_Pre_Charge_Contactor.in Junction76 as Connection744
+        connect S6.ctrl_in Junction77 as Connection745
+        connect Junction77 "Logical operator1.out" as Connection746
+        connect Digital_In_Main_Contactor.in Junction77 as Connection747
+        connect "Logical operator3.out" Junction78 as Connection748
+        connect Junction78 S4.ctrl_in as Connection749
+        connect Digital_In_MMC_Contactor.in Junction78 as Connection750
+        connect "Logical operator4.out" Junction79 as Connection751
+        connect Junction79 S5.ctrl_in as Connection752
+        connect Digital_In_DAB_Contactor.in Junction79 as Connection753
+        connect "Logical operator5.out" Junction80 as Connection754
+        connect Junction80 S1.ctrl_in as Connection755
+        connect Digital_In_Inv_Contactor.in Junction80 as Connection756
+        connect "Bus Split1.out2" DAB_ON.in as Connection757
         [
-            breakpoints = 8868, 7476
+            breakpoints = 8000, 7660
         ]
-        connect "Bus Split3.out" Junction73 as Connection733
+        connect Probe_GATE_DRIVER.in Junction81 as Connection758
+        connect Junction81 GATE_DRIVER.out as Connection759
+        connect INVERTER_ON.in "Bus Split3.out4" as Connection761
         [
-            breakpoints = 8848, 7556; 8848, 7476
+            breakpoints = 8820, 7692
         ]
-        connect INVERTER_ON.in Junction74 as Connection734
-        connect Junction74 "Bus Split3.out4" as Connection735
-        connect Goto45 Junction74 as Connection736
+        connect Goto46 Junction82 as Connection762
+        connect Junction82 Junction81 as Connection763
+        connect MMC_ON.in "Bus Split3.out" as Connection765
         [
-            breakpoints = 8820, 7748; 8820, 7692
+            breakpoints = 8848, 7476; 8848, 7556
         ]
-        connect "Bus Split1.out2" Junction75 as Connection737
-        connect Junction75 DAB_ON.in as Connection738
-        connect Goto46 Junction75 as Connection739
-        connect "Logical operator2.out" S7.ctrl_in as Connection740
-        connect S6.ctrl_in "Logical operator1.out" as Connection741
+        connect Goto45 Junction83 as Connection766
+        connect Junction83 Junction82 as Connection767
+        connect Goto44 Junction83 as Connection768
     }
 
     logically_deleted {
