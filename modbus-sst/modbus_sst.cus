@@ -2059,7 +2059,7 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>312</x>
+                    <x>320</x>
                     <y>1312</y>
                     <width>400</width>
                     <height>200</height>
@@ -2540,7 +2540,7 @@ displayValue = data
                 <background_color>white</background_color>
                 <widget_settings>
                     <x>848</x>
-                    <y>1728</y>
+                    <y>1720</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
