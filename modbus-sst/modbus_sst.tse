@@ -2024,6 +2024,15 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
+            component "core/Constant" Constant18 {
+                execution_rate = "T_math_dab"
+                value = "780"
+            }
+            [
+                position = 7556, 8396
+                hide_name = True
+            ]
+
             port V_in_dab+ {
                 position = auto:auto
                 kind = pe
@@ -2405,7 +2414,6 @@ P = I_out * V_out;
             connect Goto42 "Rate Transition1.out" as Connection436
             connect "Rate Transition1.in" Junction40 as Connection437
             connect Constant17.out "Power Calculation.K" as Connection438
-            connect From38 "Signal switch1.in" as Connection439
             connect From39 "Rate Transition2.in" as Connection443
             connect "Signal switch1.in2" Junction40 as Connection445
             connect Junction40 Junction41 as Connection446
@@ -2414,6 +2422,7 @@ P = I_out * V_out;
                 breakpoints = 7748, 8252
             ]
             connect DAB_on_off.out Junction41 as Connection448
+            connect Constant18.out "Signal switch1.in" as Connection449
         }
         [
             position = 7800, 8268
@@ -5419,29 +5428,24 @@ P = I_out * V_out;
             position = 8820, 7692
         ]
 
-        junction Junction84 sp
-        [
-            position = 8688, 8104
-        ]
-
-        junction Junction85 sp
-        [
-            position = 8192, 8100
-        ]
-
-        junction Junction86 sp
-        [
-            position = 7532, 8088
-        ]
-
         junction Junction87 sp
         [
-            position = 6692, 7788
+            position = 6796, 8120
         ]
 
         junction Junction88 sp
         [
-            position = 6800, 8116
+            position = 7532, 8088
+        ]
+
+        junction Junction89 sp
+        [
+            position = 8192, 8100
+        ]
+
+        junction Junction90 sp
+        [
+            position = 8684, 8104
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
@@ -5665,33 +5669,26 @@ P = I_out * V_out;
             breakpoints = 8820, 7692
         ]
         connect Goto45 Junction83 as Connection778
-        connect Digital_In_Inv_Contactor.in Junction84 as Connection780
-        connect Junction84 S1.ctrl_in as Connection781
+        connect Junction76 S7.ctrl_in as Connection798
         [
-            breakpoints = 8688, 8104
+            breakpoints = 6692, 7788
         ]
-        connect sw_grid.out Junction84 as Connection782
-        connect Digital_In_DAB_Contactor.in Junction85 as Connection784
-        connect Junction85 S5.ctrl_in as Connection785
-        [
-            breakpoints = 8192, 8100
-        ]
-        connect sw_dab_inv.out Junction85 as Connection786
-        connect S4.ctrl_in Junction86 as Connection788
-        connect Junction86 Digital_In_MMC_Contactor.in as Connection789
-        [
-            breakpoints = 7532, 8088
-        ]
-        connect sw_Rect_DAB.out Junction86 as Connection790
-        connect Junction76 Junction87 as Connection791
-        connect Junction87 S7.ctrl_in as Connection792
-        connect sw_pre_charge.out Junction87 as Connection793
-        connect S6.ctrl_in Junction88 as Connection795
+        connect "Logical operator2.out" Junction76 as Connection799
+        connect S6.ctrl_in Junction87 as Connection801
+        connect Junction87 Digital_In_Main_Contactor.in as Connection802
         [
             breakpoints = 6796, 8116
         ]
-        connect Junction88 Digital_In_Main_Contactor.in as Connection796
-        connect sw_source.out Junction88 as Connection797
+        connect "Logical operator1.out" Junction87 as Connection803
+        connect S4.ctrl_in Junction88 as Connection805
+        connect Junction88 Digital_In_MMC_Contactor.in as Connection806
+        connect "Logical operator3.out" Junction88 as Connection807
+        connect S5.ctrl_in Junction89 as Connection809
+        connect Junction89 Digital_In_DAB_Contactor.in as Connection810
+        connect "Logical operator4.out" Junction89 as Connection811
+        connect Digital_In_Inv_Contactor.in Junction90 as Connection813
+        connect Junction90 S1.ctrl_in as Connection814
+        connect "Logical operator5.out" Junction90 as Connection815
     }
 
     logically_deleted {
