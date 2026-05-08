@@ -4559,6 +4559,8 @@ P = I_out * V_out;
             component "core/SCADA Input" INDICATOR_INVERTER {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "10"
+                min = "0"
                 unit = ""
             }
             [
@@ -4871,6 +4873,8 @@ P = I_out * V_out;
             component "core/SCADA Input" Indicator_DAB {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "10"
+                min = "0"
                 unit = ""
             }
             [
