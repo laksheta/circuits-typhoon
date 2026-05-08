@@ -26,195 +26,6 @@ SETTINGS_DIR = get_settings_dir_path()
 ]]></initialization_code>
     <components>
         <component_data>
-                <id>8d656e8a0c9011f19dd4d8bbc1a2437a</id>
-                <name><![CDATA[Capture/Scope]]></name>
-                <type>Capture/Scope</type>
-                <description><![CDATA[]]></description>
-                <working_mode>windowed</working_mode>
-                <widget_settings>
-                    <x>1208</x>
-                    <y>96</y>
-                    <width>120</width>
-                    <height>120</height>
-                    <hierarchy_position>1</hierarchy_position>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <state>Capture</state>
-                    <layout>None</layout>
-                    <virtual_signals_definitions>
-                    </virtual_signals_definitions>
-                    <presets>
-                        <active_capture_preset><![CDATA[Default]]></active_capture_preset>
-                        <active_scope_preset><![CDATA[Default]]></active_scope_preset>
-                        <capture name="Default">
-                            <time_interval>0.1</time_interval>
-                            <sample_rate>100000.0</sample_rate>
-                            <background_color>white</background_color>
-                            <layout>Vertical</layout>
-                            <legend>True</legend>
-                            <analog_signals>
-                                <analog>
-                                    <channel>0</channel>
-                                    <name><![CDATA[Rectifier.Grid Meter.VAn]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>1</channel>
-                                    <name><![CDATA[Rectifier.Rectifier Meter.VAn]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>1</row>
-                                    <viewports>
-                                        <num_viewport>2</num_viewport>
-                                   </viewports>
-                               </analog>
-                                <analog>
-                                    <channel>2</channel>
-                                    <name><![CDATA[Rectifier.u_q_pi_rect]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>2</row>
-                                    <viewports>
-                                        <num_viewport>3</num_viewport>
-                                   </viewports>
-                               </analog>
-                            </analog_signals>
-                            <digital_signals>
-                            </digital_signals>
-                            <virtual_signals>
-                            </virtual_signals>
-                            <trigger>
-                                <device>0</device>
-                                <is_force>True</is_force>
-                                <type>Analog</type>
-                                <source><![CDATA[Rectifier.Grid Meter.VAn]]></source>
-                                <edge>Rising edge</edge>
-                                <treshold>0.0</treshold>
-                                <offset>0.0</offset>
-                                <useFirstTrigger>False</useFirstTrigger>
-                            </trigger>
-                            <plotting_options in_use="False">
-                                <subplots>
-                                    </subplots>
-                            </plotting_options>
-                        </capture>
-                        <scope name="Default">
-                            <background_color>white</background_color>
-                            <layout>Grid</layout>
-                            <legend>True</legend>
-                            <show_viewports>1</show_viewports>
-                            <decimation>26.0</decimation>
-                            <time_base>0.005</time_base>
-                            <analog_signals>
-                            </analog_signals>
-                            <digital_signals>
-                            </digital_signals>
-                            <trigger>
-                                <device>-1</device>
-                                <is_force>False</is_force>
-                                <type>Analog</type>
-                                <source>None</source>
-                                <edge>Rising edge</edge>
-                                <treshold>0.0</treshold>
-                                <offset>50.0</offset>
-                                <useFirstTrigger>False</useFirstTrigger>
-                            </trigger>
-                        </scope>
-                        </presets>
-                    <capture>
-                        <time_interval>0.1</time_interval>
-                        <sample_rate>100000.0</sample_rate>
-                        <background_color>white</background_color>
-                        <layout>Vertical</layout>
-                        <legend>True</legend>
-                        <trigger>
-                            <type>Analog</type>
-                            <source>Rectifier.Grid Meter.VAn</source>
-                            <edge>Rising edge</edge>
-                            <treshold>0.0</treshold>
-                            <offset>0.0</offset>
-                            <useFirstTrigger>False</useFirstTrigger>
-                        </trigger>
-                        <analog_signals>
-                            <analog>
-                                    <channel>0</channel>
-                                    <name><![CDATA[Rectifier.Grid Meter.VAn]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>0</row>
-                                    <viewports>
-                                        <num_viewport>1</num_viewport>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>1</channel>
-                                    <name><![CDATA[Rectifier.Rectifier Meter.VAn]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>1</row>
-                                    <viewports>
-                                        <num_viewport>2</num_viewport>
-                                   </viewports>
-                               </analog>
-                            <analog>
-                                    <channel>2</channel>
-                                    <name><![CDATA[Rectifier.u_q_pi_rect]]></name>
-                                    <is_locked>False</is_locked>
-                                    <vertical_scale>Auto</vertical_scale>
-                                    <vertical_offset>0.0</vertical_offset>
-                                    <coupling>False</coupling>
-                                    <row>2</row>
-                                    <viewports>
-                                        <num_viewport>3</num_viewport>
-                                   </viewports>
-                               </analog>
-                        </analog_signals>
-                         <digital_signals>
-                         </digital_signals>
-                    </capture>
-                    <scope>
-                        <time_base>0.005 </time_base>
-                        <background_color>white</background_color>
-                        <layout>Grid</layout>
-                        <legend>True</legend>
-                        <trigger>
-                            <mode>Auto</mode>
-                            <type>Analog</type>
-                            <source>None</source>
-                            <edge>Rising edge</edge>
-                            <treshold>0.0</treshold>
-                            <offset>50.0</offset>
-                        </trigger>
-                         <analog_signals>
-                        </analog_signals>
-                        <digital_signals>
-                        </digital_signals>
-                    </scope>
-                    <plotting_options in_use="False">
-                    
-                        <subplots>
-                            </subplots>
-                    </plotting_options>
-                </widget_settings>
-
-            </component_data>
-        <component_data>
                 <id>b145af83389211f1a9c3d8bbc1a2437a</id>
                 <name><![CDATA[Rectifier_V_out_rect]]></name>
                 <type>TraceDisplay</type>
@@ -655,8 +466,8 @@ widgetValue = hil.model_read('Rectifier.Rect_on_off')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>512</x>
-                    <y>192</y>
+                    <x>168</x>
+                    <y>120</y>
                     <width>128</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -723,8 +534,8 @@ widgetValue = hil.model_read('DAB.DAB_on_off')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1000</x>
-                    <y>128</y>
+                    <x>288</x>
+                    <y>120</y>
                     <width>112</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -791,7 +602,7 @@ widgetValue = hil.model_read('Inverter.Inv_on_off')
                 <max>1.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>1440</x>
+                    <x>392</x>
                     <y>120</y>
                     <width>128</width>
                     <height>120</height>
@@ -2627,8 +2438,248 @@ referenceCurves = [refCurveData1]
                 </advance_widget_settings>
             </component_data>
         <component_data>
-                <id>47fb0b724a8011f1872ad843ae163fca</id>
-                <name><![CDATA[Subsystem1_Probe_CHARGING_COMPLETE]]></name>
+                <id>8aeeaf324a8c11f19a0ad843ae163fca</id>
+                <name><![CDATA[Indicator Setting]]></name>
+                <type>Group</type>
+                <description><![CDATA[]]></description>
+                <components_ids><![CDATA[['9b8d4c994a8c11f1ba47d843ae163fca', '9b8d4c9a4a8c11f18c14d843ae163fca', '9b8d4c9b4a8c11f1868ad843ae163fca']]]></components_ids>
+                <canvas_bg_color>#ffffff</canvas_bg_color>
+                <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be available for use in
+# all Macro, Expression and handlers codes of components owned by this widget.
+# This code is always executed prior simulation start. In case this is a
+# Library Widget, this code is also executed on drag and drop, Panel load
+# and widget paste.
+#
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+]]></initialization_code>
+                <library_widget_help><![CDATA[None]]></library_widget_help>
+                <widget_settings>
+                    <x>1688</x>
+                    <y>96</y>
+                    <width>712</width>
+                    <height>224</height>
+                    <appearance><![CDATA[Raised]]></appearance>
+                    <collapsed>True</collapsed>
+                    <hierarchy_position>1</hierarchy_position>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                
+                <linked_model_components_settings>
+                    </linked_model_components_settings>
+            </component_data>
+        <component_data>
+                <id>9b8d4c994a8c11f1ba47d843ae163fca</id>
+                <name><![CDATA[Modbus_In_MMC_INDICATOR_MMC]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_MMC.INDICATOR_MMC', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_MMC.INDICATOR_MMC')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>10.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>24</x>
+                    <y>32</y>
+                    <width>224</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[2]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>9b8d4c9a4a8c11f18c14d843ae163fca</id>
+                <name><![CDATA[Modbus_In_DAB_Indicator_DAB]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_DAB.Indicator_DAB', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_DAB.Indicator_DAB')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>10.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>248</x>
+                    <y>32</y>
+                    <width>200</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[2]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>9b8d4c9b4a8c11f1868ad843ae163fca</id>
+                <name><![CDATA[Modbus_In_Inverter_INDICATOR_INVERTER]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_Inverter.INDICATOR_INVERTER', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_Inverter.INDICATOR_INVERTER')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>10.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>448</x>
+                    <y>32</y>
+                    <width>240</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[2]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>ba4818954a8c11f1b43ad843ae163fca</id>
+                <name><![CDATA[Modbus_In_MMC_Probe_CHARGING_COMPLETE]]></name>
                 <type>TraceDisplay</type>
                 <description><![CDATA[]]></description>
                 <data_type>Signals</data_type>
@@ -2658,7 +2709,7 @@ data = {
 displayValue = data
 ]]></code>
                 <analog_signals><![CDATA[[]]]></analog_signals>
-                <digital_signals><![CDATA[['Subsystem1.Probe_CHARGING_COMPLETE']]]></digital_signals>
+                <digital_signals><![CDATA[['Modbus_In_MMC.Probe_CHARGING_COMPLETE']]]></digital_signals>
                 <streaming_analog_signals><![CDATA[[]]]></streaming_analog_signals>
                 <streaming_digital_signals><![CDATA[[]]]></streaming_digital_signals>
                 <analog_signals_scaling_factors><![CDATA[{}]]></analog_signals_scaling_factors>
@@ -2667,8 +2718,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>40</x>
-                    <y>360</y>
+                    <x>1384</x>
+                    <y>824</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2680,8 +2731,8 @@ displayValue = data
                 <advance_widget_settings>
                     <x_title><![CDATA[x axes]]></x_title>
                     <y_title><![CDATA[y axes]]></y_title>
-                    <y_range_min>-100.0</y_range_min>
-                    <y_range_max>100.0</y_range_max>
+                    <y_range_min>-100</y_range_min>
+                    <y_range_max>100</y_range_max>
                     <time_window>10</time_window>
                     <auto_scale_enabled>True</auto_scale_enabled>
                     <legend_enabled>True</legend_enabled>
@@ -2721,210 +2772,6 @@ referenceCurves = [refCurveData1]
 
 ]]></reference_curve_code>
                 </advance_widget_settings>
-            </component_data>
-        <component_data>
-                <id>d408fe2d4a8811f19cf7d843ae163fca</id>
-                <name><![CDATA[Subsystem1_INDICATOR_MMC]]></name>
-                <type>KnobMacro</type>
-                <description><![CDATA[]]></description>
-                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-# NOTE: entered value is available through variable 'inputValue'
-
-hil.model_write('Subsystem1.INDICATOR_MMC', inputValue)]]></on_use_code>
-                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
-# NOTE: Variables specified here will be available in other handlers.
-# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change widget value by setting this variable.
-# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
-# widget value won't be changed.
-widgetValue = None
-]]></on_start_code>
-                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
-# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change widget value by setting this variable.
-# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
-# widget value won't be changed.
-widgetValue = None
-]]></on_stop_code>
-                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
-# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change the widget value by setting this variable.
-# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
-# the widget value will not be changed.
-widgetValue = hil.model_read('Subsystem1.INDICATOR_MMC')
-]]></on_timer_code>
-                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0.0]]></inputValue>
-                <min>0.0</min>
-                <max>10.0</max>
-                <step>1.0</step>
-                <widget_settings>
-                    <x>792</x>
-                    <y>32</y>
-                    <width>208</width>
-                    <height>120</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-            </component_data>
-        <component_data>
-                <id>269ff34e4a8911f19f1ed843ae163fca</id>
-                <name><![CDATA[Subsystem2_INDICATOR_INVERTER]]></name>
-                <type>KnobMacro</type>
-                <description><![CDATA[]]></description>
-                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-# NOTE: entered value is available through variable 'inputValue'
-
-hil.model_write('Subsystem2.INDICATOR_INVERTER', inputValue)]]></on_use_code>
-                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
-# NOTE: Variables specified here will be available in other handlers.
-# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change widget value by setting this variable.
-# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
-# widget value won't be changed.
-widgetValue = None
-]]></on_start_code>
-                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
-# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change widget value by setting this variable.
-# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
-# widget value won't be changed.
-widgetValue = None
-]]></on_stop_code>
-                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
-# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change the widget value by setting this variable.
-# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
-# the widget value will not be changed.
-widgetValue = hil.model_read('Subsystem2.INDICATOR_INVERTER')
-]]></on_timer_code>
-                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0.0]]></inputValue>
-                <min>0.0</min>
-                <max>10.0</max>
-                <step>1.0</step>
-                <widget_settings>
-                    <x>1392</x>
-                    <y>0</y>
-                    <width>224</width>
-                    <height>120</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
-            </component_data>
-        <component_data>
-                <id>28dd2c714a8911f1a2ded843ae163fca</id>
-                <name><![CDATA[Subsystem3_Indicator_DAB]]></name>
-                <type>KnobMacro</type>
-                <description><![CDATA[]]></description>
-                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-# NOTE: entered value is available through variable 'inputValue'
-
-hil.model_write('Subsystem3.Indicator_DAB', inputValue)]]></on_use_code>
-                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
-# NOTE: Variables specified here will be available in other handlers.
-# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change widget value by setting this variable.
-# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
-# widget value won't be changed.
-widgetValue = None
-]]></on_start_code>
-                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
-# HIL API is imported as 'hil'
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change widget value by setting this variable.
-# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
-# widget value won't be changed.
-widgetValue = None
-]]></on_stop_code>
-                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
-# HIL API is imported as 'hil'
-# NOTE: Only read functions are available from the HIL API
-# SCADA API is imported as 'panel'
-# SCADA API constants are imported as 'api_const'
-# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
-# This object can be used as an argument in SCADA API functions.
-
-# Change the widget value by setting this variable.
-# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
-# the widget value will not be changed.
-widgetValue = hil.model_read('Subsystem3.Indicator_DAB')
-]]></on_timer_code>
-                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0.0]]></inputValue>
-                <min>0.0</min>
-                <max>10.0</max>
-                <step>1.0</step>
-                <widget_settings>
-                    <x>984</x>
-                    <y>8</y>
-                    <width>168</width>
-                    <height>120</height>
-                    <appearance><![CDATA[Flat]]></appearance>
-                    <hierarchy_position><![CDATA[1]]></hierarchy_position>
-                    <is_background><![CDATA[False]]></is_background>
-                    <label><![CDATA[]]></label>
-                    <use_label>False</use_label>
-                </widget_settings>
             </component_data>
         </components>
 </ui_settings>
