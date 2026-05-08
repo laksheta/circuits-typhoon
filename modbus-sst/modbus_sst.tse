@@ -4368,6 +4368,13 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
+            component "core/Digital Probe" Probe_CHARGING_COMPLETE {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8324, 8404
+            ]
+
             port Out1 {
                 position = right:1
                 kind = sp
@@ -4481,6 +4488,11 @@ P = I_out * V_out;
                 size = 140, 20
             ]
 
+            junction Junction1 sp
+            [
+                position = 8256, 8404
+            ]
+
             connect "Bus Join1.out" Out1 as Connection612
             connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
             connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
@@ -4508,7 +4520,9 @@ P = I_out * V_out;
             connect ACT_FREQUENCY_MMC "Rate Transition8.in" as Connection627
             connect "Rate Transition8.out" "Bus Join1.in9" as Connection628
             connect From1 "Rate Transition9.in" as Connection629
-            connect "Rate Transition9.out" "Bus Join1.in10" as Connection630
+            connect "Rate Transition9.out" Junction1 as Connection631
+            connect Junction1 "Bus Join1.in10" as Connection632
+            connect Probe_CHARGING_COMPLETE.in Junction1 as Connection633
         }
         [
             position = 6488, 7600
