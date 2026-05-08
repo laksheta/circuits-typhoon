@@ -1527,7 +1527,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             junction Junction33 sp
             [
-                position = 7188, 8488
+                position = 7184, 8488
             ]
 
             comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
@@ -1767,13 +1767,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 breakpoints = 9644, 7996; 9644, 8008
             ]
             connect "Meter Split1.Freq" Goto20 as Connection433
-            connect Goto11 Junction33 as Connection436
-            connect Junction33 "Signal switch1.in2" as Connection437
-            [
-                breakpoints = 7188, 8488; 7188, 8492
-            ]
             connect From22 "Rate Transition25.in" as Connection438
-            connect "Rate Transition25.out" Junction33 as Connection439
             connect "Signal switch2.out" "Signal switch1.in" as Connection440
             connect From21 "Signal switch2.in1" as Connection441
             connect Constant8.out "Signal switch2.in" as Connection442
@@ -1784,6 +1778,12 @@ out[0] = fmax(0.0, i_dc_raw);
             connect From24 Comparator1.in1 as Connection444
             connect Constant9.out Comparator1.in2 as Connection445
             connect Comparator1.out Goto21 as Connection446
+            connect Goto11 Junction33 as Connection448
+            connect Junction33 "Signal switch1.in2" as Connection449
+            [
+                breakpoints = 7188, 8492
+            ]
+            connect Rect_on_off.out Junction33 as Connection450
         }
         [
             position = 7120, 8268
@@ -3940,13 +3940,10 @@ P = I_out * V_out;
                 breakpoints = 8252, 7888; 8252, 7920
             ]
             connect Goto17 "Meter Split1.IC_RMS" as Connection529
-            connect Goto18 Junction55 as Connection531
-            connect Junction55 "Signal switch1.in2" as Connection532
-            [
-                breakpoints = 7052, 8172
-            ]
             connect From55 "Rate Transition33.in" as Connection533
-            connect "Rate Transition33.out" Junction55 as Connection534
+            connect Goto18 Junction55 as Connection536
+            connect Junction55 "Signal switch1.in2" as Connection537
+            connect Inv_on_off.out Junction55 as Connection538
         }
         [
             position = 8468, 8272
