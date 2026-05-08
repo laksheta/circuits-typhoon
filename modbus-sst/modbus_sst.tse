@@ -2286,7 +2286,7 @@ P = I_out * V_out;
 
             junction Junction41 sp
             [
-                position = 7748, 8288
+                position = 7748, 8256
             ]
 
             scheme_area Area12 {
@@ -2397,14 +2397,14 @@ P = I_out * V_out;
             connect "Rate Transition1.in" Junction40 as Connection437
             connect Constant17.out "Power Calculation.K" as Connection438
             connect From38 "Signal switch1.in" as Connection439
-            connect Junction40 Goto18 as Connection440
+            connect From39 "Rate Transition2.in" as Connection443
+            connect "Signal switch1.in2" Junction40 as Connection445
+            connect Junction40 Junction41 as Connection446
+            connect Junction41 Goto18 as Connection447
             [
                 breakpoints = 7748, 8252
             ]
-            connect Junction40 Junction41 as Connection441
-            connect Junction41 "Signal switch1.in2" as Connection442
-            connect From39 "Rate Transition2.in" as Connection443
-            connect "Rate Transition2.out" Junction41 as Connection444
+            connect DAB_on_off.out Junction41 as Connection448
         }
         [
             position = 7800, 8268
@@ -4980,7 +4980,7 @@ P = I_out * V_out;
             execution_rate = "T_math_dab"
         }
         [
-            position = 7420, 8088
+            position = 7368, 8088
         ]
 
         component "core/Digital Input" CONTACTOR_DAB {
@@ -4988,7 +4988,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8060, 8100
+            position = 8004, 8100
         ]
 
         component "core/Digital Input" CONTACTOR_INVERTER {
@@ -4996,7 +4996,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8596, 8104
+            position = 8516, 8104
         ]
 
         component "core/SCADA Input" sw_source {
@@ -5095,7 +5095,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 7488, 8088
+            position = 7436, 8088
             hide_name = True
         ]
 
@@ -5104,7 +5104,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 8144, 8100
+            position = 8088, 8100
             hide_name = True
         ]
 
@@ -5113,7 +5113,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 8652, 8104
+            position = 8572, 8104
             hide_name = True
         ]
 
@@ -5395,26 +5395,6 @@ P = I_out * V_out;
             position = 6692, 7732
         ]
 
-        junction Junction77 sp
-        [
-            position = 6796, 8116
-        ]
-
-        junction Junction78 sp
-        [
-            position = 7532, 8088
-        ]
-
-        junction Junction79 sp
-        [
-            position = 8192, 8100
-        ]
-
-        junction Junction80 sp
-        [
-            position = 8688, 8104
-        ]
-
         junction Junction81 sp
         [
             position = 7172, 7908
@@ -5428,6 +5408,31 @@ P = I_out * V_out;
         junction Junction83 sp
         [
             position = 8820, 7692
+        ]
+
+        junction Junction84 sp
+        [
+            position = 8688, 8104
+        ]
+
+        junction Junction85 sp
+        [
+            position = 8192, 8100
+        ]
+
+        junction Junction86 sp
+        [
+            position = 7532, 8088
+        ]
+
+        junction Junction87 sp
+        [
+            position = 6692, 7788
+        ]
+
+        junction Junction88 sp
+        [
+            position = 6800, 8116
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
@@ -5626,21 +5631,7 @@ P = I_out * V_out;
         connect CONTACTOR_MMC.out "Logical operator3.in" as Connection719
         connect CONTACTOR_DAB.out "Logical operator4.in" as Connection721
         connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
-        connect "Logical operator2.out" Junction76 as Connection742
-        connect Junction76 S7.ctrl_in as Connection743
         connect Digital_In_Pre_Charge_Contactor.in Junction76 as Connection744
-        connect S6.ctrl_in Junction77 as Connection745
-        connect Junction77 "Logical operator1.out" as Connection746
-        connect Digital_In_Main_Contactor.in Junction77 as Connection747
-        connect "Logical operator3.out" Junction78 as Connection748
-        connect Junction78 S4.ctrl_in as Connection749
-        connect Digital_In_MMC_Contactor.in Junction78 as Connection750
-        connect "Logical operator4.out" Junction79 as Connection751
-        connect Junction79 S5.ctrl_in as Connection752
-        connect Digital_In_DAB_Contactor.in Junction79 as Connection753
-        connect "Logical operator5.out" Junction80 as Connection754
-        connect Junction80 S1.ctrl_in as Connection755
-        connect Digital_In_Inv_Contactor.in Junction80 as Connection756
         connect Digital_In_GATE_DRIVER.in Junction81 as Connection758
         connect MMC_ON.in "Bus Split3.out" as Connection765
         [
@@ -5665,6 +5656,33 @@ P = I_out * V_out;
             breakpoints = 8820, 7692
         ]
         connect Goto45 Junction83 as Connection778
+        connect Digital_In_Inv_Contactor.in Junction84 as Connection780
+        connect Junction84 S1.ctrl_in as Connection781
+        [
+            breakpoints = 8688, 8104
+        ]
+        connect sw_grid.out Junction84 as Connection782
+        connect Digital_In_DAB_Contactor.in Junction85 as Connection784
+        connect Junction85 S5.ctrl_in as Connection785
+        [
+            breakpoints = 8192, 8100
+        ]
+        connect sw_dab_inv.out Junction85 as Connection786
+        connect S4.ctrl_in Junction86 as Connection788
+        connect Junction86 Digital_In_MMC_Contactor.in as Connection789
+        [
+            breakpoints = 7532, 8088
+        ]
+        connect sw_Rect_DAB.out Junction86 as Connection790
+        connect Junction76 Junction87 as Connection791
+        connect Junction87 S7.ctrl_in as Connection792
+        connect sw_pre_charge.out Junction87 as Connection793
+        connect S6.ctrl_in Junction88 as Connection795
+        [
+            breakpoints = 6796, 8116
+        ]
+        connect Junction88 Digital_In_Main_Contactor.in as Connection796
+        connect sw_source.out Junction88 as Connection797
     }
 
     logically_deleted {
