@@ -844,6 +844,23 @@ out[0] = fmax(0.0, i_dc_raw);
                 hide_name = True
             ]
 
+            component "core/Comparator" Comparator1 {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7020, 8128
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant9 {
+                execution_rate = "T_controller_rect"
+                value = "300"
+            }
+            [
+                position = 6932, 8156
+                hide_name = True
+            ]
+
             port C {
                 position = left:3
                 kind = pe
@@ -1414,6 +1431,30 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 84, 20
             ]
 
+            tag From24 {
+                value = "Rect_V_out"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6924, 8088
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto21 {
+                value = "CHARGING_COMPLETE_"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7132, 8128
+                hide_name = True
+                size = 140, 20
+            ]
+
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1740,6 +1781,9 @@ out[0] = fmax(0.0, i_dc_raw);
             [
                 breakpoints = 7004, 8496
             ]
+            connect From24 Comparator1.in1 as Connection444
+            connect Constant9.out Comparator1.in2 as Connection445
+            connect Comparator1.out Goto21 as Connection446
         }
         [
             position = 7120, 8268
@@ -5656,6 +5700,10 @@ P = I_out * V_out;
             initial_voltage = "0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Comparator" {
+            execution_rate = "inherit"
         }
 
         "core/Constant" {
