@@ -4096,7 +4096,7 @@ P = I_out * V_out;
             hide_name = True
         ]
 
-        component "core/ModBus Device" "ModBus Device2" {
+        component "core/ModBus Device" "ModBus Device - MMC" {
             configuration = "config_mmc"
             enable_pipeline = "False"
             eth_port = "1"
@@ -4169,7 +4169,7 @@ P = I_out * V_out;
             position = 6628, 7660
         ]
 
-        component "core/ModBus Device" "ModBus Device3" {
+        component "core/ModBus Device" "ModBus Device - Inverter" {
             configuration = "config_inv"
             enable_pipeline = "False"
             eth_port = "1"
@@ -4256,7 +4256,7 @@ P = I_out * V_out;
             position = 8900, 7692
         ]
 
-        component Subsystem Subsystem1 {
+        component Subsystem Modbus_In_MMC {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 execution_rate = "T_modbus"
@@ -4546,7 +4546,7 @@ P = I_out * V_out;
             size = 48, 48
         ]
 
-        component Subsystem Subsystem2 {
+        component Subsystem Modbus_In_Inverter {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 execution_rate = "T_modbus"
@@ -4787,7 +4787,7 @@ P = I_out * V_out;
             size = 48, 48
         ]
 
-        component "core/ModBus Device" "ModBus Device1" {
+        component "core/ModBus Device" "ModBus Device - DAB" {
             configuration = "config_dab"
             enable_pipeline = "False"
             eth_port = "1"
@@ -4860,7 +4860,7 @@ P = I_out * V_out;
             position = 7504, 7680
         ]
 
-        component Subsystem Subsystem3 {
+        component Subsystem Modbus_In_DAB {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 execution_rate = "T_modbus"
@@ -5465,7 +5465,7 @@ P = I_out * V_out;
         ]
 
         scheme_area Area2 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Rectifier</p></body></html>
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">MMC</p></body></html>
         }
         [
             position = 6808, 7552
@@ -5520,75 +5520,75 @@ P = I_out * V_out;
         connect Junction54 Inverter.V_in_inv- as Connection554
         connect R7.n_node Junction54 as Connection555
         connect Constant2.out Junction6 as Connection25
-        connect Junction6 "ModBus Device2.coil_in" as Connection26
-        connect coil_out1.in "ModBus Device2.coil_out" as Connection27
+        connect Junction6 "ModBus Device - MMC.coil_in" as Connection26
+        connect coil_out1.in "ModBus Device - MMC.coil_out" as Connection27
         connect holding_out1.in Junction7 as Connection28
-        connect Junction7 "ModBus Device2.holding_out" as Connection29
+        connect Junction7 "ModBus Device - MMC.holding_out" as Connection29
         connect "Bus Split2.in" Junction7 as Connection30
         connect "Bus Split2.out1" DC_LINK_CONTACTOR.in as Connection32
         connect "Bus Split2.out2" STATUS.in as Connection33
-        connect "ModBus Device2.discrete_in" Junction8 as Connection34
+        connect "ModBus Device - MMC.discrete_in" Junction8 as Connection34
         connect Junction8 Junction6 as Connection35
         [
             breakpoints = 6576, 7484
         ]
-        connect "ModBus Device2.holding_in" Junction8 as Connection36
+        connect "ModBus Device - MMC.holding_in" Junction8 as Connection36
         connect Constant3.out Junction10 as Connection40
-        connect Junction10 "ModBus Device3.coil_in" as Connection41
-        connect coil_out2.in "ModBus Device3.coil_out" as Connection42
+        connect Junction10 "ModBus Device - Inverter.coil_in" as Connection41
+        connect coil_out2.in "ModBus Device - Inverter.coil_out" as Connection42
         connect holding_out2.in Junction11 as Connection43
-        connect Junction11 "ModBus Device3.holding_out" as Connection44
+        connect Junction11 "ModBus Device - Inverter.holding_out" as Connection44
         connect "Bus Split3.in" Junction11 as Connection45
         connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
         connect "Bus Split3.out2" REF_VPEAK.in as Connection48
-        connect "ModBus Device3.discrete_in" Junction12 as Connection49
+        connect "ModBus Device - Inverter.discrete_in" Junction12 as Connection49
         connect Junction12 Junction10 as Connection50
         [
             breakpoints = 8320, 7492
         ]
-        connect "ModBus Device3.holding_in" Junction12 as Connection51
+        connect "ModBus Device - Inverter.holding_in" Junction12 as Connection51
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
         [
             breakpoints = 8884, 7640; 8868, 7640
         ]
         connect reg_in1.in Junction58 as Connection601
-        connect Junction58 "ModBus Device2.reg_in" as Connection602
+        connect Junction58 "ModBus Device - MMC.reg_in" as Connection602
         [
             breakpoints = 6576, 7580
         ]
-        connect Junction58 Subsystem1.Out1 as Connection603
+        connect Junction58 Modbus_In_MMC.Out1 as Connection603
         connect reg_in2.in Junction59 as Connection611
         [
             breakpoints = 8340, 7664; 8320, 7664
         ]
-        connect Junction59 "ModBus Device3.reg_in" as Connection612
+        connect Junction59 "ModBus Device - Inverter.reg_in" as Connection612
         [
             breakpoints = 8320, 7588
         ]
-        connect Junction59 Subsystem2.Out1 as Connection613
+        connect Junction59 Modbus_In_Inverter.Out1 as Connection613
         connect Inverter.B S1.b_in as Connection621
         connect Constant1.out Junction1 as Connection3
-        connect Junction1 "ModBus Device1.coil_in" as Connection622
-        connect coil_out.in "ModBus Device1.coil_out" as Connection9
+        connect Junction1 "ModBus Device - DAB.coil_in" as Connection622
+        connect coil_out.in "ModBus Device - DAB.coil_out" as Connection9
         connect holding_out.in Junction3 as Connection11
-        connect Junction3 "ModBus Device1.holding_out" as Connection12
+        connect Junction3 "ModBus Device - DAB.holding_out" as Connection12
         connect "Bus Split1.in" Junction3 as Connection13
         connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
         [
             breakpoints = 8000, 7540; 8000, 7584
         ]
-        connect "ModBus Device1.discrete_in" Junction4 as Connection19
+        connect "ModBus Device - DAB.discrete_in" Junction4 as Connection19
         connect Junction4 Junction1 as Connection20
         [
             breakpoints = 7452, 7504
         ]
-        connect "ModBus Device1.holding_in" Junction4 as Connection21
+        connect "ModBus Device - DAB.holding_in" Junction4 as Connection21
         connect reg_in.in Junction60 as Connection626
-        connect Junction60 "ModBus Device1.reg_in" as Connection627
+        connect Junction60 "ModBus Device - DAB.reg_in" as Connection627
         [
             breakpoints = 7452, 7600
         ]
-        connect Junction60 Subsystem3.Out1 as Connection628
+        connect Junction60 Modbus_In_DAB.Out1 as Connection628
         connect Vs1.a_node Junction61 as Connection643
         connect Junction61 S6.a_in as Connection644
         connect S7.a_in Junction61 as Connection645
