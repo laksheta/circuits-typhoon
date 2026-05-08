@@ -255,8 +255,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>368</x>
-                    <y>392</y>
+                    <x>432</x>
+                    <y>376</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2555,8 +2555,8 @@ widgetValue = hil.model_read('Subsystem1.CHARGING_COMPLETE')
                 <max>1000000.0</max>
                 <step>1.0</step>
                 <widget_settings>
-                    <x>64</x>
-                    <y>32</y>
+                    <x>88</x>
+                    <y>192</y>
                     <width>232</width>
                     <height>120</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -3279,8 +3279,8 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>16</x>
-                    <y>168</y>
+                    <x>40</x>
+                    <y>360</y>
                     <width>400</width>
                     <height>200</height>
                     <appearance><![CDATA[Flat]]></appearance>
