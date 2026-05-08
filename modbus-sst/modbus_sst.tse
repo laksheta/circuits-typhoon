@@ -861,6 +861,15 @@ out[0] = fmax(0.0, i_dc_raw);
                 hide_name = True
             ]
 
+            component "core/Constant" Constant10 {
+                execution_rate = "T_controller_rect"
+                value = "780"
+            }
+            [
+                position = 6864, 8588
+                hide_name = True
+            ]
+
             port C {
                 position = left:3
                 kind = pe
@@ -1769,7 +1778,6 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Meter Split1.Freq" Goto20 as Connection433
             connect From22 "Rate Transition25.in" as Connection438
             connect "Signal switch2.out" "Signal switch1.in" as Connection440
-            connect From21 "Signal switch2.in1" as Connection441
             connect Constant8.out "Signal switch2.in" as Connection442
             connect From23 "Signal switch2.in2" as Connection443
             [
@@ -1784,6 +1792,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 breakpoints = 7188, 8492
             ]
             connect Rect_on_off.out Junction33 as Connection450
+            connect Constant10.out "Signal switch2.in1" as Connection451
         }
         [
             position = 7120, 8268
