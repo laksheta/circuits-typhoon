@@ -854,7 +854,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             component "core/Constant" Constant9 {
                 execution_rate = "T_meas_rect"
-                value = "300"
+                value = "200"
             }
             [
                 position = 6932, 8156
