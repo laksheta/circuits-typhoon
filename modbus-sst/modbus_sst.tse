@@ -818,6 +818,15 @@ out[0] = fmax(0.0, i_dc_raw);
                 hide_name = True
             ]
 
+            component "core/Rate Transition" "Rate Transition25" {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7144, 8408
+                hide_name = True
+                size = 32, 32
+            ]
+
             port C {
                 position = left:3
                 kind = pe
@@ -1694,7 +1703,8 @@ out[0] = fmax(0.0, i_dc_raw);
             [
                 breakpoints = 7188, 8488; 7188, 8492
             ]
-            connect From22 Junction33 as Connection438
+            connect From22 "Rate Transition25.in" as Connection438
+            connect "Rate Transition25.out" Junction33 as Connection439
         }
         [
             position = 7120, 8268
@@ -1916,6 +1926,14 @@ P = I_out * V_out;
             [
                 position = 7740, 8232
                 hide_name = True
+            ]
+
+            component "core/Rate Transition" "Rate Transition2" {
+            }
+            [
+                position = 7656, 8292
+                hide_name = True
+                size = 32, 32
             ]
 
             port V_in_dab+ {
@@ -2306,7 +2324,8 @@ P = I_out * V_out;
             ]
             connect Junction40 Junction41 as Connection441
             connect Junction41 "Signal switch1.in2" as Connection442
-            connect From39 Junction41 as Connection443
+            connect From39 "Rate Transition2.in" as Connection443
+            connect "Rate Transition2.out" Junction41 as Connection444
         }
         [
             position = 7800, 8268
@@ -3059,6 +3078,15 @@ P = I_out * V_out;
             [
                 position = 8180, 7832
                 size = 96, 176
+            ]
+
+            component "core/Rate Transition" "Rate Transition33" {
+                execution_rate = "T_math_inv"
+            }
+            [
+                position = 7008, 8124
+                hide_name = True
+                size = 32, 32
             ]
 
             port V_in_inv+ {
@@ -3838,7 +3866,8 @@ P = I_out * V_out;
             [
                 breakpoints = 7052, 8172
             ]
-            connect From55 Junction55 as Connection533
+            connect From55 "Rate Transition33.in" as Connection533
+            connect "Rate Transition33.out" Junction55 as Connection534
         }
         [
             position = 8468, 8272
