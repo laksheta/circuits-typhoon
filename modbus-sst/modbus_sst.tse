@@ -5437,8 +5437,6 @@ P = I_out * V_out;
         connect "Logical operator4.out" S5.ctrl_in as Connection722
         connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
         connect "Logical operator5.out" S1.ctrl_in as Connection724
-        connect sw_source.out S6.ctrl_in as Connection725
-        connect sw_pre_charge.out S7.ctrl_in as Connection726
         connect MMC_ON.in Junction73 as Connection731
         connect Junction73 Goto44 as Connection732
         [
@@ -5457,6 +5455,8 @@ P = I_out * V_out;
         connect "Bus Split1.out2" Junction75 as Connection737
         connect Junction75 DAB_ON.in as Connection738
         connect Goto46 Junction75 as Connection739
+        connect "Logical operator2.out" S7.ctrl_in as Connection740
+        connect S6.ctrl_in "Logical operator1.out" as Connection741
     }
 
     logically_deleted {
