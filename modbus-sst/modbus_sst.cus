@@ -145,7 +145,7 @@ widgetValue = None
 widgetValue = hil.model_read('DAB.DAB_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[1.0]]></inputValue>
+                <inputValue><![CDATA[0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -213,7 +213,7 @@ widgetValue = None
 widgetValue = hil.model_read('Inverter.Inv_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[1.0]]></inputValue>
+                <inputValue><![CDATA[0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -252,8 +252,8 @@ widgetValue = hil.model_read('Inverter.Inv_on_off')
                 <library_widget_help><![CDATA[None]]></library_widget_help>
                 <widget_settings>
                     <x>56</x>
-                    <y>840</y>
-                    <width>712</width>
+                    <y>856</y>
+                    <width>744</width>
                     <height>224</height>
                     <appearance><![CDATA[Raised]]></appearance>
                     <collapsed>True</collapsed>
@@ -471,7 +471,7 @@ widgetValue = hil.model_read('Modbus_In_Inverter.INDICATOR_INVERTER')
             </component_data>
         <component_data>
                 <id>6aefc7774a8d11f1a5e1d843ae163fca</id>
-                <name><![CDATA[Modbus Input]]></name>
+                <name><![CDATA[Modbus Output]]></name>
                 <type>Group</type>
                 <description><![CDATA[]]></description>
                 <components_ids><![CDATA[['70f0e28b4a8e11f19ed6d843ae163fca', '882e90e74a8e11f1b777d843ae163fca', '9882eb1c4a8e11f1865cd843ae163fca']]]></components_ids>
@@ -492,7 +492,7 @@ widgetValue = hil.model_read('Modbus_In_Inverter.INDICATOR_INVERTER')
                 <library_widget_help><![CDATA[None]]></library_widget_help>
                 <widget_settings>
                     <x>56</x>
-                    <y>800</y>
+                    <y>808</y>
                     <width>1376</width>
                     <height>1144</height>
                     <appearance><![CDATA[Flat]]></appearance>
@@ -2868,6 +2868,422 @@ referenceCurves = [refCurveData1]
 
 ]]></reference_curve_code>
                 </advance_widget_settings>
+            </component_data>
+        <component_data>
+                <id>854588fa4a9011f19772d843ae163fca</id>
+                <name><![CDATA[Modbus Input]]></name>
+                <type>Group</type>
+                <description><![CDATA[]]></description>
+                <components_ids><![CDATA[['ba3e62ce4a9011f1b9c1d843ae163fca', 'de36d9f04a9011f1895bd843ae163fca', 'f2f0734a4a9011f196dbd843ae163fca']]]></components_ids>
+                <canvas_bg_color>#ffffff</canvas_bg_color>
+                <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be available for use in
+# all Macro, Expression and handlers codes of components owned by this widget.
+# This code is always executed prior simulation start. In case this is a
+# Library Widget, this code is also executed on drag and drop, Panel load
+# and widget paste.
+#
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+]]></initialization_code>
+                <library_widget_help><![CDATA[None]]></library_widget_help>
+                <widget_settings>
+                    <x>56</x>
+                    <y>904</y>
+                    <width>744</width>
+                    <height>592</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <collapsed>True</collapsed>
+                    <hierarchy_position>1</hierarchy_position>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                
+                <linked_model_components_settings>
+                    </linked_model_components_settings>
+            </component_data>
+        <component_data>
+                <id>ba3e62ce4a9011f1b9c1d843ae163fca</id>
+                <name><![CDATA[MMC]]></name>
+                <type>Group</type>
+                <description><![CDATA[]]></description>
+                <components_ids><![CDATA[['c9ca03574a9011f1b491d843ae163fca']]]></components_ids>
+                <canvas_bg_color>#ffffff</canvas_bg_color>
+                <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be available for use in
+# all Macro, Expression and handlers codes of components owned by this widget.
+# This code is always executed prior simulation start. In case this is a
+# Library Widget, this code is also executed on drag and drop, Panel load
+# and widget paste.
+#
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+]]></initialization_code>
+                <library_widget_help><![CDATA[None]]></library_widget_help>
+                <widget_settings>
+                    <x>24</x>
+                    <y>16</y>
+                    <width>224</width>
+                    <height>200</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <collapsed>False</collapsed>
+                    <hierarchy_position>2</hierarchy_position>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                
+                <linked_model_components_settings>
+                    </linked_model_components_settings>
+            </component_data>
+        <component_data>
+                <id>c9ca03574a9011f1b491d843ae163fca</id>
+                <name><![CDATA[Modbus_In_MMC_STEP_REFERENCE]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_MMC.STEP_REFERENCE', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_MMC.STEP_REFERENCE')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>100.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>0</x>
+                    <y>16</y>
+                    <width>208</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[3]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>de36d9f04a9011f1895bd843ae163fca</id>
+                <name><![CDATA[DAB]]></name>
+                <type>Group</type>
+                <description><![CDATA[]]></description>
+                <components_ids><![CDATA[['e44fcb7e4a9011f199f7d843ae163fca']]]></components_ids>
+                <canvas_bg_color>#ffffff</canvas_bg_color>
+                <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be available for use in
+# all Macro, Expression and handlers codes of components owned by this widget.
+# This code is always executed prior simulation start. In case this is a
+# Library Widget, this code is also executed on drag and drop, Panel load
+# and widget paste.
+#
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+]]></initialization_code>
+                <library_widget_help><![CDATA[None]]></library_widget_help>
+                <widget_settings>
+                    <x>440</x>
+                    <y>8</y>
+                    <width>248</width>
+                    <height>200</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <collapsed>False</collapsed>
+                    <hierarchy_position>2</hierarchy_position>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                
+                <linked_model_components_settings>
+                    </linked_model_components_settings>
+            </component_data>
+        <component_data>
+                <id>e44fcb7e4a9011f199f7d843ae163fca</id>
+                <name><![CDATA[Modbus_In_DAB_Step_Ref_VDC_OUT]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_DAB.Step_Ref_VDC_OUT', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_DAB.Step_Ref_VDC_OUT')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>100.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>8</x>
+                    <y>16</y>
+                    <width>224</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[3]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>f2f0734a4a9011f196dbd843ae163fca</id>
+                <name><![CDATA[Inverter]]></name>
+                <type>Group</type>
+                <description><![CDATA[]]></description>
+                <components_ids><![CDATA[['fd286e8c4a9011f1b71dd843ae163fca', '22364b374a9111f19d52d843ae163fca']]]></components_ids>
+                <canvas_bg_color>#ffffff</canvas_bg_color>
+                <initialization_code><![CDATA[# NOTE: Variables and functions defined here will be available for use in
+# all Macro, Expression and handlers codes of components owned by this widget.
+# This code is always executed prior simulation start. In case this is a
+# Library Widget, this code is also executed on drag and drop, Panel load
+# and widget paste.
+#
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+]]></initialization_code>
+                <library_widget_help><![CDATA[None]]></library_widget_help>
+                <widget_settings>
+                    <x>152</x>
+                    <y>224</y>
+                    <width>416</width>
+                    <height>304</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <collapsed>False</collapsed>
+                    <hierarchy_position>2</hierarchy_position>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+                
+                <linked_model_components_settings>
+                    </linked_model_components_settings>
+            </component_data>
+        <component_data>
+                <id>fd286e8c4a9011f1b71dd843ae163fca</id>
+                <name><![CDATA[Modbus_In_Inverter_STEP_REFERENCE_FREQUENCY]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_Inverter.STEP_REFERENCE_FREQUENCY', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_Inverter.STEP_REFERENCE_FREQUENCY')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>100.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>56</x>
+                    <y>16</y>
+                    <width>296</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[3]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
+            </component_data>
+        <component_data>
+                <id>22364b374a9111f19d52d843ae163fca</id>
+                <name><![CDATA[Modbus_In_Inverter_STEP_REFERENCE_VRMS]]></name>
+                <type>KnobMacro</type>
+                <description><![CDATA[]]></description>
+                <on_use_code active="True"><![CDATA[# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+# NOTE: entered value is available through variable 'inputValue'
+
+hil.model_write('Modbus_In_Inverter.STEP_REFERENCE_VRMS', inputValue)]]></on_use_code>
+                <on_start_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed on simulation start.
+# NOTE: Variables specified here will be available in other handlers.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_start_code>
+                <on_stop_code active="False"><![CDATA[# NOTE: The code specified in this handler will be executed after simulation is stopped.
+# HIL API is imported as 'hil'
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change widget value by setting this variable.
+# NOTE: If you not specify 'widgetValue' variable or assign 'None' to it,
+# widget value won't be changed.
+widgetValue = None
+]]></on_stop_code>
+                <on_timer_code active="True"><![CDATA[# NOTE: The code specified in this handler will be executed periodically each 1000ms.
+# HIL API is imported as 'hil'
+# NOTE: Only read functions are available from the HIL API
+# SCADA API is imported as 'panel'
+# SCADA API constants are imported as 'api_const'
+# 'WIDGET_HANDLE' constant holds the WidgetHandle object of this widget.
+# This object can be used as an argument in SCADA API functions.
+
+# Change the widget value by setting this variable.
+# NOTE: If you do not specify a 'widgetValue' variable or assign 'None' to it,
+# the widget value will not be changed.
+widgetValue = hil.model_read('Modbus_In_Inverter.STEP_REFERENCE_VRMS')
+]]></on_timer_code>
+                <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
+                <inputValue><![CDATA[0.0]]></inputValue>
+                <min>0.0</min>
+                <max>100.0</max>
+                <step>1.0</step>
+                <widget_settings>
+                    <x>48</x>
+                    <y>136</y>
+                    <width>312</width>
+                    <height>120</height>
+                    <appearance><![CDATA[Flat]]></appearance>
+                    <hierarchy_position><![CDATA[3]]></hierarchy_position>
+                    <is_background><![CDATA[False]]></is_background>
+                    <label><![CDATA[]]></label>
+                    <use_label>False</use_label>
+                </widget_settings>
             </component_data>
         </components>
 </ui_settings>
