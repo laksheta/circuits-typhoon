@@ -145,7 +145,7 @@ widgetValue = None
 widgetValue = hil.model_read('DAB.DAB_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -213,7 +213,7 @@ widgetValue = None
 widgetValue = hil.model_read('Inverter.Inv_on_off')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -251,12 +251,12 @@ widgetValue = hil.model_read('Inverter.Inv_on_off')
 ]]></initialization_code>
                 <library_widget_help><![CDATA[None]]></library_widget_help>
                 <widget_settings>
-                    <x>56</x>
-                    <y>856</y>
+                    <x>472</x>
+                    <y>720</y>
                     <width>744</width>
                     <height>224</height>
                     <appearance><![CDATA[Raised]]></appearance>
-                    <collapsed>True</collapsed>
+                    <collapsed>False</collapsed>
                     <hierarchy_position>1</hierarchy_position>
                     <label><![CDATA[]]></label>
                     <use_label>False</use_label>
@@ -491,12 +491,12 @@ widgetValue = hil.model_read('Modbus_In_Inverter.INDICATOR_INVERTER')
 ]]></initialization_code>
                 <library_widget_help><![CDATA[None]]></library_widget_help>
                 <widget_settings>
-                    <x>56</x>
-                    <y>808</y>
+                    <x>48</x>
+                    <y>976</y>
                     <width>1376</width>
                     <height>1144</height>
                     <appearance><![CDATA[Flat]]></appearance>
-                    <collapsed>True</collapsed>
+                    <collapsed>False</collapsed>
                     <hierarchy_position>1</hierarchy_position>
                     <label><![CDATA[]]></label>
                     <use_label>False</use_label>
@@ -2891,12 +2891,12 @@ referenceCurves = [refCurveData1]
 ]]></initialization_code>
                 <library_widget_help><![CDATA[None]]></library_widget_help>
                 <widget_settings>
-                    <x>56</x>
-                    <y>904</y>
+                    <x>1432</x>
+                    <y>976</y>
                     <width>744</width>
                     <height>592</height>
                     <appearance><![CDATA[Flat]]></appearance>
-                    <collapsed>True</collapsed>
+                    <collapsed>False</collapsed>
                     <hierarchy_position>1</hierarchy_position>
                     <label><![CDATA[]]></label>
                     <use_label>False</use_label>
