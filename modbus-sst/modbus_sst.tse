@@ -5219,7 +5219,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7280, 7840
+            position = 8880, 7748
             hide_name = True
             size = 92, 20
         ]
@@ -5231,7 +5231,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7284, 7864
+            position = 8060, 7720
             hide_name = True
             size = 92, 20
         ]
@@ -5425,12 +5425,12 @@ P = I_out * V_out;
 
         junction Junction82 sp
         [
-            position = 7212, 7864
+            position = 8000, 7660
         ]
 
         junction Junction83 sp
         [
-            position = 7212, 7840
+            position = 8820, 7692
         ]
 
         comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
@@ -5537,6 +5537,9 @@ P = I_out * V_out;
         ]
         connect Junction58 Subsystem1.Out1 as Connection603
         connect reg_in2.in Junction59 as Connection611
+        [
+            breakpoints = 8340, 7664; 8320, 7664
+        ]
         connect Junction59 "ModBus Device3.reg_in" as Connection612
         [
             breakpoints = 8320, 7588
@@ -5641,27 +5644,30 @@ P = I_out * V_out;
         connect "Logical operator5.out" Junction80 as Connection754
         connect Junction80 S1.ctrl_in as Connection755
         connect Digital_In_Inv_Contactor.in Junction80 as Connection756
-        connect "Bus Split1.out2" DAB_ON.in as Connection757
-        [
-            breakpoints = 8000, 7660
-        ]
         connect Digital_In_GATE_DRIVER.in Junction81 as Connection758
-        connect INVERTER_ON.in "Bus Split3.out4" as Connection761
-        [
-            breakpoints = 8820, 7692
-        ]
-        connect Goto46 Junction82 as Connection762
-        connect Junction82 Junction81 as Connection763
         connect MMC_ON.in "Bus Split3.out" as Connection765
         [
             breakpoints = 8848, 7476; 8848, 7556
         ]
-        connect Goto45 Junction83 as Connection766
-        connect Junction83 Junction82 as Connection767
-        connect Goto44 Junction83 as Connection768
         connect Goto47 Junction76 as Connection769
         connect Junction81 "Logical operator6.out" as Connection770
         connect "Logical operator6.in" GATE_DRIVER.out as Connection771
+        connect Goto44 Junction81 as Connection772
+        [
+            breakpoints = 7212, 7840; 7212, 7864
+        ]
+        connect "Bus Split1.out2" Junction82 as Connection773
+        connect Junction82 DAB_ON.in as Connection774
+        [
+            breakpoints = 8000, 7660
+        ]
+        connect Goto46 Junction82 as Connection775
+        connect INVERTER_ON.in Junction83 as Connection776
+        connect Junction83 "Bus Split3.out4" as Connection777
+        [
+            breakpoints = 8820, 7692
+        ]
+        connect Goto45 Junction83 as Connection778
     }
 
     logically_deleted {
