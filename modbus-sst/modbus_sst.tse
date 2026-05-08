@@ -5134,6 +5134,18 @@ P = I_out * V_out;
             size = 92, 20
         ]
 
+        tag Goto47 {
+            value = "Pre_Charge_Sig"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 6784, 7680
+            hide_name = True
+            size = 84, 20
+        ]
+
         junction Junction44 pe
         [
             position = 8860, 8424
@@ -5546,6 +5558,7 @@ P = I_out * V_out;
         connect Goto45 Junction83 as Connection766
         connect Junction83 Junction82 as Connection767
         connect Goto44 Junction83 as Connection768
+        connect Goto47 Junction76 as Connection769
     }
 
     logically_deleted {
