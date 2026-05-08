@@ -845,7 +845,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             component "core/Comparator" Comparator1 {
-                execution_rate = "T_controller_rect"
+                execution_rate = "T_meas_rect"
             }
             [
                 position = 7020, 8128
@@ -853,7 +853,7 @@ out[0] = fmax(0.0, i_dc_raw);
             ]
 
             component "core/Constant" Constant9 {
-                execution_rate = "T_controller_rect"
+                execution_rate = "T_meas_rect"
                 value = "300"
             }
             [
@@ -4359,6 +4359,15 @@ P = I_out * V_out;
                 size = 32, 32
             ]
 
+            component "core/Rate Transition" "Rate Transition9" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8204, 8408
+                hide_name = True
+                size = 32, 32
+            ]
+
             port Out1 {
                 position = right:1
                 kind = sp
@@ -4498,10 +4507,8 @@ P = I_out * V_out;
             connect "Rate Transition7.out" "Bus Join1.in8" as Connection626
             connect ACT_FREQUENCY_MMC "Rate Transition8.in" as Connection627
             connect "Rate Transition8.out" "Bus Join1.in9" as Connection628
-            connect From1 "Bus Join1.in10" as Connection629
-            [
-                breakpoints = 8236, 8408; 8236, 8268
-            ]
+            connect From1 "Rate Transition9.in" as Connection629
+            connect "Rate Transition9.out" "Bus Join1.in10" as Connection630
         }
         [
             position = 6488, 7600
