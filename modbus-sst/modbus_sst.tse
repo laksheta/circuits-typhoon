@@ -1402,6 +1402,18 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 108, 20
             ]
 
+            tag From23 {
+                value = "Pre_Charge_Sig"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6944, 8452
+                hide_name = True
+                size = 84, 20
+            ]
+
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1724,6 +1736,10 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Signal switch2.out" "Signal switch1.in" as Connection440
             connect From21 "Signal switch2.in1" as Connection441
             connect Constant8.out "Signal switch2.in" as Connection442
+            connect From23 "Signal switch2.in2" as Connection443
+            [
+                breakpoints = 7004, 8496
+            ]
         }
         [
             position = 7120, 8268
