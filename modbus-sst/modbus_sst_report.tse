@@ -848,7 +848,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 execution_rate = "T_meas_rect"
             }
             [
-                position = 7020, 8128
+                position = 6984, 8736
                 hide_name = True
             ]
 
@@ -857,7 +857,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 value = "200"
             }
             [
-                position = 6932, 8156
+                position = 6896, 8764
                 hide_name = True
             ]
 
@@ -1447,7 +1447,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = out
             }
             [
-                position = 6924, 8088
+                position = 6888, 8696
                 hide_name = True
                 size = 60, 20
             ]
@@ -1459,7 +1459,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 direction = in
             }
             [
-                position = 7132, 8128
+                position = 7096, 8736
                 hide_name = True
                 size = 140, 20
             ]
@@ -1557,8 +1557,8 @@ out[0] = fmax(0.0, i_dc_raw);
                 title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:20pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">PI Controller</p></body></html>
             }
             [
-                position = 7524, 8592
-                size = 960, 496
+                position = 7388, 8600
+                size = 1232, 512
                 background_color = #0e55ffff
                 box_outline = True
             ]
