@@ -49,7 +49,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         <active_scope_preset><![CDATA[Default]]></active_scope_preset>
                         <capture name="Default">
                             <time_interval>0.1</time_interval>
-                            <sample_rate>10000000.0</sample_rate>
+                            <sample_rate>100000.0</sample_rate>
                             <background_color>white</background_color>
                             <layout>Vertical</layout>
                             <legend>True</legend>
@@ -99,7 +99,7 @@ SETTINGS_DIR = get_settings_dir_path()
                         </presets>
                     <capture>
                         <time_interval>0.1</time_interval>
-                        <sample_rate>10000000.0</sample_rate>
+                        <sample_rate>100000.0</sample_rate>
                         <background_color>white</background_color>
                         <layout>Vertical</layout>
                         <legend>True</legend>
@@ -251,7 +251,7 @@ displayValue = data
                 <execution_rate>None</execution_rate>
                 <background_color>white</background_color>
                 <widget_settings>
-                    <x>1408</x>
+                    <x>1824</x>
                     <y>208</y>
                     <width>400</width>
                     <height>200</height>
@@ -358,7 +358,7 @@ widgetValue = None
 widgetValue = hil.model_read('sw_dab_inv')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>
@@ -782,7 +782,7 @@ widgetValue = None
 widgetValue = hil.model_read('sw_Rect_DAB')
 ]]></on_timer_code>
                 <on_start_code_source><![CDATA[Macro code]]></on_start_code_source>
-                <inputValue><![CDATA[0]]></inputValue>
+                <inputValue><![CDATA[1.0]]></inputValue>
                 <min>0.0</min>
                 <max>1.0</max>
                 <step>1.0</step>

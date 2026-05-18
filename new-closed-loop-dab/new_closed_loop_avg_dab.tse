@@ -6,9 +6,9 @@ version = 4.2
 
 model "new_closed_loop_avg_dab" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
-        simulation_method = exact
+        hil_device = "HIL604"
+        hil_configuration_id = 2
+        simulation_method = trapezoidal
         simulation_time_step = auto
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
@@ -31,7 +31,7 @@ model "new_closed_loop_avg_dab" {
         sys_real_type_precision = "default"
         user_real_type_precision = "default"
         sys_cpu_optimization = "high"
-        user_cpu_optimization = "high"
+        user_cpu_optimization = "no optimization"
         user_cpu_part_option = "default"
         matrix_based_reduction = True
         cpl_dynamics_analysis = False
@@ -268,6 +268,97 @@ P = I_out * V_out;
             hide_name = True
         ]
 
+        component "core/Constant" Constant6 {
+            execution_rate = "T_math"
+            value = "n"
+        }
+        [
+            position = 7880, 7984
+            hide_name = True
+        ]
+
+        component "core/Product" Product1 {
+            execution_rate = "T_math"
+            signs = "*****///"
+        }
+        [
+            position = 8048, 8036
+        ]
+
+        component "core/Abs" Abs1 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7688, 8220
+        ]
+
+        component "core/Sum" Sum3 {
+            execution_rate = "T_math"
+            signs = "+-"
+        }
+        [
+            position = 7820, 8172
+        ]
+
+        component "core/Constant" Constant7 {
+            execution_rate = "T_math"
+        }
+        [
+            position = 7612, 8164
+        ]
+
+        component "core/Constant" Constant8 {
+            execution_rate = "T_math"
+            value = "fsw"
+        }
+        [
+            position = 7912, 8216
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant9 {
+            execution_rate = "T_math"
+            value = "L"
+        }
+        [
+            position = 7912, 8264
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant10 {
+            execution_rate = "T_math"
+            value = "2"
+        }
+        [
+            position = 7912, 8320
+            hide_name = True
+        ]
+
+        component "core/Probe" I_out_manual {
+            execution_rate = "T_meas"
+        }
+        [
+            position = 8212, 7948
+        ]
+
+        component "core/Constant" Constant11 {
+            execution_rate = "T_math"
+            value = "780"
+        }
+        [
+            position = 7788, 8084
+            hide_name = True
+        ]
+
+        component "core/Constant" Constant12 {
+            execution_rate = "T_math"
+            value = "0.25"
+        }
+        [
+            position = 7616, 8220
+            hide_name = True
+        ]
+
         tag Goto4 {
             value = "P"
             scope = local
@@ -412,6 +503,65 @@ P = I_out * V_out;
             size = 60, 20
         ]
 
+        tag From15 {
+            value = "V_in"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7880, 8020
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From16 {
+            value = "V_out"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7680, 8036
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From17 {
+            value = "D"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7680, 8076
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag From18 {
+            value = "D"
+            scope = local
+            kind = sp
+            direction = out
+        }
+        [
+            position = 7528, 8224
+            hide_name = True
+            size = 60, 20
+        ]
+
+        tag Goto19 {
+            value = "I_out_manual"
+            scope = local
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8180, 8036
+            size = 100, 20
+        ]
+
         junction Junction4 pe
         [
             position = 9192, 8160
@@ -450,6 +600,16 @@ P = I_out * V_out;
         junction Junction25 sp
         [
             position = 9140, 8312
+        ]
+
+        junction Junction26 sp
+        [
+            position = 8100, 8036
+        ]
+
+        junction Junction27 sp
+        [
+            position = 7652, 8220
         ]
 
         scheme_area Area4 {
@@ -562,9 +722,76 @@ P = I_out * V_out;
         connect Constant5.out "Signal switch1.in1" as Connection403
         connect "Signal switch1.out" Sum2.in as Connection404
         connect From14 "PID controller1.reset" as Connection405
+        connect Constant6.out Product1.in as Connection406
+        connect From15 Product1.in1 as Connection407
+        connect Abs1.out Sum3.in1 as Connection411
+        connect Sum3.in Constant7.out as Connection412
+        connect Sum3.out Product1.in4 as Connection413
+        connect Constant8.out Product1.in5 as Connection414
+        [
+            breakpoints = 7944, 8216; 7944, 8060
+        ]
+        connect Constant9.out Product1.in6 as Connection415
+        [
+            breakpoints = 7960, 8264; 7960, 8076
+        ]
+        connect Constant10.out Product1.in7 as Connection416
+        [
+            breakpoints = 7984, 8320; 7984, 8092
+        ]
+        connect Goto19 Junction26 as Connection418
+        connect Junction26 Product1.out as Connection419
+        connect I_out_manual.in Junction26 as Connection420
+        connect Constant11.out Product1.in2 as Connection421
+        [
+            breakpoints = 7976, 8084; 7976, 8012
+        ]
+        connect Constant12.out Junction27 as Connection423
+        connect Junction27 Abs1.in as Connection424
+        connect Product1.in3 Junction27 as Connection425
+    }
+
+    logically_deleted {
+        "Constant6"
+        "Product1"
+        "Abs1"
+        "Sum3"
+        "Constant7"
+        "Constant8"
+        "Constant9"
+        "Constant10"
+        "From15"
+        "Connection406"
+        "Connection407"
+        "Connection411"
+        "Connection412"
+        "Connection413"
+        "Connection414"
+        "Connection415"
+        "Connection416"
+        "Goto19"
+        "I_out_manual"
+        "Junction26"
+        "Connection418"
+        "Connection419"
+        "Connection420"
+        "Constant11"
+        "From16"
+        "Connection421"
+        "Constant12"
+        "From18"
+        "From17"
+        "Junction27"
+        "Connection423"
+        "Connection424"
+        "Connection425"
     }
 
     default {
+        "core/Abs" {
+            execution_rate = "inherit"
+        }
+
         "core/C function" {
             input_terminals = "real in;"
             input_terminals_show_labels = "False;"
@@ -648,6 +875,11 @@ P = I_out * V_out;
             signal_type = "generic"
             streaming_en = "False"
             streaming_er_idx = "0"
+            execution_rate = "inherit"
+        }
+
+        "core/Product" {
+            signs = "2"
             execution_rate = "inherit"
         }
 

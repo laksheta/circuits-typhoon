@@ -8,10 +8,10 @@ import numpy as np
 
 fsw_dab = 10e3
 
-T_plant_dab = 1e-6
-T_meas_dab = 1e-6
-T_wave_dab  = 1e-6 
-T_math_dab  = 1e-6
+T_plant_dab = 1e-5
+T_meas_dab = 1e-5
+T_wave_dab  = 1e-5 
+T_math_dab  = 1e-5
 
 V_in_dab  = 780
 V_out_dab = 780
@@ -103,9 +103,9 @@ Ki_i_inv    = omega_c_inv*R_inv
 #################
 
 
-T_plant_rect = 50e-6
-T_meas_rect   = 100e-6
-T_controller_rect = 100e-6
+T_plant_rect = 500e-6
+T_meas_rect   = 1000e-6
+T_controller_rect = 1000e-6
 
 V_grid_peak_rect = 220*np.sqrt(2)
 V_grid_rms_rect  = 220

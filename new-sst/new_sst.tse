@@ -4,12 +4,12 @@ version = 4.2
 // Saved by sw version: 2026.1 SP1
 //
 
-model "new_rect_dab" {
+model "new_sst" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
+        hil_device = "HIL604"
+        hil_configuration_id = 2
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -30,7 +30,7 @@ model "new_rect_dab" {
         sys_sp_rate_2 = 0.05
         sys_real_type_precision = "default"
         user_real_type_precision = "default"
-        sys_cpu_optimization = "high"
+        sys_cpu_optimization = "no optimization"
         user_cpu_optimization = "high"
         user_cpu_part_option = "default"
         matrix_based_reduction = True
@@ -1659,7 +1659,7 @@ P = I_out * V_out;
             unit = ""
         }
         [
-            position = 10904, 7128
+            position = 11176, 7152
         ]
 
         component "core/Rate Transition" "Rate Transition26" {
@@ -1744,6 +1744,17 @@ P = I_out * V_out;
             position = 13060, 7088
             hide_name = True
             size = 32, 32
+        ]
+
+        component "core/SCADA Input" V_in {
+            def_value = "780"
+            execution_rate = "T_math_dab"
+            max = "1000"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8992, 7092
         ]
 
         tag From31 {
@@ -2845,14 +2856,14 @@ P = I_out * V_out;
             position = 12720, 6836
         ]
 
-        junction Junction51 sp
-        [
-            position = 11284, 7116
-        ]
-
         junction Junction52 sp
         [
             position = 11156, 7352
+        ]
+
+        junction Junction53 sp
+        [
+            position = 11284, 7116
         ]
 
         comment Comment4 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">DAB</span></p></body></html> ENDCOMMENT 
@@ -3202,10 +3213,6 @@ P = I_out * V_out;
             breakpoints = 9264, 7176; 9240, 7176
         ]
         connect I_out_dab.in Junction22 as Connection295
-        connect From32 "Power Calculation.V_in" as Connection408
-        [
-            breakpoints = 9152, 7076; 9152, 7108
-        ]
         connect "Power Calculation.n" Constant14.out as Connection409
         [
             breakpoints = 9160, 7036
@@ -3232,7 +3239,6 @@ P = I_out * V_out;
         connect sw_Rect_DAB.out Junction36 as Connection412
         connect Junction36 "Signal switch1.in2" as Connection413
         connect Goto28 Junction36 as Connection414
-        connect From37 "PID controller4.reset" as Connection415
         connect "PID controller4.out" Junction37 as Connection416
         connect Junction37 Goto25 as Connection417
         connect out_PI.in Junction37 as Connection418
@@ -3370,9 +3376,6 @@ P = I_out * V_out;
             breakpoints = 12716, 6856
         ]
         connect i_d_inv.in Junction50 as Connection488
-        connect Gain5.in Junction51 as Connection489
-        connect Junction51 Gain6.in as Connection490
-        connect From51 Junction51 as Connection491
         connect From52 Junction52 as Connection492
         connect Junction52 PI_i_q_inv.reset as Connection493
         connect PI_i_d_inv.reset Junction52 as Connection494
@@ -3386,11 +3389,19 @@ P = I_out * V_out;
         connect "Rate Transition33.out" S1.ctrl_in as Connection502
         connect From53 "Rate Transition33.in" as Connection503
         connect Goto29 "Signal switch2.out" as Connection504
+        connect From37 "PID controller4.reset" as Connection506
+        connect Gain5.in Junction53 as Connection512
+        connect Junction53 Gain6.in as Connection513
+        connect From51 Junction53 as Connection514
+        connect From32 "Power Calculation.V_in" as Connection515
+        [
+            breakpoints = 9144, 7076; 9144, 7108
+        ]
     }
 
     logically_deleted {
-        "Comment4"
         "dc_input_inv"
+        "V_in"
     }
 
     default {

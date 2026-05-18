@@ -6,10 +6,10 @@ version = 4.2
 
 model "modbus_sst" {
     configuration {
-        hil_device = "VHIL+"
-        hil_configuration_id = 1
+        hil_device = "HIL604"
+        hil_configuration_id = 2
         simulation_method = exact
-        simulation_time_step = auto
+        simulation_time_step = 1e-6
         simulation_discret_scaling = 1.0
         dsp_timer_periods = 100e-6, 50e-3
         ss_calc_method = "systematic elimination"
@@ -31,7 +31,7 @@ model "modbus_sst" {
         sys_real_type_precision = "default"
         user_real_type_precision = "default"
         sys_cpu_optimization = "high"
-        user_cpu_optimization = "high"
+        user_cpu_optimization = "no optimization"
         user_cpu_part_option = "default"
         matrix_based_reduction = True
         cpl_dynamics_analysis = False
@@ -78,23 +78,12 @@ model "modbus_sst" {
     }
 
     component Subsystem Root {
-        component "core/SCADA Input" sw_Rect_DAB {
-            def_value = "1"
-            execution_rate = "T_math_dab"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 7492, 7880
-        ]
-
         component "core/Three Phase Voltage Source" Vs1 {
             init_frequency = "F_rect"
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6584, 8068
+            position = 6468, 8268
             hide_name = True
             size = 62, 256
         ]
@@ -102,20 +91,9 @@ model "modbus_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6504, 8132
+            position = 6388, 8332
             hide_name = True
             scale = -1, 1
-        ]
-
-        component "core/SCADA Input" sw_dab_inv {
-            def_value = "1"
-            execution_rate = "T_math_inv"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8040, 7880
         ]
 
         component Subsystem Rectifier {
@@ -809,7 +787,7 @@ out[0] = fmax(0.0, i_dc_raw);
                 unit = ""
             }
             [
-                position = 7144, 8448
+                position = 7104, 8444
             ]
 
             component "core/SCADA Input" Vdc_set_rect {
@@ -837,6 +815,58 @@ out[0] = fmax(0.0, i_dc_raw);
             }
             [
                 position = 7088, 8564
+                hide_name = True
+            ]
+
+            component "core/Rate Transition" "Rate Transition25" {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7144, 8408
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Signal switch" "Signal switch2" {
+                execution_rate = "T_controller_rect"
+            }
+            [
+                position = 7004, 8536
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant8 {
+                execution_rate = "T_controller_rect"
+                value = "300"
+            }
+            [
+                position = 6860, 8500
+                hide_name = True
+            ]
+
+            component "core/Comparator" Comparator1 {
+                execution_rate = "T_meas_rect"
+            }
+            [
+                position = 7020, 8128
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant9 {
+                execution_rate = "T_meas_rect"
+                value = "200"
+            }
+            [
+                position = 6932, 8156
+                hide_name = True
+            ]
+
+            component "core/Constant" Constant10 {
+                execution_rate = "T_controller_rect"
+                value = "780"
+            }
+            [
+                position = 6864, 8588
                 hide_name = True
             ]
 
@@ -1374,6 +1404,66 @@ out[0] = fmax(0.0, i_dc_raw);
                 size = 60, 20
             ]
 
+            tag From21 {
+                value = "REF_V_out_Rect"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6868, 8552
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag From22 {
+                value = "Rect_on_off"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7020, 8408
+                hide_name = True
+                size = 108, 20
+            ]
+
+            tag From23 {
+                value = "Pre_Charge_Sig"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6944, 8452
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag From24 {
+                value = "Rect_V_out"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6924, 8088
+                hide_name = True
+                size = 60, 20
+            ]
+
+            tag Goto21 {
+                value = "CHARGING_COMPLETE_"
+                scope = global
+                kind = sp
+                direction = in
+            }
+            [
+                position = 7132, 8128
+                hide_name = True
+                size = 140, 20
+            ]
+
             junction Junction1 pe
             [
                 position = 8460, 8768
@@ -1446,7 +1536,7 @@ out[0] = fmax(0.0, i_dc_raw);
 
             junction Junction33 sp
             [
-                position = 7188, 8488
+                position = 7184, 8488
             ]
 
             comment Comment5 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Segoe UI'; font-size:48pt; font-weight:900;">Rectifier</span></p></body></html> ENDCOMMENT 
@@ -1656,14 +1746,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect "Rate Transition23.out" Sum3.in1 as Connection388
             connect Isp1.in "Rate Transition24.out" as Connection390
             connect "Rate Transition24.in" From3 as Connection391
-            connect Vdc_set_rect.out "Signal switch1.in" as Connection414
             connect Constant7.out "Signal switch1.in1" as Connection415
-            connect Rect_on_off.out Junction33 as Connection420
-            connect Junction33 "Signal switch1.in2" as Connection421
-            [
-                breakpoints = 7188, 8492
-            ]
-            connect Goto11 Junction33 as Connection422
             connect "Signal switch1.out" Sum3.in as Connection423
             connect "Meter Split1.VAn" "Bus Join1.in" as Connection424
             connect "Bus Join1.in1" "Meter Split1.VBn" as Connection425
@@ -1693,9 +1776,26 @@ out[0] = fmax(0.0, i_dc_raw);
                 breakpoints = 9644, 7996; 9644, 8008
             ]
             connect "Meter Split1.Freq" Goto20 as Connection433
+            connect From22 "Rate Transition25.in" as Connection438
+            connect "Signal switch2.out" "Signal switch1.in" as Connection440
+            connect Constant8.out "Signal switch2.in" as Connection442
+            connect From23 "Signal switch2.in2" as Connection443
+            [
+                breakpoints = 7004, 8496
+            ]
+            connect From24 Comparator1.in1 as Connection444
+            connect Constant9.out Comparator1.in2 as Connection445
+            connect Comparator1.out Goto21 as Connection446
+            connect Goto11 Junction33 as Connection448
+            connect Junction33 "Signal switch1.in2" as Connection449
+            [
+                breakpoints = 7188, 8492
+            ]
+            connect Rect_on_off.out Junction33 as Connection450
+            connect Constant10.out "Signal switch2.in1" as Connection451
         }
         [
-            position = 7268, 8060
+            position = 7120, 8268
             size = 168, 232
         ]
 
@@ -1744,10 +1844,10 @@ out[0] = fmax(0.0, i_dc_raw);
                 init_fnc = "/*Begin code section*/
 
 /*End code section*/"
-                input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;"
-                input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit"
-                input_terminals_feedthrough = "True;True;True;True;True;True"
-                input_terminals_show_labels = "False;False;False;False;False;False"
+                input_terminals = "real n;real V_in;real V_out;real D;real fsw;real L;inherit K;"
+                input_terminals_dimensions = "inherit;inherit;inherit;inherit;inherit;inherit;inherit"
+                input_terminals_feedthrough = "True;True;True;True;True;True;True"
+                input_terminals_show_labels = "False;False;False;False;False;False;False"
                 output_fnc = "/*Begin code section*/
 I_out = (n * V_in * D * (1.0 - fabs(D))) / (2.0 * fsw * L);
     
@@ -1771,7 +1871,7 @@ P = I_out * V_out;
                 value = "L_dab"
             }
             [
-                position = 7740, 8200
+                position = 7740, 8192
                 hide_name = True
             ]
 
@@ -1905,6 +2005,32 @@ P = I_out * V_out;
                 position = 7880, 8276
                 hide_name = True
                 size = 32, 32
+            ]
+
+            component "core/Constant" Constant17 {
+                execution_rate = "T_math_dab"
+                value = "K"
+            }
+            [
+                position = 7740, 8232
+                hide_name = True
+            ]
+
+            component "core/Rate Transition" "Rate Transition2" {
+            }
+            [
+                position = 7656, 8292
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Constant" Constant18 {
+                execution_rate = "T_math_dab"
+                value = "780"
+            }
+            [
+                position = 7556, 8396
+                hide_name = True
             ]
 
             port V_in_dab+ {
@@ -2097,6 +2223,30 @@ P = I_out * V_out;
                 size = 60, 20
             ]
 
+            tag From38 {
+                value = "REF_V_out_DAB"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7560, 8344
+                hide_name = True
+                size = 84, 20
+            ]
+
+            tag From39 {
+                value = "DAB_on_off"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 7584, 8292
+                hide_name = True
+                size = 84, 20
+            ]
+
             junction Junction38 pe
             [
                 position = 8608, 8140
@@ -2147,14 +2297,14 @@ P = I_out * V_out;
                 position = 7984, 8360
             ]
 
-            junction Junction25 sp
-            [
-                position = 7748, 8252
-            ]
-
             junction Junction40 sp
             [
                 position = 7748, 8276
+            ]
+
+            junction Junction41 sp
+            [
+                position = 7748, 8256
             ]
 
             scheme_area Area12 {
@@ -2259,18 +2409,23 @@ P = I_out * V_out;
             connect "PID controller4.out" Junction37 as Connection416
             connect Junction37 Goto25 as Connection417
             connect out_PI.in Junction37 as Connection418
-            connect DAB_on_off.out Junction25 as Connection428
-            connect Goto18 Junction25 as Connection430
-            connect V_out_ref_dab.out "Signal switch1.in" as Connection431
             connect Constant5.out "Signal switch1.in1" as Connection432
             connect "Signal switch1.out" Sum4.in as Connection433
-            connect Junction25 Junction40 as Connection434
-            connect Junction40 "Signal switch1.in2" as Connection435
             connect Goto42 "Rate Transition1.out" as Connection436
             connect "Rate Transition1.in" Junction40 as Connection437
+            connect Constant17.out "Power Calculation.K" as Connection438
+            connect From39 "Rate Transition2.in" as Connection443
+            connect "Signal switch1.in2" Junction40 as Connection445
+            connect Junction40 Junction41 as Connection446
+            connect Junction41 Goto18 as Connection447
+            [
+                breakpoints = 7748, 8252
+            ]
+            connect DAB_on_off.out Junction41 as Connection448
+            connect Constant18.out "Signal switch1.in" as Connection449
         }
         [
-            position = 7804, 8060
+            position = 7800, 8268
             size = 168, 232
         ]
 
@@ -2862,7 +3017,7 @@ P = I_out * V_out;
                 unit = ""
             }
             [
-                position = 6944, 8108
+                position = 7124, 8104
             ]
 
             component "core/Rate Transition" "Rate Transition26" {
@@ -3020,6 +3175,15 @@ P = I_out * V_out;
             [
                 position = 8180, 7832
                 size = 96, 176
+            ]
+
+            component "core/Rate Transition" "Rate Transition33" {
+                execution_rate = "T_math_inv"
+            }
+            [
+                position = 7008, 8124
+                hide_name = True
+                size = 32, 32
             ]
 
             port V_in_inv+ {
@@ -3513,6 +3677,18 @@ P = I_out * V_out;
                 size = 84, 20
             ]
 
+            tag From55 {
+                value = "Inv_on_off"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 6908, 8124
+                hide_name = True
+                size = 68, 20
+            ]
+
             junction Junction3 pe
             [
                 position = 8428, 8520
@@ -3573,11 +3749,6 @@ P = I_out * V_out;
                 position = 7232, 8388
             ]
 
-            junction Junction25 sp
-            [
-                position = 7052, 8172
-            ]
-
             junction Junction53 pe
             [
                 position = 7308, 7752
@@ -3586,6 +3757,11 @@ P = I_out * V_out;
             junction Junction54 pe
             [
                 position = 7308, 7944
+            ]
+
+            junction Junction55 sp
+            [
+                position = 7052, 8172
             ]
 
             scheme_area Area12 {
@@ -3747,9 +3923,6 @@ P = I_out * V_out;
             connect PI_i_d_inv.reset Junction52 as Connection494
             connect Goto24 "Inverter Measurement.Out" as Connection495
             connect scada_i_d_inv.out "Signal switch1.in" as Connection394
-            connect Inv_on_off.out Junction25 as Connection399
-            connect Junction25 "Signal switch1.in2" as Connection400
-            connect Goto18 Junction25 as Connection401
             connect Constant5.out "Signal switch1.in1" as Connection499
             connect "Signal switch1.out" Sum5.in as Connection500
             connect V_in_inv.out Goto28 as Connection421
@@ -3785,9 +3958,13 @@ P = I_out * V_out;
                 breakpoints = 8252, 7888; 8252, 7920
             ]
             connect Goto17 "Meter Split1.IC_RMS" as Connection529
+            connect From55 "Rate Transition33.in" as Connection533
+            connect Goto18 Junction55 as Connection536
+            connect Junction55 "Signal switch1.in2" as Connection537
+            connect Inv_on_off.out Junction55 as Connection538
         }
         [
-            position = 8376, 8064
+            position = 8468, 8272
             size = 168, 232
         ]
 
@@ -3799,7 +3976,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 8688, 8060
+            position = 8780, 8272
             size = 56, 240
         ]
 
@@ -3808,7 +3985,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8832, 8060
+            position = 8924, 8272
             scale = -1, 1
             size = 62, 256
         ]
@@ -3816,7 +3993,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8772, 8252
+            position = 8864, 8464
             hide_name = True
         ]
 
@@ -3826,7 +4003,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8596, 8060
+            position = 8688, 8272
             hide_name = True
             size = 64, 256
         ]
@@ -3837,7 +4014,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 7540, 8060
+            position = 7532, 8268
             size = 64, 256
         ]
 
@@ -3845,7 +4022,7 @@ P = I_out * V_out;
             resistance = "R_load_rect"
         }
         [
-            position = 7448, 8048
+            position = 7300, 8256
             rotation = right
         ]
 
@@ -3853,7 +4030,7 @@ P = I_out * V_out;
             resistance = "10e3"
         }
         [
-            position = 7616, 8052
+            position = 7608, 8260
             rotation = right
         ]
 
@@ -3863,26 +4040,15 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8100, 8060
+            position = 8192, 8268
             size = 64, 256
-        ]
-
-        component "core/SCADA Input" sw_grid {
-            def_value = "1"
-            execution_rate = "T_math_inv"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8536, 7872
         ]
 
         component "core/Resistor" R6 {
             resistance = "2*R_load_dab"
         }
         [
-            position = 7988, 8052
+            position = 7980, 8260
             rotation = right
             hide_name = True
         ]
@@ -3891,7 +4057,7 @@ P = I_out * V_out;
             resistance = "2*R_load_dab"
         }
         [
-            position = 8192, 8052
+            position = 8284, 8260
             rotation = right
             hide_name = True
         ]
@@ -3902,37 +4068,15 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6728, 8068
+            position = 6796, 8268
             size = 64, 256
-        ]
-
-        component "core/SCADA Input" sw_source {
-            def_value = "1"
-            execution_rate = "T_meas_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 6684, 7888
-        ]
-
-        component "core/Triple Pole Double Throw Contactor" S7 {
-            ctrl_src = "Model"
-            execution_rate = "T_meas_rect"
-        }
-        [
-            position = 6876, 8068
-            rotation = down
-            scale = 1, -1
-            size = 65, 320
         ]
 
         component "core/Resistor" R8 {
             resistance = "R_pre_charge"
         }
         [
-            position = 6984, 7940
+            position = 6792, 7844
             hide_name = True
         ]
 
@@ -3940,7 +4084,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6984, 8036
+            position = 6792, 7940
             hide_name = True
         ]
 
@@ -3948,22 +4092,11 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6984, 8132
+            position = 6796, 8036
             hide_name = True
         ]
 
-        component "core/SCADA Input" sw_pre_charge {
-            def_value = "1"
-            execution_rate = "T_meas_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 6820, 7852
-        ]
-
-        component "core/ModBus Device" "ModBus Device2" {
+        component "core/ModBus Device" "ModBus Device - MMC" {
             configuration = "config_mmc"
             enable_pipeline = "False"
             eth_port = "1"
@@ -4036,7 +4169,7 @@ P = I_out * V_out;
             position = 6628, 7660
         ]
 
-        component "core/ModBus Device" "ModBus Device3" {
+        component "core/ModBus Device" "ModBus Device - Inverter" {
             configuration = "config_inv"
             enable_pipeline = "False"
             eth_port = "1"
@@ -4123,7 +4256,7 @@ P = I_out * V_out;
             position = 8900, 7692
         ]
 
-        component Subsystem Subsystem1 {
+        component Subsystem Modbus_In_MMC {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 execution_rate = "T_modbus"
@@ -4145,6 +4278,8 @@ P = I_out * V_out;
             component "core/SCADA Input" INDICATOR_MMC {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "10"
+                min = "0"
                 unit = ""
             }
             [
@@ -4163,10 +4298,100 @@ P = I_out * V_out;
             component "core/SCADA Input" STEP_REFERENCE {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
                 position = 8108, 8500
+            ]
+
+            component "core/Rate Transition" "Rate Transition1" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8016
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition2" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8064
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition3" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8108
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition4" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8156
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition5" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8204
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition6" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8232
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition7" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8272
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition8" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8340
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition9" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8204, 8408
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Digital Probe" Probe_CHARGING_COMPLETE {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8324, 8404
             ]
 
             port Out1 {
@@ -4270,56 +4495,60 @@ P = I_out * V_out;
                 size = 92, 20
             ]
 
+            tag From1 {
+                value = "CHARGING_COMPLETE_"
+                scope = global
+                kind = sp
+                direction = out
+            }
+            [
+                position = 8092, 8408
+                hide_name = True
+                size = 140, 20
+            ]
+
+            junction Junction1 sp
+            [
+                position = 8256, 8404
+            ]
+
             connect "Bus Join1.out" Out1 as Connection612
             connect MAIN_INDICATOR.out "Bus Join1.in" as Connection593
             connect INDICATOR_MMC.out "Bus Join1.in1" as Connection594
             [
                 breakpoints = 8248, 7940; 8248, 8124
             ]
-            connect "Bus Join1.in10" CHARGING_COMPLETE.out as Connection598
-            [
-                breakpoints = 8236, 8268; 8236, 8444
-            ]
             connect "Bus Join1.in11" STEP_REFERENCE.out as Connection599
             [
                 breakpoints = 8252, 8284; 8252, 8500
             ]
-            connect ACT_VRMS_R "Bus Join1.in3" as Connection604
-            [
-                breakpoints = 8224, 8064; 8224, 8156
-            ]
-            connect ACT_VRMS_S "Bus Join1.in4" as Connection605
-            [
-                breakpoints = 8212, 8108; 8212, 8172
-            ]
-            connect ACT_VRMS_T "Bus Join1.in5" as Connection606
-            [
-                breakpoints = 8196, 8156; 8196, 8188
-            ]
-            connect ACT_VDC_OUTPUT "Bus Join1.in2" as Connection607
-            [
-                breakpoints = 8236, 8016; 8236, 8140
-            ]
-            connect ACT_IRMS_R "Bus Join1.in6" as Connection608
-            connect ACT_IRMS_S "Bus Join1.in7" as Connection609
-            [
-                breakpoints = 8156, 8244; 8156, 8220
-            ]
-            connect ACT_IRMS_T "Bus Join1.in8" as Connection610
-            [
-                breakpoints = 8168, 8292; 8168, 8236
-            ]
-            connect ACT_FREQUENCY_MMC "Bus Join1.in9" as Connection611
-            [
-                breakpoints = 8220, 8340; 8220, 8252
-            ]
+            connect ACT_VDC_OUTPUT "Rate Transition1.in" as Connection613
+            connect "Rate Transition1.out" "Bus Join1.in2" as Connection614
+            connect ACT_VRMS_R "Rate Transition2.in" as Connection615
+            connect "Rate Transition2.out" "Bus Join1.in3" as Connection616
+            connect ACT_VRMS_S "Rate Transition3.in" as Connection617
+            connect "Rate Transition3.out" "Bus Join1.in4" as Connection618
+            connect ACT_VRMS_T "Rate Transition4.in" as Connection619
+            connect "Rate Transition4.out" "Bus Join1.in5" as Connection620
+            connect ACT_IRMS_R "Rate Transition5.in" as Connection621
+            connect "Rate Transition5.out" "Bus Join1.in6" as Connection622
+            connect ACT_IRMS_S "Rate Transition6.in" as Connection623
+            connect "Rate Transition6.out" "Bus Join1.in7" as Connection624
+            connect ACT_IRMS_T "Rate Transition7.in" as Connection625
+            connect "Rate Transition7.out" "Bus Join1.in8" as Connection626
+            connect ACT_FREQUENCY_MMC "Rate Transition8.in" as Connection627
+            connect "Rate Transition8.out" "Bus Join1.in9" as Connection628
+            connect From1 "Rate Transition9.in" as Connection629
+            connect "Rate Transition9.out" Junction1 as Connection631
+            connect Junction1 "Bus Join1.in10" as Connection632
+            connect Probe_CHARGING_COMPLETE.in Junction1 as Connection633
         }
         [
-            position = 6488, 7600
+            position = 6492, 7604
             size = 48, 48
         ]
 
-        component Subsystem Subsystem2 {
+        component Subsystem Modbus_In_Inverter {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 execution_rate = "T_modbus"
@@ -4332,6 +4561,8 @@ P = I_out * V_out;
             component "core/SCADA Input" INDICATOR_INVERTER {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "10"
+                min = "0"
                 unit = ""
             }
             [
@@ -4341,6 +4572,8 @@ P = I_out * V_out;
             component "core/SCADA Input" STEP_REFERENCE_FREQUENCY {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
@@ -4350,10 +4583,84 @@ P = I_out * V_out;
             component "core/SCADA Input" STEP_REFERENCE_VRMS {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
                 position = 8096, 8468
+            ]
+
+            component "core/Rate Transition" "Rate Transition1" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 7976
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition2" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8028
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition3" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8084
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition4" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8124
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition5" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8172
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition6" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8244
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition7" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8184, 8292
+                hide_name = True
+                size = 32, 32
+            ]
+
+            component "core/Rate Transition" "Rate Transition8" {
+                execution_rate = "T_modbus"
+            }
+            [
+                position = 8180, 8340
+                hide_name = True
+                size = 32, 32
             ]
 
             port Out1 {
@@ -4459,47 +4766,34 @@ P = I_out * V_out;
 
             connect "Bus Join1.out" Out1 as Connection624
             connect INDICATOR_INVERTER.out "Bus Join1.in" as Connection604
-            connect ACT_DCLINK "Bus Join1.in2" as Connection614
-            [
-                breakpoints = 8228, 8028; 8228, 8180
-            ]
-            connect ACT_FREQUENCY "Bus Join1.in1" as Connection615
-            [
-                breakpoints = 8240, 7976; 8240, 8164
-            ]
-            connect ACT_Vrms_R "Bus Join1.in3" as Connection616
-            [
-                breakpoints = 8220, 8084; 8220, 8128; 8220, 8128; 8220, 8196
-            ]
-            connect ACT_Vrms_S "Bus Join1.in4" as Connection617
-            [
-                breakpoints = 8212, 8124; 8212, 8212
-            ]
-            connect "Bus Join1.in5" ACT_Vrms_T as Connection618
-            [
-                breakpoints = 8200, 8228; 8200, 8172
-            ]
-            connect ACT_Irms_R "Bus Join1.in6" as Connection619
-            connect ACT_Irms_S "Bus Join1.in7" as Connection620
-            [
-                breakpoints = 8196, 8292; 8196, 8260
-            ]
-            connect ACT_Irms_T "Bus Join1.in8" as Connection621
-            [
-                breakpoints = 8204, 8340; 8204, 8276
-            ]
             connect STEP_REFERENCE_FREQUENCY.out "Bus Join1.in9" as Connection622
             [
                 breakpoints = 8220, 8412; 8220, 8292
             ]
             connect STEP_REFERENCE_VRMS.out "Bus Join1.in10" as Connection623
+            connect ACT_FREQUENCY "Rate Transition1.in" as Connection625
+            connect "Rate Transition1.out" "Bus Join1.in1" as Connection626
+            connect ACT_DCLINK "Rate Transition2.in" as Connection627
+            connect "Rate Transition2.out" "Bus Join1.in2" as Connection628
+            connect ACT_Vrms_R "Rate Transition3.in" as Connection629
+            connect "Rate Transition3.out" "Bus Join1.in3" as Connection630
+            connect ACT_Vrms_S "Rate Transition4.in" as Connection631
+            connect "Rate Transition4.out" "Bus Join1.in4" as Connection632
+            connect "Bus Join1.in5" "Rate Transition5.out" as Connection633
+            connect "Rate Transition5.in" ACT_Vrms_T as Connection634
+            connect ACT_Irms_R "Rate Transition6.in" as Connection635
+            connect "Rate Transition6.out" "Bus Join1.in6" as Connection636
+            connect ACT_Irms_S "Rate Transition7.in" as Connection637
+            connect "Rate Transition7.out" "Bus Join1.in7" as Connection638
+            connect ACT_Irms_T "Rate Transition8.in" as Connection639
+            connect "Rate Transition8.out" "Bus Join1.in8" as Connection640
         }
         [
             position = 8204, 7592
             size = 48, 48
         ]
 
-        component "core/ModBus Device" "ModBus Device1" {
+        component "core/ModBus Device" "ModBus Device - DAB" {
             configuration = "config_dab"
             enable_pipeline = "False"
             eth_port = "1"
@@ -4572,7 +4866,7 @@ P = I_out * V_out;
             position = 7504, 7680
         ]
 
-        component Subsystem Subsystem3 {
+        component Subsystem Modbus_In_DAB {
             layout = dynamic
             component "core/Bus Join" "Bus Join1" {
                 execution_rate = "T_modbus"
@@ -4585,6 +4879,8 @@ P = I_out * V_out;
             component "core/SCADA Input" Indicator_DAB {
                 addr = "1426063396"
                 execution_rate = "T_modbus"
+                max = "10"
+                min = "0"
                 unit = ""
             }
             [
@@ -4594,6 +4890,8 @@ P = I_out * V_out;
             component "core/SCADA Input" Step_Ref_VDC_OUT {
                 addr = "1426063412"
                 execution_rate = "T_modbus"
+                max = "100"
+                min = "0"
                 unit = ""
             }
             [
@@ -4669,6 +4967,232 @@ P = I_out * V_out;
             size = 48, 48
         ]
 
+        component "core/Triple Pole Single Throw Contactor" S7 {
+            ctrl_src = "Model"
+            execution_rate = "T_meas_rect"
+            initial_state = "on"
+        }
+        [
+            position = 6688, 7940
+            size = 64, 256
+        ]
+
+        component "core/Digital Input" PRECHARGE_CONTACTOR {
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6584, 7732
+        ]
+
+        component "core/Digital Input" MAIN_CONTACTOR {
+            addr = "2"
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6640, 8116
+        ]
+
+        component "core/Digital Input" GATE_DRIVER {
+            addr = "3"
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 7056, 7908
+        ]
+
+        component "core/Digital Probe" Digital_In_GATE_DRIVER {
+            execution_rate = "T_digital_in"
+        }
+        [
+            position = 7244, 7908
+        ]
+
+        component "core/Digital Input" CONTACTOR_MMC {
+            addr = "4"
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 7368, 8088
+        ]
+
+        component "core/Digital Input" CONTACTOR_DAB {
+            addr = "5"
+            execution_rate = "T_math_inv"
+        }
+        [
+            position = 8004, 8100
+        ]
+
+        component "core/Digital Input" CONTACTOR_INVERTER {
+            addr = "6"
+            execution_rate = "T_math_inv"
+        }
+        [
+            position = 8516, 8104
+        ]
+
+        component "core/SCADA Input" sw_source {
+            def_value = "1"
+            execution_rate = "T_meas_rect"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 6752, 8072
+        ]
+
+        component "core/SCADA Input" sw_pre_charge {
+            def_value = "1"
+            execution_rate = "T_meas_rect"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 6584, 7788
+        ]
+
+        component "core/SCADA Input" sw_Rect_DAB {
+            def_value = "1"
+            execution_rate = "T_math_dab"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 7484, 8024
+        ]
+
+        component "core/SCADA Input" sw_dab_inv {
+            def_value = "1"
+            execution_rate = "T_math_inv"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8116, 8036
+        ]
+
+        component "core/SCADA Input" sw_grid {
+            def_value = "1"
+            execution_rate = "T_math_inv"
+            max = "1"
+            min = "0"
+            unit = ""
+        }
+        [
+            position = 8592, 8048
+        ]
+
+        component "core/Rate Transition" "Rate Transition1" {
+            execution_rate = "T_controller_rect"
+        }
+        [
+            position = 7096, 7468
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Rate Transition" "Rate Transition2" {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 7972, 7468
+            hide_name = True
+            size = 32, 32
+        ]
+
+        component "core/Logical operator" "Logical operator1" {
+            execution_rate = "T_meas_rect"
+            operator = "NOT"
+        }
+        [
+            position = 6708, 8116
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator2" {
+            execution_rate = "T_meas_rect"
+            operator = "NOT"
+        }
+        [
+            position = 6640, 7732
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator3" {
+            execution_rate = "T_math_dab"
+            operator = "NOT"
+        }
+        [
+            position = 7436, 8088
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator4" {
+            execution_rate = "T_math_inv"
+            operator = "NOT"
+        }
+        [
+            position = 8088, 8100
+            hide_name = True
+        ]
+
+        component "core/Logical operator" "Logical operator5" {
+            execution_rate = "T_math_inv"
+            operator = "NOT"
+        }
+        [
+            position = 8572, 8104
+            hide_name = True
+        ]
+
+        component "core/Digital Probe" Digital_In_Pre_Charge_Contactor {
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6784, 7732
+        ]
+
+        component "core/Digital Probe" Digital_In_Main_Contactor {
+            execution_rate = "T_meas_rect"
+        }
+        [
+            position = 6872, 8116
+        ]
+
+        component "core/Digital Probe" Digital_In_MMC_Contactor {
+            execution_rate = "T_math_dab"
+        }
+        [
+            position = 7648, 8088
+        ]
+
+        component "core/Digital Probe" Digital_In_DAB_Contactor {
+            execution_rate = "T_math_inv"
+        }
+        [
+            position = 8260, 8100
+        ]
+
+        component "core/Digital Probe" Digital_In_Inv_Contactor {
+            execution_rate = "T_math_inv"
+        }
+        [
+            position = 8756, 8104
+        ]
+
+        component "core/Logical operator" "Logical operator6" {
+            execution_rate = "T_digital_in"
+            operator = "NOT"
+        }
+        [
+            position = 7132, 7908
+            hide_name = True
+        ]
+
         tag Goto41 {
             value = "Grid_out_inv"
             scope = global
@@ -4676,69 +5200,106 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8768, 7892
+            position = 8860, 8104
             hide_name = True
             size = 60, 20
         ]
 
+        tag Goto42 {
+            value = "REF_V_out_Rect"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 7188, 7468
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto43 {
+            value = "REF_V_out_DAB"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8048, 7468
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto44 {
+            value = "Rect_on_off"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 7280, 7808
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto45 {
+            value = "Inv_on_off"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8880, 7748
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto46 {
+            value = "DAB_on_off"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 8060, 7720
+            hide_name = True
+            size = 92, 20
+        ]
+
+        tag Goto47 {
+            value = "Pre_Charge_Sig"
+            scope = global
+            kind = sp
+            direction = in
+        }
+        [
+            position = 6784, 7680
+            hide_name = True
+            size = 84, 20
+        ]
+
         junction Junction44 pe
         [
-            position = 8768, 8212
-        ]
-
-        junction Junction46 pe
-        [
-            position = 7448, 7964
-        ]
-
-        junction Junction47 pe
-        [
-            position = 7448, 8156
+            position = 8860, 8424
         ]
 
         junction Junction48 pe
         [
-            position = 7616, 7964
+            position = 7608, 8172
         ]
 
         junction Junction49 pe
         [
-            position = 7616, 8156
-        ]
-
-        junction Junction51 pe
-        [
-            position = 7988, 7964
-        ]
-
-        junction Junction52 pe
-        [
-            position = 7988, 8156
+            position = 7608, 8364
         ]
 
         junction Junction53 pe
         [
-            position = 8192, 7964
+            position = 8284, 8172
         ]
 
         junction Junction54 pe
         [
-            position = 8192, 8156
-        ]
-
-        junction Junction55 pe
-        [
-            position = 7172, 7964
-        ]
-
-        junction Junction56 pe
-        [
-            position = 7172, 8060
-        ]
-
-        junction Junction57 pe
-        [
-            position = 7172, 8156
+            position = 8284, 8364
         ]
 
         junction Junction6 sp
@@ -4801,8 +5362,118 @@ P = I_out * V_out;
             position = 7452, 7608
         ]
 
+        junction Junction61 pe
+        [
+            position = 6560, 8172
+        ]
+
+        junction Junction62 pe
+        [
+            position = 6584, 8268
+        ]
+
+        junction Junction63 pe
+        [
+            position = 6604, 8364
+        ]
+
+        junction Junction64 pe
+        [
+            position = 6980, 8364
+        ]
+
+        junction Junction65 pe
+        [
+            position = 6956, 8268
+        ]
+
+        junction Junction66 pe
+        [
+            position = 6920, 8172
+        ]
+
+        junction Junction67 pe
+        [
+            position = 7980, 8172
+        ]
+
+        junction Junction68 pe
+        [
+            position = 7980, 8364
+        ]
+
+        junction Junction69 pe
+        [
+            position = 7300, 8172
+        ]
+
+        junction Junction70 pe
+        [
+            position = 7300, 8364
+        ]
+
+        junction Junction71 sp
+        [
+            position = 7124, 7520
+        ]
+
+        junction Junction72 sp
+        [
+            position = 7976, 7600
+        ]
+
+        junction Junction76 sp
+        [
+            position = 6692, 7732
+        ]
+
+        junction Junction81 sp
+        [
+            position = 7172, 7908
+        ]
+
+        junction Junction82 sp
+        [
+            position = 8000, 7660
+        ]
+
+        junction Junction83 sp
+        [
+            position = 8820, 7692
+        ]
+
+        junction Junction87 sp
+        [
+            position = 6796, 8120
+        ]
+
+        junction Junction88 sp
+        [
+            position = 7532, 8088
+        ]
+
+        junction Junction89 sp
+        [
+            position = 8192, 8100
+        ]
+
+        junction Junction90 sp
+        [
+            position = 8684, 8104
+        ]
+
+        comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
+        [
+            position = 7340, 8652
+        ]
+
+        comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Nambahin ON dari modbus</p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Precharge, nambahin logic buat Charging Complete</p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Terus rectifier ke set point di saat abis pre-charge</p></body></html> ENDCOMMENT 
+        [
+            position = 7400, 7852
+        ]
+
         scheme_area Area2 {
-            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Rectifier</p></body></html>
+            title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">MMC</p></body></html>
         }
         [
             position = 6808, 7552
@@ -4832,22 +5503,16 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8772, 8212
+            breakpoints = 8864, 8424
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 8688, 8212
+            breakpoints = 8780, 8424
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
         connect S1.b_out "Grid Measurement.B+" as Connection497
         connect S1.c_out "Grid Measurement.C+" as Connection498
-        connect S4.a_in Junction46 as Connection520
-        connect Junction46 Rectifier.V_out_rect+ as Connection521
-        connect R4.p_node Junction46 as Connection522
-        connect Rectifier.V_out_rect- Junction47 as Connection523
-        connect Junction47 S4.b_in as Connection524
-        connect R4.n_node Junction47 as Connection525
         connect DAB.V_in_dab+ Junction48 as Connection526
         connect Junction48 S4.a_out as Connection527
         connect R5.p_node Junction48 as Connection528
@@ -4856,125 +5521,188 @@ P = I_out * V_out;
         connect R5.n_node Junction49 as Connection531
         connect S1.a_in Inverter.A as Connection540
         connect S1.c_in Inverter.C as Connection542
-        connect S5.a_in Junction51 as Connection544
-        connect Junction51 DAB.V_out_dab+ as Connection545
-        connect R6.p_node Junction51 as Connection546
-        connect DAB.V_out_dab- Junction52 as Connection547
-        connect Junction52 S5.b_in as Connection548
-        connect R6.n_node Junction52 as Connection549
         connect Inverter.V_in_inv+ Junction53 as Connection550
         connect Junction53 S5.a_out as Connection551
         connect R7.p_node Junction53 as Connection552
         connect S5.b_out Junction54 as Connection553
         connect Junction54 Inverter.V_in_inv- as Connection554
         connect R7.n_node Junction54 as Connection555
-        connect Vs1.c_node S6.c_in as Connection556
-        connect Vs1.b_node S6.b_in as Connection558
-        connect Vs1.a_node S6.a_in as Connection560
-        connect sw_source.out S6.ctrl_in as Connection562
-        connect S6.a_out S7.sa0 as Connection563
-        connect S6.b_out S7.sb0 as Connection564
-        connect S6.c_out S7.sc0 as Connection565
-        connect R8.n_node Junction55 as Connection567
-        connect Junction55 Rectifier.A as Connection568
-        connect S7.sa2 Junction55 as Connection569
-        connect S7.sa1 R8.p_node as Connection570
-        connect R9.n_node Junction56 as Connection572
-        connect Junction56 Rectifier.B as Connection573
-        connect S7.sb2 Junction56 as Connection574
-        connect S7.sb1 R9.p_node as Connection575
-        connect S7.sc1 R10.p_node as Connection576
-        connect R10.n_node Junction57 as Connection578
-        connect Junction57 Rectifier.C as Connection579
-        connect S7.sc2 Junction57 as Connection580
-        connect sw_pre_charge.out S7.ctrl_in as Connection581
-        connect sw_Rect_DAB.out S4.ctrl_in as Connection582
-        [
-            breakpoints = 7540, 7880
-        ]
-        connect sw_grid.out S1.ctrl_in as Connection587
-        [
-            breakpoints = 8596, 7872
-        ]
-        connect S5.ctrl_in sw_dab_inv.out as Connection591
         connect Constant2.out Junction6 as Connection25
-        connect Junction6 "ModBus Device2.coil_in" as Connection26
-        connect coil_out1.in "ModBus Device2.coil_out" as Connection27
+        connect Junction6 "ModBus Device - MMC.coil_in" as Connection26
+        connect coil_out1.in "ModBus Device - MMC.coil_out" as Connection27
         connect holding_out1.in Junction7 as Connection28
-        connect Junction7 "ModBus Device2.holding_out" as Connection29
+        connect Junction7 "ModBus Device - MMC.holding_out" as Connection29
         connect "Bus Split2.in" Junction7 as Connection30
-        connect REF_VDC_OUTPUT.in "Bus Split2.out" as Connection31
-        [
-            breakpoints = 7124, 7520; 7124, 7564
-        ]
         connect "Bus Split2.out1" DC_LINK_CONTACTOR.in as Connection32
         connect "Bus Split2.out2" STATUS.in as Connection33
-        connect "ModBus Device2.discrete_in" Junction8 as Connection34
+        connect "ModBus Device - MMC.discrete_in" Junction8 as Connection34
         connect Junction8 Junction6 as Connection35
         [
             breakpoints = 6576, 7484
         ]
-        connect "ModBus Device2.holding_in" Junction8 as Connection36
+        connect "ModBus Device - MMC.holding_in" Junction8 as Connection36
         connect Constant3.out Junction10 as Connection40
-        connect Junction10 "ModBus Device3.coil_in" as Connection41
-        connect coil_out2.in "ModBus Device3.coil_out" as Connection42
+        connect Junction10 "ModBus Device - Inverter.coil_in" as Connection41
+        connect coil_out2.in "ModBus Device - Inverter.coil_out" as Connection42
         connect holding_out2.in Junction11 as Connection43
-        connect Junction11 "ModBus Device3.holding_out" as Connection44
+        connect Junction11 "ModBus Device - Inverter.holding_out" as Connection44
         connect "Bus Split3.in" Junction11 as Connection45
-        connect MMC_ON.in "Bus Split3.out" as Connection46
-        [
-            breakpoints = 8868, 7528; 8868, 7572
-        ]
         connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
         connect "Bus Split3.out2" REF_VPEAK.in as Connection48
-        connect "ModBus Device3.discrete_in" Junction12 as Connection49
+        connect "ModBus Device - Inverter.discrete_in" Junction12 as Connection49
         connect Junction12 Junction10 as Connection50
         [
             breakpoints = 8320, 7492
         ]
-        connect "ModBus Device3.holding_in" Junction12 as Connection51
+        connect "ModBus Device - Inverter.holding_in" Junction12 as Connection51
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
         [
             breakpoints = 8884, 7640; 8868, 7640
         ]
-        connect INVERTER_ON.in "Bus Split3.out4" as Connection56
         connect reg_in1.in Junction58 as Connection601
-        connect Junction58 "ModBus Device2.reg_in" as Connection602
+        connect Junction58 "ModBus Device - MMC.reg_in" as Connection602
         [
             breakpoints = 6576, 7580
         ]
-        connect Junction58 Subsystem1.Out1 as Connection603
+        connect Junction58 Modbus_In_MMC.Out1 as Connection603
         connect reg_in2.in Junction59 as Connection611
-        connect Junction59 "ModBus Device3.reg_in" as Connection612
+        [
+            breakpoints = 8340, 7664; 8320, 7664
+        ]
+        connect Junction59 "ModBus Device - Inverter.reg_in" as Connection612
         [
             breakpoints = 8320, 7588
         ]
-        connect Junction59 Subsystem2.Out1 as Connection613
+        connect Junction59 Modbus_In_Inverter.Out1 as Connection613
         connect Inverter.B S1.b_in as Connection621
         connect Constant1.out Junction1 as Connection3
-        connect Junction1 "ModBus Device1.coil_in" as Connection622
-        connect coil_out.in "ModBus Device1.coil_out" as Connection9
+        connect Junction1 "ModBus Device - DAB.coil_in" as Connection622
+        connect coil_out.in "ModBus Device - DAB.coil_out" as Connection9
         connect holding_out.in Junction3 as Connection11
-        connect Junction3 "ModBus Device1.holding_out" as Connection12
+        connect Junction3 "ModBus Device - DAB.holding_out" as Connection12
         connect "Bus Split1.in" Junction3 as Connection13
         connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
         [
             breakpoints = 8000, 7540; 8000, 7584
         ]
-        connect "Bus Split1.out1" REF_VDC_OUT.in as Connection15
-        connect "Bus Split1.out2" DAB_ON.in as Connection16
-        connect "ModBus Device1.discrete_in" Junction4 as Connection19
+        connect "ModBus Device - DAB.discrete_in" Junction4 as Connection19
         connect Junction4 Junction1 as Connection20
         [
             breakpoints = 7452, 7504
         ]
-        connect "ModBus Device1.holding_in" Junction4 as Connection21
+        connect "ModBus Device - DAB.holding_in" Junction4 as Connection21
         connect reg_in.in Junction60 as Connection626
-        connect Junction60 "ModBus Device1.reg_in" as Connection627
+        connect Junction60 "ModBus Device - DAB.reg_in" as Connection627
         [
             breakpoints = 7452, 7600
         ]
-        connect Junction60 Subsystem3.Out1 as Connection628
+        connect Junction60 Modbus_In_DAB.Out1 as Connection628
+        connect Vs1.a_node Junction61 as Connection643
+        connect Junction61 S6.a_in as Connection644
+        connect S7.a_in Junction61 as Connection645
+        connect Vs1.b_node Junction62 as Connection646
+        connect Junction62 S6.b_in as Connection647
+        connect S7.b_in Junction62 as Connection648
+        connect Vs1.c_node Junction63 as Connection649
+        connect Junction63 S6.c_in as Connection650
+        connect S7.c_in Junction63 as Connection651
+        connect S7.a_out R8.p_node as Connection652
+        connect S7.b_out R9.p_node as Connection653
+        connect S7.c_out R10.p_node as Connection654
+        connect S6.c_out Junction64 as Connection656
+        connect Junction64 Rectifier.C as Connection657
+        connect R10.n_node Junction64 as Connection658
+        connect S6.b_out Junction65 as Connection659
+        connect Junction65 Rectifier.B as Connection660
+        connect R9.n_node Junction65 as Connection661
+        connect S6.a_out Junction66 as Connection662
+        connect Junction66 Rectifier.A as Connection663
+        connect R8.n_node Junction66 as Connection664
+        connect R6.p_node Junction67 as Connection686
+        connect Junction67 DAB.V_out_dab+ as Connection687
+        [
+            breakpoints = 7980, 8172
+        ]
+        connect S5.a_in Junction67 as Connection688
+        connect DAB.V_out_dab- Junction68 as Connection689
+        connect Junction68 R6.n_node as Connection690
+        [
+            breakpoints = 7980, 8364
+        ]
+        connect S5.b_in Junction68 as Connection691
+        connect R4.p_node Junction69 as Connection694
+        connect Junction69 Rectifier.V_out_rect+ as Connection695
+        [
+            breakpoints = 7300, 8172
+        ]
+        connect S4.a_in Junction69 as Connection696
+        connect R4.n_node Junction70 as Connection697
+        connect Junction70 Rectifier.V_out_rect- as Connection698
+        [
+            breakpoints = 7300, 8364
+        ]
+        connect S4.b_in Junction70 as Connection699
+        connect REF_VDC_OUTPUT.in Junction71 as Connection700
+        connect Junction71 "Bus Split2.out" as Connection701
+        [
+            breakpoints = 7124, 7520; 7124, 7564
+        ]
+        connect "Bus Split1.out1" Junction72 as Connection703
+        connect Junction72 REF_VDC_OUT.in as Connection704
+        connect Goto42 "Rate Transition1.out" as Connection706
+        connect "Rate Transition1.in" Junction71 as Connection707
+        connect Goto43 "Rate Transition2.out" as Connection708
+        connect "Rate Transition2.in" Junction72 as Connection709
+        connect MAIN_CONTACTOR.out "Logical operator1.in" as Connection715
+        connect PRECHARGE_CONTACTOR.out "Logical operator2.in" as Connection717
+        connect CONTACTOR_MMC.out "Logical operator3.in" as Connection719
+        connect CONTACTOR_DAB.out "Logical operator4.in" as Connection721
+        connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
+        connect Digital_In_Pre_Charge_Contactor.in Junction76 as Connection744
+        connect Digital_In_GATE_DRIVER.in Junction81 as Connection758
+        connect MMC_ON.in "Bus Split3.out" as Connection765
+        [
+            breakpoints = 8848, 7476; 8848, 7556
+        ]
+        connect Goto47 Junction76 as Connection769
+        connect Junction81 "Logical operator6.out" as Connection770
+        connect "Logical operator6.in" GATE_DRIVER.out as Connection771
+        connect Goto44 Junction81 as Connection772
+        [
+            breakpoints = 7212, 7840; 7212, 7864
+        ]
+        connect "Bus Split1.out2" Junction82 as Connection773
+        connect Junction82 DAB_ON.in as Connection774
+        [
+            breakpoints = 8000, 7660
+        ]
+        connect Goto46 Junction82 as Connection775
+        connect INVERTER_ON.in Junction83 as Connection776
+        connect Junction83 "Bus Split3.out4" as Connection777
+        [
+            breakpoints = 8820, 7692
+        ]
+        connect Goto45 Junction83 as Connection778
+        connect Junction76 S7.ctrl_in as Connection798
+        [
+            breakpoints = 6692, 7788
+        ]
+        connect "Logical operator2.out" Junction76 as Connection799
+        connect S6.ctrl_in Junction87 as Connection801
+        connect Junction87 Digital_In_Main_Contactor.in as Connection802
+        [
+            breakpoints = 6796, 8116
+        ]
+        connect "Logical operator1.out" Junction87 as Connection803
+        connect S4.ctrl_in Junction88 as Connection805
+        connect Junction88 Digital_In_MMC_Contactor.in as Connection806
+        connect "Logical operator3.out" Junction88 as Connection807
+        connect S5.ctrl_in Junction89 as Connection809
+        connect Junction89 Digital_In_DAB_Contactor.in as Connection810
+        connect "Logical operator4.out" Junction89 as Connection811
+        connect Digital_In_Inv_Contactor.in Junction90 as Connection813
+        connect Junction90 S1.ctrl_in as Connection814
+        connect "Logical operator5.out" Junction90 as Connection815
     }
 
     logically_deleted {
@@ -5046,11 +5774,32 @@ P = I_out * V_out;
             visible = "True"
         }
 
+        "core/Comparator" {
+            execution_rate = "inherit"
+        }
+
         "core/Constant" {
             value = "1"
             signal_type = "real"
             execution_rate = "100e-6"
             _tunable = "False"
+        }
+
+        "core/Digital Input" {
+            addr = "1"
+            invert = "false"
+            signal_type = "uint"
+            execution_rate = "100e-6"
+        }
+
+        "core/Digital Probe" {
+            signal_access = "inherit"
+            override_signal_name = "False"
+            signal_name = ""
+            streaming_en = "False"
+            addr = "0"
+            streaming_er_idx = "0"
+            execution_rate = "inherit"
         }
 
         "core/Gain" {
@@ -5067,6 +5816,12 @@ P = I_out * V_out;
             initial_current = "0.0"
             pole_shift_ignore = "False"
             visible = "True"
+        }
+
+        "core/Logical operator" {
+            operator = "AND"
+            inputs = "2"
+            execution_rate = "inherit"
         }
 
         "core/Min Max" {
@@ -5340,19 +6095,6 @@ P = I_out * V_out;
             P_method = "alpha-beta"
             enable_extra_out = "False"
             P_meas = "False"
-        }
-
-        "core/Triple Pole Double Throw Contactor" {
-            signal_access = "inherit"
-            ctrl_src = "Digital input"
-            Sabc = "1"
-            Sa_logic = "active high"
-            enable_fb_out = "False"
-            fb_out_type = "real"
-            execution_rate = "inherit"
-            initial_state = "S1"
-            S1_to_S2_delay = "0"
-            S2_to_S1_delay = "0"
         }
 
         "core/Triple Pole Single Throw Contactor" {

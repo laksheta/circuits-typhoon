@@ -8,10 +8,11 @@ import numpy as np
 
 fsw_dab = 10e3
 
-T_plant_dab = 1e-6
-T_meas_dab = 1e-6
-T_wave_dab  = 1e-6 
-T_math_dab  = 1e-6
+T_plant_dab = 100e-6
+T_meas_dab = 100e-6
+T_wave_dab  = 100e-6
+T_math_dab  = 100e-6
+T_digital_in = 100e-6
 
 V_in_dab  = 780
 V_out_dab = 780
@@ -96,6 +97,10 @@ Kp_i_inv    = omega_c_inv*L_inv
 Ki_i_inv    = omega_c_inv*R_inv
 
 
+
+K = 2.0 * fsw_dab * L_dab
+
+
 #################
 #################
 ####Rectifier####
@@ -153,7 +158,8 @@ zeta_rect        = 0.707
 Kp_v_rect        = 2*zeta_rect*omega_cv_rect*C_out_rect
 Ki_v_rect        = (omega_cv_rect**2)*C_out_rect
 
-T_modbus = 100e-6
+T_modbus = 500e-3
+
 
 config_dab = {
     "port": 502,
