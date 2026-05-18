@@ -4,7 +4,7 @@ version = 4.2
 // Saved by sw version: 2026.1 SP1
 //
 
-model "modbus_sst" {
+model "modbus_sst_report" {
     configuration {
         hil_device = "HIL604"
         hil_configuration_id = 2
@@ -83,7 +83,7 @@ model "modbus_sst" {
             init_rms_value = "V_grid_rms_rect"
         }
         [
-            position = 6468, 8268
+            position = 6480, 8484
             hide_name = True
             size = 62, 256
         ]
@@ -91,7 +91,7 @@ model "modbus_sst" {
         component "core/Ground" gnd1 {
         }
         [
-            position = 6388, 8332
+            position = 6400, 8548
             hide_name = True
             scale = -1, 1
         ]
@@ -1795,7 +1795,7 @@ out[0] = fmax(0.0, i_dc_raw);
             connect Constant10.out "Signal switch2.in1" as Connection451
         }
         [
-            position = 7120, 8268
+            position = 7132, 8484
             size = 168, 232
         ]
 
@@ -2425,7 +2425,7 @@ P = I_out * V_out;
             connect Constant18.out "Signal switch1.in" as Connection449
         }
         [
-            position = 7800, 8268
+            position = 7812, 8484
             size = 168, 232
         ]
 
@@ -3964,7 +3964,7 @@ P = I_out * V_out;
             connect Inv_on_off.out Junction55 as Connection538
         }
         [
-            position = 8468, 8272
+            position = 8480, 8488
             size = 168, 232
         ]
 
@@ -3976,7 +3976,7 @@ P = I_out * V_out;
             VCA = "True"
         }
         [
-            position = 8780, 8272
+            position = 8792, 8488
             size = 56, 240
         ]
 
@@ -3985,7 +3985,7 @@ P = I_out * V_out;
             init_rms_value = "V_rms_inv"
         }
         [
-            position = 8924, 8272
+            position = 8936, 8488
             scale = -1, 1
             size = 62, 256
         ]
@@ -3993,7 +3993,7 @@ P = I_out * V_out;
         component "core/Ground" gnd9 {
         }
         [
-            position = 8864, 8464
+            position = 8876, 8680
             hide_name = True
         ]
 
@@ -4003,7 +4003,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8688, 8272
+            position = 8700, 8488
             hide_name = True
             size = 64, 256
         ]
@@ -4014,7 +4014,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 7532, 8268
+            position = 7544, 8484
             size = 64, 256
         ]
 
@@ -4022,7 +4022,7 @@ P = I_out * V_out;
             resistance = "R_load_rect"
         }
         [
-            position = 7300, 8256
+            position = 7312, 8472
             rotation = right
         ]
 
@@ -4030,7 +4030,7 @@ P = I_out * V_out;
             resistance = "10e3"
         }
         [
-            position = 7608, 8260
+            position = 7620, 8476
             rotation = right
         ]
 
@@ -4040,7 +4040,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 8192, 8268
+            position = 8204, 8484
             size = 64, 256
         ]
 
@@ -4048,7 +4048,7 @@ P = I_out * V_out;
             resistance = "2*R_load_dab"
         }
         [
-            position = 7980, 8260
+            position = 7992, 8476
             rotation = right
             hide_name = True
         ]
@@ -4057,7 +4057,7 @@ P = I_out * V_out;
             resistance = "2*R_load_dab"
         }
         [
-            position = 8284, 8260
+            position = 8296, 8476
             rotation = right
             hide_name = True
         ]
@@ -4068,7 +4068,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6796, 8268
+            position = 6808, 8484
             size = 64, 256
         ]
 
@@ -4076,7 +4076,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6792, 7844
+            position = 6804, 8060
             hide_name = True
         ]
 
@@ -4084,7 +4084,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6792, 7940
+            position = 6804, 8156
             hide_name = True
         ]
 
@@ -4092,7 +4092,7 @@ P = I_out * V_out;
             resistance = "R_pre_charge"
         }
         [
-            position = 6796, 8036
+            position = 6808, 8252
             hide_name = True
         ]
 
@@ -4104,7 +4104,7 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 6720, 7508
+            position = 6892, 7580
             size = 184, 184
         ]
 
@@ -4113,7 +4113,7 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 6456, 7436
+            position = 6628, 7508
             hide_name = True
         ]
 
@@ -4121,14 +4121,14 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 6928, 7436
+            position = 7100, 7508
         ]
 
         component "core/Probe" holding_out1 {
             execution_rate = "T_modbus"
         }
         [
-            position = 6924, 7612
+            position = 7096, 7684
             rotation = right
         ]
 
@@ -4137,7 +4137,7 @@ P = I_out * V_out;
             outputs = "3"
         }
         [
-            position = 7036, 7580
+            position = 7156, 7652
             hide_name = True
         ]
 
@@ -4145,28 +4145,28 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 7156, 7520
+            position = 7276, 7592
         ]
 
         component "core/Probe" DC_LINK_CONTACTOR {
             execution_rate = "T_modbus"
         }
         [
-            position = 7156, 7580
+            position = 7276, 7652
         ]
 
         component "core/Probe" STATUS {
             execution_rate = "T_modbus"
         }
         [
-            position = 7156, 7636
+            position = 7276, 7708
         ]
 
         component "core/Probe" reg_in1 {
             execution_rate = "T_modbus"
         }
         [
-            position = 6628, 7660
+            position = 6800, 7732
         ]
 
         component "core/ModBus Device" "ModBus Device - Inverter" {
@@ -4177,7 +4177,7 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8464, 7520
+            position = 8636, 7592
             size = 184, 184
         ]
 
@@ -4186,7 +4186,7 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 8200, 7444
+            position = 8416, 7520
             hide_name = True
         ]
 
@@ -4194,14 +4194,14 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8672, 7444
+            position = 8788, 7520
         ]
 
         component "core/Probe" holding_out2 {
             execution_rate = "T_modbus"
         }
         [
-            position = 8668, 7620
+            position = 8812, 7704
             rotation = right
         ]
 
@@ -4210,7 +4210,7 @@ P = I_out * V_out;
             outputs = "5"
         }
         [
-            position = 8780, 7588
+            position = 8900, 7664
             hide_name = True
         ]
 
@@ -4218,42 +4218,42 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8904, 7476
+            position = 9024, 7536
         ]
 
         component "core/Probe" REF_FREQUENCY {
             execution_rate = "T_modbus"
         }
         [
-            position = 8900, 7532
+            position = 9020, 7592
         ]
 
         component "core/Probe" REF_VPEAK {
             execution_rate = "T_modbus"
         }
         [
-            position = 8900, 7588
+            position = 9020, 7648
         ]
 
         component "core/Probe" reg_in2 {
             execution_rate = "T_modbus"
         }
         [
-            position = 8372, 7668
+            position = 8548, 7736
         ]
 
         component "core/Probe" RESET_FAILSAFE_INVERTER {
             execution_rate = "T_modbus"
         }
         [
-            position = 8900, 7640
+            position = 9020, 7700
         ]
 
         component "core/Probe" INVERTER_ON {
             execution_rate = "T_modbus"
         }
         [
-            position = 8900, 7692
+            position = 9020, 7752
         ]
 
         component Subsystem Modbus_In_MMC {
@@ -4544,7 +4544,7 @@ P = I_out * V_out;
             connect Probe_CHARGING_COMPLETE.in Junction1 as Connection633
         }
         [
-            position = 6492, 7604
+            position = 6676, 7652
             size = 48, 48
         ]
 
@@ -4789,7 +4789,7 @@ P = I_out * V_out;
             connect "Rate Transition8.out" "Bus Join1.in8" as Connection640
         }
         [
-            position = 8204, 7592
+            position = 8424, 7664
             size = 48, 48
         ]
 
@@ -4801,7 +4801,7 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 7596, 7528
+            position = 7768, 7600
             size = 184, 184
         ]
 
@@ -4810,7 +4810,7 @@ P = I_out * V_out;
             value = "0"
         }
         [
-            position = 7332, 7456
+            position = 7504, 7528
             hide_name = True
         ]
 
@@ -4818,14 +4818,14 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 7804, 7456
+            position = 7976, 7528
         ]
 
         component "core/Probe" holding_out {
             execution_rate = "T_modbus"
         }
         [
-            position = 7800, 7632
+            position = 7932, 7704
             rotation = right
         ]
 
@@ -4834,7 +4834,7 @@ P = I_out * V_out;
             outputs = "3"
         }
         [
-            position = 7912, 7600
+            position = 8028, 7672
             hide_name = True
         ]
 
@@ -4842,28 +4842,28 @@ P = I_out * V_out;
             execution_rate = "T_modbus"
         }
         [
-            position = 8032, 7540
+            position = 8148, 7612
         ]
 
         component "core/Probe" REF_VDC_OUT {
             execution_rate = "T_modbus"
         }
         [
-            position = 8032, 7600
+            position = 8148, 7672
         ]
 
         component "core/Probe" DAB_ON {
             execution_rate = "T_modbus"
         }
         [
-            position = 8032, 7656
+            position = 8148, 7728
         ]
 
         component "core/Probe" reg_in {
             execution_rate = "T_modbus"
         }
         [
-            position = 7504, 7680
+            position = 7676, 7752
         ]
 
         component Subsystem Modbus_In_DAB {
@@ -4963,7 +4963,7 @@ P = I_out * V_out;
             connect ACT_VDC_IN "Rate Transition2.in" as Connection632
         }
         [
-            position = 7344, 7608
+            position = 7556, 7672
             size = 48, 48
         ]
 
@@ -4973,7 +4973,7 @@ P = I_out * V_out;
             initial_state = "on"
         }
         [
-            position = 6688, 7940
+            position = 6700, 8156
             size = 64, 256
         ]
 
@@ -4981,7 +4981,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6584, 7732
+            position = 6564, 7948
         ]
 
         component "core/Digital Input" MAIN_CONTACTOR {
@@ -4989,7 +4989,7 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6640, 8116
+            position = 6676, 8332
         ]
 
         component "core/Digital Input" GATE_DRIVER {
@@ -4997,14 +4997,14 @@ P = I_out * V_out;
             execution_rate = "T_digital_in"
         }
         [
-            position = 7056, 7908
+            position = 7696, 8192
         ]
 
         component "core/Digital Probe" Digital_In_GATE_DRIVER {
             execution_rate = "T_digital_in"
         }
         [
-            position = 7244, 7908
+            position = 7884, 8192
         ]
 
         component "core/Digital Input" CONTACTOR_MMC {
@@ -5012,7 +5012,7 @@ P = I_out * V_out;
             execution_rate = "T_math_dab"
         }
         [
-            position = 7368, 8088
+            position = 7412, 8304
         ]
 
         component "core/Digital Input" CONTACTOR_DAB {
@@ -5020,7 +5020,7 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8004, 8100
+            position = 8064, 8316
         ]
 
         component "core/Digital Input" CONTACTOR_INVERTER {
@@ -5028,69 +5028,14 @@ P = I_out * V_out;
             execution_rate = "T_math_inv"
         }
         [
-            position = 8516, 8104
-        ]
-
-        component "core/SCADA Input" sw_source {
-            def_value = "1"
-            execution_rate = "T_meas_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 6752, 8072
-        ]
-
-        component "core/SCADA Input" sw_pre_charge {
-            def_value = "1"
-            execution_rate = "T_meas_rect"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 6584, 7788
-        ]
-
-        component "core/SCADA Input" sw_Rect_DAB {
-            def_value = "1"
-            execution_rate = "T_math_dab"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 7484, 8024
-        ]
-
-        component "core/SCADA Input" sw_dab_inv {
-            def_value = "1"
-            execution_rate = "T_math_inv"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8116, 8036
-        ]
-
-        component "core/SCADA Input" sw_grid {
-            def_value = "1"
-            execution_rate = "T_math_inv"
-            max = "1"
-            min = "0"
-            unit = ""
-        }
-        [
-            position = 8592, 8048
+            position = 8548, 8324
         ]
 
         component "core/Rate Transition" "Rate Transition1" {
             execution_rate = "T_controller_rect"
         }
         [
-            position = 7096, 7468
+            position = 7216, 7540
             hide_name = True
             size = 32, 32
         ]
@@ -5099,7 +5044,7 @@ P = I_out * V_out;
             execution_rate = "T_math_dab"
         }
         [
-            position = 7972, 7468
+            position = 8096, 7540
             hide_name = True
             size = 32, 32
         ]
@@ -5109,7 +5054,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 6708, 8116
+            position = 6744, 8332
             hide_name = True
         ]
 
@@ -5118,7 +5063,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 6640, 7732
+            position = 6660, 7948
             hide_name = True
         ]
 
@@ -5127,7 +5072,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 7436, 8088
+            position = 7500, 8304
             hide_name = True
         ]
 
@@ -5136,7 +5081,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 8088, 8100
+            position = 8156, 8316
             hide_name = True
         ]
 
@@ -5145,7 +5090,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 8572, 8104
+            position = 8648, 8324
             hide_name = True
         ]
 
@@ -5153,35 +5098,35 @@ P = I_out * V_out;
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6784, 7732
+            position = 6804, 7948
         ]
 
         component "core/Digital Probe" Digital_In_Main_Contactor {
             execution_rate = "T_meas_rect"
         }
         [
-            position = 6872, 8116
+            position = 6896, 8332
         ]
 
         component "core/Digital Probe" Digital_In_MMC_Contactor {
             execution_rate = "T_math_dab"
         }
         [
-            position = 7648, 8088
+            position = 7628, 8304
         ]
 
         component "core/Digital Probe" Digital_In_DAB_Contactor {
             execution_rate = "T_math_inv"
         }
         [
-            position = 8260, 8100
+            position = 8304, 8316
         ]
 
         component "core/Digital Probe" Digital_In_Inv_Contactor {
             execution_rate = "T_math_inv"
         }
         [
-            position = 8756, 8104
+            position = 8784, 8324
         ]
 
         component "core/Logical operator" "Logical operator6" {
@@ -5189,7 +5134,7 @@ P = I_out * V_out;
             operator = "NOT"
         }
         [
-            position = 7132, 7908
+            position = 7772, 8192
             hide_name = True
         ]
 
@@ -5200,7 +5145,8 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8860, 8104
+            position = 8792, 8240
+            rotation = left
             hide_name = True
             size = 60, 20
         ]
@@ -5212,7 +5158,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7188, 7468
+            position = 7308, 7540
             hide_name = True
             size = 92, 20
         ]
@@ -5224,7 +5170,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8048, 7468
+            position = 8172, 7540
             hide_name = True
             size = 92, 20
         ]
@@ -5236,7 +5182,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 7280, 7808
+            position = 7912, 8148
             hide_name = True
             size = 92, 20
         ]
@@ -5248,7 +5194,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8880, 7748
+            position = 9016, 7808
             hide_name = True
             size = 92, 20
         ]
@@ -5260,7 +5206,7 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 8060, 7720
+            position = 8176, 7792
             hide_name = True
             size = 92, 20
         ]
@@ -5272,211 +5218,206 @@ P = I_out * V_out;
             direction = in
         }
         [
-            position = 6784, 7680
+            position = 6804, 7896
             hide_name = True
             size = 84, 20
         ]
 
         junction Junction44 pe
         [
-            position = 8860, 8424
+            position = 8872, 8640
         ]
 
         junction Junction48 pe
         [
-            position = 7608, 8172
+            position = 7620, 8388
         ]
 
         junction Junction49 pe
         [
-            position = 7608, 8364
+            position = 7620, 8580
         ]
 
         junction Junction53 pe
         [
-            position = 8284, 8172
+            position = 8296, 8388
         ]
 
         junction Junction54 pe
         [
-            position = 8284, 8364
+            position = 8296, 8580
         ]
 
         junction Junction6 sp
         [
-            position = 6576, 7436
+            position = 6748, 7508
         ]
 
         junction Junction7 sp
         [
-            position = 6924, 7580
+            position = 7096, 7652
         ]
 
         junction Junction8 sp
         [
-            position = 6576, 7484
-        ]
-
-        junction Junction10 sp
-        [
-            position = 8320, 7444
-        ]
-
-        junction Junction11 sp
-        [
-            position = 8668, 7588
+            position = 6748, 7556
         ]
 
         junction Junction12 sp
         [
-            position = 8320, 7492
-        ]
-
-        junction Junction58 sp
-        [
-            position = 6576, 7600
-        ]
-
-        junction Junction59 sp
-        [
-            position = 8320, 7592
+            position = 8492, 7568
         ]
 
         junction Junction1 sp
         [
-            position = 7452, 7456
+            position = 7624, 7528
         ]
 
         junction Junction3 sp
         [
-            position = 7800, 7600
+            position = 7932, 7672
         ]
 
         junction Junction4 sp
         [
-            position = 7452, 7504
-        ]
-
-        junction Junction60 sp
-        [
-            position = 7452, 7608
+            position = 7624, 7576
         ]
 
         junction Junction61 pe
         [
-            position = 6560, 8172
+            position = 6572, 8388
         ]
 
         junction Junction62 pe
         [
-            position = 6584, 8268
+            position = 6596, 8484
         ]
 
         junction Junction63 pe
         [
-            position = 6604, 8364
+            position = 6616, 8580
         ]
 
         junction Junction64 pe
         [
-            position = 6980, 8364
+            position = 6992, 8580
         ]
 
         junction Junction65 pe
         [
-            position = 6956, 8268
+            position = 6968, 8484
         ]
 
         junction Junction66 pe
         [
-            position = 6920, 8172
+            position = 6932, 8388
         ]
 
         junction Junction67 pe
         [
-            position = 7980, 8172
+            position = 7992, 8388
         ]
 
         junction Junction68 pe
         [
-            position = 7980, 8364
+            position = 7992, 8580
         ]
 
         junction Junction69 pe
         [
-            position = 7300, 8172
+            position = 7312, 8388
         ]
 
         junction Junction70 pe
         [
-            position = 7300, 8364
+            position = 7312, 8580
         ]
 
         junction Junction71 sp
         [
-            position = 7124, 7520
+            position = 7244, 7592
         ]
 
         junction Junction72 sp
         [
-            position = 7976, 7600
+            position = 8064, 7672
         ]
 
         junction Junction76 sp
         [
-            position = 6692, 7732
-        ]
-
-        junction Junction81 sp
-        [
-            position = 7172, 7908
-        ]
-
-        junction Junction82 sp
-        [
-            position = 8000, 7660
+            position = 6712, 7948
         ]
 
         junction Junction83 sp
         [
-            position = 8820, 7692
+            position = 8940, 7752
         ]
 
         junction Junction87 sp
         [
-            position = 6796, 8120
+            position = 6808, 8336
         ]
 
         junction Junction88 sp
         [
-            position = 7532, 8088
+            position = 7544, 8304
         ]
 
         junction Junction89 sp
         [
-            position = 8192, 8100
+            position = 8204, 8316
         ]
 
-        junction Junction90 sp
+        junction Junction91 sp
         [
-            position = 8684, 8104
+            position = 6700, 7948
         ]
 
-        comment Comment1 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Status = 1 -&gt; precharge -&gt; Charging_Complete = 1 -&gt; Main_Contactor closed (PLC) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Ref_VDC_OUTPUT (RECT) (PLC) -&gt; Rect stable -&gt; Switch Start MMC (out) -&gt; Status = 2</p><p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><br /></p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">DAB_ON = 1 -&gt; Ref_VDC_Out (DAB) -&gt; DAB Stable -&gt; Switch Start DAB (out)</p></body></html> ENDCOMMENT 
+        junction Junction92 sp
         [
-            position = 7340, 8652
+            position = 7828, 8192
         ]
 
-        comment Comment2 START <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Sans'; font-size:12pt; font-weight:400; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Nambahin ON dari modbus</p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Precharge, nambahin logic buat Charging Complete</p><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Terus rectifier ke set point di saat abis pre-charge</p></body></html> ENDCOMMENT 
+        junction Junction93 sp
         [
-            position = 7400, 7852
+            position = 8700, 8324
+        ]
+
+        junction Junction94 sp
+        [
+            position = 6748, 7652
+        ]
+
+        junction Junction95 sp
+        [
+            position = 7624, 7672
+        ]
+
+        junction Junction96 sp
+        [
+            position = 8112, 7728
+        ]
+
+        junction Junction97 sp
+        [
+            position = 8492, 7664
+        ]
+
+        junction Junction98 sp
+        [
+            position = 8812, 7664
+        ]
+
+        junction Junction99 sp
+        [
+            position = 8492, 7520
         ]
 
         scheme_area Area2 {
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">MMC</p></body></html>
         }
         [
-            position = 6808, 7552
+            position = 6980, 7624
             size = 836, 408
         ]
 
@@ -5484,7 +5425,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">Inverter</p></body></html>
         }
         [
-            position = 8564, 7556
+            position = 8736, 7628
             size = 860, 400
         ]
 
@@ -5492,7 +5433,7 @@ P = I_out * V_out;
             title = <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"><html><head><meta name="qrichtext" content="1" /><meta charset="utf-8" /><style type="text/css">p, li { white-space: pre-wrap; }hr { height: 1px; border-width: 0; }li.unchecked::marker { content: "\2610"; }li.checked::marker { content: "\2612"; }</style></head><body style=" font-family:'Tahoma'; font-size:26pt; font-weight:100; font-style:normal;"><p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0;text-indent:0px;">DAB</p></body></html>
         }
         [
-            position = 7688, 7556
+            position = 7860, 7628
             size = 836, 408
         ]
 
@@ -5503,11 +5444,11 @@ P = I_out * V_out;
         connect U_grid.n_node Junction44 as Connection58
         connect Junction44 gnd9.node as Connection59
         [
-            breakpoints = 8864, 8424
+            breakpoints = 8876, 8640
         ]
         connect "Grid Measurement.GND" Junction44 as Connection92
         [
-            breakpoints = 8780, 8424
+            breakpoints = 8792, 8640
         ]
         connect Goto41 "Grid Measurement.Out" as Connection472
         connect S1.a_out "Grid Measurement.A+" as Connection496
@@ -5538,42 +5479,18 @@ P = I_out * V_out;
         connect "ModBus Device - MMC.discrete_in" Junction8 as Connection34
         connect Junction8 Junction6 as Connection35
         [
-            breakpoints = 6576, 7484
+            breakpoints = 6748, 7556
         ]
         connect "ModBus Device - MMC.holding_in" Junction8 as Connection36
-        connect Constant3.out Junction10 as Connection40
-        connect Junction10 "ModBus Device - Inverter.coil_in" as Connection41
         connect coil_out2.in "ModBus Device - Inverter.coil_out" as Connection42
-        connect holding_out2.in Junction11 as Connection43
-        connect Junction11 "ModBus Device - Inverter.holding_out" as Connection44
-        connect "Bus Split3.in" Junction11 as Connection45
         connect "Bus Split3.out1" REF_FREQUENCY.in as Connection47
         connect "Bus Split3.out2" REF_VPEAK.in as Connection48
         connect "ModBus Device - Inverter.discrete_in" Junction12 as Connection49
-        connect Junction12 Junction10 as Connection50
-        [
-            breakpoints = 8320, 7492
-        ]
         connect "ModBus Device - Inverter.holding_in" Junction12 as Connection51
         connect RESET_FAILSAFE_INVERTER.in "Bus Split3.out3" as Connection55
         [
-            breakpoints = 8884, 7640; 8868, 7640
+            breakpoints = 9004, 7700; 8988, 7700
         ]
-        connect reg_in1.in Junction58 as Connection601
-        connect Junction58 "ModBus Device - MMC.reg_in" as Connection602
-        [
-            breakpoints = 6576, 7580
-        ]
-        connect Junction58 Modbus_In_MMC.Out1 as Connection603
-        connect reg_in2.in Junction59 as Connection611
-        [
-            breakpoints = 8340, 7664; 8320, 7664
-        ]
-        connect Junction59 "ModBus Device - Inverter.reg_in" as Connection612
-        [
-            breakpoints = 8320, 7588
-        ]
-        connect Junction59 Modbus_In_Inverter.Out1 as Connection613
         connect Inverter.B S1.b_in as Connection621
         connect Constant1.out Junction1 as Connection3
         connect Junction1 "ModBus Device - DAB.coil_in" as Connection622
@@ -5583,20 +5500,14 @@ P = I_out * V_out;
         connect "Bus Split1.in" Junction3 as Connection13
         connect RESET_FAILSAFE_DAB.in "Bus Split1.out" as Connection14
         [
-            breakpoints = 8000, 7540; 8000, 7584
+            breakpoints = 8116, 7612; 8116, 7656
         ]
         connect "ModBus Device - DAB.discrete_in" Junction4 as Connection19
         connect Junction4 Junction1 as Connection20
         [
-            breakpoints = 7452, 7504
+            breakpoints = 7624, 7576
         ]
         connect "ModBus Device - DAB.holding_in" Junction4 as Connection21
-        connect reg_in.in Junction60 as Connection626
-        connect Junction60 "ModBus Device - DAB.reg_in" as Connection627
-        [
-            breakpoints = 7452, 7600
-        ]
-        connect Junction60 Modbus_In_DAB.Out1 as Connection628
         connect Vs1.a_node Junction61 as Connection643
         connect Junction61 S6.a_in as Connection644
         connect S7.a_in Junction61 as Connection645
@@ -5621,31 +5532,31 @@ P = I_out * V_out;
         connect R6.p_node Junction67 as Connection686
         connect Junction67 DAB.V_out_dab+ as Connection687
         [
-            breakpoints = 7980, 8172
+            breakpoints = 7992, 8388
         ]
         connect S5.a_in Junction67 as Connection688
         connect DAB.V_out_dab- Junction68 as Connection689
         connect Junction68 R6.n_node as Connection690
         [
-            breakpoints = 7980, 8364
+            breakpoints = 7992, 8580
         ]
         connect S5.b_in Junction68 as Connection691
         connect R4.p_node Junction69 as Connection694
         connect Junction69 Rectifier.V_out_rect+ as Connection695
         [
-            breakpoints = 7300, 8172
+            breakpoints = 7312, 8388
         ]
         connect S4.a_in Junction69 as Connection696
         connect R4.n_node Junction70 as Connection697
         connect Junction70 Rectifier.V_out_rect- as Connection698
         [
-            breakpoints = 7300, 8364
+            breakpoints = 7312, 8580
         ]
         connect S4.b_in Junction70 as Connection699
         connect REF_VDC_OUTPUT.in Junction71 as Connection700
         connect Junction71 "Bus Split2.out" as Connection701
         [
-            breakpoints = 7124, 7520; 7124, 7564
+            breakpoints = 7244, 7592; 7244, 7636
         ]
         connect "Bus Split1.out1" Junction72 as Connection703
         connect Junction72 REF_VDC_OUT.in as Connection704
@@ -5653,45 +5564,34 @@ P = I_out * V_out;
         connect "Rate Transition1.in" Junction71 as Connection707
         connect Goto43 "Rate Transition2.out" as Connection708
         connect "Rate Transition2.in" Junction72 as Connection709
+        [
+            breakpoints = 8064, 7540; 8064, 7672
+        ]
         connect MAIN_CONTACTOR.out "Logical operator1.in" as Connection715
         connect PRECHARGE_CONTACTOR.out "Logical operator2.in" as Connection717
         connect CONTACTOR_MMC.out "Logical operator3.in" as Connection719
         connect CONTACTOR_DAB.out "Logical operator4.in" as Connection721
         connect CONTACTOR_INVERTER.out "Logical operator5.in" as Connection723
         connect Digital_In_Pre_Charge_Contactor.in Junction76 as Connection744
-        connect Digital_In_GATE_DRIVER.in Junction81 as Connection758
         connect MMC_ON.in "Bus Split3.out" as Connection765
         [
-            breakpoints = 8848, 7476; 8848, 7556
+            breakpoints = 8968, 7536; 8968, 7616
         ]
         connect Goto47 Junction76 as Connection769
-        connect Junction81 "Logical operator6.out" as Connection770
         connect "Logical operator6.in" GATE_DRIVER.out as Connection771
-        connect Goto44 Junction81 as Connection772
-        [
-            breakpoints = 7212, 7840; 7212, 7864
-        ]
-        connect "Bus Split1.out2" Junction82 as Connection773
-        connect Junction82 DAB_ON.in as Connection774
-        [
-            breakpoints = 8000, 7660
-        ]
-        connect Goto46 Junction82 as Connection775
         connect INVERTER_ON.in Junction83 as Connection776
         connect Junction83 "Bus Split3.out4" as Connection777
         [
-            breakpoints = 8820, 7692
+            breakpoints = 8940, 7752
         ]
         connect Goto45 Junction83 as Connection778
-        connect Junction76 S7.ctrl_in as Connection798
         [
-            breakpoints = 6692, 7788
+            breakpoints = 8940, 7808; 8940, 7752
         ]
-        connect "Logical operator2.out" Junction76 as Connection799
         connect S6.ctrl_in Junction87 as Connection801
         connect Junction87 Digital_In_Main_Contactor.in as Connection802
         [
-            breakpoints = 6796, 8116
+            breakpoints = 6808, 8332
         ]
         connect "Logical operator1.out" Junction87 as Connection803
         connect S4.ctrl_in Junction88 as Connection805
@@ -5700,9 +5600,42 @@ P = I_out * V_out;
         connect S5.ctrl_in Junction89 as Connection809
         connect Junction89 Digital_In_DAB_Contactor.in as Connection810
         connect "Logical operator4.out" Junction89 as Connection811
-        connect Digital_In_Inv_Contactor.in Junction90 as Connection813
-        connect Junction90 S1.ctrl_in as Connection814
-        connect "Logical operator5.out" Junction90 as Connection815
+        connect "Logical operator2.out" Junction91 as Connection816
+        connect Junction91 Junction76 as Connection817
+        connect S7.ctrl_in Junction91 as Connection818
+        connect "Logical operator6.out" Junction92 as Connection820
+        connect Junction92 Digital_In_GATE_DRIVER.in as Connection821
+        connect Goto44 Junction92 as Connection822
+        connect "Logical operator5.out" Junction93 as Connection824
+        connect Junction93 Digital_In_Inv_Contactor.in as Connection825
+        connect S1.ctrl_in Junction93 as Connection826
+        connect Modbus_In_MMC.Out1 Junction94 as Connection828
+        connect Junction94 "ModBus Device - MMC.reg_in" as Connection829
+        connect reg_in1.in Junction94 as Connection830
+        connect Modbus_In_DAB.Out1 Junction95 as Connection832
+        connect Junction95 "ModBus Device - DAB.reg_in" as Connection833
+        connect reg_in.in Junction95 as Connection834
+        connect "Bus Split1.out2" Junction96 as Connection836
+        connect Junction96 Goto46 as Connection837
+        connect DAB_ON.in Junction96 as Connection838
+        connect reg_in2.in Junction97 as Connection840
+        [
+            breakpoints = 8512, 7736; 8492, 7736; 8492, 7668
+        ]
+        connect Junction97 Modbus_In_Inverter.Out1 as Connection841
+        connect "ModBus Device - Inverter.reg_in" Junction97 as Connection842
+        connect "ModBus Device - Inverter.holding_out" Junction98 as Connection844
+        connect Junction98 "Bus Split3.in" as Connection845
+        connect holding_out2.in Junction98 as Connection846
+        connect "ModBus Device - Inverter.coil_in" Junction99 as Connection848
+        [
+            breakpoints = 8528, 7520
+        ]
+        connect Junction99 Junction12 as Connection849
+        [
+            breakpoints = 8492, 7520; 8492, 7564
+        ]
+        connect Constant3.out Junction99 as Connection850
     }
 
     logically_deleted {
