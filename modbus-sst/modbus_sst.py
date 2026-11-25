@@ -181,7 +181,8 @@ config_dab = {
     # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
     # Mapping %QW11, %QW12, %QW13
     # "holding_register_output_addresses": '10, 11, 12'
-    "holding_register_output_addresses": '1u, 2u, 3u'
+    # "holding_register_output_addresses": '1u, 2u, 3u'
+    "holding_register_output_addresses": '0u, 1u, 2u'
 }
 
 config_mmc = {
@@ -204,7 +205,8 @@ config_mmc = {
     # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
     # Mapping %QW11, %QW12, %QW13
     # "holding_register_output_addresses": '10, 11, 12'
-    "holding_register_output_addresses": '1u, 2u, 3u'
+    "holding_register_output_addresses": '0u, 1u, 2u'
+    #"holding_register_output_addresses": '1u, 2u, 3u'
 }
 
 config_inv = {
@@ -227,5 +229,7 @@ config_inv = {
     # Data sent FROM PLC TO Simulation (PLC Writes via FC 06)
     # Mapping %QW11, %QW12, %QW13
     # "holding_register_output_addresses": '10, 11, 12'
-    "holding_register_output_addresses": '1u, 2u, 3u, 4u,5u'
+    # "holding_register_output_addresses": '1u, 2u, 3u, 4u,5u'
+    "holding_register_output_addresses": '0u, 1u, 2u, 3u, 4u'
+
 }
